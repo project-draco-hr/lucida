@@ -1,0 +1,57 @@
+'\nThis documentation was automatically generated using original comments in\nDoxygen format. As some C types and data structures cannot be directly mapped\ninto Python types, some non-trivial type conversion could have place.\nBasically a type is replaced with another one that has the closest match, and\nsometimes one argument of generated function comprises several arguments of the\noriginal function (usually two). Apparently Doxygen comments do not mention\nthis fact, so here is a list of all known conversions so far:\n\n  FILE * -> file\n  const int16 *SDATA, size_t NSAMP -> str\n\nAlso functions having error code as the return value and returning effective\nvalue in one of its arguments are transformed so that the effective value is\nreturned in a regular fashion and run-time exception is being thrown in case of\nnegative error code.\n'
+from sys import version_info
+if (version_info >= (2, 6, 0)):
+
+    def swig_import_helper():
+        from os.path import dirname
+        import imp
+        fp = None
+        try:
+            (fp, pathname, description) = imp.find_module('_sphinxbase', [dirname(__file__)])
+        except ImportError:
+            import _sphinxbase
+            return _sphinxbase
+        if (fp is not None):
+            try:
+                _mod = imp.load_module('_sphinxbase', fp, pathname, description)
+            finally:
+                fp.close()
+            return _mod
+    _sphinxbase = swig_import_helper()
+    del swig_import_helper
+else:
+    import _sphinxbase
+del version_info
+try:
+    _swig_property = property
+except NameError:
+    pass
+try:
+    _object = object
+    _newclass = 1
+except AttributeError:
+
+
+    class _object:
+        pass
+    _newclass = 0
+Config_swigregister = _sphinxbase.Config_swigregister
+Config_swigregister(Config)
+FrontEnd_swigregister = _sphinxbase.FrontEnd_swigregister
+FrontEnd_swigregister(FrontEnd)
+Feature_swigregister = _sphinxbase.Feature_swigregister
+Feature_swigregister(Feature)
+FsgModel_swigregister = _sphinxbase.FsgModel_swigregister
+FsgModel_swigregister(FsgModel)
+JsgfRule_swigregister = _sphinxbase.JsgfRule_swigregister
+JsgfRule_swigregister(JsgfRule)
+NGramModel_swigregister = _sphinxbase.NGramModel_swigregister
+NGramModel_swigregister(NGramModel)
+NGramModelSetIterator_swigregister = _sphinxbase.NGramModelSetIterator_swigregister
+NGramModelSetIterator_swigregister(NGramModelSetIterator)
+NGramModelSet_swigregister = _sphinxbase.NGramModelSet_swigregister
+NGramModelSet_swigregister(NGramModelSet)
+JsgfIterator_swigregister = _sphinxbase.JsgfIterator_swigregister
+JsgfIterator_swigregister(JsgfIterator)
+Jsgf_swigregister = _sphinxbase.Jsgf_swigregister
+Jsgf_swigregister(Jsgf)

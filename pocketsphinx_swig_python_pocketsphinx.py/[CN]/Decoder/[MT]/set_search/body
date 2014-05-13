@@ -1,0 +1,3 @@
+def set_search(self, *args):
+    '\n        set_search(Decoder self, char const * search_name)\n\n        Actives search with the provided name.\n\n        Activates search with the provided name. The search must be added\n        before using either ps_set_fsg(), ps_set_lm() or ps_set_kws().\n\n        0 on success, 1 on failure \n        '
+    return _pocketsphinx.Decoder_set_search(self, *args)

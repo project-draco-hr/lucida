@@ -1,0 +1,7 @@
+def __init__(self, *args):
+    '\n        __init__(NGramModel self, char const * path) -> NGramModel\n        __init__(NGramModel self, Config config, LogMath * logmath, char const * path) -> NGramModel\n        '
+    this = _sphinxbase.new_NGramModel(*args)
+    try:
+        self.this.append(this)
+    except:
+        self.this = this

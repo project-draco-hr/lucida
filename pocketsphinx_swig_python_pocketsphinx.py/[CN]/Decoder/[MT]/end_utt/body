@@ -1,0 +1,3 @@
+def end_utt(self):
+    '\n        end_utt(Decoder self)\n\n        End utterance processing.\n\n        Parameters:\n        -----------\n\n        ps:  Decoder.\n\n        0 for success, <0 on error \n        '
+    return _pocketsphinx.Decoder_end_utt(self)

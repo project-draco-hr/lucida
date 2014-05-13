@@ -1,0 +1,3 @@
+def exists(self, *args):
+    'exists(Config self, char const * key) -> bool'
+    return _sphinxbase.Config_exists(self, *args)

@@ -1,0 +1,3 @@
+def allRoutineNames(self):
+    'Return the names of all the routines.\n        '
+    return self.names_to_routines.keys()

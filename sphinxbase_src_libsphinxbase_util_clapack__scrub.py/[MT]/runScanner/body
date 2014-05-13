@@ -1,0 +1,16 @@
+def runScanner(data, scanner_class, lexicon=None):
+    info = StringIO(data)
+    outfo = StringIO()
+    if (lexicon is not None):
+        scanner = scanner_class(lexicon, info)
+    else:
+        scanner = scanner_class(info)
+    while 1:
+        (value, text) = scanner.read()
+        if (value is None):
+            break
+        elif (value is IGNORE):
+            pass
+        else:
+            outfo.write(value)
+    return (outfo.getvalue(), scanner)

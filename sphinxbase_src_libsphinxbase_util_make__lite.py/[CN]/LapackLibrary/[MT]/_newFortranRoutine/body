@@ -1,0 +1,9 @@
+def _newFortranRoutine(self, rname, filename):
+    routine = FortranLibrary._newFortranRoutine(self, rname, filename)
+    if (filename.find('BLAS') != (-1)):
+        routine.type = 'blas'
+    elif rname.startswith('z'):
+        routine.type = 'zlapack'
+    else:
+        routine.type = 'slapack'
+    return routine

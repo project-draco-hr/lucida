@@ -1,0 +1,3 @@
+def add_alt(self, *args):
+    '\n        add_alt(FsgModel self, char const * baseword, char const * altword) -> int\n\n        Add alternate pronunciation transitions for a word in given FSG. \n        '
+    return _sphinxbase.FsgModel_add_alt(self, *args)

@@ -1,0 +1,3 @@
+def current(self):
+    'current(NGramModelSet self) -> char const *'
+    return _sphinxbase.NGramModelSet_current(self)

@@ -1,0 +1,2 @@
+def __init__(self, info, name='<default>'):
+    Scanner.__init__(self, self.lexicon, info, name)

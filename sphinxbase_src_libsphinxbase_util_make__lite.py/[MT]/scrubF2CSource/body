@@ -1,0 +1,9 @@
+def scrubF2CSource(c_file):
+    fo = open(c_file, 'r')
+    source = fo.read()
+    fo.close()
+    source = clapack_scrub.scrubSource(source, verbose=True)
+    fo = open(c_file, 'w')
+    fo.write(HEADER)
+    fo.write(source)
+    fo.close()

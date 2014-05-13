@@ -1,0 +1,3 @@
+def __init__(self, src_dirs):
+    self._src_dirs = src_dirs
+    self.names_to_routines = {}

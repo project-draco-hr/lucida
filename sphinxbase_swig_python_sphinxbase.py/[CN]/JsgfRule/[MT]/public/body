@@ -1,0 +1,3 @@
+def public(self):
+    'public(JsgfRule self) -> bool'
+    return _sphinxbase.JsgfRule_public(self)

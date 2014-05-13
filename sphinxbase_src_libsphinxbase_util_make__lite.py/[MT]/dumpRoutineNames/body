@@ -1,0 +1,9 @@
+def dumpRoutineNames(library, output_dir):
+    for typename in ['unknown', 'blas', 'slapack', 'zlapack']:
+        routines = library.allRoutinesByType(typename)
+        filename = os.path.join(output_dir, (typename + '_routines.lst'))
+        fo = open(filename, 'w')
+        for r in routines:
+            deps = r.dependencies()
+            fo.write(('%s: %s\n' % (r.name, ' '.join(deps))))
+        fo.close()

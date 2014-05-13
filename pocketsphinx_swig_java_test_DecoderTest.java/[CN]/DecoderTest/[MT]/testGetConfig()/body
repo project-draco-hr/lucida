@@ -1,0 +1,6 @@
+{
+  Decoder d=new Decoder();
+  Config c=d.get_config();
+  assertNotNull(c);
+  assertEquals(c.get_string("-lmname"),"default");
+}

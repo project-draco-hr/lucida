@@ -1,0 +1,3 @@
+def set_int(self, *args):
+    'set_int(Config self, char const * key, int val)'
+    return _sphinxbase.Config_set_int(self, *args)

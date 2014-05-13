@@ -1,0 +1,3 @@
+def set_kws(self, *args):
+    '\n        set_kws(Decoder self, char const * name, char const * keyfile)\n\n        Adds keywords from a file to spotting.\n\n        Associates KWS search with the provided name. The search can be\n        activated using ps_set_search().\n\n        See:   ps_set_search \n        '
+    return _pocketsphinx.Decoder_set_kws(self, *args)

@@ -1,0 +1,3 @@
+def start_utt(self, *args):
+    '\n        start_utt(Decoder self, char const * uttid)\n\n        Start utterance processing.\n\n        This function should be called before any utterance data is passed to\n        the decoder. It marks the start of a new utterance and reinitializes\n        internal data structures.\n\n        Parameters:\n        -----------\n\n        ps:  Decoder to be started.\n\n        uttid:  String uniquely identifying this utterance. If NULL, one will\n        be created.\n\n        0 for success, <0 on error. \n        '
+    return _pocketsphinx.Decoder_start_utt(self, *args)

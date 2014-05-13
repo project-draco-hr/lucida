@@ -1,0 +1,3 @@
+def set_boolean(self, *args):
+    'set_boolean(Config self, char const * key, bool val)'
+    return _sphinxbase.Config_set_boolean(self, *args)

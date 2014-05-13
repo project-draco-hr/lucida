@@ -1,0 +1,3 @@
+def lookup(self, *args):
+    'lookup(NGramModelSet self, char const * name) -> NGramModel'
+    return _sphinxbase.NGramModelSet_lookup(self, *args)

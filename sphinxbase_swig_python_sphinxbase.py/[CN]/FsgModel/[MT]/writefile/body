@@ -1,0 +1,3 @@
+def writefile(self, *args):
+    '\n        writefile(FsgModel self, char const * path)\n\n        Write FSG to a file. \n        '
+    return _sphinxbase.FsgModel_writefile(self, *args)

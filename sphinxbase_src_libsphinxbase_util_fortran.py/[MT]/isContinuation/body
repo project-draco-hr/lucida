@@ -1,0 +1,2 @@
+def isContinuation(line):
+    return (line[5] != ' ')

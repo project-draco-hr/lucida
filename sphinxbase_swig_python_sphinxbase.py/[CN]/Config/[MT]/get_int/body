@@ -1,0 +1,3 @@
+def get_int(self, *args):
+    'get_int(Config self, char const * key) -> int'
+    return _sphinxbase.Config_get_int(self, *args)

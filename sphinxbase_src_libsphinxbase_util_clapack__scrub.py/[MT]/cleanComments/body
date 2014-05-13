@@ -1,0 +1,49 @@
+def cleanComments(source):
+    lines = LineQueue()
+    comments = CommentQueue()
+
+    def isCommentLine(line):
+        return (line.startswith('/*') and line.endswith('*/\n'))
+    blanks = LineQueue()
+
+    def isBlank(line):
+        return (line.strip() == '')
+
+    def SourceLines(line):
+        if isCommentLine(line):
+            comments.add(line)
+            return HaveCommentLines
+        else:
+            lines.add(line)
+            return SourceLines
+
+    def HaveCommentLines(line):
+        if isBlank(line):
+            blanks.add('\n')
+            return HaveBlankLines
+        elif isCommentLine(line):
+            comments.add(line)
+            return HaveCommentLines
+        else:
+            comments.flushTo(lines)
+            lines.add(line)
+            return SourceLines
+
+    def HaveBlankLines(line):
+        if isBlank(line):
+            blanks.add('\n')
+            return HaveBlankLines
+        elif isCommentLine(line):
+            blanks.flushTo(comments)
+            comments.add(line)
+            return HaveCommentLines
+        else:
+            comments.flushTo(lines)
+            blanks.flushTo(lines)
+            lines.add(line)
+            return SourceLines
+    state = SourceLines
+    for line in StringIO(source):
+        state = state(line)
+    comments.flushTo(lines)
+    return lines.getValue()

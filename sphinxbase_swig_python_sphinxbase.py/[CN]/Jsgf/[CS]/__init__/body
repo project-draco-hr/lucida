@@ -1,0 +1,7 @@
+def __init__(self, *args):
+    '__init__(Jsgf self, char const * path) -> Jsgf'
+    this = _sphinxbase.new_Jsgf(*args)
+    try:
+        self.this.append(this)
+    except:
+        self.this = this

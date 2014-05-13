@@ -1,0 +1,3 @@
+def count(self):
+    'count(NGramModelSet self) -> int32'
+    return _sphinxbase.NGramModelSet_count(self)

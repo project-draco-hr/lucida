@@ -1,0 +1,3 @@
+def set_fsg(self, *args):
+    '\n        set_fsg(Decoder self, char const * name, FsgModel fsg)\n\n        Adds new search based on finite state grammar.\n\n        Associates FSG search with the provided name. The search can be\n        activated using ps_set_search().\n\n        See:   ps_set_search \n        '
+    return _pocketsphinx.Decoder_set_fsg(self, *args)

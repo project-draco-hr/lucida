@@ -1,0 +1,3 @@
+def __iter__(self):
+    '__iter__(NGramModelSet self) -> NGramModelSetIterator'
+    return _sphinxbase.NGramModelSet___iter__(self)

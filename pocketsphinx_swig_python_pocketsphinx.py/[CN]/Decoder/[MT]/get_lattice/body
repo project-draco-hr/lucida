@@ -1,0 +1,3 @@
+def get_lattice(self):
+    "\n        get_lattice(Decoder self) -> Lattice\n\n        Get word lattice.\n\n        There isn't much you can do with this so far, a public API will appear\n        in the future.\n\n        Parameters:\n        -----------\n\n        ps:  Decoder.\n\n        Word lattice object containing all hypotheses so far. NULL if no\n        hypotheses are available. This pointer is owned by the decoder and you\n        should not attempt to free it manually. It is only valid until the\n        next utterance, unless you use ps_lattice_retain() to retain it. \n        "
+    return _pocketsphinx.Decoder_get_lattice(self)

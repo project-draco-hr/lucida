@@ -1,0 +1,10 @@
+def partial_result(self, hyp, uttid):
+    'Delete any previous selection, insert text and select it.'
+    self.textbuf.begin_user_action()
+    self.textbuf.delete_selection(True, self.text.get_editable())
+    self.textbuf.insert_at_cursor(hyp)
+    ins = self.textbuf.get_insert()
+    iter = self.textbuf.get_iter_at_mark(ins)
+    iter.backward_chars(len(hyp))
+    self.textbuf.move_mark(ins, iter)
+    self.textbuf.end_user_action()

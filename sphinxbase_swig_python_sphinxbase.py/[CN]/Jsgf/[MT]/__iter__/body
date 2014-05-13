@@ -1,0 +1,3 @@
+def __iter__(self):
+    '__iter__(Jsgf self) -> JsgfIterator'
+    return _sphinxbase.Jsgf___iter__(self)

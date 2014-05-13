@@ -1,0 +1,5 @@
+def runF2C(fortran_filename, output_dir):
+    cmd = ('f2c %s -d %s %s' % (F2C_ARGS, output_dir, fortran_filename))
+    rc = os.system(cmd)
+    if (rc != 0):
+        raise F2CError

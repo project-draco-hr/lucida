@@ -1,0 +1,4 @@
+def __init__(self, iterable):
+    object.__init__(self)
+    self.iterable = iter(iterable)
+    self.buffer = []

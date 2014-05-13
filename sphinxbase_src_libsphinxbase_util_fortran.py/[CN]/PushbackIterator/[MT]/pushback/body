@@ -1,0 +1,2 @@
+def pushback(self, item):
+    self.buffer.append(item)

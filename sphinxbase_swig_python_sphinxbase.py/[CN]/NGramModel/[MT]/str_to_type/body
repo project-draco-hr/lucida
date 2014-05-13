@@ -1,0 +1,3 @@
+def str_to_type(self, *args):
+    'str_to_type(NGramModel self, char const * str) -> ngram_file_type_t'
+    return _sphinxbase.NGramModel_str_to_type(self, *args)

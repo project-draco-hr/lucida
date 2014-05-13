@@ -1,0 +1,8 @@
+def remainder_table():
+    table = []
+    for x in range(32, 128):
+        log2 = (math.log(x) / math.log(2))
+        int_rem = (x - 32)
+        factor = ((log2 - 5) / 2)
+        table.append(int((((2 ** factor) - 1) * 32768)))
+    return table

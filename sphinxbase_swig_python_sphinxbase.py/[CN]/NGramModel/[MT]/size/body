@@ -1,0 +1,3 @@
+def size(self):
+    'size(NGramModel self) -> int32'
+    return _sphinxbase.NGramModel_size(self)

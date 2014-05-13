@@ -1,0 +1,9 @@
+def button_clicked(self, button):
+    'Handle button presses.'
+    if button.get_active():
+        button.set_label('Stop')
+        self.pipeline.set_state(gst.STATE_PLAYING)
+    else:
+        button.set_label('Speak')
+        vader = self.pipeline.get_by_name('vad')
+        vader.set_property('silent', True)

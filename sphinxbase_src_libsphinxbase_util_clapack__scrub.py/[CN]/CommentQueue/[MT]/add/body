@@ -1,0 +1,6 @@
+def add(self, line):
+    if (line.strip() == ''):
+        LineQueue.add(self, '\n')
+    else:
+        line = (('  ' + line[2:(-3)].rstrip()) + '\n')
+        LineQueue.add(self, line)

@@ -1,0 +1,3 @@
+def addRoutine(self, rname):
+    'Add a routine to the library.\n        '
+    self.getRoutine(rname)

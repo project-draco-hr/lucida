@@ -1,0 +1,3 @@
+def get_logmath(self):
+    '\n        get_logmath(Decoder self) -> LogMath *\n\n        Get the log-math computation object for this decoder.\n\n        The log-math object for this decoder. The decoder retains ownership of\n        this pointer, so you should not attempt to free it manually. Use\n        logmath_retain() if you wish to reuse it elsewhere. \n        '
+    return _pocketsphinx.Decoder_get_logmath(self)

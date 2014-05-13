@@ -1,0 +1,7 @@
+def __init__(self, *args):
+    '__init__(Hypothesis self, char const * hypstr, char const * uttid, int best_score) -> Hypothesis'
+    this = _pocketsphinx.new_Hypothesis(*args)
+    try:
+        self.this.append(this)
+    except:
+        self.this = this

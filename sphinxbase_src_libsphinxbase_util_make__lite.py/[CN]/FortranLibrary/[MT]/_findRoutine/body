@@ -1,0 +1,7 @@
+def _findRoutine(self, rname):
+    rname = rname.lower()
+    for s in self._src_dirs:
+        ffilename = os.path.join(s, (rname + '.f'))
+        if os.path.exists(ffilename):
+            return self._newFortranRoutine(rname, ffilename)
+    return UnknownFortranRoutine(rname)

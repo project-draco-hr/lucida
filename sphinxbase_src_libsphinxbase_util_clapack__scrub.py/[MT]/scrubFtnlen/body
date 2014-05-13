@@ -1,0 +1,2 @@
+def scrubFtnlen(source):
+    return runScanner(source, LenSubsScanner)[0]

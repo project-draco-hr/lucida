@@ -1,0 +1,3 @@
+def start_utt(self):
+    '\n        start_utt(FrontEnd self)\n\n        Start processing an utterance.\n\n        0 for success, <0 for error (see enum fe_error_e) \n        '
+    return _sphinxbase.FrontEnd_start_utt(self)

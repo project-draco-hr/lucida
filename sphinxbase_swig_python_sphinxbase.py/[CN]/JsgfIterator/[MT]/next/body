@@ -1,0 +1,3 @@
+def next(self):
+    'next(JsgfIterator self) -> JsgfRule'
+    return _sphinxbase.JsgfIterator_next(self)

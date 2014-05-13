@@ -1,0 +1,7 @@
+def __init__(self):
+    '__init__(JsgfRule self) -> JsgfRule'
+    this = _sphinxbase.new_JsgfRule()
+    try:
+        self.this.append(this)
+    except:
+        self.this = this

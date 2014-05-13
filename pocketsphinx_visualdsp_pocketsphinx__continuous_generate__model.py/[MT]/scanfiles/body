@@ -1,0 +1,24 @@
+def scanfiles(dir):
+    res = []
+    g = glob.glob((dir + '/*'))
+    print ('scanning: ' + dir)
+    for x in g:
+        x = x.translate(string.maketrans('\\', '/'))
+        if os.path.isdir(x):
+            res.extend(scanfiles(x))
+        else:
+            data = binascii.hexlify(file(x, 'rb').read())
+            res.append((((('\t{"/' + x) + '",') + str((len(data) / 2))) + ','))
+            res.append('\n\t\t"')
+            cnt = 0
+            for ch in data:
+                if (cnt == 80):
+                    cnt = 0
+                    res.append('"\\\n\t\t"')
+                if ((cnt % 2) == 0):
+                    res.append('\\x')
+                res.append(ch)
+                cnt = (cnt + 1)
+            res.append('"')
+            res.append('},\n')
+    return res

@@ -1,0 +1,9 @@
+def getRoutine(self, rname):
+    "Get a routine from the library. Will add if it's not found.\n        "
+    unique = []
+    rname = rname.lower()
+    routine = self.names_to_routines.get(rname, unique)
+    if (routine is unique):
+        routine = self._findRoutine(rname)
+        self.names_to_routines[rname] = routine
+    return routine

@@ -1,0 +1,4 @@
+def allRoutinesByType(self, typename):
+    routines = [(r.name, r) for r in self.allRoutines() if (r.type == typename)]
+    routines.sort()
+    return [a[1] for a in routines]

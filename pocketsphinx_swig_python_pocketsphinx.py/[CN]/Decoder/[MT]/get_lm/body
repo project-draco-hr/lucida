@@ -1,0 +1,3 @@
+def get_lm(self, *args):
+    '\n        get_lm(Decoder self, char const * name) -> NGramModel\n\n        Get the language model set object for this decoder.\n\n        If N-Gram decoding is not enabled, this will return NULL. You will\n        need to enable it using ps_update_lmset().\n\n        The language model set object for this decoder. The decoder retains\n        ownership of this pointer, so you should not attempt to free it\n        manually. Use ngram_model_retain() if you wish to reuse it elsewhere.\n\n        '
+    return _pocketsphinx.Decoder_get_lm(self, *args)

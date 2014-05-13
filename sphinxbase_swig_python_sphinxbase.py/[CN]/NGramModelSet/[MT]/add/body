@@ -1,0 +1,3 @@
+def add(self, *args):
+    'add(NGramModelSet self, NGramModel model, char const * name, float weight, bool reuse_widmap) -> NGramModel'
+    return _sphinxbase.NGramModelSet_add(self, *args)

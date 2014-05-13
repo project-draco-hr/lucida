@@ -1,0 +1,3 @@
+def get_float(self, *args):
+    'get_float(Config self, char const * key) -> double'
+    return _sphinxbase.Config_get_float(self, *args)

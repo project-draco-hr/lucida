@@ -1,0 +1,3 @@
+def seg(self):
+    'seg(Decoder self) -> Segment'
+    return _pocketsphinx.Decoder_seg(self)

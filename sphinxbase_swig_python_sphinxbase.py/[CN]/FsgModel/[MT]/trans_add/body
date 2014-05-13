@@ -1,0 +1,3 @@
+def trans_add(self, *args):
+    '\n        trans_add(FsgModel self, int32 src, int32 dst, int32 logp, int32 wid)\n\n        Add the given transition to the FSG transition matrix.\n\n        Duplicates (i.e., two transitions between the same states, with the\n        same word label) are flagged and only the highest prob retained. \n        '
+    return _sphinxbase.FsgModel_trans_add(self, *args)

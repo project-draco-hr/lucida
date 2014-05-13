@@ -1,0 +1,3 @@
+def build_fsg(self, *args):
+    '\n        build_fsg(Jsgf self, JsgfRule rule, LogMath * logmath, float lw) -> FsgModel\n\n        Build a Sphinx FSG object from a JSGF rule. \n        '
+    return _sphinxbase.Jsgf_build_fsg(self, *args)

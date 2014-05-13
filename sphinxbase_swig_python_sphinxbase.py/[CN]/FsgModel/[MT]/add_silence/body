@@ -1,0 +1,3 @@
+def add_silence(self, *args):
+    '\n        add_silence(FsgModel self, char const * silword, int state, int32 silprob) -> int\n\n        Add silence word transitions to each state in given FSG.\n\n        Parameters:\n        -----------\n\n        state:  state to add a self-loop to, or -1 for all states.\n\n        silprob:  probability of silence transition. \n        '
+    return _sphinxbase.FsgModel_add_silence(self, *args)

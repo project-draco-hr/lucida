@@ -1,0 +1,8 @@
+def concatenateRoutines(routines, output_file):
+    output_fo = open(output_file, 'w')
+    for r in routines:
+        fo = open(r.filename, 'r')
+        source = fo.read()
+        fo.close()
+        output_fo.write(source)
+    output_fo.close()

@@ -1,0 +1,3 @@
+def word_add(self, *args):
+    '\n        word_add(FsgModel self, char const * word) -> int\n\n        Add a word to the FSG vocabulary.\n\n        Word ID for this new word. \n        '
+    return _sphinxbase.FsgModel_word_add(self, *args)

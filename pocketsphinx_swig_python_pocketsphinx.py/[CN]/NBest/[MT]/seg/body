@@ -1,0 +1,3 @@
+def seg(self):
+    '\n        seg(NBest self) -> Segment\n\n        Get the word segmentation from an N-best list iterator.\n\n        Parameters:\n        -----------\n\n        nbest:  N-best iterator.\n\n        out_score:  Output: Path score for this hypothesis.\n\n        Iterator over the next best hypothesis. \n        '
+    return _pocketsphinx.NBest_seg(self)

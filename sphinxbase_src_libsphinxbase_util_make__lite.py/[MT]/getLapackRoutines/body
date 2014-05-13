@@ -1,0 +1,14 @@
+def getLapackRoutines(wrapped_routines, ignores, lapack_dir):
+    blas_src_dir = os.path.join(lapack_dir, 'BLAS', 'SRC')
+    if (not os.path.exists(blas_src_dir)):
+        blas_src_dir = os.path.join(lapack_dir, 'blas', 'src')
+    lapack_src_dir = os.path.join(lapack_dir, 'SRC')
+    if (not os.path.exists(lapack_src_dir)):
+        lapack_src_dir = os.path.join(lapack_dir, 'src')
+    library = LapackLibrary([blas_src_dir, lapack_src_dir])
+    for r in ignores:
+        library.addIgnorableRoutine(r)
+    for w in wrapped_routines:
+        library.addRoutine(w)
+    library.resolveAllDependencies()
+    return library

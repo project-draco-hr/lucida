@@ -1,0 +1,27 @@
+def removeHeader(source):
+    lines = LineQueue()
+
+    def LookingForHeader(line):
+        m = re.match('/\\*[^\\n]*-- translated', line)
+        if m:
+            return InHeader
+        else:
+            lines.add(line)
+            return LookingForHeader
+
+    def InHeader(line):
+        if line.startswith('*/'):
+            return OutOfHeader
+        else:
+            return InHeader
+
+    def OutOfHeader(line):
+        if line.startswith('#include "f2c.h"'):
+            pass
+        else:
+            lines.add(line)
+        return OutOfHeader
+    state = LookingForHeader
+    for line in StringIO(source):
+        state = state(line)
+    return lines.getValue()

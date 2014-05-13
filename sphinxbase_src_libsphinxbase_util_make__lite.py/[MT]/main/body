@@ -1,0 +1,22 @@
+def main():
+    if (len(sys.argv) != 4):
+        print ('Usage: %s wrapped_routines_file lapack_dir output_dir' % (sys.argv[0],))
+        return
+    wrapped_routines_file = sys.argv[1]
+    lapack_src_dir = sys.argv[2]
+    output_dir = sys.argv[3]
+    (wrapped_routines, ignores) = getWrappedRoutineNames(wrapped_routines_file)
+    library = getLapackRoutines(wrapped_routines, ignores, lapack_src_dir)
+    dumpRoutineNames(library, output_dir)
+    for typename in ['blas', 'slapack']:
+        print ('creating %s_lite.c ...' % typename)
+        routines = library.allRoutinesByType(typename)
+        fortran_file = os.path.join(output_dir, (typename + '_lite.f'))
+        c_file = (fortran_file[:(-2)] + '.c')
+        concatenateRoutines(routines, fortran_file)
+        try:
+            runF2C(fortran_file, output_dir)
+        except F2CError:
+            print ('f2c failed on %s' % fortran_file)
+            break
+        scrubF2CSource(c_file)

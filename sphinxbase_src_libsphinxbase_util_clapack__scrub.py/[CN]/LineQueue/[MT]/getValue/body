@@ -1,0 +1,6 @@
+def getValue(self):
+    q = LineQueue()
+    self.flushTo(q)
+    s = ''.join(q._queue)
+    self.clear()
+    return s

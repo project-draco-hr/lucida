@@ -1,0 +1,3 @@
+def next(self):
+    '\n        next(Segment self) -> Segment\n\n        Get the next segment in a word segmentation.\n\n        Parameters:\n        -----------\n\n        seg:  Segment iterator.\n\n        Updated iterator with the next segment. NULL at end of utterance (the\n        iterator will be freed in this case). \n        '
+    return _pocketsphinx.Segment_next(self)
