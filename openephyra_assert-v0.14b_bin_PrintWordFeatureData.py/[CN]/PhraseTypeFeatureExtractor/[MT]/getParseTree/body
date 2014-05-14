@@ -1,4 +1,0 @@
-def getParseTree(self, syntacticParse):
-    if (not self.parseTreeMap.has_key(syntacticParse)):
-        self.parseTreeMap[syntacticParse] = ParseTreeFactory.fromString(syntacticParse)
-    return self.parseTreeMap[syntacticParse]

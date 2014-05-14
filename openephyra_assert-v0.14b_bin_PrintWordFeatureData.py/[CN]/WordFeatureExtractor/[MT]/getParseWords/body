@@ -1,3 +1,0 @@
-def getParseWords(self, begin, end, semanticParse, textMatcher=re.compile('<S TPOS="[^"]*">(.*?)</S>'), sgmlMatcher=re.compile('</?[A-z]+[^>]*>')):
-    (text,) = textMatcher.findall(semanticParse)
-    return sgmlMatcher.sub('', text).split()[begin:end]

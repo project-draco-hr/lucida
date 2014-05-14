@@ -1,6 +1,0 @@
-def leaves(self):
-    if (not self.children):
-        yield self
-    for child in self.children:
-        for leaf in child.leaves():
-            yield leaf

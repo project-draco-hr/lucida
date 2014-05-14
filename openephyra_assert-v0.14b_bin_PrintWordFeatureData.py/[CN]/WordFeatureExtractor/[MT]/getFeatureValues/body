@@ -1,3 +1,0 @@
-def getFeatureValues(self, begin, end, semanticParse, syntacticParse):
-    parseWordsSet = self.getWordSet(self.getParseWords(begin, end, semanticParse))
-    return [int((word in parseWordsSet)) for word in self.words]

@@ -1,5 +1,0 @@
-def getParsePhraseTypes(self, begin, end, syntacticParse):
-    tree = self.getParseTree(syntacticParse)
-    for subtree in tree[begin:end]:
-        for childSubtree in subtree.subtrees():
-            yield childSubtree.tag

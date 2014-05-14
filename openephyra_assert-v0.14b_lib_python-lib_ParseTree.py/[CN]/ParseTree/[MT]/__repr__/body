@@ -1,3 +1,0 @@
-def __repr__(self):
-    contents = filter(operator.truth, [self.tag, self.word, ' '.join(map(str, self.children))])
-    return ('(%s)' % ' '.join(contents))

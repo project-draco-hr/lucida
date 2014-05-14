@@ -1,7 +1,0 @@
-def iterfilter(func, iterator):
-    "Iterative version of builtin 'filter'."
-    iterator = iter(iterator)
-    while True:
-        next = iterator.next()
-        if (((func is None) and next) or func(next)):
-            yield next

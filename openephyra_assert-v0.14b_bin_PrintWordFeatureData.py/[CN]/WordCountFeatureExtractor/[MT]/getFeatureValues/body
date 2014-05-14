@@ -1,6 +1,0 @@
-def getFeatureValues(self, begin, end, semanticParse, syntacticParse):
-    count = 0
-    for word in self.getParseWords(begin, end, semanticParse):
-        if (word in self.wordSet):
-            count += 1
-    return [count]

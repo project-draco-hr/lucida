@@ -1,5 +1,0 @@
-def subtrees(self):
-    yield self
-    for child in self.children:
-        for subtree in child.subtrees():
-            yield subtree

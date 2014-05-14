@@ -1,3 +1,0 @@
-def __init__(self, wordsFileName):
-    WordFeatureExtractor.__init__(self, wordsFileName)
-    self.wordSet = self.getWordSet(self.words)

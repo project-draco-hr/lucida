@@ -1,3 +1,0 @@
-def __init__(self, phraseType):
-    self.phraseType = phraseType
-    self.parseTreeMap = {}

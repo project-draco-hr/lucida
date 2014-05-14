@@ -1,6 +1,0 @@
-def getFeatureValues(self, begin, end, semanticParse, syntacticParse):
-    parseWords = self.getWordSet(self.getParseWords(begin, end, semanticParse))
-    score = 0.0
-    for word in parseWords:
-        score += self.wordScoreMap.get(word, 0.0)
-    return [int(round(score))]
