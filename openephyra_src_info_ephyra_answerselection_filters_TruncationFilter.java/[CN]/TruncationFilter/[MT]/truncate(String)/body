@@ -1,0 +1,18 @@
+{
+  String old="";
+  while (!old.equals(phrase)) {
+    old=phrase;
+    phrase=phrase.replaceFirst("^[\\s" + SPECIAL_CHARS + "]","");
+    phrase=phrase.replaceFirst("[\\s" + SPECIAL_CHARS + "]$","");
+    phrase=phrase.replaceFirst("^\\.","");
+    if (phrase.matches(".*?(^|[^A-Z])\\.$"))     phrase=phrase.replaceFirst("\\.$","");
+    phrase=phrase.replaceFirst("(?i)^" + ARTICLES + " ","");
+    phrase=phrase.replaceFirst("(?i) " + ARTICLES + "$","");
+    phrase=phrase.replaceFirst("(?i)^(and|or) ","");
+    phrase=phrase.replaceFirst("(?i) (and|or)$","");
+    String[] tokens=phrase.split(" ",-1);
+    if (Prepositions.lookup(tokens[0]))     phrase=phrase.replaceFirst("^[^ ]++($| )","");
+    if (Prepositions.lookup(tokens[tokens.length - 1]))     phrase=phrase.replaceFirst("(^| )[^ ]++$","");
+  }
+  return phrase;
+}

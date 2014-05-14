@@ -1,0 +1,25 @@
+{
+  TRECPattern pattern=null;
+  for (  TRECPattern factoidPattern : factoidPatterns)   if (factoidPattern.getId().equals(qid)) {
+    pattern=factoidPattern;
+    break;
+  }
+  if (results.length > 0 && results[0].getScore() < absThresh)   results=new Result[0];
+  if (results.length > 0 && pattern != null) {
+    String firstAnswer=results[0].getAnswer();
+    for (    String regex : pattern.getRegexs())     if (firstAnswer.matches(".*?" + regex + ".*+")) {
+      factoidQuestionScores.add(1f);
+      return new boolean[]{true};
+    }
+    factoidQuestionScores.add(0f);
+    return new boolean[]{false};
+  }
+ else   if (results.length == 0 && pattern == null) {
+    factoidQuestionScores.add(1f);
+    return new boolean[]{true};
+  }
+ else {
+    factoidQuestionScores.add(0f);
+    return new boolean[]{false};
+  }
+}

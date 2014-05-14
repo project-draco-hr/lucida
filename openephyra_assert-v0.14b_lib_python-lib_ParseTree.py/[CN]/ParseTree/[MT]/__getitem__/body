@@ -1,0 +1,10 @@
+def __getitem__(self, x):
+    if isinstance(x, int):
+        (start, end) = (x, x)
+    if isinstance(x, slice):
+        (start, end) = (x.start, x.stop)
+    else:
+        raise TypeError
+    for subtree in self.subtrees():
+        if ((subtree.start == start) and (subtree.end == end)):
+            yield subtree

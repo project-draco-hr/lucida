@@ -1,0 +1,3 @@
+{
+  stemmer=new englishStemmer();
+}

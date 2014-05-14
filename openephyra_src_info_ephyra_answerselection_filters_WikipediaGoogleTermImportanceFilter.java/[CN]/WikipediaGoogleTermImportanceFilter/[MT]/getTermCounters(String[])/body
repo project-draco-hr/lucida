@@ -1,0 +1,64 @@
+{
+  HashMap<String,TermCounter> termCounters=new HashMap<String,TermCounter>();
+  for (int t=0; t < targets.length; t++) {
+    String target=targets[t];
+    HashMap<String,TermCounter> targetTermCounters=new HashMap<String,TermCounter>();
+    if (!target.startsWith("\""))     try {
+      String url="http://en.wikipedia.org/wiki/" + target.replaceAll("\\s","_");
+      URLConnection connection=new URL(url).openConnection();
+      connection.setDoInput(true);
+      connection.setDoOutput(true);
+      connection.setUseCaches(false);
+      connection.setRequestProperty("User-Agent","Ephyra");
+      connection.connect();
+      BufferedReader reader=new BufferedReader(new InputStreamReader(connection.getInputStream()));
+      boolean inTag=false;
+      int c=0;
+      StringBuffer term=new StringBuffer();
+      while ((c=reader.read()) != -1) {
+        if (c == '<') {
+          inTag=true;
+          if (term.length() != 0) {
+            String stemmedTerm=SnowballStemmer.stem(term.toString().toLowerCase());
+            if (!targetTermCounters.containsKey(stemmedTerm))             targetTermCounters.put(stemmedTerm,new TermCounter());
+            targetTermCounters.get(stemmedTerm).increment(1);
+            term=new StringBuffer();
+          }
+        }
+ else         if (c == '>') {
+          inTag=false;
+        }
+ else         if (!inTag) {
+          if (c < 33) {
+            if (term.length() != 0) {
+              String stemmedTerm=SnowballStemmer.stem(term.toString().toLowerCase());
+              if (!targetTermCounters.containsKey(stemmedTerm))               targetTermCounters.put(stemmedTerm,new TermCounter());
+              targetTermCounters.get(stemmedTerm).increment(1);
+              term=new StringBuffer();
+            }
+          }
+ else           term.append((char)c);
+        }
+      }
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+    int sum=getCountSum(targetTermCounters);
+    int diff=sumDiff(targetTermCounters,missPageTermCounters);
+    System.out.println("WikipediaGoogleWebTermImportanceFilter: sum is " + sum + ", diff is "+ diff);
+    if ((diff * 10) > sum) {
+      addTermCounters(targetTermCounters,termCounters);
+      System.out.println("WikipediaGoogleWebTermImportanceFilter: found target '" + target + "' in wikipedia");
+      if (t == 0) {
+        System.out.println("  ==> No further lookups needed");
+        return termCounters;
+      }
+    }
+ else {
+      System.out.println("WikipediaGoogleWebTermImportanceFilter: target '" + target + "' not found in wikipedia, doing Google lookup");
+      addTermCounters(getGoogleTermCounters(target),termCounters);
+    }
+  }
+  return termCounters;
+}

@@ -1,0 +1,3 @@
+def __init__(self, posPrefix, wordScoreMap):
+    self.posPrefix = posPrefix
+    self.wordScoreMap = wordScoreMap

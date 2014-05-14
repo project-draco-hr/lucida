@@ -1,0 +1,5 @@
+{
+  this.id=id;
+  this.targetDesc=targetDesc;
+  this.questions=questions;
+}

@@ -1,0 +1,3 @@
+{
+  return equalsIntersect(normalize(s1),normalize(s2));
+}

@@ -1,0 +1,16 @@
+{
+  ArrayList<String> rolesList=new ArrayList<String>();
+  for (int i=0; i < args.length; i++)   if (args[i] != null)   rolesList.add("ARG" + i);
+  if (argLOC != null)   rolesList.add("ARGM-LOC");
+  if (argCAU != null)   rolesList.add("ARGM-CAU");
+  if (argEXT != null)   rolesList.add("ARGM-EXT");
+  if (argTMP != null)   rolesList.add("ARGM-TMP");
+  if (argDIS != null)   rolesList.add("ARGM-DIS");
+  if (argPNC != null)   rolesList.add("ARGM-PNC");
+  if (argADV != null)   rolesList.add("ARGM-ADV");
+  if (argMNR != null)   rolesList.add("ARGM-MNR");
+  if (argNEG != null)   rolesList.add("ARGM-NEG");
+  if (argDIR != null)   rolesList.add("ARGM-DIR");
+  if (argMOD != null)   rolesList.add("ARGM-MOD");
+  return rolesList.toArray(new String[rolesList.size()]);
+}

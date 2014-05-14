@@ -1,0 +1,18 @@
+{
+  DecimalFormat format=new DecimalFormat("#0.00");
+  HierarchicalClassifierTrainer qc=new HierarchicalClassifierTrainer(languagePair);
+  StringBuilder sb=new StringBuilder();
+  for (  String alg : learningCombos) {
+    properties.setProperty("learners",alg);
+    for (    String featureTypes : featureTypeCombos) {
+      properties.setProperty("featureTypes",featureTypes);
+      qc.setProperties(properties);
+      Evaluation eval=qc.runExperiment();
+      sb.append(alg.replaceAll(",","-") + "-" + featureTypes.replaceAll(",","-")+ format.format((1.0 - eval.errorRate()) * 100)+ "\n");
+      String report=qc.createReport();
+      log.debug("Report:\n" + report);
+      FileUtil.writeFile(report,"reports/report-" + alg.replaceAll(",","-") + "-"+ featureTypes.replaceAll(",","-")+ ".txt","UTF-8");
+    }
+  }
+  FileUtil.writeFile(sb.toString(),"reports/results-" + System.currentTimeMillis() + ".txt","UTF-8");
+}

@@ -1,0 +1,3 @@
+{
+  if (statusMsgs)   printMessage("\n+++++ Assessing patterns (" + getTimestamp() + ") +++++");
+}

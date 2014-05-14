@@ -1,0 +1,5 @@
+{
+  int sum=0;
+  for (Iterator<String> keys=counters.keySet().iterator(); keys.hasNext(); )   sum+=counters.get(keys.next()).getValue();
+  return sum;
+}

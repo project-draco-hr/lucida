@@ -1,0 +1,9 @@
+{
+  String[] tokens=tokenize(text);
+  String[] pos=tagPos(tokens);
+  String output="";
+  for (int i=0; i < pos.length; i++) {
+    output+=tokens[i] + "/" + pos[i]+ " ";
+  }
+  return output.trim();
+}

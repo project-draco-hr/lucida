@@ -1,0 +1,6 @@
+{
+  String left=questionParse.substring(0,iq);
+  String right=questionParse.substring(iq + lenq);
+  questionParse=left + npt + right;
+  return questionParse;
+}

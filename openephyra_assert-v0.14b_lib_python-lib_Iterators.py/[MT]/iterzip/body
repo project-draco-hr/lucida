@@ -1,0 +1,5 @@
+def iterzip(*iterators):
+    "Iterative version of builtin 'zip'."
+    iterators = map(iter, iterators)
+    while True:
+        yield tuple([x.next() for x in iterators])

@@ -1,0 +1,29 @@
+{
+  Matcher m=pattern.matcher(stemmed);
+  if (m.matches()) {
+    String target=m.group(targetID);
+    if (target.length() == 0)     return null;
+    target=QuestionNormalizer.unstem(target,stemmed,qn);
+    String[] context=new String[contextIDs.length];
+    for (int i=0; i < context.length; i++) {
+      context[i]=m.group(contextIDs[i]);
+      if (context[i].length() == 0)       return null;
+      context[i]=QuestionNormalizer.unstem(context[i],stemmed,qn);
+    }
+    QuestionInterpretation qi=new QuestionInterpretation(target,context,property);
+    qi=ensureNounPhrases(qn,qi);
+    if (qi == null)     return null;
+    target=qi.getTarget();
+    target=formatObject(target);
+    if (target.length() == 0 || target.split(" ").length > MAX_TARGET)     return null;
+    qi.setTarget(target);
+    context=qi.getContext();
+    for (int i=0; i < context.length; i++) {
+      context[i]=formatObject(context[i]);
+      if (context[i].length() == 0 || context[i].split(" ").length > MAX_CONTEXT)       return null;
+    }
+    qi.setContext(context);
+    return qi;
+  }
+ else   return null;
+}

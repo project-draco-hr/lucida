@@ -1,0 +1,30 @@
+{
+  Ontology wordNet=new WordNet();
+  QuestionAnalysis.clearDictionaries();
+  QuestionAnalysis.addDictionary(wordNet);
+  QuestionAnalysis.clearOntologies();
+  QuestionAnalysis.addOntology(wordNet);
+  QueryGeneration.clearQueryGenerators();
+  QueryGeneration.addQueryGenerator(new BagOfWordsG());
+  QueryGeneration.addQueryGenerator(new BagOfTermsG());
+  QueryGeneration.addQueryGenerator(new PredicateG());
+  QueryGeneration.addQueryGenerator(new QuestionInterpretationG());
+  QueryGeneration.addQueryGenerator(new QuestionReformulationG());
+  Search.clearKnowledgeMiners();
+  Search.addKnowledgeMiner(new BingKM());
+  Search.clearKnowledgeAnnotators();
+  AnswerSelection.clearFilters();
+  AnswerSelection.addFilter(new AnswerTypeFilter());
+  AnswerSelection.addFilter(new AnswerPatternFilter());
+  AnswerSelection.addFilter(new WebDocumentFetcherFilter());
+  AnswerSelection.addFilter(new PredicateExtractionFilter());
+  AnswerSelection.addFilter(new FactoidsFromPredicatesFilter());
+  AnswerSelection.addFilter(new TruncationFilter());
+  AnswerSelection.addFilter(new StopwordFilter());
+  AnswerSelection.addFilter(new QuestionKeywordsFilter());
+  AnswerSelection.addFilter(new ScoreNormalizationFilter(NORMALIZER));
+  AnswerSelection.addFilter(new ScoreCombinationFilter());
+  AnswerSelection.addFilter(new FactoidSubsetFilter());
+  AnswerSelection.addFilter(new DuplicateFilter());
+  AnswerSelection.addFilter(new ScoreSorterFilter());
+}

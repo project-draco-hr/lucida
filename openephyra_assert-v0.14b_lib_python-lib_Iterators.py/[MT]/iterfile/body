@@ -1,0 +1,15 @@
+def iterfile(f, retainNewlines=False):
+    'Returns an iterator to the lines of the file.\n\n    f may be a file name or a file-like object with a readline method.\n    retainNewlines must evaluate to a boolean. If it evaluates to False, the\n      newline characters at the end of each line will be removed, otherwise,\n      they will be retained.\n    '
+    if (type(f) == file):
+        fileObject = f
+    elif (type(f) == str):
+        fileObject = file(f)
+    else:
+        raise TypeError, 'f must be a file or fileName'
+    line = fileObject.readline()
+    while line:
+        if ((not retainNewlines) and line.endswith('\n')):
+            yield line[:(-1)]
+        else:
+            yield line
+        line = fileObject.readline()

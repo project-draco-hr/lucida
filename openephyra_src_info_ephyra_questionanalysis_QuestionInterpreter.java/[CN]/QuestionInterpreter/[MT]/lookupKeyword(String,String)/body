@@ -1,0 +1,10 @@
+{
+  Dictionary dict=keywords.get(prop);
+  if (dict == null)   return false;
+  if (dict.contains(word))   return true;
+  String stem=PlingStemmer.stem(word);
+  if (dict.contains(stem))   return true;
+  String lemma=WordNet.getLemma(word,WordNet.VERB);
+  if (lemma != null && dict.contains(lemma))   return true;
+  return false;
+}

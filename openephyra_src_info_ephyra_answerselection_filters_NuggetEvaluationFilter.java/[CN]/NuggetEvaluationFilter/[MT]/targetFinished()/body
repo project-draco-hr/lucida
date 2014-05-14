@@ -1,0 +1,27 @@
+{
+  try {
+    BufferedWriter br=new BufferedWriter(new FileWriter(baseFileName,true));
+    br.newLine();
+    String titleLine=null;
+    for (Iterator<NuggetEvaluationFilter> ii=instanceSet.values().iterator(); ii.hasNext(); ) {
+      NuggetEvaluationFilter nef=ii.next();
+      if (titleLine == null)       titleLine=("\"" + nef.lastTarget + "\";\"#chars\";\"#vital\"");
+      titleLine+=";" + nef.fileNameMarker + ";;;;";
+    }
+    br.write(titleLine);
+    br.newLine();
+    for (int i=0; i < 7; i++) {
+      String line=targetID + ";" + ((i + 1) * 1000)+ ";"+ numVital;
+      for (Iterator<NuggetEvaluationFilter> ii=instanceSet.values().iterator(); ii.hasNext(); ) {
+        NuggetEvaluationFilter nef=ii.next();
+        line+=";" + nef.lastOk[i] + ";"+ nef.lastVital[i]+ ";;;";
+      }
+      br.write(line);
+      br.newLine();
+    }
+    br.flush();
+    br.close();
+  }
+ catch (  Exception e) {
+  }
+}

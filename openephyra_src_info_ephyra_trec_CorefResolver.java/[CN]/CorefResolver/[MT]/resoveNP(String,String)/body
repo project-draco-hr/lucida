@@ -1,0 +1,47 @@
+{
+  String targetParse=parse(targetString);
+  Map<Integer,String> nptarget=find(targetParse,"NP");
+  ArrayList<String> temp=new ArrayList<String>();
+  if (nptarget.size() > 1) {
+    return temp;
+  }
+  String questionParse=parse(question);
+  Map<Integer,String> npquestion=find(questionParse,"NP");
+  String resolvedq;
+  for (  Map.Entry<Integer,String> q : npquestion.entrySet()) {
+    String npq=q.getValue();
+    int iq=q.getKey();
+    resolvedq="";
+    for (    Map.Entry<Integer,String> t : nptarget.entrySet()) {
+      String npt=t.getValue();
+      if (npq.contains("'") && !npt.contains("'")) {
+        npt=npt.substring(0,npt.length() - 2) + ") (POS '";
+        if (unparse(npt).endsWith("s")) {
+          npt+="))";
+        }
+ else {
+          npt+="s))";
+        }
+      }
+      if (npq.contains("(DT the)") && !npt.contains("(DT the)")) {
+        npq=npq.replaceFirst("\\(NP \\(DT the\\) ","(NP ");
+        iq+=9;
+        npt=npt.replaceFirst("\\(NP ","(NP (DT the) ");
+      }
+      if (match(npq,npt)) {
+        resolvedq=unparse(substitute(questionParse,npt,npq.length(),iq));
+        char c=question.charAt(question.length() - 1);
+        resolvedq=resolvedq.substring(0,resolvedq.length() - 3) + c;
+        resolvedq=resolvedq.replace("`` ","\"");
+        resolvedq=resolvedq.replace(" ''","\"");
+        resolvedq=resolvedq.replace(" '","'");
+        resolvedq=resolvedq.replace("-LRB- ","(");
+        resolvedq=resolvedq.replace(" -RRB-",")");
+        if (!resolvedq.equalsIgnoreCase(question)) {
+          temp.add(resolvedq);
+        }
+      }
+    }
+  }
+  return temp;
+}

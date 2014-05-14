@@ -1,0 +1,8 @@
+{
+  ArrayList<String> phraseL=new ArrayList<String>();
+  HashSet<String> normSet=new HashSet<String>();
+  for (  String kw : kws)   if (normSet.add(StringUtils.normalize(kw)))   phraseL.add(kw);
+  String[] phrases=phraseL.toArray(new String[phraseL.size()]);
+  String queryString=StringUtils.concatWithSpaces(phrases);
+  return queryString;
+}

@@ -1,0 +1,2 @@
+def getWordSet(self, words, punctuationMatcher=re.compile(('[%s]' % string.punctuation))):
+    return sets.Set((words + [punctuationMatcher.sub('', word) for word in words]))

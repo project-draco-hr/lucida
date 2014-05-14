@@ -1,0 +1,35 @@
+{
+  String[] tokens=OpenNLP.tokenize(qn);
+  String[] pos=OpenNLP.tagPos(tokens);
+  String[] chunks=OpenNLP.tagChunks(tokens,pos);
+  for (int i=0; i < tokens.length; i++)   if (tokens[i].matches(IGNORE_P)) {
+    verbMod=handleIgnore(qn,verbMod,tokens,pos,chunks,i);
+    break;
+  }
+ else   if (tokens[i].matches(PERSON_P)) {
+    verbMod=handlePerson(verbMod);
+    break;
+  }
+ else   if (tokens[i].matches(THING_P)) {
+    verbMod=handleThing(qn,verbMod,ats,tokens,pos,chunks,i);
+    break;
+  }
+ else   if (tokens[i].matches(DATE_TIME_P)) {
+    verbMod=handleDateTime(verbMod);
+    break;
+  }
+ else   if (tokens[i].matches(LOCATION_P)) {
+    verbMod=handleLocation(verbMod);
+    break;
+  }
+ else   if (tokens[i].matches(PURPOSE_P)) {
+    verbMod=handlePurpose(verbMod);
+    break;
+  }
+ else   if (tokens[i].matches(MANNER_P)) {
+    verbMod=handleManner(qn,verbMod,ats,tokens,pos,chunks,i);
+    break;
+  }
+  verbMod=verbMod.replaceAll("\\s++"," ").trim();
+  return verbMod;
+}

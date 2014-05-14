@@ -1,0 +1,5 @@
+{
+  this.id=id;
+  this.answerString=answerString;
+  this.supportDoc=supportDoc;
+}

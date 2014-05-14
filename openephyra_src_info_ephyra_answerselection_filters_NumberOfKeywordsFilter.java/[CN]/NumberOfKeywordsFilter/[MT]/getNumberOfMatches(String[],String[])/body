@@ -1,0 +1,8 @@
+{
+  int count=0;
+  for (  String word1 : s1)   for (  String word2 : s2)   if (word1.equalsIgnoreCase(word2)) {
+    count++;
+    break;
+  }
+  return count;
+}

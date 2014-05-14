@@ -1,0 +1,18 @@
+{
+  List<Example> examples=new ArrayList<Example>();
+  String data=FileUtil.readFile(fileName,"UTF-8");
+  Matcher m=datasetExamplePattern.matcher(data);
+  while (m.find()) {
+    try {
+      Example[] exampleArr=createExample(m.group());
+      for (      Example example : exampleArr) {
+        examples.add(example);
+        numLoaded++;
+      }
+    }
+ catch (    Exception e) {
+      log.error("Error reading Example from file: ",e);
+    }
+  }
+  return (Example[])examples.toArray(new Example[examples.size()]);
+}

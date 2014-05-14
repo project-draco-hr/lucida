@@ -1,0 +1,12 @@
+{
+  if (dict == null)   return null;
+  Synset synset=null;
+  try {
+    IndexWord indexWord=dict.lookupIndexWord(pos,word);
+    if (indexWord == null)     return null;
+    synset=indexWord.getSense(1);
+  }
+ catch (  JWNLException e) {
+  }
+  return synset;
+}

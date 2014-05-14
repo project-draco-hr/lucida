@@ -1,0 +1,66 @@
+{
+  Pattern p=Pattern.compile(".++");
+  for (int i=0; i < ss.length; i++) {
+    String noSpecChar="";
+    Matcher m=p.matcher(ss[i]);
+    while (m.find())     noSpecChar+=" " + m.group(0);
+    ss[i]=noSpecChar.trim();
+  }
+  String[][] allParses=new String[ss.length][];
+  ArrayList<Integer> originalIndices=new ArrayList<Integer>();
+  if (CACHING) {
+    FileCache cache=new FileCache(CACHE_DIR);
+    ArrayList<String> notInCache=new ArrayList<String>();
+    for (int i=0; i < ss.length; i++) {
+      String[] parses=cache.read(ss[i]);
+      if (parses != null)       allParses[i]=parses;
+ else {
+        notInCache.add(ss[i]);
+        originalIndices.add(i);
+      }
+    }
+    ss=notInCache.toArray(new String[notInCache.size()]);
+  }
+  String[][] parses=new String[ss.length][];
+  if (ss.length > 0 && ASSERT_DIR != null && ASSERT_DIR.length() > 0) {
+    try {
+      MsgPrinter.printStatusMsgTimestamp("Parsing " + ss.length + " sentences with ASSERT...");
+      int beginIndex=0;
+      while (beginIndex < ss.length) {
+        String[] sentences=new String[ss.length - beginIndex];
+        for (int i=0; i < sentences.length; i++)         sentences[i]=ss[i + beginIndex];
+        File input=createInputFile(sentences);
+        File logf=execAssertProcess(input);
+        String[][] output=readOutputFile(input,ss.length);
+        int lastIndex=checkLogFile(logf);
+        if (lastIndex > -1 && lastIndex < Integer.MAX_VALUE) {
+          MsgPrinter.printErrorMsg("ASSERT could not parse sentence:\n" + sentences[lastIndex]);
+          output[lastIndex]=null;
+        }
+ else         if (lastIndex == Integer.MAX_VALUE) {
+          lastIndex=sentences.length - 1;
+        }
+        lastIndex=beginIndex + lastIndex;
+        for (int i=beginIndex; i <= lastIndex; i++)         parses[i]=output[i - beginIndex];
+        beginIndex=lastIndex + 1;
+      }
+      MsgPrinter.printStatusMsgTimestamp("...done");
+    }
+ catch (    Exception e) {
+      MsgPrinter.printErrorMsg("\nCould not call ASSERT:\n" + e.getMessage());
+      System.exit(1);
+    }
+  }
+  if (CACHING) {
+    FileCache cache=new FileCache(CACHE_DIR);
+    for (int i=0; i < parses.length; i++) {
+      if (parses[i] != null)       cache.write(ss[i],parses[i]);
+      allParses[originalIndices.get(i)]=parses[i];
+    }
+  }
+ else {
+    allParses=parses;
+  }
+  for (int i=0; i < allParses.length; i++)   if (allParses[i] == null)   allParses[i]=new String[0];
+  return allParses;
+}

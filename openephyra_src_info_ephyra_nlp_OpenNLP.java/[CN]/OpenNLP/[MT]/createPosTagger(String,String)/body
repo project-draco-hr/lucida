@@ -1,0 +1,9 @@
+{
+  try {
+    tagger=new PosTagger(model,new POSDictionary(tagdict,true));
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

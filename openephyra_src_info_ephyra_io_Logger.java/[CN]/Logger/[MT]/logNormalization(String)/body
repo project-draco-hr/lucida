@@ -1,0 +1,14 @@
+{
+  if (!enabled || logfile == null)   return false;
+  try {
+    PrintWriter out=new PrintWriter(new FileOutputStream(logfile,true));
+    out.println("\t<normalization>");
+    out.println("\t\t" + qn);
+    out.println("\t</normalization>");
+    out.close();
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

@@ -1,0 +1,5 @@
+def iterfirst(iterator, count=1):
+    "Iterate through 'count' first values."
+    iterator = iter(iterator)
+    for i in range(count):
+        yield iterator.next()

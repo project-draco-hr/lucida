@@ -1,0 +1,2 @@
+def usage():
+    print '\nUsage: assert-remote.py [--url=url] [--format=plain|html] [--roles=argument|theta|opinion] [--help] file\nThe first value in the list of possible values for options is the default\n'

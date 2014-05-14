@@ -1,0 +1,41 @@
+{
+  try {
+    QueryEnvironment env=new QueryEnvironment();
+    if (indriDirs != null && indriDirs.length > 0) {
+      for (      String indriDir : indriDirs)       env.addIndex(indriDir);
+    }
+ else     if (indriUrls != null && indriUrls.length > 0) {
+      for (      String indriUrl : indriUrls)       env.addServer(indriUrl);
+    }
+ else {
+      MsgPrinter.printErrorMsg("Directories of Indri indices or " + "URLs of Indri servers required.");
+      System.exit(1);
+    }
+    ScoredExtentResult[] results=env.runQuery(transformQueryString(query.getQueryString()),MAX_RESULTS_PERQUERY);
+    String[] passages=new String[results.length];
+    for (int i=0; i < results.length; i+=MAX_DOCS) {
+      ScoredExtentResult[] partResults=new ScoredExtentResult[Math.min(MAX_DOCS,results.length - i)];
+      for (int j=i; j < i + partResults.length; j++)       partResults[j - i]=results[j];
+      ParsedDocument[] documents=env.documents(partResults);
+      for (int j=0; j < partResults.length; j++) {
+        int passageBegin=partResults[j].begin;
+        int passageEnd=partResults[j].end;
+        int byteBegin=documents[j].positions[passageBegin].begin;
+        int byteEnd=documents[j].positions[passageEnd - 1].end;
+        byte[] doc=documents[j].text.getBytes("UTF-8");
+        byte[] p=new byte[byteEnd - byteBegin];
+        for (int offset=byteBegin; offset < byteEnd; offset++)         p[offset - byteBegin]=doc[offset];
+        passages[j + i]=new String(p);
+      }
+    }
+    String[] docNos=env.documentMetadata(results,"docno");
+    env.close();
+    return getResults(passages,docNos,false);
+  }
+ catch (  Exception e) {
+    MsgPrinter.printSearchError(e);
+    MsgPrinter.printErrorMsg("\nSearch failed.");
+    System.exit(1);
+    return null;
+  }
+}

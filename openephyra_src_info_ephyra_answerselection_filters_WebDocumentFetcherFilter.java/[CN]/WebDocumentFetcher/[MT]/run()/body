@@ -1,0 +1,32 @@
+{
+  String docText=null;
+  int retries=RETRIES;
+  boolean cached=false;
+  do {
+    try {
+      docText=HTMLConverter.url2text(snippet.getDocID());
+      if (docText == null)       MsgPrinter.printHttpError("Document " + snippet.getDocID() + " not available.");
+    }
+ catch (    SocketTimeoutException e) {
+      docText=null;
+      MsgPrinter.printHttpError("Connection to " + snippet.getDocID() + " timed out.");
+    }
+    retries--;
+    if (docText == null && retries < 0 && snippet.getCacheID() != null && !snippet.getCacheID().equals(snippet.getDocID())) {
+      MsgPrinter.printErrorMsg("\nCould not fetch original source, " + "trying cached source instead...");
+      snippet.setDocID(snippet.getCacheID());
+      retries=RETRIES;
+      cached=true;
+    }
+  }
+ while (docText == null && retries >= 0);
+  if (docText != null) {
+    Result doc=new Result(docText,snippet.getQuery(),snippet.getDocID(),snippet.getHitPos());
+    doc.setScore(0);
+    filter.addDoc(doc,cached);
+  }
+ else {
+    MsgPrinter.printErrorMsg("\nCould not fetch document.");
+    filter.addDoc(null,cached);
+  }
+}

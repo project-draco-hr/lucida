@@ -1,0 +1,36 @@
+{
+  if (mapping == null || mapping.size() == 0)   return;
+  int begin_map_index=0;
+  RangeMap begin_rmap=mapping.get(begin_map_index);
+  TREE:   for (  Tree t : tree) {
+    if (t.isLeaf())     continue;
+    MapLabel label=(MapLabel)t.label();
+    int begin=(Integer)label.get(BEGIN_KEY);
+    int end=(Integer)label.get(END_KEY) - 1;
+    while (begin_rmap.end <= begin) {
+      begin_map_index++;
+      if (begin_map_index >= mapping.size())       break TREE;
+      begin_rmap=mapping.get(begin_map_index);
+    }
+    if (begin_rmap.begin > end) {
+      continue;
+    }
+    int new_begin=begin;
+    if (begin_rmap.begin <= new_begin) {
+      new_begin=begin_rmap.map(new_begin);
+    }
+    int end_map_index=begin_map_index;
+    RangeMap end_rmap=begin_rmap;
+    END_OFFSET:     while (end_rmap.end <= end) {
+      end_map_index++;
+      if (end_map_index >= mapping.size())       break END_OFFSET;
+      end_rmap=mapping.get(end_map_index);
+    }
+    int new_end=end;
+    if (end_rmap.begin <= end) {
+      new_end=end_rmap.map(end);
+    }
+    label.put(BEGIN_KEY,new_begin);
+    label.put(END_KEY,new_end + 1);
+  }
+}

@@ -1,0 +1,21 @@
+{
+  initOther();
+  MsgPrinter.printGeneratingQueries();
+  String qn=QuestionNormalizer.normalize(question);
+  MsgPrinter.printNormalization(qn);
+  Logger.logNormalization(qn);
+  String[] kws=KeywordExtractor.getKeywords(qn);
+  AnalyzedQuestion aq=new AnalyzedQuestion(question);
+  aq.setKeywords(kws);
+  aq.setFactoid(false);
+  BagOfWordsG gen=new BagOfWordsG();
+  Query[] queries=gen.generateQueries(aq);
+  for (int q=0; q < queries.length; q++)   queries[q].setOriginalQueryString(question);
+  MsgPrinter.printQueryStrings(queries);
+  Logger.logQueryStrings(queries);
+  MsgPrinter.printSearching();
+  Result[] results=Search.doSearch(queries);
+  MsgPrinter.printSelectingAnswers();
+  results=AnswerSelection.getResults(results,Integer.MAX_VALUE,0);
+  return results;
+}

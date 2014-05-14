@@ -1,0 +1,5 @@
+{
+  this(expr,prop);
+  this.correct=correct;
+  this.wrong=wrong;
+}

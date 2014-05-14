@@ -1,0 +1,25 @@
+{
+  String[] results=new String[parses.length];
+  for (int s=0; s < results.length; s++)   results[s]="";
+  Map[] prevTokenMaps=new HashMap[finders.length];
+  for (int i=0; i < finders.length; i++)   prevTokenMaps[i]=new HashMap();
+  for (  Parse parse : parses) {
+    Parse[] tokens=parse.getTagNodes();
+    String[][] finderTags=new String[finders.length][];
+    for (int i=0; i < finders.length; i++)     finderTags[i]=finders[i].find(tokens,prevTokenMaps[i]);
+    for (int i=0; i < prevTokenMaps.length; i++)     for (int j=0; j < tokens.length; j++)     prevTokenMaps[i].put(tokens[j],finderTags[i][j]);
+    for (int i=0; i < finders.length; i++) {
+      int start=-1;
+      List<Span> names=new ArrayList<Span>(5);
+      for (int j=0; j < tokens.length; j++) {
+        if ((finderTags[i][j].equals(NameFinderME.START) || finderTags[i][j].equals(NameFinderME.OTHER))) {
+          if (start != -1)           names.add(new Span(start,j - 1));
+          start=-1;
+        }
+        if (finderTags[i][j].equals(NameFinderME.START))         start=j;
+      }
+      if (start != -1)       names.add(new Span(start,tokens.length - 1));
+      addNames(finderNames[i],names,tokens);
+    }
+  }
+}

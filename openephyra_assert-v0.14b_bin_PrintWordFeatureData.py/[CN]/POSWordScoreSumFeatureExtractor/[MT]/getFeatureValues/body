@@ -1,0 +1,15 @@
+def getFeatureValues(self, begin, end, semanticParse, syntacticParse):
+    partsOfSpeech = self.partOfSpeechMatcher.findall(syntacticParse)[begin:end]
+    parseWords = self.getParseWords(begin, end, semanticParse)
+    try:
+        assert (len(parseWords) == len(partsOfSpeech))
+    except:
+        print  >> sys.stderr, parseWords
+        print  >> sys.stderr, partsOfSpeech
+        raise
+    parseWords = self.getWordSet(parseWords)
+    score = 0.0
+    for (word, pos) in zip(parseWords, partsOfSpeech):
+        if pos.startswith(self.posPrefix):
+            score += self.wordScoreMap.get(word, 0.0)
+    return [int(round(score))]

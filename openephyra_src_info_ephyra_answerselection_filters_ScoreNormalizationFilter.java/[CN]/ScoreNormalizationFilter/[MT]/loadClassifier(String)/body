@@ -1,0 +1,10 @@
+{
+  try {
+    Object o=FileUtils.readSerialized(new File(classifierFilename));
+    classifier=(Classifier)o;
+  }
+ catch (  Exception e) {
+    MsgPrinter.printErrorMsg("Failed to load classifier:");
+    MsgPrinter.printErrorMsg(e.toString());
+  }
+}

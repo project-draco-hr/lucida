@@ -1,0 +1,9 @@
+{
+  Matcher m=pattern.matcher(sentence);
+  ArrayList<String> results=new ArrayList<String>();
+  while (m.find()) {
+    if (m.group(distID).split(" ").length <= MAX_DIST)     results.add(m.group(propertyID));
+    m.region(m.start() + 1,sentence.length());
+  }
+  return results.toArray(new String[results.size()]);
+}

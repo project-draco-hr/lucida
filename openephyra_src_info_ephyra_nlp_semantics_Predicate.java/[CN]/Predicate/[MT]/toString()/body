@@ -1,0 +1,32 @@
+{
+  HashSet<String> missingSet=new HashSet<String>();
+  for (  String missingArg : missingArgs)   missingSet.add(missingArg);
+  String s=verb + "(";
+  for (int i=0; i < args.length; i++)   if (args[i] != null)   s+="ARG" + i + ": "+ args[i]+ ", ";
+ else   if (missingSet.contains("ARG" + i))   s+="ARG" + i + ": "+ MISSING_ARG+ ", ";
+  if (argLOC != null)   s+="ARGM-LOC: " + argLOC + ", ";
+ else   if (missingSet.contains("ARGM-LOC"))   s+="ARGM-LOC: " + MISSING_ARG + ", ";
+  if (argCAU != null)   s+="ARGM-CAU: " + argCAU + ", ";
+ else   if (missingSet.contains("ARGM-CAU"))   s+="ARGM-CAU: " + MISSING_ARG + ", ";
+  if (argEXT != null)   s+="ARGM-EXT: " + argEXT + ", ";
+ else   if (missingSet.contains("ARGM-EXT"))   s+="ARGM-EXT: " + MISSING_ARG + ", ";
+  if (argTMP != null)   s+="ARGM-TMP: " + argTMP + ", ";
+ else   if (missingSet.contains("ARGM-TMP"))   s+="ARGM-TMP: " + MISSING_ARG + ", ";
+  if (argDIS != null)   s+="ARGM-DIS: " + argDIS + ", ";
+ else   if (missingSet.contains("ARGM-DIS"))   s+="ARGM-DIS: " + MISSING_ARG + ", ";
+  if (argPNC != null)   s+="ARGM-PNC: " + argPNC + ", ";
+ else   if (missingSet.contains("ARGM-PNC"))   s+="ARGM-PNC: " + MISSING_ARG + ", ";
+  if (argADV != null)   s+="ARGM-ADV: " + argADV + ", ";
+ else   if (missingSet.contains("ARGM-ADV"))   s+="ARGM-ADV: " + MISSING_ARG + ", ";
+  if (argMNR != null)   s+="ARGM-MNR: " + argMNR + ", ";
+ else   if (missingSet.contains("ARGM-MNR"))   s+="ARGM-MNR: " + MISSING_ARG + ", ";
+  if (argNEG != null)   s+="ARGM-NEG: " + argNEG + ", ";
+ else   if (missingSet.contains("ARGM-NEG"))   s+="ARGM-NEG: " + MISSING_ARG + ", ";
+  if (argDIR != null)   s+="ARGM-DIR: " + argDIR + ", ";
+ else   if (missingSet.contains("ARGM-DIR"))   s+="ARGM-DIR: " + MISSING_ARG + ", ";
+  if (argMOD != null)   s+="ARGM-MOD: " + argMOD + ", ";
+ else   if (missingSet.contains("ARGM-MOD"))   s+="ARGM-MOD: " + MISSING_ARG + ", ";
+  if (s.endsWith(", "))   s=s.substring(0,s.length() - 2);
+  s+=")";
+  return s;
+}

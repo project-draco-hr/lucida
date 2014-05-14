@@ -1,0 +1,19 @@
+def itermap(func, *iterators):
+    "Iterative version of builtin 'map'."
+    iterators = map(iter, iterators)
+    while True:
+        moreValues = False
+        args = []
+        for (i, iterator) in enumerate(iterators):
+            if (iterator is None):
+                args.append(None)
+            else:
+                try:
+                    args.append(iterator.next())
+                    moreValues = True
+                except StopIteration:
+                    iterators[i] = None
+                    args.append(None)
+        if (not moreValues):
+            raise StopIteration
+        yield (((func is None) and tuple(args)) or func(*args))

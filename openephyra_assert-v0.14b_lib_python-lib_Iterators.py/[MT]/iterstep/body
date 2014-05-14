@@ -1,0 +1,7 @@
+def iterstep(iterator, n):
+    'Iterate every nth value.'
+    iterator = iter(iterator)
+    while True:
+        yield iterator.next()
+        for dummy in range((n - 1)):
+            iterator.next()

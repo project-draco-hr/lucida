@@ -1,0 +1,145 @@
+{
+  if ((results.length == 0) || (targetId == null))   return results;
+  this.lastTarget=results[0].getQuery().getOriginalQueryString();
+  int nonWhiteLength=0;
+  int notifyLength=1000;
+  BufferedWriter br=null;
+  try {
+    br=new BufferedWriter(new FileWriter(this.fileName,true));
+    br.write("===== Assessing target " + targetId + " ("+ results[0].getQuery().getOriginalQueryString()+ ") =====");
+    br.newLine();
+  }
+ catch (  Exception e) {
+  }
+  BufferedWriter cbr=null;
+  try {
+    cbr=new BufferedWriter(new FileWriter(this.conciseFileName,true));
+    cbr.write("===== Assessing target " + targetId + " ("+ results[0].getQuery().getOriginalQueryString()+ ") =====");
+    cbr.newLine();
+  }
+ catch (  Exception e) {
+  }
+  float maxScore=results[0].getScore();
+  boolean maxCutWritten=false;
+  HashSet<TRECNugget> covered=new LinkedHashSet<TRECNugget>();
+  HashMap<TRECNugget,Integer> coveredWhen=new HashMap<TRECNugget,Integer>();
+  int vital=0;
+  int ok=0;
+  for (int i=0; i < 7; i++) {
+    lastVital[i]=0;
+    lastOk[i]=0;
+  }
+  for (int r=0; r < results.length; r++) {
+    Result res=results[r];
+    boolean resWritten=false;
+    String[] tok=res.getAnswer().split("\\s++");
+    for (int t=0; t < tok.length; t++)     nonWhiteLength+=tok[t].length();
+    if ((br != null) && (nonWhiteLength < 7000))     try {
+      br.write("Result " + r + " ("+ res.getScore()+ ") is: "+ res.getAnswer());
+      br.newLine();
+      resWritten=true;
+    }
+ catch (    Exception e) {
+    }
+    if (nonWhiteLength > notifyLength) {
+      int index=((notifyLength - 1) / 1000);
+      if (index < 7) {
+        lastVital[index]=vital;
+        lastOk[index]=ok;
+      }
+      if (br != null)       try {
+        br.write("===== " + notifyLength + " non-white char cutoff ===== ");
+        br.newLine();
+      }
+ catch (      Exception e) {
+      }
+      notifyLength+=1000;
+    }
+    if ((br != null) && !maxCutWritten && ((res.getScore() * 2) < maxScore))     try {
+      br.write("===== half score cutoff ===== ");
+      br.newLine();
+      maxCutWritten=true;
+    }
+ catch (    Exception e) {
+    }
+    int n=0;
+    while (n < nuggets.size()) {
+      TRECNugget nug=nuggets.get(n);
+      String[] uncovered=covers(res.getAnswer(),nug.nugget);
+      if ((uncovered.length * 2) <= nug.size) {
+        if (br != null)         try {
+          if (!resWritten) {
+            br.write("Result " + r + " ("+ res.getScore()+ ") is: "+ res.getAnswer());
+            br.newLine();
+            resWritten=true;
+          }
+          br.write("  Nugget covered (" + nug.nuggetID + ","+ nug.nuggetType+ "): "+ nug.nugget);
+          br.newLine();
+          if (uncovered.length != 0) {
+            br.write("      Uncovered:");
+            for (            String u : uncovered)             br.write(" " + u);
+            br.newLine();
+          }
+        }
+ catch (        Exception e) {
+        }
+        res.addCoveredNuggetID(nug.nuggetID);
+        covered.add(nug);
+        if ((uncovered.length * 4) <= nug.size)         nuggets.remove(n);
+ else         n++;
+        if (!coveredWhen.containsKey(nug)) {
+          if ("vital".equals(nug.nuggetType))           vital++;
+ else           ok++;
+          coveredWhen.put(nug,new Integer(nonWhiteLength));
+        }
+      }
+ else {
+        n++;
+      }
+    }
+    if (resWritten && (br != null))     try {
+      br.newLine();
+    }
+ catch (    Exception e) {
+    }
+  }
+  if (br != null)   try {
+    ArrayList<TRECNugget> coveredNugs=new ArrayList<TRECNugget>(covered);
+    for (    TRECNugget nug : coveredNugs) {
+      int when=-1;
+      if (coveredWhen.containsKey(nug))       when=coveredWhen.get(nug).intValue();
+      br.write("  (probably) covered (" + nug.nuggetID + ","+ nug.nuggetType+ ")"+ ((when == -1) ? "" : (" first at " + when))+ ": "+ nug.nugget);
+      br.newLine();
+    }
+    for (    TRECNugget nug : nuggets) {
+      br.write("  Not (securely) covered (" + nug.nuggetID + ","+ nug.nuggetType+ "): "+ nug.nugget);
+      br.newLine();
+    }
+    br.newLine();
+    br.newLine();
+    br.flush();
+    br.close();
+  }
+ catch (  Exception e) {
+  }
+  if (cbr != null)   try {
+    ArrayList<TRECNugget> coveredNugs=new ArrayList<TRECNugget>(covered);
+    for (    TRECNugget nug : coveredNugs) {
+      int when=-1;
+      if (coveredWhen.containsKey(nug))       when=coveredWhen.get(nug).intValue();
+      cbr.write("  (probably) covered (" + nug.nuggetID + ","+ nug.nuggetType+ ")"+ ((when == -1) ? "" : (" first at " + when))+ ": "+ nug.nugget);
+      cbr.newLine();
+    }
+    for (    TRECNugget nug : nuggets) {
+      cbr.write("  Not (securely) covered (" + nug.nuggetID + ","+ nug.nuggetType+ "): "+ nug.nugget);
+      cbr.newLine();
+    }
+    cbr.newLine();
+    cbr.newLine();
+    cbr.flush();
+    cbr.close();
+  }
+ catch (  Exception e) {
+  }
+  return results;
+}

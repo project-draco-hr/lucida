@@ -1,0 +1,7 @@
+{
+synchronized (Search.results) {
+    for (    Result result : results)     Search.results.add(result);
+    pending--;
+    Search.results.notify();
+  }
+}

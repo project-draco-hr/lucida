@@ -1,0 +1,7 @@
+def __init__(self, tag, word=None):
+    self.tag = tag
+    self.word = word
+    self.start = None
+    self.end = None
+    self.parent = None
+    self.children = []

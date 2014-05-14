@@ -1,0 +1,6 @@
+{
+  if (scores.length < totalExtractors)   return 0;
+  float min=Float.MAX_VALUE;
+  for (  float score : scores)   min=Math.min(min,score);
+  return min;
+}

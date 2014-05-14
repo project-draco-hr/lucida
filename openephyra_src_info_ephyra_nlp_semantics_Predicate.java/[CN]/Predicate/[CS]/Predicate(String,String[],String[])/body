@@ -1,0 +1,4 @@
+{
+  this.verb=verb;
+  appendAll(roles,args);
+}

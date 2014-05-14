@@ -1,0 +1,20 @@
+{
+  HashSet<String> reps=new HashSet<String>();
+  String tag;
+  int id=1;
+  for (  String[] neType : nes)   for (  String ne : neType)   for (  String co : cos)   if (StringUtils.equalsCommonNorm(ne,co))   reps.add(ne);
+  for (  String co : cos) {
+    co="(?i)" + RegexConverter.strToRegexWithBounds(co);
+    Matcher m=Pattern.compile(co).matcher(sentence);
+    while (m.find())     reps.add(m.group(0));
+  }
+  String[] sorted=reps.toArray(new String[reps.size()]);
+  StringUtils.sortByLengthDesc(sorted);
+  for (  String rep : sorted) {
+    tag="<CO_" + id++ + ">";
+    reverseMap.put(tag,rep);
+    rep=RegexConverter.strToRegexWithBounds(rep);
+    sentence=sentence.replaceAll(rep,tag);
+  }
+  return sentence;
+}

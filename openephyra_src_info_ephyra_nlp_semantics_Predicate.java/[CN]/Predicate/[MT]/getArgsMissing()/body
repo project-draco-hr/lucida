@@ -1,0 +1,7 @@
+{
+  String[] args=getArgs();
+  String[] argsMissing=new String[args.length + missingArgs.length];
+  for (int i=0; i < args.length; i++)   argsMissing[i]=args[i];
+  for (int i=0; i < missingArgs.length; i++)   argsMissing[args.length + i]=MISSING_ARG;
+  return argsMissing;
+}

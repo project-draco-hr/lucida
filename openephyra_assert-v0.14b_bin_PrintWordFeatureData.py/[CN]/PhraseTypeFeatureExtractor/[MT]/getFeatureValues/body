@@ -1,0 +1,3 @@
+def getFeatureValues(self, begin, end, semanticParse, syntacticParse):
+    parsePOSSet = sets.Set(self.getParsePhraseTypes(begin, end, syntacticParse))
+    return [int((self.phraseType in parsePOSSet))]

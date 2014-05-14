@@ -1,0 +1,16 @@
+{
+  try {
+    String treeStr=StanfordParser.parse(question);
+    log.debug("Parse: " + treeStr);
+    Tree t=findFocusNode(TreeHelper.buildTree(treeStr,Tree.ENGLISH));
+    if (t != null) {
+      log.debug("Focus: " + TreeHelper.getLeaves(t));
+      return TreeHelper.getLeaves(t);
+    }
+    return null;
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    return null;
+  }
+}

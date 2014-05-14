@@ -1,0 +1,15 @@
+{
+  try {
+    String question="";
+    for (    Term term : terms) {
+      question+=term + " ";
+    }
+    Tree t=findFocusNode(TreeHelper.buildTree(StanfordParser.parse(question),Tree.ENGLISH));
+    if (t != null)     return TreeHelper.getLeaves(t);
+    return null;
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    return null;
+  }
+}

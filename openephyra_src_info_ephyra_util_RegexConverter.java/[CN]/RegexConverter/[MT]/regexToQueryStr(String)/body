@@ -1,0 +1,12 @@
+{
+  regex=regex.replace("\\{","{").replace("\\}","}");
+  regex=regex.replace("\\[","[").replace("\\]","]");
+  regex=regex.replace("\\^","^").replace("\\$","$");
+  regex=regex.replace("\\.",".").replace("\\|","|");
+  regex=regex.replace("\\*","*").replace("\\+","+");
+  regex=regex.replace("\\s+"," ");
+  regex=regex.replaceAll("[^\\(\\)\\s\\|]*\\.\\\\[^\\(\\)\\s\\|]*","");
+  regex=regex.replace("(?:","(");
+  regex=regex.replace(")?","|)");
+  return regex;
+}

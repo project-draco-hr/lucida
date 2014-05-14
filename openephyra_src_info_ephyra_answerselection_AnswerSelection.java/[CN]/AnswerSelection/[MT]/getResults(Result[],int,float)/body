@@ -1,0 +1,16 @@
+{
+  for (  Filter filter : filters) {
+    MsgPrinter.printFilterStarted(filter,results.length);
+    results=filter.apply(results);
+    MsgPrinter.printFilterFinished(filter,results.length);
+  }
+  ArrayList<Result> resultsList=new ArrayList<Result>();
+  for (  Result result : results) {
+    if (maxResults == 0)     break;
+    if (result.getScore() >= minScore) {
+      resultsList.add(result);
+      maxResults--;
+    }
+  }
+  return resultsList.toArray(new Result[resultsList.size()]);
+}

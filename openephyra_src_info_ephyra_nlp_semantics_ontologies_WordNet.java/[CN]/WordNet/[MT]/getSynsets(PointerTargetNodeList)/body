@@ -1,0 +1,8 @@
+{
+  Synset[] synsets=new Synset[nodes.size()];
+  for (int i=0; i < nodes.size(); i++) {
+    PointerTargetNode node=(PointerTargetNode)nodes.get(i);
+    synsets[i]=node.getSynset();
+  }
+  return synsets;
+}

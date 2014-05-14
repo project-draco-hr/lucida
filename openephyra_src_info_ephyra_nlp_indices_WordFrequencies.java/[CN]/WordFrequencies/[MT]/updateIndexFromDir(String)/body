@@ -1,0 +1,8 @@
+{
+  File[] files=FileUtils.getFiles(dir);
+  for (  File file : files) {
+    if (MAX_WORDS > 0 && total >= MAX_WORDS)     return true;
+    if (!updateIndexFromFile(file.getPath()))     return false;
+  }
+  return true;
+}

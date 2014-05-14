@@ -1,0 +1,12 @@
+{
+  if (classifier == null)   return results;
+  for (  Result result : results) {
+    if (result.getScore() <= 0 || result.getScore() == Float.POSITIVE_INFINITY || result.getExtractionTechniques() == null || result.getExtractionTechniques().length != 1)     continue;
+    Instance instance=createInstance(SELECTED_FEATURES,result,results);
+    ClassLabel label=classifier.classification(instance);
+    double weight=label.posProbability();
+    result.setNormScore((float)weight);
+  }
+  results=preserveOrderTop(results);
+  return results;
+}

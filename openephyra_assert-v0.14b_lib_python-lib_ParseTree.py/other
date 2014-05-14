@@ -1,0 +1,24 @@
+import re
+import operator
+if (__name__ == '__main__'):
+    syntacticParse = '(S1 (S (NP (DT Both) (LST) (NNP Coors) (CC and) (NNP Stroh)) (VP (AUX have) (ADVP (RB recently)) (VP (AUX been) (VP (VBG ceding) (NP (NN market) (NN share)) (PP (TO to) (NP (NNP Miller) (CC and) (NNP Anheuser))))))))'
+    print 'SYNTACTIC PARSE'
+    print syntacticParse
+    print 
+    print 'TREE'
+    tree = ParseTreeFactory.fromString(syntacticParse)
+    print tree
+    print 
+    print 'SUBTREES'
+    for subtree in tree.subtrees():
+        print (subtree.start, subtree.end), subtree
+    print 
+    print 'LEAVES'
+    for leaf in tree.leaves():
+        print leaf
+    print 
+    print 'SUBTREE SLICES'
+    leafCount = len(list(tree.leaves()))
+    for i in range((leafCount + 1)):
+        for j in range((i + 1), (leafCount + 1)):
+            print (i, j), list(tree[i:j])

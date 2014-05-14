@@ -1,0 +1,10 @@
+{
+  PointerTargetNodeList substancesOf=null;
+  try {
+    substancesOf=PointerUtils.getInstance().getSubstanceHolonyms(synset);
+  }
+ catch (  JWNLException e) {
+  }
+  if (substancesOf == null)   return null;
+  return getSynsets(substancesOf);
+}

@@ -1,0 +1,11 @@
+{
+  if (word.matches(".*?[^\\w\\s\\.].*+"))   return null;
+  String lemma=getLemma(word,pos);
+  if (lemma == null)   return null;
+  int wordTokens=word.split("\\s",-1).length;
+  int wordDots=word.split("\\.",-1).length;
+  int lemmaTokens=lemma.split("\\s",-1).length;
+  int lemmaDots=lemma.split("\\.",-1).length;
+  if (wordTokens != lemmaTokens || wordDots != lemmaDots)   return null;
+  return lemma;
+}

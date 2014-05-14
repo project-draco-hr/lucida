@@ -1,0 +1,10 @@
+{
+  PointerTargetNodeList entailing=null;
+  try {
+    entailing=PointerUtils.getInstance().getEntailments(synset);
+  }
+ catch (  JWNLException e) {
+  }
+  if (entailing == null)   return null;
+  return getSynsets(entailing);
+}
