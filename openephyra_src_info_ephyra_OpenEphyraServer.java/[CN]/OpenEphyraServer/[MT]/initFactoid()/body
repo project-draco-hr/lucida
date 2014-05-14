@@ -11,12 +11,11 @@
   QueryGeneration.addQueryGenerator(new QuestionInterpretationG());
   QueryGeneration.addQueryGenerator(new QuestionReformulationG());
   Search.clearKnowledgeMiners();
-  for (  String[] indriIndices : IndriKM.getIndriIndices())   Search.addKnowledgeMiner(new IndriKM(indriIndices,false));
+  for (  String[] indriIndices : IndriKM.getIndriIndices())   Search.addKnowledgeMiner(new IndriDocumentKM(indriIndices,false));
   Search.clearKnowledgeAnnotators();
   AnswerSelection.clearFilters();
   AnswerSelection.addFilter(new AnswerTypeFilter());
   AnswerSelection.addFilter(new AnswerPatternFilter());
-  AnswerSelection.addFilter(new WebDocumentFetcherFilter());
   AnswerSelection.addFilter(new PredicateExtractionFilter());
   AnswerSelection.addFilter(new FactoidsFromPredicatesFilter());
   AnswerSelection.addFilter(new TruncationFilter());
