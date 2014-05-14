@@ -1,0 +1,2 @@
+def edge_fontsize(self, weight):
+    return self.fontsize(weight)

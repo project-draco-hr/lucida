@@ -1,0 +1,5 @@
+def consume(self):
+    assert (self.__line is not None)
+    line = self.__line
+    self.readline()
+    return line

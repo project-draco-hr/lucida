@@ -1,0 +1,10 @@
+def __str__(self):
+    if (self.type == XML_ELEMENT_START):
+        return (('<' + self.name_or_data) + ' ...>')
+    if (self.type == XML_ELEMENT_END):
+        return (('</' + self.name_or_data) + '>')
+    if (self.type == XML_CHARACTER_DATA):
+        return self.name_or_data
+    if (self.type == XML_EOF):
+        return 'end of file'
+    assert 0

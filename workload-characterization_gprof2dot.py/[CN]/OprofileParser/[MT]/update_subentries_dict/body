@@ -1,0 +1,8 @@
+def update_subentries_dict(self, totals, partials):
+    for partial in compat_itervalues(partials):
+        try:
+            total = totals[partial.id]
+        except KeyError:
+            totals[partial.id] = partial
+        else:
+            total.samples += partial.samples

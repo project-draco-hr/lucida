@@ -1,0 +1,6 @@
+def __init__(self, stream):
+    Parser.__init__(self)
+    self.stream = stream
+    self.profile = Profile()
+    self.profile[SAMPLES] = 0
+    self.column = {}

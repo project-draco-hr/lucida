@@ -1,0 +1,5 @@
+def get_callee(self):
+    module = self.positions.get('cob', '')
+    filename = self.positions.get('cfi', '')
+    function = self.positions.get('cfn', '')
+    return self.make_function(module, filename, function)

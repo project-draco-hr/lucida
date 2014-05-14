@@ -1,0 +1,5 @@
+def get_function(self):
+    module = self.positions.get('ob', '')
+    filename = self.positions.get('fl', '')
+    function = self.positions.get('fn', '')
+    return self.make_function(module, filename, function)

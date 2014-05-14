@@ -1,0 +1,18 @@
+def parse_position_spec(self):
+    line = self.lookahead()
+    if (line.startswith('jump=') or line.startswith('jcnd=')):
+        self.consume()
+        return True
+    mo = self._position_re.match(line)
+    if (not mo):
+        return False
+    (position, id, name) = mo.groups()
+    if id:
+        table = self._position_table_map[position]
+        if name:
+            self.position_ids[(table, id)] = name
+        else:
+            name = self.position_ids.get((table, id), '')
+    self.positions[self._position_map[position]] = name
+    self.consume()
+    return True

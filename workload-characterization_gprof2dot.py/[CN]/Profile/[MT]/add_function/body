@@ -1,0 +1,4 @@
+def add_function(self, function):
+    if (function.id in self.functions):
+        sys.stderr.write(('warning: overwriting function %s (id %s)\n' % (function.name, str(function.id))))
+    self.functions[function.id] = function

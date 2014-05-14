@@ -1,0 +1,3 @@
+def parse_traces(self):
+    while self.lookahead().startswith('TRACE '):
+        self.parse_trace()

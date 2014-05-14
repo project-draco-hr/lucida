@@ -1,0 +1,24 @@
+def _integrate_cycle_function(self, cycle, function, partial_ratio, partials, ranks, call_ratios, outevent, inevent):
+    if (function not in partials):
+        partial = (partial_ratio * function[inevent])
+        for call in compat_itervalues(function.calls):
+            if (call.callee_id != function.id):
+                callee = self.functions[call.callee_id]
+                if (callee.cycle is not cycle):
+                    assert (outevent in call)
+                    partial += (partial_ratio * call[outevent])
+                elif (ranks[callee] > ranks[function]):
+                    callee_partial = self._integrate_cycle_function(cycle, callee, partial_ratio, partials, ranks, call_ratios, outevent, inevent)
+                    call_ratio = ratio(call.ratio, call_ratios[callee])
+                    call_partial = (call_ratio * callee_partial)
+                    try:
+                        call[outevent] += call_partial
+                    except UndefinedEvent:
+                        call[outevent] = call_partial
+                    partial += call_partial
+        partials[function] = partial
+        try:
+            function[outevent] += partial
+        except UndefinedEvent:
+            function[outevent] = partial
+    return partials[function]

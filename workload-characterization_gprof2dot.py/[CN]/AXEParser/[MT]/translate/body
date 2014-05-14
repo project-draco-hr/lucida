@@ -1,0 +1,13 @@
+def translate(self, mo):
+    'Extract a structure from a match object, while translating the types in the process.'
+    attrs = {}
+    groupdict = mo.groupdict()
+    for (name, value) in compat_iteritems(groupdict):
+        if (value is None):
+            value = None
+        elif self._int_re.match(value):
+            value = int(value)
+        elif self._float_re.match(value):
+            value = float(value)
+        attrs[name] = value
+    return Struct(attrs)

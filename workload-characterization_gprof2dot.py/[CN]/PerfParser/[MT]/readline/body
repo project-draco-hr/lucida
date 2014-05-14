@@ -1,0 +1,5 @@
+def readline(self):
+    while True:
+        LineParser.readline(self)
+        if (self.eof() or (not self.lookahead().startswith('#'))):
+            break

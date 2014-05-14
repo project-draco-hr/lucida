@@ -1,0 +1,5 @@
+def naturalJoin(values):
+    if (len(values) >= 2):
+        return ((', '.join(values[:(-1)]) + ' or ') + values[(-1)])
+    else:
+        return ''.join(values)

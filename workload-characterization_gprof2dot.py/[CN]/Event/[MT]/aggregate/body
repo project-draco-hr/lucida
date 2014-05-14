@@ -1,0 +1,5 @@
+def aggregate(self, val1, val2):
+    'Aggregate two event values.'
+    assert (val1 is not None)
+    assert (val2 is not None)
+    return self._aggregator(val1, val2)

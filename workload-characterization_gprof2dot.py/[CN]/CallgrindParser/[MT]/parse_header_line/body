@@ -1,0 +1,2 @@
+def parse_header_line(self):
+    return (self.parse_empty() or self.parse_comment() or self.parse_part_detail() or self.parse_description() or self.parse_event_specification() or self.parse_cost_line_def() or self.parse_cost_summary())

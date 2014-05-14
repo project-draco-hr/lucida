@@ -1,0 +1,62 @@
+'Generate a dot graph from the output of several profilers.'
+__author__ = 'Jose Fonseca et al'
+import sys
+import math
+import os.path
+import re
+import textwrap
+import optparse
+import xml.parsers.expat
+import collections
+import locale
+import json
+if (sys.version_info[0] >= 3):
+    PYTHON_3 = True
+
+    def compat_iteritems(x):
+        return x.items()
+
+    def compat_itervalues(x):
+        return x.values()
+
+    def compat_keys(x):
+        return list(x.keys())
+    basestring = str
+    unichr = chr
+    xrange = range
+else:
+    PYTHON_3 = False
+
+    def compat_iteritems(x):
+        return x.iteritems()
+
+    def compat_itervalues(x):
+        return x.itervalues()
+
+    def compat_keys(x):
+        return x.keys()
+try:
+    import debug
+except ImportError:
+    pass
+MULTIPLICATION_SIGN = unichr(215)
+tol = (2 ** (-23))
+CALLS = Event('Calls', 0, add, times)
+SAMPLES = Event('Samples', 0, add, times)
+SAMPLES2 = Event('Samples', 0, add, times)
+TOTAL_SAMPLES = Event('Samples', 0, add, times)
+TIME = Event('Time', 0.0, add, (lambda x: (('(' + str(x)) + ')')))
+TIME_RATIO = Event('Time ratio', 0.0, add, (lambda x: (('(' + percentage(x)) + ')')))
+TOTAL_TIME = Event('Total time', 0.0, fail)
+TOTAL_TIME_RATIO = Event('Total time ratio', 0.0, fail, percentage)
+totalMethod = 'callratios'
+(XML_ELEMENT_START, XML_ELEMENT_END, XML_CHARACTER_DATA, XML_EOF) = range(4)
+formats = {'axe': AXEParser, 'callgrind': CallgrindParser, 'hprof': HProfParser, 'json': JsonParser, 'oprofile': OprofileParser, 'perf': PerfParser, 'prof': GprofParser, 'pstats': PstatsParser, 'sleepy': SleepyParser, 'sysprof': SysprofParser, 'xperf': XPerfParser, }
+TEMPERATURE_COLORMAP = Theme(mincolor=((2.0 / 3.0), 0.8, 0.25), maxcolor=(0.0, 1.0, 0.5), gamma=1.0)
+PINK_COLORMAP = Theme(mincolor=(0.0, 1.0, 0.9), maxcolor=(0.0, 1.0, 0.5))
+GRAY_COLORMAP = Theme(mincolor=(0.0, 0.0, 0.85), maxcolor=(0.0, 0.0, 0.0))
+BW_COLORMAP = Theme(minfontsize=8.0, maxfontsize=24.0, mincolor=(0.0, 0.0, 0.0), maxcolor=(0.0, 0.0, 0.0), minpenwidth=0.1, maxpenwidth=8.0)
+PRINT_COLORMAP = Theme(minfontsize=18.0, maxfontsize=30.0, fontcolor='black', nodestyle='solid', mincolor=(0.0, 0.0, 0.0), maxcolor=(0.0, 0.0, 0.0), minpenwidth=0.1, maxpenwidth=8.0)
+themes = {'color': TEMPERATURE_COLORMAP, 'pink': PINK_COLORMAP, 'gray': GRAY_COLORMAP, 'bw': BW_COLORMAP, 'print': PRINT_COLORMAP, }
+if (__name__ == '__main__'):
+    main()

@@ -1,0 +1,16 @@
+def parse(self):
+    import csv
+    reader = csv.reader(self.stream, delimiter=',', quotechar=None, escapechar=None, doublequote=False, skipinitialspace=True, lineterminator='\r\n', quoting=csv.QUOTE_NONE)
+    header = True
+    for row in reader:
+        if header:
+            self.parse_header(row)
+            header = False
+        else:
+            self.parse_row(row)
+    self.profile.validate()
+    self.profile.find_cycles()
+    self.profile.ratio(TIME_RATIO, SAMPLES)
+    self.profile.call_ratios(SAMPLES2)
+    self.profile.integrate(TOTAL_TIME_RATIO, TIME_RATIO)
+    return self.profile

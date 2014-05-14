@@ -1,0 +1,20 @@
+def parse_callstacks(self):
+    for line in self.openEntry('Callstacks.txt'):
+        line = line.decode('UTF-8')
+        fields = line.split()
+        samples = float(fields[0])
+        callstack = fields[1:]
+        callstack = [self.symbols[symbol_id] for symbol_id in callstack]
+        callee = callstack[0]
+        callee[SAMPLES] += samples
+        self.profile[SAMPLES] += samples
+        for caller in callstack[1:]:
+            try:
+                call = caller.calls[callee.id]
+            except KeyError:
+                call = Call(callee.id)
+                call[SAMPLES2] = samples
+                caller.add_call(call)
+            else:
+                call[SAMPLES2] += samples
+            callee = caller

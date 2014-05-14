@@ -1,0 +1,45 @@
+def parse(self):
+    self.parse_cg()
+    self.fp.close()
+    profile = Profile()
+    profile[TIME] = 0.0
+    cycles = {}
+    for index in self.cycles:
+        cycles[index] = Cycle()
+    for entry in compat_itervalues(self.functions):
+        function = Function(entry.index, entry.name)
+        function[TIME] = entry.self
+        if (entry.called is not None):
+            function.called = entry.called
+        if (entry.called_self is not None):
+            call = Call(entry.index)
+            call[CALLS] = entry.called_self
+            function.called += entry.called_self
+        for child in entry.children:
+            call = Call(child.index)
+            assert (child.called is not None)
+            call[CALLS] = child.called
+            if (child.index not in self.functions):
+                missing = Function(child.index, child.name)
+                function[TIME] = 0.0
+                function.called = 0
+                profile.add_function(missing)
+            function.add_call(call)
+        profile.add_function(function)
+        if (entry.cycle is not None):
+            try:
+                cycle = cycles[entry.cycle]
+            except KeyError:
+                sys.stderr.write(('warning: <cycle %u as a whole> entry missing\n' % entry.cycle))
+                cycle = Cycle()
+                cycles[entry.cycle] = cycle
+            cycle.add_function(function)
+        profile[TIME] = (profile[TIME] + function[TIME])
+    for cycle in compat_itervalues(cycles):
+        profile.add_cycle(cycle)
+    profile.validate()
+    profile.ratio(TIME_RATIO, TIME)
+    profile.call_ratios(CALLS)
+    profile.integrate(TOTAL_TIME, TIME)
+    profile.ratio(TOTAL_TIME_RATIO, TOTAL_TIME)
+    return profile

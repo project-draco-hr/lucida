@@ -1,0 +1,17 @@
+def hsl_to_rgb(self, h, s, l):
+    'Convert a color from HSL color-model to RGB.\n\n        See also:\n        - http://www.w3.org/TR/css3-color/#hsl-color\n        '
+    h = (h % 1.0)
+    s = min(max(s, 0.0), 1.0)
+    l = min(max(l, 0.0), 1.0)
+    if (l <= 0.5):
+        m2 = (l * (s + 1.0))
+    else:
+        m2 = ((l + s) - (l * s))
+    m1 = ((l * 2.0) - m2)
+    r = self._hue_to_rgb(m1, m2, (h + (1.0 / 3.0)))
+    g = self._hue_to_rgb(m1, m2, h)
+    b = self._hue_to_rgb(m1, m2, (h - (1.0 / 3.0)))
+    r **= self.gamma
+    g **= self.gamma
+    b **= self.gamma
+    return (r, g, b)

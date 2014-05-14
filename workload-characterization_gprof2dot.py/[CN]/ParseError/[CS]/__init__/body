@@ -1,0 +1,4 @@
+def __init__(self, msg, line):
+    Exception.__init__(self)
+    self.msg = msg
+    self.line = line

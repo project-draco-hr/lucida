@@ -1,0 +1,6 @@
+def parse_item(self, name):
+    attrs = self.element_start(name)
+    id = int(attrs['id'])
+    values = self.parse_values()
+    self.element_end(name)
+    return (id, values)

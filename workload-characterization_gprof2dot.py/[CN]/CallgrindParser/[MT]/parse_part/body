@@ -1,0 +1,10 @@
+def parse_part(self):
+    if (not self.parse_header_line()):
+        return False
+    while self.parse_header_line():
+        pass
+    if (not self.parse_body_line()):
+        return False
+    while self.parse_body_line():
+        pass
+    return True

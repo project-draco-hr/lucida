@@ -1,0 +1,34 @@
+def parse_subentry(self):
+    entry = Struct()
+    line = self.consume()
+    mo = self.entry_re.match(line)
+    if (not mo):
+        raise ParseError('failed to parse', line)
+    fields = mo.groupdict()
+    entry.samples = int(mo.group(1))
+    if (('source' in fields) and (fields['source'] != '(no location information)')):
+        source = fields['source']
+        (filename, lineno) = source.split(':')
+        entry.filename = filename
+        entry.lineno = int(lineno)
+    else:
+        source = ''
+        entry.filename = None
+        entry.lineno = None
+    entry.image = fields.get('image', '')
+    entry.application = fields.get('application', '')
+    if (('symbol' in fields) and (fields['symbol'] != '(no symbols)')):
+        entry.symbol = fields['symbol']
+    else:
+        entry.symbol = ''
+    if (entry.symbol.startswith('"') and entry.symbol.endswith('"')):
+        entry.symbol = entry.symbol[1:(-1)]
+    entry.id = ':'.join((entry.application, entry.image, source, entry.symbol))
+    entry.self = (fields.get('self', None) != None)
+    if entry.self:
+        entry.id += ':self'
+    if entry.symbol:
+        entry.name = entry.symbol
+    else:
+        entry.name = entry.image
+    return entry

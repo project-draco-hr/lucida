@@ -1,0 +1,10 @@
+def __init__(self, id, name):
+    Object.__init__(self)
+    self.id = id
+    self.name = name
+    self.module = None
+    self.process = None
+    self.calls = {}
+    self.called = None
+    self.weight = None
+    self.cycle = None

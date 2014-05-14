@@ -1,0 +1,10 @@
+def parse_callchain(self):
+    callchain = []
+    while self.lookahead():
+        function = self.parse_call()
+        if (function is None):
+            break
+        callchain.append(function)
+    if (self.lookahead() == ''):
+        self.consume()
+    return callchain

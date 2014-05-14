@@ -1,0 +1,12 @@
+def make_function(self, module, filename, name):
+    id = name
+    try:
+        function = self.profile.functions[id]
+    except KeyError:
+        function = Function(id, name)
+        if module:
+            function.module = os.path.basename(module)
+        function[SAMPLES] = 0
+        function.called = 0
+        self.profile.add_function(function)
+    return function

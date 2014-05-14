@@ -1,0 +1,42 @@
+def parse(self):
+    sys.stderr.write('warning: for axe format, edge weights are unreliable estimates derived from\nfunction total times.\n')
+    self.parse_cg()
+    self.fp.close()
+    profile = Profile()
+    profile[TIME] = 0.0
+    cycles = {}
+    for index in self.cycles:
+        cycles[index] = Cycle()
+    for entry in compat_itervalues(self.functions):
+        function = Function(entry.index, entry.name)
+        function[TIME] = entry.self
+        function[TOTAL_TIME_RATIO] = (entry.percentage_time / 100.0)
+        for child in entry.children:
+            call = Call(child.index)
+            call[TOTAL_TIME_RATIO] = function[TOTAL_TIME_RATIO]
+            if (child.index not in self.functions):
+                missing = Function(child.index, child.name)
+                function[TIME] = 0.0
+                profile.add_function(missing)
+            function.add_call(call)
+        profile.add_function(function)
+        if (entry.cycle is not None):
+            try:
+                cycle = cycles[entry.cycle]
+            except KeyError:
+                sys.stderr.write(('warning: <cycle %u as a whole> entry missing\n' % entry.cycle))
+                cycle = Cycle()
+                cycles[entry.cycle] = cycle
+            cycle.add_function(function)
+        profile[TIME] = (profile[TIME] + function[TIME])
+    for cycle in compat_itervalues(cycles):
+        profile.add_cycle(cycle)
+    profile.validate()
+    profile.ratio(TIME_RATIO, TIME)
+    profile.call_ratios(TOTAL_TIME_RATIO)
+    for function in compat_itervalues(profile.functions):
+        for call in compat_itervalues(function.calls):
+            if (call.ratio is not None):
+                callee = profile.functions[call.callee_id]
+                call[TOTAL_TIME_RATIO] = (call.ratio * callee[TOTAL_TIME_RATIO])
+    return profile

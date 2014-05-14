@@ -1,0 +1,2 @@
+def graph_fontname(self):
+    return self.fontname

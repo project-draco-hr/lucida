@@ -1,0 +1,14 @@
+def ratio(numerator, denominator):
+    try:
+        ratio = (float(numerator) / float(denominator))
+    except ZeroDivisionError:
+        return 1.0
+    if (ratio < 0.0):
+        if (ratio < (- tol)):
+            sys.stderr.write(('warning: negative ratio (%s/%s)\n' % (numerator, denominator)))
+        return 0.0
+    if (ratio > 1.0):
+        if (ratio > (1.0 + tol)):
+            sys.stderr.write(('warning: ratio greater than one (%s/%s)\n' % (numerator, denominator)))
+        return 1.0
+    return ratio

@@ -1,0 +1,24 @@
+def parse_event(self):
+    if self.eof():
+        return
+    line = self.consume()
+    assert line
+    callchain = self.parse_callchain()
+    if (not callchain):
+        return
+    callee = callchain[0]
+    callee[SAMPLES] += 1
+    self.profile[SAMPLES] += 1
+    for caller in callchain[1:]:
+        try:
+            call = caller.calls[callee.id]
+        except KeyError:
+            call = Call(callee.id)
+            call[SAMPLES2] = 1
+            caller.add_call(call)
+        else:
+            call[SAMPLES2] += 1
+        callee = caller
+    stack = set(callchain)
+    for function in stack:
+        function[TOTAL_SAMPLES] += 1

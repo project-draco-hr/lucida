@@ -1,0 +1,16 @@
+def parse_cycle_entry(self, lines):
+    line = lines[0]
+    mo = self._cg_cycle_header_re.match(line)
+    if (not mo):
+        sys.stderr.write(('warning: unrecognized call graph entry: %r\n' % line))
+        return
+    cycle = self.translate(mo)
+    cycle.functions = []
+    for line in lines[1:]:
+        mo = self._cg_cycle_member_re.match(line)
+        if (not mo):
+            sys.stderr.write(('warning: unrecognized call graph entry: %r\n' % line))
+            continue
+        call = self.translate(mo)
+        cycle.functions.append(call)
+    self.cycles[cycle.cycle] = cycle

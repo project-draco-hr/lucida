@@ -1,0 +1,4 @@
+def handle_character_data(self, data):
+    if (not self.character_data):
+        self.character_pos = self.pos()
+    self.character_data += data

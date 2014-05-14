@@ -1,0 +1,15 @@
+def next(self):
+    size = (16 * 1024)
+    while ((self.index >= len(self.tokens)) and (not self.final)):
+        self.tokens = []
+        self.index = 0
+        data = self.fp.read(size)
+        self.final = (len(data) < size)
+        self.parser.Parse(data, self.final)
+    if (self.index >= len(self.tokens)):
+        (line, column) = self.pos()
+        token = XmlToken(XML_EOF, None, None, line, column)
+    else:
+        token = self.tokens[self.index]
+        self.index += 1
+    return token

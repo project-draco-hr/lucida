@@ -1,0 +1,2 @@
+def graph_fontcolor(self):
+    return self.fontcolor

@@ -1,0 +1,2 @@
+def graph_bgcolor(self):
+    return self.hsl_to_rgb(*self.bgcolor)

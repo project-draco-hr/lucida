@@ -1,0 +1,4 @@
+def __init__(self, expected, found):
+    Exception.__init__(self)
+    self.expected = expected
+    self.found = found

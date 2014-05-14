@@ -1,0 +1,11 @@
+def parse(self):
+    profile = self.profile
+    profile[SAMPLES] = 0
+    self.parse_symbols()
+    self.parse_callstacks()
+    profile.validate()
+    profile.find_cycles()
+    profile.ratio(TIME_RATIO, SAMPLES)
+    profile.call_ratios(SAMPLES2)
+    profile.integrate(TOTAL_TIME_RATIO, TIME_RATIO)
+    return profile

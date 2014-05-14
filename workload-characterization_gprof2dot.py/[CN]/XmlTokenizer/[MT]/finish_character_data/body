@@ -1,0 +1,7 @@
+def finish_character_data(self):
+    if self.character_data:
+        if ((not self.skip_ws) or (not self.character_data.isspace())):
+            (line, column) = self.character_pos
+            token = XmlToken(XML_CHARACTER_DATA, self.character_data, None, line, column)
+            self.tokens.append(token)
+        self.character_data = ''

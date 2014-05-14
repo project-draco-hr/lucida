@@ -1,0 +1,7 @@
+def _integrate_call(self, call, outevent, inevent):
+    assert (outevent not in call)
+    assert (call.ratio is not None)
+    callee = self.functions[call.callee_id]
+    subtotal = (call.ratio * self._integrate_function(callee, outevent, inevent))
+    call[outevent] = subtotal
+    return subtotal

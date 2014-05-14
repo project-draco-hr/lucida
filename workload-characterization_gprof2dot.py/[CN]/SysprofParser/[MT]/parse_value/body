@@ -1,0 +1,9 @@
+def parse_value(self, tag):
+    self.element_start(tag)
+    value = self.character_data()
+    self.element_end(tag)
+    if value.isdigit():
+        return int(value)
+    if (value.startswith('"') and value.endswith('"')):
+        return value[1:(-1)]
+    return value

@@ -1,0 +1,14 @@
+def attr_list(self, attrs):
+    if (not attrs):
+        return
+    self.write(' [')
+    first = True
+    for (name, value) in sorted_iteritems(attrs):
+        if first:
+            first = False
+        else:
+            self.write(', ')
+        self.id(name)
+        self.write('=')
+        self.id(value)
+    self.write(']')

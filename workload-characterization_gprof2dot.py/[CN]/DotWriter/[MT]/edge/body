@@ -1,0 +1,7 @@
+def edge(self, src, dst, **attrs):
+    self.write('\t')
+    self.id(src)
+    self.write(' -> ')
+    self.id(dst)
+    self.attr_list(attrs)
+    self.write(';\n')

@@ -1,0 +1,5 @@
+def __init__(self, name, null, aggregator, formatter=str):
+    self.name = name
+    self._null = null
+    self._aggregator = aggregator
+    self._formatter = formatter

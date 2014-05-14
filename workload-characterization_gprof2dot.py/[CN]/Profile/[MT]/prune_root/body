@@ -1,0 +1,13 @@
+def prune_root(self, root):
+    visited = set()
+    frontier = set([root])
+    while (len(frontier) > 0):
+        node = frontier.pop()
+        visited.add(node)
+        f = self.functions[node]
+        newNodes = f.calls.keys()
+        frontier = frontier.union((set(newNodes) - visited))
+    subtreeFunctions = {}
+    for n in visited:
+        subtreeFunctions[n] = self.functions[n]
+    self.functions = subtreeFunctions

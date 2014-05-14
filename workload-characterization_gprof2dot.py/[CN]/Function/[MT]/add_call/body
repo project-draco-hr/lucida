@@ -1,0 +1,4 @@
+def add_call(self, call):
+    if (call.callee_id in self.calls):
+        sys.stderr.write(('warning: overwriting call from function %s to %s\n' % (str(self.id), str(call.callee_id))))
+    self.calls[call.callee_id] = call

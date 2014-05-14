@@ -1,0 +1,41 @@
+def build_profile(self, objects, nodes):
+    profile = Profile()
+    profile[SAMPLES] = 0
+    for (id, object) in compat_iteritems(objects):
+        if (object['self'] == 0):
+            continue
+        function = Function(id, object['name'])
+        function[SAMPLES] = object['self']
+        profile.add_function(function)
+        profile[SAMPLES] += function[SAMPLES]
+    for (id, node) in compat_iteritems(nodes):
+        if (node['self'] == 0):
+            continue
+        parent_id = node['parent']
+        while (parent_id != 0):
+            parent = nodes[parent_id]
+            caller_id = parent['object']
+            if (objects[caller_id]['self'] != 0):
+                break
+            parent_id = parent['parent']
+        if (parent_id == 0):
+            continue
+        callee_id = node['object']
+        assert objects[caller_id]['self']
+        assert objects[callee_id]['self']
+        function = profile.functions[caller_id]
+        samples = node['self']
+        try:
+            call = function.calls[callee_id]
+        except KeyError:
+            call = Call(callee_id)
+            call[SAMPLES2] = samples
+            function.add_call(call)
+        else:
+            call[SAMPLES2] += samples
+    profile.validate()
+    profile.find_cycles()
+    profile.ratio(TIME_RATIO, SAMPLES)
+    profile.call_ratios(SAMPLES2)
+    profile.integrate(TOTAL_TIME_RATIO, TIME_RATIO)
+    return profile

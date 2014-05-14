@@ -1,0 +1,2 @@
+def __str__(self):
+    return ('%u:%u: %s expected, %s found' % (self.found.line, self.found.column, str(self.expected), str(self.found)))

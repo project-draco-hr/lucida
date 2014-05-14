@@ -1,0 +1,6 @@
+def parse_subentries(self):
+    subentries = {}
+    while self.match_secondary():
+        subentry = self.parse_subentry()
+        subentries[subentry.id] = subentry
+    return subentries

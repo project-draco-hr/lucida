@@ -1,0 +1,2 @@
+def parse_part_detail(self):
+    return self.parse_keys(self._detail_keys)

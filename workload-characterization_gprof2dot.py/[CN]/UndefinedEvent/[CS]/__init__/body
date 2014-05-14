@@ -1,0 +1,3 @@
+def __init__(self, event):
+    Exception.__init__(self)
+    self.event = event

@@ -1,0 +1,5 @@
+def attr(self, what, **attrs):
+    self.write('\t')
+    self.write(what)
+    self.attr_list(attrs)
+    self.write(';\n')

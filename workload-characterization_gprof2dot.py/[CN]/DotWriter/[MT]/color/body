@@ -1,0 +1,10 @@
+def color(self, rgb):
+    (r, g, b) = rgb
+
+    def float2int(f):
+        if (f <= 0.0):
+            return 0
+        if (f >= 1.0):
+            return 255
+        return int(((255.0 * f) + 0.5))
+    return ('#' + ''.join([('%02x' % float2int(c)) for c in (r, g, b)]))

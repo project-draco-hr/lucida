@@ -1,0 +1,2 @@
+def fontsize(self, weight):
+    return max(((weight ** 2) * self.maxfontsize), self.minfontsize)

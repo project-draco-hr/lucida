@@ -1,0 +1,4 @@
+def __init__(self, infile):
+    LineParser.__init__(self, infile)
+    self.entries = {}
+    self.entry_re = None

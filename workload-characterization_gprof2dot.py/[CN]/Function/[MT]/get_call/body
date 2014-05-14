@@ -1,0 +1,8 @@
+def get_call(self, callee_id):
+    if (not (callee_id in self.calls)):
+        call = Call(callee_id)
+        call[SAMPLES] = 0
+        call[SAMPLES2] = 0
+        call[CALLS] = 0
+        self.calls[callee_id] = call
+    return self.calls[callee_id]

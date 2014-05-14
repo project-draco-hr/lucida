@@ -1,0 +1,7 @@
+def parse_samples(self):
+    self.consume()
+    self.consume()
+    while (not self.lookahead().startswith('CPU')):
+        (rank, percent_self, percent_accum, count, traceid, method) = self.lookahead().split()
+        self.samples[int(traceid)] = (int(count), method)
+        self.consume()

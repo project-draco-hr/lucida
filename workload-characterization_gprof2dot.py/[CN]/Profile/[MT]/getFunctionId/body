@@ -1,0 +1,5 @@
+def getFunctionId(self, funcName):
+    for f in self.functions:
+        if (self.functions[f].name == funcName):
+            return f
+    return False

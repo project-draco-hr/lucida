@@ -1,0 +1,10 @@
+def element_start(self, name):
+    while (self.token.type == XML_CHARACTER_DATA):
+        self.consume()
+    if (self.token.type != XML_ELEMENT_START):
+        raise XmlTokenMismatch(XmlToken(XML_ELEMENT_START, name), self.token)
+    if (self.token.name_or_data != name):
+        raise XmlTokenMismatch(XmlToken(XML_ELEMENT_START, name), self.token)
+    attrs = self.token.attrs
+    self.consume()
+    return attrs

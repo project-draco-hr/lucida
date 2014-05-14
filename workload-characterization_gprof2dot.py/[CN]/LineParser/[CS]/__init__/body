@@ -1,0 +1,6 @@
+def __init__(self, stream):
+    Parser.__init__(self)
+    self._stream = stream
+    self.__line = None
+    self.__eof = False
+    self.line_no = 0

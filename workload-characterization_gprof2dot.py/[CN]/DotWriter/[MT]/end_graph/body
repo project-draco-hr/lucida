@@ -1,0 +1,2 @@
+def end_graph(self):
+    self.write('}\n')

@@ -1,0 +1,5 @@
+def parse_cost_summary(self):
+    pair = self.parse_keys(('summary', 'totals'))
+    if (pair is None):
+        return False
+    return True

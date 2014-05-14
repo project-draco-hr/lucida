@@ -1,0 +1,12 @@
+def get_function(self, process, symbol):
+    function_id = ((process + '!') + symbol)
+    try:
+        function = self.profile.functions[function_id]
+    except KeyError:
+        (module, name) = symbol.split('!', 1)
+        function = Function(function_id, name)
+        function.process = process
+        function.module = module
+        function[SAMPLES] = 0
+        self.profile.add_function(function)
+    return function

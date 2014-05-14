@@ -1,0 +1,24 @@
+def prune_leaf(self, leaf):
+    edgesUp = collections.defaultdict(set)
+    for f in self.functions.keys():
+        for n in self.functions[f].calls.keys():
+            edgesUp[n].add(f)
+    visited = set()
+    frontier = set([leaf])
+    while (len(frontier) > 0):
+        node = frontier.pop()
+        visited.add(node)
+        frontier = frontier.union((edgesUp[node] - visited))
+    downTree = set(self.functions.keys())
+    upTree = visited
+    path = downTree.intersection(upTree)
+    pathFunctions = {}
+    for n in path:
+        f = self.functions[n]
+        newCalls = {}
+        for c in f.calls.keys():
+            if (c in path):
+                newCalls[c] = f.calls[c]
+        f.calls = newCalls
+        pathFunctions[n] = f
+    self.functions = pathFunctions

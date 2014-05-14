@@ -1,0 +1,6 @@
+def __setitem__(self, event, value):
+    if (value is None):
+        if (event in self.events):
+            del self.events[event]
+    else:
+        self.events[event] = value

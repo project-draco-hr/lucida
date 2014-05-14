@@ -1,0 +1,15 @@
+def parse(self):
+    self.readline()
+    self.parse_key('version')
+    self.parse_key('creator')
+    while self.parse_part():
+        pass
+    if (not self.eof()):
+        sys.stderr.write(('warning: line %u: unexpected line\n' % self.line_no))
+        sys.stderr.write(('%s\n' % self.lookahead()))
+    self.profile.validate()
+    self.profile.find_cycles()
+    self.profile.ratio(TIME_RATIO, SAMPLES)
+    self.profile.call_ratios(CALLS)
+    self.profile.integrate(TOTAL_TIME_RATIO, TIME_RATIO)
+    return self.profile

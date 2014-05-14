@@ -1,0 +1,8 @@
+def escape(self, s):
+    if (not PYTHON_3):
+        s = s.encode('utf-8')
+    s = s.replace('\\', '\\\\')
+    s = s.replace('\n', '\\n')
+    s = s.replace('\t', '\\t')
+    s = s.replace('"', '\\"')
+    return (('"' + s) + '"')

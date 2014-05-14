@@ -1,0 +1,16 @@
+def find_cycles(self):
+    "Find cycles using Tarjan's strongly connected components algorithm."
+    visited = set()
+    for function in compat_itervalues(self.functions):
+        if (function not in visited):
+            self._tarjan(function, 0, [], {}, {}, visited)
+    cycles = []
+    for function in compat_itervalues(self.functions):
+        if ((function.cycle is not None) and (function.cycle not in cycles)):
+            cycles.append(function.cycle)
+    self.cycles = cycles
+    if 0:
+        for cycle in cycles:
+            sys.stderr.write('Cycle:\n')
+            for member in cycle.functions:
+                sys.stderr.write(('\tFunction %s\n' % member.name))

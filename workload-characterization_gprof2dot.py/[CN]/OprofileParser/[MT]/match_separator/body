@@ -1,0 +1,3 @@
+def match_separator(self):
+    line = self.lookahead()
+    return (line == ('-' * len(line)))

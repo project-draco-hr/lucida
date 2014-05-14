@@ -1,0 +1,40 @@
+def parse_row(self, row):
+    fields = {}
+    for (name, column) in compat_iteritems(self.column):
+        value = row[column]
+        for factory in (int, float):
+            try:
+                value = factory(value)
+            except ValueError:
+                pass
+            else:
+                break
+        fields[name] = value
+    process = fields['Process Name']
+    symbol = ((fields['Module'] + '!') + fields['Function'])
+    weight = fields['Weight']
+    count = fields['Count']
+    if (process == 'Idle'):
+        return
+    function = self.get_function(process, symbol)
+    function[SAMPLES] += (weight * count)
+    self.profile[SAMPLES] += (weight * count)
+    stack = fields['Stack']
+    if (stack != '?'):
+        stack = stack.split('/')
+        assert (stack[0] == '[Root]')
+        if (stack[(-1)] != symbol):
+            stack.append(symbol)
+        caller = None
+        for symbol in stack[1:]:
+            callee = self.get_function(process, symbol)
+            if (caller is not None):
+                try:
+                    call = caller.calls[callee.id]
+                except KeyError:
+                    call = Call(callee.id)
+                    call[SAMPLES2] = count
+                    caller.add_call(call)
+                else:
+                    call[SAMPLES2] += count
+            caller = callee

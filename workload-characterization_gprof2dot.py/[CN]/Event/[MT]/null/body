@@ -1,0 +1,2 @@
+def null(self):
+    return self._null

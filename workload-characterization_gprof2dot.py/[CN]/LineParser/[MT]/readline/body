@@ -1,0 +1,14 @@
+def readline(self):
+    line = self._stream.readline()
+    if (not line):
+        self.__line = ''
+        self.__eof = True
+    else:
+        self.line_no += 1
+    line = line.rstrip('\r\n')
+    if (not PYTHON_3):
+        encoding = self._stream.encoding
+        if (encoding is None):
+            encoding = locale.getpreferredencoding()
+        line = line.decode(encoding)
+    self.__line = line

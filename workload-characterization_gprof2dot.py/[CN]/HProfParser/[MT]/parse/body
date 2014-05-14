@@ -1,0 +1,38 @@
+def parse(self):
+    self.readline()
+    while (not self.lookahead().startswith('------')):
+        self.consume()
+    while (not self.lookahead().startswith('TRACE ')):
+        self.consume()
+    self.parse_traces()
+    while (not self.lookahead().startswith('CPU')):
+        self.consume()
+    self.parse_samples()
+    profile = Profile()
+    profile[SAMPLES] = 0
+    functions = {}
+    for (id, trace) in compat_iteritems(self.traces):
+        if (not (id in self.samples)):
+            continue
+        mtime = self.samples[id][0]
+        last = None
+        for (func, file, line) in trace:
+            if (not (func in functions)):
+                function = Function(func, func)
+                function[SAMPLES] = 0
+                profile.add_function(function)
+                functions[func] = function
+            function = functions[func]
+            if (not last):
+                function[SAMPLES] += mtime
+                profile[SAMPLES] += mtime
+            else:
+                c = function.get_call(last)
+                c[SAMPLES2] += mtime
+            last = func
+    profile.validate()
+    profile.find_cycles()
+    profile.ratio(TIME_RATIO, SAMPLES)
+    profile.call_ratios(SAMPLES2)
+    profile.integrate(TOTAL_TIME_RATIO, TIME_RATIO)
+    return profile
