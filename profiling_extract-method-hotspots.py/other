@@ -1,0 +1,43 @@
+from xml.dom import minidom
+xmldoc = minidom.parse('cpu-live.xml')
+method_tab = {}
+method_tab_conso = {}
+total_time = 0.0
+for r in xmldoc.getElementsByTagName('TableRow'):
+    cols = r.getElementsByTagName('TableColumn')
+    method_name = str(cols[0].childNodes[0].data)
+    if (method_name.startswith('java') or method_name.startswith('sun') or method_name.startswith('org.eclipse')):
+        continue
+    if ('info.ephyra.search.Search.waitForResults' in method_name):
+        continue
+    if ('info.ephyra.answerselection.AnswerPattern.apply' in method_name):
+        continue
+    if ('edu.cmu.sphinx.decoder.search.WordPruningBreadthFirstSearchManager' in method_name):
+        method_name = 'sphinx.decoder.search.WordPruningBreadthFirstSearchManager'
+    vals = method_name.split('.')
+    if method_name.startswith('edu.cmu.sphinx.linguist.lextree.LexTreeLinguist$LexTreeHMMState'):
+        method_name = 'edu.cmu.sphinx.linguist.lextree.LexTreeLinguist$LexTreeHMMState'
+    if method_name.startswith('org.tartarus.snowball'):
+        method_name = '.'.join(vals[1:5])
+    if method_name.startswith('lemurproject.indri'):
+        method_name = 'lemurproject.indri'
+    elif method_name.startswith('info.ephyra.nlp'):
+        method_name = '.'.join(vals[1:5])
+    if method_name.startswith('info.ephyra.util'):
+        method_name = '.'.join(vals[1:4])
+    if method_name.startswith('edu.stanford.nlp'):
+        method_name = '.'.join(vals[1:5])
+    if method_name.startswith('opennlp.tools.lang.english.NameFinder'):
+        method_name = 'opennlp.NameFinder'
+    self_time_ms = float(cols[2].childNodes[0].data.split(' ')[0])
+    total_time += self_time_ms
+    if (method_name not in method_tab):
+        method_tab[method_name] = self_time_ms
+    else:
+        method_tab[method_name] += self_time_ms
+method_tab_per = []
+for m in method_tab:
+    method_tab_per += [((method_tab[m] / total_time), m)]
+method_tab_per.sort(reverse=True)
+for i in range(10):
+    print method_tab_per[i][1], '\t', method_tab_per[i][0]
