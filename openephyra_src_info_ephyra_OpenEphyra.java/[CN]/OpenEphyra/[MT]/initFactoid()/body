@@ -11,7 +11,7 @@
   QueryGeneration.addQueryGenerator(new QuestionInterpretationG());
   QueryGeneration.addQueryGenerator(new QuestionReformulationG());
   Search.clearKnowledgeMiners();
-  Search.addKnowledgeMiner(new BingKM());
+  for (  String[] indriIndices : IndriKM.getIndriIndices())   Search.addKnowledgeMiner(new IndriKM(indriIndices,false));
   Search.clearKnowledgeAnnotators();
   AnswerSelection.clearFilters();
   AnswerSelection.addFilter(new AnswerTypeFilter());
