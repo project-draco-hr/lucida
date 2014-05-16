@@ -1,0 +1,9 @@
+{
+  int len=string.length();
+  if (len < width) {
+    return SPACES.substring(0,width - len).concat(string);
+  }
+ else {
+    return string;
+  }
+}

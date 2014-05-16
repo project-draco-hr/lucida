@@ -1,0 +1,6 @@
+{
+  Data data=getPredecessor().getData();
+  if (data instanceof SpeechStartSignal)   inSpeech=true;
+  if (data instanceof SpeechEndSignal)   inSpeech=false;
+  return data;
+}

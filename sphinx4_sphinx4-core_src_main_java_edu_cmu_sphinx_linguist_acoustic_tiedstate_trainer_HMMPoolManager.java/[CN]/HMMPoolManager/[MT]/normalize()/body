@@ -1,0 +1,7 @@
+{
+  normalizePool(meansBufferPool);
+  normalizePool(varianceBufferPool);
+  logNormalizePool(mixtureWeightsBufferPool);
+  logNormalize2DPool(matrixBufferPool,matrixPool);
+  return logLikelihood;
+}

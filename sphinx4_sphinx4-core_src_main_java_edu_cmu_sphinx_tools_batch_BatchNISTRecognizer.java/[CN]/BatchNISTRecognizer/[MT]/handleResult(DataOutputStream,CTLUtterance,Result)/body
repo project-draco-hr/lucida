@@ -1,0 +1,3 @@
+{
+  dumpBestPath(out,utt,result.getBestFinalToken());
+}

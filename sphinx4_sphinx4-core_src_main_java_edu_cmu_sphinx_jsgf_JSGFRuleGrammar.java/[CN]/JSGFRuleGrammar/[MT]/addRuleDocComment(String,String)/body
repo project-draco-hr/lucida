@@ -1,0 +1,3 @@
+{
+  ruleDocComments.put(rname,comment);
+}

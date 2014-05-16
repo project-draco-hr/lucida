@@ -1,0 +1,9 @@
+{
+  System.out.print(name + " :");
+  for (  Set<WordResult> wordSet : values()) {
+    for (    WordResult wordResult : wordSet) {
+      System.out.print(' ' + wordResult.getPronunciation().getWord().getSpelling());
+    }
+  }
+  System.out.println();
+}

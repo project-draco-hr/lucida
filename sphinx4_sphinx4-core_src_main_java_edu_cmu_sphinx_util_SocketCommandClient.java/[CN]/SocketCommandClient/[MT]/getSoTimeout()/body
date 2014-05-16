@@ -1,0 +1,8 @@
+{
+  if (socket != null) {
+    return socket.getSoTimeout();
+  }
+ else {
+    return 0;
+  }
+}

@@ -1,0 +1,7 @@
+{
+  Collection<String> nonInstComponents=new ArrayList<String>();
+  for (  String compName : cm.getComponentNames()) {
+    if (!cm.getPropertySheet(compName).isInstanciated())     nonInstComponents.add(compName);
+  }
+  return nonInstComponents;
+}

@@ -1,0 +1,3 @@
+String leftContext
+String rightContext
+int nodeID

@@ -1,0 +1,10 @@
+{
+  List<URL> urls=new ArrayList<URL>();
+  try {
+    for (    File file : files)     urls.add(file.toURI().toURL());
+  }
+ catch (  MalformedURLException e) {
+    e.printStackTrace();
+  }
+  setBatchUrls(urls);
+}

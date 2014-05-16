@@ -1,0 +1,5 @@
+{
+  if (imports.contains(importName)) {
+    imports.remove(importName);
+  }
+}

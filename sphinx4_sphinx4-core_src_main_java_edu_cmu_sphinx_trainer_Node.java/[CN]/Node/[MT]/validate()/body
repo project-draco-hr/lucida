@@ -1,0 +1,14 @@
+{
+  boolean passed=true;
+  if (isType("WORD") || isType("PHONE")) {
+    if (nodeId == null) {
+      System.out.println("Content null in a WORD node.");
+      passed=false;
+    }
+  }
+  if ((incomingEdgesSize() == 0) && (outgoingEdgesSize() == 0)) {
+    System.out.println("Node not connected anywhere.");
+    passed=false;
+  }
+  return passed;
+}

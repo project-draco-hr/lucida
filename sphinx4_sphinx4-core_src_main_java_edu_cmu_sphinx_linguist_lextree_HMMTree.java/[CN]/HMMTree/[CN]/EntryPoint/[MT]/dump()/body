@@ -1,0 +1,15 @@
+{
+  System.out.println("EntryPoint " + baseUnit + " RC Followers: "+ getEntryPointRC().size());
+  int count=0;
+  Collection<Unit> rcs=getEntryPointRC();
+  System.out.print("    ");
+  for (  Unit rc : rcs) {
+    System.out.print(Utilities.pad(rc.getName(),4));
+    if (count++ >= 12) {
+      count=0;
+      System.out.println();
+      System.out.print("    ");
+    }
+  }
+  System.out.println();
+}

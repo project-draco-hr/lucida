@@ -1,0 +1,6 @@
+{
+  Recognizer newRecognizer=(Recognizer)ps.getComponent(PROP_RECOGNIZER);
+  initRecognizer(newRecognizer);
+  showSummary=ps.getBoolean(PROP_SHOW_SUMMARY);
+  showDetails=ps.getBoolean(PROP_SHOW_DETAILS);
+}

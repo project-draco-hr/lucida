@@ -1,0 +1,3 @@
+{
+  return new SenoneSequence(senoneList.toArray(new Senone[senoneList.size()]));
+}

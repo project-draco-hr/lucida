@@ -1,0 +1,4 @@
+{
+  super.newProperties(ps);
+  featureBlockSize=ps.getInt(PROP_FEATURE_BLOCK_SIZE);
+}

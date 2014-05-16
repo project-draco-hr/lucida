@@ -1,0 +1,4 @@
+{
+  if (timer == null)   this.timer=TimerPool.getTimer(this,Utilities.getReadable(getName()));
+  return timer;
+}

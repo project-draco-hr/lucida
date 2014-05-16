@@ -1,0 +1,29 @@
+{
+  out.println("<table border=1>");
+  out.print("    <tr><th bgcolor=\"#CCCCFF\" colspan=2>");
+  out.print(name);
+  out.print("</a>");
+  out.println("</td></tr>");
+  out.println("    <tr><th bgcolor=\"#CCCCFF\">Property</th><th bgcolor=\"#CCCCFF\"> Value</th></tr>");
+  Collection<String> propertyNames=properties.getRegisteredProperties();
+  for (  String propertyName : propertyNames) {
+    out.print("    <tr><th align=\"leftt\">" + propertyName + "</th>");
+    Object obj;
+    obj=properties.getRaw(propertyName);
+    if (obj instanceof String) {
+      out.println("<td>" + obj + "</td></tr>");
+    }
+ else     if (obj instanceof List<?>) {
+      List<?> l=(List<?>)obj;
+      out.println("    <td><ul>");
+      for (      Object listElement : l) {
+        out.println("        <li>" + listElement + "</li>");
+      }
+      out.println("    </ul></td>");
+    }
+ else {
+      out.println("<td>DEFAULT</td></tr>");
+    }
+  }
+  out.println("</table><br>");
+}

@@ -1,0 +1,9 @@
+{
+  if (isWord()) {
+    WordSearchState wordState=(WordSearchState)searchState;
+    return wordState.getPronunciation().getWord();
+  }
+ else {
+    return null;
+  }
+}

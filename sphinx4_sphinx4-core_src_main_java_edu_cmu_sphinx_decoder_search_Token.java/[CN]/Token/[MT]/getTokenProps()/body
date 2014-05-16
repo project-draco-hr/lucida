@@ -1,0 +1,4 @@
+{
+  if (tokenProps == null)   tokenProps=new HashMap<String,Object>();
+  return tokenProps;
+}

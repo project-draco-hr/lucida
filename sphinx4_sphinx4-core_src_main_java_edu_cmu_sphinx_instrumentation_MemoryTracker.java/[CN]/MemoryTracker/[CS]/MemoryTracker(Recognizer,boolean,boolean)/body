@@ -1,0 +1,5 @@
+{
+  initRecognizer(recognizer);
+  this.showSummary=showSummary;
+  this.showDetails=showDetails;
+}

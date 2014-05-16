@@ -1,0 +1,65 @@
+{
+  FrontEnd frontEnd;
+  FrontEnd cepstrumFrontEnd;
+  StreamDataSource dataSource;
+  StreamDataSource cepstrumDataSource;
+  prefs=Preferences.userRoot().node(PREFS_CONTEXT);
+  filename=prefs.get(FILENAME_PREFERENCE,"untitled.raw");
+  file=new File(filename);
+  if ((args.length == 1) && (args[0].equals("-dumpMixers"))) {
+    dumpMixers();
+    System.exit(0);
+  }
+  try {
+    URL url;
+    if (args.length > 0) {
+      filename=args[0];
+    }
+    if (args.length == 2) {
+      url=new File(args[1]).toURI().toURL();
+    }
+ else {
+      url=AudioTool.class.getResource("spectrogram.config.xml");
+    }
+    ConfigurationManager cm=new ConfigurationManager(url);
+    recorder=(Microphone)cm.lookup(MICROPHONE);
+    recorder.initialize();
+    audio=new AudioData();
+    frontEnd=(FrontEnd)cm.lookup(FRONT_END);
+    dataSource=(StreamDataSource)cm.lookup(DATA_SOURCE);
+    cepstrumFrontEnd=(FrontEnd)cm.lookup(CESPTRUM_FRONT_END);
+    cepstrumDataSource=(StreamDataSource)cm.lookup(CEPSTRUM_DATA_SOURCE);
+    PropertySheet ps=cm.getPropertySheet(WINDOWER);
+    float windowShiftInMs=ps.getFloat(RaisedCosineWindower.PROP_WINDOW_SHIFT_MS);
+    final JFrame jframe=new JFrame("AudioTool");
+    fileChooser=new JFileChooser();
+    createMenuBar(jframe);
+    float windowShiftInSamples=windowShiftInMs * audio.getAudioFormat().getSampleRate() / 1000.0f;
+    audioPanel=new AudioPanel(audio,1.0f / windowShiftInSamples,0.004f);
+    spectrogramPanel=new SpectrogramPanel(frontEnd,dataSource,audio);
+    cepstrumPanel=new CepstrumPanel(cepstrumFrontEnd,cepstrumDataSource,audio);
+    JPanel panel=new JPanel();
+    panel.setLayout(new BoxLayout(panel,BoxLayout.PAGE_AXIS));
+    panel.add(audioPanel);
+    audioPanel.setAlignmentX(0.0f);
+    panel.add(spectrogramPanel);
+    spectrogramPanel.setAlignmentX(0.0f);
+    panel.add(cepstrumPanel);
+    cepstrumPanel.setAlignmentX(0.0f);
+    JScrollPane scroller=new JScrollPane(panel);
+    JPanel outerPanel=new JPanel(new BorderLayout());
+    outerPanel.add(createButtonPanel(),BorderLayout.NORTH);
+    outerPanel.add(scroller);
+    player=new AudioPlayer(audio);
+    player.start();
+    getAudioFromFile(filename);
+    jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    jframe.setContentPane(outerPanel);
+    jframe.pack();
+    jframe.setSize(640,400);
+    jframe.setVisible(true);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

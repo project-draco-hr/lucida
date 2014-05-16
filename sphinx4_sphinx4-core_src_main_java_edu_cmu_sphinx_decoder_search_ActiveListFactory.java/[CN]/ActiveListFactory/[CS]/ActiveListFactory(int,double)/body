@@ -1,0 +1,5 @@
+{
+  logMath=LogMath.getInstance();
+  this.absoluteBeamWidth=absoluteBeamWidth;
+  this.logRelativeBeamWidth=logMath.linearToLog(relativeBeamWidth);
+}

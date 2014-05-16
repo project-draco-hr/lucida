@@ -1,0 +1,5 @@
+{
+  this(wordDictionaryFile,fillerDictionaryFile,addendaUrlList,addSilEndingPronunciation,wordReplacement,allowMissingWords,createMissingWords,unitManager);
+  this.g2pModelFile=g2pModelFile;
+  this.g2pMaxPron=g2pMaxPron;
+}

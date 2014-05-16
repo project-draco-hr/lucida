@@ -1,0 +1,9 @@
+{
+  List<Node> sub=new ArrayList<Node>();
+  for (  Node n : cluster) {
+    if (n.getWord().getSpelling().equals(word)) {
+      sub.add(n);
+    }
+  }
+  return sub;
+}

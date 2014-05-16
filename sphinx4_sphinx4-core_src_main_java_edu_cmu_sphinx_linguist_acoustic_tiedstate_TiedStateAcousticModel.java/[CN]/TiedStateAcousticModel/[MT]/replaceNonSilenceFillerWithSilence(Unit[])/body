@@ -1,0 +1,12 @@
+{
+  Unit[] replacementContext=new Unit[context.length];
+  for (int i=0; i < context.length; i++) {
+    if (context[i].isFiller() && !context[i].equals(UnitManager.SILENCE)) {
+      replacementContext[i]=UnitManager.SILENCE;
+    }
+ else {
+      replacementContext[i]=context[i];
+    }
+  }
+  return replacementContext;
+}

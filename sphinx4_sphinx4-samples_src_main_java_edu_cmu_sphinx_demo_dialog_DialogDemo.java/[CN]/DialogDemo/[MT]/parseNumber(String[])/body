@@ -1,0 +1,8 @@
+{
+  StringBuilder sb=new StringBuilder();
+  for (int i=1; i < tokens.length; ++i) {
+    if (tokens[i].equals("point"))     sb.append(".");
+ else     sb.append(DIGITS.get(tokens[i]));
+  }
+  return Double.parseDouble(sb.toString());
+}

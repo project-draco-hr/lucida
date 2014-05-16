@@ -1,0 +1,5 @@
+double lengthSec
+int sampleRate
+long startSample
+int featDim
+double shiftMs

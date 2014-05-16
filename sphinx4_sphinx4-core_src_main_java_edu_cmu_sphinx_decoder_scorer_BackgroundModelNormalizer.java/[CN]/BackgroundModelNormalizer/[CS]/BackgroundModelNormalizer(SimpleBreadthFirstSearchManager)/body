@@ -1,0 +1,5 @@
+{
+  this.activeListProvider=activeListProvider;
+  this.logger=Logger.getLogger(getClass().getName());
+  logger.warning("no active list set.");
+}

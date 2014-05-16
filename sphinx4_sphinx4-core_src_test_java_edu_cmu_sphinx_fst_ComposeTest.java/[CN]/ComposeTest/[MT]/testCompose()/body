@@ -1,0 +1,13 @@
+{
+  String path="algorithms/compose/fstcompose.fst.ser";
+  URL url=getClass().getResource(path);
+  File parent=new File(url.toURI()).getParentFile();
+  path=new File(parent,"A").getPath();
+  Fst fstA=importFst(path,new TropicalSemiring());
+  path=new File(parent,"B").getPath();
+  Fst fstB=importFst(path,new TropicalSemiring());
+  path=new File(parent,"fstcompose.fst.ser").getPath();
+  Fst composed=Fst.loadModel(path);
+  Fst fstComposed=Compose.get(fstA,fstB,new TropicalSemiring());
+  assertThat(composed,equalTo(fstComposed));
+}

@@ -1,0 +1,12 @@
+{
+  initLogger();
+  this.outFileNamePattern=dumpFilePath;
+  this.isCompletePath=isCompletePath;
+  this.bitsPerSample=bitsPerSample;
+  if (bitsPerSample % 8 != 0) {
+    throw new Error("StreamDataSource: bits per sample must be a multiple of 8.");
+  }
+  this.isSigned=isSigned;
+  this.captureUtts=captureUtts;
+  initialize();
+}

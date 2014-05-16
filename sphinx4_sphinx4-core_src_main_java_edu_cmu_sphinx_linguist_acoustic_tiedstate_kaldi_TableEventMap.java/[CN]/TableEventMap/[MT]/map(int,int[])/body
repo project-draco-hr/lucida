@@ -1,0 +1,4 @@
+{
+  EventMap eventMap=table.get(getKeyValue(pdfClass,context));
+  return eventMap.map(pdfClass,context);
+}

@@ -1,0 +1,14 @@
+{
+  searchManager.startRecognition();
+  Result result;
+  do {
+    result=searchManager.recognize(featureBlockSize);
+    if (result != null) {
+      result.setReferenceText(referenceText);
+      fireResultListeners(result);
+    }
+  }
+ while (result != null && !result.isFinal());
+  searchManager.stopRecognition();
+  return result;
+}

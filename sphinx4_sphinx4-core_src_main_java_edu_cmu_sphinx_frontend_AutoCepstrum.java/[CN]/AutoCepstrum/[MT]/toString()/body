@@ -1,0 +1,6 @@
+{
+  StringBuilder description=new StringBuilder(super.toString()).append(" {");
+  for (  DataProcessor dp : selectedDataProcessors)   description.append(dp).append(", ");
+  description.setLength(description.length() - 2);
+  return description.append('}').toString();
+}

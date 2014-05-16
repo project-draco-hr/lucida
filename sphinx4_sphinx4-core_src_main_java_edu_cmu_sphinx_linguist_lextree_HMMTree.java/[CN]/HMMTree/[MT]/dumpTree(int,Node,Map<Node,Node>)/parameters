@@ -1,0 +1,3 @@
+int level
+Node node
+Map<Node,Node> dupNode

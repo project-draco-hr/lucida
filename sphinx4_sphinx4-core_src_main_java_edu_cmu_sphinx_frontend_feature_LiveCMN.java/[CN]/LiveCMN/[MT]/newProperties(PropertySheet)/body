@@ -1,0 +1,6 @@
+{
+  super.newProperties(ps);
+  cmnWindow=ps.getInt(PROP_CMN_WINDOW);
+  cmnShiftWindow=ps.getInt(PROP_CMN_SHIFT_WINDOW);
+  initialCmnWindow=ps.getInt(PROP_INITIAL_CMN_WINDOW);
+}

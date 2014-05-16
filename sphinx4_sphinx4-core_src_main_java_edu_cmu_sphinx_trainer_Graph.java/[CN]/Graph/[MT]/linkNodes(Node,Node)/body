@@ -1,0 +1,13 @@
+{
+  Edge newLink=new Edge(sourceNode,destinationNode);
+  sourceNode.addOutgoingEdge(newLink);
+  destinationNode.addIncomingEdge(newLink);
+  if (!isNodeInGraph(sourceNode)) {
+    addNode(sourceNode);
+  }
+  if (!isNodeInGraph(destinationNode)) {
+    addNode(destinationNode);
+  }
+  addEdge(newLink);
+  return newLink;
+}

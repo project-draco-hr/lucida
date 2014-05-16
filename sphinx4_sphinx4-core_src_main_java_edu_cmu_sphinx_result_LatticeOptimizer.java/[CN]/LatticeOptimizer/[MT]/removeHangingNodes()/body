@@ -1,0 +1,17 @@
+{
+  for (  Node n : lattice.getCopyOfNodes()) {
+    if (lattice.hasNode(n)) {
+      if (n == lattice.getInitialNode()) {
+      }
+ else       if (n == lattice.getTerminalNode()) {
+      }
+ else {
+        if (n.getLeavingEdges().isEmpty() || n.getEnteringEdges().isEmpty()) {
+          lattice.removeNodeAndEdges(n);
+          removeHangingNodes();
+          return;
+        }
+      }
+    }
+  }
+}

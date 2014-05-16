@@ -1,0 +1,3 @@
+{
+  return nextArcs.toArray(new SearchStateArc[nextArcs.size()]);
+}

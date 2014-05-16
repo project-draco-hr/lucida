@@ -1,0 +1,4 @@
+{
+  startNode=createGrammarNode(false);
+  endNode=createGrammarNode(false);
+}

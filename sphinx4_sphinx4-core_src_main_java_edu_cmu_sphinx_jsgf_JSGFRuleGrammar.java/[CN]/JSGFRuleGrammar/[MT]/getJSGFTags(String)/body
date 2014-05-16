@@ -1,0 +1,3 @@
+{
+  return ruleTags.get(ruleName);
+}

@@ -1,0 +1,10 @@
+{
+  this.sampleRate=sampleRate;
+  this.bytesPerRead=bytesPerRead;
+  this.bitsPerSample=bitsPerSample;
+  if (this.bitsPerSample % 8 != 0)   throw new IllegalArgumentException("bits per sample must be a multiple of 8");
+  this.bytesPerValue=bitsPerSample / 8;
+  this.bigEndian=bigEndian;
+  this.signedData=signedData;
+  this.bytesPerRead+=bytesPerRead % 2;
+}

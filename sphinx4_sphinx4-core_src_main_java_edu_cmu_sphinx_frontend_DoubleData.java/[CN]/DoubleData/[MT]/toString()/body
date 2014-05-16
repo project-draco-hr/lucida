@@ -1,0 +1,3 @@
+{
+  return ("DoubleData: " + sampleRate + "Hz, first sample #: "+ firstSampleNumber+ ", collect time: "+ collectTime);
+}

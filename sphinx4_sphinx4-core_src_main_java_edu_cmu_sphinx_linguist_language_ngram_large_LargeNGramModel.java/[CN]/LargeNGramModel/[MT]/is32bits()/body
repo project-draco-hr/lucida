@@ -1,0 +1,4 @@
+{
+  if (loader.getBytesPerField() == 4)   return true;
+  return false;
+}

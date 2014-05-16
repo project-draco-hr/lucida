@@ -1,0 +1,5 @@
+{
+  String file=utterance.toString();
+  InputStream is=new FileInputStream(file);
+  dataSource.setInputStream(is,false);
+}

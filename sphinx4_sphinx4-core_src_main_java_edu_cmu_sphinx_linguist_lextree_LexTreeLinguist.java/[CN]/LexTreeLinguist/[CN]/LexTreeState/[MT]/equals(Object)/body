@@ -1,0 +1,17 @@
+{
+  if (o == this) {
+    return true;
+  }
+ else   if (o instanceof LexTreeState) {
+    LexTreeState other=(LexTreeState)o;
+    if (node != other.node)     return false;
+    if (collapsed != other.collapsed) {
+      return false;
+    }
+    boolean wordSequenceMatch=collapsed || wordSequence.equals(other.wordSequence);
+    return wordSequenceMatch;
+  }
+ else {
+    return false;
+  }
+}

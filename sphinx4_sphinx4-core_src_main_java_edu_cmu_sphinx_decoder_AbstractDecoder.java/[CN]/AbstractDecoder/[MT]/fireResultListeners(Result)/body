@@ -1,0 +1,10 @@
+{
+  if (fireNonFinalResults || result.isFinal()) {
+    for (    ResultListener resultListener : resultListeners) {
+      resultListener.newResult(result);
+    }
+  }
+ else {
+    logger.finer("skipping non-final result " + result);
+  }
+}

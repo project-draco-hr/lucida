@@ -1,0 +1,3 @@
+{
+  commandList.put(alias,commandList.get(command));
+}

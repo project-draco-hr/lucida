@@ -1,0 +1,5 @@
+{
+  this.tokenArray=tokenArray;
+  this.pos=0;
+  this.size=size;
+}

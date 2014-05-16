@@ -1,0 +1,7 @@
+{
+  int numStates=fst.getNumStates();
+  for (int i=0; i < numStates; i++) {
+    State s=fst.getState(i);
+    s.arcSort(cmp);
+  }
+}

@@ -1,0 +1,23 @@
+{
+  if (vistedNodes.contains(thisNode)) {
+    return;
+  }
+  vistedNodes.add(thisNode);
+  if (thisNode.isFinalNode()) {
+    unitSet.add(UnitManager.SILENCE);
+  }
+ else   if (!thisNode.isEmpty()) {
+    Word word=thisNode.getWord();
+    Pronunciation[] pronunciations=word.getPronunciations();
+    for (    Pronunciation pronunciation : pronunciations) {
+      unitSet.add(pronunciation.getUnits()[0]);
+    }
+  }
+ else {
+    GrammarArc[] arcs=thisNode.getSuccessors();
+    for (    GrammarArc arc : arcs) {
+      GrammarNode nextNode=arc.getGrammarNode();
+      collectNextUnits(nextNode,vistedNodes,unitSet);
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{
+  if (weights == null)   weights=new float[ngauss];
+  weights[i]=logMath.linearToLog(w);
+}

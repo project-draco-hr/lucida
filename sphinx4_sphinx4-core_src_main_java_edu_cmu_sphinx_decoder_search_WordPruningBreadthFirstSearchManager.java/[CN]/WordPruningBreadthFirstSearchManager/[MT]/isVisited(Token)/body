@@ -1,0 +1,12 @@
+{
+  SearchState curState=t.getSearchState();
+  t=t.getPredecessor();
+  while (t != null && !t.isEmitting()) {
+    if (curState.equals(t.getSearchState())) {
+      System.out.println("CS " + curState + " match "+ t.getSearchState());
+      return true;
+    }
+    t=t.getPredecessor();
+  }
+  return false;
+}

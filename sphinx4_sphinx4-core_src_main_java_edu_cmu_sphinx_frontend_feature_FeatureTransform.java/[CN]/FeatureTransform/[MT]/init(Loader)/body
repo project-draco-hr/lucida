@@ -1,0 +1,10 @@
+{
+  this.loader=loader;
+  try {
+    loader.load();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  transform=loader.getTransformMatrix();
+}

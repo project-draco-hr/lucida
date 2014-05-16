@@ -1,0 +1,6 @@
+{
+  linguist.startRecognition();
+  pruner.startRecognition();
+  scorer.startRecognition();
+  localStart();
+}

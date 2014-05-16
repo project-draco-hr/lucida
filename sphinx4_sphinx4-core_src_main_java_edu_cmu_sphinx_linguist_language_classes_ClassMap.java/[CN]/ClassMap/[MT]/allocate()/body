@@ -1,0 +1,6 @@
+{
+  if (!allocated) {
+    allocated=true;
+    loadClassDefs();
+  }
+}

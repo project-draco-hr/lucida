@@ -1,0 +1,15 @@
+{
+  int type=unitNode.getType();
+  if (type == UnitNode.SIMPLE_UNIT) {
+    return logUnitInsertionProbability;
+  }
+ else   if (type == UnitNode.WORD_BEGINNING_UNIT) {
+    return logUnitInsertionProbability + logWordInsertionProbability;
+  }
+ else   if (type == UnitNode.SILENCE_UNIT) {
+    return logSilenceInsertionProbability;
+  }
+ else {
+    return logFillerInsertionProbability;
+  }
+}

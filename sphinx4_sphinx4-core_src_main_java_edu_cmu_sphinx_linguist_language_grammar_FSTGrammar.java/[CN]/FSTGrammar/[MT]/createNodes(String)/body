@@ -1,0 +1,42 @@
+{
+  ExtendedStreamTokenizer tok=new ExtendedStreamTokenizer(path,true);
+  int maxNodeId=0;
+  while (!tok.isEOF()) {
+    tok.skipwhite();
+    String token=tok.getString();
+    if (token == null) {
+      break;
+    }
+ else     if (token.equals("T")) {
+      tok.getInt("src id");
+      int id=tok.getInt("dest id");
+      if (id > maxNodeId) {
+        maxNodeId=id;
+      }
+      String word1=tok.getString();
+      if (word1 == null) {
+        continue;
+      }
+      String word2=tok.getString();
+      tok.getString();
+      String nodeName="G" + id;
+      GrammarNode node=nodes.get(nodeName);
+      if (node == null) {
+        if (word2.equals(",")) {
+          node=createGrammarNode(id,false);
+        }
+ else {
+          node=createGrammarNode(id,word2.toLowerCase());
+        }
+        nodes.put(nodeName,node);
+      }
+ else {
+        if (!word2.equals(",")) {
+          assert(word2.toLowerCase().equals(getWord(node)));
+        }
+      }
+    }
+  }
+  tok.close();
+  return maxNodeId;
+}

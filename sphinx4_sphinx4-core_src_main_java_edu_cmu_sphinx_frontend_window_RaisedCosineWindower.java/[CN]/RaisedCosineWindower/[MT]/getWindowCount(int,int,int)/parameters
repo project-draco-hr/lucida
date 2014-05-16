@@ -1,0 +1,3 @@
+int arraySize
+int windowSize
+int windowShift

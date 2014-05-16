@@ -1,0 +1,9 @@
+{
+  System.out.print("   Total Time Audio: " + timeFormat.format(totalAudioTime) + 's');
+  System.out.print("  Proc: " + timeFormat.format(totalProcessingTime) + 's');
+  System.out.println("  Speed: " + timeFormat.format(getCumulativeSpeed()) + " X real time");
+  if (showResponseTime) {
+    float avgResponseTime=(float)totalResponseTime / (numUtteranceStart * 1000);
+    System.out.println("   Response Time:  Avg: " + avgResponseTime + 's'+ "  Max: "+ ((float)maxResponseTime / 1000)+ "s  Min: "+ ((float)minResponseTime / 1000)+ 's');
+  }
+}

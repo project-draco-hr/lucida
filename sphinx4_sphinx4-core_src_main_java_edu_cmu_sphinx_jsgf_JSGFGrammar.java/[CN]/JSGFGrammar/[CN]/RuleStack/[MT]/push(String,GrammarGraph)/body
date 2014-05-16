@@ -1,0 +1,4 @@
+{
+  stack.add(0,name);
+  map.put(name,g);
+}

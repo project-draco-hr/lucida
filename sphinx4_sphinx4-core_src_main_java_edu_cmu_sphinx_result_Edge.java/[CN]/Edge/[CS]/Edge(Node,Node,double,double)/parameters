@@ -1,0 +1,4 @@
+Node fromNode
+Node toNode
+double acousticScore
+double lmScore

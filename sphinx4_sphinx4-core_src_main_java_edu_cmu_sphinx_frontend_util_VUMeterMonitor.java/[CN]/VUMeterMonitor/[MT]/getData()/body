@@ -1,0 +1,6 @@
+{
+  Data d=getPredecessor().getData();
+  if (d instanceof DataStartSignal)   vuMeterPanel.setVisible(FrontEndUtils.getFrontEndProcessor(this,Microphone.class) != null);
+  if (d instanceof DoubleData)   vumeter.calculateVULevels(d);
+  return d;
+}

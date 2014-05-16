@@ -1,0 +1,10 @@
+{
+  initLogger();
+  this.startSpeechTime=startSpeechTime;
+  this.endSilenceTime=endSilenceTime;
+  this.speechLeader=speechLeader;
+  this.speechLeaderFrames=speechLeaderFrames;
+  this.speechTrailer=speechTrailer;
+  this.endSilenceDecay=endSilenceDecay;
+  this.initialEndSilenceTime=endSilenceTime;
+}

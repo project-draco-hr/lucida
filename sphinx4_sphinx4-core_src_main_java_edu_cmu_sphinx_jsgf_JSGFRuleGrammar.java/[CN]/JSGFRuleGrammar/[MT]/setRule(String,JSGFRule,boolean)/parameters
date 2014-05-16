@@ -1,0 +1,3 @@
+String ruleName
+JSGFRule rule
+boolean isPublic

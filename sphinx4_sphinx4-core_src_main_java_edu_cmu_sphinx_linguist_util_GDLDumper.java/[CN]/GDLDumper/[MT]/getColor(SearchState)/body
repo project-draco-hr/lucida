@@ -1,0 +1,16 @@
+{
+  String color="lightred";
+  if (state.isFinal()) {
+    color="magenta";
+  }
+ else   if (state instanceof UnitSearchState) {
+    color="green";
+  }
+ else   if (state instanceof WordSearchState) {
+    color="lightblue";
+  }
+ else   if (state instanceof HMMSearchState) {
+    color="orange";
+  }
+  return color;
+}

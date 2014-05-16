@@ -1,0 +1,10 @@
+{
+  if (result.isFinal()) {
+    processingTime=(getTime() - startTime) / 1000.0f;
+    totalAudioTime+=audioTime;
+    totalProcessingTime+=processingTime;
+    if (showDetails) {
+      showAudioUsage();
+    }
+  }
+}

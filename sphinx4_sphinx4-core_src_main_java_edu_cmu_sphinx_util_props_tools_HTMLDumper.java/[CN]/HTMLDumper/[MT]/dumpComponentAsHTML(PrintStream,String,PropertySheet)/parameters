@@ -1,0 +1,3 @@
+PrintStream out
+String name
+PropertySheet properties

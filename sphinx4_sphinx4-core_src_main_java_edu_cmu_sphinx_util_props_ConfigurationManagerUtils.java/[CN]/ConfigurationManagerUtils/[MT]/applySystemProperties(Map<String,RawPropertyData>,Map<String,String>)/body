@@ -1,0 +1,23 @@
+{
+  Properties props=System.getProperties();
+  for (Enumeration<?> e=props.keys(); e.hasMoreElements(); ) {
+    String param=(String)e.nextElement();
+    String value=props.getProperty(param);
+    int lb=param.indexOf('[');
+    int rb=param.indexOf(']');
+    if (lb > 0 && rb > lb) {
+      String compName=param.substring(0,lb);
+      String paramName=param.substring(lb + 1,rb);
+      RawPropertyData rpd=rawMap.get(compName);
+      if (rpd != null) {
+        rpd.add(paramName,value);
+      }
+ else {
+        throw new InternalConfigurationException(compName,param,"System property attempting to set parameter " + " for unknown component " + compName + " ("+ param+ ')');
+      }
+    }
+ else     if (param.indexOf('.') == -1) {
+      global.put(param,value);
+    }
+  }
+}

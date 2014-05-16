@@ -1,0 +1,4 @@
+{
+  buffer=new double[size];
+  occupancy=0;
+}

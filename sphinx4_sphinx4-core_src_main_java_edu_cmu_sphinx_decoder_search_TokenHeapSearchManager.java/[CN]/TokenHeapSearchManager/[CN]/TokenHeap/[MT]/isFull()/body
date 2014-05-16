@@ -1,0 +1,3 @@
+{
+  return curSize == tokens.length;
+}

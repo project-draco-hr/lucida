@@ -1,0 +1,19 @@
+{
+  try {
+    if (!isInstanciated()) {
+      Collection<String> undefProps=getUndefinedMandatoryProps();
+      if (!undefProps.isEmpty()) {
+        throw new InternalConfigurationException(getInstanceName(),undefProps.toString(),"not all mandatory properties are defined");
+      }
+      owner=ownerClass.newInstance();
+      owner.newProperties(this);
+    }
+  }
+ catch (  IllegalAccessException e) {
+    throw new InternalConfigurationException(e,getInstanceName(),null,"Can't access class " + ownerClass);
+  }
+catch (  InstantiationException e) {
+    throw new InternalConfigurationException(e,getInstanceName(),null,"Can't instantiate class " + ownerClass);
+  }
+  return owner;
+}

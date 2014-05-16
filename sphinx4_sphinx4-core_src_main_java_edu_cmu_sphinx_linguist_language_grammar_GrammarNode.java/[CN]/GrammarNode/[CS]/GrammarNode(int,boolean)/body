@@ -1,0 +1,5 @@
+{
+  this.identity=id;
+  this.isFinal=isFinal;
+  this.alternatives=new Word[0][0];
+}

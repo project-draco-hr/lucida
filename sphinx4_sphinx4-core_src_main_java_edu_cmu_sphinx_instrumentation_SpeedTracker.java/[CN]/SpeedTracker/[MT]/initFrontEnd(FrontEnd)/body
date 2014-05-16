@@ -1,0 +1,11 @@
+{
+  if (frontEnd == null) {
+    frontEnd=newFrontEnd;
+    frontEnd.addSignalListener(this);
+  }
+ else   if (frontEnd != newFrontEnd) {
+    frontEnd.removeSignalListener(this);
+    frontEnd=newFrontEnd;
+    frontEnd.addSignalListener(this);
+  }
+}

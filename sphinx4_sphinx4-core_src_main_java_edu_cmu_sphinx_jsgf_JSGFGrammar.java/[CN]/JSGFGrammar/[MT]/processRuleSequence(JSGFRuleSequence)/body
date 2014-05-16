@@ -1,0 +1,22 @@
+{
+  GrammarNode startNode=null;
+  GrammarNode endNode=null;
+  logger.fine("parseRuleSequence: " + ruleSequence);
+  List<JSGFRule> rules=ruleSequence.getRules();
+  GrammarNode lastGrammarNode=null;
+  for (int i=0; i < rules.size(); i++) {
+    JSGFRule rule=rules.get(i);
+    GrammarGraph newNodes=processRule(rule);
+    if (i == 0) {
+      startNode=newNodes.getStartNode();
+    }
+    if (i == (rules.size() - 1)) {
+      endNode=newNodes.getEndNode();
+    }
+    if (i > 0) {
+      lastGrammarNode.add(newNodes.getStartNode(),0.0f);
+    }
+    lastGrammarNode=newNodes.getEndNode();
+  }
+  return new GrammarGraph(startNode,endNode);
+}

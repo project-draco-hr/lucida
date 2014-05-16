@@ -1,0 +1,7 @@
+{
+  initialGrammarState=grammar.getInitialNode();
+  for (  GrammarNode node : grammar.getGrammarNodes()) {
+    initUnitMaps(node);
+  }
+  searchGraph=new DynamicFlatSearchGraph();
+}

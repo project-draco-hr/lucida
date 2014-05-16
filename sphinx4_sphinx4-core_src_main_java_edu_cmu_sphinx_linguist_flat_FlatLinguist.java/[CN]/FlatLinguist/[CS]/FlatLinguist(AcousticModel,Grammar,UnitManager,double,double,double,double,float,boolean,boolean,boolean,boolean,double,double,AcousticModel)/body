@@ -1,0 +1,21 @@
+{
+  this.acousticModel=acousticModel;
+  this.logMath=LogMath.getInstance();
+  this.grammar=grammar;
+  this.unitManager=unitManager;
+  this.logWordInsertionProbability=logMath.linearToLog(wordInsertionProbability);
+  this.logSilenceInsertionProbability=logMath.linearToLog(silenceInsertionProbability);
+  this.logFillerInsertionProbability=logMath.linearToLog(fillerInsertionProbability);
+  this.logUnitInsertionProbability=logMath.linearToLog(unitInsertionProbability);
+  this.languageWeight=languageWeight;
+  this.dumpGStates=dumpGStates;
+  this.showCompilationProgress=showCompilationProgress;
+  this.spreadWordProbabilitiesAcrossPronunciations=spreadWordProbabilitiesAcrossPronunciations;
+  this.addOutOfGrammarBranch=addOutOfGrammarBranch;
+  if (addOutOfGrammarBranch) {
+    this.logOutOfGrammarBranchProbability=logMath.linearToLog(outOfGrammarBranchProbability);
+    this.logPhoneInsertionProbability=logMath.linearToLog(phoneInsertionProbability);
+    this.phoneLoopAcousticModel=phoneLoopAcousticModel;
+  }
+  this.name=null;
+}

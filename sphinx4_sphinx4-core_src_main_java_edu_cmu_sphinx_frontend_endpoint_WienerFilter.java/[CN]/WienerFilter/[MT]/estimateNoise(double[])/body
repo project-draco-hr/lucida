@@ -1,0 +1,13 @@
+{
+  int length=smoothedInput.length;
+  double[] noise=new double[length];
+  for (int i=0; i < length; i++) {
+    if (classifier.isSpeech()) {
+      noise[i]=prevNoise[i];
+    }
+ else {
+      noise[i]=lambda * prevNoise[i] + (1 - lambda) * smoothedInput[i];
+    }
+  }
+  return noise;
+}

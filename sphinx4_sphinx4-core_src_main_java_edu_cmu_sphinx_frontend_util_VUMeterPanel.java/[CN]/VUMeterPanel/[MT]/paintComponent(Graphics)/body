@@ -1,0 +1,6 @@
+{
+  super.paintComponent(g);
+  if (vu != null) {
+    paintVUMeter(g);
+  }
+}

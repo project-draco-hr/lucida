@@ -1,0 +1,10 @@
+{
+  if (getFeature()) {
+    TrainerScore[] score=new TrainerScore[1];
+    score[0]=new TrainerScore(curFeature,0.0f,TrainerAcousticModel.ALL_MODELS);
+    return score;
+  }
+ else {
+    return null;
+  }
+}

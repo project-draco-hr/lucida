@@ -1,0 +1,10 @@
+{
+  this.pState=p;
+  this.index=which;
+  this.lc=lc;
+  this.rc=rc;
+  int base=p.getPronunciation().getUnits()[which].getBaseID();
+  int id=hmmPool.buildID(base,lc,rc);
+  hmm=hmmPool.getHMM(id,getPosition());
+  isLastUnitOfWord=which == p.getPronunciation().getUnits().length - 1;
+}

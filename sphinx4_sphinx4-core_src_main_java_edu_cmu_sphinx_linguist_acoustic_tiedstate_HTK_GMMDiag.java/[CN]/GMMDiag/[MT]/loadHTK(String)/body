@@ -1,0 +1,53 @@
+{
+  try {
+    BufferedReader fin=new BufferedReader(new FileReader(nom));
+    String s, s2;
+    StringTokenizer st;
+    ngauss=0;
+    ncoefs=0;
+    for (; ; ) {
+      s=fin.readLine();
+      if (s == null)       break;
+      if (s.contains("<MEAN>")) {
+        ngauss++;
+        if (ncoefs == 0) {
+          st=new StringTokenizer(s);
+          st.nextToken();
+          ncoefs=Integer.parseInt(st.nextToken());
+        }
+      }
+    }
+    fin.close();
+    allocate();
+    fin=new BufferedReader(new FileReader(nom));
+    for (int g=0; ; ) {
+      s=fin.readLine();
+      if (s == null)       break;
+      if (s.contains("<MEAN>")) {
+        s=fin.readLine();
+        st=new StringTokenizer(s);
+        for (int c=0; st.hasMoreTokens(); c++) {
+          s2=st.nextToken();
+          setMean(g,c,Float.parseFloat(s2));
+        }
+        s=fin.readLine();
+        if (!s.contains("<VARIANCE>")) {
+          fin.close();
+          throw new IOException();
+        }
+        s=fin.readLine();
+        st=new StringTokenizer(s);
+        for (int c=0; st.hasMoreTokens(); c++) {
+          s2=st.nextToken();
+          setVar(g,c,Float.parseFloat(s2));
+        }
+        g++;
+      }
+    }
+    fin.close();
+    precomputeDistance();
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+}

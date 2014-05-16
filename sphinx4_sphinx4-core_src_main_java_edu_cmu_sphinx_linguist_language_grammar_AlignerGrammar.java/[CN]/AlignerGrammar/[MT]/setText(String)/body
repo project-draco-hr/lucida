@@ -1,0 +1,9 @@
+{
+  String[] words=text.split(" ");
+  tokens.clear();
+  for (  String word : words) {
+    if (!word.isEmpty())     tokens.add(word.toLowerCase());
+  }
+  createGrammar();
+  postProcessGrammar();
+}

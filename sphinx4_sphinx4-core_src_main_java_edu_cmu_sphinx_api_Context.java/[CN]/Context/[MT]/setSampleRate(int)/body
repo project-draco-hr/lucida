@@ -1,0 +1,3 @@
+{
+  setLocalProperty("dataSource->sampleRate",Integer.toString(sampleRate));
+}

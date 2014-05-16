@@ -1,0 +1,8 @@
+{
+  StatisticsVariable stat=pool.get(statName);
+  if (stat == null) {
+    stat=new StatisticsVariable(statName);
+    pool.put(statName,stat);
+  }
+  return stat;
+}

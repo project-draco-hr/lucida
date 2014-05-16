@@ -1,0 +1,12 @@
+{
+  dumpCollection(" entryPoints",entryPoints.keySet());
+  dumpCollection(" entryPoints states",entryPoints.values());
+  dumpCollection(" exitPoints",exitPoints.keySet());
+  dumpCollection(" exitPoints states",exitPoints.values());
+  dumpNextNodes();
+  dumpExitPoints(exitPoints.values());
+  dumpCollection(" startingContexts",getStartingContexts());
+  dumpCollection(" branchingInFrom",leftContexts);
+  dumpCollection(" branchingOutTo",rightContexts);
+  dumpCollection(" existingStates",existingStates.keySet());
+}

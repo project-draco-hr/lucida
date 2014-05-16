@@ -1,0 +1,6 @@
+{
+synchronized (LogMath.class) {
+    checkState(null == instance,IMMUTABLE_INSTANCE_ERROR);
+    LogMath.useTable=useTable;
+  }
+}

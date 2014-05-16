@@ -1,0 +1,11 @@
+{
+  vumeter=new VUMeter();
+  vuMeterPanel=new VUMeterPanel();
+  vuMeterPanel.setVu(vumeter);
+  vuMeterPanel.start();
+  vuMeterDialog=new JDialog();
+  vuMeterDialog.setBounds(100,100,100,400);
+  vuMeterDialog.getContentPane().setLayout(new BorderLayout());
+  vuMeterDialog.getContentPane().add(vuMeterPanel);
+  vuMeterDialog.setVisible(true);
+}

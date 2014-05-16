@@ -1,0 +1,25 @@
+{
+  Float probability=cache.get(wordSequence);
+  if (probability != null) {
+    return probability.floatValue();
+  }
+  StringBuilder builder=new StringBuilder();
+  if (wordSequence.size() == 0)   return 0.0f;
+  for (  Word w : wordSequence.getWords()) {
+    builder.append(w.toString());
+    builder.append(' ');
+  }
+  outWriter.println(builder.toString());
+  String result="0";
+  try {
+    result=inReader.readLine();
+    if (result.charAt(0) == 0)     result=result.substring(1);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+  if (!result.equals("-inf"))   probability=logMath.log10ToLog(Float.parseFloat(result));
+ else   probability=LogMath.LOG_ZERO;
+  cache.put(wordSequence,probability);
+  return probability.floatValue();
+}

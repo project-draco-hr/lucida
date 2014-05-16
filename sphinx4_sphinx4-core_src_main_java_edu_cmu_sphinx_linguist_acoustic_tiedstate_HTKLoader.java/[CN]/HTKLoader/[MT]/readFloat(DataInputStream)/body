@@ -1,0 +1,10 @@
+{
+  float val;
+  if (swap) {
+    val=Utilities.readLittleEndianFloat(dis);
+  }
+ else {
+    val=dis.readFloat();
+  }
+  return val;
+}

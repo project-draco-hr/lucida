@@ -1,0 +1,6 @@
+{
+  this.lineNumber=lineNumber;
+  this.charNumber=charNumber;
+  this.message=message;
+  this.details=details;
+}

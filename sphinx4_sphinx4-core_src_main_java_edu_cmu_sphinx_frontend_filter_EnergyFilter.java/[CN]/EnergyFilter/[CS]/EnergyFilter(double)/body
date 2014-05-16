@@ -1,0 +1,5 @@
+{
+  initLogger();
+  this.maxEnergy=maxEnergy;
+  initialize();
+}

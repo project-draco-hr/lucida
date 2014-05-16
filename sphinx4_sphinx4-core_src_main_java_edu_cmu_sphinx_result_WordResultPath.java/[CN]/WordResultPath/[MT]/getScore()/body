@@ -1,0 +1,7 @@
+{
+  double score=LogMath.LOG_ONE;
+  for (  WordResult wr : path) {
+    score+=wr.getScore();
+  }
+  return score;
+}

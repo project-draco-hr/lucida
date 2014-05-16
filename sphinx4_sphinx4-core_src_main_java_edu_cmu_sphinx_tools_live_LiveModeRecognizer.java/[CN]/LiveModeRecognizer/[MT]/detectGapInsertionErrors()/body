@@ -1,0 +1,8 @@
+{
+  Timer gapTimer=TimerPool.getTimer(this,"GapInsertionDetector");
+  gapTimer.start();
+  GapInsertionDetector gid=new GapInsertionDetector(dataSource.getTranscriptFile(),hypothesisFile,showGapInsertions);
+  int gapInsertions=gid.detect();
+  gapTimer.stop();
+  return gapInsertions;
+}

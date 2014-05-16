@@ -1,0 +1,3 @@
+boolean useCDUnits
+OutputStream outputStream
+String path

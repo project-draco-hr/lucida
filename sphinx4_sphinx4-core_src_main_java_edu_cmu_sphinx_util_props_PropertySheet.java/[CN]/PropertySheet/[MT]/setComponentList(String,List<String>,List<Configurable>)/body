@@ -1,0 +1,8 @@
+{
+  if (!registeredProperties.containsKey(name))   throw new InternalConfigurationException(getInstanceName(),name,'\'' + name + "' is not a registered component-list");
+  Annotation annotation=registeredProperties.get(name).getAnnotation();
+  if (!(annotation instanceof S4ComponentList))   throw new InternalConfigurationException(getInstanceName(),name,'\'' + name + "' is of type component-list");
+  rawProps.put(name,valueNames);
+  propValues.put(name,value);
+  applyConfigurationChange(name,valueNames,value);
+}

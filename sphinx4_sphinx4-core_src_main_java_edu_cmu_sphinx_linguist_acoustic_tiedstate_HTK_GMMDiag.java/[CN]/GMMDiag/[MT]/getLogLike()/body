@@ -1,0 +1,7 @@
+{
+  float sc=loglikes[0];
+  for (int i=1; i < ngauss; i++) {
+    sc=logMath.addAsLinear(sc,loglikes[i]);
+  }
+  return sc;
+}

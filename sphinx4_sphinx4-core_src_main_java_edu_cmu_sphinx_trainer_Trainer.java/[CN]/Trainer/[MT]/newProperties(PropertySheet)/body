@@ -1,0 +1,11 @@
+{
+  trainManager=(TrainManager)ps.getComponent(TRAIN_MANAGER);
+  initialStage=ps.getString(PROP_INITIAL_STAGE);
+  finalStage=ps.getString(PROP_FINAL_STAGE);
+  addStage(Stage._00_INITIALIZATION);
+  addStage(Stage._10_CI_TRAIN);
+  addStage(Stage._20_UNTIED_CD_TRAIN);
+  addStage(Stage._30_STATE_PRUNING);
+  addStage(Stage._40_TIED_CD_TRAIN);
+  addStage(Stage._90_CP_MODEL);
+}

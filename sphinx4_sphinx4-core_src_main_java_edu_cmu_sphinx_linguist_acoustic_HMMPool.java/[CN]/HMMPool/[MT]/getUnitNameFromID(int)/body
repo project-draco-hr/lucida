@@ -1,0 +1,9 @@
+{
+  int centralID=getCentralUnitID(id);
+  int leftID=getLeftUnitID(id);
+  int rightID=getRightUnitID(id);
+  String cs=unitTable[centralID] == null ? "(" + centralID + ')' : unitTable[centralID].toString();
+  String ls=unitTable[leftID] == null ? ("(" + leftID + ')') : unitTable[leftID].toString();
+  String rs=unitTable[rightID] == null ? "(" + rightID + ')' : unitTable[rightID].toString();
+  return cs + '[' + ls+ ','+ rs+ ']';
+}

@@ -1,0 +1,16 @@
+{
+  super(probablilty);
+  this.hmm=hmm;
+  Unit base=getBaseUnit();
+  int type=SIMPLE_UNIT;
+  if (base.isSilence()) {
+    type=SILENCE_UNIT;
+  }
+ else   if (base.isFiller()) {
+    type=FILLER_UNIT;
+  }
+ else   if (hmm.getPosition().isWordBeginning()) {
+    type=WORD_BEGINNING_UNIT;
+  }
+  setType(type);
+}

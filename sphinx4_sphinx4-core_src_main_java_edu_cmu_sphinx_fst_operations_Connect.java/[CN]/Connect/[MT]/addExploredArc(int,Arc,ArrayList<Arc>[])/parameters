@@ -1,0 +1,3 @@
+int stateId
+Arc arc
+ArrayList<Arc>[] exploredArcs

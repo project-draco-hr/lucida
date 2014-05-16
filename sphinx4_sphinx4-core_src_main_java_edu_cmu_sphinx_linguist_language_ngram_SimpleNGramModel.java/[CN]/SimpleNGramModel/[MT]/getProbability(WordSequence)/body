@@ -1,0 +1,16 @@
+{
+  float logProbability=0.0f;
+  Probability prob=getProb(wordSequence);
+  if (prob == null) {
+    if (wordSequence.size() > 1) {
+      logProbability=getBackoff(wordSequence.getOldest()) + getProbability(wordSequence.getNewest());
+    }
+ else {
+      logProbability=LogMath.LOG_ZERO;
+    }
+  }
+ else {
+    logProbability=prob.logProbability;
+  }
+  return logProbability;
+}

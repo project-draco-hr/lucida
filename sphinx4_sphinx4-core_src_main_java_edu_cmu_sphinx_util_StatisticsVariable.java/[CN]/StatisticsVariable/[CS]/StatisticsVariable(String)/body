@@ -1,0 +1,4 @@
+{
+  this.name=statName;
+  this.value=0.0;
+}

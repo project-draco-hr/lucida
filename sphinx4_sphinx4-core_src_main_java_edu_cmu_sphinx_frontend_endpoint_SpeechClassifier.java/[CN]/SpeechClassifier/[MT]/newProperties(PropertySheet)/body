@@ -1,0 +1,10 @@
+{
+  super.newProperties(ps);
+  int frameLengthMs=ps.getInt(PROP_FRAME_LENGTH_MS);
+  frameLengthSec=frameLengthMs / 1000.f;
+  adjustment=ps.getDouble(PROP_ADJUSTMENT);
+  threshold=ps.getDouble(PROP_THRESHOLD);
+  minSignal=ps.getDouble(PROP_MIN_SIGNAL);
+  logger=ps.getLogger();
+  initialize();
+}

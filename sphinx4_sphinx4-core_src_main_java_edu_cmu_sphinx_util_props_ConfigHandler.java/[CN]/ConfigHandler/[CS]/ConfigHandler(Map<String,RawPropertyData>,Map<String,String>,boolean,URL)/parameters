@@ -1,0 +1,4 @@
+Map<String,RawPropertyData> rpdMap
+Map<String,String> globalProperties
+boolean replaceDuplicates
+URL baseURL

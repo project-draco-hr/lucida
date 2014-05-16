@@ -1,0 +1,12 @@
+{
+  if (o == this) {
+    return true;
+  }
+ else   if (o instanceof FullHMMSearchState) {
+    FullHMMSearchState other=(FullHMMSearchState)o;
+    return pState.getGrammarState().getGrammarNode() == other.pState.getGrammarState().getGrammarNode() && pState.getPronunciation() == other.pState.getPronunciation() && index == other.index && lc == other.lc && rc == other.rc;
+  }
+ else {
+    return false;
+  }
+}

@@ -1,0 +1,37 @@
+{
+  logger.fine("parseRuleName: " + initialRuleName);
+  GrammarGraph result=ruleStack.contains(initialRuleName.getRuleName());
+  if (result != null) {
+    return result;
+  }
+ else {
+    result=new GrammarGraph();
+    ruleStack.push(initialRuleName.getRuleName(),result);
+  }
+  JSGFRuleName ruleName=ruleGrammar.resolve(initialRuleName);
+  if (ruleName == JSGFRuleName.NULL) {
+    result.getStartNode().add(result.getEndNode(),0.0f);
+  }
+ else   if (ruleName == JSGFRuleName.VOID) {
+  }
+ else {
+    if (ruleName == null) {
+      throw new JSGFGrammarException("Can't resolve " + initialRuleName + " g "+ initialRuleName.getFullGrammarName());
+    }
+    JSGFRuleGrammar rg=manager.retrieveGrammar(ruleName.getFullGrammarName());
+    if (rg == null) {
+      throw new JSGFGrammarException("Can't resolve grammar name " + ruleName.getFullGrammarName());
+    }
+    JSGFRule rule=rg.getRule(ruleName.getSimpleRuleName());
+    if (rule == null) {
+      throw new JSGFGrammarException("Can't resolve rule: " + ruleName.getRuleName());
+    }
+    GrammarGraph ruleResult=processRule(rule);
+    if (result != ruleResult) {
+      result.getStartNode().add(ruleResult.getStartNode(),0.0f);
+      ruleResult.getEndNode().add(result.getEndNode(),0.0f);
+    }
+  }
+  ruleStack.pop();
+  return result;
+}

@@ -1,0 +1,11 @@
+{
+  assert((nodes.isEmpty()) && (edges.isEmpty()));
+  for (graph.startNodeIterator(); graph.hasMoreNodes(); ) {
+    addNode(graph.nextNode());
+  }
+  for (graph.startEdgeIterator(); graph.hasMoreEdges(); ) {
+    addEdge(graph.nextEdge());
+  }
+  setInitialNode(graph.getInitialNode());
+  setFinalNode(graph.getFinalNode());
+}

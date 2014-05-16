@@ -1,0 +1,15 @@
+{
+  WordNode child=null;
+  WordNode matchingChild=(WordNode)getSuccessor(pronunciation);
+  if (matchingChild == null) {
+    child=getWordNode(pronunciation,probability);
+    putSuccessor(pronunciation,child);
+  }
+ else {
+    if (matchingChild.getUnigramProbability() < probability) {
+      matchingChild.setUnigramProbability(probability);
+    }
+    child=matchingChild;
+  }
+  return child;
+}

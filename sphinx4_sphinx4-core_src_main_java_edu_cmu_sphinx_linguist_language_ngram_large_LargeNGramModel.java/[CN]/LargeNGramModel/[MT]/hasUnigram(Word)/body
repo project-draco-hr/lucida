@@ -1,0 +1,3 @@
+{
+  return (unigramIDMap.get(unigram) != null);
+}

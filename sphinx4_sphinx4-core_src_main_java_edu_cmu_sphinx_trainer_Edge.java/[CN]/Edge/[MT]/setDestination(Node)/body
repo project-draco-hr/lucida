@@ -1,0 +1,3 @@
+{
+  this.destinationNode=node;
+}

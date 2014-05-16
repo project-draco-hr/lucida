@@ -1,0 +1,7 @@
+{
+  GrammarArc[] arcs=getSuccessors();
+  for (  GrammarArc arc : arcs) {
+    GState gstate=getGState(arc.getGrammarNode());
+    rightContexts.addAll(gstate.getStartingContexts());
+  }
+}

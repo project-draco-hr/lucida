@@ -1,0 +1,20 @@
+{
+  int size=-1;
+  for (  Data data : initialList) {
+    if (!(data instanceof DoubleData))     continue;
+    double[] cepstrum=((DoubleData)data).getValues();
+    if (size < 0) {
+      size=cepstrum.length;
+      sum=new double[size];
+      numberFrame=0;
+    }
+    for (int j=0; j < size; j++) {
+      sum[j]+=cepstrum[j];
+    }
+    numberFrame++;
+  }
+  currentMean=new double[size];
+  for (int j=0; j < size; j++) {
+    currentMean[j]=sum[j] / numberFrame;
+  }
+}

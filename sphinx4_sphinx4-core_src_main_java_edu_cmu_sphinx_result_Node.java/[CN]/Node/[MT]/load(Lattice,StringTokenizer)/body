@@ -1,0 +1,5 @@
+{
+  String id=tokens.nextToken();
+  String label=tokens.nextToken();
+  lattice.addNode(id,label,0,0);
+}

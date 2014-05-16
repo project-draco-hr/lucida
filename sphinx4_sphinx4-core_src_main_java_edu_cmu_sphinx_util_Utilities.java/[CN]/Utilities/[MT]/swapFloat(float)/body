@@ -1,0 +1,3 @@
+{
+  return Float.intBitsToFloat(swapInteger(Float.floatToRawIntBits(floatValue)));
+}

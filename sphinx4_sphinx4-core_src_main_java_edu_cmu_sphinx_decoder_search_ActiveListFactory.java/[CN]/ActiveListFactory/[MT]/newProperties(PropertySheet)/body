@@ -1,0 +1,6 @@
+{
+  logMath=LogMath.getInstance();
+  absoluteBeamWidth=ps.getInt(PROP_ABSOLUTE_BEAM_WIDTH);
+  double relativeBeamWidth=ps.getDouble(PROP_RELATIVE_BEAM_WIDTH);
+  logRelativeBeamWidth=logMath.linearToLog(relativeBeamWidth);
+}

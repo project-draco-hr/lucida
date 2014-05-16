@@ -1,0 +1,4 @@
+{
+  int tridx=transNames.get(trnom);
+  return tridx;
+}

@@ -1,0 +1,17 @@
+{
+  Container p=getParent();
+  if (p instanceof JViewport) {
+    Container gp=p.getParent();
+    if (gp instanceof JScrollPane) {
+      JScrollPane scroller=(JScrollPane)gp;
+      JViewport viewport=scroller.getViewport();
+      if (viewport == null || viewport.getView() != this) {
+        return null;
+      }
+ else {
+        return viewport;
+      }
+    }
+  }
+  return null;
+}

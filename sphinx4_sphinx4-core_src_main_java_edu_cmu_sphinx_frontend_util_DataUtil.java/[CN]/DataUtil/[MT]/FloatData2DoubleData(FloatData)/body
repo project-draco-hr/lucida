@@ -1,0 +1,9 @@
+{
+  int numSamples=data.getValues().length;
+  double[] doubleData=new double[numSamples];
+  float[] values=data.getValues();
+  for (int i=0; i < values.length; i++) {
+    doubleData[i]=values[i];
+  }
+  return new DoubleData(doubleData,data.getSampleRate(),data.getFirstSampleNumber());
+}

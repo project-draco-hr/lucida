@@ -1,0 +1,29 @@
+{
+  if (!cm.getComponentNames().contains(name)) {
+    System.out.println("No component: " + name);
+    return;
+  }
+  System.out.println(name + ':');
+  PropertySheet properties=cm.getPropertySheet(name);
+  for (  String propertyName : properties.getRegisteredProperties()) {
+    System.out.print("    " + propertyName + " = ");
+    Object obj;
+    obj=properties.getRaw(propertyName);
+    if (obj instanceof String) {
+      System.out.println(obj);
+    }
+ else     if (obj instanceof List<?>) {
+      List<?> l=(List<?>)obj;
+      for (Iterator<?> k=l.iterator(); k.hasNext(); ) {
+        System.out.print(k.next());
+        if (k.hasNext()) {
+          System.out.print(", ");
+        }
+      }
+      System.out.println();
+    }
+ else {
+      System.out.println("[DEFAULT]");
+    }
+  }
+}

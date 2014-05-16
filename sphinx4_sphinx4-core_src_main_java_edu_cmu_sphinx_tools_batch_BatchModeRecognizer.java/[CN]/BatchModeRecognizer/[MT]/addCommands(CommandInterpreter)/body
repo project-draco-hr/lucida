@@ -1,0 +1,263 @@
+{
+  ci.add("ls",new CommandInterface(){
+    public String execute(    CommandInterpreter ci,    String[] args){
+      if (args.length != 1) {
+        ci.putResponse("Usage: ls");
+      }
+ else {
+        for (        String name : cm.getInstanceNames(Configurable.class))         ci.putResponse(name);
+      }
+      return "";
+    }
+    public String getHelp(){
+      return "list active components";
+    }
+  }
+);
+  ci.add("show",new CommandInterface(){
+    public String execute(    CommandInterpreter ci,    String[] args){
+      if (args.length < 2) {
+        ConfigurationManagerUtils.showConfig(cm);
+      }
+ else {
+        for (int i=1; i < args.length; i++) {
+          String name=args[i];
+          ConfigurationManagerUtils.showConfig(cm,name);
+        }
+      }
+      return "";
+    }
+    public String getHelp(){
+      return "show component configuration";
+    }
+  }
+);
+  ci.add("edit",new CommandInterface(){
+    public String execute(    CommandInterpreter ci,    String[] args){
+      if (args.length != 2) {
+        ci.putResponse("Usage: edit component");
+      }
+ else {
+        ConfigurationManagerUtils.editConfig(cm,args[1]);
+      }
+      return "";
+    }
+    public String getHelp(){
+      return "edit a  component's configuration";
+    }
+  }
+);
+  ci.add("save",new CommandInterface(){
+    public String execute(    CommandInterpreter ci,    String[] args){
+      if (args.length != 2) {
+        ci.putResponse("Usage: save filename.xml");
+      }
+ else {
+        ConfigurationManagerUtils.save(cm,new File(args[1]));
+      }
+      return "";
+    }
+    public String getHelp(){
+      return "save configuration to a file";
+    }
+  }
+);
+  ci.add("set",new CommandInterface(){
+    public String execute(    CommandInterpreter ci,    String[] args){
+      if (args.length != 4) {
+        ci.putResponse("Usage: set component property value");
+      }
+ else {
+        ConfigurationManagerUtils.setProperty(BatchModeRecognizer.this.cm,args[1],args[3],args[2]);
+      }
+      return "";
+    }
+    public String getHelp(){
+      return "set component property to a given value";
+    }
+  }
+);
+  ci.add("recognize",new CommandInterface(){
+    public String execute(    CommandInterpreter ci,    String[] args){
+      Result result=null;
+      if (args.length < 2) {
+        ci.putResponse("Usage: recognize audio [transcript]");
+      }
+ else {
+        String audioFile=args[1];
+        String transcript=null;
+        if (args.length > 2) {
+          transcript=args[2];
+        }
+        try {
+          setInputStream(audioFile);
+          result=recognizer.recognize(transcript);
+        }
+ catch (        IOException io) {
+          ci.putResponse("I/O error during decoding: " + io.getMessage());
+        }
+      }
+      return result != null ? result.getBestResultNoFiller() : "";
+    }
+    public String getHelp(){
+      return "perform recognition on the given audio";
+    }
+  }
+);
+  ci.addAlias("recognize","rec");
+  ci.add("statsReset",new CommandInterface(){
+    public String execute(    CommandInterpreter ci,    String[] args){
+      if (args.length != 1) {
+        ci.putResponse("Usage: statsReset");
+      }
+ else {
+        recognizer.resetMonitors();
+      }
+      return "";
+    }
+    public String getHelp(){
+      return "resets gathered statistics";
+    }
+  }
+);
+  ci.add("batchRecognize",new CommandInterface(){
+    public String execute(    CommandInterpreter ci,    String[] args){
+      Result result=null;
+      if (args.length != 1) {
+        ci.putResponse("Usage: batchRecognize");
+      }
+ else {
+        try {
+          if (curBatchItem == null) {
+            batchManager.start();
+            curBatchItem=batchManager.getNextItem();
+          }
+          String audioFile=curBatchItem.getFilename();
+          String transcript=curBatchItem.getTranscript();
+          setInputStream(audioFile);
+          result=recognizer.recognize(transcript);
+        }
+ catch (        IOException io) {
+          ci.putResponse("I/O error during decoding: " + io.getMessage());
+        }
+      }
+      return result != null ? result.getBestResultNoFiller() : "";
+    }
+    public String getHelp(){
+      return "perform recognition on the current batch item";
+    }
+  }
+);
+  ci.addAlias("batchRecognize","br");
+  ci.add("batchNext",new CommandInterface(){
+    public String execute(    CommandInterpreter ci,    String[] args){
+      Result result=null;
+      if (args.length != 1 && args.length != 2) {
+        ci.putResponse("Usage: batchNext [norec]");
+      }
+ else {
+        try {
+          if (curBatchItem == null) {
+            batchManager.start();
+          }
+          curBatchItem=batchManager.getNextItem();
+          if (curBatchItem == null) {
+            batchManager.start();
+            curBatchItem=batchManager.getNextItem();
+          }
+          String audioFile=curBatchItem.getFilename();
+          String transcript=curBatchItem.getTranscript();
+          if (args.length == 2) {
+            ci.putResponse("Skipping: " + transcript);
+          }
+ else {
+            setInputStream(audioFile);
+            result=recognizer.recognize(transcript);
+          }
+        }
+ catch (        IOException io) {
+          ci.putResponse("I/O error during decoding: " + io.getMessage());
+        }
+      }
+      return result != null ? result.getBestResultNoFiller() : "";
+    }
+    public String getHelp(){
+      return "advance the batch and perform recognition";
+    }
+  }
+);
+  ci.addAlias("batchNext","bn");
+  ci.add("batchAll",new CommandInterface(){
+    public String execute(    CommandInterpreter ci,    String[] args){
+      Result result=null;
+      if (args.length != 1) {
+        ci.putResponse("Usage: batchAll");
+      }
+ else {
+        try {
+          if (curBatchItem == null) {
+            batchManager.start();
+          }
+          while (true) {
+            curBatchItem=batchManager.getNextItem();
+            if (curBatchItem == null) {
+              return "";
+            }
+            String audioFile=curBatchItem.getFilename();
+            String transcript=curBatchItem.getTranscript();
+            setInputStream(audioFile);
+            result=recognizer.recognize(transcript);
+          }
+        }
+ catch (        IOException io) {
+          ci.putResponse("I/O error during decoding: " + io.getMessage());
+        }
+      }
+      return result != null ? result.getBestResultNoFiller() : "";
+    }
+    public String getHelp(){
+      return "recognize all of the remaining batch items";
+    }
+  }
+);
+  ci.add("batchReset",new CommandInterface(){
+    public String execute(    CommandInterpreter ci,    String[] args){
+      if (args.length != 1) {
+        ci.putResponse("Usage: batchReset");
+      }
+ else {
+        try {
+          batchManager.start();
+        }
+ catch (        IOException ioe) {
+          ci.putResponse("trouble reseting batch");
+        }
+      }
+      return "";
+    }
+    public String getHelp(){
+      return "reset the batch to the beginning";
+    }
+  }
+);
+  ci.add("batchLoad",new CommandInterface(){
+    public String execute(    CommandInterpreter ci,    String[] args){
+      if (args.length != 2) {
+        ci.putResponse("Usage: batchReset batchfile");
+      }
+ else {
+        try {
+          setBatchFile(args[1]);
+        }
+ catch (        IOException ioe) {
+          ci.putResponse("Can't load " + args[1] + ' '+ ioe);
+        }
+      }
+      return "";
+    }
+    public String getHelp(){
+      return "reset the batch to the beginning";
+    }
+  }
+);
+}

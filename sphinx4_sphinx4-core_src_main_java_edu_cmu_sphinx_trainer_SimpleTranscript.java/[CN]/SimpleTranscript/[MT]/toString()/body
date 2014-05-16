@@ -1,0 +1,12 @@
+{
+  String result="";
+  result="Dict: " + dictionary + " : transcript ";
+  if (isExact) {
+    result+="IS exact: ";
+  }
+ else {
+    result+="is NOT exact: ";
+  }
+  result+=transcript;
+  return result;
+}

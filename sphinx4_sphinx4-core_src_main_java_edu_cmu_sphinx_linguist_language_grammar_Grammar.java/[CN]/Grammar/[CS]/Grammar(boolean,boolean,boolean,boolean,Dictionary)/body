@@ -1,0 +1,7 @@
+{
+  this.logger=Logger.getLogger(getClass().getName());
+  this.optimizeGrammar=optimizeGrammar;
+  this.addSilenceWords=addSilenceWords;
+  this.addFillerWords=addFillerWords;
+  this.dictionary=dictionary;
+}

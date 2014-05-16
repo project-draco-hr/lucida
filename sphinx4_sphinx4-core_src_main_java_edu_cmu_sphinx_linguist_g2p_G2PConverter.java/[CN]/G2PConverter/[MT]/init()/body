@@ -1,0 +1,13 @@
+{
+  skipSeqs.add(eps);
+  skipSeqs.add(sb);
+  skipSeqs.add(se);
+  skipSeqs.add(skip);
+  skipSeqs.add("-");
+  Compose.augment(0,g2pmodel,g2pmodel.getSemiring());
+  ArcSort.apply(g2pmodel,new ILabelCompare());
+  String[] isyms=g2pmodel.getIsyms();
+  loadClusters(isyms);
+  epsilonFilter=Compose.getFilter(g2pmodel.getIsyms(),g2pmodel.getSemiring());
+  ArcSort.apply(epsilonFilter,new ILabelCompare());
+}

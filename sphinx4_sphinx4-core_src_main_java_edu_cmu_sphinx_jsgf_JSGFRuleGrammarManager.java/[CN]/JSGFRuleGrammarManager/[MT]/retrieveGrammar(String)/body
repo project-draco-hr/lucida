@@ -1,0 +1,3 @@
+{
+  return grammars.get(caseSensitiveNames ? name : name.toLowerCase());
+}

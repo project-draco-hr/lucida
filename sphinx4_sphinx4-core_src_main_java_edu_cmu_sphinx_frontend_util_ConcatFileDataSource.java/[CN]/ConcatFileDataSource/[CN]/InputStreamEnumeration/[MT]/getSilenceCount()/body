@@ -1,0 +1,8 @@
+{
+  if (addRandomSilence) {
+    return silenceRandom.nextInt(maxSilence) + 1;
+  }
+ else {
+    return maxSilence;
+  }
+}

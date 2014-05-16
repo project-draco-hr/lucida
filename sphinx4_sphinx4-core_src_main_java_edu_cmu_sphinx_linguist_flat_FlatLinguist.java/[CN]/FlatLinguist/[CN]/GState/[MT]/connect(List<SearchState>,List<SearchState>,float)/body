@@ -1,0 +1,10 @@
+{
+  for (  SearchState source : sourceList) {
+    SentenceHMMState sourceState=(SentenceHMMState)source;
+    for (    SearchState dest : destList) {
+      SentenceHMMState destState=(SentenceHMMState)dest;
+      sourceState.connect(getArc(destState,logLangProb,logOne));
+      exitConnections++;
+    }
+  }
+}

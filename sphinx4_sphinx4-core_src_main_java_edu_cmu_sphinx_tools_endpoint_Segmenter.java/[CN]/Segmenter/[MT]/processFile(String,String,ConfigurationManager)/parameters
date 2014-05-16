@@ -1,0 +1,3 @@
+String inputFile
+String outputFile
+ConfigurationManager cm

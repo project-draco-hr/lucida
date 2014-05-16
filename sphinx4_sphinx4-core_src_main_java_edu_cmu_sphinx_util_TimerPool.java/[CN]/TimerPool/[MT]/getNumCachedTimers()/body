@@ -1,0 +1,7 @@
+{
+  int counter=0;
+  for (  List<Timer> timers : weakRefTimerPool.values()) {
+    counter+=timers.size();
+  }
+  return counter;
+}

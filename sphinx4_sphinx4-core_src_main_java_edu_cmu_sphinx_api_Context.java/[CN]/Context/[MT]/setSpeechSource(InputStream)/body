@@ -1,0 +1,4 @@
+{
+  getInstance(StreamDataSource.class).setInputStream(stream);
+  setLocalProperty("threadedScorer->frontend","liveFrontEnd");
+}

@@ -1,0 +1,11 @@
+{
+  Logger logger;
+  String baseName=ConfigurationManagerUtils.getLogPrefix(cm) + ownerClass.getName();
+  if (instanceName != null) {
+    logger=Logger.getLogger(baseName + '.' + instanceName);
+  }
+ else   logger=Logger.getLogger(baseName);
+  Object rawLogLevel=rawProps.get(COMP_LOG_LEVEL);
+  if (rawLogLevel != null)   logger.setLevel(rawLogLevel instanceof String ? Level.parse((String)rawLogLevel) : (Level)rawLogLevel);
+  return logger;
+}

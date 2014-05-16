@@ -1,0 +1,4 @@
+int frameLengthMs
+double adjustment
+double threshold
+double minSignal

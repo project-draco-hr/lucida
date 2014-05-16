@@ -1,0 +1,14 @@
+{
+  this.id=id;
+  this.word=word;
+  this.beginTime=beginTime;
+  this.endTime=endTime;
+  if (endTime != -1) {
+    if (beginTime > endTime) {
+      throw new Error("Begin time (" + beginTime + ") later than end time ("+ endTime+ ')');
+    }
+  }
+  this.forwardScore=LogMath.LOG_ZERO;
+  this.backwardScore=LogMath.LOG_ZERO;
+  this.posterior=LogMath.LOG_ZERO;
+}

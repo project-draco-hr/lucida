@@ -1,0 +1,26 @@
+{
+  super.initialize();
+  audioList=new LinkedBlockingQueue<Data>();
+  DataLine.Info info=new DataLine.Info(TargetDataLine.class,desiredFormat);
+  if (!AudioSystem.isLineSupported(info)) {
+    logger.info(desiredFormat + " not supported");
+    AudioFormat nativeFormat=DataUtil.getNativeAudioFormat(desiredFormat,getSelectedMixer());
+    if (nativeFormat == null) {
+      logger.severe("couldn't find suitable target audio format");
+    }
+ else {
+      finalFormat=nativeFormat;
+      doConversion=AudioSystem.isConversionSupported(desiredFormat,nativeFormat);
+      if (doConversion) {
+        logger.info("Converting from " + finalFormat.getSampleRate() + "Hz to "+ desiredFormat.getSampleRate()+ "Hz");
+      }
+ else {
+        logger.info("Using native format: Cannot convert from " + finalFormat.getSampleRate() + "Hz to "+ desiredFormat.getSampleRate()+ "Hz");
+      }
+    }
+  }
+ else {
+    logger.info("Desired format: " + desiredFormat + " supported.");
+    finalFormat=desiredFormat;
+  }
+}

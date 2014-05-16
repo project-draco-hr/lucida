@@ -1,0 +1,3 @@
+{
+  return viterbiLoserMap.containsKey(token);
+}

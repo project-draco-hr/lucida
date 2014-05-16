@@ -1,0 +1,19 @@
+{
+  try {
+    BufferedReader bf=new BufferedReader(new FileReader(lexFile));
+    String s;
+    for (; ; ) {
+      s=bf.readLine();
+      if (s == null)       break;
+      StringTokenizer st=new StringTokenizer(s);
+      if (st.hasMoreTokens()) {
+        String word=st.nextToken();
+        addInConv(word,wordConv);
+      }
+    }
+    bf.close();
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+}

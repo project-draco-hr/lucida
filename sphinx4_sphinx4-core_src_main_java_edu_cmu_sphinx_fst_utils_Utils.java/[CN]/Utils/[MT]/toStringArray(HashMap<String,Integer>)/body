@@ -1,0 +1,7 @@
+{
+  String[] res=new String[syms.size()];
+  for (  String sym : syms.keySet()) {
+    res[syms.get(sym)]=sym;
+  }
+  return res;
+}

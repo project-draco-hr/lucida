@@ -1,0 +1,5 @@
+{
+  int nthPosition=nthFollower * (buffer.length / numberNGrams);
+  setPosition(nthPosition);
+  return readBytesAsInt();
+}

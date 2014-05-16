@@ -1,0 +1,5 @@
+{
+  super(endNode,wordSequence,smearTerm,smearProb,collapsed);
+  logLanguageProbability=languageProbability;
+  logInsertionProbability=insertionProbability;
+}

@@ -1,0 +1,7 @@
+{
+  float[] returnVector=new float[numerator.length];
+  for (int i=0; i < numerator.length; i++) {
+    returnVector[i]=(float)numerator[i];
+  }
+  return returnVector;
+}

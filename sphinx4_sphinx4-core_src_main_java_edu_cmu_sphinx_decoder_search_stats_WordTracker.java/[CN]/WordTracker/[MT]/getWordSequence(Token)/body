@@ -1,0 +1,12 @@
+{
+  List<Word> wordList=new LinkedList<Word>();
+  while (token != null) {
+    if (token.isWord()) {
+      WordSearchState wordState=(WordSearchState)token.getSearchState();
+      Word word=wordState.getPronunciation().getWord();
+      wordList.add(0,word);
+    }
+    token=token.getPredecessor();
+  }
+  return new WordSequence(wordList);
+}

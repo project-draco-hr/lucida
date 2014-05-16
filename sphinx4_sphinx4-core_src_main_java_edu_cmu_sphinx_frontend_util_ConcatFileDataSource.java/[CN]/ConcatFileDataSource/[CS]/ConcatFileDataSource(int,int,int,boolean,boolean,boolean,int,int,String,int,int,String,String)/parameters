@@ -1,0 +1,13 @@
+int sampleRate
+int bytesPerRead
+int bitsPerSample
+boolean bigEndian
+boolean signedData
+boolean addRandomSilence
+int maxSilence
+int skip
+String silenceFileName
+int startFile
+int totalFiles
+String transcriptFile
+String batchFile

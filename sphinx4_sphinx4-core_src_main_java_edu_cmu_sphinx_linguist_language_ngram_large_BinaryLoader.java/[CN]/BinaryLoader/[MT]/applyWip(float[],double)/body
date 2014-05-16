@@ -1,0 +1,6 @@
+{
+  float logWip=logMath.linearToLog(wip);
+  for (int i=0; i < logProbabilities.length; i++) {
+    logProbabilities[i]=logProbabilities[i] + logWip;
+  }
+}

@@ -1,0 +1,21 @@
+{
+  MixtureComponent mixComp=(MixtureComponent)super.clone();
+  mixComp.distFloor=distFloor;
+  mixComp.varianceFloor=varianceFloor;
+  mixComp.logPreComputedGaussianFactor=logPreComputedGaussianFactor;
+  mixComp.mean=this.mean != null ? this.mean.clone() : null;
+  if (meanTransformationMatrix != null) {
+    mixComp.meanTransformationMatrix=this.meanTransformationMatrix.clone();
+    for (int i=0; i < meanTransformationMatrix.length; i++)     mixComp.meanTransformationMatrix[i]=meanTransformationMatrix[i].clone();
+  }
+  mixComp.meanTransformationVector=this.meanTransformationVector != null ? this.meanTransformationVector.clone() : null;
+  mixComp.meanTransformed=this.meanTransformed != null ? this.meanTransformed.clone() : null;
+  mixComp.variance=this.variance != null ? this.variance.clone() : null;
+  if (varianceTransformationMatrix != null) {
+    mixComp.varianceTransformationMatrix=this.varianceTransformationMatrix.clone();
+    for (int i=0; i < varianceTransformationMatrix.length; i++)     mixComp.varianceTransformationMatrix[i]=varianceTransformationMatrix[i].clone();
+  }
+  mixComp.varianceTransformationVector=this.varianceTransformationVector != null ? this.varianceTransformationVector.clone() : null;
+  mixComp.precisionTransformed=this.precisionTransformed != null ? this.precisionTransformed.clone() : null;
+  return mixComp;
+}

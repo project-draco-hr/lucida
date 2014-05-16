@@ -1,0 +1,4 @@
+{
+  setRule(rule);
+  setTag(tag);
+}

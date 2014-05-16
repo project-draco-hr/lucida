@@ -1,0 +1,9 @@
+{
+  if (context instanceof LeftRightContext) {
+    LeftRightContext lrContext=(LeftRightContext)context;
+    Unit[] lc=lrContext.getLeftContext();
+    Unit[] rc=lrContext.getRightContext();
+    return (lc == null || leftContext == null || Unit.isContextMatch(lc,leftContext)) && (rc == null || rightContext == null || Unit.isContextMatch(rc,rightContext));
+  }
+  return context == Context.EMPTY_CONTEXT && leftContext == null && rightContext == null;
+}

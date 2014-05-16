@@ -1,0 +1,15 @@
+{
+  S4PropWrapper s4PropWrapper=getProperty(name,S4String.class);
+  S4String s4String=((S4String)s4PropWrapper.getAnnotation());
+  if (propValues.get(name) == null) {
+    boolean isDefDefined=!s4String.defaultValue().equals(S4String.NOT_DEFINED);
+    if (s4String.mandatory()) {
+      if (!isDefDefined)       throw new InternalConfigurationException(getInstanceName(),name,"mandatory property is not set!");
+    }
+    propValues.put(name,isDefDefined ? s4String.defaultValue() : null);
+  }
+  String propValue=flattenProp(name);
+  List<String> range=Arrays.asList(s4String.range());
+  if (!range.isEmpty() && !range.contains(propValue))   throw new InternalConfigurationException(getInstanceName(),name," is not in range (" + range + ')');
+  return propValue;
+}

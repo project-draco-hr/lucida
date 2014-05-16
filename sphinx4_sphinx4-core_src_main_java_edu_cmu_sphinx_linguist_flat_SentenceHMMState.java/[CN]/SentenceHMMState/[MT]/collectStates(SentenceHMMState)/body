@@ -1,0 +1,17 @@
+{
+  Set<SentenceHMMState> visitedStates=new HashSet<SentenceHMMState>();
+  List<SentenceHMMState> queue=new LinkedList<SentenceHMMState>();
+  queue.add(start);
+  while (!queue.isEmpty()) {
+    SentenceHMMState state=queue.remove(0);
+    visitedStates.add(state);
+    SearchStateArc[] successors=state.getSuccessors();
+    for (    SearchStateArc arc : successors) {
+      SentenceHMMState nextState=(SentenceHMMState)arc.getState();
+      if (!visitedStates.contains(nextState) && !queue.contains(nextState)) {
+        queue.add(nextState);
+      }
+    }
+  }
+  return visitedStates;
+}

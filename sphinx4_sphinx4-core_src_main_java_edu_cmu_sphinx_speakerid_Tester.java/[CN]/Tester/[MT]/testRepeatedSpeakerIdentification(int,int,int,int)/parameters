@@ -1,0 +1,4 @@
+int vectorSize
+int vectorCount
+int speakersCount
+int repeatFactor

@@ -1,0 +1,36 @@
+{
+  getTimer().start();
+  Data output=null;
+  if (streamEndReached) {
+    if (!utteranceEndSent) {
+      output=new DataEndSignal(getDuration());
+      utteranceEndSent=true;
+    }
+  }
+ else {
+    if (!utteranceStarted) {
+      utteranceStarted=true;
+      output=new DataStartSignal(sampleRate);
+    }
+ else {
+      if (dataStream != null) {
+        output=readNextFrame();
+        if (output == null) {
+          if (!utteranceEndSent) {
+            output=new DataEndSignal(getDuration());
+            utteranceEndSent=true;
+          }
+        }
+      }
+ else {
+        logger.warning("Input stream is not set");
+        if (!utteranceEndSent) {
+          output=new DataEndSignal(getDuration());
+          utteranceEndSent=true;
+        }
+      }
+    }
+  }
+  getTimer().stop();
+  return output;
+}

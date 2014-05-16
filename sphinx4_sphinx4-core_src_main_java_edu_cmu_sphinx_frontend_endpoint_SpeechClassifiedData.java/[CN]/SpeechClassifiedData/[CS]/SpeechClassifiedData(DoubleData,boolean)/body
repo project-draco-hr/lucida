@@ -1,0 +1,4 @@
+{
+  this.data=doubleData;
+  this.isSpeech=isSpeech;
+}

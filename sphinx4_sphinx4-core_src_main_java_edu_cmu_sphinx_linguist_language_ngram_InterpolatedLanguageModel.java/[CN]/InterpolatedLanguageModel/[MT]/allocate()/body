@@ -1,0 +1,10 @@
+{
+  if (!allocated) {
+    allocated=true;
+    vocabulary=new HashSet<String>();
+    for (    LanguageModel model : languageModels) {
+      model.allocate();
+      vocabulary.addAll(model.getVocabulary());
+    }
+  }
+}

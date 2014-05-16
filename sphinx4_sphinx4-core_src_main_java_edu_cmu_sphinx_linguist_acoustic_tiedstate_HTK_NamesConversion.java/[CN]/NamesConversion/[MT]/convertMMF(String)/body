@@ -1,0 +1,26 @@
+{
+  try {
+    BufferedReader bf=new BufferedReader(new FileReader(MMFfile));
+    PrintWriter pf=new PrintWriter(new FileWriter(MMFfile + ".conv"));
+    String s;
+    for (; ; ) {
+      s=bf.readLine();
+      if (s == null)       break;
+      int i=s.indexOf("~h");
+      if (i >= 0) {
+        i=s.indexOf('"');
+        int j=s.lastIndexOf('"');
+        String nom=s.substring(i + 1,j);
+        split3ph(nom);
+        String newnom=conv3ph();
+        pf.println("~h \"" + newnom + '\"');
+      }
+ else       pf.println(s);
+    }
+    pf.close();
+    bf.close();
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+}

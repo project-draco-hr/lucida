@@ -1,0 +1,9 @@
+{
+  if (lastFile != null) {
+    logger.finest("Finished processing of '" + lastFile.getFile() + '\'');
+    for (    AudioFileProcessListener fl : fileListeners)     fl.audioFileProcFinished(new File(lastFile.getFile()));
+    lastFile=null;
+  }
+  if (fileIt.hasNext())   lastFile=fileIt.next();
+  return lastFile;
+}

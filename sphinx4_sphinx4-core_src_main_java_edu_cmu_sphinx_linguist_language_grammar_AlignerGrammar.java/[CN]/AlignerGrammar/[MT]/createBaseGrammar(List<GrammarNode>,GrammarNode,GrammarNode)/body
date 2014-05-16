@@ -1,0 +1,10 @@
+{
+  GrammarNode currNode=branchNode;
+  ListIterator<GrammarNode> iter=wordGrammarNodes.listIterator();
+  while (iter.hasNext()) {
+    GrammarNode nextNode=iter.next();
+    currNode.add(nextNode,LogMath.LOG_ONE);
+    currNode=nextNode;
+  }
+  currNode.add(finalNode,LogMath.LOG_ONE);
+}

@@ -1,0 +1,3 @@
+int numberPLPFilters
+int cepstrumSize
+int LPCOrder

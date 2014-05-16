@@ -1,0 +1,10 @@
+{
+  for (Iterator<ActiveList> i=activeListManager.getNonEmittingListIterator(); i.hasNext(); ) {
+    activeList=i.next();
+    if (activeList != null) {
+      i.remove();
+      pruneBranches();
+      growBranches();
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  text=text.trim();
+  for (  Token token : resultList) {
+    if (text.equals(token.getWordPathNoFiller())) {
+      return token;
+    }
+  }
+  return null;
+}

@@ -1,0 +1,17 @@
+{
+  Map<String,List<PropertySheet>> allProps=listAllsPropNames(cm);
+  System.out.println("Property-structure of '" + cm.getConfigURL() + "':");
+  System.out.println("\nUnambiguous properties = ");
+  for (  Map.Entry<String,List<PropertySheet>> entry : allProps.entrySet()) {
+    if (entry.getValue().size() == 1)     System.out.print(entry.getKey() + ", ");
+  }
+  System.out.println("\n\nAmbiguous properties: ");
+  for (  Map.Entry<String,List<PropertySheet>> entry : allProps.entrySet()) {
+    if (entry.getValue().size() == 1)     continue;
+    System.out.print(entry.getKey() + '=');
+    for (    PropertySheet ps : entry.getValue()) {
+      System.out.print(ps.getInstanceName() + ", ");
+    }
+    System.out.println();
+  }
+}

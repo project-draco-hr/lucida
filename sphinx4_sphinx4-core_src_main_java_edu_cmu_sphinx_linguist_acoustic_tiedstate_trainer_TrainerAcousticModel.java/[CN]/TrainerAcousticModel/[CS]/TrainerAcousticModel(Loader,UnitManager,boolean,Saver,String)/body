@@ -1,0 +1,7 @@
+{
+  super(loader,unitManager,useComposites);
+  this.saver=saver;
+  this.hmmPoolManager=new HMMPoolManager(loader);
+  this.saveFormat=saveFormat;
+  logInfo();
+}

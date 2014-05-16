@@ -1,0 +1,3 @@
+{
+  init(ps.getInt(LEFT_CONTEXT_SIZE),ps.getInt(RIGHT_CONTEXT_SIZE));
+}

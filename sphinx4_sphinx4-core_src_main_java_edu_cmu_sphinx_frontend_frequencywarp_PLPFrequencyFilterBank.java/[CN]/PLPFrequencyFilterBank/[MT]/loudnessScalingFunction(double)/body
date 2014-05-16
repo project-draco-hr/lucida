@@ -1,0 +1,5 @@
+{
+  double fsq=freq * freq;
+  double fsub=fsq / (fsq + 1.6e5);
+  return fsub * fsub * ((fsq + 1.44e6) / (fsq + 9.61e6));
+}

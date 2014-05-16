@@ -1,0 +1,10 @@
+{
+  StringBuilder sb=new StringBuilder();
+  for (  WordResult wordResult : path) {
+    Word word=wordResult.getPronunciation().getWord();
+    if (!word.isFiller() && !word.getSpelling().equals("<unk>")) {
+      sb.append(word.getSpelling()).append(' ');
+    }
+  }
+  return sb.toString().trim();
+}

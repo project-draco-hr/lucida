@@ -1,0 +1,3 @@
+{
+  this.maxEdges=maxEdges;
+}

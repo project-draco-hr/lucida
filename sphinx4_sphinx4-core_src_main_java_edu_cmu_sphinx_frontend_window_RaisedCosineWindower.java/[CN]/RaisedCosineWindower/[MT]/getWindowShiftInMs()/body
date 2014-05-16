@@ -1,0 +1,4 @@
+{
+  if (windowShiftInMs == 0)   throw new RuntimeException(this + " was not initialized yet!");
+  return windowShiftInMs;
+}

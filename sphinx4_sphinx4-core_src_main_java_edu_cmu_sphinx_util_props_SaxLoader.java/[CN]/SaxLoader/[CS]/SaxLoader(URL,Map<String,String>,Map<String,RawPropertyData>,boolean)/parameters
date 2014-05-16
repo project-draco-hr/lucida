@@ -1,0 +1,4 @@
+URL url
+Map<String,String> globalProperties
+Map<String,RawPropertyData> initRPD
+boolean replaceDuplicates

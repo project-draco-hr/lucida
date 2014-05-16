@@ -1,0 +1,3 @@
+{
+  return new ProbDepth(getProbability(sequence),desiredMaxDepth);
+}

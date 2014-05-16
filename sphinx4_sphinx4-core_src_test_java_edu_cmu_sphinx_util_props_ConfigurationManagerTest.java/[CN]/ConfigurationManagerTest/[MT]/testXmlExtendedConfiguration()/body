@@ -1,0 +1,14 @@
+{
+  URL url=getClass().getResource("ConfigurationManagerTest.sxl");
+  ConfigurationManager cm=new ConfigurationManager(url);
+  String instanceName="duco";
+  assertThat(cm.getPropertySheet(instanceName),notNullValue());
+  assertThat(cm.lookup(instanceName),notNullValue());
+  assertThat(cm.lookup(instanceName),instanceOf(DummyComp.class));
+  DummyComp docu=(DummyComp)cm.lookup(instanceName);
+  assertThat(docu.getFrontEnd().getDataProcs(),Matchers.empty());
+  assertThat(docu.getBeamWidth(),equalTo(4711));
+  assertThat(cm.lookup("processor"),notNullValue());
+  assertThat(cm.getGlobalProperty("myalpha"),equalTo("-5"));
+  assertThat(cm.getGlobalProperty("hiddenproductad"),equalTo("opencards"));
+}

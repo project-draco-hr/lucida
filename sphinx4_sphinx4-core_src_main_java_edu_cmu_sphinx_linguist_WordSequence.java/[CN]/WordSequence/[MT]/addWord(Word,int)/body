@@ -1,0 +1,15 @@
+{
+  if (maxSize <= 0) {
+    return EMPTY;
+  }
+  int nextSize=((size() + 1) > maxSize) ? maxSize : (size() + 1);
+  WordSequence next=new WordSequence(nextSize);
+  int nextIndex=nextSize - 1;
+  int thisIndex=size() - 1;
+  next.words[nextIndex--]=word;
+  while (nextIndex >= 0 && thisIndex >= 0) {
+    next.words[nextIndex--]=this.words[thisIndex--];
+  }
+  next.check();
+  return next;
+}

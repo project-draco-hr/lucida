@@ -1,0 +1,46 @@
+{
+  Data data;
+  if (curPoint == -1) {
+    data=new DataStartSignal(sampleRate);
+    curPoint++;
+  }
+ else   if (curPoint == numPoints) {
+    if (numPoints > 0) {
+      firstSampleNumber=(firstSampleNumber - frameShift + frameSize - 1);
+    }
+    int numberFrames=curPoint / cepstrumLength;
+    int totalSamples=(numberFrames - 1) * frameShift + frameSize;
+    long duration=(long)(((double)totalSamples / (double)sampleRate) * 1000.0);
+    data=new DataEndSignal(duration);
+    try {
+      binaryStream.close();
+      curPoint++;
+    }
+ catch (    IOException ioe) {
+      throw new DataProcessingException("IOException closing cepstrum stream",ioe);
+    }
+  }
+ else   if (curPoint > numPoints) {
+    data=null;
+  }
+ else {
+    double[] vectorData=new double[cepstrumLength];
+    for (int i=0; i < cepstrumLength; i++) {
+      try {
+        if (bigEndian) {
+          vectorData[i]=binaryStream.readFloat();
+        }
+ else {
+          vectorData[i]=Utilities.readLittleEndianFloat(binaryStream);
+        }
+        curPoint++;
+      }
+ catch (      IOException ioe) {
+        throw new DataProcessingException("IOException reading from cepstrum stream",ioe);
+      }
+    }
+    data=new DoubleData(vectorData,sampleRate,firstSampleNumber);
+    firstSampleNumber+=frameShift;
+  }
+  return data;
+}

@@ -1,0 +1,4 @@
+{
+  this.caseSensitiveNames=caseSensitiveNames;
+  grammars=new HashMap<String,JSGFRuleGrammar>();
+}

@@ -1,0 +1,5 @@
+{
+  if (probability > totalProbability) {
+    totalProbability=probability;
+  }
+}

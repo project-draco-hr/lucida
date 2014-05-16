@@ -1,0 +1,8 @@
+{
+  ListIterator<Cluster> i=clusters.listIterator();
+  while (i.hasNext()) {
+    System.out.print("----cluster " + i.nextIndex() + " : ");
+    System.out.println(i.next());
+  }
+  System.out.println("----");
+}

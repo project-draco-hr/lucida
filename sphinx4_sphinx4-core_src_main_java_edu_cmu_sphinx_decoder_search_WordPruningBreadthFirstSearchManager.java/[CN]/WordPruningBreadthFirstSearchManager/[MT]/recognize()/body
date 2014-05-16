@@ -1,0 +1,14 @@
+{
+  activeList=activeListManager.getEmittingList();
+  boolean more=scoreTokens();
+  if (more) {
+    pruneBranches();
+    currentFrameNumber++;
+    if (growSkipInterval == 0 || (currentFrameNumber % growSkipInterval) != 0) {
+      clearCollectors();
+      growEmittingBranches();
+      growNonEmittingBranches();
+    }
+  }
+  return !more;
+}

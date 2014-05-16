@@ -1,0 +1,20 @@
+{
+  SearchStateArc[] arcs=getCachedArcs();
+  if (arcs == null) {
+    HMMNode[] nodes=getHMMNodes(getEndNode());
+    arcs=new SearchStateArc[nodes.length];
+    if (generateUnitStates) {
+      for (int i=0; i < nodes.length; i++) {
+        arcs[i]=new LexTreeUnitState(nodes[i],getWordHistory(),getSmearTerm(),getSmearProb(),logOne,logOne,this.getNode(),collapsed);
+      }
+    }
+ else {
+      for (int i=0; i < nodes.length; i++) {
+        HMM hmm=nodes[i].getHMM();
+        arcs[i]=new LexTreeHMMState(nodes[i],getWordHistory(),getSmearTerm(),getSmearProb(),hmm.getInitialState(),logOne,logOne,this.getNode(),collapsed);
+      }
+    }
+    putCachedArcs(arcs);
+  }
+  return arcs;
+}

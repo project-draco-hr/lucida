@@ -1,0 +1,32 @@
+{
+  LinkedList<WordResult> words=new LinkedList<WordResult>();
+  Token token=getBestToken();
+  if (token == null)   return new ArrayList<WordResult>();
+  while (token != null) {
+    Data lastWordFirstFeature=token.getData();
+    Data lastFeature=lastWordFirstFeature;
+    token=token.getPredecessor();
+    while (token != null) {
+      if (token.isWord()) {
+        Word word=token.getWord();
+        long sf;
+        long ef;
+        if (lastFeature != null) {
+          sf=((FloatData)lastFeature).getCollectTime();
+        }
+ else         sf=0;
+        if (lastWordFirstFeature != null)         ef=((FloatData)lastWordFirstFeature).getCollectTime();
+ else         ef=-1;
+        WordResult wordResult=new WordResult(word,new TimeFrame(sf,ef),0.0,1.0);
+        words.addFirst(wordResult);
+        lastWordFirstFeature=lastFeature;
+      }
+      Data feature=token.getData();
+      if (feature != null) {
+        lastFeature=feature;
+      }
+      token=token.getPredecessor();
+    }
+  }
+  return new ArrayList<WordResult>(words);
+}

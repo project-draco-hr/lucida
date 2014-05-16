@@ -1,0 +1,4 @@
+{
+  System.out.print("   Summary Beam Abs Max: " + totMaxAbsoluteBeam + "  Avg: "+ sumAbsoluteBeam / totalUtterances);
+  System.out.println("   Rel Max: " + logFormatter.format(logMath.logToLinear(totMaxRelativeBeam)) + "  Avg: "+ logFormatter.format(logMath.logToLinear(sumRelativeBeam / totalUtterances)));
+}

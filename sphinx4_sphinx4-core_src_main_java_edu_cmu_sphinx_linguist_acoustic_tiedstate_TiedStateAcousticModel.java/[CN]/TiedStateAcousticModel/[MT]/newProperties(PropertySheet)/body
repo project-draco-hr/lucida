@@ -1,0 +1,6 @@
+{
+  loader=(Loader)ps.getComponent(PROP_LOADER);
+  unitManager=(UnitManager)ps.getComponent(PROP_UNIT_MANAGER);
+  useComposites=ps.getBoolean(PROP_USE_COMPOSITES);
+  logger=ps.getLogger();
+}

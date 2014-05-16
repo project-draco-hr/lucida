@@ -1,0 +1,36 @@
+{
+  try {
+    BufferedReader bf=new BufferedReader(new FileReader(lexFile));
+    PrintWriter pf=new PrintWriter(new FileWriter(lexFile + ".conv"));
+    String s;
+    for (; ; ) {
+      s=bf.readLine();
+      if (s == null)       break;
+      StringTokenizer st=new StringTokenizer(s);
+      if (st == null || !st.hasMoreTokens())       continue;
+      String mot=st.nextToken();
+      String newmot=wordConv.get(mot);
+      if (newmot != null)       mot=newmot;
+      pf.print(mot + ' ');
+      while (st.hasMoreTokens()) {
+        String ph=st.nextToken();
+        if (ph.charAt(0) == '[') {
+          for (; ; ) {
+            if (ph.endsWith("]"))             break;
+            ph=st.nextToken();
+          }
+          ph=st.nextToken();
+        }
+        split3ph(ph);
+        String newnom=conv3ph();
+        pf.print(newnom + ' ');
+      }
+      pf.println();
+    }
+    pf.close();
+    bf.close();
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+}

@@ -1,0 +1,27 @@
+{
+  List<SearchStateArc> arcList=new ArrayList<SearchStateArc>();
+  if (skipHMMs) {
+    if (from instanceof HMMSearchState) {
+      return;
+    }
+ else     if (arc.getState() instanceof HMMSearchState) {
+      findNextNonHMMArc(arc,arcList);
+    }
+ else {
+      arcList.add(arc);
+    }
+  }
+ else {
+    arcList.add(arc);
+  }
+  for (  SearchStateArc nextArc : arcList) {
+    String label="";
+    String color=getArcColor(nextArc);
+    if (dumpArcLabels) {
+      double language=logMath.logToLinear(nextArc.getLanguageProbability());
+      double insert=logMath.logToLinear(nextArc.getInsertionProbability());
+      label=" label: " + qs('(' + formatEdgeLabel(language) + ','+ formatEdgeLabel(insert)+ ')');
+    }
+    out.println("   edge: { sourcename: " + qs(getUniqueName(from)) + " targetname: "+ qs(getUniqueName(nextArc.getState()))+ label+ " color: "+ color+ '}');
+  }
+}

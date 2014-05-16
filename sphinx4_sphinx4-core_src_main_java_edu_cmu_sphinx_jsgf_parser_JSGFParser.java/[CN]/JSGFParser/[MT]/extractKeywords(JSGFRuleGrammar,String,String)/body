@@ -1,0 +1,12 @@
+{
+  int i=0;
+  while ((i=comment.indexOf("@example ",i) + 9) > 9) {
+    int j=Math.max(comment.indexOf('\u005cr',i),comment.indexOf('\u005cn',i));
+    if (j < 0) {
+      j=comment.length();
+      if (comment.endsWith(("*/")))       j-=2;
+    }
+    grammar.addSampleSentence(rname,comment.substring(i,j).trim());
+    i=j + 1;
+  }
+}

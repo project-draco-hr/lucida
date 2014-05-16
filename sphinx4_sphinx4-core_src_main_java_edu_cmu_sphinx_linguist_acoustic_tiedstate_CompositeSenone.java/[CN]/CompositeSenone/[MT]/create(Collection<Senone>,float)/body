@@ -1,0 +1,3 @@
+{
+  return new CompositeSenone(senoneCollection.toArray(new Senone[senoneCollection.size()]),weight);
+}

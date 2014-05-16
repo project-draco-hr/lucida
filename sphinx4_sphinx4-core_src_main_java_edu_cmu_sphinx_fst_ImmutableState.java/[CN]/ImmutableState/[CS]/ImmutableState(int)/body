@@ -1,0 +1,5 @@
+{
+  super(0);
+  this.initialNumArcs=numArcs;
+  arcs=new Arc[numArcs];
+}

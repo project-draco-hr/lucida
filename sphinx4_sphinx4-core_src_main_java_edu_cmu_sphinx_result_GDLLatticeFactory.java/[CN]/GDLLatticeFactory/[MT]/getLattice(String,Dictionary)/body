@@ -1,0 +1,15 @@
+{
+  Lattice lattice=new Lattice();
+  BufferedReader reader=new BufferedReader(new FileReader(gdlFile));
+  String line=null;
+  while ((line=reader.readLine()) != null) {
+    if (line.startsWith("node")) {
+      createNode(line,lattice,dictionary);
+    }
+ else     if (line.startsWith("edge")) {
+      createEdge(line,lattice);
+    }
+  }
+  reader.close();
+  return lattice;
+}

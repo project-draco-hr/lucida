@@ -1,0 +1,3 @@
+{
+  return senone.getScore(feature);
+}

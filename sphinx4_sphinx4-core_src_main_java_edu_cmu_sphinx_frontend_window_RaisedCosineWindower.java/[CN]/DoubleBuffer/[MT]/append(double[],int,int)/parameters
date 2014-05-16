@@ -1,0 +1,3 @@
+double[] src
+int srcPos
+int length

@@ -1,0 +1,4 @@
+{
+  super.newProperties(ps);
+  convMode=ps.getString(PROP_CONVERSION_MODE);
+}

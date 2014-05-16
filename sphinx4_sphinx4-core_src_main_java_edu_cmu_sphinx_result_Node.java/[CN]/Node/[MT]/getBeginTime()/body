@@ -1,0 +1,6 @@
+{
+  if (beginTime == -1) {
+    calculateBeginTime();
+  }
+  return beginTime;
+}

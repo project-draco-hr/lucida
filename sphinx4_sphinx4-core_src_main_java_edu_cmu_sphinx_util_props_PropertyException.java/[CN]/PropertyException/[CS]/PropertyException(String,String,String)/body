@@ -1,0 +1,3 @@
+{
+  this(null,instanceName,propertyName,msg);
+}

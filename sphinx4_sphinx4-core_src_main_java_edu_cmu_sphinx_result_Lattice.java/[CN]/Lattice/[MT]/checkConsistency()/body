@@ -1,0 +1,29 @@
+{
+  for (  Node n : nodes.values()) {
+    for (    Edge e : n.getEnteringEdges()) {
+      if (!hasEdge(e)) {
+        throw new Error("Lattice has NODE with missing FROM edge: " + n + ','+ e);
+      }
+    }
+    for (    Edge e : n.getLeavingEdges()) {
+      if (!hasEdge(e)) {
+        throw new Error("Lattice has NODE with missing TO edge: " + n + ','+ e);
+      }
+    }
+  }
+  for (  Edge e : edges) {
+    if (!hasNode(e.getFromNode())) {
+      throw new Error("Lattice has EDGE with missing FROM node: " + e);
+    }
+    if (!hasNode(e.getToNode())) {
+      throw new Error("Lattice has EDGE with missing TO node: " + e);
+    }
+    if (!e.getToNode().hasEdgeFromNode(e.getFromNode())) {
+      throw new Error("Lattice has EDGE with TO node with no corresponding FROM edge: " + e);
+    }
+    if (!e.getFromNode().hasEdgeToNode(e.getToNode())) {
+      throw new Error("Lattice has EDGE with FROM node with no corresponding TO edge: " + e);
+    }
+  }
+  return true;
+}

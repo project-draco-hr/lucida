@@ -1,0 +1,3 @@
+{
+  logger.info("HMM Manager: " + getNumHMMs() + " hmms");
+}

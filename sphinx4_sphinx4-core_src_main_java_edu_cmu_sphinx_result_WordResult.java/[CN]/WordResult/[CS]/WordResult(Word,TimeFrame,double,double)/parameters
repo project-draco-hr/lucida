@@ -1,0 +1,4 @@
+Word w
+TimeFrame timeFrame
+double score
+double confidence

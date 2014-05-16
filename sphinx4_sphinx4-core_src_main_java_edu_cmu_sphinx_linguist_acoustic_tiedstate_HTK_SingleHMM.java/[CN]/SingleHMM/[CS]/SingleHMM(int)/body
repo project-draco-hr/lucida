@@ -1,0 +1,5 @@
+{
+  name="";
+  states=new HMMState[nbStates];
+  nbEmittingStates=0;
+}

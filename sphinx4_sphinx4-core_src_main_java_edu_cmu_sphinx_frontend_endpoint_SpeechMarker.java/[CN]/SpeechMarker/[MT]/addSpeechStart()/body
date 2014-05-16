@@ -1,0 +1,26 @@
+{
+  long lastCollectTime=0;
+  int silenceLength=0, initalSpeechLength=0;
+  ListIterator<Data> i=outputQueue.listIterator(outputQueue.size());
+  while ((silenceLength < speechLeader || initalSpeechLength < startSpeechTime) && i.hasPrevious()) {
+    Data current=i.previous();
+    if (current instanceof SpeechClassifiedData) {
+      SpeechClassifiedData data=(SpeechClassifiedData)current;
+      if (data.isSpeech()) {
+        initalSpeechLength+=getAudioTime(data);
+      }
+ else {
+        silenceLength+=getAudioTime(data);
+      }
+      lastCollectTime=data.getCollectTime();
+    }
+ else     if (current instanceof DataStartSignal || current instanceof SpeechEndSignal) {
+      i.next();
+      break;
+    }
+ else     if (current instanceof DataEndSignal) {
+      throw new Error("Illegal signal " + current);
+    }
+  }
+  i.add(new SpeechStartSignal(lastCollectTime));
+}

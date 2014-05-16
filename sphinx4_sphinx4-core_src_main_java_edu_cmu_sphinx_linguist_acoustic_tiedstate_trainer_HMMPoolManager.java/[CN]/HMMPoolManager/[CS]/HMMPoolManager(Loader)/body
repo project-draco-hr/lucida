@@ -1,0 +1,13 @@
+{
+  loader.load();
+  hmmManager=loader.getHMMManager();
+  indexMap=new HashMap<Object,Integer>();
+  meansPool=loader.getMeansPool();
+  variancePool=loader.getVariancePool();
+  mixtureWeightsPool=loader.getMixtureWeightPool();
+  matrixPool=loader.getTransitionMatrixPool();
+  senonePool=loader.getSenonePool();
+  createBuffers();
+  logLikelihood=0.0f;
+  logMath=LogMath.getInstance();
+}

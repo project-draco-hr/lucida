@@ -1,0 +1,13 @@
+{
+  try {
+    PrintWriter out=new PrintWriter(new FileOutputStream(path));
+    out.println("digraph \"" + path + "\" {");
+    out.println("rankdir = LR\n");
+    traverseDot(out,new HashSet<GrammarNode>());
+    out.println("}");
+    out.close();
+  }
+ catch (  FileNotFoundException fnfe) {
+    System.out.println("Can't write to " + path + ' '+ fnfe);
+  }
+}

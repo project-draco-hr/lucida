@@ -1,0 +1,14 @@
+{
+  Data output=null;
+  if (!cepstraList.isEmpty()) {
+    output=cepstraList.remove(0);
+  }
+ else {
+    reset();
+    if (readUtterance() > 0) {
+      normalizeList();
+      output=cepstraList.remove(0);
+    }
+  }
+  return output;
+}

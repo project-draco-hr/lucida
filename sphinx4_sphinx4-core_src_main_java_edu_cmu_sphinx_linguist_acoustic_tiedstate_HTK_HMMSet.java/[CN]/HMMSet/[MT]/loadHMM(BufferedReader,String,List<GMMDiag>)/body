@@ -1,0 +1,64 @@
+{
+  GMMDiag e=null;
+  int curstate;
+  String name=n;
+  String s="";
+  while (!s.startsWith("<NUMSTATES>")) {
+    s=f.readLine();
+  }
+  int nstates=Integer.parseInt(s.substring(s.indexOf(' ') + 1));
+  nstates--;
+  SingleHMM theHMM=new SingleHMM(nstates);
+  theHMM.setName(n);
+  theHMM.hmmset=this;
+  while (!s.startsWith("<STATE>"))   s=f.readLine();
+  while (s.startsWith("<STATE>")) {
+    curstate=Integer.parseInt(s.substring(s.indexOf(' ') + 1));
+    curstate--;
+    s=f.readLine();
+    int gmmidx=-1;
+    if (s.startsWith("~s")) {
+      String nomEtat=s.substring(s.indexOf('"') + 1,s.lastIndexOf('"'));
+      int i;
+      for (i=0; i < autresEtats.size(); i++) {
+        e=autresEtats.get(i);
+        if (e.nom.equals(nomEtat))         break;
+      }
+      gmmidx=i;
+      if (i == autresEtats.size()) {
+        System.err.println("Error creatiing HMM : state " + name + " not found");
+        System.exit(1);
+      }
+    }
+ else {
+      loadState(f,"",s);
+      gmmidx=gmms.size() - 1;
+      e=gmms.get(gmms.size() - 1);
+    }
+    HMMState st=new HMMState(e,new Lab(name,curstate));
+    st.gmmidx=gmmidx;
+    states.add(st);
+    theHMM.setState(curstate - 1,st);
+    s=f.readLine();
+    if (s.startsWith("<GCONST>"))     s=f.readLine();
+  }
+  if (s.startsWith("~t")) {
+    String nomTrans=s.substring(s.indexOf('"') + 1,s.lastIndexOf('"'));
+    int tridx=getTrans(nomTrans);
+    theHMM.setTrans(tridx);
+  }
+ else {
+    if (!s.startsWith("<TRANSP>")) {
+      System.err.println("Error reading model: missing transitions." + s);
+      System.exit(1);
+    }
+    loadTrans(f,null,s);
+    theHMM.setTrans(trans);
+  }
+  s=f.readLine();
+  if (!s.startsWith("<ENDHMM>")) {
+    System.err.println("Error reading model: missing ENDHMM." + s);
+    System.exit(1);
+  }
+  return theHMM;
+}

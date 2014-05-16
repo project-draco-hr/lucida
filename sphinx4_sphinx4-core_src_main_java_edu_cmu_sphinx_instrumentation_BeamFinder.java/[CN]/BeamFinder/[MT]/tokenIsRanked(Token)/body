@@ -1,0 +1,16 @@
+{
+  while (token != null) {
+    if (token.isEmitting()) {
+      if (token.getTokenProps().get(TOKEN_RANK) == null) {
+        if (token.getFrameNumber() != 0) {
+          System.out.println("MISSING " + token);
+          return false;
+        }
+      }
+ else {
+      }
+    }
+    token=token.getPredecessor();
+  }
+  return true;
+}

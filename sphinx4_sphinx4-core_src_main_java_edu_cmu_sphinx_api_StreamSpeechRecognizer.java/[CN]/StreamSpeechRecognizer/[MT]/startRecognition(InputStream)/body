@@ -1,0 +1,4 @@
+{
+  recognizer.allocate();
+  context.setSpeechSource(stream);
+}

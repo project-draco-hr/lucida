@@ -1,0 +1,4 @@
+{
+  if (v <= 0)   System.err.println("WARNING: setVar " + v);
+  covar[i][j]=-1f / (2f * v);
+}

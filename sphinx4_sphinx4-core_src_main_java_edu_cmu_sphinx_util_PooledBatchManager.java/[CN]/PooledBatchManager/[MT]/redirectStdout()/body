@@ -1,0 +1,9 @@
+{
+  String myName=getMyName();
+  File resultFile=File.createTempFile(myName,".out",resultsDir);
+  FileOutputStream fos=new FileOutputStream(resultFile);
+  PrintStream ps=new PrintStream(fos);
+  oldOut=System.out;
+  System.setOut(ps);
+  System.out.println("# These results collected on " + getMyName());
+}

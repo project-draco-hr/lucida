@@ -1,0 +1,6 @@
+{
+  if (packageName != null) {
+    return packageName + "." + simpleGrammarName;
+  }
+  return simpleGrammarName;
+}

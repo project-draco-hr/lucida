@@ -1,0 +1,6 @@
+{
+  if (!registeredProperties.containsKey(name))   throw new InternalConfigurationException(getInstanceName(),name,'\'' + name + "' is not a registered compontent");
+  Annotation annotation=registeredProperties.get(name).getAnnotation();
+  if (!(annotation instanceof S4Component))   throw new InternalConfigurationException(getInstanceName(),name,'\'' + name + "' is of type component");
+  applyConfigurationChange(name,cmName,value);
+}

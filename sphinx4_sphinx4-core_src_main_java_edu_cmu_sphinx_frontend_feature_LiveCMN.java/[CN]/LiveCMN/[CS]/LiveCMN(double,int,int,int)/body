@@ -1,0 +1,6 @@
+{
+  initLogger();
+  this.cmnWindow=cmnWindow;
+  this.cmnShiftWindow=cmnShiftWindow;
+  this.initialCmnWindow=initialCmnWindow;
+}

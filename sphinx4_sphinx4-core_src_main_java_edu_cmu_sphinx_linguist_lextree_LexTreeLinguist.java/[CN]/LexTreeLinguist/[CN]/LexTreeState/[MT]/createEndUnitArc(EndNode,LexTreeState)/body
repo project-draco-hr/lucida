@@ -1,0 +1,6 @@
+{
+  float smearProbability=getUnigramSmear(endNode) + previous.getSmearTerm();
+  float languageProbability=smearProbability - previous.getSmearProb();
+  float insertionProbability=calculateInsertionProbability(endNode);
+  return new LexTreeEndUnitState(endNode,getWordHistory(),previous.getSmearTerm(),smearProbability,languageProbability,insertionProbability,collapsed);
+}

@@ -1,0 +1,7 @@
+{
+  context=new Context(configuration);
+  context.setLocalProperty("decoder->searchManager","simpleSearchManager");
+  context.setLocalProperty("flatLinguist->grammar","alignerGrammar");
+  recognizer=context.getInstance(Recognizer.class);
+  grammar=context.getInstance(AlignerGrammar.class);
+}

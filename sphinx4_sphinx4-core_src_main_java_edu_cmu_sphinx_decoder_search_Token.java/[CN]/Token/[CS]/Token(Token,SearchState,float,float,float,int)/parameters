@@ -1,0 +1,6 @@
+Token predecessor
+SearchState state
+float logTotalScore
+float logInsertionScore
+float logLanguageScore
+int frameNumber

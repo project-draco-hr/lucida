@@ -1,0 +1,7 @@
+{
+  LinkedList<Node> childNodes=new LinkedList<Node>();
+  for (  Edge edge : leavingEdges) {
+    childNodes.add(edge.getToNode());
+  }
+  return childNodes;
+}

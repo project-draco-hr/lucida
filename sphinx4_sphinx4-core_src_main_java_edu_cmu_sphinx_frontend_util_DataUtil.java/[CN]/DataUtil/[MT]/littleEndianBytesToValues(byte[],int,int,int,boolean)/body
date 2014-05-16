@@ -1,0 +1,23 @@
+{
+  if (0 < length && (offset + length) <= data.length) {
+    assert(length % bytesPerValue == 0);
+    double[] doubleArray=new double[length / bytesPerValue];
+    int i=offset + bytesPerValue - 1;
+    for (int j=0; j < doubleArray.length; j++) {
+      int val=data[i--];
+      if (!signedData) {
+        val&=0xff;
+      }
+      for (int c=1; c < bytesPerValue; c++) {
+        int temp=data[i--] & 0xff;
+        val=(val << 8) + temp;
+      }
+      i+=(bytesPerValue * 2);
+      doubleArray[j]=val;
+    }
+    return doubleArray;
+  }
+ else {
+    throw new ArrayIndexOutOfBoundsException("offset: " + offset + ", length: "+ length+ ", array length: "+ data.length);
+  }
+}

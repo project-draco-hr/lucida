@@ -1,0 +1,21 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (getClass() != obj.getClass())   return false;
+  Fst other=(Fst)obj;
+  if (!Arrays.equals(isyms,other.isyms))   return false;
+  if (!Arrays.equals(osyms,other.osyms))   return false;
+  if (start == null) {
+    if (other.start != null)     return false;
+  }
+ else   if (!start.equals(other.start))   return false;
+  if (states == null) {
+    if (other.states != null)     return false;
+  }
+ else   if (!states.equals(other.states))   return false;
+  if (semiring == null) {
+    if (other.semiring != null)     return false;
+  }
+ else   if (!semiring.equals(other.semiring))   return false;
+  return true;
+}

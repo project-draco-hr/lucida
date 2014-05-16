@@ -1,0 +1,11 @@
+{
+  String result=string;
+  int pad=minLength - string.length();
+  if (pad > 0) {
+    result=string + pad(minLength - string.length());
+  }
+ else   if (pad < 0) {
+    result=string.substring(0,minLength);
+  }
+  return result;
+}

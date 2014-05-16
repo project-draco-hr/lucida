@@ -1,0 +1,22 @@
+{
+  if (weights == null) {
+    return null;
+  }
+  double sum=0.0;
+  for (  float weight : weights) {
+    if (weight < 0) {
+      throw new IllegalArgumentException("Negative weight " + weight);
+    }
+    sum+=weight;
+  }
+  List<Float> normalized=new LinkedList<Float>(weights);
+  for (int i=0; i < weights.size(); i++) {
+    if (sum == 0.0f) {
+      normalized.set(i,LogMath.LOG_ZERO);
+    }
+ else {
+      normalized.set(i,logMath.linearToLog(weights.get(i) / sum));
+    }
+  }
+  return normalized;
+}

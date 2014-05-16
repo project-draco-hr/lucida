@@ -1,0 +1,12 @@
+{
+  float[][] transitionMatrix=new float[4][4];
+  Arrays.fill(transitionMatrix[3],LogMath.LOG_ZERO);
+  for (  HmmState state : phoneStates.get(phone)) {
+    int stateId=state.getId();
+    Arrays.fill(transitionMatrix[stateId],LogMath.LOG_ZERO);
+    Triple triple=new Triple(phone,stateId,pdfs[stateId]);
+    int i=transitionStates.get(triple);
+    for (    Integer j : state.getTransitions())     transitionMatrix[stateId][j]=logProbabilities[i++];
+  }
+  return transitionMatrix;
+}

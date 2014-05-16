@@ -1,0 +1,12 @@
+{
+  if (o == this) {
+    return true;
+  }
+ else   if (o instanceof OogHMMState) {
+    OogHMMState other=(OogHMMState)o;
+    return other.hmmState == hmmState;
+  }
+ else {
+    return false;
+  }
+}

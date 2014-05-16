@@ -1,0 +1,18 @@
+{
+  System.out.println(" ==== " + this + " ========");
+  System.out.print("Node: " + node);
+  if (node.isEmpty()) {
+    System.out.print("  (Empty)");
+  }
+ else {
+    System.out.print(" " + node.getWord());
+  }
+  System.out.print(" ep: " + entryPoints.size());
+  System.out.print(" exit: " + exitPoints.size());
+  System.out.print(" cons: " + exitConnections);
+  System.out.print(" tot: " + getStates().size());
+  System.out.print(" sc: " + getStartingContexts().size());
+  System.out.print(" rc: " + leftContexts.size());
+  System.out.println(" lc: " + rightContexts.size());
+  dumpDetails();
+}

@@ -1,0 +1,4 @@
+{
+  super.newProperties(ps);
+  maxModelSize=ps.getInt(MAX_MODEL_SIZE);
+}

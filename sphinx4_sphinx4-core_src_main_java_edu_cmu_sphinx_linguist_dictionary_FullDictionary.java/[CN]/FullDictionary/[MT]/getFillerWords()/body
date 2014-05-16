@@ -1,0 +1,3 @@
+{
+  return fillerDictionary.values().toArray(new Word[fillerDictionary.size()]);
+}

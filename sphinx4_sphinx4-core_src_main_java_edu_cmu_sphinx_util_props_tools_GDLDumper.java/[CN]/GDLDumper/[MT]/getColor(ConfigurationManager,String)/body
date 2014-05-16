@@ -1,0 +1,34 @@
+{
+  try {
+    Configurable c=ConfigurationManager.lookup(componentName);
+    Class<? extends Configurable> cls=c.getClass();
+    if (cls.getName().indexOf(".recognizer") > 1) {
+      return "cyan";
+    }
+ else     if (cls.getName().indexOf(".tools") > 1) {
+      return "darkcyan";
+    }
+ else     if (cls.getName().indexOf(".decoder") > 1) {
+      return "green";
+    }
+ else     if (cls.getName().indexOf(".frontend") > 1) {
+      return "orange";
+    }
+ else     if (cls.getName().indexOf(".acoustic") > 1) {
+      return "turquoise";
+    }
+ else     if (cls.getName().indexOf(".linguist") > 1) {
+      return "lightblue";
+    }
+ else     if (cls.getName().indexOf(".instrumentation") > 1) {
+      return "lightgrey";
+    }
+ else     if (cls.getName().indexOf(".util") > 1) {
+      return "lightgrey";
+    }
+  }
+ catch (  PropertyException e) {
+    return "black";
+  }
+  return "darkgrey";
+}

@@ -1,0 +1,3 @@
+{
+  super(buffer,numberNGrams,bigEndian,is32bits,n,firstCurrentNGramEntry);
+}

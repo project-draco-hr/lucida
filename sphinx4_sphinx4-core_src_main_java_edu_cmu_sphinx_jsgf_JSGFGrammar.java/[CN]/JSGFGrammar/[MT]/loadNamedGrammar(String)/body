@@ -1,0 +1,6 @@
+{
+  URL url=grammarNameToURL(baseURL,grammarName);
+  JSGFRuleGrammar ruleGrammar=JSGFParser.newGrammarFromJSGF(url,new JSGFRuleGrammarFactory(manager));
+  ruleGrammar.setEnabled(true);
+  return ruleGrammar;
+}

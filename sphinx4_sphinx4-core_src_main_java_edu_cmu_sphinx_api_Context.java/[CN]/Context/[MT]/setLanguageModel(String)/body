@@ -1,0 +1,14 @@
+{
+  if (path.endsWith(".lm")) {
+    setLocalProperty("simpleNGramModel->location",path);
+    setLocalProperty("lexTreeLinguist->languageModel","simpleNGramModel");
+  }
+ else   if (path.endsWith(".dmp")) {
+    setLocalProperty("largeTrigramModel->location",path);
+    setLocalProperty("lexTreeLinguist->languageModel","largeTrigramModel");
+  }
+ else {
+    throw new IllegalArgumentException("Unknown format extension: " + path);
+  }
+  setLocalProperty("decoder->searchManager","wordPruningSearchManager");
+}

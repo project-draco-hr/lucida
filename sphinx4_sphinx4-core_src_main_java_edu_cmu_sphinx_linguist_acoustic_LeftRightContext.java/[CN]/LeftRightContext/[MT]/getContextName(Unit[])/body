@@ -1,0 +1,10 @@
+{
+  if (context == null)   return "*";
+  if (context.length == 0)   return "(empty)";
+  StringBuilder sb=new StringBuilder();
+  for (  Unit unit : context) {
+    sb.append(unit == null ? null : unit.getName()).append('.');
+  }
+  sb.setLength(sb.length() - 1);
+  return sb.toString();
+}

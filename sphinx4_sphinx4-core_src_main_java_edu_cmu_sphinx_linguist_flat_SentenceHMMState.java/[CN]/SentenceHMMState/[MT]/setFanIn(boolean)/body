@@ -1,0 +1,8 @@
+{
+  if (fanIn) {
+    this.fields|=MASK_FAN_IN;
+  }
+ else {
+    this.fields&=~MASK_FAN_IN;
+  }
+}

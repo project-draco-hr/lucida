@@ -1,0 +1,26 @@
+{
+  short[] shorts=new short[0];
+  int sampleRate=8000;
+  while (recorder.hasMoreData()) {
+    try {
+      Data data=recorder.getData();
+      if (data instanceof DoubleData) {
+        sampleRate=((DoubleData)data).getSampleRate();
+        double[] values=((DoubleData)data).getValues();
+        short[] newShorts=Arrays.copyOf(shorts,shorts.length + values.length);
+        for (int i=0; i < values.length; i++) {
+          newShorts[shorts.length + i]=(short)values[i];
+        }
+        shorts=newShorts;
+      }
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+  }
+  if (sampleRate > 8000) {
+    System.out.println("Downsampling from " + sampleRate + " to 8000.");
+    shorts=Downsampler.downsample(shorts,sampleRate / 1000,16);
+  }
+  return shorts;
+}

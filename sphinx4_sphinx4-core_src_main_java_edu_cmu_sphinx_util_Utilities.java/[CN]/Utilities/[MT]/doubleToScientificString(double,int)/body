@@ -1,0 +1,17 @@
+{
+  DecimalFormat format=new DecimalFormat();
+  StringBuilder formatter=new StringBuilder(5 + fractionDigits).append("0.");
+  for (int i=0; i < fractionDigits; i++) {
+    formatter.append('0');
+  }
+  formatter.append("E00");
+  format.applyPattern(formatter.toString());
+  String formatted=format.format(number);
+  int index=formatted.indexOf('E');
+  if (formatted.charAt(index + 1) != '-') {
+    return formatted.substring(0,index + 1) + '+' + formatted.substring(index + 1);
+  }
+ else {
+    return formatted;
+  }
+}

@@ -1,0 +1,4 @@
+{
+  this.hmmState=hmmState;
+  this.probability=probability;
+}

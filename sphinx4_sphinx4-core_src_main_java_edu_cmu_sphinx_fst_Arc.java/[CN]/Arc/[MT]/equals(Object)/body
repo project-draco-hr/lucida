@@ -1,0 +1,16 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (getClass() != obj.getClass())   return false;
+  Arc other=(Arc)obj;
+  if (iLabel != other.iLabel)   return false;
+  if (nextState == null) {
+    if (other.nextState != null)     return false;
+  }
+ else   if (nextState.getId() != other.nextState.getId())   return false;
+  if (oLabel != other.oLabel)   return false;
+  if (!(weight == other.weight)) {
+    if (Float.floatToIntBits(weight) != Float.floatToIntBits(other.weight))     return false;
+  }
+  return true;
+}

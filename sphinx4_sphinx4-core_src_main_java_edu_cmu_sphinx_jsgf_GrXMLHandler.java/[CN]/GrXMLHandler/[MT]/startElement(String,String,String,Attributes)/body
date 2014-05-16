@@ -1,0 +1,30 @@
+{
+  JSGFRule newRule=null;
+  JSGFRule topRule=null;
+  logger.fine("Starting element " + qName);
+  if (qName.equals("rule")) {
+    String id=attributes.getValue("id");
+    if (id != null) {
+      newRule=new JSGFRuleSequence(new ArrayList<JSGFRule>());
+      topRuleMap.put(id,newRule);
+      topRule=newRule;
+    }
+  }
+  if (qName.equals("item")) {
+    String repeat=attributes.getValue("repeat");
+    if (repeat != null) {
+      newRule=new JSGFRuleSequence(new ArrayList<JSGFRule>());
+      JSGFRuleCount ruleCount=new JSGFRuleCount(newRule,JSGFRuleCount.ONCE_OR_MORE);
+      topRule=ruleCount;
+    }
+ else {
+      newRule=new JSGFRuleSequence(new ArrayList<JSGFRule>());
+      topRule=newRule;
+    }
+  }
+  if (qName.equals("one-of")) {
+    newRule=new JSGFRuleAlternatives(new ArrayList<JSGFRule>());
+    topRule=newRule;
+  }
+  addToCurrent(newRule,topRule);
+}

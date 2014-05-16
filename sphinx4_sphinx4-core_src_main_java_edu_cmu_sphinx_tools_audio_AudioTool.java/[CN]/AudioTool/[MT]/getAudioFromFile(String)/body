@@ -1,0 +1,21 @@
+{
+  if (filename.endsWith(".align")) {
+    BufferedReader reader=new BufferedReader(new InputStreamReader(new FileInputStream(filename)));
+    populateAudio(reader.readLine());
+    int numPoints=Integer.parseInt(reader.readLine());
+    float[] times=new float[numPoints];
+    String[] labels=new String[numPoints];
+    for (int i=0; i < numPoints; i++) {
+      StringTokenizer tokenizer=new StringTokenizer(reader.readLine());
+      while (tokenizer.hasMoreTokens()) {
+        times[i]=Float.parseFloat(tokenizer.nextToken());
+        labels[i]=tokenizer.nextToken();
+      }
+    }
+    audioPanel.setLabels(times,labels);
+    reader.close();
+  }
+ else {
+    populateAudio(filename);
+  }
+}

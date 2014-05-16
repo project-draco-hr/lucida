@@ -1,0 +1,6 @@
+{
+  initLogger();
+  this.numberFftPoints=numberFftPoints;
+  this.isNumberFftPointsSet=(numberFftPoints != -1);
+  this.invert=invert;
+}

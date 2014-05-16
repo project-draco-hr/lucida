@@ -1,0 +1,13 @@
+{
+  try {
+    ConfigurationManager cm=new ConfigurationManager();
+    String instanceName="testconf";
+    cm.addConfigurable(TestConfigurable.class,instanceName);
+    cm.lookup(instanceName);
+    Assert.fail("add didn't fail without given default frontend");
+  }
+ catch (  NullPointerException e) {
+  }
+catch (  PropertyException e) {
+  }
+}

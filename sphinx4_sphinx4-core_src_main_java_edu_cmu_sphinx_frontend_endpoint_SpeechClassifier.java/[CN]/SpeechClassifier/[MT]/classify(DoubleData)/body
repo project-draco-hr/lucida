@@ -1,0 +1,25 @@
+{
+  double current=logRootMeanSquare(audio.getValues());
+  isSpeech=false;
+  if (current >= minSignal) {
+    level=((level * averageNumber) + current) / (averageNumber + 1);
+    if (current < background) {
+      background=current;
+    }
+ else {
+      background+=(current - background) * adjustment;
+    }
+    if (level < background) {
+      level=background;
+    }
+    isSpeech=(level - background > threshold);
+  }
+  SpeechClassifiedData labeledAudio=new SpeechClassifiedData(audio,isSpeech);
+  if (logger.isLoggable(Level.FINEST)) {
+    String speech="";
+    if (labeledAudio.isSpeech())     speech="*";
+    logger.finest("Bkg: " + background + ", level: "+ level+ ", current: "+ current+ ' '+ speech);
+  }
+  collectStats(isSpeech);
+  return labeledAudio;
+}

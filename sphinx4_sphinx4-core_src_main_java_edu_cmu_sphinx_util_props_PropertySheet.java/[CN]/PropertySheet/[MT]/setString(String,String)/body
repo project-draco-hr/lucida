@@ -1,0 +1,6 @@
+{
+  if (!registeredProperties.containsKey(name))   throw new InternalConfigurationException(getInstanceName(),name,'\'' + name + "' is not a registered string-property");
+  Annotation annotation=registeredProperties.get(name).getAnnotation();
+  if (!(annotation instanceof S4String))   throw new InternalConfigurationException(getInstanceName(),name,'\'' + name + "' is of type string");
+  applyConfigurationChange(name,value,value);
+}

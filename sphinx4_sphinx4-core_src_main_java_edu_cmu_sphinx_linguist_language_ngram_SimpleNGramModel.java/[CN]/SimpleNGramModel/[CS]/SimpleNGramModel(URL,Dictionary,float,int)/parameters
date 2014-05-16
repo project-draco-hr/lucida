@@ -1,0 +1,4 @@
+URL urlLocation
+Dictionary dictionary
+float unigramWeight
+int desiredMaxDepth

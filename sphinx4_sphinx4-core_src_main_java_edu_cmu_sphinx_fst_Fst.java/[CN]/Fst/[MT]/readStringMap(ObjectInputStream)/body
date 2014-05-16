@@ -1,0 +1,9 @@
+{
+  int mapSize=in.readInt();
+  String[] map=new String[mapSize];
+  for (int i=0; i < mapSize; i++) {
+    String sym=(String)in.readObject();
+    map[i]=sym;
+  }
+  return map;
+}

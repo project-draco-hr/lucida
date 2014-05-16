@@ -1,0 +1,7 @@
+{
+  double ret=0;
+  EigenDecomposition ed=new EigenDecomposition(new Covariance(mat).getCovarianceMatrix());
+  double[] re=ed.getRealEigenvalues();
+  for (int i=0; i < re.length; i++)   ret+=Math.log(re[i]);
+  return ret * (mat.getRowDimension() / 2);
+}

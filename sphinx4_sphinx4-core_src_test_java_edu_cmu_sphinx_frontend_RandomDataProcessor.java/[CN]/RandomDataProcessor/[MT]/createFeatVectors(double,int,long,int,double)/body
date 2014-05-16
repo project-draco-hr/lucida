@@ -1,0 +1,12 @@
+{
+  int numFrames=(int)Math.ceil((lengthSec * 1000) / shiftMs);
+  List<DoubleData> datas=new ArrayList<DoubleData>(numFrames);
+  long curStartSample=startSample;
+  long shiftSamples=ms2samples((int)shiftMs,sampleRate);
+  for (int i=0; i < numFrames; i++) {
+    double[] values=createRandFeatureVector(featDim,null,null);
+    datas.add(new DoubleData(values,sampleRate,curStartSample));
+    curStartSample+=shiftSamples;
+  }
+  return datas;
+}

@@ -1,0 +1,8 @@
+{
+  for (int i=0; i < signal.length; i++) {
+    double in=signal[i];
+    peak[i]*=lambdaT;
+    if (signal[i] < lambdaT * peak[i])     signal[i]=peak[i] * muT;
+    if (in > peak[i])     peak[i]=in;
+  }
+}

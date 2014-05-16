@@ -1,0 +1,3 @@
+{
+  for (  Map.Entry<Class<? extends SearchState>,Integer> entry : stateCountByType.entrySet())   System.out.println("# " + entry.getKey() + ": "+ entry.getValue());
+}

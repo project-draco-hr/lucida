@@ -1,0 +1,14 @@
+{
+  Map<String,String> renames=new HashMap<String,String>();
+  for (  String compName : subCM.getComponentNames()) {
+    String uniqueName=compName;
+    int i=0;
+    while (baseCM.getComponentNames().contains(uniqueName) || (subCM.getComponentNames().contains(uniqueName) && !uniqueName.equals(compName))) {
+      i++;
+      uniqueName=compName + i;
+    }
+    subCM.renameConfigurable(compName,uniqueName);
+    renames.put(compName,uniqueName);
+  }
+  return renames;
+}

@@ -1,0 +1,15 @@
+{
+  this.logger=Logger.getLogger(getClass().getName());
+  this.recognizer=recognizer;
+  this.inputDataProcessors=inputDataProcessors;
+  this.dataDir=dataDir;
+  this.ctlFile=ctlFile;
+  this.refFile=refFile;
+  this.ctmFile=ctmFile;
+  this.bitsPerSample=bitsPerSample;
+  this.channelCount=channelCount;
+  this.samplesPerSecond=samplesPerSecond;
+  this.framesPerSecond=framesPerSecond;
+  this.bytesPerFrame=((bitsPerSample / 8) * channelCount * samplesPerSecond) / framesPerSecond;
+  logger.info("BatchNISTRecognizer:\n" + "  dataDirectory=" + dataDir + '\n'+ "  ctlFile="+ ctlFile+ '\n'+ "  bitsPerSample="+ bitsPerSample+ '\n'+ "  channelCount="+ channelCount+ '\n'+ "  samplesPerSecond="+ samplesPerSecond+ '\n'+ "  framesPerSecond="+ framesPerSecond+ '\n');
+}

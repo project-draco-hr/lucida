@@ -1,0 +1,5 @@
+{
+  for (  JSGFRuleState state : rules.values()) {
+    state.isEnabled=enabled;
+  }
+}

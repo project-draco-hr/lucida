@@ -1,0 +1,17 @@
+{
+  final int maxTries=2;
+  for (int i=0; i < maxTries; i++) {
+    if (!checkOpen()) {
+      continue;
+    }
+    outWriter.println(command);
+    if (outWriter.checkError()) {
+      close();
+      System.err.println("IO error while sending " + command);
+    }
+ else {
+      return true;
+    }
+  }
+  return false;
+}

@@ -1,0 +1,3 @@
+{
+  return (fields & MASK_IS_WORD_START) == MASK_IS_WORD_START;
+}

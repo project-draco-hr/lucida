@@ -1,0 +1,8 @@
+{
+  if (fromState.getOrder() == numStateOrder - 1) {
+    return;
+  }
+  if (fromState.getOrder() > toState.getOrder()) {
+    throw new Error("IllegalState order: from " + fromState.getClass().getName() + ' '+ fromState.toPrettyString()+ " order: "+ fromState.getOrder()+ " to "+ toState.getClass().getName()+ ' '+ toState.toPrettyString()+ " order: "+ toState.getOrder());
+  }
+}

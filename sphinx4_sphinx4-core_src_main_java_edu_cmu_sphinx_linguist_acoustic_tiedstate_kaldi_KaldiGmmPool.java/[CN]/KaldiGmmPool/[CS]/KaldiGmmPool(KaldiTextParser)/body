@@ -1,0 +1,8 @@
+{
+  super("senones");
+  parser.expectToken("<DIMENSION>");
+  parser.getInt();
+  parser.expectToken("<NUMPDFS>");
+  int npdf=parser.getInt();
+  for (int i=0; i < npdf; ++i)   put(i,new DiagGmm(i,parser));
+}

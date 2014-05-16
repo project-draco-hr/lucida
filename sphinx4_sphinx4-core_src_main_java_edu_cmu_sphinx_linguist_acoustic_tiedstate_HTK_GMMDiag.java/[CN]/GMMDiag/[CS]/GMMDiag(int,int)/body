@@ -1,0 +1,5 @@
+{
+  ngauss=ng;
+  ncoefs=nc;
+  allocate();
+}

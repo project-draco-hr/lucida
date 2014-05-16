@@ -1,0 +1,7 @@
+{
+  this.dropEveryNthFrame=dropEveryNthFrame;
+  if (dropEveryNthFrame <= 1) {
+    throw new IllegalArgumentException(PROP_DROP_EVERY_NTH_FRAME + "must be greater than one");
+  }
+  this.replaceNthWithPrevious=replaceNthWithPrevious;
+}

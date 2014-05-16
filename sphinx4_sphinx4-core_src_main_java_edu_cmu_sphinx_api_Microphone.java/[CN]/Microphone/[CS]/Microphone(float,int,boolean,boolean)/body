@@ -1,0 +1,11 @@
+{
+  AudioFormat format=new AudioFormat(sampleRate,sampleSize,1,signed,bigEndian);
+  try {
+    line=AudioSystem.getTargetDataLine(format);
+    line.open();
+  }
+ catch (  LineUnavailableException e) {
+    throw new IllegalStateException(e);
+  }
+  inputStream=new AudioInputStream(line);
+}

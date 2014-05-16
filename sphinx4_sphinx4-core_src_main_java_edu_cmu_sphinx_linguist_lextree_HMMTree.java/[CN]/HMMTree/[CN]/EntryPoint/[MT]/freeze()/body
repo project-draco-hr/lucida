@@ -1,0 +1,7 @@
+{
+  for (  Node node : unitToEntryPointMap.values()) {
+    node.freeze();
+  }
+  singleUnitWords=null;
+  rcSet=null;
+}

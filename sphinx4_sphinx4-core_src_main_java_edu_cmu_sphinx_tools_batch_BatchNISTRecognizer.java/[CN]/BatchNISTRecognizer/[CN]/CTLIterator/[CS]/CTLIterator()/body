@@ -1,0 +1,5 @@
+{
+  ctlReader=new LineNumberReader(new FileReader(ctlFile));
+  refReader=new LineNumberReader(new FileReader(refFile));
+  utterance=nextUtterance();
+}

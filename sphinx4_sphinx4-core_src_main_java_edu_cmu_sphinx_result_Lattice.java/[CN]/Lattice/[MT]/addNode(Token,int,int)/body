@@ -1,0 +1,5 @@
+{
+  assert(token.getSearchState() instanceof WordSearchState);
+  Word word=((WordSearchState)(token.getSearchState())).getPronunciation().getWord();
+  return addNode(Integer.toString(token.hashCode()),word,beginTime,endTime);
+}

@@ -1,0 +1,10 @@
+{
+  Comparator<Cluster> comparator=new ClusterComparator();
+  List<Cluster> sorted=new ArrayList<Cluster>(clusters.size());
+  while (!clusters.isEmpty()) {
+    Cluster cluster=Collections.min(clusters,comparator);
+    clusters.remove(cluster);
+    sorted.add(cluster);
+  }
+  return sorted;
+}

@@ -1,0 +1,3 @@
+{
+  return "Property exception component:'" + instanceName + "' property:'"+ propertyName+ "' - "+ getMessage()+ '\n'+ super.toString();
+}

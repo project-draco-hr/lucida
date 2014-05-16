@@ -1,0 +1,11 @@
+{
+  AudioFileDataSource dataSource=ConfigurationManager.getInstance(AudioFileDataSource.class);
+  File file=new File(getClass().getResource("test8k.wav").toURI());
+  dataSource.setAudioFile(file,null);
+  assertThat(dataSource.getData(),instanceOf(DataStartSignal.class));
+  Data d=dataSource.getData();
+  assertThat(dataSource.getData(),instanceOf(DoubleData.class));
+  assertThat(((DoubleData)d).getSampleRate(),equalTo(8000));
+  while ((d=dataSource.getData()) instanceof DoubleData)   ;
+  assertThat(d,instanceOf(DataEndSignal.class));
+}

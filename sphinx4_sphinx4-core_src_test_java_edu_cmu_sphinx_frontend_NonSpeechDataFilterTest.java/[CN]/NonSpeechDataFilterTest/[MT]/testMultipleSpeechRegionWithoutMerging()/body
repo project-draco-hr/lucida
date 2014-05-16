@@ -1,0 +1,23 @@
+{
+  int sampleRate=1000;
+  input.add(new DataStartSignal(sampleRate));
+  input.addAll(createFeatVectors(0.1,sampleRate,0,10,10));
+  input.add(new SpeechStartSignal(-1));
+  input.addAll(createFeatVectors(0.1,sampleRate,0,10,10));
+  input.add(new SpeechEndSignal(-1));
+  input.addAll(createFeatVectors(0.1,sampleRate,0,10,10));
+  input.add(new SpeechStartSignal(-1));
+  input.addAll(createFeatVectors(0.1,sampleRate,0,10,10));
+  input.add(new SpeechEndSignal(-1));
+  input.addAll(createFeatVectors(0.1,sampleRate,0,10,10));
+  input.add(new DataEndSignal(0));
+  NonSpeechDataFilter nonSpeechDataFilter=ConfigurationManager.getInstance(NonSpeechDataFilter.class);
+  List<Data> result=collectOutput(nonSpeechDataFilter);
+  Assert.assertTrue(result.size() == 26);
+  Assert.assertTrue(result.get(0) instanceof DataStartSignal);
+  Assert.assertTrue(result.get(1) instanceof SpeechStartSignal);
+  Assert.assertTrue(result.get(12) instanceof SpeechEndSignal);
+  Assert.assertTrue(result.get(13) instanceof SpeechStartSignal);
+  Assert.assertTrue(result.get(24) instanceof SpeechEndSignal);
+  Assert.assertTrue(result.get(25) instanceof DataEndSignal);
+}

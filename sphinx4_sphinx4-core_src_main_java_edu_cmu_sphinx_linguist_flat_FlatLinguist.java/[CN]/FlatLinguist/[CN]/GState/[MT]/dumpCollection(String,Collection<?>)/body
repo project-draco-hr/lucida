@@ -1,0 +1,6 @@
+{
+  System.out.println("     " + name);
+  for (  Object obj : collection) {
+    System.out.println("         " + obj);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  this.shorts=data;
+  fireStateChanged();
+}

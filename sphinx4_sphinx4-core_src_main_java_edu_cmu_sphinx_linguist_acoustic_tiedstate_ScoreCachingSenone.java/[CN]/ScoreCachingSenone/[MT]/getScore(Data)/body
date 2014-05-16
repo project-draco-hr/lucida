@@ -1,0 +1,8 @@
+{
+  ScoreCache cached=scoreCache;
+  if (feature != cached.feature) {
+    cached=new ScoreCache(feature,calculateScore(feature));
+    scoreCache=cached;
+  }
+  return cached.score;
+}

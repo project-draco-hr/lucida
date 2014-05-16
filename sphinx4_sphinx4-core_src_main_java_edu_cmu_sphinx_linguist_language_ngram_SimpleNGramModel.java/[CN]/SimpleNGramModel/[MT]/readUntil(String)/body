@@ -1,0 +1,9 @@
+{
+  try {
+    while (!readLine().equals(match)) {
+    }
+  }
+ catch (  IOException ioe) {
+    corrupt("Premature EOF while waiting for " + match);
+  }
+}

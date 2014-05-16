@@ -1,0 +1,9 @@
+{
+  if (showSummary) {
+    float correctPercent=((float)(numCorrectOutOfGrammarUtterances + numCorrectInGrammarUtterances)) / ((float)numUtterances) * 100f;
+    System.out.println("   Rejection Accuracy: " + correctPercent + '%');
+  }
+  if (showDetails) {
+    System.out.println("   Correct OOG: " + numCorrectOutOfGrammarUtterances + "   False OOG: "+ numFalseOutOfGrammarUtterances+ "   Correct IG: "+ numCorrectInGrammarUtterances+ "   False IG: "+ numFalseInGrammarUtterances+ "   Actual number: "+ numOutOfGrammarUtterances);
+  }
+}

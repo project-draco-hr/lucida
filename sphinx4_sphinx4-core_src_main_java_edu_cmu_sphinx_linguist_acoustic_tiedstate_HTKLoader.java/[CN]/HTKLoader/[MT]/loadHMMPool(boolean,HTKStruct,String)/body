@@ -1,0 +1,133 @@
+{
+  int numStatePerHMM;
+  if (!tie1ph) {
+    for (Iterator<SingleHMM> monoPhones=htkModels.hmmsHTK.get1phIt(); monoPhones.hasNext(); ) {
+      SingleHMM hmm=monoPhones.next();
+      if (hmm == null)       break;
+      String name=hmm.getName();
+      String attribute;
+      if (name.equals("sil") || name.equals("sp") || name.equals("bb")|| name.equals("xx")|| name.equals("hh"))       attribute=FILLER;
+ else       attribute="nofiller";
+      int tmat=hmm.trIdx;
+      numStatePerHMM=hmm.getNstates();
+      int[] stid=new int[hmm.getNbEmittingStates()];
+      int j=0;
+      for (int ii=0; ii < numStatePerHMM; ii++) {
+        if (hmm.isEmitting(ii)) {
+          HMMState s=hmm.getState(ii);
+          stid[j]=htkModels.hmmsHTK.getStateIdx(s);
+          j++;
+        }
+      }
+      Unit unit=unitManager.getUnit(name,attribute.equals(FILLER));
+      contextIndependentUnits.put(unit.getName(),unit);
+      if (logger.isLoggable(Level.FINE)) {
+        logger.fine("Loaded " + unit);
+      }
+      if (unit.isFiller() && unit.getName().equals(SILENCE_CIPHONE)) {
+        unit=UnitManager.SILENCE;
+      }
+      float[][] transitionMatrix=matrixPool.get(tmat);
+      SenoneSequence ss=getSenoneSequence(stid);
+      HMM hmm2=new SenoneHMM(unit,ss,transitionMatrix,HMMPosition.lookup("-"));
+      hmmManager.put(hmm2);
+    }
+  }
+ else {
+    for (int i=0; i < htkModels.hmmsHTK.getNhmms(); i++) {
+      SingleHMM hmm=htkModels.hmmsHTK.getHMM(i);
+      if (hmm == null)       break;
+      String name=hmm.getBaseName();
+      if (!contextIndependentUnits.containsKey(name)) {
+        String attribute;
+        if (name.equals("SIL") || name.equals("SP") || name.equals("BB")|| name.equals("XX")|| name.equals("HH"))         attribute=FILLER;
+ else         attribute="nofiller";
+        int tmat=hmm.trIdx;
+        numStatePerHMM=hmm.getNstates();
+        int[] stid=new int[hmm.getNbEmittingStates()];
+        int j=0;
+        for (int ii=0; ii < numStatePerHMM; ii++) {
+          if (hmm.isEmitting(ii)) {
+            HMMState s=hmm.getState(ii);
+            stid[j]=htkModels.hmmsHTK.getStateIdx(s);
+            j++;
+          }
+        }
+        Unit unit=unitManager.getUnit(name,attribute.equals(FILLER));
+        contextIndependentUnits.put(unit.getName(),unit);
+        if (logger.isLoggable(Level.FINE)) {
+          logger.fine("Loaded " + unit);
+        }
+        if (unit.isFiller() && unit.getName().equals(SILENCE_CIPHONE)) {
+          unit=UnitManager.SILENCE;
+        }
+        float[][] transitionMatrix=matrixPool.get(tmat);
+        SenoneSequence ss=getSenoneSequence(stid);
+        HMM hmm2=new SenoneHMM(unit,ss,transitionMatrix,HMMPosition.lookup("-"));
+        hmmManager.put(hmm2);
+      }
+    }
+  }
+  String lastUnitName="";
+  Unit lastUnit=null;
+  int[] lastStid=null;
+  SenoneSequence lastSenoneSequence=null;
+  List<String> HMMdejavu=new ArrayList<String>();
+  for (Iterator<SingleHMM> triPhones=htkModels.hmmsHTK.get3phIt(); triPhones.hasNext(); ) {
+    SingleHMM hmm=triPhones.next();
+    if (hmm == null)     break;
+    String name=hmm.getBaseName();
+    String left=hmm.getLeft();
+    String right=hmm.getRight();
+{
+      if (left.equals("-"))       left="SIL";
+      if (right.equals("-"))       right="SIL";
+      String s=left + ' ' + name+ ' '+ right;
+      if (HMMdejavu.contains(s)) {
+        continue;
+      }
+      HMMdejavu.add(s);
+    }
+    String position="i";
+    int tmat=hmm.trIdx;
+    numStatePerHMM=hmm.getNstates();
+    int[] stid=new int[hmm.getNbEmittingStates()];
+    int j=0;
+    for (int ii=0; ii < numStatePerHMM; ii++) {
+      if (hmm.isEmitting(ii)) {
+        HMMState s=hmm.getState(ii);
+        stid[j]=htkModels.hmmsHTK.getStateIdx(s);
+        j++;
+      }
+    }
+    if (useCDUnits) {
+      Unit unit;
+      String unitName=(name + ' ' + left+ ' '+ right);
+      if (unitName.equals(lastUnitName)) {
+        unit=lastUnit;
+      }
+ else {
+        Unit[] leftContext=new Unit[1];
+        leftContext[0]=contextIndependentUnits.get(left);
+        Unit[] rightContext=new Unit[1];
+        rightContext[0]=contextIndependentUnits.get(right);
+        Context context=LeftRightContext.get(leftContext,rightContext);
+        unit=unitManager.getUnit(name,false,context);
+      }
+      lastUnitName=unitName;
+      lastUnit=unit;
+      if (logger.isLoggable(Level.FINE)) {
+        logger.fine("Loaded " + unit);
+      }
+      float[][] transitionMatrix=matrixPool.get(tmat);
+      SenoneSequence ss=lastSenoneSequence;
+      if (ss == null || !sameSenoneSequence(stid,lastStid)) {
+        ss=getSenoneSequence(stid);
+      }
+      lastSenoneSequence=ss;
+      lastStid=stid;
+      HMM hmm2=new SenoneHMM(unit,ss,transitionMatrix,HMMPosition.lookup(position));
+      hmmManager.put(hmm2);
+    }
+  }
+}

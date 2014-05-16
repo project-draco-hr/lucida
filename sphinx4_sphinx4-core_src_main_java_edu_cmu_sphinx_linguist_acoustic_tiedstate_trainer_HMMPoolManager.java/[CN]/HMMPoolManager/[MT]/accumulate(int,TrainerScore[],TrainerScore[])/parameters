@@ -1,0 +1,3 @@
+int index
+TrainerScore[] score
+TrainerScore[] nextScore

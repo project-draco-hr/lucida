@@ -1,0 +1,7 @@
+{
+  initLogger();
+  this.bigEndian=bigEndian;
+  this.sampleRate=sampleRate;
+  this.frameShift=DataUtil.getSamplesPerWindow(sampleRate,frameShiftMs);
+  this.frameSize=DataUtil.getSamplesPerShift(sampleRate,frameSizeMs);
+}

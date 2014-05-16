@@ -1,0 +1,61 @@
+{
+  int numState=0;
+  int numStreams=1;
+  int numGaussiansPerState=1;
+  ExtendedStreamTokenizer est=new ExtendedStreamTokenizer(inputStream,'#',false);
+  meansPool=new Pool<float[]>("means");
+  variancePool=new Pool<float[]>("variances");
+  mixtureWeightsPool=new Pool<float[]>("mixtureweights");
+  matrixPool=new Pool<float[][]>("transitionmatrices");
+  senonePool=new Pool<Senone>("senones");
+  float distFloor=ps.getFloat(PROP_MC_FLOOR);
+  float mixtureWeightFloor=ps.getFloat(PROP_MW_FLOOR);
+  float transitionProbabilityFloor=0;
+  float varianceFloor=ps.getFloat(PROP_VARIANCE_FLOOR);
+  logger.info("Loading phone list file from: ");
+  logger.info(path);
+  String version="0.1";
+  est.expectString("version");
+  est.expectString(version);
+  est.expectString("same_sized_models");
+  boolean sameSizedModels=est.getString().equals("yes");
+  if (sameSizedModels) {
+    est.expectString("n_state");
+    numState=est.getInt("numBase");
+  }
+  est.expectString("tmat_skip");
+  boolean tmatSkip=est.getString().equals("yes");
+  for (int stateIndex=0, unitCount=0; ; ) {
+    String phone=est.getString();
+    if (est.isEOF()) {
+      break;
+    }
+    int size=numState;
+    if (!sameSizedModels) {
+      size=est.getInt("ModelSize");
+    }
+    phoneList.put(phone,size);
+    logger.fine("Phone: " + phone + " size: "+ size);
+    int[] stid=new int[size];
+    String position="-";
+    for (int j=0; j < size; j++, stateIndex++) {
+      stid[j]=stateIndex;
+    }
+    Unit unit=unitManager.getUnit(phone,phone.equals(SILENCE_CIPHONE));
+    contextIndependentUnits.put(unit.getName(),unit);
+    if (logger.isLoggable(Level.FINE)) {
+      logger.fine("Loaded " + unit + " with "+ size+ " states");
+    }
+    addModelToDensityPool(meansPool,stid,numStreams,numGaussiansPerState);
+    addModelToDensityPool(variancePool,stid,numStreams,numGaussiansPerState);
+    addModelToMixtureWeightPool(mixtureWeightsPool,stid,numStreams,numGaussiansPerState,mixtureWeightFloor);
+    addModelToTransitionMatrixPool(matrixPool,unitCount,stid.length,transitionProbabilityFloor,tmatSkip);
+    addModelToSenonePool(senonePool,stid,distFloor,varianceFloor);
+    float[][] transitionMatrix=matrixPool.get(unitCount);
+    SenoneSequence ss=getSenoneSequence(stid);
+    HMM hmm=new SenoneHMM(unit,ss,transitionMatrix,HMMPosition.lookup(position));
+    hmmManager.put(hmm);
+    unitCount++;
+  }
+  est.close();
+}

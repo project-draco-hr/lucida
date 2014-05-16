@@ -1,0 +1,4 @@
+{
+  Result result=recognizer.recognize();
+  return null == result ? null : new SpeechResult(result);
+}

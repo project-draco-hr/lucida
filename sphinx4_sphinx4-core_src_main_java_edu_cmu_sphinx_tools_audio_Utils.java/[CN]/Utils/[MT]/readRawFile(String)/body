@@ -1,0 +1,7 @@
+{
+  FileInputStream stream=new FileInputStream(filename);
+  AudioFormat format=new AudioFormat(8000.0f,16,1,true,false);
+  short[] audioData=RawReader.readAudioData(stream,format);
+  stream.close();
+  return new AudioData(audioData,8000.0f);
+}

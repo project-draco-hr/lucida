@@ -1,0 +1,19 @@
+{
+  StringBuilder sb=new StringBuilder();
+  Token token=this;
+  while (token != null) {
+    SearchState searchState=token.getSearchState();
+    if (searchState instanceof WordSearchState) {
+      WordSearchState wordState=(WordSearchState)searchState;
+      Word word=wordState.getPronunciation().getWord();
+      sb.insert(0,' ' + word.getSpelling());
+    }
+ else     if (searchState instanceof UnitSearchState) {
+      UnitSearchState unitState=(UnitSearchState)searchState;
+      Unit unit=unitState.getUnit();
+      sb.insert(0,' ' + unit.getName());
+    }
+    token=token.getPredecessor();
+  }
+  return sb.toString().trim();
+}

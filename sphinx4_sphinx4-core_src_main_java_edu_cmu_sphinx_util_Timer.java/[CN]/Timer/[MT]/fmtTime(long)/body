@@ -1,0 +1,3 @@
+{
+  return fmtTime(time / 1000.0);
+}

@@ -1,0 +1,3 @@
+{
+  return (SentenceHMMState)existingStates.get(state.getSignature());
+}

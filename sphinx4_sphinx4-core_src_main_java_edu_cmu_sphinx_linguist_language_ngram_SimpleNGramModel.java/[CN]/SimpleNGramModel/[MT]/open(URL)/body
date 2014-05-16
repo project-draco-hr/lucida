@@ -1,0 +1,5 @@
+{
+  lineNumber=0;
+  fileName=location.toString();
+  reader=new BufferedReader(new InputStreamReader(location.openStream()));
+}

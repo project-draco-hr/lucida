@@ -1,0 +1,6 @@
+{
+  if (cl[in.getId()] != null) {
+    return cl[in.getId()].get(out);
+  }
+  return null;
+}

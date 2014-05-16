@@ -1,0 +1,51 @@
+{
+  if (args.length == 0) {
+    System.out.println("JSGF Parser Version " + version + ":  Reading from standard input . . .");
+    parser=new JSGFParser(System.in);
+  }
+ else   if (args.length > 0) {
+    System.out.println("JSGF Parser Version " + version + ":  Reading from file "+ args[0]+ " . . .");
+    try {
+      URL codeBase=null;
+      File f=new File(".");
+      String path=f.getAbsolutePath() + "/" + args[0];
+      try {
+        codeBase=new URL("file:" + path);
+      }
+ catch (      MalformedURLException e) {
+        System.out.println("Could not get URL for current directory " + e);
+        return;
+      }
+      BufferedInputStream i=new BufferedInputStream(codeBase.openStream(),256);
+      JSGFEncoding encoding=getJSGFEncoding(i);
+      Reader rdr;
+      if ((encoding != null) && (encoding.encoding != null)) {
+        System.out.println("Grammar Character Encoding \u005c"" + encoding.encoding + "\u005c"");
+        rdr=new InputStreamReader(i,encoding.encoding);
+      }
+ else {
+        if (encoding == null)         System.out.println("WARNING: Grammar missing self identifying header");
+        rdr=new InputStreamReader(i);
+      }
+      parser=new JSGFParser(rdr);
+    }
+ catch (    Exception e) {
+      System.out.println("JSGF Parser Version " + version + ":  File "+ args[0]+ " not found.");
+      return;
+    }
+  }
+ else {
+    System.out.println("JSGF Parser Version " + version + ":  Usage is one of:");
+    System.out.println("         java JSGFParser < inputfile");
+    System.out.println("OR");
+    System.out.println("         java JSGFParser inputfile");
+    return;
+  }
+  try {
+    parser.GrammarUnit(new JSGFRuleGrammarFactory(new JSGFRuleGrammarManager()));
+    System.out.println("JSGF Parser Version " + version + ":  JSGF Grammar parsed successfully.");
+  }
+ catch (  ParseException e) {
+    System.out.println("JSGF Parser Version " + version + ":  Encountered errors during parse."+ e.getMessage());
+  }
+}

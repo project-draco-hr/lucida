@@ -1,0 +1,4 @@
+{
+  execute("on_exit");
+  System.out.println("----------\n");
+}

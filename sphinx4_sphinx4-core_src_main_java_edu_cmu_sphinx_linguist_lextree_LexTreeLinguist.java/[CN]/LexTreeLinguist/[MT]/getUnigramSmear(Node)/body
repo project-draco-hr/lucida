@@ -1,0 +1,10 @@
+{
+  float prob;
+  if (wantUnigramSmear) {
+    prob=node.getUnigramProbability() * unigramSmearWeight;
+  }
+ else {
+    prob=logOne;
+  }
+  return prob;
+}

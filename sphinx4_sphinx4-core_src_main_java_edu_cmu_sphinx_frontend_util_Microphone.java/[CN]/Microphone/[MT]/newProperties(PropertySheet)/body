@@ -1,0 +1,17 @@
+{
+  super.newProperties(ps);
+  logger=ps.getLogger();
+  sampleRate=ps.getInt(PROP_SAMPLE_RATE);
+  int sampleSizeInBits=ps.getInt(PROP_BITS_PER_SAMPLE);
+  int channels=ps.getInt(PROP_CHANNELS);
+  bigEndian=ps.getBoolean(PROP_BIG_ENDIAN);
+  signed=ps.getBoolean(PROP_SIGNED);
+  desiredFormat=new AudioFormat(sampleRate,sampleSizeInBits,channels,signed,bigEndian);
+  closeBetweenUtterances=ps.getBoolean(PROP_CLOSE_BETWEEN_UTTERANCES);
+  msecPerRead=ps.getInt(PROP_MSEC_PER_READ);
+  keepDataReference=ps.getBoolean(PROP_KEEP_LAST_AUDIO);
+  stereoToMono=ps.getString(PROP_STEREO_TO_MONO);
+  selectedChannel=ps.getInt(PROP_SELECT_CHANNEL);
+  selectedMixerIndex=ps.getString(PROP_SELECT_MIXER);
+  audioBufferSize=ps.getInt(PROP_BUFFER_SIZE);
+}

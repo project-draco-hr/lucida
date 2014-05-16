@@ -1,0 +1,6 @@
+{
+  if (successorArray != null) {
+    successorArray=null;
+  }
+  rawConnect(arc);
+}

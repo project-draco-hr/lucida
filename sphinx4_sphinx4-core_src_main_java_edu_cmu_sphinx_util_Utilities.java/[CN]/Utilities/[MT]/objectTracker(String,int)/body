@@ -1,0 +1,7 @@
+{
+  if (TRACKING_OBJECTS) {
+    if (count % 1000 == 0) {
+      System.out.println("OT: " + name + ' '+ count);
+    }
+  }
+}

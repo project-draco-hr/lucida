@@ -1,0 +1,10 @@
+{
+  AudioFormat aisFormat=ais.getFormat();
+  short[] shorts=new short[ais.available() / aisFormat.getFrameSize()];
+  byte[] frame=new byte[aisFormat.getFrameSize()];
+  int pos=0;
+  while (ais.read(frame) != -1) {
+    shorts[pos++]=bytesToShort(aisFormat,frame);
+  }
+  return shorts;
+}

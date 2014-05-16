@@ -1,0 +1,5 @@
+{
+  double[] doubArr=new double[values.length];
+  for (int i=0; i < doubArr.length; i++)   doubArr[i]=values[i];
+  return doubArr;
+}

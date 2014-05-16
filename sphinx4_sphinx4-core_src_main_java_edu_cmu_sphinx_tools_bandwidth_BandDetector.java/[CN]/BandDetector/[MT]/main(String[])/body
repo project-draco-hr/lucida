@@ -1,0 +1,20 @@
+{
+  if (args.length < 1) {
+    System.out.println("Usage: Detector <filename.wav> or Detector <filelist>");
+    return;
+  }
+  if (args[0].endsWith(".wav")) {
+    BandDetector detector=new BandDetector();
+    System.out.println("Bandwidth for " + args[0] + " is "+ detector.bandwidth(args[0]));
+  }
+ else {
+    BandDetector detector=new BandDetector();
+    Scanner s=new Scanner(new File(args[0]));
+    while (s.hasNextLine()) {
+      String line=s.nextLine().trim();
+      if (detector.bandwidth(line))       System.out.println("Bandwidth for " + line + " is low");
+    }
+    s.close();
+  }
+  return;
+}

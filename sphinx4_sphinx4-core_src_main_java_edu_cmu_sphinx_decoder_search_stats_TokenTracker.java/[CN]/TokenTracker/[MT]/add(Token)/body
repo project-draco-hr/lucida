@@ -1,0 +1,6 @@
+{
+  if (enabled) {
+    TokenStats stats=getStats(t);
+    stats.update(t);
+  }
+}

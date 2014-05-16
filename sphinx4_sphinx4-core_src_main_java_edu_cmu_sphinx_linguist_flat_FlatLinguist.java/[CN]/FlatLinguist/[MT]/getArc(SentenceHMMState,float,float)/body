@@ -1,0 +1,7 @@
+{
+  SentenceHMMStateArc arc=new SentenceHMMStateArc(nextState,logLanguageProbability * languageWeight,logInsertionProbability);
+  SentenceHMMStateArc pooledArc=arcPool.cache(arc);
+  actualArcs.value=arcPool.getMisses();
+  totalArcs.value=arcPool.getHits() + arcPool.getMisses();
+  return pooledArc == null ? arc : pooledArc;
+}

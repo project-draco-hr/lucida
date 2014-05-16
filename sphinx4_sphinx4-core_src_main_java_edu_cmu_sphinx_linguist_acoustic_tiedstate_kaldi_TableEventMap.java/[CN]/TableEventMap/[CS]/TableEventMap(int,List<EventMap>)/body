@@ -1,0 +1,4 @@
+{
+  super(key);
+  this.table=new ArrayList<EventMap>(table);
+}

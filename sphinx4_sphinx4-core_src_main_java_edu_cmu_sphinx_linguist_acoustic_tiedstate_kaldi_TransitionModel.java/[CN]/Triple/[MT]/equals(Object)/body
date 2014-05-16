@@ -1,0 +1,5 @@
+{
+  if (!(object instanceof Triple))   return false;
+  Triple other=(Triple)object;
+  return phone == other.phone && hmmState == other.hmmState && pdf == other.pdf;
+}

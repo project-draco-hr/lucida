@@ -1,0 +1,3 @@
+{
+  return "mu=" + Arrays.toString(mean) + " cov="+ Arrays.toString(variance);
+}

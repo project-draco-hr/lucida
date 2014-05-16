@@ -1,0 +1,8 @@
+{
+  this.order=order;
+  reflectionCoeffs=null;
+  ARParameters=null;
+  alpha=0;
+  cepstra=null;
+  bilinearCepstra=null;
+}

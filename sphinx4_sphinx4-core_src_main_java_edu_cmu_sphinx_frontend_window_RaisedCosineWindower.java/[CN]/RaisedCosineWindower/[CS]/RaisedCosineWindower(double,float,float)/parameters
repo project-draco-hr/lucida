@@ -1,0 +1,3 @@
+double alpha
+float windowSizeInMs
+float windowShiftInMs

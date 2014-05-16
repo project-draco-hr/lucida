@@ -1,0 +1,6 @@
+{
+  System.out.println("--------------------");
+  for (  ActiveList al : currentActiveLists) {
+    dumpList(al);
+  }
+}

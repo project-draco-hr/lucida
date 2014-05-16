@@ -1,0 +1,4 @@
+{
+  if (l == null)   return;
+  changeListeners.remove(l);
+}

@@ -1,0 +1,33 @@
+{
+  Data input=null;
+  do {
+    input=getPredecessor().getData();
+    if (input != null) {
+      if (input instanceof DoubleData) {
+        numberDataCepstra++;
+        double[] cepstrumData=((DoubleData)input).getValues();
+        if (sums == null) {
+          sums=new double[cepstrumData.length];
+        }
+ else {
+          if (sums.length != cepstrumData.length) {
+            throw new Error("Inconsistent cepstrum lengths: sums: " + sums.length + ", cepstrum: "+ cepstrumData.length);
+          }
+        }
+        for (int j=0; j < cepstrumData.length; j++) {
+          sums[j]+=cepstrumData[j];
+        }
+        cepstraList.add(input);
+      }
+ else       if (input instanceof DataEndSignal || input instanceof SpeechEndSignal) {
+        cepstraList.add(input);
+        break;
+      }
+ else {
+        cepstraList.add(input);
+      }
+    }
+  }
+ while (input != null);
+  return numberDataCepstra;
+}

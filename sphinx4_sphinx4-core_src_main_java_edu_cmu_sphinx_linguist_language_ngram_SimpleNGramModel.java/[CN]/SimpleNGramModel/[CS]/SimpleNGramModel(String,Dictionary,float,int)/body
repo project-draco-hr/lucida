@@ -1,0 +1,3 @@
+{
+  this(ConfigurationManagerUtils.resourceToURL(location),dictionary,unigramWeight,desiredMaxDepth);
+}

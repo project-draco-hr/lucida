@@ -1,0 +1,3 @@
+{
+  logMath=LogMath.getInstance();
+}

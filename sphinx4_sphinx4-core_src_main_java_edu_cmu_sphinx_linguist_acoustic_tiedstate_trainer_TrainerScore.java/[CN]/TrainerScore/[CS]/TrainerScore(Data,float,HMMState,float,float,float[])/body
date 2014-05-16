@@ -1,0 +1,27 @@
+{
+  this.feature=feature;
+  this.hmmState=state;
+  logScalingFactor=0.0f;
+  if ((state != null) && (state.isEmitting())) {
+    int stateIndex=state.getState();
+    SenoneHMM hmm=(SenoneHMM)state.getHMM();
+    SenoneSequence ss=hmm.getSenoneSequence();
+    senone=ss.getSenones()[stateIndex];
+  }
+  this.logOutputProbability=probability;
+  this.logAlpha=logAlpha;
+  this.logBeta=logBeta;
+  this.logGamma=logAlpha + logBeta;
+  if (logComponentProb != null) {
+    this.logComponentProb=new float[logComponentProb.length];
+    this.logComponentGamma=new float[logComponentProb.length];
+    for (int i=0; i < logComponentProb.length; i++) {
+      this.logComponentProb[i]=logComponentProb[i];
+      this.logComponentGamma[i]=logComponentProb[i] + this.logGamma;
+    }
+  }
+ else {
+    this.logComponentProb=null;
+    this.logComponentGamma=null;
+  }
+}

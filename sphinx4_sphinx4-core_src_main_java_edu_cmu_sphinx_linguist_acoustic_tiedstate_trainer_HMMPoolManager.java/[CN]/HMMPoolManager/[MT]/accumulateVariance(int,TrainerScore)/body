@@ -1,0 +1,27 @@
+{
+  if (senone == TrainerAcousticModel.ALL_MODELS) {
+    for (int i=0; i < senonePool.size(); i++) {
+      accumulateVariance(i,score);
+    }
+  }
+ else {
+    GaussianMixture gaussian=(GaussianMixture)senonePool.get(senone);
+    MixtureComponent[] mix=gaussian.getMixtureComponents();
+    for (int i=0; i < mix.length; i++) {
+      float[] mean=mix[i].getMean();
+      float[] variance=mix[i].getVariance();
+      int indexVariance=indexMap.get(variance);
+      Buffer buffer=varianceBufferPool.get(indexVariance);
+      float[] feature=((FloatData)score.getData()).getValues();
+      double[] data=new double[feature.length];
+      float prob=score.getComponentGamma()[i];
+      prob-=currentLogLikelihood;
+      double dprob=logMath.logToLinear(prob);
+      for (int j=0; j < data.length; j++) {
+        data[j]=(feature[j] - mean[j]);
+        data[j]*=data[j] * dprob;
+      }
+      buffer.accumulate(data,dprob);
+    }
+  }
+}

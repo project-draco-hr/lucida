@@ -1,0 +1,18 @@
+{
+  if (signal instanceof DataStartSignal) {
+    startTime=getTime();
+    long responseTime=(System.currentTimeMillis() - signal.getTime());
+    totalResponseTime+=responseTime;
+    if (responseTime > maxResponseTime) {
+      maxResponseTime=responseTime;
+    }
+    if (responseTime < minResponseTime) {
+      minResponseTime=responseTime;
+    }
+    numUtteranceStart++;
+  }
+ else   if (signal instanceof DataEndSignal) {
+    DataEndSignal endSignal=(DataEndSignal)signal;
+    audioTime=endSignal.getDuration() / 1000f;
+  }
+}

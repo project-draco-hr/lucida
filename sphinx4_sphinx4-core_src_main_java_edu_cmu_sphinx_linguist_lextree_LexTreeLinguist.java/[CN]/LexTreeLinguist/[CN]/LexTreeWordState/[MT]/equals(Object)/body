@@ -1,0 +1,12 @@
+{
+  if (o == this) {
+    return true;
+  }
+ else   if (o instanceof LexTreeWordState) {
+    LexTreeWordState other=(LexTreeWordState)o;
+    return lastNode == other.lastNode && super.equals(o);
+  }
+ else {
+    return false;
+  }
+}

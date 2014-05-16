@@ -1,0 +1,19 @@
+{
+  ArrayList<State> newCoAccessibles=new ArrayList<State>();
+  for (  ArrayList<State> path : paths) {
+    int index=path.lastIndexOf(state);
+    if (index != -1) {
+      if (state.getFinalWeight() != fst.getSemiring().zero() || coaccessible.contains(state)) {
+        for (int j=index; j > -1; j--) {
+          if (!coaccessible.contains(path.get(j))) {
+            newCoAccessibles.add(path.get(j));
+            coaccessible.add(path.get(j));
+          }
+        }
+      }
+    }
+  }
+  for (  State s : newCoAccessibles) {
+    calcCoAccessible(fst,s,paths,coaccessible);
+  }
+}

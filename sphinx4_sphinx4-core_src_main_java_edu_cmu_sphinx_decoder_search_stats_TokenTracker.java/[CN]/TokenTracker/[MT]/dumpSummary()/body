@@ -1,0 +1,16 @@
+{
+  if (enabled) {
+    float avgStates=0f;
+    if (utteranceStateCount > 0) {
+      avgStates=((float)utteranceSumStates) / utteranceStateCount;
+    }
+    System.out.print("# Utterance stats ");
+    System.out.print(" States: " + utteranceStateCount / frame);
+    if (utteranceStateCount > 0) {
+      System.out.print(" Paths: " + utteranceSumStates / frame);
+      System.out.print(" Max: " + utteranceMaxStates);
+      System.out.print(" Avg: " + avgStates);
+    }
+    System.out.println();
+  }
+}

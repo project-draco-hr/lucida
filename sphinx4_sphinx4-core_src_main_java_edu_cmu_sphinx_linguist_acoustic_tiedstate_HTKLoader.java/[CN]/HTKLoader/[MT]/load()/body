@@ -1,0 +1,13 @@
+{
+  if (!loaded) {
+    hmmManager=new HMMManager();
+    contextIndependentUnits=new LinkedHashMap<String,Unit>();
+    meanTransformationMatrixPool=null;
+    meanTransformationVectorPool=null;
+    varianceTransformationMatrixPool=null;
+    varianceTransformationVectorPool=null;
+    loadModelFiles(model);
+    System.err.println("HTK -> S4 conversion finished");
+    loaded=true;
+  }
+}

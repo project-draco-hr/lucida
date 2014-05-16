@@ -1,0 +1,8 @@
+{
+  ConfigurationManager cm=new ConfigurationManager();
+  Map<String,Object> props=new HashMap<String,Object>();
+  cm.addConfigurable(DummyProcessor.class,"dummyA");
+  props.put(DummyFrontEnd.DATA_PROCS,Arrays.asList("dummyA, dummyB"));
+  cm.addConfigurable(DummyFrontEnd.class,"dfe",props);
+  cm.lookup("dfe");
+}

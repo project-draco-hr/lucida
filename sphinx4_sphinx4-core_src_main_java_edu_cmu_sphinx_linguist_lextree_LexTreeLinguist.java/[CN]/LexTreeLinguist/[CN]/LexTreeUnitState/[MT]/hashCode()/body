@@ -1,0 +1,10 @@
+{
+  if (hashCode == -1) {
+    hashCode=super.hashCode() * 17 + 421;
+    if (parentNode != null) {
+      hashCode*=432;
+      hashCode+=parentNode.hashCode();
+    }
+  }
+  return hashCode;
+}

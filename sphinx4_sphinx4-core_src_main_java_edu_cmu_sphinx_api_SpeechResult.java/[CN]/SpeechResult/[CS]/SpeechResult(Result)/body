@@ -1,0 +1,5 @@
+{
+  this.result=result;
+  lattice=new Lattice(result);
+  new LatticeOptimizer(lattice).optimize();
+}

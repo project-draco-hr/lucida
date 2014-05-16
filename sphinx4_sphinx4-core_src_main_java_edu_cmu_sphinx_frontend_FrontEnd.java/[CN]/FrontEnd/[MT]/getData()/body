@@ -1,0 +1,7 @@
+{
+  Data data=last.getData();
+  if (data instanceof Signal) {
+    fireSignalListeners((Signal)data);
+  }
+  return data;
+}

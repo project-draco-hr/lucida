@@ -1,0 +1,4 @@
+{
+  this.referenceFile=new ReferenceFile(referenceFile);
+  this.hypothesisFile=new HypothesisFile(hypothesisFile);
+}

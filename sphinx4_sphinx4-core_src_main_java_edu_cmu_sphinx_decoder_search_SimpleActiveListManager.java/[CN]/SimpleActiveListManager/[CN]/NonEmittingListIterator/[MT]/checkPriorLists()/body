@@ -1,0 +1,8 @@
+{
+  for (int i=0; i < listPtr; i++) {
+    ActiveList activeList=currentActiveLists[i];
+    if (activeList.size() > 0) {
+      throw new Error("At while processing state order" + listPtr + ", state order "+ i+ " not empty");
+    }
+  }
+}

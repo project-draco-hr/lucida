@@ -1,0 +1,11 @@
+{
+  this.logger=Logger.getLogger(getClass().getName());
+  this.wordDictionaryFile=wordDictionaryFile;
+  this.fillerDictionaryFile=fillerDictionaryFile;
+  this.addendaUrlList=addendaUrlList;
+  this.addSilEndingPronunciation=addSilEndingPronunciation;
+  this.wordReplacement=wordReplacement;
+  this.allowMissingWords=allowMissingWords;
+  this.createMissingWords=createMissingWords;
+  this.unitManager=unitManager;
+}

@@ -1,0 +1,6 @@
+{
+  this.loader=loader;
+  this.unitManager=unitManager;
+  this.useComposites=useComposites;
+  this.logger=Logger.getLogger(getClass().getName());
+}

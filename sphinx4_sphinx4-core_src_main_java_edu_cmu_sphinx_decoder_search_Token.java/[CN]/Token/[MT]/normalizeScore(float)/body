@@ -1,0 +1,5 @@
+{
+  logTotalScore-=maxLogScore;
+  logAcousticScore-=maxLogScore;
+  return logTotalScore;
+}

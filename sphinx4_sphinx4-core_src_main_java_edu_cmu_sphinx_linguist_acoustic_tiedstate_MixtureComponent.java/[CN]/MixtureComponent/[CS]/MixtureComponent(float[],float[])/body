@@ -1,0 +1,3 @@
+{
+  this(mean,null,null,variance,null,null,DEFAULT_DIST_FLOOR,DEFAULT_VAR_FLOOR);
+}

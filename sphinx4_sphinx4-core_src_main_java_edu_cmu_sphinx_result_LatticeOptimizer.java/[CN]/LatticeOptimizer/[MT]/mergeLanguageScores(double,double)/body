@@ -1,0 +1,3 @@
+{
+  return Math.max(score1,score2);
+}

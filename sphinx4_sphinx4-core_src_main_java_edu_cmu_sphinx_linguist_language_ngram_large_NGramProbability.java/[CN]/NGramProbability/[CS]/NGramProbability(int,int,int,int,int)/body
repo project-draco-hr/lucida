@@ -1,0 +1,7 @@
+{
+  this.which=which;
+  this.wordID=wordID;
+  this.probabilityID=probabilityID;
+  this.backoffID=backoffID;
+  this.firstNPlus1GramEntry=firstNPlus1GramEntry;
+}

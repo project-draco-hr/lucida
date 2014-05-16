@@ -1,0 +1,7 @@
+{
+  ActiveList activeList=findListFor(token);
+  if (activeList == null) {
+    throw new Error("Cannot find ActiveList for " + token.getSearchState().getClass());
+  }
+  activeList.add(token);
+}

@@ -1,0 +1,8 @@
+{
+  if (status == State.DEALLOCATED) {
+    if (showSummary) {
+      System.out.println("\n# --------------- Summary statistics ---------");
+      aligner.printTotalSummary();
+    }
+  }
+}

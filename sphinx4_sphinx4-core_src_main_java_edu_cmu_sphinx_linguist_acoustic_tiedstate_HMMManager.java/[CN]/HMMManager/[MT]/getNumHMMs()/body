@@ -1,0 +1,9 @@
+{
+  int count=0;
+  for (  Map<Unit,HMM> map : hmmsPerPosition.values()) {
+    if (map != null) {
+      count+=map.size();
+    }
+  }
+  return count;
+}

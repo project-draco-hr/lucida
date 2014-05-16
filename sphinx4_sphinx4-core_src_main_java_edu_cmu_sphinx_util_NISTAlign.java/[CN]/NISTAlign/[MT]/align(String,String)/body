@@ -1,0 +1,44 @@
+{
+  int annotationIndex;
+  rawReference=reference;
+  rawHypothesis=hypothesis;
+  annotationIndex=rawReference.indexOf('(');
+  if (annotationIndex != -1) {
+    referenceAnnotation=rawReference.substring(annotationIndex);
+    referenceItems=toList(rawReference.substring(0,annotationIndex));
+  }
+ else {
+    referenceAnnotation=null;
+    referenceItems=toList(rawReference);
+  }
+  annotationIndex=rawHypothesis.indexOf('(');
+  if (annotationIndex != -1) {
+    hypothesisItems=toList(rawHypothesis.substring(0,annotationIndex));
+  }
+ else {
+    hypothesisItems=toList(rawHypothesis);
+  }
+  substitutions=0;
+  insertions=0;
+  deletions=0;
+  alignWords(backtrace(createBacktraceTable(referenceItems,hypothesisItems,new Comparator(){
+    public boolean isSimilar(    Object ref,    Object hyp){
+      if (ref instanceof String && hyp instanceof String) {
+        return ((String)ref).equals(hyp);
+      }
+      return false;
+    }
+  }
+)),new StringRenderer(){
+    public String getRef(    Object ref,    Object hyp){
+      return (String)ref;
+    }
+    public String getHyp(    Object ref,    Object hyp){
+      return (String)hyp;
+    }
+  }
+);
+  correct=alignedReferenceWords.size() - (insertions + deletions + substitutions);
+  updateTotals();
+  return (insertions + deletions + substitutions) == 0;
+}

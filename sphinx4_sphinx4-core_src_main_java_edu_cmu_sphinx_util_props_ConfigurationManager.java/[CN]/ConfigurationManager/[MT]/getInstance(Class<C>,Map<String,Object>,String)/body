@@ -1,0 +1,5 @@
+{
+  PropertySheet ps=getPropSheetInstanceFromClass(targetClass,props,compName,new ConfigurationManager());
+  Configurable configurable=ps.getOwner();
+  return targetClass.cast(configurable);
+}

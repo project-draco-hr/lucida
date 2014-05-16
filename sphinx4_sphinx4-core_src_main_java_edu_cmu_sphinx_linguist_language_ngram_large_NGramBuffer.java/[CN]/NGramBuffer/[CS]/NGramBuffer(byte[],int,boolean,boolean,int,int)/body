@@ -1,0 +1,9 @@
+{
+  this.buffer=buffer;
+  this.numberNGrams=numberNGrams;
+  this.bigEndian=bigEndian;
+  this.is32bits=is32bits;
+  this.position=0;
+  this.n=n;
+  this.firstNGramEntry=firstNGramEntry;
+}

@@ -1,0 +1,4 @@
+{
+  super.newProperties(ps);
+  preemphasisFactor=ps.getDouble(PROP_PREEMPHASIS_FACTOR);
+}

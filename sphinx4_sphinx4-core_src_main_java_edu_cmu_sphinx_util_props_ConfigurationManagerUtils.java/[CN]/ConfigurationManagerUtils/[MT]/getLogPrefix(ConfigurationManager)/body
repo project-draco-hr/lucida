@@ -1,0 +1,4 @@
+{
+  if (cm.getConfigURL() != null)   return new File(cm.getConfigURL().getFile()).getName().replace(".sxl","").replace(".xml","") + '.';
+ else   return "S4CM.";
+}

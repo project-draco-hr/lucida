@@ -1,0 +1,9 @@
+{
+  Token bestToken=null;
+  for (  Token token : resultList) {
+    if (bestToken == null || token.getScore() > bestToken.getScore()) {
+      bestToken=token;
+    }
+  }
+  return bestToken;
+}

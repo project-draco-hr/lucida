@@ -1,0 +1,4 @@
+{
+  long bigramID=(((long)word1) << 32) | word2;
+  return bigramSmearMap.get(bigramID);
+}

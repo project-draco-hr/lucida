@@ -1,0 +1,8 @@
+{
+  if (!allocated) {
+    allocated=true;
+    classMap.allocate();
+    classLM.allocate();
+    makeVocabulary();
+  }
+}

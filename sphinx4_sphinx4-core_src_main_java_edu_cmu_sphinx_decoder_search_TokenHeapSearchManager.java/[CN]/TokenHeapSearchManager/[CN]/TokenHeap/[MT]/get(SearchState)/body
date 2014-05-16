@@ -1,0 +1,8 @@
+{
+  for (int i=0; i < curSize; i++) {
+    if (tokens[i].getSearchState().equals(s)) {
+      return tokens[i];
+    }
+  }
+  return null;
+}

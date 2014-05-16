@@ -1,0 +1,3 @@
+{
+  this.logScalingFactor=logScalingFactor;
+}

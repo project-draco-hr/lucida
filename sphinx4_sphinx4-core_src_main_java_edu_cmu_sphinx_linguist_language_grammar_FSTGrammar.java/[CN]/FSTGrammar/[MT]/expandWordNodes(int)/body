@@ -1,0 +1,17 @@
+{
+  Collection<GrammarNode> allNodes=nodes.values();
+  String[][] silence={{Dictionary.SILENCE_SPELLING}};
+  for (  GrammarNode node : allNodes) {
+    if (node.getNumAlternatives() > 0) {
+      GrammarNode endNode=createGrammarNode(++maxNodeID,false);
+      node.add(endNode,LogMath.LOG_ONE);
+      if (addOptionalSilence) {
+        GrammarNode silenceNode=createGrammarNode(++maxNodeID,silence);
+        node.add(silenceNode,LogMath.LOG_ONE);
+        silenceNode.add(endNode,LogMath.LOG_ONE);
+      }
+      expandedNodes.add(node);
+    }
+  }
+  return maxNodeID;
+}

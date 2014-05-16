@@ -1,0 +1,10 @@
+{
+  if (!weakRefTimerPool.containsKey(owner))   weakRefTimerPool.put(owner,new ArrayList<Timer>());
+  List<Timer> ownerTimers=weakRefTimerPool.get(owner);
+  for (  Timer timer : ownerTimers) {
+    if (timer.getName().equals(timerName))     return timer;
+  }
+  Timer requestedTimer=new Timer(timerName);
+  ownerTimers.add(requestedTimer);
+  return requestedTimer;
+}

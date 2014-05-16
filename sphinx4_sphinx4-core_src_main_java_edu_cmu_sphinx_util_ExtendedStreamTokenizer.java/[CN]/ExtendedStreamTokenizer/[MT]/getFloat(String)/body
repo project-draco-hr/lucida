@@ -1,0 +1,16 @@
+{
+  float fVal=0.0F;
+  try {
+    String val=getString();
+    if (val.equals("inf")) {
+      fVal=Float.POSITIVE_INFINITY;
+    }
+ else {
+      fVal=Float.parseFloat(val);
+    }
+  }
+ catch (  NumberFormatException nfe) {
+    corrupt("while parsing float " + name);
+  }
+  return fVal;
+}

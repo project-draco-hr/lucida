@@ -1,0 +1,9 @@
+{
+  if (audioLine != null) {
+    if (recorder != null) {
+      recorder.stopRecording();
+      recorder=null;
+    }
+    recording=false;
+  }
+}

@@ -1,0 +1,27 @@
+{
+  Map<String,List<Pronunciation>> dictPronunciations=new HashMap<String,List<Pronunciation>>();
+  ExtendedStreamTokenizer est=new ExtendedStreamTokenizer(inputStream,true);
+  String word;
+  while ((word=est.getString()) != null) {
+    word=removeParensFromWord(word);
+    word=word.toLowerCase();
+    List<Unit> units=new ArrayList<Unit>(20);
+    List<Pronunciation> pronunciations=dictPronunciations.get(word);
+    if (pronunciations == null) {
+      pronunciations=new LinkedList<Pronunciation>();
+    }
+    String unitText;
+    while ((unitText=est.getString()) != null) {
+      units.add(getCIUnit(unitText,isFillerDict));
+    }
+    pronunciations.add(new Pronunciation(units));
+    if (!isFillerDict && addSilEndingPronunciation) {
+      units.add(UnitManager.SILENCE);
+      pronunciations.add(new Pronunciation(units));
+    }
+    dictPronunciations.put(word,pronunciations);
+  }
+  inputStream.close();
+  est.close();
+  return createWords(dictPronunciations,isFillerDict);
+}

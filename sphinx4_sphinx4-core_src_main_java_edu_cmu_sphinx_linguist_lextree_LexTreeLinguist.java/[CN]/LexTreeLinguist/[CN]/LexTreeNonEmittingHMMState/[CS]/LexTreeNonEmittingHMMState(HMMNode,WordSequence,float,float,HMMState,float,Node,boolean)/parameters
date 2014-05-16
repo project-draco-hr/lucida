@@ -1,0 +1,8 @@
+HMMNode hmmNode
+WordSequence wordSequence
+float smearTerm
+float smearProb
+HMMState hmmState
+float probability
+Node parentNode
+boolean collapsed

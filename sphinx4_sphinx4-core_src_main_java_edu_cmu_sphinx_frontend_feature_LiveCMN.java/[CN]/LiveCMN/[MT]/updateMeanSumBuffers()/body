@@ -1,0 +1,9 @@
+{
+  double sf=1.0 / numberFrame;
+  System.arraycopy(sum,0,currentMean,0,sum.length);
+  multiplyArray(currentMean,sf);
+  if (numberFrame >= cmnShiftWindow) {
+    multiplyArray(sum,(sf * cmnWindow));
+    numberFrame=cmnWindow;
+  }
+}

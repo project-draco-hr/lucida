@@ -1,0 +1,11 @@
+{
+  try {
+    System.err.println("Dumping " + title + " to "+ fileName);
+    FileWriter f=new FileWriter(fileName);
+    f.write(dumpGDL(title));
+    f.close();
+  }
+ catch (  IOException ioe) {
+    ioe.printStackTrace();
+  }
+}

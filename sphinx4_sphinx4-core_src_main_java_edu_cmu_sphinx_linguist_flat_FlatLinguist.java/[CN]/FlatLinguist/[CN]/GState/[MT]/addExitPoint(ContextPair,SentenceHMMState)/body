@@ -1,0 +1,8 @@
+{
+  List<SearchState> list=exitPoints.get(cp);
+  if (list == null) {
+    list=new ArrayList<SearchState>();
+    exitPoints.put(cp,list);
+  }
+  list.add(state);
+}

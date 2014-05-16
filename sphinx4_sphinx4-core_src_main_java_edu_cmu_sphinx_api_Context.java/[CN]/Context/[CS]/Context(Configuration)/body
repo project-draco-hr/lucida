@@ -1,0 +1,3 @@
+{
+  this("resource:/edu/cmu/sphinx/api/default.config.xml",config);
+}

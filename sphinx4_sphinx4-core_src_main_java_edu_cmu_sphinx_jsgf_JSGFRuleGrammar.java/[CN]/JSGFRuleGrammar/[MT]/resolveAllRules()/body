@@ -1,0 +1,16 @@
+{
+  StringBuilder b=new StringBuilder();
+  for (  JSGFRuleName ruleName : imports) {
+    String grammarName=ruleName.getFullGrammarName();
+    JSGFRuleGrammar GI=manager.retrieveGrammar(grammarName);
+    if (GI == null) {
+      b.append("Undefined grammar ").append(grammarName).append(" imported in ").append(name).append('\n');
+    }
+  }
+  if (b.length() > 0) {
+    throw new JSGFGrammarException(b.toString());
+  }
+  for (  JSGFRuleState state : rules.values()) {
+    resolveRule(state.rule);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  prevState.connect(getArc(nextState,logLanguageProbablity,logInsertionProbablity));
+  if (showCompilationProgress && totalStateCounter++ % 1000 == 0) {
+    System.out.print(".");
+  }
+}

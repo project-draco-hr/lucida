@@ -1,0 +1,4 @@
+{
+  String globProp=globalProperties.get(propertyName);
+  return globProp != null ? globProp.toString() : null;
+}

@@ -1,0 +1,10 @@
+double[] ugNumerator
+double[] ugDenominator
+int i
+int j
+float logugprob
+float logbgprob
+double ugprob
+double bgprob
+double backoffbgprob
+double logbackoffbgprob

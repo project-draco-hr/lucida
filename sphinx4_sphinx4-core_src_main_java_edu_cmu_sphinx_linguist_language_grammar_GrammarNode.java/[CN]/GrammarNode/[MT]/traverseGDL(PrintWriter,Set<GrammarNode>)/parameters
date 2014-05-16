@@ -1,0 +1,2 @@
+PrintWriter out
+Set<GrammarNode> visitedNodes

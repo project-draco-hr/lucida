@@ -1,0 +1,23 @@
+{
+  HMMStateState retState=tree;
+  for (  HMMStateArc arc : tree.getHMMState().getSuccessors()) {
+    HMMStateState newState;
+    if (arc.getHMMState().isEmitting()) {
+      newState=new HMMStateState(parent,arc.getHMMState());
+    }
+ else {
+      newState=new NonEmittingHMMState(parent,arc.getHMMState());
+    }
+    SentenceHMMState existingState=getExistingState(newState);
+    float logProb=arc.getLogProbability();
+    if (existingState != null) {
+      attachState(tree,existingState,logOne,logProb);
+    }
+ else {
+      attachState(tree,newState,logOne,logProb);
+      addStateToCache(newState);
+      retState=expandHMMTree(parent,newState);
+    }
+  }
+  return retState;
+}

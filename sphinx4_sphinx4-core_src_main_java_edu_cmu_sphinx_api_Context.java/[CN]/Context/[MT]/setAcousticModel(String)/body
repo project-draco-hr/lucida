@@ -1,0 +1,4 @@
+{
+  setLocalProperty("acousticModelLoader->location",path);
+  setLocalProperty("dictionary->fillerPath",path + "/noisedict");
+}

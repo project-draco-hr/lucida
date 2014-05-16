@@ -1,0 +1,13 @@
+{
+  for (  JSGFRuleName ruleName : grammar.imports) {
+    String grammarName=ruleName.getFullGrammarName();
+    JSGFRuleGrammar importedGrammar=getNamedRuleGrammar(grammarName);
+    if (importedGrammar == null) {
+      importedGrammar=loadNamedGrammar(ruleName.getFullGrammarName());
+    }
+    if (importedGrammar != null) {
+      loadImports(importedGrammar);
+    }
+  }
+  loadFullQualifiedRules(grammar);
+}

@@ -1,0 +1,11 @@
+{
+  float prob=parent.getProbability(wordSequence);
+  if (keywordProbs == null)   return prob;
+  for (  Word word : wordSequence.getWords()) {
+    String ws=word.toString();
+    if (keywordProbs.containsKey(ws)) {
+      prob*=keywordProbs.get(ws);
+    }
+  }
+  return prob;
+}

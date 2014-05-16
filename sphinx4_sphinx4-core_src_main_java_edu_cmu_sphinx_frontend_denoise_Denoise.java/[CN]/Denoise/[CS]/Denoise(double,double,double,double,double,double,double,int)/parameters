@@ -1,0 +1,8 @@
+double lambdaPower
+double lambdaA
+double lambdaB
+double lambdaT
+double muT
+double excitationThreshold
+double maxGain
+int smoothWindow

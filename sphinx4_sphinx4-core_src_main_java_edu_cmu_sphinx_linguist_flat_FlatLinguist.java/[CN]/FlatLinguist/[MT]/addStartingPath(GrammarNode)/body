@@ -1,0 +1,5 @@
+{
+  GrammarNode node=initialNode;
+  GState gstate=getGState(node);
+  gstate.addLeftContext(UnitContext.SILENCE);
+}

@@ -1,0 +1,4 @@
+{
+  short result=(short)((byteArray[offset++] << 8) | (0x000000FF & byteArray[offset]));
+  return result;
+}

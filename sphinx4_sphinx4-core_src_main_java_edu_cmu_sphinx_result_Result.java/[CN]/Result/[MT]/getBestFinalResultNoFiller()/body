@@ -1,0 +1,9 @@
+{
+  Token token=getBestFinalToken();
+  if (token == null) {
+    return "";
+  }
+ else {
+    return token.getWordPathNoFiller();
+  }
+}

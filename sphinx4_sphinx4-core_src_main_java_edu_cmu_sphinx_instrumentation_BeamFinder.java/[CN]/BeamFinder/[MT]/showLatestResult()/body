@@ -1,0 +1,4 @@
+{
+  System.out.print("   Beam Abs Max: " + maxAbsoluteBeam + "  Avg: "+ avgAbsoluteBeam);
+  System.out.println("   Rel Max: " + logFormatter.format(logMath.logToLinear(maxRelativeBeam)) + "  Avg: "+ logFormatter.format(logMath.logToLinear(avgRelativeBeam)));
+}

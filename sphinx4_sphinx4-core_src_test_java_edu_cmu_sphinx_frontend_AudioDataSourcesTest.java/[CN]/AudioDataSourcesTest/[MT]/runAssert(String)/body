@@ -1,0 +1,10 @@
+{
+  AudioFileDataSource dataSource=ConfigurationManager.getInstance(AudioFileDataSource.class);
+  File file=new File(getClass().getResource(fileName).toURI());
+  dataSource.setAudioFile(file,null);
+  assertThat(dataSource.getData(),instanceOf(DataStartSignal.class));
+  assertThat(dataSource.getData(),instanceOf(DoubleData.class));
+  Data d;
+  while ((d=dataSource.getData()) instanceof DoubleData)   ;
+  assertThat(d,instanceOf(DataEndSignal.class));
+}

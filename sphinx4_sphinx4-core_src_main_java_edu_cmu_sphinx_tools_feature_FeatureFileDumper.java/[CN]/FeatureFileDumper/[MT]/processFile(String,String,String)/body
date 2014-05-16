@@ -1,0 +1,12 @@
+{
+  processFile(inputFile);
+  if (format.equals("binary")) {
+    dumpBinary(outputFile);
+  }
+ else   if (format.equals("ascii")) {
+    dumpAscii(outputFile);
+  }
+ else {
+    System.out.println("ERROR: unknown output format: " + format);
+  }
+}

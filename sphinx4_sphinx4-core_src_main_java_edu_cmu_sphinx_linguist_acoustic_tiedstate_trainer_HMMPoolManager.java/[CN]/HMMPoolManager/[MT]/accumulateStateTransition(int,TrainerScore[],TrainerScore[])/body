@@ -1,0 +1,26 @@
+{
+  HMMState state=score[indexScore].getState();
+  if (state == null) {
+    return;
+  }
+  int indexState=state.getState();
+  SenoneHMM hmm=(SenoneHMM)state.getHMM();
+  float[][] matrix=hmm.getTransitionMatrix();
+  int indexMatrix=indexMap.get(matrix);
+  Buffer[] bufferArray=matrixBufferPool.get(indexMatrix);
+  float[] vector=matrix[indexState];
+  for (int i=0; i < vector.length; i++) {
+    if (vector[i] != LogMath.LOG_ZERO) {
+      int dist=i - indexState;
+      int indexNextScore=indexScore + dist;
+      assert((nextScore[indexNextScore].getState() == null) || (nextScore[indexNextScore].getState().getHMM() == hmm));
+      float alpha=score[indexScore].getAlpha();
+      float beta=nextScore[indexNextScore].getBeta();
+      float transitionProb=vector[i];
+      float outputProb=nextScore[indexNextScore].getScore();
+      float prob=alpha + beta + transitionProb+ outputProb;
+      prob-=currentLogLikelihood;
+      bufferArray[indexState].logAccumulate(prob,i,logMath);
+    }
+  }
+}

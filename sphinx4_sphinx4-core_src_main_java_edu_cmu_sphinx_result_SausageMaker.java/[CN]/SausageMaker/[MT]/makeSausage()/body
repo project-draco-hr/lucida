@@ -1,0 +1,12 @@
+{
+  List<Cluster> clusters=new ArrayList<Cluster>(lattice.nodes.size());
+  for (  Node n : lattice.nodes.values()) {
+    n.cacheDescendants();
+    Cluster bucket=new Cluster(n);
+    clusters.add(bucket);
+  }
+  intraWordCluster(clusters);
+  interWordCluster(clusters);
+  clusters=topologicalSort(clusters);
+  return sausageFromClusters(clusters);
+}

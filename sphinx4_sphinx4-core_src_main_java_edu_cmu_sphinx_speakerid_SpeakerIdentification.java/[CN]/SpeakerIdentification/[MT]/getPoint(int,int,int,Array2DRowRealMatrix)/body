@@ -1,0 +1,15 @@
+{
+  double max=Double.NEGATIVE_INFINITY;
+  int ncols=features.getColumnDimension(), point=0;
+  Array2DRowRealMatrix sub=(Array2DRowRealMatrix)features.getSubMatrix(start,start + length - 1,0,ncols - 1);
+  double bicValue=getBICValue(sub);
+  for (int i=Segment.FEATURES_SIZE + 1; i < length - Segment.FEATURES_SIZE; i+=step) {
+    double aux=getLikelihoodRatio(bicValue,i,sub);
+    if (aux > max) {
+      max=aux;
+      point=i;
+    }
+  }
+  if (max < 0)   point=Integer.MIN_VALUE;
+  return point + start;
+}

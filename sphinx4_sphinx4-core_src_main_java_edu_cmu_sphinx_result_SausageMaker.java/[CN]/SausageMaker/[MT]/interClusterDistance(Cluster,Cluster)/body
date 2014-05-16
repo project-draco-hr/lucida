@@ -1,0 +1,31 @@
+{
+  if (areClustersInRelation(c1,c2)) {
+    return Double.NEGATIVE_INFINITY;
+  }
+  float totalSim=LogMath.LOG_ZERO;
+  float wordPairCount=(float)0.0;
+  HashSet<String> wordsSeen1=new HashSet<String>();
+  LogMath logMath=LogMath.getInstance();
+  for (  Node node1 : c1.getElements()) {
+    String word1=node1.getWord().getSpelling();
+    if (wordsSeen1.contains(word1)) {
+      continue;
+    }
+    wordsSeen1.add(word1);
+    HashSet<String> wordsSeen2=new HashSet<String>();
+    for (    Node node2 : c2.getElements()) {
+      String word2=node2.getWord().getSpelling();
+      if (wordsSeen2.contains(word2)) {
+        continue;
+      }
+      wordsSeen2.add(word2);
+      float sim=(float)computePhoneticSimilarity(node1,node2);
+      sim=logMath.linearToLog(sim);
+      sim+=wordSubClusterProbability(c1,word1);
+      sim+=wordSubClusterProbability(c2,word2);
+      totalSim=logMath.addAsLinear(totalSim,sim);
+      wordPairCount++;
+    }
+  }
+  return totalSim - logMath.logToLinear(wordPairCount);
+}

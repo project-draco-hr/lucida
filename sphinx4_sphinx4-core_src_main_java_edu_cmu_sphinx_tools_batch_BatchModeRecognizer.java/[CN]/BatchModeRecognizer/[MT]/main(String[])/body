@@ -1,0 +1,29 @@
+{
+  if (argv.length < 2) {
+    System.out.println("Usage: BatchDecoder propertiesFile batchFile [-shell]");
+    System.exit(1);
+  }
+  String cmFile=argv[0];
+  String batchFile=argv[1];
+  ConfigurationManager cm;
+  BatchModeRecognizer bmr;
+  try {
+    URL url=new File(cmFile).toURI().toURL();
+    cm=new ConfigurationManager(url);
+    bmr=(BatchModeRecognizer)cm.lookup("batch");
+    if (bmr == null) {
+      System.err.println("Can't find batchModeRecognizer in " + cmFile);
+      return;
+    }
+    if (argv.length >= 3 && argv[2].equals("-shell")) {
+      bmr.shell(batchFile);
+    }
+ else {
+      bmr.decode(batchFile);
+    }
+  }
+ catch (  Exception e) {
+    System.err.println("Error during decoding: \n  ");
+    e.printStackTrace();
+  }
+}

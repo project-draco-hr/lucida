@@ -1,0 +1,3 @@
+{
+  return getNGramProbabilities(2);
+}

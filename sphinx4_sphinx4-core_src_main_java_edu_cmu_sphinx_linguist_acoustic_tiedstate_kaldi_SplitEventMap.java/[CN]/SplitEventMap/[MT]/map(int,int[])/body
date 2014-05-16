@@ -1,0 +1,3 @@
+{
+  return values.contains(getKeyValue(pdfClass,context)) ? yesMap.map(pdfClass,context) : noMap.map(pdfClass,context);
+}

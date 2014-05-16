@@ -1,0 +1,5 @@
+byte[] byteArray
+int offset
+int length
+int bytesPerValue
+boolean signedData

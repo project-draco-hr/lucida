@@ -1,0 +1,46 @@
+{
+  double minFreqMel;
+  double maxFreqMel;
+  double deltaFreqMel;
+  double[] leftEdge=new double[numberFilters];
+  double[] centerFreq=new double[numberFilters];
+  double[] rightEdge=new double[numberFilters];
+  double nextEdgeMel;
+  double nextEdge;
+  double initialFreqBin;
+  double deltaFreq;
+  this.filter=new MelFilter[numberFilters];
+  if (numberFftPoints == 0) {
+    throw new IllegalArgumentException("Number of FFT points is zero");
+  }
+  deltaFreq=(double)sampleRate / numberFftPoints;
+  if (numberFilters < 1) {
+    throw new IllegalArgumentException("Number of filters illegal: " + numberFilters);
+  }
+  minFreqMel=linToMelFreq(minFreq);
+  maxFreqMel=linToMelFreq(maxFreq);
+  deltaFreqMel=(maxFreqMel - minFreqMel) / (numberFilters + 1);
+  leftEdge[0]=setToNearestFrequencyBin(minFreq,deltaFreq);
+  nextEdgeMel=minFreqMel;
+  for (int i=0; i < numberFilters; i++) {
+    nextEdgeMel+=deltaFreqMel;
+    nextEdge=melToLinFreq(nextEdgeMel);
+    centerFreq[i]=setToNearestFrequencyBin(nextEdge,deltaFreq);
+    if (i > 0) {
+      rightEdge[i - 1]=centerFreq[i];
+    }
+    if (i < numberFilters - 1) {
+      leftEdge[i + 1]=centerFreq[i];
+    }
+  }
+  nextEdgeMel=nextEdgeMel + deltaFreqMel;
+  nextEdge=melToLinFreq(nextEdgeMel);
+  rightEdge[numberFilters - 1]=setToNearestFrequencyBin(nextEdge,deltaFreq);
+  for (int i=0; i < numberFilters; i++) {
+    initialFreqBin=setToNearestFrequencyBin(leftEdge[i],deltaFreq);
+    if (initialFreqBin < leftEdge[i]) {
+      initialFreqBin+=deltaFreq;
+    }
+    this.filter[i]=new MelFilter(leftEdge[i],centerFreq[i],rightEdge[i],initialFreqBin,deltaFreq);
+  }
+}

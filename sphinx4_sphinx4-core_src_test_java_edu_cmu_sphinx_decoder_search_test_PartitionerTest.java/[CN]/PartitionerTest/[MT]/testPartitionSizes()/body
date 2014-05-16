@@ -1,0 +1,11 @@
+{
+  int absoluteBeamWidth=1500;
+  int tokenListSize=3000;
+  performTestPartitionSizes(absoluteBeamWidth,tokenListSize,true);
+  tokenListSize=absoluteBeamWidth;
+  performTestPartitionSizes(absoluteBeamWidth,tokenListSize,false);
+  tokenListSize=1000;
+  performTestPartitionSizes(absoluteBeamWidth,tokenListSize,false);
+  tokenListSize=0;
+  performTestPartitionSizes(absoluteBeamWidth,tokenListSize,false);
+}

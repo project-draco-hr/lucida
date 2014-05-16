@@ -1,0 +1,40 @@
+{
+  JSGFRuleGrammar grammar=null;
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case IDENTIFIER:
+    IdentHeader();
+  break;
+default :
+jj_la1[0]=jj_gen;
+;
+}
+grammar=GrammarDeclaration(factory);
+label_1: while (true) {
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case IMPORT:
+;
+break;
+default :
+jj_la1[1]=jj_gen;
+break label_1;
+}
+ImportDeclaration(grammar);
+}
+label_2: while (true) {
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case PUBLIC:
+case 28:
+;
+break;
+default :
+jj_la1[2]=jj_gen;
+break label_2;
+}
+RuleDeclaration(grammar);
+}
+jj_consume_token(0);
+{
+if (true) return grammar;
+}
+throw new Error("Missing return statement in function");
+}

@@ -1,0 +1,6 @@
+{
+  if (i < greenLevel)   g.setColor(Color.BLUE);
+ else   if (i < yellowLevel)   g.setColor(Color.GREEN);
+ else   if (i < redLevel)   g.setColor(Color.YELLOW);
+ else   g.setColor(Color.RED);
+}

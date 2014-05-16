@@ -1,0 +1,7 @@
+{
+  host=aHost;
+  port=aPort;
+  socket=new Socket(host,port);
+  inReader=new BufferedReader(new InputStreamReader(socket.getInputStream()));
+  outWriter=new PrintWriter(socket.getOutputStream(),true);
+}

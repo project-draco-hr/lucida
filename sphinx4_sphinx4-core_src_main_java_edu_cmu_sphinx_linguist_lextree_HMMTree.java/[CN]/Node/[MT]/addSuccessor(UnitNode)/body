@@ -1,0 +1,10 @@
+{
+  UnitNode matchingChild=(UnitNode)getSuccessor(child.getKey());
+  if (matchingChild == null) {
+    putSuccessor(child.getKey(),child);
+  }
+ else {
+    child=matchingChild;
+  }
+  return child;
+}

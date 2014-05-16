@@ -1,0 +1,4 @@
+{
+  super(pronunciation,LogMath.LOG_ONE);
+  this.parent=parent;
+}

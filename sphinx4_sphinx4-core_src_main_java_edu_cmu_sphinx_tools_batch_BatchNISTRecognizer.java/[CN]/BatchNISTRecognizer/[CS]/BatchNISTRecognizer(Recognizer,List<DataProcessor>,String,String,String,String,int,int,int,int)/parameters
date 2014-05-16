@@ -1,0 +1,10 @@
+Recognizer recognizer
+List<DataProcessor> inputDataProcessors
+String ctlFile
+String dataDir
+String refFile
+String ctmFile
+int bitsPerSample
+int samplesPerSecond
+int framesPerSecond
+int channelCount

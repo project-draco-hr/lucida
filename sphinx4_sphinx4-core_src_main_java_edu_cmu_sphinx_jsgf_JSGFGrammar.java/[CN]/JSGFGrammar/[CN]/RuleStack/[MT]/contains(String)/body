@@ -1,0 +1,8 @@
+{
+  if (stack.contains(name)) {
+    return map.get(name);
+  }
+ else {
+    return null;
+  }
+}

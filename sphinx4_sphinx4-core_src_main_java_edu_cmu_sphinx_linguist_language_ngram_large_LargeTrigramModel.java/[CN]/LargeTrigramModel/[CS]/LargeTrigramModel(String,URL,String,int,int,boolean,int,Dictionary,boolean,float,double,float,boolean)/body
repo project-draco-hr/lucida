@@ -1,0 +1,3 @@
+{
+  super(format,urlLocation,ngramLogFile,maxTrigramCacheSize,clearCacheAfterUtterance,(maxDepth > 3 ? 3 : maxDepth),dictionary,applyLanguageWeightAndWip,languageWeight,wip,unigramWeight,fullSmear);
+}

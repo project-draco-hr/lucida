@@ -1,0 +1,17 @@
+{
+  StringBuilder sb=new StringBuilder();
+  sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
+  sb.append("\n<!--    Sphinx-4 Configuration file--> \n\n");
+  sb.append("<config>");
+  Pattern pattern=Pattern.compile("\\$\\{(\\w+)\\}");
+  Map<String,String> globalProps=cm.getGlobalProperties();
+  for (  Map.Entry<String,String> entry : globalProps.entrySet()) {
+    String propName=entry.getKey();
+    Matcher matcher=pattern.matcher(propName);
+    propName=matcher.matches() ? matcher.group(1) : propName;
+    sb.append("\n\t<property name=\"").append(propName).append("\" value=\"").append(entry.getValue()).append("\"/>");
+  }
+  for (  String instanceName : cm.getComponentNames())   sb.append("\n\n").append(propSheet2XML(instanceName,cm.getPropertySheet(instanceName)));
+  sb.append("\n</config>");
+  return sb.toString();
+}

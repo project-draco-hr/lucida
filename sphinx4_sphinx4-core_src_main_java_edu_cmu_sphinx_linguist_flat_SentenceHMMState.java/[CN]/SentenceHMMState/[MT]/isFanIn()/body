@@ -1,0 +1,3 @@
+{
+  return (fields & MASK_FAN_IN) == MASK_FAN_IN;
+}

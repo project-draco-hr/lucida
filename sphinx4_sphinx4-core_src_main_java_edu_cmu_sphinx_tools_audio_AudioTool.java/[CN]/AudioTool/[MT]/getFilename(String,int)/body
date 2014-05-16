@@ -1,0 +1,17 @@
+{
+  int returnVal;
+  fileChooser.setDialogTitle(title);
+  fileChooser.setCurrentDirectory(file);
+  fileChooser.setDialogType(type);
+  if (type == JFileChooser.OPEN_DIALOG) {
+    returnVal=fileChooser.showOpenDialog(jframe);
+  }
+ else {
+    returnVal=fileChooser.showSaveDialog(jframe);
+  }
+  if (returnVal == JFileChooser.APPROVE_OPTION) {
+    file=fileChooser.getSelectedFile();
+    filename=file.getAbsolutePath();
+    prefs.put(FILENAME_PREFERENCE,filename);
+  }
+}

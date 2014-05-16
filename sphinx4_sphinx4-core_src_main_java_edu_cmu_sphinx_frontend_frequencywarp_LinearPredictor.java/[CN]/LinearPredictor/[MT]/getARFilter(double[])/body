@@ -1,0 +1,32 @@
+{
+  if (autocor[0] == 0) {
+    return null;
+  }
+  reflectionCoeffs=new double[order + 1];
+  ARParameters=new double[order + 1];
+  double[] backwardPredictor=new double[order + 1];
+  alpha=autocor[0];
+  reflectionCoeffs[1]=-autocor[1] / autocor[0];
+  ARParameters[0]=1.0;
+  ARParameters[1]=reflectionCoeffs[1];
+  alpha*=(1 - reflectionCoeffs[1] * reflectionCoeffs[1]);
+  for (int i=2; i <= order; i++) {
+    for (int j=1; j < i; j++) {
+      backwardPredictor[j]=ARParameters[i - j];
+    }
+    reflectionCoeffs[i]=0;
+    for (int j=0; j < i; j++) {
+      reflectionCoeffs[i]-=ARParameters[j] * autocor[i - j];
+    }
+    reflectionCoeffs[i]/=alpha;
+    for (int j=1; j < i; j++) {
+      ARParameters[j]+=reflectionCoeffs[i] * backwardPredictor[j];
+    }
+    ARParameters[i]=reflectionCoeffs[i];
+    alpha*=(1 - reflectionCoeffs[i] * reflectionCoeffs[i]);
+    if (alpha <= 0.0) {
+      return null;
+    }
+  }
+  return ARParameters;
+}

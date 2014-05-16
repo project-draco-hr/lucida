@@ -1,0 +1,22 @@
+{
+  HashMap<HMM,Node> map=new HashMap<HMM,Node>();
+  HashMap<HMM,HMMNode> singleUnitMap=new HashMap<HMM,HMMNode>();
+  for (  Unit lc : exitPoints) {
+    Node epNode=new Node(LogMath.LOG_ZERO);
+    for (    Unit rc : getEntryPointRC()) {
+      HMM hmm=hmmPool.getHMM(baseUnit,lc,rc,HMMPosition.BEGIN);
+      Node addedNode;
+      if ((addedNode=map.get(hmm)) == null) {
+        addedNode=epNode.addSuccessor(hmm,getProbability());
+        map.put(hmm,addedNode);
+      }
+ else {
+        epNode.putSuccessor(hmm,addedNode);
+      }
+      nodeCount++;
+      connectEntryPointNode(addedNode,rc);
+    }
+    connectSingleUnitWords(lc,epNode,singleUnitMap);
+    unitToEntryPointMap.put(lc,epNode);
+  }
+}

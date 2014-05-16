@@ -1,0 +1,4 @@
+{
+  this.name=getClass().getSimpleName();
+  init(name,Logger.getLogger(name));
+}

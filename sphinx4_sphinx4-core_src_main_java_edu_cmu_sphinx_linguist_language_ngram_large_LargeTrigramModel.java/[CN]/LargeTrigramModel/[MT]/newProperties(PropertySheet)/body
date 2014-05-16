@@ -1,0 +1,14 @@
+{
+  logger=ps.getLogger();
+  location=ConfigurationManagerUtils.getResource(PROP_LOCATION,ps);
+  ngramLogFile=ps.getString(PROP_QUERY_LOG_FILE);
+  clearCacheAfterUtterance=ps.getBoolean(PROP_CLEAR_CACHES_AFTER_UTTERANCE);
+  maxDepth=ps.getInt(LanguageModel.PROP_MAX_DEPTH);
+  ngramCacheSize=ps.getInt(PROP_TRIGRAM_CACHE_SIZE);
+  dictionary=(Dictionary)ps.getComponent(PROP_DICTIONARY);
+  applyLanguageWeightAndWip=ps.getBoolean(PROP_APPLY_LANGUAGE_WEIGHT_AND_WIP);
+  languageWeight=ps.getFloat(PROP_LANGUAGE_WEIGHT);
+  wip=ps.getDouble(PROP_WORD_INSERTION_PROBABILITY);
+  unigramWeight=ps.getFloat(PROP_UNIGRAM_WEIGHT);
+  fullSmear=ps.getBoolean(PROP_FULL_SMEAR);
+}

@@ -1,0 +1,4 @@
+{
+  stateNumber=globalStateNumber--;
+  this.arcs=new LinkedHashMap<String,SentenceHMMStateArc>();
+}

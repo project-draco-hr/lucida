@@ -1,0 +1,9 @@
+{
+  PrintStream out=new PrintStream(new FileOutputStream(path));
+  dumpGDLHeader(out);
+  for (  String componentName : ConfigurationManager.getInstanceNames(Configurable.class)) {
+    dumpComponentAsGDL(ConfigurationManager,out,componentName);
+  }
+  dumpGDLFooter(out);
+  out.close();
+}

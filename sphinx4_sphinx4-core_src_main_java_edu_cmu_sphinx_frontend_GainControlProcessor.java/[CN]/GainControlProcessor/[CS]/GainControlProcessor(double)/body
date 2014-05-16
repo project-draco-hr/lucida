@@ -1,0 +1,4 @@
+{
+  initLogger();
+  this.gainFactor=gainFactor;
+}

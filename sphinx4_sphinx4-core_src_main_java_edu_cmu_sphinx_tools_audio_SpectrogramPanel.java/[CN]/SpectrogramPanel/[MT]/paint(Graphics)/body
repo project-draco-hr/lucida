@@ -1,0 +1,8 @@
+{
+  Dimension sz=getSize();
+  g.setColor(Color.WHITE);
+  g.fillRect(0,0,sz.width - 1,sz.height - 1);
+  if (spectrogram != null) {
+    g.drawImage(scaledSpectrogram,0,0,null);
+  }
+}

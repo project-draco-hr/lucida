@@ -1,0 +1,7 @@
+{
+  initRecognizer(recognizer);
+  logMath=LogMath.getInstance();
+  this.showSummary=showSummary;
+  this.showDetails=showDetails;
+  this.enabled=enabled;
+}

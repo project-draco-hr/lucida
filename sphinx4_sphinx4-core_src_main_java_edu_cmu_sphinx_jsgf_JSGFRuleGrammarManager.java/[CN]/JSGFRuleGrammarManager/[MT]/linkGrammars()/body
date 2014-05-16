@@ -1,0 +1,5 @@
+{
+  for (  JSGFRuleGrammar grammar : grammars.values()) {
+    grammar.resolveAllRules();
+  }
+}

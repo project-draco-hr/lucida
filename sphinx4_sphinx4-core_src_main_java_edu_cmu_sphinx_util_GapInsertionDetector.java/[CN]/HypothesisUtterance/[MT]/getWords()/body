@@ -1,0 +1,5 @@
+{
+  List<HypothesisWord> newList=new LinkedList<HypothesisWord>();
+  newList.addAll(words);
+  return newList;
+}

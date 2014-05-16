@@ -1,0 +1,16 @@
+{
+  String line=reader.readLine();
+  if (line != null) {
+    utteranceCount++;
+    HypothesisUtterance utterance=new HypothesisUtterance(line);
+    if (utterance.getWordCount() <= 0) {
+      return nextUtterance();
+    }
+ else {
+      return utterance;
+    }
+  }
+ else {
+    return null;
+  }
+}

@@ -1,0 +1,7 @@
+{
+  if (!allocated) {
+    loader.load();
+    logInfo();
+    allocated=true;
+  }
+}

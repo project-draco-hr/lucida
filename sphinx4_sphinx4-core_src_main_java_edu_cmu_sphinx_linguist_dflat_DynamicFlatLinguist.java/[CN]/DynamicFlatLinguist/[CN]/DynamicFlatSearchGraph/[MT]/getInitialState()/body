@@ -1,0 +1,9 @@
+{
+  InitialState initialState=new InitialState();
+  initialState.addArc(new GrammarState(grammar.getInitialNode()));
+  if (addOutOfGrammarBranch) {
+    OutOfGrammarGraph oogg=new OutOfGrammarGraph(phoneLoopAcousticModel,logOutOfGrammarBranchProbability,logPhoneInsertionProbability);
+    initialState.addArc(oogg.getOutOfGrammarGraph());
+  }
+  return initialState;
+}

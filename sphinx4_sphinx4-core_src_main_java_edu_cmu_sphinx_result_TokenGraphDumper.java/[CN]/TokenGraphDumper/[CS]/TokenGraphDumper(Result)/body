@@ -1,0 +1,6 @@
+{
+  this.result=result;
+  this.loserManager=result.getAlternateHypothesisManager();
+  tokenIDMap=new HashMap<Token,Integer>();
+  dumpedTokens=new HashSet<Token>();
+}

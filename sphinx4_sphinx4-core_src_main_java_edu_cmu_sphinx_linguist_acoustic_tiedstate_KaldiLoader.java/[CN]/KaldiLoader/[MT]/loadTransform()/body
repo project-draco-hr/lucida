@@ -1,0 +1,24 @@
+{
+  URL transformUrl=new URL(new File(location,"final.mat").getPath());
+  Reader reader=new InputStreamReader(transformUrl.openStream());
+  BufferedReader br=new BufferedReader(reader);
+  List<Float> values=new ArrayList<Float>();
+  int numRows=0;
+  int numCols=0;
+  String line;
+  while (null != (line=br.readLine())) {
+    int colCount=0;
+    for (    String word : line.split("\\s+")) {
+      if (word.isEmpty() || "[".equals(word) || "]".equals(word))       continue;
+      values.add(Float.parseFloat(word));
+      ++colCount;
+    }
+    if (colCount > 0)     ++numRows;
+    numCols=colCount;
+  }
+  transform=new float[numRows][numCols];
+  Iterator<Float> valueIterator=values.iterator();
+  for (int i=0; i < numRows; ++i) {
+    for (int j=0; j < numCols; ++j)     transform[i][j]=valueIterator.next();
+  }
+}

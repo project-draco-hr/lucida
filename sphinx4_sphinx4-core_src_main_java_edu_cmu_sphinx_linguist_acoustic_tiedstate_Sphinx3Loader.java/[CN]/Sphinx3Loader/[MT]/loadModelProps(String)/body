@@ -1,0 +1,10 @@
+{
+  Properties props=new Properties();
+  BufferedReader reader=new BufferedReader(new InputStreamReader(getDataStream(path)));
+  String line;
+  while ((line=reader.readLine()) != null) {
+    String[] tokens=line.split(" ");
+    props.put(tokens[0],tokens[1]);
+  }
+  return props;
+}

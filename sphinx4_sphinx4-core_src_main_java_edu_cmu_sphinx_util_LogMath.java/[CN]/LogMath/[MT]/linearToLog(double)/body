@@ -1,0 +1,23 @@
+{
+  double returnValue;
+  if (linearValue < 0.0) {
+    throw new IllegalArgumentException("linearToLog: param must be >= 0: " + linearValue);
+  }
+ else   if (linearValue == 0.0) {
+    return LOG_ZERO;
+  }
+ else {
+    returnValue=Math.log(linearValue) * inverseNaturalLogBase;
+    if (returnValue > Float.MAX_VALUE) {
+      return Float.MAX_VALUE;
+    }
+ else {
+      if (returnValue < -Float.MAX_VALUE) {
+        return -Float.MAX_VALUE;
+      }
+ else {
+        return (float)returnValue;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  if (indexHmm == TrainerAcousticModel.ALL_MODELS) {
+    for (    HMM hmm : hmmManager) {
+      for (int j=0; j < hmm.getOrder(); j++) {
+        accumulateStateTransition(j,(SenoneHMM)hmm,score[indexScore].getScore());
+      }
+    }
+  }
+ else {
+    if (nextScore != null) {
+      accumulateStateTransition(indexScore,score,nextScore);
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  long starttime=Calendar.getInstance().getTimeInMillis();
+  Fst obj;
+  FileInputStream fis=null;
+  BufferedInputStream bis=null;
+  ObjectInputStream ois=null;
+  fis=new FileInputStream(filename);
+  bis=new BufferedInputStream(fis);
+  ois=new ObjectInputStream(bis);
+  obj=readFst(ois);
+  ois.close();
+  bis.close();
+  fis.close();
+  System.err.println("Load Time: " + (Calendar.getInstance().getTimeInMillis() - starttime) / 1000.);
+  return obj;
+}

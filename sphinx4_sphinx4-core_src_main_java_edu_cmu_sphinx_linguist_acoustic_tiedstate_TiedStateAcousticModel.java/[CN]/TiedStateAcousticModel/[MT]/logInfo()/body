@@ -1,0 +1,6 @@
+{
+  if (loader != null) {
+    loader.logInfo();
+  }
+  logger.info("CompositeSenoneSequences: " + compositeSenoneSequenceCache.size());
+}

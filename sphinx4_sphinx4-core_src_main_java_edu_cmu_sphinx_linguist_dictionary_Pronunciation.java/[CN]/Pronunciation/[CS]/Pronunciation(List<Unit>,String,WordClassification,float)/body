@@ -1,0 +1,7 @@
+{
+  Unit[] unitsArray=units.toArray(new Unit[units.size()]);
+  this.wordClassification=wordClassification;
+  this.units=unitsArray;
+  this.tag=tag;
+  this.probability=probability;
+}

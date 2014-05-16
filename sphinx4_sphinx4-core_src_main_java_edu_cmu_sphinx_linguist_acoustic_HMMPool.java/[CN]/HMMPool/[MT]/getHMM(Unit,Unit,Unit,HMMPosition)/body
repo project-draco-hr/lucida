@@ -1,0 +1,28 @@
+{
+  int id=-1;
+  int bid=getID(base);
+  int lid=getID(lc);
+  int rid=getID(rc);
+  if (!isValidID(bid)) {
+    logger.severe("Bad HMM Unit: " + base.getName());
+    return null;
+  }
+  if (!isValidID(lid)) {
+    logger.severe("Bad HMM Unit: " + lc.getName());
+    return null;
+  }
+  if (!isValidID(rid)) {
+    logger.severe("Bad HMM Unit: " + rc.getName());
+    return null;
+  }
+  id=buildID(bid,lid,rid);
+  if (id < 0) {
+    logger.severe("Unable to build HMM Unit ID for " + base.getName() + " lc="+ lc.getName()+ " rc="+ rc.getName());
+    return null;
+  }
+  HMM hmm=getHMM(id,pos);
+  if (hmm == null) {
+    logger.severe("Missing HMM Unit for " + base.getName() + " lc="+ lc.getName()+ " rc="+ rc.getName());
+  }
+  return hmm;
+}

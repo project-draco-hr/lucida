@@ -1,0 +1,23 @@
+{
+  words=new LinkedList<HypothesisWord>();
+  StringTokenizer st=new StringTokenizer(line," \t\n\r\f(),");
+  while (st.hasMoreTokens()) {
+    String text=st.nextToken();
+    try {
+      float myStartTime=Float.parseFloat(st.nextToken());
+      float myEndTime=Float.parseFloat(st.nextToken());
+      HypothesisWord word=new HypothesisWord(text,myStartTime,myEndTime);
+      words.add(word);
+    }
+ catch (    NumberFormatException nfe) {
+      System.out.println("NumberFormatException at line: " + line);
+      nfe.printStackTrace();
+    }
+  }
+  if (!words.isEmpty()) {
+    HypothesisWord firstWord=words.get(0);
+    startTime=firstWord.getStartTime();
+    HypothesisWord lastWord=words.get(words.size() - 1);
+    endTime=lastWord.getEndTime();
+  }
+}

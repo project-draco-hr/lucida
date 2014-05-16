@@ -1,0 +1,30 @@
+{
+  List<Unit[]> contexts=new ArrayList<Unit[]>();
+  List<GrammarPoint> nextPoints=getNextGrammarPoints(startWithCurrent);
+  if (nextPoints.isEmpty()) {
+    Unit[] units=Unit.getEmptyContext(size);
+    addContext(contexts,units);
+  }
+ else {
+    for (    GrammarPoint gp : nextPoints) {
+      if (size == 1) {
+        Unit[] units=new Unit[size];
+        units[0]=gp.getUnitOrFill();
+        addContext(contexts,units);
+      }
+ else {
+        List<Unit[]> rc=gp.getRightContexts(size - 1,false,maxContexts - contexts.size());
+        for (        Unit[] rcUnits : rc) {
+          Unit[] units=Unit.getEmptyContext(rcUnits.length + 1);
+          units[0]=gp.getUnitOrFill();
+          System.arraycopy(rcUnits,0,units,1,rcUnits.length);
+          addContext(contexts,units);
+        }
+      }
+      if (contexts.size() >= maxContexts) {
+        break;
+      }
+    }
+  }
+  return contexts;
+}

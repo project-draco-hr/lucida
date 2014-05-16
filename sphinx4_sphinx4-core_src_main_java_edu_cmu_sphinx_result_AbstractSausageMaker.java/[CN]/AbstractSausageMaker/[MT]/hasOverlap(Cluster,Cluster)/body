@@ -1,0 +1,3 @@
+{
+  return (cluster1.startTime < cluster2.endTime && cluster2.startTime < cluster1.endTime);
+}

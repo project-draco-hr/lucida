@@ -1,0 +1,18 @@
+{
+  long bytesToSkip;
+  NGramOffset[1]=bytesRead;
+  bytesToSkip=(numberNGrams[1] + 1) * LargeNGramModel.BYTES_PER_NGRAM * getBytesPerField();
+  skipStreamBytes(stream,bytesToSkip);
+  for (int i=2; i < maxNGram; i++) {
+    if (numberNGrams[i] > 0 && i < maxNGram - 1) {
+      NGramOffset[i]=bytesRead;
+      bytesToSkip=(long)(numberNGrams[i] + 1) * (long)LargeNGramModel.BYTES_PER_NGRAM * getBytesPerField();
+      skipStreamBytes(stream,bytesToSkip);
+    }
+ else     if (numberNGrams[i] > 0 && i == maxNGram - 1) {
+      NGramOffset[i]=bytesRead;
+      bytesToSkip=(long)(numberNGrams[i]) * (long)LargeNGramModel.BYTES_PER_NMAXGRAM * getBytesPerField();
+      skipStreamBytes(stream,bytesToSkip);
+    }
+  }
+}

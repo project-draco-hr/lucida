@@ -1,0 +1,4 @@
+{
+  Map<String,Object> dataProps=dataStartSignal.getProps();
+  useSpeechSignals=dataProps.containsKey(DataStartSignal.SPEECH_TAGGED_FEATURE_STREAM) && (Boolean)dataProps.get(DataStartSignal.SPEECH_TAGGED_FEATURE_STREAM);
+}

@@ -1,0 +1,37 @@
+{
+  Unit[] lc=getLC(leftContext,units,which);
+  Unit[] rc=getRC(units,which,rightContext);
+  UnitContext actualRightContext=UnitContext.get(rc);
+  LeftRightContext context=LeftRightContext.get(lc,rc);
+  Unit cdUnit=unitManager.getUnit(units[which].getName(),units[which].isFiller(),context);
+  UnitState unitState=new ExtendedUnitState(parent,which,cdUnit);
+  float logInsertionProbability;
+  if (unitState.getUnit().isSilence()) {
+    logInsertionProbability=logSilenceInsertionProbability;
+  }
+ else   if (unitState.getUnit().isFiller()) {
+    logInsertionProbability=logFillerInsertionProbability;
+  }
+ else   if (unitState.getWhich() == 0) {
+    logInsertionProbability=logWordInsertionProbability;
+  }
+ else {
+    logInsertionProbability=logUnitInsertionProbability;
+  }
+  SentenceHMMState existingState=getExistingState(unitState);
+  if (existingState != null) {
+    attachState(tail,existingState,logOne,logInsertionProbability);
+    return null;
+  }
+ else {
+    attachState(tail,unitState,logOne,logInsertionProbability);
+    addStateToCache(unitState);
+    tail=expandUnit(unitState);
+    if (unitState.isLast()) {
+      UnitContext nextLeftContext=generateNextLeftContext(leftContext,units[which]);
+      ContextPair cp=ContextPair.get(nextLeftContext,actualRightContext);
+      addExitPoint(cp,tail);
+    }
+    return tail;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  if (swap) {
+    dos.writeFloat(Utilities.swapFloat(val));
+  }
+ else {
+    dos.writeFloat(val);
+  }
+}

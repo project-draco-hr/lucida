@@ -1,0 +1,8 @@
+String location
+String model
+String dataLocation
+UnitManager unitManager
+float distFloor
+float mixtureWeightFloor
+float varianceFloor
+boolean useCDUnits

@@ -1,0 +1,36 @@
+{
+  if (cepstrum instanceof DataEndSignal) {
+    outputQueue.add(cepstrum);
+    return 0;
+  }
+ else   if (cepstrum instanceof DataStartSignal) {
+    throw new Error("Too many UTTERANCE_START");
+  }
+ else {
+    Arrays.fill(cepstraBuffer,0,window + 1,cepstrum);
+    bufferPosition=window + 1;
+    bufferPosition%=cepstraBufferSize;
+    currentPosition=window;
+    currentPosition%=cepstraBufferSize;
+    int numberFeatures=1;
+    pendingSignal=null;
+    for (int i=0; i < window; i++) {
+      Data next=getNextData();
+      if (next != null) {
+        if (next instanceof DoubleData) {
+          addCepstrum((DoubleData)next);
+        }
+ else         if (next instanceof DataEndSignal || next instanceof SpeechEndSignal) {
+          pendingSignal=(Signal)next;
+          replicateLastCepstrum();
+          numberFeatures+=i;
+          break;
+        }
+ else         if (next instanceof DataStartSignal) {
+          throw new Error("Too many UTTERANCE_START");
+        }
+      }
+    }
+    return numberFeatures;
+  }
+}

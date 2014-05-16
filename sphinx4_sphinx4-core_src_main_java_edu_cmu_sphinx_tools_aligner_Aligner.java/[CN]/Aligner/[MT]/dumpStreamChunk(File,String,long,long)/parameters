@@ -1,0 +1,4 @@
+File file
+String dstPath
+long offset
+long length

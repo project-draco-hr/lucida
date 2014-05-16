@@ -1,0 +1,23 @@
+{
+  if (!symbolTable.containsKey(instanceName)) {
+    RawPropertyData rpd=rawPropertyMap.get(instanceName);
+    if (rpd != null) {
+      String className=rpd.getClassName();
+      try {
+        Class<?> cls=Class.forName(className);
+        PropertySheet propertySheet=new PropertySheet(cls.asSubclass(Configurable.class),instanceName,this,rpd);
+        symbolTable.put(instanceName,propertySheet);
+      }
+ catch (      ClassNotFoundException e) {
+        System.err.println("class not found !" + e);
+      }
+catch (      ClassCastException e) {
+        System.err.println("can not cast class !" + e);
+      }
+catch (      ExceptionInInitializerError e) {
+        System.err.println("couldn't load class !" + e);
+      }
+    }
+  }
+  return symbolTable.get(instanceName);
+}

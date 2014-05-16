@@ -1,0 +1,4 @@
+{
+  System.out.close();
+  System.setOut(oldOut);
+}

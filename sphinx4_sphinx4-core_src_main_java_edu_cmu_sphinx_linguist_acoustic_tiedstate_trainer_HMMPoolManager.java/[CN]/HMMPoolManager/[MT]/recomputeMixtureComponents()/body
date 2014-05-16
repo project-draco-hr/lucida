@@ -1,0 +1,9 @@
+{
+  for (int i=0; i < senonePool.size(); i++) {
+    GaussianMixture gMix=(GaussianMixture)senonePool.get(i);
+    MixtureComponent[] mixComponent=gMix.getMixtureComponents();
+    for (    MixtureComponent component : mixComponent) {
+      component.precomputeDistance();
+    }
+  }
+}

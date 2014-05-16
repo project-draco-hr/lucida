@@ -1,0 +1,12 @@
+{
+  logMath=LogMath.getInstance();
+  this.location=location;
+  this.logger=logger;
+  this.model=model;
+  this.dataLocation=dataLocatoin;
+  this.unitManager=unitManager;
+  this.distFloor=distFloor;
+  this.mixtureWeightFloor=mixtureWeightFloor;
+  this.varianceFloor=varianceFloor;
+  this.useCDUnits=useCDUnits;
+}

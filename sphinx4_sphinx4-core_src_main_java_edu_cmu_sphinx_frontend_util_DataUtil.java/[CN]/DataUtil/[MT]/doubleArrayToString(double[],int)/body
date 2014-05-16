@@ -1,0 +1,16 @@
+{
+  StringBuilder dump=new StringBuilder().append(data.length);
+  for (  double val : data) {
+    if (format == DECIMAL) {
+      dump.append(' ').append(formatDouble(val,decimalIntegerDigits,decimalFractionDigits));
+    }
+ else     if (format == HEXADECIMAL) {
+      long binary=Double.doubleToRawLongBits(val);
+      dump.append(" 0x").append(Long.toHexString(binary));
+    }
+ else     if (format == SCIENTIFIC) {
+      dump.append(' ').append(Utilities.doubleToScientificString(val,doubleScientificFractionDigits));
+    }
+  }
+  return dump.toString();
+}

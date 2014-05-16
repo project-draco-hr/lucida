@@ -1,0 +1,8 @@
+{
+  if (isNodeInGraph(node)) {
+    initialNode=node;
+  }
+ else {
+    throw new IllegalArgumentException("Initial node not in graph");
+  }
+}

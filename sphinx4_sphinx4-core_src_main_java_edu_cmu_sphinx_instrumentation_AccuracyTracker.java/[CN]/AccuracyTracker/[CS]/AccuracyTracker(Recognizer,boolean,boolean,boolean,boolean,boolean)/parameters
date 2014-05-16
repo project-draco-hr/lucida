@@ -1,0 +1,6 @@
+Recognizer recognizer
+boolean showSummary
+boolean showDetails
+boolean showResults
+boolean showAlignedResults
+boolean showRawResults

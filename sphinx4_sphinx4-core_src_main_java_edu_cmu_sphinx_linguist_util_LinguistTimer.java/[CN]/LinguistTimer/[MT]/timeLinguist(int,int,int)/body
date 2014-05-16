@@ -1,0 +1,35 @@
+{
+  Random random=new Random(1000);
+  Timer frameTimer=TimerPool.getTimer(this,"frameTimer");
+  Timer totalTimer=TimerPool.getTimer(this,"totalTimer");
+  System.out.println("TestLinguist: runs " + numRuns + " frames "+ numFrames+ " beam "+ maxBeam);
+  totalTimer.start();
+  for (int runs=0; runs < numRuns; runs++) {
+    int level=0;
+    List<SearchState> activeList=new ArrayList<SearchState>();
+    activeList.add(linguist.getSearchGraph().getInitialState());
+    linguist.startRecognition();
+    for (int i=0; i < numFrames; i++) {
+      List<SearchState> oldList=activeList;
+      activeList=new ArrayList<SearchState>(maxBeam * 10);
+      frameTimer.start();
+      for (      SearchState nextStates : oldList) {
+        expandState(level,activeList,nextStates);
+      }
+      frameTimer.stop();
+      Collections.shuffle(activeList,random);
+      if (activeList.size() > maxBeam) {
+        activeList=activeList.subList(0,maxBeam);
+      }
+    }
+    linguist.stopRecognition();
+    frameTimer.dump();
+  }
+  totalTimer.stop();
+  System.out.println(" MaxSuccessors : " + maxSuccessors);
+  System.out.println(" TotalStates   : " + totalStates);
+  System.out.println(" TotalEmitting : " + totalEmittingStates);
+  System.out.println("   NonEmitting : " + totalNonEmittingStates);
+  System.out.println("  Final States : " + totalFinalStates);
+  TimerPool.dumpAll();
+}

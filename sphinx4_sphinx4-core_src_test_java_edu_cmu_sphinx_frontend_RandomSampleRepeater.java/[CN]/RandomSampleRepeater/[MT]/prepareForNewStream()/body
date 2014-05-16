@@ -1,0 +1,5 @@
+{
+  if (randStreamStart)   nextInsertionPoint=0;
+ else   nextInsertionPoint=computeNextInsertionPoint();
+  numInsertedSamples=0;
+}

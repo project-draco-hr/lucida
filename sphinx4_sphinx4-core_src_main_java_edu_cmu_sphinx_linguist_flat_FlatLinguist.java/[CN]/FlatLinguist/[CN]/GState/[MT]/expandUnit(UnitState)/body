@@ -1,0 +1,7 @@
+{
+  SentenceHMMState tail=getHMMStates(unit);
+  if (unit.getUnit().isSilence()) {
+    attachState(tail,unit,logOne,logSilenceInsertionProbability);
+  }
+  return tail;
+}

@@ -1,0 +1,7 @@
+{
+  recognizer.allocate();
+  setBatchFile(batchFile);
+  batchManager.start();
+  logger.info("BatchDecoder: decoding files in " + batchManager.getFilename());
+  count=0;
+}

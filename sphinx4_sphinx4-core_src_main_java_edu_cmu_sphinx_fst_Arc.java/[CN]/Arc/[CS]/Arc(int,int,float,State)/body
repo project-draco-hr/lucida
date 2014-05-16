@@ -1,0 +1,6 @@
+{
+  this.weight=weight;
+  this.iLabel=iLabel;
+  this.oLabel=oLabel;
+  this.nextState=nextState;
+}

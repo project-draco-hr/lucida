@@ -1,0 +1,4 @@
+Class<? extends Configurable> confClass
+String name
+ConfigurationManager cm
+RawPropertyData rpd

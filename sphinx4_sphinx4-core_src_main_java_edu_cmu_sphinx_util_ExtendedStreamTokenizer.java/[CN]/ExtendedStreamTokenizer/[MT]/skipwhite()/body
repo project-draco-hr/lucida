@@ -1,0 +1,9 @@
+{
+  String next=null;
+  while (!isEOF()) {
+    if ((next=getString()) != null) {
+      unget(next);
+      break;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  Word word=null;
+  SentenceHMMState state=this;
+  while (state != null && !(state instanceof WordState)) {
+    state=state.getParent();
+  }
+  if (state != null) {
+    WordState wordState=(WordState)state;
+    word=wordState.getWord();
+  }
+  return word;
+}

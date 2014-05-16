@@ -1,0 +1,19 @@
+{
+  Sausage sausage=new Sausage(clusters.size());
+  int index=0;
+  for (  Cluster cluster : clusters) {
+    HashSet<String> seenWords=new HashSet<String>();
+    for (    Node node : cluster) {
+      Word word=node.getWord();
+      if (seenWords.contains(word.getSpelling())) {
+        continue;
+      }
+      seenWords.add(word.getSpelling());
+      WordResult swr=new WordResult(node,wordSubClusterProbability(cluster,word.getSpelling()));
+      sausage.addWordHypothesis(index,swr);
+    }
+    index++;
+  }
+  sausage.fillInBlanks();
+  return sausage;
+}

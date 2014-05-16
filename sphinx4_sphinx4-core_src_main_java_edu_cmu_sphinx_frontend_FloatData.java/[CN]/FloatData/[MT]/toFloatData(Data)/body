@@ -1,0 +1,10 @@
+{
+  FloatData convertData;
+  if (data instanceof FloatData)   convertData=(FloatData)data;
+ else   if (data instanceof DoubleData) {
+    DoubleData dd=(DoubleData)data;
+    convertData=new FloatData(MatrixUtils.double2float(dd.getValues()),dd.getSampleRate(),dd.getFirstSampleNumber());
+  }
+ else   throw new IllegalArgumentException("data type '" + data.getClass() + "' is not supported");
+  return convertData;
+}

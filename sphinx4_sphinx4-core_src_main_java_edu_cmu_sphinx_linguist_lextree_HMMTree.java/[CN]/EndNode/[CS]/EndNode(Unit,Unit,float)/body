@@ -1,0 +1,6 @@
+{
+  super(probablilty);
+  this.baseUnit=baseUnit;
+  this.leftContext=lc;
+  key=baseUnit.getBaseID() * 121 + leftContext.getBaseID();
+}

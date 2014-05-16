@@ -1,0 +1,4 @@
+{
+  this.words=list.toArray(new Word[list.size()]);
+  check();
+}

@@ -1,0 +1,14 @@
+{
+  ArrayList<Integer> res=new ArrayList<Integer>();
+  for (  Pair<State,Float> p : pa) {
+    State s=p.getLeft();
+    int numArcs=s.getNumArcs();
+    for (int j=0; j < numArcs; j++) {
+      Arc arc=s.getArc(j);
+      if (!res.contains(arc.getIlabel())) {
+        res.add(arc.getIlabel());
+      }
+    }
+  }
+  return res;
+}

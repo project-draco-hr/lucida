@@ -1,0 +1,14 @@
+{
+  SingleHMM hmm;
+  int nEmittingStates=0;
+  for (int i=0; i < hmmidx; i++) {
+    hmm=hmms.get(i);
+    nEmittingStates+=hmm.getNbEmittingStates();
+  }
+  hmm=hmms.get(hmmidx);
+  for (int i=1; i < stateidx; i++) {
+    if (hmm.isEmitting(i))     nEmittingStates++;
+  }
+  if (hmm.isEmitting(stateidx))   return nEmittingStates;
+ else   return -1;
+}

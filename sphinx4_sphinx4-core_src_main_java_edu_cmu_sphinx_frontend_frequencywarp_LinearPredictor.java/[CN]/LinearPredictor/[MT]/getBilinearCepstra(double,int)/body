@@ -1,0 +1,21 @@
+{
+  double[][] g=new double[nbilincepstra][cepstrumOrder];
+  double[] lincep=Arrays.copyOf(cepstra,cepstrumOrder);
+  bilinearCepstra[0]=lincep[0];
+  lincep[0]=0;
+  g[0][cepstrumOrder - 1]=lincep[cepstrumOrder - 1];
+  for (int i=1; i < nbilincepstra; i++) {
+    g[i][cepstrumOrder - 1]=0;
+  }
+  for (int i=cepstrumOrder - 2; i >= 0; i--) {
+    g[0][i]=warp * g[0][i + 1] + lincep[i];
+    g[1][i]=(1 - warp * warp) * g[0][i + 1] + warp * g[1][i + 1];
+    for (int j=2; j < nbilincepstra; j++) {
+      g[j][i]=warp * (g[j][i + 1] - g[j - 1][i]) + g[j - 1][i + 1];
+    }
+  }
+  for (int i=1; i <= nbilincepstra; i++) {
+    bilinearCepstra[i]=g[i][0];
+  }
+  return bilinearCepstra;
+}

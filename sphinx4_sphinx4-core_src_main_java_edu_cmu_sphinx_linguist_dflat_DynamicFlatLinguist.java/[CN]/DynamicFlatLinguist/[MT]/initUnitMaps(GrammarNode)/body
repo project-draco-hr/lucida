@@ -1,0 +1,23 @@
+{
+  if (nodeToNextUnitArrayMap.get(node) == null) {
+    Set<GrammarNode> vistedNodes=new HashSet<GrammarNode>();
+    Set<Unit> unitSet=new HashSet<Unit>();
+    GrammarArc[] arcs=node.getSuccessors();
+    for (    GrammarArc arc : arcs) {
+      GrammarNode nextNode=arc.getGrammarNode();
+      collectNextUnits(nextNode,vistedNodes,unitSet);
+    }
+    int[] nextUnits=new int[unitSet.size()];
+    int index=0;
+    for (    Unit unit : unitSet) {
+      nextUnits[index++]=unit.getBaseID();
+    }
+    nodeToNextUnitArrayMap.put(node,nextUnits);
+  }
+  if (nodeToUnitSetMap.get(node) == null) {
+    Set<GrammarNode> vistedNodes=new HashSet<GrammarNode>();
+    Set<Unit> unitSet=new HashSet<Unit>();
+    collectNextUnits(node,vistedNodes,unitSet);
+    nodeToUnitSetMap.put(node,unitSet);
+  }
+}

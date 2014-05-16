@@ -1,0 +1,11 @@
+{
+  if (fullName == null) {
+    if (parent == null) {
+      fullName=getName();
+    }
+ else {
+      fullName=getName() + '.' + parent.getFullName();
+    }
+  }
+  return fullName;
+}

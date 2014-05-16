@@ -1,0 +1,9 @@
+{
+  if (c.startTime < startTime) {
+    startTime=c.startTime;
+  }
+  if (c.endTime > endTime) {
+    endTime=c.endTime;
+  }
+  elements.addAll(c.getElements());
+}

@@ -1,0 +1,4 @@
+{
+  this.shorts=Utils.toSignedPCM(ais);
+  this.format=new AudioFormat(ais.getFormat().getSampleRate(),16,1,true,false);
+}

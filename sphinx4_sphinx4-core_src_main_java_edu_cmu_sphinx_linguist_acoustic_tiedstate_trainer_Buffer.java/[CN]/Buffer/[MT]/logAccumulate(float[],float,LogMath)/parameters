@@ -1,0 +1,3 @@
+float[] logNumeratorData
+float logDenominatorData
+LogMath logMath

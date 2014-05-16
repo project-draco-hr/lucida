@@ -1,0 +1,11 @@
+{
+  assert isLog;
+  boolean wasModified=false;
+  for (int i=0; i < numerator.length; i++) {
+    if (numerator[i] < logFloor) {
+      wasModified=true;
+      numerator[i]=logFloor;
+    }
+  }
+  return wasModified;
+}

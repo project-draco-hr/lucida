@@ -1,0 +1,11 @@
+{
+  if (descendants != null) {
+    return descendants.contains(node);
+  }
+  if (this.equals(node)) {
+    return true;
+  }
+  Set<Node> seenNodes=new HashSet<Node>();
+  seenNodes.add(this);
+  return isAncestorHelper(this.getChildNodes(),node,seenNodes);
+}

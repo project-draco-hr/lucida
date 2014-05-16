@@ -1,0 +1,8 @@
+{
+  WordNode node=wordNodeMap.get(p);
+  if (node == null) {
+    node=new WordNode(p,probability);
+    wordNodeMap.put(p,node);
+  }
+  return node;
+}

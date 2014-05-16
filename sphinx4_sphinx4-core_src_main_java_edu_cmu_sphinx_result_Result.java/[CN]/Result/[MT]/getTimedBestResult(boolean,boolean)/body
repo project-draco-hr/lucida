@@ -1,0 +1,14 @@
+{
+  Token token=getBestToken();
+  if (token == null) {
+    return "";
+  }
+ else {
+    if (wordTokenFirst) {
+      return getTimedWordPath(token,wantFiller);
+    }
+ else {
+      return getTimedWordTokenLastPath(token,wantFiller);
+    }
+  }
+}

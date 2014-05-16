@@ -1,0 +1,61 @@
+{
+  ListIterator<Object> referenceWordsIterator=referenceItems.listIterator();
+  ListIterator<Object> hypothesisWordsIterator=hypothesisItems.listIterator();
+  String referenceWord;
+  String hypothesisWord;
+  Object a=null;
+  Object b=null;
+  alignedReferenceWords=new LinkedList<String>();
+  alignedHypothesisWords=new LinkedList<String>();
+  for (int m=backtrace.size() - 2; m >= 0; m--) {
+    int backtraceEntry=backtrace.get(m);
+    if (backtraceEntry != INSERTION) {
+      a=referenceWordsIterator.next();
+      referenceWord=renderer.getRef(a,b);
+    }
+ else {
+      referenceWord=null;
+    }
+    if (backtraceEntry != DELETION) {
+      b=hypothesisWordsIterator.next();
+      hypothesisWord=renderer.getHyp(a,b);
+    }
+ else {
+      hypothesisWord=null;
+    }
+switch (backtraceEntry) {
+case SUBSTITUTION:
+{
+        referenceWord=referenceWord.toUpperCase();
+        hypothesisWord=hypothesisWord.toUpperCase();
+        break;
+      }
+case INSERTION:
+{
+      hypothesisWord=hypothesisWord.toUpperCase();
+      break;
+    }
+case DELETION:
+{
+    referenceWord=referenceWord.toUpperCase();
+    break;
+  }
+case OK:
+break;
+}
+if (referenceWord == null) {
+referenceWord=STARS.substring(0,hypothesisWord.length());
+}
+if (hypothesisWord == null) {
+hypothesisWord=STARS.substring(0,referenceWord.length());
+}
+if (referenceWord.length() > hypothesisWord.length()) {
+hypothesisWord=hypothesisWord.concat(SPACES.substring(0,referenceWord.length() - hypothesisWord.length()));
+}
+ else if (referenceWord.length() < hypothesisWord.length()) {
+referenceWord=referenceWord.concat(SPACES.substring(0,hypothesisWord.length() - referenceWord.length()));
+}
+alignedReferenceWords.add(referenceWord);
+alignedHypothesisWords.add(hypothesisWord);
+}
+}

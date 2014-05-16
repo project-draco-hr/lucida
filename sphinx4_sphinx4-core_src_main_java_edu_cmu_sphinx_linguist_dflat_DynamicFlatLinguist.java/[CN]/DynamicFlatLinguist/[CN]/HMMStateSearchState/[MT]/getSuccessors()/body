@@ -1,0 +1,17 @@
+{
+  SearchStateArc[] arcs=getCachedSuccessors();
+  if (arcs == null) {
+    if (hmmState.isExitState()) {
+      arcs=fullHMMSearchState.getNextArcs();
+    }
+ else {
+      HMMStateArc[] next=hmmState.getSuccessors();
+      arcs=new SearchStateArc[next.length];
+      for (int i=0; i < arcs.length; i++) {
+        arcs[i]=new HMMStateSearchState(fullHMMSearchState,next[i].getHMMState(),next[i].getLogProbability());
+      }
+    }
+    cacheSuccessors(arcs);
+  }
+  return arcs;
+}

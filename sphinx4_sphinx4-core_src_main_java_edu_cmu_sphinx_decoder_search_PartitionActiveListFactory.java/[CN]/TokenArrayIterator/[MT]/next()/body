@@ -1,0 +1,6 @@
+{
+  if (pos >= tokenArray.length) {
+    throw new NoSuchElementException();
+  }
+  return tokenArray[pos++];
+}

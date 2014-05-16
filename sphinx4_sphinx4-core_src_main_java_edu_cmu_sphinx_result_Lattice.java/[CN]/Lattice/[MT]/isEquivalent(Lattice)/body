@@ -1,0 +1,3 @@
+{
+  return checkNodesEquivalent(initialNode,other.getInitialNode());
+}

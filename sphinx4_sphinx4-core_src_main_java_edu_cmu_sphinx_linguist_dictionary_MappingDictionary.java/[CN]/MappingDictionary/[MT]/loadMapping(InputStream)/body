@@ -1,0 +1,15 @@
+{
+  InputStreamReader isr=new InputStreamReader(inputStream);
+  BufferedReader br=new BufferedReader(isr);
+  String line;
+  while ((line=br.readLine()) != null) {
+    StringTokenizer st=new StringTokenizer(line);
+    if (st.countTokens() != 2) {
+      throw new IOException("Wrong file format");
+    }
+    mapping.put(st.nextToken(),st.nextToken());
+  }
+  br.close();
+  isr.close();
+  inputStream.close();
+}

@@ -1,0 +1,4 @@
+{
+  classMap=(ClassMap)ps.getComponent(PROP_CLASS_MAP);
+  wordDictionary=(Dictionary)ps.getComponent(PROP_WORD_DICTIONARY);
+}

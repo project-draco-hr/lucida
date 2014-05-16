@@ -1,0 +1,4 @@
+{
+  this(activeList,resultList,frameNumber,isFinal);
+  this.alternateHypothesisManager=alternateHypothesisManager;
+}

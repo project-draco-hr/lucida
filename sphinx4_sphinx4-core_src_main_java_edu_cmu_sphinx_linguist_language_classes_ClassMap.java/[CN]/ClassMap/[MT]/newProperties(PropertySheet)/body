@@ -1,0 +1,5 @@
+{
+  logger=ps.getLogger();
+  if (allocated)   throw new RuntimeException("Can't change properties after allocation");
+  classDefsLocation=ConfigurationManagerUtils.getResource(PROP_CLASS_DEFS_LOCATION,ps);
+}

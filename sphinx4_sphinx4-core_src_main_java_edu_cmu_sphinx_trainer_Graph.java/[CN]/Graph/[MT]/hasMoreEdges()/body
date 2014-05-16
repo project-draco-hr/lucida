@@ -1,0 +1,3 @@
+{
+  return edgeIterator.hasNext();
+}

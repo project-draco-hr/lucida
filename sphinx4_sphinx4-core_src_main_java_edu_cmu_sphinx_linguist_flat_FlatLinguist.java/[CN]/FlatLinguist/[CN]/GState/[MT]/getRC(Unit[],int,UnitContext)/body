@@ -1,0 +1,17 @@
+{
+  Unit[] rightUnits=right.getUnits();
+  int leftIndex=index + 1;
+  int curSize=units.length - leftIndex + rightUnits.length;
+  int actSize=Math.min(curSize,getRightContextSize(units[index]));
+  Unit[] rc=new Unit[actSize];
+  for (int i=0; i < rc.length; i++) {
+    int rcIndex=leftIndex + i;
+    if (rcIndex < units.length) {
+      rc[i]=units[rcIndex];
+    }
+ else {
+      rc[i]=rightUnits[rcIndex - units.length];
+    }
+  }
+  return rc;
+}

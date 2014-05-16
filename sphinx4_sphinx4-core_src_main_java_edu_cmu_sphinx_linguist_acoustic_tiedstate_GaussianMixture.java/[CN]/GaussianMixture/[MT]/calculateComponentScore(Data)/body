@@ -1,0 +1,9 @@
+{
+  if (feature instanceof DoubleData)   System.err.println("DoubleData conversion required on mixture level!");
+  float[] featureVector=FloatData.toFloatData(feature).getValues();
+  float[] logComponentScore=new float[mixtureComponents.length];
+  for (int i=0; i < mixtureComponents.length; i++) {
+    logComponentScore[i]=mixtureComponents[i].getScore(featureVector) + logMixtureWeights[i];
+  }
+  return logComponentScore;
+}

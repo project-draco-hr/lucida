@@ -1,0 +1,7 @@
+{
+  System.out.println("Denominator= " + denominator);
+  System.out.println("Numerators= ");
+  for (int i=0; i < numerator.length; i++) {
+    System.out.println("[" + i + "]= "+ numerator[i]);
+  }
+}

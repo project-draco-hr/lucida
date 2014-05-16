@@ -1,0 +1,13 @@
+{
+  Result result=null;
+  BatchItem batchItem;
+  if (count < utteranceId && (batchItem=batchManager.getNextItem()) != null) {
+    setInputStream(batchItem.getFilename());
+    result=recognizer.recognize(batchItem.getTranscript());
+    logger.info("File  : " + batchItem.getFilename());
+    logger.info("Result: " + result);
+    count++;
+  }
+  logger.info("BatchDecoder: " + count + " files decoded");
+  return result;
+}

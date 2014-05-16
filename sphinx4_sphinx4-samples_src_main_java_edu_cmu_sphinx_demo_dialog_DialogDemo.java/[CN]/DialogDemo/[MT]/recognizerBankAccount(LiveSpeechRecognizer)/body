@@ -1,0 +1,32 @@
+{
+  System.out.println("This is bank account voice menu");
+  System.out.println("-------------------------------");
+  System.out.println("Example: balance");
+  System.out.println("Example: withdraw zero point five");
+  System.out.println("Example: deposit one two three");
+  System.out.println("Example: back");
+  System.out.println("-------------------------------");
+  double savings=.0;
+  recognizer.startRecognition(true);
+  while (true) {
+    String utterance=recognizer.getResult().getHypothesis();
+    if (utterance.endsWith("back")) {
+      break;
+    }
+ else     if (utterance.startsWith("deposit")) {
+      double deposit=parseNumber(utterance.split("\\s"));
+      savings+=deposit;
+      System.out.format("Deposited: $%.2f\n",deposit);
+    }
+ else     if (utterance.startsWith("withdraw")) {
+      double withdraw=parseNumber(utterance.split("\\s"));
+      savings-=withdraw;
+      System.out.format("Withdrawn: $%.2f\n",withdraw);
+    }
+ else     if (!utterance.endsWith("balance")) {
+      System.out.println("Unrecognized command: " + utterance);
+    }
+    System.out.format("Your savings: $%.2f\n",savings);
+  }
+  recognizer.stopRecognition();
+}

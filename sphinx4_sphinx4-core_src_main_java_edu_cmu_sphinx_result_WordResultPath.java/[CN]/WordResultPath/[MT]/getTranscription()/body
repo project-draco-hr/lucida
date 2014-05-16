@@ -1,0 +1,5 @@
+{
+  StringBuilder sb=new StringBuilder();
+  for (  WordResult wr : path)   sb.append(wr).append(' ');
+  return sb.toString().trim();
+}

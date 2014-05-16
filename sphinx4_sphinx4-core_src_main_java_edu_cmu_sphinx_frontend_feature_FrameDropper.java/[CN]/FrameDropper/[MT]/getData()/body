@@ -1,0 +1,37 @@
+{
+  Data feature=readData();
+  if (feature != null) {
+    if (!(feature instanceof Signal)) {
+      if ((id % dropEveryNthFrame) == (dropEveryNthFrame - 1)) {
+        if (replaceNthWithPrevious) {
+          if (feature instanceof FloatData) {
+            FloatData floatLastFeature=(FloatData)lastFeature;
+            feature=new FloatData(floatLastFeature.getValues(),floatLastFeature.getSampleRate(),floatLastFeature.getFirstSampleNumber());
+          }
+ else {
+            DoubleData doubleLastFeature=(DoubleData)lastFeature;
+            feature=new DoubleData(doubleLastFeature.getValues(),doubleLastFeature.getSampleRate(),doubleLastFeature.getFirstSampleNumber());
+          }
+        }
+ else {
+          feature=readData();
+        }
+      }
+    }
+    if (feature != null) {
+      if (feature instanceof DataEndSignal) {
+        id=-1;
+      }
+      if (feature instanceof FloatData) {
+        lastFeature=feature;
+      }
+ else {
+        lastFeature=null;
+      }
+    }
+ else {
+      lastFeature=null;
+    }
+  }
+  return feature;
+}

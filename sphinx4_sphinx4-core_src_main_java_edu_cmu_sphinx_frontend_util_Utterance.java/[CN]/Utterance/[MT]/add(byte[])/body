@@ -1,0 +1,5 @@
+{
+synchronized (audioBuffer) {
+    audioBuffer.write(audio,0,audio.length);
+  }
+}

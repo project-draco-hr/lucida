@@ -1,0 +1,4 @@
+{
+  GrammarNode node=createGrammarNode(ruleToken.getText());
+  return new GrammarGraph(node,node);
+}

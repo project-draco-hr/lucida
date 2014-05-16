@@ -1,0 +1,15 @@
+{
+  boolean done=false;
+  Result result=null;
+  streamEnd=false;
+  for (int i=0; i < nFrames && !done; i++) {
+    done=recognize();
+  }
+  if (!streamEnd) {
+    result=new Result(loserManager,activeList,resultList,currentFrameNumber,done);
+  }
+  if (showTokenCount) {
+    showTokenCount();
+  }
+  return result;
+}

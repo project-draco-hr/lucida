@@ -1,0 +1,6 @@
+{
+  System.out.println();
+  for (  NBestPath p : queue) {
+    System.out.println(p);
+  }
+}

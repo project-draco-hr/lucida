@@ -1,0 +1,5 @@
+{
+  int hashCode=collapsed ? 37 : wordSequence.hashCode() * 37;
+  hashCode+=node.hashCode();
+  return hashCode;
+}

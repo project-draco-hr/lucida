@@ -1,0 +1,4 @@
+{
+  this.real=a.real / b;
+  this.imaginary=a.imaginary / b;
+}

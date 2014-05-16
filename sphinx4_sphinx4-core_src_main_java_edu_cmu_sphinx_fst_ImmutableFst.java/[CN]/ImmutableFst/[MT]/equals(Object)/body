@@ -1,0 +1,8 @@
+{
+  if (this == obj)   return true;
+  if (getClass() != obj.getClass())   return false;
+  ImmutableFst other=(ImmutableFst)obj;
+  if (!Arrays.equals(states,other.states))   return false;
+  if (!super.equals(obj))   return false;
+  return true;
+}

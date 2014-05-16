@@ -1,0 +1,3 @@
+{
+  return (fields & MASK_IS_FINAL) == MASK_IS_FINAL;
+}

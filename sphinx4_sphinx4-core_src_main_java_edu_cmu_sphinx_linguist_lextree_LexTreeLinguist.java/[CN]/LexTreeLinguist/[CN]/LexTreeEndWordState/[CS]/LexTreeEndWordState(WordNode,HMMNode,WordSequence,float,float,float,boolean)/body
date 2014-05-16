@@ -1,0 +1,3 @@
+{
+  super(wordNode,lastNode,wordSequence,smearTerm,smearProb,logProbability,collapsed);
+}

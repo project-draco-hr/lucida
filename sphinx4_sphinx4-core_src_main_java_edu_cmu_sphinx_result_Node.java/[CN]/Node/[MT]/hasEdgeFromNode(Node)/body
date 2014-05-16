@@ -1,0 +1,3 @@
+{
+  return getEdgeFromNode(n) != null;
+}

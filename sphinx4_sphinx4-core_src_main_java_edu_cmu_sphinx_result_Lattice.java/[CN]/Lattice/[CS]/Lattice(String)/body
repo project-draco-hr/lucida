@@ -1,0 +1,36 @@
+{
+  try {
+    System.err.println("Loading from " + fileName);
+    LineNumberReader in=new LineNumberReader(new FileReader(fileName));
+    String line;
+    while ((line=in.readLine()) != null) {
+      StringTokenizer tokens=new StringTokenizer(line);
+      if (tokens.hasMoreTokens()) {
+        String type=tokens.nextToken();
+        if (type.equals("edge:")) {
+          Edge.load(this,tokens);
+        }
+ else         if (type.equals("node:")) {
+          Node.load(this,tokens);
+        }
+ else         if (type.equals("initialNode:")) {
+          setInitialNode(getNode(tokens.nextToken()));
+        }
+ else         if (type.equals("terminalNode:")) {
+          setTerminalNode(getNode(tokens.nextToken()));
+        }
+ else         if (type.equals("logBase:")) {
+          logBase=Double.parseDouble(tokens.nextToken());
+        }
+ else {
+          in.close();
+          throw new Error("SYNTAX ERROR: " + fileName + '['+ in.getLineNumber()+ "] "+ line);
+        }
+      }
+    }
+    in.close();
+  }
+ catch (  Exception e) {
+    throw new Error(e.toString());
+  }
+}

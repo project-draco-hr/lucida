@@ -1,0 +1,42 @@
+{
+  List<GrammarPoint> nextPoints=new ArrayList<GrammarPoint>();
+  int unitsLength=0;
+  if (alternativeIndex == -1 && node.getAlternatives().length > 0) {
+    for (int i=0; i < node.getAlternatives().length; i++) {
+      GrammarPoint gp=new GrammarPoint(node,i,0,0,0);
+      nextPoints.add(gp);
+    }
+  }
+ else   if (node.getAlternatives().length == 0) {
+    addNextGrammarPointsWithWords(node,nextPoints);
+  }
+ else {
+    GrammarPoint next;
+    if (startWithCurrent) {
+      next=this;
+    }
+ else {
+      next=new GrammarPoint(node,alternativeIndex,wordIndex,pronunciationIndex,unitIndex + 1);
+    }
+    Pronunciation[] pronunciations=node.getAlternatives()[alternativeIndex][wordIndex].getPronunciations(null);
+    unitsLength=pronunciations[pronunciationIndex].getUnits().length;
+    if (next.unitIndex < unitsLength) {
+      nextPoints.add(next);
+    }
+ else {
+      next.unitIndex=0;
+      Word[] alternative=next.node.getAlternatives()[alternativeIndex];
+      if (++next.wordIndex < alternative.length) {
+        Word word=alternative[next.wordIndex];
+        for (int i=0; i < word.getPronunciations(null).length; i++) {
+          GrammarPoint newGP=new GrammarPoint(next.node,next.alternativeIndex,next.wordIndex,i,0);
+          nextPoints.add(newGP);
+        }
+      }
+ else       if (!bounded) {
+        addNextGrammarPointsWithWords(next.node,nextPoints);
+      }
+    }
+  }
+  return nextPoints;
+}

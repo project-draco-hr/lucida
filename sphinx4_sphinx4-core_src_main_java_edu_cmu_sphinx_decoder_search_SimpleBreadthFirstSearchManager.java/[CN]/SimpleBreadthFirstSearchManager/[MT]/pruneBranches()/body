@@ -1,0 +1,7 @@
+{
+  int startSize=activeList.size();
+  pruneTimer.start();
+  activeList=pruner.prune(activeList);
+  beamPruned.value+=startSize - activeList.size();
+  pruneTimer.stop();
+}

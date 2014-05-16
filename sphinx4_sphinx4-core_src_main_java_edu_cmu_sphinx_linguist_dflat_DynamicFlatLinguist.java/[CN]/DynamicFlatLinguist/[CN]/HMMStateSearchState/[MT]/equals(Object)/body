@@ -1,0 +1,12 @@
+{
+  if (o == this) {
+    return true;
+  }
+ else   if (o instanceof HMMStateSearchState) {
+    HMMStateSearchState other=(HMMStateSearchState)o;
+    return other.fullHMMSearchState.equals(fullHMMSearchState) && other.hmmState.equals(hmmState);
+  }
+ else {
+    return false;
+  }
+}

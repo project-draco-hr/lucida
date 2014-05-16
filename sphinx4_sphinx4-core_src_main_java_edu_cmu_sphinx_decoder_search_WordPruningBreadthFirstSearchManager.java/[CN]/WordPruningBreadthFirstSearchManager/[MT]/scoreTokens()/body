@@ -1,0 +1,19 @@
+{
+  boolean moreTokens;
+  scoreTimer.start();
+  Data data=scorer.calculateScores(activeList.getTokens());
+  scoreTimer.stop();
+  Token bestToken=null;
+  if (data instanceof Token) {
+    bestToken=(Token)data;
+  }
+ else   if (data == null) {
+    streamEnd=true;
+  }
+  moreTokens=(bestToken != null);
+  activeList.setBestToken(bestToken);
+  monitorStates(activeList);
+  curTokensScored.value+=activeList.size();
+  totalTokensScored.value+=activeList.size();
+  return moreTokens;
+}

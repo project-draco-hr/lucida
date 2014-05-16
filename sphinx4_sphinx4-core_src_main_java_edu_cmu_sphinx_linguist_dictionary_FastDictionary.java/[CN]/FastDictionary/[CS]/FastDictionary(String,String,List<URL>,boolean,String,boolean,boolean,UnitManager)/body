@@ -1,0 +1,3 @@
+{
+  this(ConfigurationManagerUtils.resourceToURL(wordDictionaryFile),ConfigurationManagerUtils.resourceToURL(fillerDictionaryFile),addendaUrlList,addSilEndingPronunciation,wordReplacement,allowMissingWords,createMissingWords,unitManager);
+}

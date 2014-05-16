@@ -1,0 +1,24 @@
+{
+  LogMath logMath=LogMath.getInstance();
+  int index=0;
+  for (  ConfusionSet set : confusionSets) {
+    float sum=LogMath.LOG_ZERO;
+    for (    Double val : set.keySet()) {
+      sum=logMath.addAsLinear(sum,val.floatValue());
+    }
+    if (sum < LogMath.LOG_ONE - 10) {
+      float remainder=logMath.subtractAsLinear(LogMath.LOG_ONE,sum);
+      addWordHypothesis(index,"<skip>",remainder);
+    }
+ else {
+      ConfusionSet newSet=new ConfusionSet();
+      for (      Map.Entry<Double,Set<WordResult>> entry : set.entrySet()) {
+        Double oldProb=entry.getKey();
+        Double newProb=oldProb - sum;
+        newSet.put(newProb,entry.getValue());
+      }
+      confusionSets.set(index,newSet);
+    }
+    index++;
+  }
+}

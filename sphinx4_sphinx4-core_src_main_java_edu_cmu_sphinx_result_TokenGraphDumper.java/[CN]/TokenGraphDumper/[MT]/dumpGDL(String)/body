@@ -1,0 +1,10 @@
+{
+  StringBuilder gdl=new StringBuilder("graph: {\n");
+  gdl.append("title: \"").append(title).append("\"\n");
+  gdl.append("display_edge_labels: yes\n");
+  for (  Token token : result.getResultTokens()) {
+    gdl.append(dumpTokenGDL(token));
+  }
+  gdl.append("}\n");
+  return gdl.toString();
+}

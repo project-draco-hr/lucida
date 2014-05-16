@@ -1,0 +1,20 @@
+{
+  out.println("node: {title: \"" + name + "\" color: "+ getColor(cm,name)+ '}');
+  PropertySheet ps=cm.getPropertySheet(name);
+  Collection<String> propertyNames=ps.getRegisteredProperties();
+  for (  String propertyName : propertyNames) {
+    PropertyType propType=ps.getType(propertyName);
+    Object val=ps.getRaw(propertyName);
+    if (val != null) {
+      if (propType == PropertyType.COMPONENT) {
+        out.println("edge: {source: \"" + name + "\" target: \""+ val+ "\"}");
+      }
+ else       if (propType == PropertyType.COMPONENT_LIST) {
+        List<?> list=(List<?>)val;
+        for (        Object listElement : list) {
+          out.println("edge: {source: \"" + name + "\" target: \""+ listElement+ "\"}");
+        }
+      }
+    }
+  }
+}

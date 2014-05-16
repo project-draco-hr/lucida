@@ -1,0 +1,3 @@
+{
+  return ((AlternativeState)getParent()).getAlternative()[getWhich()];
+}

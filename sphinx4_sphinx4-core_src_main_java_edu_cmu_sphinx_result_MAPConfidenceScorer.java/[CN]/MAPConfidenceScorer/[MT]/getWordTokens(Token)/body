@@ -1,0 +1,11 @@
+{
+  List<Token> wordTokens=new LinkedList<Token>();
+  Token token=lastToken;
+  while (token != null) {
+    if (token.isWord()) {
+      wordTokens.add(0,token);
+    }
+    token=token.getPredecessor();
+  }
+  return wordTokens;
+}

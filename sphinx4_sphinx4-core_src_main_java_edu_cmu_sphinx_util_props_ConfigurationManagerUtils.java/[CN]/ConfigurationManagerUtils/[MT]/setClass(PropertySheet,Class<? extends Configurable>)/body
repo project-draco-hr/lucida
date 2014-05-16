@@ -1,0 +1,4 @@
+{
+  if (ps.isInstanciated())   throw new RuntimeException("configurable " + ps.getInstanceName() + "has already been instantiated");
+  ps.setConfigurableClass(confClass);
+}

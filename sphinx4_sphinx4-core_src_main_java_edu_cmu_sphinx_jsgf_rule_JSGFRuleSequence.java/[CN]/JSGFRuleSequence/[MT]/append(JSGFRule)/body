@@ -1,0 +1,6 @@
+{
+  if (rules == null) {
+    throw new NullPointerException("null rule to append");
+  }
+  rules.add(rule);
+}

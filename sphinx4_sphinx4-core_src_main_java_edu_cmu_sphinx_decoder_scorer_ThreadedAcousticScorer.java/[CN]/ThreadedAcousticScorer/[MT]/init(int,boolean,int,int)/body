@@ -1,0 +1,8 @@
+{
+  this.minScoreablesPerThread=minScoreablesPerThread;
+  if (cpuRelative) {
+    numThreads+=Runtime.getRuntime().availableProcessors();
+  }
+  this.numThreads=numThreads;
+  this.threadPriority=threadPriority;
+}

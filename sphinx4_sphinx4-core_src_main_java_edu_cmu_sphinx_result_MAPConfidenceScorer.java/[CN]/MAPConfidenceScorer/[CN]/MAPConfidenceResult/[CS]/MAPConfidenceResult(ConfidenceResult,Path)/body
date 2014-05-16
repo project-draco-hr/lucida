@@ -1,0 +1,4 @@
+{
+  this.sausage=sausage;
+  this.mapPath=mapPath;
+}

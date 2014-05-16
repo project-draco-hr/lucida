@@ -1,0 +1,3 @@
+{
+  addConfigurable(confClass,name,new HashMap<String,Object>());
+}

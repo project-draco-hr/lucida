@@ -1,0 +1,7 @@
+{
+  Pronunciation[] pros={Pronunciation.UNKNOWN};
+  word=new Word(w,pros,false);
+  timeFrame=TimeFrame.NULL;
+  this.confidence=confidence;
+  this.score=LogMath.LOG_ZERO;
+}

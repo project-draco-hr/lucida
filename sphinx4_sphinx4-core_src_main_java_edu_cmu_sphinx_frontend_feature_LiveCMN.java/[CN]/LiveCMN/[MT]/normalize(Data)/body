@@ -1,0 +1,15 @@
+{
+  if (!(data instanceof DoubleData))   return;
+  double[] cepstrum=((DoubleData)data).getValues();
+  if (cepstrum.length != sum.length) {
+    throw new Error("Data length (" + cepstrum.length + ") not equal sum array length ("+ sum.length+ ')');
+  }
+  for (int j=0; j < cepstrum.length; j++) {
+    sum[j]+=cepstrum[j];
+    cepstrum[j]-=currentMean[j];
+  }
+  numberFrame++;
+  if (numberFrame > cmnShiftWindow) {
+    updateMeanSumBuffers();
+  }
+}

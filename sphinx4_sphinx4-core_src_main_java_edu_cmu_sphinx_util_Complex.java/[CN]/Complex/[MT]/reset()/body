@@ -1,0 +1,4 @@
+{
+  this.real=0.0f;
+  this.imaginary=0.0f;
+}

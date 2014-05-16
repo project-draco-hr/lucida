@@ -1,0 +1,6 @@
+{
+  ArrayList<float[]> lst=new ArrayList<float[]>();
+  ArrayList<float[]> aux=generateDistinctSpeakers(vectorSize,vectorCount,speakersCount);
+  for (int i=0; i < repeatFactor; i++)   lst.addAll(aux);
+  printIntervals(new SpeakerIdentification().cluster(lst));
+}

@@ -1,0 +1,8 @@
+{
+  if (useAcousticScoresOnly) {
+    return edge.getAcousticScore();
+  }
+ else {
+    return edge.getAcousticScore() + edge.getLMScore() * languageModelWeightAdjustment;
+  }
+}

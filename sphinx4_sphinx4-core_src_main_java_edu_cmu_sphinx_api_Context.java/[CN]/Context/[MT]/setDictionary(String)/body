@@ -1,0 +1,3 @@
+{
+  setLocalProperty("dictionary->dictionaryPath",path);
+}

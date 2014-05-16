@@ -1,0 +1,4 @@
+{
+  items=new TreeSet<T>();
+  this.maxSize=maxSize;
+}

@@ -1,0 +1,3 @@
+{
+  this(hss,hmmState,LogMath.LOG_ONE);
+}

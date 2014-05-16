@@ -1,0 +1,21 @@
+{
+  if (terse) {
+    return record.getMessage() + '\n';
+  }
+ else {
+    String date=DATE_FORMATTER.format(new Date(record.getMillis()));
+    StringBuilder sb=new StringBuilder().append(date).append(' ');
+    String loggerName=record.getLoggerName();
+    String source;
+    if (loggerName != null) {
+      String[] strings=loggerName.split("[.]");
+      source=strings[strings.length - 1];
+    }
+ else {
+      source=loggerName;
+    }
+    sb.append(Utilities.pad(record.getLevel().getName() + ' ' + source,24));
+    sb.append("  ").append(record.getMessage()).append('\n');
+    return sb.toString();
+  }
+}

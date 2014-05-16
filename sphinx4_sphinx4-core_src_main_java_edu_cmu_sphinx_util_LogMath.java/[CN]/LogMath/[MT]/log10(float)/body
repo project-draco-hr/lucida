@@ -1,0 +1,3 @@
+{
+  return (float)(0.4342944819 * java.lang.Math.log(value));
+}

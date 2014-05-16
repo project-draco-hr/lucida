@@ -1,0 +1,6 @@
+{
+  if (l == null) {
+    return;
+  }
+  listeners.remove(l);
+}

@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof SentenceHMMStateArc) {
+    SentenceHMMStateArc other=(SentenceHMMStateArc)o;
+    return nextState == other.nextState && logLanguageProbability == other.logLanguageProbability && logInsertionProbability == other.logInsertionProbability;
+  }
+ else {
+    return false;
+  }
+}

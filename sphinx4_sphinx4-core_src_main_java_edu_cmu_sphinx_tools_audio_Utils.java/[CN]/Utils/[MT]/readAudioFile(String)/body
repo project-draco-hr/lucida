@@ -1,0 +1,12 @@
+{
+  try {
+    BufferedInputStream stream=new BufferedInputStream(new FileInputStream(filename));
+    AudioInputStream ais=AudioSystem.getAudioInputStream(stream);
+    AudioData audioData=new AudioData(ais);
+    stream.close();
+    return audioData;
+  }
+ catch (  UnsupportedAudioFileException e) {
+    return null;
+  }
+}

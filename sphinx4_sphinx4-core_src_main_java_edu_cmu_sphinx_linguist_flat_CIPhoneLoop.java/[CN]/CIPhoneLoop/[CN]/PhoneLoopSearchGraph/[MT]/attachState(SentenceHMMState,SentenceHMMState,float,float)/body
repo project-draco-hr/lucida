@@ -1,0 +1,4 @@
+{
+  SentenceHMMStateArc arc=new SentenceHMMStateArc(nextState,logLanguageProbability,logInsertionProbability);
+  prevState.connect(arc);
+}

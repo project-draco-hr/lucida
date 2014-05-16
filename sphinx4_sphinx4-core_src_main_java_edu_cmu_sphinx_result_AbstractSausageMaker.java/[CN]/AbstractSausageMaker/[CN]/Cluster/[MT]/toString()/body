@@ -1,0 +1,8 @@
+{
+  StringBuilder sb=new StringBuilder();
+  sb.append("s: ").append(startTime).append(" e: ").append(endTime).append('[');
+  for (  Node node : elements)   sb.append(node).append(',');
+  if (!elements.isEmpty())   sb.setLength(sb.length() - 1);
+  sb.append(']');
+  return sb.toString();
+}

@@ -1,0 +1,6 @@
+{
+  this.wordID=wordID;
+  this.logProbability=logProbability;
+  this.logBackoff=logBackoff;
+  this.firstBigramEntry=firstBigramEntry;
+}

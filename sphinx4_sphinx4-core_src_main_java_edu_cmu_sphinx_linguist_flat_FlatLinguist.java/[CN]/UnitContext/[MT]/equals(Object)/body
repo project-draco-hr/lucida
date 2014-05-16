@@ -1,0 +1,22 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof UnitContext) {
+    UnitContext other=(UnitContext)o;
+    if (this.context.length != other.context.length) {
+      return false;
+    }
+ else {
+      for (int i=0; i < this.context.length; i++) {
+        if (this.context[i] != other.context[i]) {
+          return false;
+        }
+      }
+      return true;
+    }
+  }
+ else {
+    return false;
+  }
+}

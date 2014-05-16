@@ -1,0 +1,4 @@
+int iLabel
+int oLabel
+float weight
+State nextState

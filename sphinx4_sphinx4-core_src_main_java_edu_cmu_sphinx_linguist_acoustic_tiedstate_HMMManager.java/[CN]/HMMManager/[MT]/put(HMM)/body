@@ -1,0 +1,4 @@
+{
+  hmmsPerPosition.get(hmm.getPosition()).put(hmm.getUnit(),hmm);
+  allHMMs.add(hmm);
+}

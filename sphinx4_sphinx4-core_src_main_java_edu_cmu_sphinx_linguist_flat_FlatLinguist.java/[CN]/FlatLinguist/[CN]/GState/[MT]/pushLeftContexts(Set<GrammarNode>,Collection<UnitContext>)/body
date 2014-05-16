@@ -1,0 +1,15 @@
+{
+  if (visitedSet.contains(getNode())) {
+    return;
+  }
+ else {
+    visitedSet.add(getNode());
+  }
+  for (  GrammarArc arc : getSuccessors()) {
+    GState gstate=getGState(arc.getGrammarNode());
+    gstate.addLeftContext(leftContext);
+    if (gstate.getNode().isEmpty()) {
+      gstate.pushLeftContexts(visitedSet,leftContext);
+    }
+  }
+}

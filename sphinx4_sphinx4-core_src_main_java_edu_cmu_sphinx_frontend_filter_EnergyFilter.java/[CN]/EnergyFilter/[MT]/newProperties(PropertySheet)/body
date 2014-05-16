@@ -1,0 +1,4 @@
+{
+  super.newProperties(ps);
+  maxEnergy=ps.getDouble(PROP_MAX_ENERGY);
+}

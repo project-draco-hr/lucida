@@ -1,0 +1,12 @@
+{
+  if (name.endsWith(".grxml")) {
+    setLocalProperty("grXmlGrammar->grammarLocation",path + name);
+    setLocalProperty("flatLinguist->grammar","grXmlGrammar");
+  }
+ else {
+    setLocalProperty("jsgfGrammar->grammarLocation",path);
+    setLocalProperty("jsgfGrammar->grammarName",name);
+    setLocalProperty("flatLinguist->grammar","jsgfGrammar");
+  }
+  setLocalProperty("decoder->searchManager","simpleSearchManager");
+}

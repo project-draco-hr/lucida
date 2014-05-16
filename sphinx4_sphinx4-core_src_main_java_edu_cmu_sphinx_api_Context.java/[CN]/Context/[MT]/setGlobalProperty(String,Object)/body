@@ -1,0 +1,3 @@
+{
+  configurationManager.setGlobalProperty(name,value.toString());
+}

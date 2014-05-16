@@ -1,0 +1,27 @@
+{
+  if (argv.length != 1) {
+    System.out.println("Usage: BatchNISTRecognizer propertiesFile");
+    System.exit(1);
+  }
+  String propertiesFile=argv[0];
+  ConfigurationManager cm;
+  BatchNISTRecognizer bmr;
+  try {
+    URL url=new File(propertiesFile).toURI().toURL();
+    cm=new ConfigurationManager(url);
+    bmr=(BatchNISTRecognizer)cm.lookup("batchNIST");
+  }
+ catch (  IOException ioe) {
+    System.err.println("I/O error during initialization: \n   " + ioe);
+    return;
+  }
+catch (  PropertyException e) {
+    System.err.println("Error during initialization: \n  " + e);
+    return;
+  }
+  if (bmr == null) {
+    System.err.println("Can't find batchNIST in " + propertiesFile);
+    return;
+  }
+  bmr.decode();
+}

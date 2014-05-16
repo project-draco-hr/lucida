@@ -1,0 +1,6 @@
+{
+  this.transcript=transcript;
+  this.dictionary=dictionary;
+  this.isExact=isExact;
+  this.wordSeparator=wordSeparator;
+}

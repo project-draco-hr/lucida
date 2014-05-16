@@ -1,0 +1,3 @@
+{
+  super("B[" + leftContext + ","+ rightContext+ "]",null,nodeID);
+}

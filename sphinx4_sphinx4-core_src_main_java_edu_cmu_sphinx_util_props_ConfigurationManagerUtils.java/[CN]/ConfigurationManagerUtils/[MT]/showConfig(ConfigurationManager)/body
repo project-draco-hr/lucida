@@ -1,0 +1,6 @@
+{
+  System.out.println(" ============ config ============= ");
+  for (  String allName : cm.getInstanceNames(Configurable.class)) {
+    showConfig(cm,allName);
+  }
+}

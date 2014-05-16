@@ -1,0 +1,7 @@
+WordNode wordNode
+HMMNode lastNode
+WordSequence wordSequence
+float smearTerm
+float smearProb
+float logProbability
+boolean collapsed

@@ -1,0 +1,3 @@
+{
+  return ("Node(" + word.getSpelling() + ','+ getBeginTime()+ '|'+ getEndTime()+ ')');
+}

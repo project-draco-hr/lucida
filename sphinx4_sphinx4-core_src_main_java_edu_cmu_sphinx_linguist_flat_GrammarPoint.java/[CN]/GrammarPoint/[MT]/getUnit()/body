@@ -1,0 +1,17 @@
+{
+  Unit unit=null;
+  Word[][] alternatives=node.getAlternatives();
+  if (alternativeIndex != -1 && alternativeIndex < alternatives.length) {
+    Word[] words=alternatives[alternativeIndex];
+    if (wordIndex < words.length) {
+      Pronunciation[] pronunciations=words[wordIndex].getPronunciations(null);
+      if (pronunciationIndex < pronunciations.length) {
+        Unit[] units=pronunciations[pronunciationIndex].getUnits();
+        if (unitIndex < units.length) {
+          unit=units[unitIndex];
+        }
+      }
+    }
+  }
+  return unit;
+}

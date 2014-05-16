@@ -1,0 +1,3 @@
+{
+  for (  Map.Entry<WordSequence,Probability> entry : map.entrySet())   System.out.println(entry.getKey() + " " + entry.getValue());
+}

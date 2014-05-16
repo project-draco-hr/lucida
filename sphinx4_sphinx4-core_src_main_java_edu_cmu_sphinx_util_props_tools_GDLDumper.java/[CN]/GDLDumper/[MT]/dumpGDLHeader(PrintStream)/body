@@ -1,0 +1,14 @@
+{
+  out.println(" graph: {title: \"unix evolution\" ");
+  out.println("         layoutalgorithm: tree");
+  out.println("          scaling        : 2.0");
+  out.println("          colorentry 42  : 152 222 255");
+  out.println("     node.shape     : ellipse");
+  out.println("      node.color     : 42 ");
+  out.println("node.height    : 32  ");
+  out.println("node.fontname  : \"helvB08\"");
+  out.println("edge.color     : darkred");
+  out.println("edge.arrowsize :  6    ");
+  out.println("node.textcolor : darkblue ");
+  out.println("splines        : yes");
+}

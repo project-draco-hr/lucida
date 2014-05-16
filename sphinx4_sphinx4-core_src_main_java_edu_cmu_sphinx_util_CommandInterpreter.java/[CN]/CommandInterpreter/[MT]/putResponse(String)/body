@@ -1,0 +1,9 @@
+{
+  if (response != null && !response.isEmpty()) {
+    out.println(response);
+    out.flush();
+    if (trace) {
+      System.out.println("Out: " + response);
+    }
+  }
+}

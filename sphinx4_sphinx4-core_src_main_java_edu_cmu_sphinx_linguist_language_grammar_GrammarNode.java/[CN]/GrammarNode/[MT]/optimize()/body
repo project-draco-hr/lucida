@@ -1,0 +1,14 @@
+{
+  for (int i=0; i < arcList.size(); i++) {
+    GrammarArc arc=arcList.get(i);
+    arcList.set(i,optimizeArc(arc));
+  }
+  if (this.isEmpty()) {
+    for (ListIterator<GrammarArc> i=arcList.listIterator(); i.hasNext(); ) {
+      GrammarArc arc=i.next();
+      if (this == arc.getGrammarNode()) {
+        i.remove();
+      }
+    }
+  }
+}

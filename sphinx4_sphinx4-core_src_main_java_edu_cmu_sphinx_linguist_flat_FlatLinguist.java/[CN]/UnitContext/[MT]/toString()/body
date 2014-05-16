@@ -1,0 +1,3 @@
+{
+  return LeftRightContext.getContextName(context);
+}

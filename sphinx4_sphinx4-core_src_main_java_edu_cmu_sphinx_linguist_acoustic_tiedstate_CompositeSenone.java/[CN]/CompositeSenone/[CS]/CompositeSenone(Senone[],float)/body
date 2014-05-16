@@ -1,0 +1,5 @@
+{
+  this.senones=senones;
+  this.weight=weight;
+  System.out.print(" " + senones.length);
+}

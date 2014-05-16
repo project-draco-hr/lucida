@@ -1,0 +1,2 @@
+GrammarNode node
+List<GrammarPoint> nextPoints

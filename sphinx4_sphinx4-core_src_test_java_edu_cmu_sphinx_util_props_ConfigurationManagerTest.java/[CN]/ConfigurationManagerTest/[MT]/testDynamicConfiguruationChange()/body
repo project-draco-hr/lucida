@@ -1,0 +1,10 @@
+{
+  URL url=getClass().getResource("ConfigurationManagerTest.testconfig.sxl");
+  ConfigurationManager cm=new ConfigurationManager(url);
+  assertThat(cm.getInstanceNames(DummyFrontEndProcessor.class),empty());
+  PropertySheet propSheet=cm.getPropertySheet("duco");
+  propSheet.setDouble("alpha",11);
+  DummyComp duco=cm.lookup("duco");
+  assertThat(cm.getInstanceNames(DummyFrontEndProcessor.class),hasSize(1));
+  assertThat(duco.getAlpha(),closeTo(11,MIN_VALUE));
+}

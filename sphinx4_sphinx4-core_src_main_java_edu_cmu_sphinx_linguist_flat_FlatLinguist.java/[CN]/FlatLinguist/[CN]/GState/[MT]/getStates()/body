@@ -1,0 +1,7 @@
+{
+  List<SearchState> allStates=new ArrayList<SearchState>(existingStates.values());
+  for (  List<SearchState> list : entryPoints.values()) {
+    allStates.addAll(list);
+  }
+  return allStates;
+}

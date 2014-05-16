@@ -1,0 +1,4 @@
+{
+  logger.fine("Ending element " + qName);
+  if (qName.equals("item") || qName.equals("one-of") || qName.equals("rule"))   currentRule=currentRule.parent;
+}

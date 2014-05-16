@@ -1,0 +1,7 @@
+{
+  while (bytes > 0) {
+    long skipped=stream.skip(bytes);
+    bytesRead+=skipped;
+    bytes-=skipped;
+  }
+}

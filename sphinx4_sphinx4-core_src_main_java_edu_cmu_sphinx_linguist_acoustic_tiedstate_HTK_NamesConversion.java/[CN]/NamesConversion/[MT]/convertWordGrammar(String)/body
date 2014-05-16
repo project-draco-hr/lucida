@@ -1,0 +1,145 @@
+{
+  try {
+    BufferedReader bf=new BufferedReader(new FileReader(gramFile));
+    PrintWriter pf=new PrintWriter(new FileWriter(gramFile + ".conv"));
+    String s;
+    for (; ; ) {
+      s=bf.readLine();
+      if (s == null) {
+        pf.close();
+        bf.close();
+        return;
+      }
+      pf.println(s);
+      int i=s.indexOf("\\data\\");
+      if (i == 0)       break;
+    }
+    for (; ; ) {
+      s=bf.readLine();
+      if (s == null) {
+        pf.close();
+        bf.close();
+        return;
+      }
+      pf.println(s);
+      int i=s.indexOf("\\1-grams:");
+      if (i == 0)       break;
+    }
+    boolean fin=false;
+    while (!fin) {
+      s=bf.readLine();
+      if (s == null) {
+        pf.close();
+        bf.close();
+        return;
+      }
+      int i=s.indexOf("\\2-grams:");
+      if (i == 0) {
+        pf.println(s);
+        break;
+      }
+      i=s.indexOf("\\end\\");
+      if (i == 0) {
+        fin=true;
+        pf.println(s);
+        break;
+      }
+      StringTokenizer st=new StringTokenizer(s);
+      if (st != null & st.hasMoreTokens()) {
+        pf.print(st.nextToken() + ' ');
+        if (st.hasMoreTokens()) {
+          String mot=st.nextToken();
+          String newmot=wordConv.get(mot);
+          if (newmot == null) {
+            System.err.println("WARNING word " + mot + " not in lexicon !");
+            addInConv(mot,wordConv);
+            newmot=wordConv.get(mot);
+          }
+          pf.print(newmot + ' ');
+          while (st.hasMoreTokens())           pf.print(st.nextToken() + ' ');
+        }
+        pf.println();
+      }
+    }
+    while (!fin) {
+      s=bf.readLine();
+      if (s == null) {
+        pf.close();
+        bf.close();
+        return;
+      }
+      int i=s.indexOf("\\3-grams:");
+      if (i == 0) {
+        pf.println(s);
+        break;
+      }
+      i=s.indexOf("\\end\\");
+      if (i == 0) {
+        fin=true;
+        pf.println(s);
+        break;
+      }
+      StringTokenizer st=new StringTokenizer(s);
+      if (st != null & st.hasMoreTokens()) {
+        pf.print(st.nextToken() + ' ');
+        if (st.hasMoreTokens()) {
+          String mot=st.nextToken();
+          String newmot=wordConv.get(mot);
+          if (newmot == null)           newmot=mot;
+          pf.print(newmot + ' ');
+          if (st.hasMoreTokens()) {
+            mot=st.nextToken();
+            newmot=wordConv.get(mot);
+            if (newmot == null)             newmot=mot;
+            pf.print(newmot + ' ');
+            while (st.hasMoreTokens())             pf.print(st.nextToken() + ' ');
+          }
+        }
+        pf.println();
+      }
+    }
+    while (!fin) {
+      s=bf.readLine();
+      if (s == null) {
+        pf.close();
+        bf.close();
+        return;
+      }
+      int i=s.indexOf("\\end\\");
+      if (i == 0) {
+        fin=true;
+        pf.println(s);
+        break;
+      }
+      StringTokenizer st=new StringTokenizer(s);
+      if (st != null & st.hasMoreTokens()) {
+        pf.print(st.nextToken() + ' ');
+        if (st.hasMoreTokens()) {
+          String mot=st.nextToken();
+          String newmot=wordConv.get(mot);
+          if (newmot == null)           newmot=mot;
+          pf.print(newmot + ' ');
+          if (st.hasMoreTokens()) {
+            mot=st.nextToken();
+            newmot=wordConv.get(mot);
+            if (newmot == null)             newmot=mot;
+            pf.print(newmot + ' ');
+            if (st.hasMoreTokens()) {
+              mot=st.nextToken();
+              newmot=wordConv.get(mot);
+              if (newmot == null)               newmot=mot;
+              pf.print(newmot + ' ');
+              while (st.hasMoreTokens())               pf.print(st.nextToken() + ' ');
+            }
+          }
+        }
+        pf.println();
+      }
+    }
+    pf.close();
+    bf.close();
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+}

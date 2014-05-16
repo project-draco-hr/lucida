@@ -1,0 +1,8 @@
+URL wordDictionaryFile
+URL fillerDictionaryFile
+List<URL> addendaUrlList
+boolean addSilEndingPronunciation
+String wordReplacement
+boolean allowMissingWords
+boolean createMissingWords
+UnitManager unitManager

@@ -1,0 +1,25 @@
+{
+  Graph graph=new Graph();
+  Node prevNode;
+  Node stateNode=null;
+  float[][] tmat=hmm.getTransitionMatrix();
+  prevNode=new Node(NodeType.DUMMY);
+  graph.addNode(prevNode);
+  graph.setInitialNode(prevNode);
+  for (int i=0; i < hmm.getOrder() + 1; i++) {
+    stateNode=new Node(NodeType.STATE,hmm.getUnit().getName());
+    stateNode.setObject(hmm.getState(i));
+    graph.addNode(stateNode);
+    if (i == 0) {
+      graph.linkNodes(prevNode,stateNode);
+    }
+    for (int j=0; j <= i; j++) {
+      if (tmat[j][i] != LogMath.LOG_ZERO) {
+        graph.linkNodes(graph.getNode(j + 1),stateNode);
+      }
+    }
+    prevNode=stateNode;
+  }
+  graph.setFinalNode(stateNode);
+  return graph;
+}

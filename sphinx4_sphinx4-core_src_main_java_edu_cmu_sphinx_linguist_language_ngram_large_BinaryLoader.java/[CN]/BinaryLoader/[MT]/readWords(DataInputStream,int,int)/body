@@ -1,0 +1,24 @@
+{
+  String[] words=new String[numberUnigrams];
+  byte[] bytes=new byte[length];
+  bytesRead+=stream.read(bytes);
+  int s=0;
+  int wordStart=0;
+  for (int i=0; i < length; i++) {
+    char c=(char)(bytes[i] & 0xFF);
+    bytesRead++;
+    if (c == '\0') {
+      words[s]=new String(bytes,wordStart,i - wordStart);
+      wordStart=i + 1;
+      if (words[s].equals(Dictionary.SENTENCE_START_SPELLING)) {
+        startWordID=s;
+      }
+ else       if (words[s].equals(Dictionary.SENTENCE_END_SPELLING)) {
+        endWordID=s;
+      }
+      s++;
+    }
+  }
+  assert(s == numberUnigrams);
+  return words;
+}

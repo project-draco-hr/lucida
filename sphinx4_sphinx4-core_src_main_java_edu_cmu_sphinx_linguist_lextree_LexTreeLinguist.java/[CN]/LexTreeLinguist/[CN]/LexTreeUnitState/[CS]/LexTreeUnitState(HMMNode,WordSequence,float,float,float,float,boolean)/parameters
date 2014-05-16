@@ -1,0 +1,7 @@
+HMMNode hmmNode
+WordSequence wordSequence
+float smearTerm
+float smearProb
+float languageProbability
+float insertionProbability
+boolean collapsed

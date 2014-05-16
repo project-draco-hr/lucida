@@ -1,0 +1,6 @@
+{
+  for (  String compName : cm.getComponentNames()) {
+    if (!cm.getPropertySheet(compName).validate())     return false;
+  }
+  return true;
+}

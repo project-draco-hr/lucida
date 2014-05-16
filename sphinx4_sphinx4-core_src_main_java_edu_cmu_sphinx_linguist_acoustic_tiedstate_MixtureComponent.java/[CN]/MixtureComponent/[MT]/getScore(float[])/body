@@ -1,0 +1,17 @@
+{
+  float logDval=0.0f;
+  for (int i=0; i < feature.length; i++) {
+    float logDiff=feature[i] - meanTransformed[i];
+    logDval+=logDiff * logDiff * precisionTransformed[i];
+  }
+  logDval=logMath.lnToLog(logDval);
+  logDval-=logPreComputedGaussianFactor;
+  if (Float.isNaN(logDval)) {
+    System.out.println("gs is Nan, converting to 0");
+    logDval=LogMath.LOG_ZERO;
+  }
+  if (logDval < distFloor) {
+    logDval=distFloor;
+  }
+  return logDval;
+}

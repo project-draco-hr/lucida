@@ -1,0 +1,3 @@
+String referenceFile
+String hypothesisFile
+boolean showGapInsertions

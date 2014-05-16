@@ -1,0 +1,16 @@
+{
+  double[][] tmp=new double[lpcorder + 1][lpcorder + 1];
+  order=lpcorder;
+  reflectionCoeffs=RC.clone();
+  for (int i=1; i <= lpcorder; i++) {
+    for (int m=1; m < i; m++) {
+      tmp[i][m]=tmp[i - 1][m] - RC[i] * tmp[i - 1][i - m];
+    }
+    tmp[i][i]=RC[i];
+  }
+  ARParameters[0]=1;
+  for (int m=1; m <= lpcorder; m++) {
+    ARParameters[m]=tmp[m][m];
+  }
+  return ARParameters;
+}

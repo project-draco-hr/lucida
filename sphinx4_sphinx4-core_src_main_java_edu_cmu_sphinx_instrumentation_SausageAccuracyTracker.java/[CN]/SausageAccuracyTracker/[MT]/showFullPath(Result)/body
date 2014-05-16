@@ -1,0 +1,13 @@
+{
+  if (showFullPath) {
+    System.out.println();
+    Token bestToken=result.getBestToken();
+    if (bestToken != null) {
+      bestToken.dumpTokenPath();
+    }
+ else {
+      System.out.println("Null result");
+    }
+    System.out.println();
+  }
+}

@@ -1,0 +1,23 @@
+{
+  int windowCount;
+  if (length < cosineWindow.length) {
+    double[] padded=new double[cosineWindow.length];
+    System.arraycopy(in,0,padded,0,length);
+    in=padded;
+    windowCount=1;
+  }
+ else {
+    windowCount=getWindowCount(length,cosineWindow.length,windowShift);
+  }
+  double[][] windows=new double[windowCount][cosineWindow.length];
+  int windowStart=0;
+  for (int i=0; i < windowCount; windowStart+=windowShift, i++) {
+    double[] myWindow=windows[i];
+    for (int w=0, s=windowStart; w < myWindow.length; s++, w++) {
+      myWindow[w]=in[s] * cosineWindow[w];
+    }
+    outputQueue.add(new DoubleData(myWindow,sampleRate,currentFirstSampleNumber));
+    currentFirstSampleNumber+=windowShift;
+  }
+  return windowStart;
+}

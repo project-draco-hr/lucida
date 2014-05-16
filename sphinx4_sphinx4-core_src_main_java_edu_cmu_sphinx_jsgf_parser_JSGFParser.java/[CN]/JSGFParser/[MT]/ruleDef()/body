@@ -1,0 +1,28 @@
+{
+  Token t;
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case IDENTIFIER:
+    t=jj_consume_token(IDENTIFIER);
+  break;
+case INTEGER_LITERAL:
+t=jj_consume_token(INTEGER_LITERAL);
+break;
+case PUBLIC:
+t=jj_consume_token(PUBLIC);
+break;
+case IMPORT:
+t=jj_consume_token(IMPORT);
+break;
+case GRAMMAR:
+t=jj_consume_token(GRAMMAR);
+break;
+default :
+jj_la1[11]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+{
+if (true) return t.image;
+}
+throw new Error("Missing return statement in function");
+}

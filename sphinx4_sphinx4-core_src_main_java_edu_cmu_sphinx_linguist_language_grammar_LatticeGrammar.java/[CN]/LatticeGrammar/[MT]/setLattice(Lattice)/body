@@ -1,0 +1,4 @@
+{
+  this.lattice=lattice;
+  allocate();
+}

@@ -1,0 +1,5 @@
+{
+  states=new ArrayList<HMMState>();
+  hmms=new ArrayList<SingleHMM>();
+  gmms=new ArrayList<GMMDiag>();
+}

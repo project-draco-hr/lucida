@@ -1,0 +1,31 @@
+{
+  Token token=result.getBestToken();
+  int count=0;
+  int sumBeam=0;
+  maxAbsoluteBeam=0;
+  while (token != null) {
+    if (token.isEmitting()) {
+      TokenRank rank=(TokenRank)token.getTokenProps().get(TOKEN_RANK);
+      if (rank != null) {
+        if (rank.getAbsoluteRank() > maxAbsoluteBeam) {
+          maxAbsoluteBeam=rank.getAbsoluteRank();
+        }
+        sumBeam+=rank.getAbsoluteRank();
+        count++;
+      }
+ else {
+        if (token.getFrameNumber() > 0) {
+          System.out.println("Null rank! for " + token);
+        }
+      }
+    }
+    token=token.getPredecessor();
+  }
+  if (count > 0) {
+    avgAbsoluteBeam=sumBeam / count;
+    if (maxAbsoluteBeam > totMaxAbsoluteBeam) {
+      totMaxAbsoluteBeam=maxAbsoluteBeam;
+    }
+    sumAbsoluteBeam+=avgAbsoluteBeam;
+  }
+}

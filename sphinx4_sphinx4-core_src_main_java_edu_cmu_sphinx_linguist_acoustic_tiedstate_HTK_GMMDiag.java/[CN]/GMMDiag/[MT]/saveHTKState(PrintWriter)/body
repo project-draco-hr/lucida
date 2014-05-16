@@ -1,0 +1,17 @@
+{
+  fout.println("<NUMMIXES> " + getNgauss());
+  for (int i=1; i <= getNgauss(); i++) {
+    fout.println("<MIXTURE> " + i + ' '+ getWeight(i - 1));
+    fout.println("<RCLASS> 1");
+    fout.println("<MEAN> " + getNcoefs());
+    for (int j=0; j < getNcoefs(); j++) {
+      fout.print(getMean(i - 1,j) + " ");
+    }
+    fout.println();
+    fout.println("<VARIANCE> " + getNcoefs());
+    for (int j=0; j < getNcoefs(); j++) {
+      fout.print(getVar(i - 1,j) + " ");
+    }
+    fout.println();
+  }
+}

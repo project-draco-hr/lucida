@@ -1,0 +1,11 @@
+{
+  Map<String,List<PropertySheet>> allProps=new HashMap<String,List<PropertySheet>>();
+  for (  String configName : cm.getComponentNames()) {
+    PropertySheet ps=cm.getPropertySheet(configName);
+    for (    String propName : ps.getRegisteredProperties()) {
+      if (!allProps.containsKey(propName))       allProps.put(propName,new ArrayList<PropertySheet>());
+      allProps.get(propName).add(ps);
+    }
+  }
+  return allProps;
+}
