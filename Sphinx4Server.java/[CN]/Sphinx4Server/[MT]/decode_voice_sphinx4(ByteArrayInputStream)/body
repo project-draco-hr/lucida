@@ -1,0 +1,34 @@
+{
+  String result_text=null;
+  final String conf_file=System.getenv("CONF_FILE");
+  ConfigurationManager sphinx4_config=new ConfigurationManager(conf_file);
+  try {
+    StreamDataSource streamDataSource=(StreamDataSource)sphinx4_config.lookup("streamDataSource");
+    streamDataSource.setInputStream(bin);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  Recognizer recognizer=(Recognizer)sphinx4_config.lookup("recognizer");
+synchronized (this) {
+    recognizer.allocate();
+  }
+  try {
+    edu.cmu.sphinx.result.Result result;
+    while ((result=recognizer.recognize()) != null) {
+      result_text=result.getBestResultNoFiller();
+      System.out.println("result_text: " + result_text);
+      break;
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+synchronized (this) {
+    recognizer.deallocate();
+  }
+  if (result_text == null) {
+    result_text="None";
+  }
+  return result_text;
+}
