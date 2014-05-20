@@ -1,0 +1,3 @@
+import os
+for r in file('regexp_list.txt'):
+    os.system((((os.getcwd() + '/grep ') + r) + ' question_list.txt'))
