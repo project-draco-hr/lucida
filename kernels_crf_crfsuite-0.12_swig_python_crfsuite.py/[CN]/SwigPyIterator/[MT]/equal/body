@@ -1,0 +1,2 @@
+def equal(self, *args):
+    return _crfsuite.SwigPyIterator_equal(self, *args)

@@ -1,0 +1,11 @@
+def get_da(token):
+    bd = False
+    ba = False
+    for c in token:
+        if c.isdigit():
+            bd = True
+        elif c.isalpha():
+            ba = True
+        else:
+            return False
+    return (bd and ba)

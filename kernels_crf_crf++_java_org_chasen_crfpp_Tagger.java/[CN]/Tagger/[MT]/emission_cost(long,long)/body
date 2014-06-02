@@ -1,0 +1,3 @@
+{
+  return CRFPPJNI.Tagger_emission_cost(swigCPtr,this,i,j);
+}

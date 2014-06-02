@@ -1,0 +1,2 @@
+def beta(self, *args):
+    return _CRFPP.Tagger_beta(self, *args)

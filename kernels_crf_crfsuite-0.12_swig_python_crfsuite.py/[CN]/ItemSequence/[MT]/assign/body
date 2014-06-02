@@ -1,0 +1,2 @@
+def assign(self, *args):
+    return _crfsuite.ItemSequence_assign(self, *args)

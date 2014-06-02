@@ -1,0 +1,2 @@
+def get_4d(token):
+    return ((len(token) == 4) and token.isdigit())

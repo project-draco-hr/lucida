@@ -1,0 +1,2 @@
+def erase(self, *args):
+    return _crfsuite.Item_erase(self, *args)

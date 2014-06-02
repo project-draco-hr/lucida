@@ -1,0 +1,2 @@
+def clear(self):
+    return _CRFPP.Tagger_clear(self)

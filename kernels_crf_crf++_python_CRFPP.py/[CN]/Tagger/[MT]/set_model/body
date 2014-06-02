@@ -1,0 +1,2 @@
+def set_model(self, *args):
+    return _CRFPP.Tagger_set_model(self, *args)

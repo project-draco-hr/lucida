@@ -1,0 +1,2 @@
+def next(self):
+    return _CRFPP.Tagger_next(self)

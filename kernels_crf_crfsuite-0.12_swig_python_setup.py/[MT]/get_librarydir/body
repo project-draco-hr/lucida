@@ -1,0 +1,2 @@
+def get_librarydir():
+    return os.path.join(get_rootdir(), 'lib')

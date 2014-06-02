@@ -1,0 +1,2 @@
+def size(self):
+    return _CRFPP.Tagger_size(self)

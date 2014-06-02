@@ -1,0 +1,2 @@
+def front(self):
+    return _crfsuite.ItemSequence_front(self)

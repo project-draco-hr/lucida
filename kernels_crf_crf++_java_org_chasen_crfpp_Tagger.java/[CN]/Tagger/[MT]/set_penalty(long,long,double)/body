@@ -1,0 +1,3 @@
+{
+  CRFPPJNI.Tagger_set_penalty(swigCPtr,this,i,j,penalty);
+}

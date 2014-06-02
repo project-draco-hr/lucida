@@ -1,0 +1,3 @@
+{
+  return CRFPPJNI.Tagger_y(swigCPtr,this,i);
+}

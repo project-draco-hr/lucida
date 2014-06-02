@@ -1,0 +1,13 @@
+def read(self, fi):
+    self.templates = []
+    for line in fi:
+        line = line.strip()
+        if line.startswith('#'):
+            continue
+        if line.startswith('U'):
+            self.templates.append(line.replace(':', '='))
+        elif (line == 'B'):
+            continue
+        elif line.startswith('B'):
+            sys.stderr(('ERROR: bigram templates not supported: %s\n' % line))
+            sys.exit(1)

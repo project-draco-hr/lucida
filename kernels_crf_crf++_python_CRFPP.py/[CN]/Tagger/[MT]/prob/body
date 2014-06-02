@@ -1,0 +1,2 @@
+def prob(self, *args):
+    return _CRFPP.Tagger_prob(self, *args)

@@ -1,0 +1,2 @@
+def swap(self, *args):
+    return _crfsuite.ItemSequence_swap(self, *args)

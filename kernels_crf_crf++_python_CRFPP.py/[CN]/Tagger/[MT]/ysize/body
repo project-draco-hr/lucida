@@ -1,0 +1,2 @@
+def ysize(self):
+    return _CRFPP.Tagger_ysize(self)

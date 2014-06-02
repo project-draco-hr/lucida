@@ -1,0 +1,2 @@
+def parse(self, *args):
+    return _CRFPP.Tagger_parse(self, *args)

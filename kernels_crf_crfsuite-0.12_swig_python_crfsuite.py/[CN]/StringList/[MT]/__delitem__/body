@@ -1,0 +1,2 @@
+def __delitem__(self, *args):
+    return _crfsuite.StringList___delitem__(self, *args)

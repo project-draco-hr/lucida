@@ -1,0 +1,2 @@
+def pop_back(self):
+    return _crfsuite.Item_pop_back(self)

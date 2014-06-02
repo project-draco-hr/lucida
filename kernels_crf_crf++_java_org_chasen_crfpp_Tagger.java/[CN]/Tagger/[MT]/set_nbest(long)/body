@@ -1,0 +1,3 @@
+{
+  CRFPPJNI.Tagger_set_nbest(swigCPtr,this,nbest);
+}

@@ -1,0 +1,2 @@
+def what(self):
+    return _CRFPP.Tagger_what(self)

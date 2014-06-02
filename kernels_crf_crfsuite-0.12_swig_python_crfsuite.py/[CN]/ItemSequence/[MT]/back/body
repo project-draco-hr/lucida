@@ -1,0 +1,2 @@
+def back(self):
+    return _crfsuite.ItemSequence_back(self)

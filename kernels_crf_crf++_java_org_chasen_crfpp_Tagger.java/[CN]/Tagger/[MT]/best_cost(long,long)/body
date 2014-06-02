@@ -1,0 +1,3 @@
+{
+  return CRFPPJNI.Tagger_best_cost(swigCPtr,this,i,j);
+}

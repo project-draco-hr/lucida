@@ -1,0 +1,2 @@
+def Z(self):
+    return _CRFPP.Tagger_Z(self)

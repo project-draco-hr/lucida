@@ -1,0 +1,2 @@
+def add(self, *args):
+    return _CRFPP.Tagger_add(self, *args)

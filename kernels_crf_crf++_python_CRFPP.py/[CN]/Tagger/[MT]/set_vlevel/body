@@ -1,0 +1,2 @@
+def set_vlevel(self, *args):
+    return _CRFPP.Tagger_set_vlevel(self, *args)

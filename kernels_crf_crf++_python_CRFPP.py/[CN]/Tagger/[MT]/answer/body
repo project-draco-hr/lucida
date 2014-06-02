@@ -1,0 +1,2 @@
+def answer(self, *args):
+    return _CRFPP.Tagger_answer(self, *args)

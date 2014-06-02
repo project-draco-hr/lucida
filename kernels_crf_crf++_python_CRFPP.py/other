@@ -1,0 +1,41 @@
+from sys import version_info
+if (version_info >= (2, 6, 0)):
+
+    def swig_import_helper():
+        from os.path import dirname
+        import imp
+        fp = None
+        try:
+            (fp, pathname, description) = imp.find_module('_CRFPP', [dirname(__file__)])
+        except ImportError:
+            import _CRFPP
+            return _CRFPP
+        if (fp is not None):
+            try:
+                _mod = imp.load_module('_CRFPP', fp, pathname, description)
+            finally:
+                fp.close()
+            return _mod
+    _CRFPP = swig_import_helper()
+    del swig_import_helper
+else:
+    import _CRFPP
+del version_info
+try:
+    _swig_property = property
+except NameError:
+    pass
+try:
+    _object = object
+    _newclass = 1
+except AttributeError:
+
+
+    class _object:
+        pass
+    _newclass = 0
+Model_swigregister = _CRFPP.Model_swigregister
+Model_swigregister(Model)
+Tagger_swigregister = _CRFPP.Tagger_swigregister
+Tagger_swigregister(Tagger)
+VERSION = _CRFPP.VERSION

@@ -1,0 +1,2 @@
+def __setslice__(self, *args):
+    return _crfsuite.StringList___setslice__(self, *args)

@@ -1,0 +1,2 @@
+def help(self, *args):
+    return _crfsuite.Trainer_help(self, *args)

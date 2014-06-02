@@ -1,0 +1,13 @@
+'\nA feature extractor for named eneity recognition (NER).\nCopyright 2010,2011 Naoaki Okazaki.\n'
+separator = ' '
+fields = 'y w pos chk'
+import crfutils
+U = ['w', 'wl', 'pos', 'chk', 'shape', 'shaped', 'type', 'p1', 'p2', 'p3', 'p4', 's1', 's2', 's3', 's4', '2d', '4d', 'd&a', 'd&-', 'd&/', 'd&,', 'd&.', 'up', 'iu', 'au', 'al', 'ad', 'ao', 'cu', 'cl', 'ca', 'cd', 'cs']
+B = ['w', 'pos', 'chk', 'shaped', 'type']
+templates = []
+for name in U:
+    templates += [((name, i),) for i in range((-2), 3)]
+for name in B:
+    templates += [((name, i), (name, (i + 1))) for i in range((-2), 2)]
+if (__name__ == '__main__'):
+    crfutils.main(feature_extractor, fields=fields, sep=separator)

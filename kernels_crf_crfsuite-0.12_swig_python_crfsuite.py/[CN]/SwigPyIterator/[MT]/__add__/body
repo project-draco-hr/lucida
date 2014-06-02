@@ -1,0 +1,2 @@
+def __add__(self, *args):
+    return _crfsuite.SwigPyIterator___add__(self, *args)

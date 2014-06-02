@@ -1,0 +1,2 @@
+def y(self, *args):
+    return _CRFPP.Tagger_y(self, *args)
