@@ -1,2 +1,0 @@
-def clear(self):
-    return _crfsuite.StringList_clear(self)

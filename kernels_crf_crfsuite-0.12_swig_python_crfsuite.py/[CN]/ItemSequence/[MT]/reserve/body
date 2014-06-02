@@ -1,2 +1,0 @@
-def reserve(self, *args):
-    return _crfsuite.ItemSequence_reserve(self, *args)

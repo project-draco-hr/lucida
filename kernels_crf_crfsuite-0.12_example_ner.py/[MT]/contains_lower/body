@@ -1,5 +1,0 @@
-def contains_lower(token):
-    b = False
-    for c in token:
-        b |= c.islower()
-    return b

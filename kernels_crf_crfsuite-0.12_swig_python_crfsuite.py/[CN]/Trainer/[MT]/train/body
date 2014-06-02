@@ -1,2 +1,0 @@
-def train(self, *args):
-    return _crfsuite.Trainer_train(self, *args)

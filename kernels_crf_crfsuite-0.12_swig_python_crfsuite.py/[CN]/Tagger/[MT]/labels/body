@@ -1,2 +1,0 @@
-def labels(self):
-    return _crfsuite.Tagger_labels(self)

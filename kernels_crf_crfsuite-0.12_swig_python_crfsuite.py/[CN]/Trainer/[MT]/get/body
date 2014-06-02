@@ -1,2 +1,0 @@
-def get(self, *args):
-    return _crfsuite.Trainer_get(self, *args)

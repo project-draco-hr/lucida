@@ -1,5 +1,0 @@
-def __init__(self):
-    self.macro = re.compile('%x\\[(?P<row>[\\d-]+),(?P<col>[\\d]+)\\]')
-    self.inst = []
-    self.t = 0
-    self.templates = []

@@ -1,2 +1,0 @@
-def __nonzero__(self):
-    return _crfsuite.ItemSequence___nonzero__(self)

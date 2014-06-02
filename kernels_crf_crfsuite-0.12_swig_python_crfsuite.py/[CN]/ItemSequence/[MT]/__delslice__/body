@@ -1,2 +1,0 @@
-def __delslice__(self, *args):
-    return _crfsuite.ItemSequence___delslice__(self, *args)

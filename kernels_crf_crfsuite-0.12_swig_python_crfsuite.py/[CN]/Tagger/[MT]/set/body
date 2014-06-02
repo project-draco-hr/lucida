@@ -1,2 +1,0 @@
-def set(self, *args):
-    return _crfsuite.Tagger_set(self, *args)

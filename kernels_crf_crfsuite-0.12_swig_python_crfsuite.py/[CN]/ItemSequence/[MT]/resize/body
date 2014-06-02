@@ -1,2 +1,0 @@
-def resize(self, *args):
-    return _crfsuite.ItemSequence_resize(self, *args)

@@ -1,2 +1,0 @@
-def probability(self, *args):
-    return _crfsuite.Tagger_probability(self, *args)

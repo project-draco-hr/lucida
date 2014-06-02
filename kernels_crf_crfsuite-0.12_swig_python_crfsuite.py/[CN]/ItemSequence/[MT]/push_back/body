@@ -1,2 +1,0 @@
-def push_back(self, *args):
-    return _crfsuite.ItemSequence_push_back(self, *args)

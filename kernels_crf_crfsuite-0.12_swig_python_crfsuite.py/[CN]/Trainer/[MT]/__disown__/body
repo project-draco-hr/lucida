@@ -1,4 +1,0 @@
-def __disown__(self):
-    self.this.disown()
-    _crfsuite.disown_Trainer(self)
-    return weakref_proxy(self)

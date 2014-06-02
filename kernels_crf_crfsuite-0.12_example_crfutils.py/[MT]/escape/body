@@ -1,3 +1,0 @@
-def escape(src):
-    '\n    Escape colon characters from feature names.\n\n    @type   src:    str\n    @param  src:    A feature name\n    @rtype          str\n    @return         The feature name escaped.\n    '
-    return src.replace(':', '__COLON__')

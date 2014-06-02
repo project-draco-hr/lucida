@@ -1,6 +1,0 @@
-def apply(self, inst, t):
-    self.inst = inst
-    self.t = t
-    for template in self.templates:
-        f = re.sub(self.macro, self.replace, template)
-        self.inst[t]['F'].append(f)

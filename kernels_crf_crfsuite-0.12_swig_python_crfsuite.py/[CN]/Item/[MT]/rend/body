@@ -1,2 +1,0 @@
-def rend(self):
-    return _crfsuite.Item_rend(self)

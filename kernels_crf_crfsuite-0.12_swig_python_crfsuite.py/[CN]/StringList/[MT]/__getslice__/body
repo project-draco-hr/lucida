@@ -1,2 +1,0 @@
-def __getslice__(self, *args):
-    return _crfsuite.StringList___getslice__(self, *args)

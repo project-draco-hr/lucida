@@ -1,2 +1,0 @@
-def marginal(self, *args):
-    return _crfsuite.Tagger_marginal(self, *args)
