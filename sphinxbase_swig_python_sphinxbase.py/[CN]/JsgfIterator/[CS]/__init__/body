@@ -1,7 +1,0 @@
-def __init__(self, *args):
-    '__init__(JsgfIterator self, jsgf_rule_iter_t * ptr) -> JsgfIterator'
-    this = _sphinxbase.new_JsgfIterator(*args)
-    try:
-        self.this.append(this)
-    except:
-        self.this = this

@@ -1,5 +1,0 @@
-def next(self):
-    if self.buffer:
-        return self.buffer.pop()
-    else:
-        return self.iterable.next()

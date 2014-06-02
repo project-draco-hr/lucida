@@ -1,3 +1,0 @@
-def name(self):
-    'name(Jsgf self) -> char const *'
-    return _sphinxbase.Jsgf_name(self)

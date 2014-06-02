@@ -1,9 +1,0 @@
-def scrubSource(source, nsteps=None, verbose=False):
-    steps = [('scrubbing ftnlen', scrubFtnlen), ('remove header', removeHeader), ('clean source', cleanSource), ('clean comments', cleanComments), ('replace slamch_() calls', replaceSlamch)]
-    if (nsteps is not None):
-        steps = steps[:nsteps]
-    for (msg, step) in steps:
-        if verbose:
-            print msg
-        source = step(source)
-    return source

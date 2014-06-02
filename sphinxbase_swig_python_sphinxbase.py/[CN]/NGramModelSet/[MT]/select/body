@@ -1,3 +1,0 @@
-def select(self, *args):
-    'select(NGramModelSet self, char const * name) -> NGramModel'
-    return _sphinxbase.NGramModelSet_select(self, *args)

@@ -1,3 +1,0 @@
-def type_to_str(self, *args):
-    'type_to_str(NGramModel self, int type) -> char const *'
-    return _sphinxbase.NGramModel_type_to_str(self, *args)

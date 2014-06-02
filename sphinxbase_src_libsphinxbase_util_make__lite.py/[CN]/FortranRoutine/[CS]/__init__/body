@@ -1,7 +1,0 @@
-def __init__(self, name=None, filename=None):
-    self.filename = filename
-    if (name is None):
-        (root, ext) = os.path.splitext(filename)
-        name = root
-    self.name = name
-    self._dependencies = None

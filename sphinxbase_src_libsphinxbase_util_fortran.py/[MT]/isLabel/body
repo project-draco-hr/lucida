@@ -1,2 +1,0 @@
-def isLabel(line):
-    return line[0].isdigit()

@@ -1,3 +1,0 @@
-def add_word(self, *args):
-    '\n        add_word(NGramModel self, char const * word, float32 weight) -> int32\n\n        Add a word (unigram) to the language model.\n\n        The semantics of this are not particularly well-defined for model\n        sets, and may be subject to change. Currently this will add the word\n        to all of the submodels\n\n        Parameters:\n        -----------\n\n        model:  The model to add a word to.\n\n        word:  Text of the word to add.\n\n        weight:  Weight of this word relative to the uniform distribution.\n\n        The word ID for the new word. \n        '
-    return _sphinxbase.NGramModel_add_word(self, *args)

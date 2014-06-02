@@ -1,7 +1,0 @@
-def __init__(self, *args):
-    '__init__(Feature self, feat_t * ptr) -> Feature'
-    this = _sphinxbase.new_Feature(*args)
-    try:
-        self.this.append(this)
-    except:
-        self.this = this

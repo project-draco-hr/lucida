@@ -1,5 +1,0 @@
-def sep_seq(sequence, sep):
-    pat = Str(sequence[0])
-    for s in sequence[1:]:
-        pat += (sep + Str(s))
-    return pat
