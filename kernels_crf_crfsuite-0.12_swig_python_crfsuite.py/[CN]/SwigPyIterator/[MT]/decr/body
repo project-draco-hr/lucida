@@ -1,2 +1,0 @@
-def decr(self, n=1):
-    return _crfsuite.SwigPyIterator_decr(self, n)

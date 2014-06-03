@@ -1,5 +1,0 @@
-def next(self):
-    self.lineno += 1
-    line = self.iterable.next()
-    line = line.rstrip()
-    return line

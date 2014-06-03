@@ -1,5 +1,0 @@
-def endArgs(self, text):
-    self.paren_count -= 1
-    if (self.paren_count == 0):
-        self.begin('')
-    return text

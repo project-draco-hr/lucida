@@ -1,5 +1,0 @@
-def dependencies(self):
-    if (self._dependencies is None):
-        deps = fortran.getDependencies(self.filename)
-        self._dependencies = [d.lower() for d in deps]
-    return self._dependencies

@@ -1,2 +1,0 @@
-def __bool__(self):
-    return _crfsuite.ItemSequence___bool__(self)

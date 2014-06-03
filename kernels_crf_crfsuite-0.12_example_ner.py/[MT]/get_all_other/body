@@ -1,5 +1,0 @@
-def get_all_other(token):
-    for c in token:
-        if c.isalnum():
-            return False
-    return True

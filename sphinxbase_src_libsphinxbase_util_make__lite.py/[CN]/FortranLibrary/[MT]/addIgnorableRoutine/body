@@ -1,5 +1,0 @@
-def addIgnorableRoutine(self, rname):
-    "Add a routine that we don't want to consider when looking at\n        dependencies.\n        "
-    rname = rname.lower()
-    routine = UnknownFortranRoutine(rname)
-    self.names_to_routines[rname] = routine

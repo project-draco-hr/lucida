@@ -1,2 +1,0 @@
-def isComment(line):
-    return (line[0] != ' ')

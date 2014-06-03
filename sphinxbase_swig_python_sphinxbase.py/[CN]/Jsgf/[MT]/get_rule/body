@@ -1,3 +1,0 @@
-def get_rule(self, *args):
-    '\n        get_rule(Jsgf self, char const * name) -> JsgfRule\n\n        Get a rule by name from a grammar. \n        '
-    return _sphinxbase.Jsgf_get_rule(self, *args)

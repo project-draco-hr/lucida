@@ -1,3 +1,0 @@
-def add_class(self, *args):
-    '\n        add_class(NGramModel self, char const * c, float32 w, size_t n, float32 const * weights) -> int32\n\n        Add a new class to a language model.\n\n        If classname already exists in the unigram set for model, then it will\n        be converted to a class tag, and classweight will be ignored.\n        Otherwise, a new unigram will be created as in ngram_model_add_word().\n\n        '
-    return _sphinxbase.NGramModel_add_class(self, *args)

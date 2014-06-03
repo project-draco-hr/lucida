@@ -1,3 +1,0 @@
-def name(self):
-    'name(JsgfRule self) -> char const *'
-    return _sphinxbase.JsgfRule_name(self)

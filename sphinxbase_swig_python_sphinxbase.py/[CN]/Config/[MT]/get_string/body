@@ -1,3 +1,0 @@
-def get_string(self, *args):
-    'get_string(Config self, char const * key) -> char const *'
-    return _sphinxbase.Config_get_string(self, *args)

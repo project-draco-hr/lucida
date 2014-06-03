@@ -1,3 +1,0 @@
-def __init__(self, info, name='<ftnlen>'):
-    MyScanner.__init__(self, info, name)
-    self.paren_count = 0

@@ -1,4 +1,0 @@
-def flushTo(self, other_queue):
-    for line in self._queue:
-        other_queue.add(line)
-    self.clear()

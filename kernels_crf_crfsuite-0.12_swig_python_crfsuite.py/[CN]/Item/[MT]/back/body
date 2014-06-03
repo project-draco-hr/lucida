@@ -1,2 +1,0 @@
-def back(self):
-    return _crfsuite.Item_back(self)

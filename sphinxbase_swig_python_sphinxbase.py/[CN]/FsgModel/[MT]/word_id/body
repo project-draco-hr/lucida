@@ -1,3 +1,0 @@
-def word_id(self, *args):
-    '\n        word_id(FsgModel self, char const * word) -> int\n\n        Look up a word in the FSG vocabulary.\n\n        Word ID for this word \n        '
-    return _sphinxbase.FsgModel_word_id(self, *args)

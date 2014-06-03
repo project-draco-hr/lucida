@@ -1,2 +1,0 @@
-def set(self, *args):
-    return _crfsuite.Trainer_set(self, *args)

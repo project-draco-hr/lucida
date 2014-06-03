@@ -1,4 +1,0 @@
-def printRoutineNames(desc, routines):
-    print desc
-    for r in routines:
-        print ('\t%s' % r.name)

@@ -1,5 +1,0 @@
-def contains_digit(token):
-    b = False
-    for c in token:
-        b |= c.isdigit()
-    return b

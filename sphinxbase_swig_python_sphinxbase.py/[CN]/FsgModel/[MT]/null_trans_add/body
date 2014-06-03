@@ -1,3 +1,0 @@
-def null_trans_add(self, *args):
-    '\n        null_trans_add(FsgModel self, int32 src, int32 dst, int32 logp) -> int32\n\n        Add a null transition between the given states.\n\n        There can be at most one null transition between the given states;\n        duplicates are flagged and only the best prob retained. Transition\n        probs must be <= 1 (i.e., logprob <= 0).\n\n        1 if a new transition was added, 0 if the prob of an existing\n        transition was upgraded; -1 if nothing was changed. \n        '
-    return _sphinxbase.FsgModel_null_trans_add(self, *args)

@@ -1,2 +1,0 @@
-def append(self, *args):
-    return _crfsuite.Item_append(self, *args)

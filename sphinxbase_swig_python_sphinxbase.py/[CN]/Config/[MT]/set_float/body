@@ -1,3 +1,0 @@
-def set_float(self, *args):
-    'set_float(Config self, char const * key, double val)'
-    return _sphinxbase.Config_set_float(self, *args)

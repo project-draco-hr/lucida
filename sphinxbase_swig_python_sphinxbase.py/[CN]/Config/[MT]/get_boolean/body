@@ -1,3 +1,0 @@
-def get_boolean(self, *args):
-    'get_boolean(Config self, char const * key) -> bool'
-    return _sphinxbase.Config_get_boolean(self, *args)

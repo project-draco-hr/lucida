@@ -1,2 +1,0 @@
-def get_2d(token):
-    return ((len(token) == 2) and token.isdigit())

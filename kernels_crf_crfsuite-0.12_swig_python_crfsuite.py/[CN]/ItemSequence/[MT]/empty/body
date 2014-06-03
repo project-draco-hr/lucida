@@ -1,2 +1,0 @@
-def empty(self):
-    return _crfsuite.ItemSequence_empty(self)

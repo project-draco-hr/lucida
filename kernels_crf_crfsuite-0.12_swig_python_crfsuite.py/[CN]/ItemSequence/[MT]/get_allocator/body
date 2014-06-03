@@ -1,2 +1,0 @@
-def get_allocator(self):
-    return _crfsuite.ItemSequence_get_allocator(self)

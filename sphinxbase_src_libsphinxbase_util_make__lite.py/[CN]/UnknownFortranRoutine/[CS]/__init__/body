@@ -1,2 +1,0 @@
-def __init__(self, name):
-    FortranRoutine.__init__(self, name=name, filename='<unknown>')

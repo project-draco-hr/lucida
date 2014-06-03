@@ -1,2 +1,0 @@
-def insert(self, *args):
-    return _crfsuite.Item_insert(self, *args)

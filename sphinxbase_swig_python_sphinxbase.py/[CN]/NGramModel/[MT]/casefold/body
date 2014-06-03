@@ -1,3 +1,0 @@
-def casefold(self, *args):
-    '\n        casefold(NGramModel self, int kase)\n\n        Case-fold word strings in an N-Gram model.\n\n        WARNING: This is not Unicode aware, so any non-ASCII characters will\n        not be converted. \n        '
-    return _sphinxbase.NGramModel_casefold(self, *args)

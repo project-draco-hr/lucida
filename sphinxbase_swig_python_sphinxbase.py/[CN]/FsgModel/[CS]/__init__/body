@@ -1,7 +1,0 @@
-def __init__(self, *args):
-    '\n        __init__(FsgModel self, fsg_model_t * ptr) -> FsgModel\n        __init__(FsgModel self, char const * path, LogMath * logmath, float w) -> FsgModel\n        '
-    this = _sphinxbase.new_FsgModel(*args)
-    try:
-        self.this.append(this)
-    except:
-        self.this = this

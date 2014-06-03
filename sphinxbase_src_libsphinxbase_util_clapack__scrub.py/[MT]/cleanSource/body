@@ -1,5 +1,0 @@
-def cleanSource(source):
-    source = re.sub('[\\t ]+\\n', '\n', source)
-    source = re.sub('(?m)^[\\t ]*/\\* *\\.\\. .*?\\n', '', source)
-    source = re.sub('\\n\\n\\n\\n+', '\\n\\n\\n', source)
-    return source

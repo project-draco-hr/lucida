@@ -1,5 +1,0 @@
-def beginArgs(self, text):
-    if (self.paren_count == 0):
-        self.begin('args')
-    self.paren_count += 1
-    return text

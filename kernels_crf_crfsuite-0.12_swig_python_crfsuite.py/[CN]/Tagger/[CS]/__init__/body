@@ -1,6 +1,0 @@
-def __init__(self):
-    this = _crfsuite.new_Tagger()
-    try:
-        self.this.append(this)
-    except:
-        self.this = this

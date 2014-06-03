@@ -1,3 +1,0 @@
-def process_utt(self, *args):
-    '\n        process_utt(FrontEnd self, int16 const * spch, size_t nsamps, mfcc_t *** cep_block) -> int32\n\n        Process a block of samples, returning as many frames as possible.\n\n        This function processes all the samples in a block of data and returns\n        a newly allocated block of feature vectors. This block needs to be\n        freed with fe_free_2d() after use.\n\n        It is possible for there to be some left-over data which could not fit\n        in a complete frame. This data can be processed with fe_end_utt().\n\n        This function is deprecated in favor of fe_process_frames().\n\n        0 for success, <0 for failure (see enum fe_error_e) \n        '
-    return _sphinxbase.FrontEnd_process_utt(self, *args)

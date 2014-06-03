@@ -1,7 +1,0 @@
-def __init__(self, *args):
-    '__init__(FrontEnd self, fe_t * ptr) -> FrontEnd'
-    this = _sphinxbase.new_FrontEnd(*args)
-    try:
-        self.this.append(this)
-    except:
-        self.this = this

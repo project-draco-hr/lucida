@@ -1,2 +1,0 @@
-def isBlank(line):
-    return (not line)

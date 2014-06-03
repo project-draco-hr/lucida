@@ -1,2 +1,0 @@
-def pop(self):
-    return _crfsuite.StringList_pop(self)

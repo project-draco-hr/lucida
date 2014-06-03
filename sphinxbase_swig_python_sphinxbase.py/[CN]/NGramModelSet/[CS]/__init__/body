@@ -1,7 +1,0 @@
-def __init__(self, *args):
-    '__init__(NGramModelSet self, Config config, LogMath * logmath, char const * path) -> NGramModelSet'
-    this = _sphinxbase.new_NGramModelSet(*args)
-    try:
-        self.this.append(this)
-    except:
-        self.this = this
