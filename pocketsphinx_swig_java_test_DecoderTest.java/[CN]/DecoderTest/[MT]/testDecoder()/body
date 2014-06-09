@@ -1,4 +1,0 @@
-{
-  Decoder d=new Decoder();
-  assertNotNull(d);
-}

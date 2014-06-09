@@ -1,3 +1,0 @@
-def write(self, *args):
-    '\n        write(Lattice self, char const * path)\n\n        Write a lattice to disk.\n\n        0 for success, <0 on failure. \n        '
-    return _pocketsphinx.Lattice_write(self, *args)

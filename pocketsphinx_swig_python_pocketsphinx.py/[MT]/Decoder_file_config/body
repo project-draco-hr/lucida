@@ -1,3 +1,0 @@
-def Decoder_file_config(*args):
-    'Decoder_file_config(char const * path) -> Config'
-    return _pocketsphinx.Decoder_file_config(*args)

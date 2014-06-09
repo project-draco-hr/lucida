@@ -1,3 +1,0 @@
-def process_raw(self, *args):
-    "\n        process_raw(Decoder self, void const * SDATA, bool no_search, bool full_utt) -> int\n\n        Decode raw audio data.\n\n        Parameters:\n        -----------\n\n        ps:  Decoder.\n\n        no_search:  If non-zero, perform feature extraction but don't do any\n        recognition yet. This may be necessary if your processor has trouble\n        doing recognition in real-time.\n\n        full_utt:  If non-zero, this block of data is a full utterance worth\n        of data. This may allow the recognizer to produce more accurate\n        results.\n\n        Number of frames of data searched, or <0 for error. \n        "
-    return _pocketsphinx.Decoder_process_raw(self, *args)

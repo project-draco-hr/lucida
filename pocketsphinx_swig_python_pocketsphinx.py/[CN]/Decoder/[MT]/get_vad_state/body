@@ -1,3 +1,0 @@
-def get_vad_state(self):
-    '\n        get_vad_state(Decoder self) -> bool\n\n        Checks if the last feed audio buffer contained speech.\n\n        Parameters:\n        -----------\n\n        ps:  Decoder.\n\n        1 if last buffer contained speech, 0 - otherwise \n        '
-    return _pocketsphinx.Decoder_get_vad_state(self)

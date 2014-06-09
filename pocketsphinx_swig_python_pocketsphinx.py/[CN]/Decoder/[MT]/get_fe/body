@@ -1,3 +1,0 @@
-def get_fe(self):
-    '\n        get_fe(Decoder self) -> FrontEnd\n\n        Get the feature extraction object for this decoder.\n\n        The feature extraction object for this decoder. The decoder retains\n        ownership of this pointer, so you should not attempt to free it\n        manually. Use fe_retain() if you wish to reuse it elsewhere. \n        '
-    return _pocketsphinx.Decoder_get_fe(self)

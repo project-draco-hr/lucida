@@ -1,3 +1,0 @@
-def n_frames(self):
-    'n_frames(Decoder self) -> int'
-    return _pocketsphinx.Decoder_n_frames(self)

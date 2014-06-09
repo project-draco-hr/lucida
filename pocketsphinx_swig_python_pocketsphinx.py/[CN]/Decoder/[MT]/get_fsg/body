@@ -1,3 +1,0 @@
-def get_fsg(self, *args):
-    '\n        get_fsg(Decoder self, char const * name) -> FsgModel\n\n        Get the finite-state grammar set object for this decoder.\n\n        If FSG decoding is not enabled, this returns NULL. Call\n        ps_update_fsgset() to enable it.\n\n        The current FSG set object for this decoder, or NULL if none is\n        available. \n        '
-    return _pocketsphinx.Decoder_get_fsg(self, *args)

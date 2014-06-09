@@ -1,3 +1,0 @@
-def get_kws(self, *args):
-    '\n        get_kws(Decoder self, char const * name) -> char const *\n\n        Get the current Key phrase to spot.\n\n        If KWS is not enabled, this returns NULL. Call ps_update_kws() to\n        enable it.\n\n        The current keyphrase to spot \n        '
-    return _pocketsphinx.Decoder_get_kws(self, *args)

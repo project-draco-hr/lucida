@@ -1,3 +1,0 @@
-def save_dict(self, *args):
-    '\n        save_dict(Decoder self, char const * dictfile, char const * format)\n\n        Dump the current pronunciation dictionary to a file.\n\n        This function dumps the current pronunciation dictionary to a tex\n\n        Parameters:\n        -----------\n\n        dictfile:  Path to file where dictionary will be written.\n\n        format:  Format of the dictionary file, or NULL for the default (text)\n        format (currently unused, should be NULL) \n        '
-    return _pocketsphinx.Decoder_save_dict(self, *args)

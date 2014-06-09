@@ -1,3 +1,0 @@
-def hyp(self):
-    'hyp(Decoder self) -> Hypothesis'
-    return _pocketsphinx.Decoder_hyp(self)
