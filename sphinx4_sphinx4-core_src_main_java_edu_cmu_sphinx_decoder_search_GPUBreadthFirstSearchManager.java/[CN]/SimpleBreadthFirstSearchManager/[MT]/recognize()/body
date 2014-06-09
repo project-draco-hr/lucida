@@ -1,0 +1,11 @@
+{
+  boolean more=scoreTokens();
+  if (more) {
+    pruneBranches();
+    currentFrameNumber++;
+    if (growSkipInterval == 0 || (currentFrameNumber % growSkipInterval) != 0) {
+      growBranches();
+    }
+  }
+  return !more;
+}

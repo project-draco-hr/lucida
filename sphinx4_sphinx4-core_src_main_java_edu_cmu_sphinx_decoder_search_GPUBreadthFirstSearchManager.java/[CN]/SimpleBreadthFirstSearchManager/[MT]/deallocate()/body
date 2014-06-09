@@ -1,0 +1,10 @@
+{
+  try {
+    scorer.deallocate();
+    pruner.deallocate();
+    linguist.deallocate();
+  }
+ catch (  IOException e) {
+    throw new RuntimeException("Deallocation of search manager resources failed",e);
+  }
+}

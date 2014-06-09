@@ -1,0 +1,14 @@
+{
+  this.name=getClass().getName();
+  this.logger=Logger.getLogger(name);
+  this.logMath=LogMath.getInstance();
+  this.linguist=linguist;
+  this.pruner=pruner;
+  this.scorer=scorer;
+  this.activeListFactory=activeListFactory;
+  this.showTokenCount=showTokenCount;
+  this.growSkipInterval=growSkipInterval;
+  this.wantEntryPruning=wantEntryPruning;
+  this.logRelativeWordBeamWidth=logMath.linearToLog(relativeWordBeamWidth);
+  this.keepAllTokens=true;
+}
