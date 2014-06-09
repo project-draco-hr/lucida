@@ -1,4 +1,0 @@
-def __init__(self):
-    'Initialize a DemoApp object'
-    self.init_gui()
-    self.init_gst()

@@ -1,3 +1,0 @@
-def hyp(self):
-    '\n        hyp(NBest self) -> Hypothesis\n\n        Get the hypothesis string from an N-best list iterator.\n\n        Parameters:\n        -----------\n\n        nbest:  N-best iterator.\n\n        out_score:  Output: Path score for this hypothesis.\n\n        String containing next best hypothesis. \n        '
-    return _pocketsphinx.NBest_hyp(self)

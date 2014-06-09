@@ -1,3 +1,0 @@
-def set_keyphrase(self, *args):
-    '\n        set_keyphrase(Decoder self, char const * name, char const * keyphrase)\n\n        Adds new keyword to spot.\n\n        Associates KWS search with the provided name. The search can be\n        activated using ps_set_search().\n\n        See:   ps_set_search \n        '
-    return _pocketsphinx.Decoder_set_keyphrase(self, *args)

@@ -1,3 +1,0 @@
-def set_jsgf_file(self, *args):
-    '\n        set_jsgf_file(Decoder self, char const * name, char const * path)\n\n        Adds new search using JSGF model.\n\n        Convenient method to load JSGF model and create a search.\n\n        See:   ps_set_fsg \n        '
-    return _pocketsphinx.Decoder_set_jsgf_file(self, *args)

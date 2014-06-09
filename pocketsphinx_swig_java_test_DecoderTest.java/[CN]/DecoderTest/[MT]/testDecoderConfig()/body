@@ -1,6 +1,0 @@
-{
-  Config c=Decoder.default_config();
-  c.set_boolean("-backtrace",true);
-  Decoder d=new Decoder(c);
-  assertNotNull(d);
-}

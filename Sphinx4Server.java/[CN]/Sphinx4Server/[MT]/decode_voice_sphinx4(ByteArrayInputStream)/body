@@ -14,12 +14,9 @@ synchronized (this) {
     recognizer.allocate();
   }
   try {
-    edu.cmu.sphinx.result.Result result;
-    while ((result=recognizer.recognize()) != null) {
-      result_text=result.getBestResultNoFiller();
-      System.out.println("result_text: " + result_text);
-      break;
-    }
+    Result result=recognizer.recognize();
+    result_text=result.getBestResultNoFiller();
+    System.out.println("result_text: " + result_text);
   }
  catch (  Exception e) {
     e.printStackTrace();

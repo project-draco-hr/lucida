@@ -1,9 +1,31 @@
 {
+  try {
+    pw_in=new PrintWriter(new FileOutputStream(new File("hmm_data_in.txt"),false));
+  }
+ catch (  FileNotFoundException ex) {
+    Logger.getLogger(SimpleBreadthFirstSearchManager.class.getName()).log(Level.SEVERE,null,ex);
+  }
+  try {
+    pw_actlist=new PrintWriter(new FileOutputStream(new File("hmm_data_actlist.txt"),false));
+  }
+ catch (  FileNotFoundException ex) {
+    Logger.getLogger(SimpleBreadthFirstSearchManager.class.getName()).log(Level.SEVERE,null,ex);
+  }
   currentFrameNumber=0;
   curTokensScored.value=0;
   ActiveList newActiveList=activeListFactory.newInstance();
   SearchState state=linguist.getSearchGraph().getInitialState();
   newActiveList.add(new Token(state,currentFrameNumber));
   activeList=newActiveList;
+  activeList2=activeListFactory.newInstance();
+  pw_actlist.printf("%d %d %d %f\n",currentFrameNumber,activeList.size(),activeList.getBestToken().hashCode(),activeList.getBestScore());
+  for (  Token token : activeList) {
+    pw_actlist.printf("%d ",token.hashCode());
+  }
+  pw_actlist.printf("\n");
+  for (  Token token : activeList) {
+    collectSuccessorTokens2(token);
+  }
+  Data data=scorer.calculateScores(activeList2.getTokens());
   growBranches();
 }

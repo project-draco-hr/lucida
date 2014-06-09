@@ -1,9 +1,0 @@
-def application_message(self, bus, msg):
-    'Receive application messages from the bus.'
-    msgtype = msg.structure.get_name()
-    if (msgtype == 'partial_result'):
-        self.partial_result(msg.structure['hyp'], msg.structure['uttid'])
-    elif (msgtype == 'result'):
-        self.final_result(msg.structure['hyp'], msg.structure['uttid'])
-        self.pipeline.set_state(gst.STATE_PAUSED)
-        self.button.set_active(False)

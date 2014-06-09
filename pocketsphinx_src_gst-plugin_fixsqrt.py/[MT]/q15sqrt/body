@@ -1,2 +1,0 @@
-def q15sqrt(x):
-    return int((32768.0 * math.sqrt((x / 32768.0))))

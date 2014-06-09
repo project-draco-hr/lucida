@@ -1,3 +1,0 @@
-def get_feat(self):
-    '\n        get_feat(Decoder self) -> Feature\n\n        Get the dynamic feature computation object for this decoder.\n\n        The dynamic feature computation object for this decoder. The decoder\n        retains ownership of this pointer, so you should not attempt to free\n        it manually. Use feat_retain() if you wish to reuse it elsewhere. \n        '
-    return _pocketsphinx.Decoder_get_feat(self)

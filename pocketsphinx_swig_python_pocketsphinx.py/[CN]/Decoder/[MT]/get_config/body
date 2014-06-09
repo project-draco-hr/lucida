@@ -1,3 +1,0 @@
-def get_config(self):
-    '\n        get_config(Decoder self) -> Config\n\n        Get the configuration object for this decoder.\n\n        The configuration object for this decoder. The decoder retains\n        ownership of this pointer, so you should not attempt to free it\n        manually. Use cmd_ln_retain() if you wish to reuse it elsewhere. \n        '
-    return _pocketsphinx.Decoder_get_config(self)

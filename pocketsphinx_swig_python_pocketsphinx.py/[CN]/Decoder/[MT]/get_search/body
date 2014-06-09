@@ -1,3 +1,0 @@
-def get_search(self):
-    '\n        get_search(Decoder self) -> char const *\n\n        Returns name of curent search in decoder.\n\n        See:   ps_set_search \n        '
-    return _pocketsphinx.Decoder_get_search(self)

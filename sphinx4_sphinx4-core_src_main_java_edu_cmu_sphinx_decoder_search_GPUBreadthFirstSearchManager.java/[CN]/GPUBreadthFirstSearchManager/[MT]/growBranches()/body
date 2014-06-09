@@ -15,7 +15,6 @@
   }
   growTimer.stop();
   totalHmms+=activeList.size();
-  System.out.println("Frame: " + currentFrameNumber + " Hmms: "+ activeList.size()+ "  total "+ totalHmms);
   if (logger.isLoggable(Level.FINE)) {
     int hmms=activeList.size();
     totalHmms+=hmms;

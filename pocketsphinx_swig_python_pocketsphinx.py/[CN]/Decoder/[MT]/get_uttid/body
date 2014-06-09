@@ -1,3 +1,0 @@
-def get_uttid(self):
-    '\n        get_uttid(Decoder self) -> char const *\n\n        Get current utterance ID.\n\n        Parameters:\n        -----------\n\n        ps:  Decoder to query.\n\n        Read-only string of the current utterance ID. This is valid only until\n        the beginning of the next utterance. \n        '
-    return _pocketsphinx.Decoder_get_uttid(self)

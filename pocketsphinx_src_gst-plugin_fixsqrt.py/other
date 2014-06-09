@@ -1,7 +1,0 @@
-import math
-remtab = remainder_table()
-if (__name__ == '__main__'):
-    print ('#define REMTAB_SIZE %d' % len(remtab))
-    print 'static const guint16 remtab[REMTAB_SIZE] = {'
-    print ', '.join([str(x) for x in remtab])
-    print '};'

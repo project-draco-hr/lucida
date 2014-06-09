@@ -1,3 +1,0 @@
-def set_lm(self, *args):
-    '\n        set_lm(Decoder self, char const * name, NGramModel lm)\n\n        Adds new search based on N-gram language model.\n\n        Associates N-gram search with the provided name. The search can be\n        activated using ps_set_search().\n\n        See:   ps_set_search. \n        '
-    return _pocketsphinx.Decoder_set_lm(self, *args)
