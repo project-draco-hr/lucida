@@ -1,2 +1,0 @@
-def result(self, *args):
-    return _CRFPP.Tagger_result(self, *args)

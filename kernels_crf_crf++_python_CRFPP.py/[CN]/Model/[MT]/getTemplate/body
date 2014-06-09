@@ -1,2 +1,0 @@
-def getTemplate(self):
-    return _CRFPP.Model_getTemplate(self)

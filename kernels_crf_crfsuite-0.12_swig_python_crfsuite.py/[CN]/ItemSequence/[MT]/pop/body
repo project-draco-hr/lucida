@@ -1,0 +1,2 @@
+def pop(self):
+    return _crfsuite.ItemSequence_pop(self)

@@ -1,0 +1,2 @@
+def rbegin(self):
+    return _crfsuite.StringList_rbegin(self)

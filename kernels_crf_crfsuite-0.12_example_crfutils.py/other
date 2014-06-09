@@ -1,0 +1,3 @@
+'\nA miscellaneous utility for sequential labeling.\nCopyright 2010,2011 Naoaki Okazaki.\n'
+import optparse
+import sys

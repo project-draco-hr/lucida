@@ -1,3 +1,0 @@
-{
-  return CRFPPJNI.Tagger_beta(swigCPtr,this,i,j);
-}

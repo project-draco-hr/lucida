@@ -1,3 +1,0 @@
-{
-  CRFPPJNI.Tagger_set_vlevel(swigCPtr,this,vlevel);
-}

@@ -1,3 +1,0 @@
-{
-  return CRFPPJNI.Model_getTemplate(swigCPtr,this);
-}

@@ -1,0 +1,2 @@
+def value(self):
+    return _crfsuite.SwigPyIterator_value(self)

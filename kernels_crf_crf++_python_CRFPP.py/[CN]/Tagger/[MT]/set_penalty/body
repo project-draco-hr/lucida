@@ -1,2 +1,0 @@
-def set_penalty(self, *args):
-    return _CRFPP.Tagger_set_penalty(self, *args)

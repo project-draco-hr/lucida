@@ -1,0 +1,7 @@
+def replace(self, m):
+    row = (self.t + int(m.group('row')))
+    col = int(m.group('col'))
+    if (row in range(0, len(self.inst))):
+        return self.inst[row]['x'][col]
+    else:
+        return ''

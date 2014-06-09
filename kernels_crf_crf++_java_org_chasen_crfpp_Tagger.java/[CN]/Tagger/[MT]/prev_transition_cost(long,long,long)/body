@@ -1,3 +1,0 @@
-{
-  return CRFPPJNI.Tagger_prev_transition_cost(swigCPtr,this,i,j,k);
-}

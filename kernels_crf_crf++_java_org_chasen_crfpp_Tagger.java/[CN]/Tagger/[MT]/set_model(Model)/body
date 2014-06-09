@@ -1,3 +1,0 @@
-{
-  return CRFPPJNI.Tagger_set_model(swigCPtr,this,Model.getCPtr(model),model);
-}

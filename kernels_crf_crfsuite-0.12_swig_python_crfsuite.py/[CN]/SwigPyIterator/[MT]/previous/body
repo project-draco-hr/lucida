@@ -1,0 +1,2 @@
+def previous(self):
+    return _crfsuite.SwigPyIterator_previous(self)

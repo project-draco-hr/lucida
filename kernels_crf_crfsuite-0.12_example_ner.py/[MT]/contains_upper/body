@@ -1,0 +1,5 @@
+def contains_upper(token):
+    b = False
+    for c in token:
+        b |= c.isupper()
+    return b

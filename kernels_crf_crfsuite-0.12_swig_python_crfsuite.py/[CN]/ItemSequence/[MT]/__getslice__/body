@@ -1,0 +1,2 @@
+def __getslice__(self, *args):
+    return _crfsuite.ItemSequence___getslice__(self, *args)

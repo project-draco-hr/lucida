@@ -1,0 +1,5 @@
+def feature_extractor(X):
+    crfutils.apply_templates(X, templates)
+    if X:
+        X[0]['F'].append('__BOS__')
+        X[(-1)]['F'].append('__EOS__')

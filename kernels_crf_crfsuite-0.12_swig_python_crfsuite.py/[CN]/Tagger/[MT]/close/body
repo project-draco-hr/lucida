@@ -1,0 +1,2 @@
+def close(self):
+    return _crfsuite.Tagger_close(self)

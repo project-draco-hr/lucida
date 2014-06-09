@@ -1,2 +1,0 @@
-def empty(self):
-    return _CRFPP.Tagger_empty(self)

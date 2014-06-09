@@ -1,2 +1,0 @@
-def prev_transition_cost(self, *args):
-    return _CRFPP.Tagger_prev_transition_cost(self, *args)

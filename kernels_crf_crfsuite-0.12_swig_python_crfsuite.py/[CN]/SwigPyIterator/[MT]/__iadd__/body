@@ -1,0 +1,2 @@
+def __iadd__(self, *args):
+    return _crfsuite.SwigPyIterator___iadd__(self, *args)

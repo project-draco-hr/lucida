@@ -1,0 +1,2 @@
+def clear(self):
+    return _crfsuite.Item_clear(self)

@@ -1,0 +1,12 @@
+def output_features(fo, X, field=''):
+    '\n    Output features (and reference labels) of a sequence in CRFSuite\n    format. For each item in the sequence, this function writes a\n    reference label (if L{field} is a non-empty string) and features.\n\n    @type   fo:     file\n    @param  fo:     The file object.\n    @type   X:      list of mapping objects\n    @param  X:      The sequence.\n    @type   field:  str\n    @param  field:  The field name of reference labels.\n    '
+    for t in range(len(X)):
+        if field:
+            fo.write(('%s' % X[t][field]))
+        for a in X[t]['F']:
+            if isinstance(a, str):
+                fo.write(('\t%s' % escape(a)))
+            else:
+                fo.write(('\t%s:%f' % (escape(a[0]), a[1])))
+        fo.write('\n')
+    fo.write('\n')

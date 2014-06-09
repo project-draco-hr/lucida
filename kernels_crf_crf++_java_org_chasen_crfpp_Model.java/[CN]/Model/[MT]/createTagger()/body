@@ -1,4 +1,0 @@
-{
-  long cPtr=CRFPPJNI.Model_createTagger(swigCPtr,this);
-  return (cPtr == 0) ? null : new Tagger(cPtr,false);
-}

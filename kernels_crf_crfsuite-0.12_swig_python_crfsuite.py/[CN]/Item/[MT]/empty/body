@@ -1,0 +1,2 @@
+def empty(self):
+    return _crfsuite.Item_empty(self)

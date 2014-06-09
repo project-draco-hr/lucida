@@ -1,2 +1,0 @@
-def alpha(self, *args):
-    return _CRFPP.Tagger_alpha(self, *args)

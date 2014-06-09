@@ -1,3 +1,0 @@
-{
-  CRFPPJNI.Tagger_set_cost_factor(swigCPtr,this,cost_factor);
-}

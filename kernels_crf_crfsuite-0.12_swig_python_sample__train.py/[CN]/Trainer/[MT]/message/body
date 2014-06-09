@@ -1,0 +1,2 @@
+def message(self, s):
+    sys.stdout.write(s)

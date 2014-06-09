@@ -1,2 +1,0 @@
-def what(self):
-    return _CRFPP.Model_what(self)

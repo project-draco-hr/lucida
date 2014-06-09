@@ -1,4 +1,0 @@
-{
-  swigCMemOwn=cMemoryOwn;
-  swigCPtr=cPtr;
-}

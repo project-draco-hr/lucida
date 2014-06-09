@@ -1,2 +1,0 @@
-def set_nbest(self, *args):
-    return _CRFPP.Tagger_set_nbest(self, *args)

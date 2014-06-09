@@ -1,3 +1,0 @@
-{
-  return CRFPPJNI.Tagger_nbest(swigCPtr,this);
-}

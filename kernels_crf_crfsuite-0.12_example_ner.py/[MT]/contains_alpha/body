@@ -1,0 +1,5 @@
+def contains_alpha(token):
+    b = False
+    for c in token:
+        b |= c.isalpha()
+    return b

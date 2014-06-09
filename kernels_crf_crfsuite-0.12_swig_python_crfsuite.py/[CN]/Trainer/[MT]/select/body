@@ -1,0 +1,2 @@
+def select(self, *args):
+    return _crfsuite.Trainer_select(self, *args)

@@ -1,2 +1,0 @@
-def emission_cost(self, *args):
-    return _CRFPP.Tagger_emission_cost(self, *args)

@@ -1,0 +1,2 @@
+def __setitem__(self, *args):
+    return _crfsuite.ItemSequence___setitem__(self, *args)

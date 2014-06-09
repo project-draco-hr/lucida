@@ -1,0 +1,2 @@
+def get_rootdir():
+    return '/home/users/okazaki/local'

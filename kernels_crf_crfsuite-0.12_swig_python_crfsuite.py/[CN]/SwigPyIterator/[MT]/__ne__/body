@@ -1,0 +1,2 @@
+def __ne__(self, *args):
+    return _crfsuite.SwigPyIterator___ne__(self, *args)

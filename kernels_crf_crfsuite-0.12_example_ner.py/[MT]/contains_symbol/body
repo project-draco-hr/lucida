@@ -1,0 +1,5 @@
+def contains_symbol(token):
+    b = False
+    for c in token:
+        b |= (~ c.isalnum())
+    return b

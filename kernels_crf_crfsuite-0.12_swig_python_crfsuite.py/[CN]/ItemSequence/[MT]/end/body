@@ -1,0 +1,2 @@
+def end(self):
+    return _crfsuite.ItemSequence_end(self)

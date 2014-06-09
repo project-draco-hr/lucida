@@ -1,0 +1,36 @@
+def get_type(token):
+    T = ('AllUpper', 'AllDigit', 'AllSymbol', 'AllUpperDigit', 'AllUpperSymbol', 'AllDigitSymbol', 'AllUpperDigitSymbol', 'InitUpper', 'AllLetter', 'AllAlnum')
+    R = set(T)
+    if (not token):
+        return 'EMPTY'
+    for i in range(len(token)):
+        c = token[i]
+        if c.isupper():
+            R.discard('AllDigit')
+            R.discard('AllSymbol')
+            R.discard('AllDigitSymbol')
+        elif (c.isdigit() or (c in (',', '.'))):
+            R.discard('AllUpper')
+            R.discard('AllSymbol')
+            R.discard('AllUpperSymbol')
+            R.discard('AllLetter')
+        elif c.islower():
+            R.discard('AllUpper')
+            R.discard('AllDigit')
+            R.discard('AllSymbol')
+            R.discard('AllUpperDigit')
+            R.discard('AllUpperSymbol')
+            R.discard('AllDigitSymbol')
+            R.discard('AllUpperDigitSymbol')
+        else:
+            R.discard('AllUpper')
+            R.discard('AllDigit')
+            R.discard('AllUpperDigit')
+            R.discard('AllLetter')
+            R.discard('AllAlnum')
+        if ((i == 0) and (not c.isupper())):
+            R.discard('InitUpper')
+    for tag in T:
+        if (tag in R):
+            return tag
+    return 'NO'

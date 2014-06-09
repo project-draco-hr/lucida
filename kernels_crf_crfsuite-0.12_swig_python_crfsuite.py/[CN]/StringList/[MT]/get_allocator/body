@@ -1,0 +1,2 @@
+def get_allocator(self):
+    return _crfsuite.StringList_get_allocator(self)

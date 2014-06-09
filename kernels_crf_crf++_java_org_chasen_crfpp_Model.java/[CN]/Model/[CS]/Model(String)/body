@@ -1,3 +1,0 @@
-{
-  this(CRFPPJNI.new_Model(arg),true);
-}

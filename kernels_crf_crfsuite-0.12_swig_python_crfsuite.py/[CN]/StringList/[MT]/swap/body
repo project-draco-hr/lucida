@@ -1,0 +1,2 @@
+def swap(self, *args):
+    return _crfsuite.StringList_swap(self, *args)

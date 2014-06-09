@@ -1,2 +1,0 @@
-def createTagger(self):
-    return _CRFPP.Model_createTagger(self)

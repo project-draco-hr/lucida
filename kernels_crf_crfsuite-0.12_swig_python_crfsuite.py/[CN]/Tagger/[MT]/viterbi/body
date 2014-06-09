@@ -1,0 +1,2 @@
+def viterbi(self):
+    return _crfsuite.Tagger_viterbi(self)

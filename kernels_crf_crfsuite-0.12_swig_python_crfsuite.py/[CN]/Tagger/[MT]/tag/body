@@ -1,0 +1,2 @@
+def tag(self, *args):
+    return _crfsuite.Tagger_tag(self, *args)

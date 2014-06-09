@@ -1,2 +1,0 @@
-def best_cost(self, *args):
-    return _CRFPP.Tagger_best_cost(self, *args)

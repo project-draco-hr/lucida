@@ -1,6 +1,0 @@
-def __init__(self, *args):
-    this = _CRFPP.new_Model(*args)
-    try:
-        self.this.append(this)
-    except:
-        self.this = this

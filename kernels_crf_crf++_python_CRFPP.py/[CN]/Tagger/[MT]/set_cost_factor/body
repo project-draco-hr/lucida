@@ -1,2 +1,0 @@
-def set_cost_factor(self, *args):
-    return _CRFPP.Tagger_set_cost_factor(self, *args)

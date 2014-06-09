@@ -1,0 +1,2 @@
+def copy(self):
+    return _crfsuite.SwigPyIterator_copy(self)

@@ -1,2 +1,0 @@
-def cost_factor(self):
-    return _CRFPP.Tagger_cost_factor(self)
