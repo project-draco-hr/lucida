@@ -1,7 +1,6 @@
 {
   while (true) {
-    MsgPrinter.printQuestionPrompt();
-    String question=readLine().trim();
+    String question=query_input.trim();
     if (question.equalsIgnoreCase("exit"))     System.exit(0);
     String type;
     if (question.matches("(?i)" + FACTOID + ":.*+")) {
