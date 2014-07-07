@@ -1,0 +1,4 @@
+def start(self, atts):
+    self.data = self.EvaluationData()
+    self.data.name = atts['name']
+    self.data.type = atts['type']

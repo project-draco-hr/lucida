@@ -1,0 +1,3 @@
+def openComment(self):
+    self.write('<!--\n')
+    self.path.append('<!--')

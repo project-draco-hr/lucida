@@ -1,0 +1,9 @@
+'\nA structured XML parsing framework - Python edition\n'
+__version__ = '$Revision: 6911 $'
+__date__ = '$Date: 2008-10-30 15:35:27 +0100 (Thu, 30 Oct 2008) $'
+import xml.sax, xml.sax.saxutils, xml.sax.handler
+import inspect
+try:
+    from xml.sax.saxutils import DefaultHandler
+except ImportError:
+    from xml.sax.handler import ContentHandler as DefaultHandler

@@ -1,0 +1,2 @@
+def uwrite(fileName, encoding='ascii'):
+    return uopen(fileName, encoding, 'w')

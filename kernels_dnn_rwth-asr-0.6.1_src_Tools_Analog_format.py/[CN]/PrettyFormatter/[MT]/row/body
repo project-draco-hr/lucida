@@ -1,0 +1,14 @@
+def row(self, id, layer, values):
+
+    def formValue(stat, field):
+        if ((stat, field) in values):
+            return (field.format % values[(stat, field)])
+        else:
+            return 'n/a'
+    if (layer is None):
+        row = [id.ljust(self.rowNameWidth)]
+    else:
+        row = [(' - ' + layer).ljust(self.rowNameWidth)]
+    row += [' '.join([formValue(stat, field).rjust(field.width) for field in fields]) for (stat, fields) in self.statFields]
+    row = '|'.join(row)
+    print  >> self.out, row

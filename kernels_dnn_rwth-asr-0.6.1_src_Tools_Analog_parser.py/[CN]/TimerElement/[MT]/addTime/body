@@ -1,0 +1,3 @@
+def addTime(self, atts, cdata):
+    time = float(cdata)
+    self.handler(time)

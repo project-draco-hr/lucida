@@ -1,0 +1,2 @@
+def collect(self, key, data):
+    self.statistic[key] = data

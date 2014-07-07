@@ -1,0 +1,13 @@
+def writeGroupLayer(self, baseFilename, data):
+    for writer in self.writers:
+        filename = (baseFilename + writer.postfix)
+        f = self.openOutputFile(filename)
+        if (not f):
+            continue
+        try:
+            writer(f, data)
+            print ('%s created.' % filename)
+        except:
+            print  >> sys.stderr, ('Failed to create %s.' % filename)
+            os.remove(filename)
+            traceback.print_exc()

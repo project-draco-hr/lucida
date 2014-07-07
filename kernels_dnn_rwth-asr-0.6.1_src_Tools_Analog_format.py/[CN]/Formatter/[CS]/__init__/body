@@ -1,0 +1,4 @@
+def __init__(self, out, fields):
+    self.out = out
+    self.fields = fields
+    self.makeHeader()

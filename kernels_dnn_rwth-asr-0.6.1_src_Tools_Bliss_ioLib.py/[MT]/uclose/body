@@ -1,0 +1,2 @@
+def uclose(fd):
+    zclose(fd.stream)

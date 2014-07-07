@@ -1,0 +1,11 @@
+def makeHeader(self):
+    currentStat = None
+    self.items = []
+    for (stat, field) in self.fields:
+        if (stat == currentStat):
+            self.items[(-1)].fields.append(field)
+        else:
+            self.items.append(self.Item(stat, field))
+            currentStat = stat
+    for item in self.items:
+        self.gui.dialog.createTab(item)

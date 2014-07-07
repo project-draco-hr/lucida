@@ -1,0 +1,11 @@
+def startElement(self, name, atts):
+    try:
+        next = self.stack[(-1)].element(name, atts)
+        if next:
+            next.start(atts)
+            self.stack.append(next)
+        else:
+            print XmlValidityError(('Cannot handle start tag: "%s"' % name))
+            self.stack.append(XmlIgnoreElement('*'))
+    except XmlError as e:
+        print e

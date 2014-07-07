@@ -1,0 +1,9 @@
+def _convertBinaryTree(self):
+    ' reads old tree and writes converted tree to the new file '
+    self._writer.open('binary-tree')
+    while True:
+        nodeStr = self._reader.readline().strip((whitespace + '()'))
+        if (nodeStr != ''):
+            break
+    self._writeRoot(nodeStr)
+    self._writer.close('binary-tree')

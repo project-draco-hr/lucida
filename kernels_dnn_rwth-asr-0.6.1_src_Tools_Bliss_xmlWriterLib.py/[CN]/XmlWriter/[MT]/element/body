@@ -1,0 +1,11 @@
+def element(self, element, cdata=None, **args):
+    if (cdata is None):
+        apply(self.empty, (element,), args)
+    else:
+        s = (((((((self.indent_str() + '<') + self.formTag(element, args.items())) + '>') + cdata) + '</') + element) + '>')
+        if (len(s) <= self.margin):
+            self.write((s + '\n'))
+        else:
+            apply(self.open, (element,), args)
+            self.cdata(cdata)
+            self.close(element)

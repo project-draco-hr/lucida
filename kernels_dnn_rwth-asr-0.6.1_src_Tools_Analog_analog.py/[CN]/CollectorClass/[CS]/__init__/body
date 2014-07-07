@@ -1,0 +1,5 @@
+def __init__(cls, name, bases, dictionary):
+    collector = cls
+    if collector.id:
+        fields = [(collector, field) for field in collector.fields]
+        Collector.allFields += fields

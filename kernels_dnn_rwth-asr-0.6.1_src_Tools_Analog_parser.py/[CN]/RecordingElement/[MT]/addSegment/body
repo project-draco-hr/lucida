@@ -1,0 +1,5 @@
+def addSegment(self, name, data):
+    for layerKey in data.keys():
+        data[layerKey]['recording'] = self.recordingName
+        data[layerKey]['audio'] = self.audio
+    self.handler(name, data)

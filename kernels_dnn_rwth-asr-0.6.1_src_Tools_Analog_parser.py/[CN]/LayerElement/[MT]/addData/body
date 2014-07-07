@@ -1,0 +1,2 @@
+def addData(self, aspect, data):
+    self.data[aspect] = data

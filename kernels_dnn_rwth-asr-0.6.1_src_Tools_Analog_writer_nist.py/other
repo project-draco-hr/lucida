@@ -1,0 +1,5 @@
+'\nAnalog Plug-in for creating nist-stm and nist-ctm formated files.\n'
+__version__ = '$Revision: 8349 $'
+__date__ = '$Date: 2011-08-15 12:59:09 +0200 (Mon, 15 Aug 2011) $'
+import string, sys
+from analog import Writer

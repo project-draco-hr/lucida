@@ -1,0 +1,12 @@
+def addEvaluationData(self, evaluationData):
+    if ((evaluationData.type == 'eval') and (evaluationData.name == 'single best')):
+        self.addData('edit distance alignment', evaluationData.alignment)
+    type = {'eval': 'word', 'orth': 'letter', 'phon': 'phoneme', }[evaluationData.type]
+    if ((evaluationData.name == 'single best') or (evaluationData.name == 'best-in-lattice')):
+        aspect = ('%s errors' % type)
+    elif (evaluationData.name == 'lattice'):
+        aspect = ('lattice %s errors' % type)
+    else:
+        aspect = None
+    if aspect:
+        self.addData(aspect, evaluationData.errors)

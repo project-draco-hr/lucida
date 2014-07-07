@@ -1,0 +1,10 @@
+def _readPhonemeList(self):
+    ' reads phoneme list of old file and saves it in self._phonemes '
+    while True:
+        text = self._reader.readline().strip()
+        if (text == ''):
+            break
+        elif (text.find(' ') != (-1)):
+            raise FormatError('phoneme token', text)
+        else:
+            self._phonemes.append(text)

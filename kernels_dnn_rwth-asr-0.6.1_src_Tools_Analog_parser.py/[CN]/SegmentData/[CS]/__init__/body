@@ -1,0 +1,3 @@
+def __init__(self, data, id):
+    self.id = id
+    self.update(data)

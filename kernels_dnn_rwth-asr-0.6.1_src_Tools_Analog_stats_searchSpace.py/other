@@ -1,0 +1,4 @@
+'\nAnalog Plug-in for search space statistics of word-conditioned tree search\n'
+__version__ = '$Revision: 9227 $'
+__date__ = '$Date: 2013-11-29 15:47:07 +0100 (Fri, 29 Nov 2013) $'
+from statutils import MinAvgMaxStatistic

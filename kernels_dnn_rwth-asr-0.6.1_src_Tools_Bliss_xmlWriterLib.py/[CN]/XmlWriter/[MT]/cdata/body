@@ -1,0 +1,18 @@
+def cdata(self, w):
+    if ('<!--' in self.path):
+        w = string.replace(w, '--', '=')
+    indent_str = self.indent_str()
+    ll = []
+    l = []
+    n = len(indent_str)
+    for a in string.split(w):
+        if ((n + len(a)) < self.margin):
+            n = ((n + len(a)) + 1)
+            l.append(a)
+        else:
+            ll.append((indent_str + string.join(l)))
+            l = [a]
+            n = (len(indent_str) + len(a))
+    if (len(l) > 0):
+        ll.append((indent_str + string.join(l)))
+    self.write((string.join(ll, '\n') + '\n'))

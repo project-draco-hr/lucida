@@ -1,0 +1,2 @@
+def __init__(self, handler):
+    super(LayerElement, self).__init__('layer', handler)

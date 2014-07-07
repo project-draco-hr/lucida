@@ -1,0 +1,6 @@
+def shouldEvalWord(self, w):
+    if ((w == '[UNKNOWN]') or (w == '@reject@')):
+        return True
+    if (w.startswith('[') and w.endswith(']')):
+        return False
+    return True

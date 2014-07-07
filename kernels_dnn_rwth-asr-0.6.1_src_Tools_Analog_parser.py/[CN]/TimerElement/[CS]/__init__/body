@@ -1,0 +1,5 @@
+def __init__(self, handler):
+    super(TimerElement, self).__init__('timer')
+    self.ignoreUnknownElements()
+    self.handler = handler
+    self.addChild(XmlDataOnlyElement('user', self.addTime))

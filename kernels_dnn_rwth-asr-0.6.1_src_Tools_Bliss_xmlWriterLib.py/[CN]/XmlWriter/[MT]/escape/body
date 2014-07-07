@@ -1,0 +1,2 @@
+def escape(self, data):
+    return data.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')

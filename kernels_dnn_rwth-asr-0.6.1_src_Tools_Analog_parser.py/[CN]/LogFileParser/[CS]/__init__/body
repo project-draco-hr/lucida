@@ -1,0 +1,4 @@
+def __init__(self):
+    super(LogFileParser, self).__init__()
+    self.root.addChild(RecordingElement(self.addSegment))
+    self.segments = {}

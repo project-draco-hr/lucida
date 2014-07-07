@@ -1,0 +1,3 @@
+def characters(self, cdata):
+    if ((not self.allowWhitespace) or (cdata.strip() != '')):
+        raise XmlValidityError(('Element "%s" is declared to have empty content' % self.name))

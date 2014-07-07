@@ -1,0 +1,3 @@
+def sep(self):
+    if self.separatorString:
+        print  >> self.out, self.separatorString

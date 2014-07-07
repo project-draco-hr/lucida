@@ -1,0 +1,6 @@
+def run(self):
+    self.dialog.resize(700, 500)
+    self.dialog.setCaption('Analog')
+    self.dialog.show()
+    self.app.setMainWidget(self.dialog)
+    self.app.exec_loop()

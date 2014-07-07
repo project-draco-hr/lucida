@@ -1,0 +1,3 @@
+def __init__(self, name, parent):
+    super(XmlFlattenElement, self).__init__(name)
+    self.parent = parent

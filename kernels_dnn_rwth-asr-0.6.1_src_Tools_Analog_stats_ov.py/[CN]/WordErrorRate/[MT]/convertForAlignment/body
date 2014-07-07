@@ -1,0 +1,2 @@
+def convertForAlignment(self, orth):
+    return orth.split()

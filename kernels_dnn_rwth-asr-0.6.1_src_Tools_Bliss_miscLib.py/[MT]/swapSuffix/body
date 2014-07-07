@@ -1,0 +1,17 @@
+def swapSuffix(path, suffix, keepCompressionSuffix=False):
+    "\n    1) swaps the filename's suffix, if filename has suffix\n    2) addd suffix, if filename has no suffix\n    3) ignores known suffixes indicating compression (see zopen) and performs 1) or 2)\n    "
+    (dirname, filename) = os.path.split(path)
+    assert filename
+    if filename.endswith('.gz'):
+        filename = filename[:(-3)]
+        compressionSuffix = '.gz'
+    else:
+        compressionSuffix = ''
+    i = filename.rfind('.')
+    if (i == (-1)):
+        filename += ('.' + suffix)
+    else:
+        filename = (filename[:(i + 1)] + suffix)
+    if keepCompressionSuffix:
+        filename += compressionSuffix
+    return os.path.join(dirname, filename)

@@ -1,0 +1,5 @@
+def __init__(self):
+    super(XmlSchemaParser, self).__init__()
+    self.parser = xml.sax.make_parser()
+    self.parser.setContentHandler(self)
+    self.rootElement = super(XmlSchemaParser, self)

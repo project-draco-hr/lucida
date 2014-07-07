@@ -1,0 +1,12 @@
+def convert(self):
+    ' reads the old cart tree and converts it to the new xml-format\n\t\t'
+    self._writer = openXml(self._pathToNewTree, self._newEncoding)
+    self._setNumberOfCartClasses()
+    self._reader = uopen(self._pathToOldTree)
+    self._writer.open('decision-tree')
+    self._convertPhonemeList()
+    self._convertQuestionList()
+    self._convertBinaryTree()
+    self._writer.close('decision-tree')
+    closeXml(self._writer)
+    uclose(self._reader)

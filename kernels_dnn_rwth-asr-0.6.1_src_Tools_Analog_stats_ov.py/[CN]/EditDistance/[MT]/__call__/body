@@ -1,0 +1,11 @@
+def __call__(self, data):
+    self.clear()
+    for (reference, recognized) in zip(data['reference'], data['recognized']):
+        reference = self.convertForAlignment(reference)
+        recognized = self.convertForAlignment(recognized)
+        (alignment, errors) = align(reference, recognized)
+        if self.filterMode:
+            (reference, recognized, alignment) = self.filter(reference, recognized, alignment)
+        self.accu(reference, recognized, alignment)
+    nErrors = ((self.nDeletions + self.nInsertions) + self.nSubstitutions)
+    return zip(self.fields, [self.nStrings, self.nDeletions, self.nInsertions, self.nSubstitutions, nErrors, self.nSymbols, ((100.0 * nErrors) / self.nSymbols)])

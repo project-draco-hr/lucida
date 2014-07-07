@@ -1,0 +1,6 @@
+def endElement(self, name):
+    prev = self.stack.pop()
+    try:
+        prev.end()
+    except XmlError as e:
+        print e

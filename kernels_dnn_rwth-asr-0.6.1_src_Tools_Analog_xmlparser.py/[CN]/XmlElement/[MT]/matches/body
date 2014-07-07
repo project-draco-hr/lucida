@@ -1,0 +1,2 @@
+def matches(self, name, atts):
+    return ((self.name == '*') or (self.name == name))

@@ -1,0 +1,11 @@
+def __init__(self, options):
+    self.options = options
+    self.processors = [Manipulator(options), Extractor(options), StatisticsReporter(options)]
+    self.processors = [proc for proc in self.processors if proc.isActive()]
+    if options.groupBySpeaker:
+        self.groupBy = (lambda segment: segment[None]['speaker'])
+    elif (options.subcorpusDepth > 0):
+        s = options.subcorpusDepth
+        self.groupBy = (lambda segment: '/'.join(segment.id.split('/')[:s]))
+    else:
+        self.groupBy = (lambda segment: segment.id)

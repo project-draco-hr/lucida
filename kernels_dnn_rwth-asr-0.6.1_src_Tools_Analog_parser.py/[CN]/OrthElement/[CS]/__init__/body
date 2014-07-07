@@ -1,0 +1,3 @@
+def __init__(self, source, handler):
+    super(OrthElement, self).__init__('orth', handler)
+    self.sourceAttr = source

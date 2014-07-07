@@ -1,0 +1,5 @@
+'\nAnalog Plug-in for creating karaoke format\n'
+__version__ = '$Revision: 6911 $'
+__date__ = '$Date: 2008-10-30 15:35:27 +0100 (Thu, 30 Oct 2008) $'
+import os, sys, string, tempfile
+from analog import Writer

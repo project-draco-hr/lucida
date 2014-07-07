@@ -1,0 +1,4 @@
+def assemble(self, orth):
+    words = orth.split()
+    words = assembleOovWords(words)
+    return ' '.join(words)

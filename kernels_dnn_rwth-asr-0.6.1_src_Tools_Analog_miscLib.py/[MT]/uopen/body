@@ -1,0 +1,9 @@
+def uopen(fileName, encoding='ascii', mode='r'):
+    (encoder, decoder, streamReader, streamWriter) = codecs.lookup(encoding)
+    fd = zopen(fileName, mode)
+    if ((mode == 'w') or (mode == 'a')):
+        return streamWriter(fd)
+    elif (mode == 'r'):
+        return streamReader(fd)
+    else:
+        return codecs.StreamReaderWriter(fd, streamReader, streamWriter)

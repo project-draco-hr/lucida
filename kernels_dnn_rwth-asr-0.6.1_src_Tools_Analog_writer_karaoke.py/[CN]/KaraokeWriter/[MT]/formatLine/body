@@ -1,0 +1,20 @@
+def formatLine(self, startFrameIndex, nextStartFrameIndex, alignmentElement):
+    result = None
+    relativeStartTime = (self.startTime - self.minStartTime)
+    if (alignmentElement[1] != self.nullToken):
+        result = (str(int(((relativeStartTime + (float(startFrameIndex) * self.frameShift)) * 1000.0))) + ' ')
+        result += (alignmentElement[1] + ' ')
+        if (alignmentElement[1] == alignmentElement[0]):
+            result += '0'
+        elif (alignmentElement[0] == self.nullToken):
+            result += '2'
+        else:
+            result += '1'
+    elif (alignmentElement[0] != self.nullToken):
+        result = (str(int(((relativeStartTime + (float(nextStartFrameIndex) * self.frameShift)) * 1000.0))) + ' ')
+        if (not self.suppressDeletions):
+            result += (alignmentElement[0] + ' ')
+        else:
+            result += ('_' + ' ')
+        result += '3'
+    return result

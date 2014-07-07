@@ -1,0 +1,3 @@
+def closeXml(xml):
+    xml.end()
+    uclose(xml.fd)

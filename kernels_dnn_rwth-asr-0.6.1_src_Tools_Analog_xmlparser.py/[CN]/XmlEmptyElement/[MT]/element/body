@@ -1,0 +1,2 @@
+def element(self, name, atts):
+    raise XmlValidityError(('Element "%s" is declared to have empty content' % self.name))

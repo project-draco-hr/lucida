@@ -1,0 +1,5 @@
+def characters(self, cdata):
+    try:
+        self.stack[(-1)].characters(cdata)
+    except XmlError as e:
+        print e

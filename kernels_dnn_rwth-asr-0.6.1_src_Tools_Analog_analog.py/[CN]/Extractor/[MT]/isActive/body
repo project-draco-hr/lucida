@@ -1,0 +1,2 @@
+def isActive(self):
+    return (len(self.writers) > 0)

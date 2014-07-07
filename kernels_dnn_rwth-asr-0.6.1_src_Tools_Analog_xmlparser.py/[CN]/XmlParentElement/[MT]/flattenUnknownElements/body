@@ -1,0 +1,2 @@
+def flattenUnknownElements(self):
+    self.unexpectedElement = XmlFlattenElement('*', self)

@@ -1,0 +1,26 @@
+def __init__(self, pathToOldTree, pathToNewTree):
+    ' initializes CartConverter-object\n\t\targuments: paths to the cart tree files\n\t\tseveral default values are set:\n\t\tnumber of hmm-states = 3\n\t\tboundary style = super-pos-dep\n\t\tencoding of old file = ascii\n\t\tencoding of new file = utf-8\n\t\tsilence token = si\n\t\tboundary token = #\n\t\tpossible _contexts = history[0], central, future[0]\n\t\t'
+    self._pathToOldTree = pathToOldTree
+    self._pathToNewTree = pathToNewTree
+    self._nHmmStates = 3
+    self._boundaryStyle = 'superPosDep'
+    self._oldEncoding = 'ascii'
+    self._newEncoding = 'utf-8'
+    if (self._boundaryStyle == 'superPosDep'):
+        self._positions = ['single-phoneme-lemma', 'begin-of-lemma', 'end-of-lemma']
+    elif (self._boundaryStyle == 'nPosDep'):
+        self._positions = []
+    elif (self._boundaryStyle == 'posDep'):
+        (self._positions == ['position-word-boundary'])
+    self._silenceToken = 'si'
+    self._boundaryToken = '#'
+    self._contexts = ['history[0]', 'central', 'future[0]']
+    self._writer = None
+    self._reader = None
+    self._phonemes = []
+    self._nQuestions = 0
+    self._nOldQuestions = 0
+    self._silenceIdx = 0
+    self._boundaryIdx = 0
+    self._indexMap = {}
+    self._maxIndexOfCartClasses = 0
