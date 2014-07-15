@@ -1,0 +1,3 @@
+def start(self, atts):
+    if self.startHandler:
+        self.startHandler(atts)

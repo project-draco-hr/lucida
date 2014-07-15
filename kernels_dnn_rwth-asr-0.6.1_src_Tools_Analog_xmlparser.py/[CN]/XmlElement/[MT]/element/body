@@ -1,0 +1,2 @@
+def element(self, name, atts):
+    raise NotImplementedError

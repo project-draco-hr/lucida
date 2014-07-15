@@ -1,0 +1,3 @@
+def formatted_cdata(self, s):
+    for w in string.split(s, '\n'):
+        self.cdata(w)

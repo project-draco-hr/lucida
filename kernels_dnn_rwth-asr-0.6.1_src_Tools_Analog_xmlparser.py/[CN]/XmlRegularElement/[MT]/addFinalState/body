@@ -1,0 +1,2 @@
+def addFinalState(self, state):
+    self.transitions.append((state, self.final, None))

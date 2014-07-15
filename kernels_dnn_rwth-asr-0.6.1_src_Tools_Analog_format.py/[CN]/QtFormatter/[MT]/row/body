@@ -1,0 +1,16 @@
+def row(self, id, layer, values):
+    for item in self.items:
+        row = []
+        if (layer is None):
+            label = id
+        else:
+            label = ((id + '/') + layer)
+        row.append(self.currentFile)
+        row.append(label)
+        for field in item.fields:
+            if ((item.stat, field) in values):
+                row.append((field.format % values[(item.stat, field)]))
+            else:
+                row.append('n/a')
+        event = self.NewRowEvent(item.stat.name, row)
+        QApplication.postEvent(self.gui.dialog, event)

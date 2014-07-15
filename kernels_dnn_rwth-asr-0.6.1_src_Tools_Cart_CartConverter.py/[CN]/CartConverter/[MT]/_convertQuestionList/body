@@ -1,0 +1,32 @@
+def _convertQuestionList(self):
+    ' reads question list from the old file and writes it to the new file\n\t\t    additional question according to the implementation of DecisionTree-legacy.c are written\n\t\t'
+    self.oldQuestionIdx = (-1)
+    self._writer.open('questions')
+    self._writeQuestion('silence', 'central', self._silenceToken, (-1))
+    while True:
+        questionStr = self._reader.readline()
+        if ((questionStr.strip() != '') and (questionStr.strip().find(' ') != (-1))):
+            break
+    while (questionStr.strip() != ''):
+        self._nOldQuestions += 1
+        self.oldQuestionIdx += 1
+        try:
+            (qName, qSet) = questionStr.split(' ', 1)
+        except ValueError:
+            raise FormatError('question specifier', questionStr)
+        for context in self._contexts:
+            self._writeQuestion(qName, context, qSet.strip(), self.oldQuestionIdx)
+        questionStr = self._reader.readline()
+    assert (self._nOldQuestions != 0)
+    for s in map(str, range(self._nHmmStates)):
+        self.oldQuestionIdx += 1
+        self._writeQuestion('hmm-state', 'hmm-state', s, self.oldQuestionIdx)
+    for position in self._positions:
+        self.oldQuestionIdx += 1
+        self._writeQuestion('boundary', 'boundary', position, self.oldQuestionIdx)
+    for phoneme in self._phonemes:
+        if ((phoneme != self._silenceToken) and (phoneme != self._boundaryToken)):
+            self.oldQuestionIdx += 1
+            for context in self._contexts:
+                self._writeQuestion('phone', context, phoneme, self.oldQuestionIdx)
+    self._writer.close('questions')

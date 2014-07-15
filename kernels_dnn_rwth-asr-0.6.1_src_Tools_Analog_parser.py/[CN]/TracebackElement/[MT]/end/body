@@ -1,0 +1,7 @@
+def end(self):
+    items = []
+    data = string.join(self.data, '')
+    for match in self.parseTracebackElement.finditer(data):
+        (time, score, orth, phon, transit) = match.groups()
+        items += [(time, score, orth)]
+    self.handler(items)

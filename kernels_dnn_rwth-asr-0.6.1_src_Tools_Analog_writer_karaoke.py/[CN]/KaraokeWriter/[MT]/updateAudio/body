@@ -1,0 +1,7 @@
+def updateAudio(self, newAudio):
+    if (not self.audio):
+        self.audio = newAudio
+    elif (self.audio != newAudio):
+        print  >> sys.stderr, 'More audio files found in the group. Karaoke file can contain only one.'
+        return False
+    return True

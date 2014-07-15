@@ -1,0 +1,15 @@
+def addSegment(self, name, data):
+    if (name in self.segments):
+        segmentData = self.segments[name]
+        for layer in data:
+            if (layer in segmentData):
+                for aspect in data[layer]:
+                    if (aspect in segmentData[layer]):
+                        if (segmentData[layer][aspect] != data[layer][aspect]):
+                            print  >> sys.stderr, ('warning: ignoring repeated segment/layer/aspect "%s"/"%s"/"%s"' % (name, layer, aspect))
+                    else:
+                        segmentData[layer][aspect] = data[layer][aspect]
+            else:
+                segmentData[layer] = data[layer]
+    else:
+        self.segments[name] = SegmentData(data, name)

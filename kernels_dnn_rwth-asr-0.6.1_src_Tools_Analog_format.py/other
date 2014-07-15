@@ -1,0 +1,20 @@
+__version__ = '$Revision: 9227 $'
+__date__ = '$Date: 2013-11-29 15:47:07 +0100 (Fri, 29 Nov 2013) $'
+import os, threading, sys
+try:
+    from qt import *
+    from qttable import *
+except ImportError:
+    sys.stderr.write('Can not load PyQt. Gui will not work.\n')
+
+
+    class QObject:
+        pass
+
+
+    class QTabDialog:
+        pass
+
+
+    class QCustomEvent:
+        pass

@@ -1,0 +1,10 @@
+def uopen(fileName, encoding='ascii', mode='r'):
+    '\n    universal unicode open:\n    files are opened such that characters are encoded as unicode\n    using the specified encoding and unicode is expected when\n    characters are written (and decoded using the specified encoding);\n    file type detection is supported (see zopen)\n    '
+    (encoder, decoder, streamReader, streamWriter) = codecs.lookup(encoding)
+    fd = zopen(fileName, mode)
+    if ((mode == 'w') or (mode == 'a')):
+        return streamWriter(fd)
+    elif (mode == 'r'):
+        return streamReader(fd)
+    else:
+        return codecs.StreamReaderWriter(fd, streamReader, streamWriter)

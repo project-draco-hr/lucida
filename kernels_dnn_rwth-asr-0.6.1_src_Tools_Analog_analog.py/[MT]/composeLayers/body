@@ -1,0 +1,9 @@
+def composeLayers(segments):
+    for id in segments:
+        generalData = segments[id][None]
+        for layer in segments[id]:
+            if (layer is None):
+                continue
+            data = generalData.copy()
+            data.update(segments[id][layer])
+            segments[id][layer] = data

@@ -1,0 +1,8 @@
+def element(self, name, atts):
+    if self.hasRootOccured:
+        raise XmlWellFormednessError('Document contains more than one root element')
+    self.hasRootOccured = True
+    if self.root.matches(name, atts):
+        return self.root
+    else:
+        raise XmlValidityError(('Root element "%s" expected, found "%s" instead' % (self.root.name, name)))

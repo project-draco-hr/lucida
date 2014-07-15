@@ -1,0 +1,3 @@
+def customEvent(self, event):
+    if (event.__class__ == QtFormatter.NewRowEvent):
+        self.addRow(event.stat, event.row)

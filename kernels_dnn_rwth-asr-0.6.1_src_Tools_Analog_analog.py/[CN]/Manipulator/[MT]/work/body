@@ -1,0 +1,5 @@
+def work(self, segments, groupBy):
+    for segment in segments.itervalues():
+        for layer in segment.itervalues():
+            for mutator in self.mutators:
+                mutator.work(layer)

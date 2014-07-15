@@ -1,0 +1,7 @@
+def convertAudio(self, groupName):
+    outputFilename = (groupName + '.wav')
+    if (self.audio.rfind('.sph') == (len(self.audio) - len('.sph'))):
+        self.convertNistSphereToWav(self.audio, outputFilename, self.minStartTime, (self.maxEndTime - self.minStartTime))
+    else:
+        print  >> sys.stderr, ('warning: conversion from %s to wav format not implemeted yet.' % self.audio)
+    return os.path.basename(outputFilename)

@@ -1,0 +1,7 @@
+def row(self, id, layer, values):
+    if (layer is None):
+        row = [id]
+    else:
+        row = [((id + '/') + layer.replace(' ', '_'))]
+    row += [str(values.get(sf, 'NA')) for sf in self.fields]
+    print  >> self.out, '\t'.join(row)

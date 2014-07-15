@@ -1,0 +1,7 @@
+def findTracebackElement(self, fromElement, syntacticToken):
+    while (self.traceback[fromElement][2] != syntacticToken):
+        fromElement += 1
+        if (fromElement == len(self.traceback)):
+            print  >> sys.stderr, 'Evaluation token not found in alignment.'
+            return None
+    return fromElement

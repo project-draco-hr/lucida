@@ -1,0 +1,8 @@
+def __call__(self, data):
+    nan = float('-nan')
+    inf = float('inf')
+    dens = [d for d in data['lattice density'] if ((d != nan) and (d != inf))]
+    minDns = min(dens)
+    avgDns = (sum(dens) / len(dens))
+    maxDns = max(dens)
+    return zip(self.fields, [minDns, avgDns, maxDns])

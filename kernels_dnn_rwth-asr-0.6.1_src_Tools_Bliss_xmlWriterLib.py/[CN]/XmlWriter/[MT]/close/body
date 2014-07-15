@@ -1,0 +1,4 @@
+def close(self, element):
+    assert (element == self.path[(-1)])
+    del self.path[(-1)]
+    self.write((((self.indent_str() + '</') + element) + '>\n'))

@@ -1,0 +1,5 @@
+def __init__(self, name, width=5, format='%s', unit=''):
+    self.name = name
+    self.width = (max(len(name), width) + 1)
+    self.format = format
+    self.unit = unit

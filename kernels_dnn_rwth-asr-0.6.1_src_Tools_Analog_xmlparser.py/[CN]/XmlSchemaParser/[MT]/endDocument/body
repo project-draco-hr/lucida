@@ -1,0 +1,7 @@
+def endDocument(self):
+    if (self.stack[(-1)] is self.rootElement):
+        self.stack[(-1)].end()
+        self.stack.pop()
+    else:
+        print XmlValidityError('Document incomplete: root element not closed')
+    assert (len(self.stack) == 0)

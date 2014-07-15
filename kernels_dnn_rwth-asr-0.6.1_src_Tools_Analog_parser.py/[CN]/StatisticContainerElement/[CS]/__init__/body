@@ -1,0 +1,8 @@
+def __init__(self, name, handler, statElementList):
+    super(StatisticContainerElement, self).__init__(name)
+    self.handler = handler
+    self.statElementList = statElementList
+    for statElement in self.statElementList:
+        self.addChild(StatisticElement(statElement, self.collect))
+    self.ignoreUnknownElements()
+    self.statistics = {}

@@ -1,0 +1,17 @@
+def analyseFieldSpec(self, fieldSpec):
+    m = self.reFieldSpec.match(fieldSpec)
+    if (not m):
+        raise ValueError('illegal field format', fieldSpec)
+    f = m.group(1).split('.')
+    if (len(f) == 1):
+        cand = filter((lambda cf: ((cf[0].id == f[0]) or (cf[1].name == f[0]))), Collector.allFields)
+    elif (len(f) == 2):
+        cand = filter((lambda cf: ((cf[0].id == f[0]) and (cf[1].name == f[1]))), Collector.allFields)
+    else:
+        raise ValueError('illegal field format', fieldSpec)
+    if (not cand):
+        raise ValueError('not matching field', fieldSpec)
+    args = m.group(2)
+    if (args is not None):
+        args = tuple(args.split(','))
+    return (cand, args)

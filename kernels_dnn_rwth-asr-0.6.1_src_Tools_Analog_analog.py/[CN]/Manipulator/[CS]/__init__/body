@@ -1,0 +1,9 @@
+def __init__(self, options):
+    self.options = options
+    mmap = dict([(mutator.id, mutator) for mutator in Mutator.allMutators])
+    self.mutators = []
+    for id in self.options.mutations:
+        if (id in mmap):
+            self.mutators.append(mmap[id](self.options))
+        else:
+            print  >> sys.stderr, ('error: undefined mutator "%s"' % id)

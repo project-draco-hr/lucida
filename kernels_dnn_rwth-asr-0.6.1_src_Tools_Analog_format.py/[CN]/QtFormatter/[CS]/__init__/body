@@ -1,0 +1,6 @@
+def __init__(self, out, fields):
+    self.gui = self.GuiThread()
+    self.resizeInProgress = False
+    self.currentFile = ''
+    Formatter.__init__(self, out, fields)
+    self.gui.start()

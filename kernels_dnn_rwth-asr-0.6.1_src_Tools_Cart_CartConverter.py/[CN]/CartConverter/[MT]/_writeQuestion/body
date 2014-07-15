@@ -1,0 +1,13 @@
+def _writeQuestion(self, qName, nameOfKey, qSet, oldQuestionIdx):
+    ' writes a question to the new file and adds an entry to the index map self._indexMap\n\t\t    qName: string, name of the question\n\t\t    nameofKey: string, name of the key, e.g. central\n\t\t    qSet: string\n\t\t    oldQuestionIdx: integer, index of the question in the old format\n\t\t'
+    self._writer.open('question', description=qName)
+    self._writeKey(nameOfKey)
+    self._writeValue(qSet)
+    self._writer.close('question')
+    try:
+        context = (self._contexts.index(nameOfKey) - 1)
+        self._indexMap[(oldQuestionIdx, context)] = self._nQuestions
+    except ValueError:
+        for i in range(len(self._contexts)):
+            self._indexMap[(oldQuestionIdx, i)] = self._nQuestions
+    self._nQuestions += 1

@@ -1,0 +1,6 @@
+def reset(self):
+    self.audio = None
+    self.traceback = None
+    self.startTime = None
+    self.minStartTime = None
+    self.maxEndTime = None

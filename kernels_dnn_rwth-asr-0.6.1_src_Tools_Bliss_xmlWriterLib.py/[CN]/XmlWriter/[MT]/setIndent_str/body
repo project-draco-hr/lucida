@@ -1,0 +1,2 @@
+def setIndent_str(self, indent_str):
+    self.indentStr = indent_str

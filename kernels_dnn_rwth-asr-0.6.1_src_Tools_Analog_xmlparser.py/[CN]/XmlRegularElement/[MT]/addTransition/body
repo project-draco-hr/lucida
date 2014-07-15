@@ -1,0 +1,2 @@
+def addTransition(self, source, target, child):
+    self.transitions.append((source, target, child))

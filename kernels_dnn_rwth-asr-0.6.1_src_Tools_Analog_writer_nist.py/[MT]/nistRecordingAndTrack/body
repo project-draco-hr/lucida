@@ -1,0 +1,7 @@
+def nistRecordingAndTrack(segment, useName=False):
+    if useName:
+        rec = segment['name']
+    else:
+        rec = segment['recording']
+    track = (segment['track'] + 1)
+    return ('%s %d' % (rec, track))

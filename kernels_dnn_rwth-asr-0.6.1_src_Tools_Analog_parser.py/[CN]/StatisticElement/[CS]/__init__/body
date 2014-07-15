@@ -1,0 +1,12 @@
+def __init__(self, attrName, handler, dataElementList=['min', 'avg', 'max']):
+    super(StatisticElement, self).__init__('statistic')
+    self.attrName = attrName
+    self.handler = handler
+    self.dataElementList = dataElementList
+    for name in dataElementList:
+
+        def handler(atts, data, key=name):
+            self.collect(key, float(data))
+        self.addChild(XmlDataOnlyElement(name, handler))
+    self.ignoreUnknownElements()
+    self.statistic = {}

@@ -1,0 +1,3 @@
+def reset(self):
+    self.stack = []
+    self.parser.reset()

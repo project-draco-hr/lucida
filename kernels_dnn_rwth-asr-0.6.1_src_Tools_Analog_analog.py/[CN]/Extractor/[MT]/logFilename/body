@@ -1,0 +1,5 @@
+def logFilename(self, filename, error, prefix):
+    printout = (prefix + filename)
+    if error:
+        printout = (('\x1b[01;31m' + printout) + '\x1b[0;0m')
+    print printout

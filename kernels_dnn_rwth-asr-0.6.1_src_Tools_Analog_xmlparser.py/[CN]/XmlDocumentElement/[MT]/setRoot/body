@@ -1,0 +1,2 @@
+def setRoot(self, root):
+    self.root = root

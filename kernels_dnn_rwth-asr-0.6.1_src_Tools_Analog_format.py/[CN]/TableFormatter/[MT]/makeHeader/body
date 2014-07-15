@@ -1,0 +1,3 @@
+def makeHeader(self):
+    header = [field.name for (stat, field) in self.fields]
+    self.headerString = '\t'.join(header)

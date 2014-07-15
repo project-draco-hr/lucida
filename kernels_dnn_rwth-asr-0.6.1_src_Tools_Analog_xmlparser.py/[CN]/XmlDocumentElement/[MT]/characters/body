@@ -1,0 +1,2 @@
+def characters(self, cdata):
+    raise XmlWellFormednessError('Character data outside root element')

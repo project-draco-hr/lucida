@@ -1,0 +1,5 @@
+def __init__(self, handler):
+    super(SegmentElement, self).__init__('segment', handler)
+    self.addChild(OrthElement('reference', (lambda orth: self.addData('reference', orth))))
+    self.addChild(SpeakerElement((lambda speaker: self.addData('speaker', speaker))))
+    self.addChild(LayerElement(self.addLayer))

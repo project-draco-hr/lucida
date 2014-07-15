@@ -1,0 +1,6 @@
+def start(self, atts):
+    self.recordingName = atts['name']
+    if atts.has_key('audio'):
+        self.audio = atts['audio']
+    else:
+        self.audio = None

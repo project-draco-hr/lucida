@@ -1,0 +1,8 @@
+def __init__(self, name, startHandler=None, endHandler=None):
+    super(XmlRegularElement, self).__init__(name)
+    self.transitions = []
+    self.state = self.final
+    if startHandler:
+        self.startHandler = startHandler
+    if endHandler:
+        self.endHandler = endHandler

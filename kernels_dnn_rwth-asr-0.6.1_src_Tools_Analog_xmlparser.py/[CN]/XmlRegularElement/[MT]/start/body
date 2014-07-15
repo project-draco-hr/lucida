@@ -1,0 +1,5 @@
+def start(self, atts):
+    assert (self.state == self.final)
+    self.state = self.initial
+    if self.startHandler:
+        self.startHandler(atts)

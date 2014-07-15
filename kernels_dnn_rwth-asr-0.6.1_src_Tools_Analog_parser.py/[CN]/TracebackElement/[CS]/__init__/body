@@ -1,0 +1,2 @@
+def __init__(self, handler):
+    super(TracebackElement, self).__init__('traceback', handler)

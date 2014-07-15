@@ -1,0 +1,5 @@
+def selectLayer(segments, layer):
+    result = {}
+    for id in segments:
+        result[id] = segments[id].selectLayer(layer)
+    return result

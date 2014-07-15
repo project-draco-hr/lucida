@@ -1,0 +1,2 @@
+def indent_str(self):
+    return (self.indentStr * len(self.path))

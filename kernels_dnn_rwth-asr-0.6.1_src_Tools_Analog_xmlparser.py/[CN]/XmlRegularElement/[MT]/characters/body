@@ -1,0 +1,3 @@
+def characters(self, cdata):
+    if cdata.strip():
+        raise XmlValidityError(('Element "%s" is declared to contain no character data' % self.name))

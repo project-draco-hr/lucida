@@ -1,0 +1,5 @@
+def addPrefix(path, prefix):
+    '\n    adds prefix to the filename given in path\n    '
+    (dirname, filename) = os.path.split(path)
+    assert filename
+    return os.path.join(dirname, (prefix + filename))

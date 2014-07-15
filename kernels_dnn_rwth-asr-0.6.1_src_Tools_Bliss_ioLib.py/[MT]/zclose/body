@@ -1,0 +1,3 @@
+def zclose(fd):
+    if ((fd != sys.stdin) and (fd != sys.stdout) and (fd != sys.stderr)):
+        fd.close()

@@ -1,0 +1,12 @@
+def __call__(self, file, data):
+    for segment in data:
+        recording = nistRecordingAndTrack(segment, self.useFullName)
+        segmentStartTime = float(segment['start'])
+        traceback = segment['traceback']
+        previousFrameIndex = 0
+        for (frameIndex, score, lemma) in traceback[1:(-1)]:
+            frameIndex = int(frameIndex)
+            if (lemma == self.silence):
+                lemma = '@'
+            print  >> file, recording, ('%.3f' % (segmentStartTime + (float(previousFrameIndex) * self.frameShift))), ('%.3f' % (float((frameIndex - previousFrameIndex)) * self.frameShift)), lemma
+            previousFrameIndex = frameIndex

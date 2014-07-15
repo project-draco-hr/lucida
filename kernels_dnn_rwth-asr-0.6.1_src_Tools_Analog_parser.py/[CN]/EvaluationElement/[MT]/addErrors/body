@@ -1,0 +1,2 @@
+def addErrors(self, errors):
+    self.data.errors = errors

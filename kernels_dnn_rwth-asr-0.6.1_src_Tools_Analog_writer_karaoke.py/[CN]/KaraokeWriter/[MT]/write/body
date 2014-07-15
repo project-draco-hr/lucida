@@ -1,0 +1,12 @@
+def write(self, file, lines):
+    print  >> file, 'karaoke'
+    groupName = file.name[0:(len(file.name) - len(self.postfix))]
+    audioFilename = self.convertAudio(groupName)
+    if self.comparePostfix:
+        audioFilename += (' ' + os.path.basename((groupName + self.comparePostfix)))
+    print  >> file, audioFilename
+    startTimes = lines.keys()
+    startTimes.sort()
+    for startTime in startTimes:
+        for line in lines[startTime]:
+            print  >> file, line

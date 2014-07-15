@@ -1,0 +1,3 @@
+def __init__(self, name, handler):
+    super(ObsoleteEditDistanceStatisticsElement, self).__init__(handler)
+    self.nameAttr = name

@@ -1,0 +1,3 @@
+def work(self, segment):
+    segment['reference'] = self.convertForEval(segment['reference'])
+    segment['recognized'] = self.convertForEval(segment['recognized'])
