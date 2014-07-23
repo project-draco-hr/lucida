@@ -1,0 +1,8 @@
+import os
+import sys
+kernels = {'triad': 'triad', }
+if (__name__ == '__main__'):
+    directory = sys.argv[1]
+    source = sys.argv[2]
+    print directory, source
+    main(directory, source)
