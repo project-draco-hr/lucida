@@ -1,0 +1,5 @@
+def read_ods():
+    spreadsheet = ezodf.opendoc('TCO_siri.ods')
+    ws_in = spreadsheet.sheets['TCO Inputs']
+    ws_out = spreadsheet.sheets['TCO Outputs']
+    return (ws_out['B14'].value, ws_in['E10'].value, ws_in['B10'].value)

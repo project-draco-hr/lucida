@@ -1,0 +1,6 @@
+def modif_ods(server_cost, server_power):
+    spreadsheet = ezodf.opendoc('TCO_siri.ods')
+    ws_in = spreadsheet.sheets['TCO Inputs']
+    ws_in['B15'].set_value(server_cost)
+    ws_in['B18'].set_value(server_power)
+    spreadsheet.save()

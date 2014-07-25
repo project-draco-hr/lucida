@@ -1,0 +1,28 @@
+'\nDemo of a basic pie chart plus a few additional features.\n\nIn addition to the basic pie chart, this demo shows a few optional features:\n\n    * slice labels\n    * auto-labeling the percentage\n    * offsetting a slice with "explode"\n    * drop-shadow\n    * custom start angle\n\nNote about the custom start angle:\n\nThe default ``startangle`` is 0, which would start the "Frogs" slice on the\npositive x-axis. This example sets ``startangle = 90`` such that everything is\nrotated counter-clockwise by 90 degrees, and the frog slice starts on the\npositive y-axis.\n'
+import matplotlib.pyplot as plt
+labels = ['GMM', 'HMM']
+sizes = [85, 15]
+colors = ['lightcoral', 'lightskyblue']
+plt.pie(sizes, labels=labels, colors=colors, autopct='%1.0f%%', shadow=True, startangle=45)
+plt.axis('equal')
+plt.title('Speech Recognition (CMU Sphinx)\n')
+plt.savefig('speech-breakdown.pdf')
+plt.clf()
+labels = ['Stemmer', 'Regex', 'CRF', 'Others']
+sizes = [46, 22, 17, 15]
+colors = ['lightcoral', 'gold', 'lightskyblue', 'yellowgreen']
+explode = (0, 0, 0, 0.1)
+plt.pie(sizes, labels=labels, colors=colors, explode=explode, autopct='%1.0f%%', shadow=True, startangle=60)
+plt.axis('equal')
+plt.title('Question-Answering (CMU OpenEphyra)\n')
+plt.savefig('question-breakdown.pdf')
+plt.clf()
+labels = ['Feature Extraction', 'Feature Description', 'Others']
+sizes = [42, 46, 12]
+colors = ['gold', 'lightskyblue', 'yellowgreen']
+explode = (0, 0, 0.1)
+plt.pie(sizes, labels=labels, colors=colors, explode=explode, autopct='%1.0f%%', shadow=True, startangle=60)
+plt.axis('equal')
+plt.title('Image Processing (SURF)\n')
+plt.savefig('image-breakdown.pdf')
+plt.clf()
