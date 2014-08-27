@@ -3,5 +3,5 @@
   MsgPrinter.enableErrorMsgs(true);
   Logger.setLogfile("log/OpenEphyraCorpus");
   Logger.enableLogging(true);
-  (new OpenEphyraCorpus()).commandLine();
+  (new OpenEphyraCorpus()).commandLine("");
 }
