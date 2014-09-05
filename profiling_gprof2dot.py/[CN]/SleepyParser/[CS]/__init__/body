@@ -1,7 +1,0 @@
-def __init__(self, filename):
-    Parser.__init__(self)
-    from zipfile import ZipFile
-    self.database = ZipFile(filename)
-    self.symbols = {}
-    self.calls = {}
-    self.profile = Profile()

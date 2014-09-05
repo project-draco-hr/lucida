@@ -1,2 +1,0 @@
-def match_element_start(self, name):
-    return ((self.token.type == XML_ELEMENT_START) and (self.token.name_or_data == name))

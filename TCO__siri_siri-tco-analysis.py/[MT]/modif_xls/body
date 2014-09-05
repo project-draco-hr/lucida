@@ -1,6 +1,0 @@
-def modif_xls(server_cost, server_power):
-    wb = load_workbook('TCO_siri.xlsx')
-    ws_in = wb.get_sheet_by_name('TCO Inputs')
-    ws_in['B15'] = float(server_cost)
-    ws_in['B18'] = float(server_power)
-    wb.save('TCO_siri.xlsx')

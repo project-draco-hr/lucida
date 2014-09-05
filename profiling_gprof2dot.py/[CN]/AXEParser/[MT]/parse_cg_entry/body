@@ -1,5 +1,0 @@
-def parse_cg_entry(self, lines):
-    if any((('as a whole' in linelooper) for linelooper in lines)):
-        self.parse_cycle_entry(lines)
-    else:
-        self.parse_function_entry(lines)

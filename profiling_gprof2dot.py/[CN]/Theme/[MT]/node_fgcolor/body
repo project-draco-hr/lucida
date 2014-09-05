@@ -1,5 +1,0 @@
-def node_fgcolor(self, weight):
-    if (self.nodestyle == 'filled'):
-        return self.graph_bgcolor()
-    else:
-        return self.color(weight)

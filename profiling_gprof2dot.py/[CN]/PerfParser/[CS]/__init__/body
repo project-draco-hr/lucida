@@ -1,3 +1,0 @@
-def __init__(self, infile):
-    LineParser.__init__(self, infile)
-    self.profile = Profile()

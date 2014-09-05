@@ -1,8 +1,0 @@
-def _rank_cycle_function(self, cycle, function, rank, ranks):
-    if ((function not in ranks) or (ranks[function] > rank)):
-        ranks[function] = rank
-        for call in compat_itervalues(function.calls):
-            if (call.callee_id != function.id):
-                callee = self.functions[call.callee_id]
-                if (callee.cycle is cycle):
-                    self._rank_cycle_function(cycle, callee, (rank + 1), ranks)

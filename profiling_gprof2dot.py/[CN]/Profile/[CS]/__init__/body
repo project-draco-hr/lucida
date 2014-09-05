@@ -1,4 +1,0 @@
-def __init__(self):
-    Object.__init__(self)
-    self.functions = {}
-    self.cycles = []

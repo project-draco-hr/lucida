@@ -1,8 +1,0 @@
-def element_end(self, name):
-    while (self.token.type == XML_CHARACTER_DATA):
-        self.consume()
-    if (self.token.type != XML_ELEMENT_END):
-        raise XmlTokenMismatch(XmlToken(XML_ELEMENT_END, name), self.token)
-    if (self.token.name_or_data != name):
-        raise XmlTokenMismatch(XmlToken(XML_ELEMENT_END, name), self.token)
-    self.consume()

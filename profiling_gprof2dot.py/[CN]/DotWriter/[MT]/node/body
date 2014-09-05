@@ -1,5 +1,0 @@
-def node(self, node, **attrs):
-    self.write('\t')
-    self.id(node)
-    self.attr_list(attrs)
-    self.write(';\n')

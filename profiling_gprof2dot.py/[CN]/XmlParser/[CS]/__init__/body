@@ -1,4 +1,0 @@
-def __init__(self, fp):
-    Parser.__init__(self)
-    self.tokenizer = XmlTokenizer(fp)
-    self.consume()

@@ -1,7 +1,0 @@
-def readline(self):
-    line = self.fp.readline()
-    if (not line):
-        sys.stderr.write('error: unexpected end of file\n')
-        sys.exit(1)
-    line = line.rstrip('\r\n')
-    return line

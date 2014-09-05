@@ -1,3 +1,0 @@
-def lookahead(self):
-    assert (self.__line is not None)
-    return self.__line

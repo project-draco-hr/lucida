@@ -1,8 +1,0 @@
-def character_data(self, strip=True):
-    data = ''
-    while (self.token.type == XML_CHARACTER_DATA):
-        data += self.token.name_or_data
-        self.consume()
-    if strip:
-        data = data.strip()
-    return data

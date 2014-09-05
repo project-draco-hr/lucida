@@ -1,5 +1,0 @@
-def read_xls():
-    wb = load_workbook('TCO_siri.xlsx', data_only=True)
-    ws_in = wb.get_sheet_by_name('TCO Inputs')
-    ws_out = wb.get_sheet_by_name('TCO Outputs')
-    return (ws_out['B14'].value, ws_in['E10'].value, ws_in['B10'].value)

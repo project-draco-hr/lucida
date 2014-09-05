@@ -1,2 +1,0 @@
-def begin_graph(self):
-    self.write('digraph {\n')

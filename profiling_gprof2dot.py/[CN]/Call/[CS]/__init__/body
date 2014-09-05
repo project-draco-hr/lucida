@@ -1,5 +1,0 @@
-def __init__(self, callee_id):
-    Object.__init__(self)
-    self.callee_id = callee_id
-    self.ratio = None
-    self.weight = None

@@ -1,4 +1,0 @@
-def skip_separator(self):
-    while (not self.match_separator()):
-        self.consume()
-    self.consume()

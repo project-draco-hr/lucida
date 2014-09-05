@@ -1,3 +1,0 @@
-def match_primary(self):
-    line = self.lookahead()
-    return (not line[:1].isspace())

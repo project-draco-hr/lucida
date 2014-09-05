@@ -1,6 +1,0 @@
-def parse_key(self, key):
-    pair = self.parse_keys((key,))
-    if (not pair):
-        return None
-    (key, value) = pair
-    return value

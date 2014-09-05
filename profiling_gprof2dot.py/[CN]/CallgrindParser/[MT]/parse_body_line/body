@@ -1,2 +1,0 @@
-def parse_body_line(self):
-    return (self.parse_empty() or self.parse_comment() or self.parse_cost_line() or self.parse_position_spec() or self.parse_association_spec())

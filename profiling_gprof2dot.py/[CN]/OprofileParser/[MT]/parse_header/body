@@ -1,8 +1,0 @@
-def parse_header(self):
-    while (not self.match_header()):
-        self.consume()
-    line = self.lookahead()
-    fields = re.split('\\s\\s+', line)
-    entry_re = (('^\\s*' + '\\s+'.join([self._fields_re[field] for field in fields])) + '(?P<self>\\s+\\[self\\])?$')
-    self.entry_re = re.compile(entry_re)
-    self.skip_separator()

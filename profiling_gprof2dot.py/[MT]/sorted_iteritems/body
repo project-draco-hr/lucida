@@ -1,6 +1,0 @@
-def sorted_iteritems(d):
-    keys = compat_keys(d)
-    keys.sort()
-    for key in keys:
-        value = d[key]
-        yield (key, value)

@@ -1,2 +1,0 @@
-def node_style(self):
-    return self.nodestyle

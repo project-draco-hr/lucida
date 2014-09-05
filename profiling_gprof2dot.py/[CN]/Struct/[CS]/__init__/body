@@ -1,4 +1,0 @@
-def __init__(self, attrs=None):
-    if (attrs is None):
-        attrs = {}
-    self.__dict__['_attrs'] = attrs

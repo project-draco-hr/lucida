@@ -1,8 +1,0 @@
-def parse_entry(self):
-    callers = self.parse_subentries()
-    if self.match_primary():
-        function = self.parse_subentry()
-        if (function is not None):
-            callees = self.parse_subentries()
-            self.add_entry(callers, function, callees)
-    self.skip_separator()

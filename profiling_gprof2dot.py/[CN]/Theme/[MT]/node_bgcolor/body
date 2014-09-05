@@ -1,2 +1,0 @@
-def node_bgcolor(self, weight):
-    return self.color(weight)

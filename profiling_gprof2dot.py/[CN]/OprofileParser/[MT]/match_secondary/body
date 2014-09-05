@@ -1,3 +1,0 @@
-def match_secondary(self):
-    line = self.lookahead()
-    return line[:1].isspace()

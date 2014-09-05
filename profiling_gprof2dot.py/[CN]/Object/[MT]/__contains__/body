@@ -1,2 +1,0 @@
-def __contains__(self, event):
-    return (event in self.events)

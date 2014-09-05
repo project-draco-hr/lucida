@@ -1,2 +1,0 @@
-def edge_penwidth(self, weight):
-    return max((weight * self.maxpenwidth), self.minpenwidth)

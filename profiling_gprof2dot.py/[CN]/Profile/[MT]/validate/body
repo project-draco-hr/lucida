@@ -1,8 +1,0 @@
-def validate(self):
-    'Validate the edges.'
-    for function in compat_itervalues(self.functions):
-        for callee_id in compat_keys(function.calls):
-            assert (function.calls[callee_id].callee_id == callee_id)
-            if (callee_id not in self.functions):
-                sys.stderr.write(('warning: call to undefined function %s from function %s\n' % (str(callee_id), function.name)))
-                del function.calls[callee_id]

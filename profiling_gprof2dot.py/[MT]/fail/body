@@ -1,2 +1,0 @@
-def fail(a, b):
-    assert False

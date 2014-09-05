@@ -1,5 +1,0 @@
-def parse_header(self, row):
-    for column in range(len(row)):
-        name = row[column]
-        assert (name not in self.column)
-        self.column[name] = column

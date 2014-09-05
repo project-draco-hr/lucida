@@ -1,5 +1,0 @@
-def __getitem__(self, event):
-    try:
-        return self.events[event]
-    except KeyError:
-        raise UndefinedEvent(event)

@@ -1,5 +1,0 @@
-def __init__(self, fp):
-    Parser.__init__(self)
-    self.fp = fp
-    self.functions = {}
-    self.cycles = {}

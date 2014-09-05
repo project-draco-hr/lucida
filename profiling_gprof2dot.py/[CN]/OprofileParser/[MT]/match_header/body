@@ -1,3 +1,0 @@
-def match_header(self):
-    line = self.lookahead()
-    return line.startswith('samples')

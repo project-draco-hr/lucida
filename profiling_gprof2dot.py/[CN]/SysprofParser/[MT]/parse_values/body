@@ -1,8 +1,0 @@
-def parse_values(self):
-    values = {}
-    while (self.token.type == XML_ELEMENT_START):
-        name = self.token.name_or_data
-        value = self.parse_value(name)
-        assert (name not in values)
-        values[name] = value
-    return values

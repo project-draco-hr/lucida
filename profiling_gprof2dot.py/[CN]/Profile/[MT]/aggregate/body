@@ -1,9 +1,0 @@
-def aggregate(self, event):
-    'Aggregate an event for the whole profile.'
-    total = event.null()
-    for function in compat_itervalues(self.functions):
-        try:
-            total = event.aggregate(total, function[event])
-        except UndefinedEvent:
-            return
-    self[event] = total

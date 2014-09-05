@@ -1,4 +1,0 @@
-def format(self, val):
-    'Format an event value.'
-    assert (val is not None)
-    return self._formatter(val)

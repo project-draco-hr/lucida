@@ -1,2 +1,0 @@
-def edge_color(self, weight):
-    return self.color(weight)

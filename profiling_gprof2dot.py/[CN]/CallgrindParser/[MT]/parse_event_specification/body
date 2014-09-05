@@ -1,5 +1,0 @@
-def parse_event_specification(self):
-    event = self.parse_key('event')
-    if (event is None):
-        return False
-    return True

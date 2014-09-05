@@ -1,3 +1,0 @@
-def _dump_events(self, events):
-    for (event, value) in compat_iteritems(events):
-        sys.stderr.write(('    %s: %s\n' % (event.name, event.format(value))))

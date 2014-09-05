@@ -1,2 +1,0 @@
-def __str__(self):
-    return ('%s: %r' % (self.msg, self.line))

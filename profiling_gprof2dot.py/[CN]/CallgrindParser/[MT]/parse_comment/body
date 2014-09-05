@@ -1,6 +1,0 @@
-def parse_comment(self):
-    line = self.lookahead()
-    if (not line.startswith('#')):
-        return False
-    self.consume()
-    return True

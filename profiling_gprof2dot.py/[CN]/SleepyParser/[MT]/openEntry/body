@@ -1,6 +1,0 @@
-def openEntry(self, name):
-    for database_name in self.database.namelist():
-        if (name.lower() == database_name.lower()):
-            name = database_name
-            break
-    return self.database.open(name, 'rU')

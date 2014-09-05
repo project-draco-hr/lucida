@@ -1,5 +1,0 @@
-def handle_element_end(self, name):
-    self.finish_character_data()
-    (line, column) = self.pos()
-    token = XmlToken(XML_ELEMENT_END, name, None, line, column)
-    self.tokens.append(token)

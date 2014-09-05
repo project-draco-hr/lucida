@@ -1,2 +1,0 @@
-def times(x):
-    return ('%u%s' % (x, MULTIPLICATION_SIGN))

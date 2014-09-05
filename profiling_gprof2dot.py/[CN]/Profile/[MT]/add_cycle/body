@@ -1,2 +1,0 @@
-def add_cycle(self, cycle):
-    self.cycles.append(cycle)
