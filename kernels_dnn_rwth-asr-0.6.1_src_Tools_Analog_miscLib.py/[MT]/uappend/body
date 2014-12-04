@@ -1,2 +1,0 @@
-def uappend(fileName, encoding='ascii'):
-    return uopen(fileName, encoding, 'a')

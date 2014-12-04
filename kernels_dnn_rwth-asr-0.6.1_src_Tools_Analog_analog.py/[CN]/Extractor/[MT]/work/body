@@ -1,5 +1,0 @@
-def work(self, segments, groupBy):
-    groups = groupSegments(segments, groupBy)
-    groups = sorted(groups.iteritems())
-    for (groupName, group) in groups:
-        self.writeGroup(groupName, group)

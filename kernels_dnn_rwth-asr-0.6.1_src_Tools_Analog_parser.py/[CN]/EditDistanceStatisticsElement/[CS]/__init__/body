@@ -1,4 +1,0 @@
-def __init__(self, handler):
-    super(EditDistanceStatisticsElement, self).__init__('statistic')
-    self.handler = handler
-    self.addChild(XmlDataOnlyElement('count', self.addCount))

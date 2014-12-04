@@ -1,8 +1,0 @@
-def encode(self, s):
-    a = []
-    for c in s:
-        o = ord(c)
-        if (o >= 128):
-            c = hex(o)
-        a.append(c)
-    return ''.join(a)

@@ -1,2 +1,0 @@
-def __init__(self):
-    super(XmlDocumentElement, self).__init__('__root__')

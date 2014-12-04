@@ -1,2 +1,0 @@
-def row(self, layer, values):
-    raise NotImplementedError

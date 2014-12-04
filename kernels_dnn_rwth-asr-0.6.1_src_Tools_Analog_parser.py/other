@@ -1,6 +1,0 @@
-'\nThis is the XML parser for Sprint log-files.\n\nPlease try to keep it reasonably backward compatible!  Suggestion: If\nyou need additional code to handle older files, make a comment with\nthe date.  Such parts should be removed after, say, 6 months.\n'
-__version__ = '$Revision: 9621 $'
-__date__ = '$Date: 2014-05-13 19:35:55 +0200 (Tue, 13 May 2014) $'
-import string, re, sys
-from miscLib import zopen, zclose, uopen, uclose
-from xmlparser import *

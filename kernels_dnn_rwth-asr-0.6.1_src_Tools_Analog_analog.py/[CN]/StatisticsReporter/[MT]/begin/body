@@ -1,3 +1,0 @@
-def begin(self):
-    self.format.header()
-    self.format.sep()

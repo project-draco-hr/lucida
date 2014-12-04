@@ -1,3 +1,0 @@
-def comment(self, comment):
-    comment = string.replace(comment, '--', '=')
-    self.cdata((('<!-- ' + comment) + ' -->'))

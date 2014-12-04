@@ -1,6 +1,0 @@
-def __init__(self, fd, encoding):
-    self.fd = fd
-    self.encoding = encoding
-    self.path = []
-    self.indentStr = '  '
-    self.margin = 78

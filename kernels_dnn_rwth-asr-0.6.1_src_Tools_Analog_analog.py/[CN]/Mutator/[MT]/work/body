@@ -1,2 +1,0 @@
-def work(self, segment):
-    raise NotImplementedError

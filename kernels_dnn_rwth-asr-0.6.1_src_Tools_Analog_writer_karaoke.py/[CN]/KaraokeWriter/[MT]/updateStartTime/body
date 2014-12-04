@@ -1,2 +1,0 @@
-def updateStartTime(self, newTime):
-    self.startTime = newTime

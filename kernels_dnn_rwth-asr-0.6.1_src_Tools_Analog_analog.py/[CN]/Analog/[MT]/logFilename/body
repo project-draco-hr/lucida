@@ -1,3 +1,0 @@
-def logFilename(self, filename, wasParseSuccessful, multiple):
-    for processor in self.processors:
-        processor.logFilename(filename, (not wasParseSuccessful), {True: ' + ', False: '', }[multiple])

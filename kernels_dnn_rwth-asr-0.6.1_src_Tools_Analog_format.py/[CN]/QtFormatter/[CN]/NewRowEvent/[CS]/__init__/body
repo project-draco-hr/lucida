@@ -1,4 +1,0 @@
-def __init__(self, stat, row):
-    QCustomEvent.__init__(self, 1001)
-    self.stat = stat
-    self.row = row

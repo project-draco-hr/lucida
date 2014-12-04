@@ -1,4 +1,0 @@
-import sys, tempfile, os
-from xml.dom.minidom import parse
-if (__name__ == '__main__'):
-    main(sys.argv)

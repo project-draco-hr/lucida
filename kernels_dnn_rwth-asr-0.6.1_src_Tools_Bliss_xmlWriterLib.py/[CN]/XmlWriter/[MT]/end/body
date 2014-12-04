@@ -1,3 +1,0 @@
-def end(self):
-    assert (len(self.path) == 0)
-    pass

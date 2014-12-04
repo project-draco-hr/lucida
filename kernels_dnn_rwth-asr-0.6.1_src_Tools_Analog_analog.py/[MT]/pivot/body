@@ -1,5 +1,0 @@
-def pivot(listOfDicts):
-    'Convert a list of dictionaries into a dictionary of lists.'
-    keys = set([k for d in listOfDicts for k in d])
-    dictOfLists = dict([(k, [d.get(k, None) for d in listOfDicts]) for k in keys])
-    return dictOfLists

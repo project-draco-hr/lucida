@@ -1,6 +1,0 @@
-def element(self, name, atts):
-    for (source, target, child) in self.transitions:
-        if ((source == self.state) and child and child.matches(name, atts)):
-            self.state = target
-            return child
-    return self.unexpectedElement

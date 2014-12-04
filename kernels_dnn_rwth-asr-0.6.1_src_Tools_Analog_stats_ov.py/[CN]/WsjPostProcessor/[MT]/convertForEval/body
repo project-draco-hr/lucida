@@ -1,6 +1,0 @@
-def convertForEval(self, orth):
-    if (orth is None):
-        return []
-    eval = [self.mapped.get(w, w) for w in orth.split()]
-    eval = [w for w in eval if self.shouldEvalWord(w)]
-    return ' '.join(eval)

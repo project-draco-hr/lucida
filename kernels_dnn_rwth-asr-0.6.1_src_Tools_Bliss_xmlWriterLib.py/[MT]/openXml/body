@@ -1,4 +1,0 @@
-def openXml(filename, encoding='ascii'):
-    xml = XmlWriter(uopen(filename, encoding, 'w'), encoding)
-    xml.begin()
-    return xml

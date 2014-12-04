@@ -1,2 +1,0 @@
-def addLayer(self, layer, data):
-    self.layerData[layer] = data

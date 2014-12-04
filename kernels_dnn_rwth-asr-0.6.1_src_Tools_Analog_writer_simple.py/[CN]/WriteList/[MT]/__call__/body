@@ -1,3 +1,0 @@
-def __call__(self, file, data):
-    for record in data:
-        print  >> file, record[self.fieldName]

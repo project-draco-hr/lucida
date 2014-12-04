@@ -1,2 +1,0 @@
-def __init__(self, handler):
-    super(SpeakerElement, self).__init__('speaker', handler)

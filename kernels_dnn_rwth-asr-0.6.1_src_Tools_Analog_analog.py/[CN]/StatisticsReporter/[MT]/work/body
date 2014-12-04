@@ -1,9 +1,0 @@
-def work(self, segments, groupBy):
-    groups = groupSegments(segments, groupBy)
-    groupList = groups.keys()
-    groupList.sort()
-    for g in groupList:
-        self.reportGroup(g, groups[g])
-    if (self.format.shouldShowTotal and (len(groups) > 1)):
-        self.format.sep()
-        self.work(segments, (lambda id: 'total'))

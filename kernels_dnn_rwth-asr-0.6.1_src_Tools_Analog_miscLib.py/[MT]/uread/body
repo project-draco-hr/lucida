@@ -1,2 +1,0 @@
-def uread(fileName, encoding='ascii'):
-    return uopen(fileName, encoding, 'r')

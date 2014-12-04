@@ -1,5 +1,0 @@
-def loadList(path, encoding='ascii'):
-    fd = uopen(path, encoding, 'r')
-    l = [r.strip() for r in fd if r.strip()]
-    uclose(fd)
-    return l

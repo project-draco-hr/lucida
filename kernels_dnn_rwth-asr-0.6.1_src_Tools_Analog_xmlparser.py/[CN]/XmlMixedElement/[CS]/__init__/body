@@ -1,9 +1,0 @@
-def __init__(self, name, startHandler=None, endHandler=None, charactersHandler=None):
-    super(XmlMixedElement, self).__init__(name)
-    self.children = []
-    if startHandler:
-        self.startHandler = startHandler
-    if endHandler:
-        self.endHandler = endHandler
-    if charactersHandler:
-        self.charactersHandler = charactersHandler

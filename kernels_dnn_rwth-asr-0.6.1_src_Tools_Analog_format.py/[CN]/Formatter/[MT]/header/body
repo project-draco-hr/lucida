@@ -1,3 +1,0 @@
-def header(self):
-    if self.headerString:
-        print  >> self.out, self.headerString

@@ -1,6 +1,0 @@
-def __init__(self, options):
-    super(KaraokeWriter, self).__init__(options)
-    self.frameShift = float(options.frameShift)
-    self.suppressDeletions = options.karaokeSuppressDeletions
-    self.comparePostfix = options.karaokeComparePostfix
-    self.reset()

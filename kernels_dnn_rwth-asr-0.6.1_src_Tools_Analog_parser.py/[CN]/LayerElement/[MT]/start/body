@@ -1,3 +1,0 @@
-def start(self, atts):
-    self.layerName = atts['name']
-    self.data = {}

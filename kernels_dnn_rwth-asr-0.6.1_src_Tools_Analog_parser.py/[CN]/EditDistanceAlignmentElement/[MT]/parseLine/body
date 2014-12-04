@@ -1,8 +1,0 @@
-def parseLine(self, line):
-    match = self.parseAlignmentElement.match(line)
-    if match:
-        return tuple([string.strip(g) for g in match.groups()])
-    match = self.oldParseAlignmentElement.match(line)
-    if match:
-        return tuple([string.strip(g) for g in match.groups()])
-    raise self.BadAlignmentLine

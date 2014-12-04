@@ -1,2 +1,0 @@
-def __init__(self, options):
-    self.postfix = getattr(options, (str(self.id) + 'Postfix'))

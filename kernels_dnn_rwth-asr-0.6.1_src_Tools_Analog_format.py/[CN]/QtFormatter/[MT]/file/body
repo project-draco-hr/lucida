@@ -1,2 +1,0 @@
-def file(self, fname, highlight=False, prefix=''):
-    self.currentFile = (prefix + fname)

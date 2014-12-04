@@ -1,3 +1,0 @@
-def updateMinMaxTimes(self, data):
-    self.minStartTime = min([record['start'] for record in data])
-    self.maxEndTime = max([record['end'] for record in data])

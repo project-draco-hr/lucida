@@ -1,3 +1,0 @@
-def __call__(self, file, data):
-    for segment in data:
-        print  >> file, nistRecordingAndTrack(segment), segment.get('speaker', 'unknown'), segment['start'], segment['end'], string.join(string.split(segment['reference']), ' ')

@@ -1,3 +1,0 @@
-def usage(prog):
-    print ('USAGE: %s file.flow [plot.png]' % prog)
-    sys.exit((-1))

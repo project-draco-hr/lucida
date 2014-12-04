@@ -1,2 +1,0 @@
-def selectLayer(self, layer):
-    return SegmentData({None: self[layer], }, self.id)

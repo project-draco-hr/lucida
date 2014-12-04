@@ -1,7 +1,0 @@
-def _writeInformation(self, order):
-    ' writes information  attribute (order, size, score) to the new tree\n\t\t    since size and score of a node are not saved in the old format, dummy values are\n\t\t    given to them\n\t\t    order: integer\n\t\t'
-    self._writer.open('information')
-    self._writer.element('order', str(order))
-    self._writer.element('size', '0')
-    self._writer.element('score', '0')
-    self._writer.close('information')

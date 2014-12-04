@@ -1,6 +1,0 @@
-def __writeValueMap(self, values):
-    ' writes a value map with values given in argument \'values\' to the new file\n\t\t    values: list of strings\n\t\t    <value-map>\n\t\t\t<value id="1">values[0]</value>\n\t\t    </value-map>\n\t\t'
-    self._writer.open('value-map')
-    for n in range(len(values)):
-        self._writeValue(values[n], n)
-    self._writer.close('value-map')

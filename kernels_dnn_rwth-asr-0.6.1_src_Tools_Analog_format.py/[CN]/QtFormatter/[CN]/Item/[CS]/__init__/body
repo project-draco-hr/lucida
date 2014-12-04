@@ -1,3 +1,0 @@
-def __init__(self, stat, field):
-    self.stat = stat
-    self.fields = [field]

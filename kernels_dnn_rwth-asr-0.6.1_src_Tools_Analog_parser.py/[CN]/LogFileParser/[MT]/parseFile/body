@@ -1,8 +1,0 @@
-def parseFile(self, fname, segments=None):
-    '\n\tThe rturn value is a rank three mapping\n\tsegments[segment][layer][aspect]\n\t'
-    if (segments is None):
-        self.segments = {}
-    else:
-        self.segments = segments
-    super(LogFileParser, self).parseFile(fname)
-    return self.segments

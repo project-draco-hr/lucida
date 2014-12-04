@@ -1,6 +1,0 @@
-def __init__(self, handler):
-    super(EvaluationElement, self).__init__('evaluation')
-    self.ignoreUnknownElements()
-    self.handler = handler
-    self.addChild(EditDistanceAlignmentElement(self.addAlignment))
-    self.addChild(EditDistanceStatisticsElement(self.addErrors))

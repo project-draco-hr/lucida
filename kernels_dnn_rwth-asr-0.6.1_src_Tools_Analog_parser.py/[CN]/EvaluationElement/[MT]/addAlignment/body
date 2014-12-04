@@ -1,2 +1,0 @@
-def addAlignment(self, alignment):
-    self.data.alignment = alignment

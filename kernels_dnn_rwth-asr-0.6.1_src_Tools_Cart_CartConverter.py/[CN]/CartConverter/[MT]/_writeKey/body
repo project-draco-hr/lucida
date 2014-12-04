@@ -1,3 +1,0 @@
-def _writeKey(self, nameOfKey):
-    ' writes a key entry to the new file\n\t\t    nameOfKey: String\n\t\t    <key>nameOfKey<\\key>\n\t\t'
-    self._writer.element('key', nameOfKey)

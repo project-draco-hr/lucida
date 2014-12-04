@@ -1,9 +1,0 @@
-def _writeRoot(self, nodeStr):
-    ' writes root of the new tree\n\t\t    nodeStr: string, containing the first line of the definition of the old tree\n\t\t'
-    self._writer.open('node', id='0')
-    self._writeInformation(0)
-    self._writer.open('node', id=self._maxIndexOfCartClasses)
-    self._writeInformation(1)
-    self._writer.close('node')
-    self._writeSubTree(nodeStr)
-    self._writer.close('node')

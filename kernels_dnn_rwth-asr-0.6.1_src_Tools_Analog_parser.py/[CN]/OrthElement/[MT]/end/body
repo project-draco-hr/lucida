@@ -1,4 +1,0 @@
-def end(self):
-    orth = ''.join(self.data)
-    orth = ' '.join(orth.split())
-    self.handler(orth)

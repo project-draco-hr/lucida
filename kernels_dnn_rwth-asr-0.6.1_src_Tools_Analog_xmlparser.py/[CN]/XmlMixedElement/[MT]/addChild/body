@@ -1,2 +1,0 @@
-def addChild(self, child):
-    self.children.append(child)

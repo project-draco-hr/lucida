@@ -1,3 +1,0 @@
-def __init__(self, options, fieldName):
-    super(WriteList, self).__init__(options)
-    self.fieldName = fieldName

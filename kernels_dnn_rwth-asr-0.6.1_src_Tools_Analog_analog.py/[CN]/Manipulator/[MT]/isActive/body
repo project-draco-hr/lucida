@@ -1,2 +1,0 @@
-def isActive(self):
-    return (len(self.mutators) > 0)

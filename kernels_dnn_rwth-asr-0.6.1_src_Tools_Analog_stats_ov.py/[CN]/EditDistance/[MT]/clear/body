@@ -1,7 +1,0 @@
-def clear(self):
-    self.nInsertions = 0
-    self.nDeletions = 0
-    self.nSubstitutions = 0
-    self.nCorrect = 0
-    self.nSymbols = 0
-    self.nStrings = 0

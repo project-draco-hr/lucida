@@ -1,2 +1,0 @@
-def makeFields(cls, unit):
-    return [Field('seg'), Field('del'), Field('ins'), Field('sub'), Field('errors'), Field(unit), Field((unit[0] + 'er'), 6, '%6.2f', '%')]

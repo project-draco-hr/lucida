@@ -1,8 +1,0 @@
-def addRow(self, statName, row):
-    table = self.tables[statName]
-    r = table.numRows()
-    table.setNumRows((r + 1))
-    for col in range(len(row)):
-        table.setText(r, col, row[col])
-        table.setEditMode(QTable.NotEditing, r, col)
-        table.adjustColumn(col)

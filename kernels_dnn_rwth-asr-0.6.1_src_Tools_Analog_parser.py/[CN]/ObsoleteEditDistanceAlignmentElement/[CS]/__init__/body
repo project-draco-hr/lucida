@@ -1,3 +1,0 @@
-def __init__(self, name, handler):
-    super(ObsoleteEditDistanceAlignmentElement, self).__init__(handler)
-    self.nameAttr = name

@@ -1,4 +1,0 @@
-def closeComment(self):
-    assert (self.path[(-1)] == '<!--')
-    del self.path[(-1)]
-    self.write('-->\n')

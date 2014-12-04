@@ -1,5 +1,0 @@
-def __init__(self):
-    super(SprintParser, self).__init__()
-    root = XmlMixedElement('sprint')
-    root.flattenUnknownElements()
-    self.setRoot(root)

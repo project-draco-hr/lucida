@@ -1,5 +1,0 @@
-def assembleOovWords(orth):
-    s = '|'.join(orth)
-    s = s.replace('_|_', '')
-    s = s.replace('_', '')
-    return s.split('|')

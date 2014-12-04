@@ -1,2 +1,0 @@
-def setMargin(self, margin):
-    self.margin = margin

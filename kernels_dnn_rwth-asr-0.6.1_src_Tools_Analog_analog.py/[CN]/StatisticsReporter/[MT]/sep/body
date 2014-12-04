@@ -1,2 +1,0 @@
-def sep(self):
-    self.format.sep()

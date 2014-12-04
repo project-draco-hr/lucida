@@ -1,2 +1,0 @@
-def addData(self, aspect, data):
-    self.layerData[None][aspect] = data

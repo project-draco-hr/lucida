@@ -1,3 +1,0 @@
-def addCount(self, atts, cdata):
-    event = atts['event']
-    self.counts[event] = (self.counts.get(event, 0) + int(cdata))

@@ -1,2 +1,0 @@
-def __init__(self, expected, found):
-    self.message = ((('\nFormat error: expected ' + expected) + '\nfound: ') + found)

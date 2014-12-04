@@ -1,3 +1,0 @@
-def matches(self, name, attr):
-    attrName = ' '.join(attr.get('name', '').split())
-    return ((name == self.name) and (attrName == self.attrName))

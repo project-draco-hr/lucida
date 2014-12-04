@@ -1,3 +1,0 @@
-def __init__(cls, name, bases, dictionary):
-    if cls.id:
-        Mutator.allMutators += [cls]

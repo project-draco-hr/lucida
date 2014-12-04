@@ -1,6 +1,0 @@
-def _writeValue(self, value, theId=None):
-    ' writes a value entry to the new file\n\t\t    value: string\n\t\t    theId: string\n\t\t    theId != None: adds the attribute id=theId\n\t\t    <value id=theId>value<\\value>\n\t\t'
-    if (theId == None):
-        self._writer.element('value', value)
-    else:
-        self._writer.element('value', value, id=theId)

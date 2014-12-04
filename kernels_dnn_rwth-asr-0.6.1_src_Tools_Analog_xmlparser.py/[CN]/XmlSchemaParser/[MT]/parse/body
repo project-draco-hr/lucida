@@ -1,4 +1,0 @@
-def parse(self, data):
-    self.reset()
-    self.parser.feed(data)
-    self.parser.close()

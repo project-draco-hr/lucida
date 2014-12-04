@@ -1,4 +1,0 @@
-def __init__(self, handler):
-    super(RecordingElement, self).__init__('recording')
-    self.handler = handler
-    self.addChild(SegmentElement(self.addSegment))

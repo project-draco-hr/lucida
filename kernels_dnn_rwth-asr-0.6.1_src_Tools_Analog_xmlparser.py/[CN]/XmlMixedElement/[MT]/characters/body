@@ -1,3 +1,0 @@
-def characters(self, cdata):
-    if self.charactersHandler:
-        self.charactersHandler(cdata)

@@ -1,6 +1,0 @@
-'\nAnalog Plug-in for evaluation of open-vocabulary recognition results.\n\nWarning: This works correctly only for the WSJ corpus.  This\nimplementation should be considered transitional until this function\nis integrated with Bliss.\n'
-__version__ = '$Revision: 8349 $'
-__date__ = '$Date: 2011-08-15 12:59:09 +0200 (Mon, 15 Aug 2011) $'
-import sys
-from analog import Collector, Field, Mutator
-from sequitur_ import align

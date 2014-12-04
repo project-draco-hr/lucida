@@ -1,3 +1,0 @@
-def __init__(self, handler):
-    super(EditDistanceAlignmentElement, self).__init__('alignment')
-    self.handler = handler

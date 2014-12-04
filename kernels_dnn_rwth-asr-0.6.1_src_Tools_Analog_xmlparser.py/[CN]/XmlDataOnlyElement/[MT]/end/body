@@ -1,3 +1,0 @@
-def end(self):
-    if self.handler:
-        self.handler(self.atts, ''.join(self.data))

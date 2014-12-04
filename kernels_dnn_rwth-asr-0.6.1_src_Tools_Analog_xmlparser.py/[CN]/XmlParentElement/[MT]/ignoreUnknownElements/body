@@ -1,2 +1,0 @@
-def ignoreUnknownElements(self):
-    self.unexpectedElement = XmlIgnoreElement('*')

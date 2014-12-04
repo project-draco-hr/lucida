@@ -1,8 +1,0 @@
-def startDocument(self):
-    assert self.root
-    assert (len(self.stack) == 0)
-    self.stack.append(self.rootElement)
-    try:
-        self.stack[(-1)].start(None)
-    except XmlError as e:
-        print e

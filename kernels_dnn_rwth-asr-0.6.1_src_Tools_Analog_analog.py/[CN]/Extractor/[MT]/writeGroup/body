@@ -1,6 +1,0 @@
-def writeGroup(self, groupName, layers):
-    for layer in layers.keys():
-        baseFilename = groupName.replace(' ', '_')
-        if layer:
-            baseFilename += ('.' + layer)
-        self.writeGroupLayer(baseFilename, layers[layer])

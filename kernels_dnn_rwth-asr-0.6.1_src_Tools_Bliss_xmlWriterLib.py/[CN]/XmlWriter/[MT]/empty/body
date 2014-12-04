@@ -1,4 +1,0 @@
-def empty(self, element, args={}, **args2):
-    if (args == {}):
-        args = args2
-    self.write((((self.indent_str() + '<') + self.formTag(element, args.items())) + '/>\n'))

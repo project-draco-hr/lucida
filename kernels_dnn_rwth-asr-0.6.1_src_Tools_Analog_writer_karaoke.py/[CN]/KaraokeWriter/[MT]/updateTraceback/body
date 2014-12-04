@@ -1,2 +1,0 @@
-def updateTraceback(self, newTraceback):
-    self.traceback = newTraceback

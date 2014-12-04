@@ -1,2 +1,0 @@
-def characters(self, cdata):
-    self.parent.characters(cdata)

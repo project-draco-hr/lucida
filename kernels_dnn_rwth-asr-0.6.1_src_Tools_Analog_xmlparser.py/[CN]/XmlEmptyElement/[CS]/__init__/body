@@ -1,3 +1,0 @@
-def __init__(self, name, handler=None):
-    super(XmlEmptyElement, self).__init__(name)
-    self.handler = handler

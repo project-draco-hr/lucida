@@ -1,2 +1,0 @@
-def matches(self, name, atts):
-    return ((name == self.name) and (atts.get('type') == 'edit-distance'))

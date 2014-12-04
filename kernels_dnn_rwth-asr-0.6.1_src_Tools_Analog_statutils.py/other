@@ -1,4 +1,0 @@
-'\nUtility classes and fucntions for statistics.\n'
-__version__ = '$Revision: 9227 $'
-__date__ = '$Date: 2013-11-29 15:47:07 +0100 (Fri, 29 Nov 2013) $'
-from analog import Collector, Field, pivot

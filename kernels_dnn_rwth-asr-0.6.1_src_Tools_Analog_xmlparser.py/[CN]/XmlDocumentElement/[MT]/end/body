@@ -1,3 +1,0 @@
-def end(self):
-    if (not self.hasRootOccured):
-        raise XmlWellFormednessError(('Document ended before root element "%s" was found' % self.root.name))

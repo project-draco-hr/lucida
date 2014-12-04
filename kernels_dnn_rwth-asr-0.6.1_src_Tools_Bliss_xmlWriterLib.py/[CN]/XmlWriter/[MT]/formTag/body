@@ -1,2 +1,0 @@
-def formTag(self, element, attr=[]):
-    return self.escape(string.join(([element] + map((lambda kv: ('%s="%s"' % kv)), attr))))

@@ -1,4 +1,0 @@
-def __call__(self, data):
-    cpuTime = sum(data['user time'])
-    duration = sum(data['real time'])
-    return zip(self.fields, [duration, cpuTime, (cpuTime / duration)])

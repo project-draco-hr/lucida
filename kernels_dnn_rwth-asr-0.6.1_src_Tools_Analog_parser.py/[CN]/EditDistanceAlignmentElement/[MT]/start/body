@@ -1,4 +1,0 @@
-def start(self, atts):
-    super(EditDistanceAlignmentElement, self).start(atts)
-    if atts.has_key('name'):
-        self.name = atts['name']

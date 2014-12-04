@@ -1,3 +1,0 @@
-def start(self, atts):
-    self.data = []
-    self.atts = atts
