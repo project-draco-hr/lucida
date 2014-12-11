@@ -13,8 +13,6 @@
   response.setStatus(HttpServletResponse.SC_OK);
   baseRequest.setHandled(true);
   PrintWriter out=response.getWriter();
-  out.println("Your question was: " + question);
-  out.println("Processing your question...");
   out.flush();
   String type;
   if (question.matches("(?i)" + FACTOID + ":.*+")) {
