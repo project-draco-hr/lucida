@@ -13,8 +13,8 @@
   response.setStatus(HttpServletResponse.SC_OK);
   baseRequest.setHandled(true);
   PrintWriter out=response.getWriter();
-  out.println("Your question was: '" + question + "'<br><br>");
-  out.println("Processing your question... <br><br>");
+  out.println("Your question was: " + question);
+  out.println("Processing your question...");
   out.flush();
   String type;
   if (question.matches("(?i)" + FACTOID + ":.*+")) {
@@ -42,7 +42,7 @@
     Logger.logListEnd();
   }
   String answer=results[0].getAnswer();
-  if (answer != null)   out.println("Done. Your answer is: " + answer);
+  if (answer != null)   out.println(answer);
  else   out.println("Sorry, I cannot answer your question.");
   out.close();
 }
