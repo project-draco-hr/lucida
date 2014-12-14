@@ -1,0 +1,14 @@
+import pickledb
+import subprocess, re, os, sys
+from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
+from SimpleHTTPServer import SimpleHTTPRequestHandler
+from SocketServer import ThreadingMixIn
+import threading
+import cgi
+from datetime import datetime
+PORT_NUMBER = 8080
+dlog = 'img-log/'
+if (__name__ == '__main__'):
+    server = ThreadedHTTPServer(('localhost', 8080), Handler)
+    print 'Starting server, use <Ctrl-C> to stop'
+    server.serve_forever()
