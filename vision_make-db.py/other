@@ -4,11 +4,15 @@ if (__name__ == '__main__'):
     pwd = os.getcwd()
     db_name = sys.argv[1]
     ddb = ('matching/%s/db' % db_name)
+    cmd = ('./match --build %s' % ddb)
+    print cmd
+    shcmd(cmd)
     pickdb = pickledb.load((db_name + '.pickle'), False)
     imgs = os.listdir(ddb)
     for i in imgs:
-        data = os.path.splitext(i)[0].split('-')
-        text = ' '.join(data)
-        print text
-        pickdb.set(i, data)
+        if i.endswith('.jpg'):
+            data = os.path.splitext(i)[0].split('-')
+            text = ' '.join(data)
+            print text
+            pickdb.set(i, data)
     pickdb.dump()
