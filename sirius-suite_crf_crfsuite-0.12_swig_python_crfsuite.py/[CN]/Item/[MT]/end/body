@@ -1,2 +1,0 @@
-def end(self):
-    return _crfsuite.Item_end(self)

@@ -1,6 +1,0 @@
-def degenerate(src):
-    dst = ''
-    for c in src:
-        if ((not dst) or (dst[(-1)] != c)):
-            dst += c
-    return dst

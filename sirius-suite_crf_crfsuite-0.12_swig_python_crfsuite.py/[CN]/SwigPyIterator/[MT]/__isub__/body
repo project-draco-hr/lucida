@@ -1,2 +1,0 @@
-def __isub__(self, *args):
-    return _crfsuite.SwigPyIterator___isub__(self, *args)

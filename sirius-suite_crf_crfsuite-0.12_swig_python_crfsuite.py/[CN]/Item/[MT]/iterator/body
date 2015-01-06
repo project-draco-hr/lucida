@@ -1,2 +1,0 @@
-def iterator(self):
-    return _crfsuite.Item_iterator(self)

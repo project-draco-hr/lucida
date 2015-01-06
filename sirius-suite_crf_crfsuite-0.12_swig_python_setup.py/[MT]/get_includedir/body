@@ -1,2 +1,0 @@
-def get_includedir():
-    return os.path.join(get_rootdir(), 'include')

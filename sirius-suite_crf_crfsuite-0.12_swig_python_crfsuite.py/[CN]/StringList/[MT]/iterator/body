@@ -1,2 +1,0 @@
-def iterator(self):
-    return _crfsuite.StringList_iterator(self)

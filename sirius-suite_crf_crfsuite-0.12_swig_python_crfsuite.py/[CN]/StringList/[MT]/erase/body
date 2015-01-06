@@ -1,2 +1,0 @@
-def erase(self, *args):
-    return _crfsuite.StringList_erase(self, *args)

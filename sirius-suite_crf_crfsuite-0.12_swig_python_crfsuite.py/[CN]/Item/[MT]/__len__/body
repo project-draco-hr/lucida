@@ -1,2 +1,0 @@
-def __len__(self):
-    return _crfsuite.Item___len__(self)

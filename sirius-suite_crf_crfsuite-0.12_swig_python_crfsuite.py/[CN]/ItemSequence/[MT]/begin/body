@@ -1,2 +1,0 @@
-def begin(self):
-    return _crfsuite.ItemSequence_begin(self)

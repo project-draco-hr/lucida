@@ -1,2 +1,0 @@
-def open(self, *args):
-    return _crfsuite.Tagger_open(self, *args)

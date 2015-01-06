@@ -1,2 +1,0 @@
-def b(v):
-    return ('yes' if v else 'no')

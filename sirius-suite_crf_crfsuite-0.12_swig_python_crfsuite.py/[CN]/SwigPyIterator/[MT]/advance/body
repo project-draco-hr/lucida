@@ -1,2 +1,0 @@
-def advance(self, *args):
-    return _crfsuite.SwigPyIterator_advance(self, *args)

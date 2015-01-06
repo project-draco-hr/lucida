@@ -1,2 +1,0 @@
-def __nonzero__(self):
-    return _crfsuite.StringList___nonzero__(self)

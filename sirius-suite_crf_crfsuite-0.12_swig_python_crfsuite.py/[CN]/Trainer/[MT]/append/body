@@ -1,2 +1,0 @@
-def append(self, *args):
-    return _crfsuite.Trainer_append(self, *args)

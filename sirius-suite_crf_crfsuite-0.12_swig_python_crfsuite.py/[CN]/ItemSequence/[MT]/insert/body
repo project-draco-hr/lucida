@@ -1,2 +1,0 @@
-def insert(self, *args):
-    return _crfsuite.ItemSequence_insert(self, *args)

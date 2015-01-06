@@ -1,2 +1,0 @@
-def capacity(self):
-    return _crfsuite.Item_capacity(self)

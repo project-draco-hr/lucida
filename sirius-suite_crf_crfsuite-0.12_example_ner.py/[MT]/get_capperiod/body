@@ -1,2 +1,0 @@
-def get_capperiod(token):
-    return ((len(token) == 2) and token[0].isupper() and (token[1] == '.'))

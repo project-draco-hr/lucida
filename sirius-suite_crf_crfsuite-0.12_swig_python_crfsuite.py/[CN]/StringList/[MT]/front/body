@@ -1,2 +1,0 @@
-def front(self):
-    return _crfsuite.StringList_front(self)

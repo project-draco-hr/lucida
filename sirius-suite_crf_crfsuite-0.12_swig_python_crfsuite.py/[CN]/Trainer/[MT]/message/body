@@ -1,2 +1,0 @@
-def message(self, *args):
-    return _crfsuite.Trainer_message(self, *args)

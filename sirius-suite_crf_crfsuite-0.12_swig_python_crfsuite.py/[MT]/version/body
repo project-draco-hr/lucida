@@ -1,2 +1,0 @@
-def version():
-    return _crfsuite.version()
