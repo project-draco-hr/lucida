@@ -1,0 +1,25 @@
+{
+  final int threads=Runtime.getRuntime().availableProcessors();
+  ExecutorService service=Executors.newFixedThreadPool(threads);
+  final int chunk=results.length / threads;
+  int offset=0;
+  for (  final Result result : results) {
+    for (int i=0; i < threads; ++i) {
+      final int start=offset;
+      final int end=offset + chunk;
+      service.execute(new Runnable(){
+        @Override public void run(){
+        }
+      }
+);
+      offset+=chunk;
+    }
+    service.shutdown();
+    try {
+      service.awaitTermination(10,TimeUnit.SECONDS);
+    }
+ catch (    InterruptedException ignore) {
+      System.out.println("Not sure what this is.");
+    }
+  }
+}
