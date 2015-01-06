@@ -1,0 +1,16 @@
+@app.route('/record', methods=['GET', 'POST'])
+def record():
+    form = RegistrationForm(request.form)
+    if (request.method == 'POST'):
+        t = datetime.now()
+        filename = (((((log + 'speech-') + str(t.hour)) + str(t.minute)) + str(t.second)) + '.wav')
+        record_to_file(filename)
+        cmd = ('afplay ' + filename)
+        shcmd(cmd)
+        text = req_asr(filename)
+        answer = req_qa(text)
+        line1 = ('Question: %s' % text)
+        line2 = ('Answer: %s' % answer)
+        return render_template('record.html', form=form, reply_line1=line1, reply_line2=line2)
+    else:
+        return render_template('record.html', form=form)

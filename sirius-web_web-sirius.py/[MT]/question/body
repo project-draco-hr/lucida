@@ -1,0 +1,13 @@
+@app.route('/question', methods=['GET', 'POST'])
+def question():
+    form = RegistrationForm(request.form)
+    if (request.method == 'POST'):
+        text = form.qs.data
+        if (re.search('.wav', text) and os.path.isfile(text)):
+            text = req_asr(text)
+        answer = req_qa(text)
+        line1 = ('Question: %s' % text)
+        line2 = ('Answer: %s' % answer)
+        return render_template('question.html', form=form, reply_line1=line1, reply_line2=line2)
+    else:
+        return render_template('question.html', form=form)

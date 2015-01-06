@@ -1,0 +1,8 @@
+def req_asr(speech, return_dict=None):
+    cmd = ('wget -q -U "Mozilla/5.0" --post-file ' + str(speech))
+    cmd += ' --header "Content-Type: audio/vnd.wave; rate=16000" -O - '
+    cmd += make_server(ASR, ports[0])
+    result = shcom(cmd)
+    if (return_dict is not None):
+        return_dict[speech] = result
+    return result

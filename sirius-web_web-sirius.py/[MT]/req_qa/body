@@ -1,0 +1,15 @@
+def req_qa(text, return_dict=None):
+    print text
+    words = text.split()
+    query = ''
+    for w in words:
+        query += (w + '%20')
+    if (not query):
+        return query
+    q = ((make_server(QA, ports[0]) + '?query=') + query)
+    try:
+        resp = urllib2.urlopen(q)
+        answer = resp.read()
+    except BadStatusLine:
+        answer = ''
+    return answer

@@ -1,0 +1,19 @@
+import subprocess, re, os, sys
+import urllib, urllib2, httplib
+from datetime import datetime
+from httplib import BadStatusLine
+import multiprocessing
+from record import *
+from flask import Flask, request, render_template, redirect, url_for
+app = Flask(__name__)
+servers = ['141.212.106.244', '141.212.106.240', 'localhost']
+QA = servers[0]
+ASR = servers[1]
+VIS = servers[1]
+ports = [8080, 8081]
+log = 'input-log/'
+from wtforms import Form, BooleanField, TextField, PasswordField, validators
+if (__name__ == '__main__'):
+    cmd = ('mkdir -p ' + log)
+    shcmd(cmd)
+    app.run(host='localhost', port=8080, debug=True)
