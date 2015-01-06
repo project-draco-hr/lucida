@@ -1,0 +1,13 @@
+{
+  if (missPageTermCounters.isEmpty())   try {
+    BufferedReader br=new BufferedReader(new FileReader("./res/definitional/webreinforcement/wikipediaMissTerms"));
+    String line;
+    while ((line=br.readLine()) != null) {
+      if (!missPageTermCounters.containsKey(line))       missPageTermCounters.put(line,new TermCounter());
+      missPageTermCounters.get(line).increment(1);
+    }
+    br.close();
+  }
+ catch (  IOException ioe) {
+  }
+}

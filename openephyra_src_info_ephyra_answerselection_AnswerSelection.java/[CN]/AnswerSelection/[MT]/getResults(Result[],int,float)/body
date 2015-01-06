@@ -1,12 +1,8 @@
 {
   for (  Filter filter : filters) {
-    int before=results.length;
+    MsgPrinter.printFilterStarted(filter,results.length);
     results=filter.apply(results);
-    int after=results.length;
-    if (before != after) {
-      MsgPrinter.printFilterStarted(filter,before);
-      MsgPrinter.printFilterFinished(filter,after);
-    }
+    MsgPrinter.printFilterFinished(filter,results.length);
   }
   ArrayList<Result> resultsList=new ArrayList<Result>();
   for (  Result result : results) {
