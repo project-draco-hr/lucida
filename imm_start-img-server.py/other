@@ -6,7 +6,7 @@ from SocketServer import ThreadingMixIn
 import threading
 import cgi
 from datetime import datetime
-dlog = 'log'
+dlog = 'log/'
 size = 'db'
 name = 'landmarks'
 img_db = ('matching/%s/%s' % (name, size))
