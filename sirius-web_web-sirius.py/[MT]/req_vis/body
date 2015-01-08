@@ -1,7 +1,7 @@
 def req_vis(image, return_dict=None):
     cmd = ('wget -q  -U "Mozilla/5.0" --post-file ' + str(image))
     cmd += ' --header "Content-Type: image/jpeg"'
-    cmd += (' -O - ' + make_server(VIS, ports[1]))
+    cmd += (' -O - ' + make_server(VIS, ports[2]))
     result = shcom(cmd)
     if (return_dict is not None):
         return_dict[image] = result
