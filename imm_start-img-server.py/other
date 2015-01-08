@@ -6,8 +6,7 @@ from SocketServer import ThreadingMixIn
 import threading
 import cgi
 from datetime import datetime
-PORT_NUMBER = 8081
-dlog = 'log/'
+dlog = 'log'
 size = 'db'
 name = 'landmarks'
 img_db = ('matching/%s/%s' % (name, size))
@@ -16,8 +15,8 @@ pickdb = pickledb.load(name, True)
 if (__name__ == '__main__'):
     cmd = ('mkdir -p ' + dlog)
     shcmd(cmd)
-    host = 'localhost'
-    port = 8081
+    host = sys.argv[1]
+    port = int(sys.argv[2])
     server = ThreadedHTTPServer((host, port), Handler)
     print ('Starting server on %s:%s, use <Ctrl-C> to stop' % (host, port))
     server.serve_forever()
