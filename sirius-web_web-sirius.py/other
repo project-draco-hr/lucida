@@ -3,10 +3,14 @@ import urllib, urllib2, httplib
 from datetime import datetime
 from httplib import BadStatusLine
 import multiprocessing
-from record import *
 from flask import Flask, request, render_template, redirect, url_for
+from werkzeug import secure_filename
+from OpenSSL import SSL
+UPLOAD_FOLDER = 'input-log/'
+ALLOWED_EXTENSIONS = set(['wav'])
 app = Flask(__name__)
-servers = ['localhost']
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+servers = ['141.212.106.240']
 QA = servers[0]
 ASR = servers[0]
 VIS = servers[0]
@@ -16,4 +20,9 @@ from wtforms import Form, BooleanField, TextField, PasswordField, validators
 if (__name__ == '__main__'):
     cmd = ('mkdir -p ' + log)
     shcmd(cmd)
-    app.run(host='0.0.0.0', port=8000, debug=True)
+    pkey = (os.getcwd() + '/server.key')
+    cert = (os.getcwd() + '/server.crt')
+    context = SSL.Context(SSL.SSLv3_METHOD)
+    context.use_privatekey_file(pkey)
+    context.use_certificate_file((os.getcwd() + '/server.crt'))
+    app.run(host='141.212.106.240', port=8000, debug=True, ssl_context=(cert, pkey))

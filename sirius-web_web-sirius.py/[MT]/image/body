@@ -2,28 +2,29 @@
 def image():
     form = RegistrationForm(request.form)
     if (request.method == 'POST'):
-        t = datetime.now()
-        speech = 'demo_img.wav'
-        if (re.search('.jpg', form.in_img.data) and os.path.isfile(form.in_img.data)):
-            img = form.in_img.data
-        else:
+        f = request.files['file']
+        if (f and allowed_file(f.filename)):
+            filename = secure_filename(f.filename)
+            f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            speech = ('input-log/' + filename)
+            t = datetime.now()
             img = (((((log + 'image-') + str(t.hour)) + str(t.minute)) + str(t.second)) + '.jpg')
             urllib.urlretrieve(form.in_img.data, img)
-        manager = multiprocessing.Manager()
-        return_dict = manager.dict()
-        fns = [req_vis, req_asr]
-        data = [img, speech]
-        proc = []
-        for (idx, fn) in enumerate(fns):
-            p = multiprocessing.Process(target=fn, args=(data[idx], return_dict))
-            p.start()
-            proc.append(p)
-        for p in proc:
-            p.join()
-        text = re.sub('this', return_dict[img], return_dict[speech])
-        answer = req_qa(text)
-        q = ('Question: %s' % text)
-        a = ('Answer: %s' % answer)
-        return render_template('image.html', form=form, in_img=form.in_img.data, question=q, answer=a)
+            manager = multiprocessing.Manager()
+            return_dict = manager.dict()
+            fns = [req_vis, req_asr]
+            data = [img, speech]
+            proc = []
+            for (idx, fn) in enumerate(fns):
+                p = multiprocessing.Process(target=fn, args=(data[idx], return_dict))
+                p.start()
+                proc.append(p)
+            for p in proc:
+                p.join()
+            text = re.sub('this', return_dict[img], return_dict[speech])
+            answer = req_qa(text)
+            q = ('Question: %s' % text)
+            a = ('Answer: %s' % answer)
+            return render_template('image.html', form=form, in_img=form.in_img.data, question=q, answer=a)
     else:
         return render_template('image.html', form=form)
