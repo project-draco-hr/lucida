@@ -1,8 +1,6 @@
-import subprocess, re, os, sys
-import urllib, urllib2, httplib
+import subprocess, re, os, sys, json, urllib, urllib2, httplib, multiprocessing
 from datetime import datetime
 from httplib import BadStatusLine
-import multiprocessing
 from flask import Flask, request, render_template, redirect, url_for
 from werkzeug import secure_filename
 from OpenSSL import SSL
@@ -15,6 +13,7 @@ QA = servers[0]
 ASR = servers[0]
 VIS = servers[0]
 ports = [8080, 8081, 8082]
+sirius = 'Sirius is an intelligent personal assistant created at the University of Michigan'
 log = 'input-log/'
 from wtforms import Form, BooleanField, TextField, PasswordField, validators
 if (__name__ == '__main__'):

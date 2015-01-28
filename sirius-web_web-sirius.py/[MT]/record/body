@@ -7,10 +7,12 @@ def record():
             filename = secure_filename(f.filename)
             f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             filename = ('input-log/' + filename)
-            text = req_asr(filename)
-            answer = req_qa(text)
-            line1 = ('Question: %s' % text)
-            line2 = ('Answer: %s' % answer)
-            return render_template('record.html', form=form, reply_line1=line1, reply_line2=line2)
+            question = req_asr(filename).strip()
+            if ('serious' in question):
+                answer = sirius
+            else:
+                answer = req_qa(question).strip()
+            data = [question, answer]
+            return render_template('record.html', form=form, data=map(json.dumps, data))
     else:
         return render_template('record.html', form=form)
