@@ -1,0 +1,10 @@
+{
+  Scanner scanner=new Scanner(new File(inputCtl));
+  while (scanner.hasNext()) {
+    String fileName=scanner.next();
+    String inputFile=inputFolder + "/" + fileName+ ".wav";
+    String outputFile=outputFolder + "/" + fileName+ ".wav";
+    processFile(inputFile,outputFile,cm);
+  }
+  scanner.close();
+}

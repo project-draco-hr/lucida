@@ -1,0 +1,18 @@
+{
+  String[] text=line.split("\\s");
+  String id=text[3].substring(1,text[3].length() - 1);
+  String contents=text[5].substring(1);
+  String posterior=text[6].substring(2,text[6].length() - 2);
+  String word=contents.substring(0,contents.indexOf('['));
+  contents=contents.substring(contents.indexOf('[') + 1);
+  String start=contents.substring(0,contents.indexOf(','));
+  String end=contents.substring(contents.indexOf(',') + 1);
+  Node node=lattice.addNode(id,dictionary.getWord(word),Integer.parseInt(start),Integer.parseInt(end));
+  node.setPosterior(Double.parseDouble(posterior));
+  if (word.equals("<s>")) {
+    lattice.setInitialNode(node);
+  }
+ else   if (word.equals("</s>")) {
+    lattice.setTerminalNode(node);
+  }
+}

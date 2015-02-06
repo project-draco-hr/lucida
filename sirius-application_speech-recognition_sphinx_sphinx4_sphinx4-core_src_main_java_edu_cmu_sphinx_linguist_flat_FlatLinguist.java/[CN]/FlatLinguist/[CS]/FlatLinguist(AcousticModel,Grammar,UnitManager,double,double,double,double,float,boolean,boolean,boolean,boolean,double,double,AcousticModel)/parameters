@@ -1,0 +1,15 @@
+AcousticModel acousticModel
+Grammar grammar
+UnitManager unitManager
+double wordInsertionProbability
+double silenceInsertionProbability
+double fillerInsertionProbability
+double unitInsertionProbability
+float languageWeight
+boolean dumpGStates
+boolean showCompilationProgress
+boolean spreadWordProbabilitiesAcrossPronunciations
+boolean addOutOfGrammarBranch
+double outOfGrammarBranchProbability
+double phoneInsertionProbability
+AcousticModel phoneLoopAcousticModel

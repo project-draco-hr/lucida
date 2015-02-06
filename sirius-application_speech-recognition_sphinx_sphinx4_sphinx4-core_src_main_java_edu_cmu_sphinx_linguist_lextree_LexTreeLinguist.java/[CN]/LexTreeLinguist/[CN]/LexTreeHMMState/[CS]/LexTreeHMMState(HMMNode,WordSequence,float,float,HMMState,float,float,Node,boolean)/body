@@ -1,0 +1,7 @@
+{
+  super(hmmNode,wordSequence,smearTerm,smearProb,collapsed);
+  this.hmmState=hmmState;
+  this.parentNode=parentNode;
+  this.logLanguageProbability=languageProbability;
+  this.logInsertionProbability=insertionProbability;
+}

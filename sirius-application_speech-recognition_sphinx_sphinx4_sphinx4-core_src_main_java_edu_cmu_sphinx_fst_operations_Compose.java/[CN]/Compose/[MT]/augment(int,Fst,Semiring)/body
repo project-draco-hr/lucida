@@ -1,0 +1,38 @@
+{
+  String[] isyms=fst.getIsyms();
+  String[] osyms=fst.getOsyms();
+  int e1inputIndex=isyms.length;
+  int e2inputIndex=isyms.length + 1;
+  int e1outputIndex=osyms.length;
+  int e2outputIndex=osyms.length + 1;
+  int numStates=fst.getNumStates();
+  for (int i=0; i < numStates; i++) {
+    State s=fst.getState(i);
+    int numArcs=(fst instanceof ImmutableFst) ? s.getNumArcs() - 1 : s.getNumArcs();
+    for (int j=0; j < numArcs; j++) {
+      Arc a=s.getArc(j);
+      if ((label == 1) && (a.getOlabel() == 0)) {
+        a.setOlabel(e2outputIndex);
+      }
+ else       if ((label == 0) && (a.getIlabel() == 0)) {
+        a.setIlabel(e1inputIndex);
+      }
+    }
+    if (label == 0) {
+      if (fst instanceof ImmutableFst) {
+        s.setArc(numArcs,new Arc(e2inputIndex,0,semiring.one(),s));
+      }
+ else {
+        s.addArc(new Arc(e2inputIndex,0,semiring.one(),s));
+      }
+    }
+ else     if (label == 1) {
+      if (fst instanceof ImmutableFst) {
+        s.setArc(numArcs,new Arc(0,e1outputIndex,semiring.one(),s));
+      }
+ else {
+        s.addArc(new Arc(0,e1outputIndex,semiring.one(),s));
+      }
+    }
+  }
+}

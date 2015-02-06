@@ -1,0 +1,29 @@
+{
+  JSGFRule JSGFRule;
+  ArrayList<JSGFRule> ruleList=new ArrayList<JSGFRule>();
+  label_6:   while (true) {
+    JSGFRule=item();
+    ruleList.add(JSGFRule);
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case GRAMMAR:
+case IMPORT:
+case PUBLIC:
+case INTEGER_LITERAL:
+case FLOATING_POINT_LITERAL:
+case STRING_LITERAL:
+case IDENTIFIER:
+case 28:
+case 36:
+case 38:
+      ;
+    break;
+default :
+  jj_la1[12]=jj_gen;
+break label_6;
+}
+}
+{
+if (true) return new JSGFRuleSequence(ruleList);
+}
+throw new Error("Missing return statement in function");
+}

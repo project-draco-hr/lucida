@@ -1,0 +1,9 @@
+{
+  Matcher matcher=globalSymbolPattern.matcher(symbol);
+  if (matcher.matches()) {
+    return matcher.group(1);
+  }
+ else {
+    return symbol;
+  }
+}

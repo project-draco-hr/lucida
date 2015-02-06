@@ -1,0 +1,3 @@
+{
+  for (  HMMPosition pos : HMMPosition.values())   hmmsPerPosition.put(pos,new HashMap<Unit,HMM>());
+}

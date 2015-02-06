@@ -1,0 +1,12 @@
+{
+  if (!isMember(w1) || !isMember(w2)) {
+    return Float.NEGATIVE_INFINITY;
+  }
+  if (w1 == Float.POSITIVE_INFINITY) {
+    return w2;
+  }
+ else   if (w2 == Float.POSITIVE_INFINITY) {
+    return w1;
+  }
+  return (float)-Math.log(Math.exp(-w1) + Math.exp(-w2));
+}

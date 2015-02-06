@@ -1,0 +1,4 @@
+{
+  setUtterance(utterance);
+  setGraph(graph);
+}

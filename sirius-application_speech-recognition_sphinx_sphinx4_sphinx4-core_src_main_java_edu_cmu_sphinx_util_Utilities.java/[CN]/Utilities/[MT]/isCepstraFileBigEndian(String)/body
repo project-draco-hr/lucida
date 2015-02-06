@@ -1,0 +1,8 @@
+{
+  File cepstraFile=new File(filename);
+  int fileSize=(int)cepstraFile.length();
+  DataInputStream stream=new DataInputStream(new FileInputStream(filename));
+  int numberBytes=stream.readInt() * 4 + 4;
+  stream.close();
+  return (fileSize == numberBytes);
+}

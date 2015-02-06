@@ -1,0 +1,11 @@
+{
+  this.transitionModel=transitionModel;
+  this.senonePool=senonePool;
+  this.symbolTable=symbolTable;
+  parser.expectToken("ContextDependency");
+  parser.getInt();
+  parser.getInt();
+  parser.expectToken("ToPdf");
+  eventMap=parseEventMap(parser);
+  parser.expectToken("EndContextDependency");
+}

@@ -1,0 +1,5 @@
+{
+  NGramBuffer bigram=getBigramBuffer(word1);
+  NGramProbability bigramProbability=bigram.findNGram(word2);
+  return ngramProbTable[1][bigramProbability.getProbabilityID()];
+}

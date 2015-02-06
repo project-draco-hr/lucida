@@ -1,0 +1,18 @@
+{
+  super.initialize();
+  try {
+    File silenceFile=new File(silenceFileName);
+    silenceFileLength=silenceFile.length();
+    if (transcriptFile != null) {
+      transcript=new FileWriter(transcriptFile);
+    }
+    if (batchFile == null) {
+      throw new Error("BatchFile cannot be null!");
+    }
+    setInputStream(new SequenceInputStream(new InputStreamEnumeration(batchFile,startFile,totalFiles)));
+    referenceList=new LinkedList<String>();
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+}

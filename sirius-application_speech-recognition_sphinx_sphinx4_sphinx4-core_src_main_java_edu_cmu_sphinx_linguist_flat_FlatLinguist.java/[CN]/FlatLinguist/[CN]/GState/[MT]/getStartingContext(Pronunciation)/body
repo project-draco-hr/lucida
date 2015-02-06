@@ -1,0 +1,6 @@
+{
+  int maxSize=getRightContextSize();
+  Unit[] units=pronunciation.getUnits();
+  Unit[] context=units.length > maxSize ? Arrays.copyOf(units,maxSize) : units;
+  return UnitContext.get(context);
+}

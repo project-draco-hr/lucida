@@ -1,0 +1,28 @@
+{
+  TargetDataLine audioLine=getAudioLine();
+  if (audioLine != null) {
+    if (!audioLine.isOpen()) {
+      logger.info("open");
+      try {
+        audioLine.open(finalFormat,audioBufferSize);
+      }
+ catch (      LineUnavailableException e) {
+        logger.severe("Can't open microphone " + e.getMessage());
+        return false;
+      }
+      audioStream=new AudioInputStream(audioLine);
+      if (doConversion) {
+        audioStream=AudioSystem.getAudioInputStream(desiredFormat,audioStream);
+        assert(audioStream != null);
+      }
+      float sec=msecPerRead / 1000.f;
+      frameSizeInBytes=(audioStream.getFormat().getSampleSizeInBits() / 8) * (int)(sec * audioStream.getFormat().getSampleRate()) * desiredFormat.getChannels();
+      logger.info("Frame size: " + frameSizeInBytes + " bytes");
+    }
+    return true;
+  }
+ else {
+    logger.severe("Can't find microphone");
+    return false;
+  }
+}

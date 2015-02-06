@@ -1,0 +1,3 @@
+{
+  return Math.min(n1.getEndTime(),n2.getEndTime()) - Math.max(n1.getBeginTime(),n2.getBeginTime());
+}

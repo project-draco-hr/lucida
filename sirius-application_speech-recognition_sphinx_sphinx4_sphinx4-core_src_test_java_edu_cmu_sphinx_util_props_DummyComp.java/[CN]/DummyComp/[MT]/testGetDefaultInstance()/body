@@ -1,0 +1,15 @@
+{
+  DummyComp dc=ConfigurationManager.getInstance(DummyComp.class);
+  Assert.assertEquals(4,dc.getBeamWidth());
+  Assert.assertEquals(1.3,dc.getAlpha(),1E-10);
+  Assert.assertEquals(false,useFooBaz);
+  DummyFrontEnd fe=dc.getFrontEnd();
+  Assert.assertTrue(fe != null);
+  Assert.assertTrue(fe instanceof AnotherDummyFrontEnd);
+  Assert.assertTrue(fe.getDataProcs().size() == 3);
+  Assert.assertTrue(fe.getDataProcs().get(0) instanceof DummyProcessor);
+  Assert.assertTrue(fe.getDataProcs().get(1) instanceof AnotherDummyProcessor);
+  Assert.assertTrue(fe.getDataProcs().get(2) instanceof DummyProcessor);
+  Assert.assertTrue(dc.getBestASR().equals("sphinx4"));
+  Assert.assertTrue(dc.getLogger() != null);
+}

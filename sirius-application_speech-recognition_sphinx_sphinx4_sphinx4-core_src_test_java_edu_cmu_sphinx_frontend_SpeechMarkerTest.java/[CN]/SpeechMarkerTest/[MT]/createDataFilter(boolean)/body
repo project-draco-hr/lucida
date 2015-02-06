@@ -1,0 +1,11 @@
+{
+  try {
+    SpeechMarker speechMarker=getInstance(SpeechMarker.class);
+    speechMarker.initialize();
+    return speechMarker;
+  }
+ catch (  PropertyException e) {
+    e.printStackTrace();
+  }
+  return null;
+}

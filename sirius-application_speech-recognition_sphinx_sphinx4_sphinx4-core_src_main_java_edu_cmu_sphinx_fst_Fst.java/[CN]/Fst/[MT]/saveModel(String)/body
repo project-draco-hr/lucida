@@ -1,0 +1,10 @@
+{
+  FileOutputStream fos=new FileOutputStream(filename);
+  BufferedOutputStream bos=new BufferedOutputStream(fos);
+  ObjectOutputStream oos=new ObjectOutputStream(bos);
+  writeFst(oos);
+  oos.flush();
+  oos.close();
+  bos.close();
+  fos.close();
+}

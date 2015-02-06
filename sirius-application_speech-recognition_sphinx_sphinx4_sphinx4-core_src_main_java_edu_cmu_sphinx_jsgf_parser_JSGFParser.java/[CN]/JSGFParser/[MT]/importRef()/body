@@ -1,0 +1,23 @@
+{
+  String s;
+  boolean all=false;
+  jj_consume_token(28);
+  s=Name();
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case 29:
+    jj_consume_token(29);
+  jj_consume_token(30);
+all=true;
+break;
+default :
+jj_la1[25]=jj_gen;
+;
+}
+jj_consume_token(31);
+if (all) s=s + ".*";
+JSGFRuleName rn=new JSGFRuleName(s);
+{
+if (true) return rn;
+}
+throw new Error("Missing return statement in function");
+}

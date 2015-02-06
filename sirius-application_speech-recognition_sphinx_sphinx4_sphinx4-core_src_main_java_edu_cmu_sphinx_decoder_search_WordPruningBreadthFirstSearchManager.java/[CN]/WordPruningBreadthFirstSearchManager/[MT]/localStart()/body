@@ -1,0 +1,16 @@
+{
+  SearchGraph searchGraph=linguist.getSearchGraph();
+  currentFrameNumber=0;
+  curTokensScored.value=0;
+  numStateOrder=searchGraph.getNumStateOrder();
+  activeListManager.setNumStateOrder(numStateOrder);
+  if (buildWordLattice) {
+    loserManager=new AlternateHypothesisManager(maxLatticeEdges);
+  }
+  SearchState state=searchGraph.getInitialState();
+  activeList=activeListManager.getEmittingList();
+  activeList.add(new Token(state,currentFrameNumber));
+  clearCollectors();
+  growBranches();
+  growNonEmittingBranches();
+}

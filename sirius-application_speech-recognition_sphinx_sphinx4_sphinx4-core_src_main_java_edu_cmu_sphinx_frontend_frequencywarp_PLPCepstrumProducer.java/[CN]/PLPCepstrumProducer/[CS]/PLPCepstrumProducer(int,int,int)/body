@@ -1,0 +1,6 @@
+{
+  initLogger();
+  this.numberPLPFilters=numberPLPFilters;
+  this.cepstrumSize=cepstrumSize;
+  this.LPCOrder=LPCOrder;
+}

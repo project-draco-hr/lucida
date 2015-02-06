@@ -1,0 +1,4 @@
+{
+  super.newProperties(ps);
+  init(ps.getInt(PROP_SAMPLE_RATE),ps.getInt(PROP_BYTES_PER_READ),ps.getInt(PROP_BITS_PER_SAMPLE),ps.getBoolean(PROP_BIG_ENDIAN_DATA),ps.getBoolean(PROP_SIGNED_DATA));
+}

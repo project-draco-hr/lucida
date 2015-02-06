@@ -1,0 +1,3 @@
+{
+  return ((GrammarState)getParent()).getGrammarNode().getWords(getWhich());
+}

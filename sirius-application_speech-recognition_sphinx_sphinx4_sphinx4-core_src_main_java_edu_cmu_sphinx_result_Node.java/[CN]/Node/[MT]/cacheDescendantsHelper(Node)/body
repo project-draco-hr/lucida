@@ -1,0 +1,9 @@
+{
+  for (  Node child : n.getChildNodes()) {
+    if (descendants.contains(child)) {
+      continue;
+    }
+    descendants.add(child);
+    cacheDescendantsHelper(child);
+  }
+}

@@ -1,0 +1,7 @@
+{
+  File path=new File(dir,name);
+  FileOutputStream fos=new FileOutputStream(path);
+  PrintStream ps=new PrintStream(fos);
+  ps.println(line);
+  ps.close();
+}

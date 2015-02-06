@@ -1,0 +1,5 @@
+{
+  startTime=n.getBeginTime();
+  endTime=n.getEndTime();
+  elements.add(n);
+}

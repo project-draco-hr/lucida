@@ -1,0 +1,4 @@
+Fst fst
+State state
+HashMap<State,Float>[] cl
+Semiring semiring

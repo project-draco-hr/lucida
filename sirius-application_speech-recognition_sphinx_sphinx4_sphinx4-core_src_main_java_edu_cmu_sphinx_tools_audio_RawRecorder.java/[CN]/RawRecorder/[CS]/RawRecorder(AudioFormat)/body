@@ -1,0 +1,15 @@
+{
+  inFormat=audioFormat;
+  outFormat=audioFormat;
+  DataLine.Info info=new DataLine.Info(TargetDataLine.class,inFormat);
+  if (!AudioSystem.isLineSupported(info)) {
+    downsample=true;
+    inFormat=new AudioFormat(44100.0f,16,1,true,false);
+    info=new DataLine.Info(TargetDataLine.class,inFormat);
+    if (!AudioSystem.isLineSupported(info)) {
+      throw new LineUnavailableException("Unsupported format: " + audioFormat);
+    }
+  }
+  microphone=(TargetDataLine)AudioSystem.getLine(info);
+  microphone.open(audioFormat,microphone.getBufferSize());
+}

@@ -1,0 +1,8 @@
+{
+  if (swap) {
+    return Utilities.readLittleEndianInt(dis);
+  }
+ else {
+    return dis.readInt();
+  }
+}

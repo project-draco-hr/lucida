@@ -1,0 +1,8 @@
+{
+  for (  Unit[] onList : contexts) {
+    if (Unit.isContextMatch(onList,units)) {
+      return;
+    }
+  }
+  contexts.add(units);
+}

@@ -1,0 +1,12 @@
+{
+  Graph phonemeGraph=new Graph();
+  phonemeGraph.copyGraph(wordGraph);
+  for (  Node node : phonemeGraph.nodeToArray()) {
+    if (node.getType().equals(NodeType.WORD)) {
+      String word=node.getID();
+      Graph pronunciationGraph=dictionary.getWordGraph(word,false);
+      phonemeGraph.insertGraph(pronunciationGraph,node);
+    }
+  }
+  return phonemeGraph;
+}

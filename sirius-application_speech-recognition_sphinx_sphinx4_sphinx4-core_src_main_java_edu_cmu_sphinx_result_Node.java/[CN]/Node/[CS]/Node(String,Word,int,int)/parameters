@@ -1,0 +1,4 @@
+String id
+Word word
+int beginTime
+int endTime

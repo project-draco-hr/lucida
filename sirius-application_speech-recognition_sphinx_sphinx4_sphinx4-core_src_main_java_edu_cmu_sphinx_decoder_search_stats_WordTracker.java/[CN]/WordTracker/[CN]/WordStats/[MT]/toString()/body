@@ -1,0 +1,3 @@
+{
+  return "states:" + size + " max:"+ maxScore+ " min:"+ minScore+ ' '+ ws;
+}

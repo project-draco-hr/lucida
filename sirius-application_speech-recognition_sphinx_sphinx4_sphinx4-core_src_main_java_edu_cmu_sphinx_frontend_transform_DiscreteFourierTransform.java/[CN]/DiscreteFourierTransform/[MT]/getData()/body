@@ -1,0 +1,26 @@
+{
+  Data input=getPredecessor().getData();
+  getTimer().start();
+  if ((input != null) && (input instanceof DoubleData)) {
+    DoubleData data=(DoubleData)input;
+    if (!isNumberFftPointsSet) {
+      if (numberDataPoints != data.getValues().length) {
+        numberDataPoints=data.getValues().length;
+        numberFftPoints=getNumberFftPoints(numberDataPoints);
+        initializeFFT();
+      }
+    }
+ else {
+      if (numberDataPoints != data.getValues().length) {
+        numberDataPoints=data.getValues().length;
+        int idealFftPoints=getNumberFftPoints(numberDataPoints);
+        if (idealFftPoints != numberFftPoints) {
+          logger.warning("User set numberFftPoints (" + numberFftPoints + ") is not ideal ("+ idealFftPoints+ ')');
+        }
+      }
+    }
+    input=process(data);
+  }
+  getTimer().stop();
+  return input;
+}

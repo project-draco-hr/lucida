@@ -1,0 +1,39 @@
+{
+  System.err.println(results.size());
+  List<List<WordResult>> utts=new ArrayList<List<WordResult>>();
+  List<WordResult> currentUtt=null;
+  int fillerLength=0;
+  for (  WordResult result : results) {
+    if (result.isFiller()) {
+      fillerLength+=result.getTimeFrame().length();
+      if (fillerLength > MIN_FILLER_LENGTH) {
+        if (currentUtt != null)         utts.add(currentUtt);
+        currentUtt=null;
+      }
+    }
+ else {
+      fillerLength=0;
+      if (currentUtt == null)       currentUtt=new ArrayList<WordResult>();
+      currentUtt.add(result);
+    }
+  }
+  if (null != currentUtt)   utts.add(currentUtt);
+  int count=0;
+  for (  List<WordResult> utt : utts) {
+    long startFrame=Long.MAX_VALUE;
+    long endFrame=Long.MIN_VALUE;
+    for (    WordResult result : utt) {
+      TimeFrame frame=result.getTimeFrame();
+      startFrame=Math.min(startFrame,frame.getStart());
+      endFrame=Math.max(endFrame,frame.getEnd());
+      System.out.print(result.getPronunciation().getWord());
+      System.out.print(' ');
+    }
+    String[] basename=inFile.getName().split("\\.wav$");
+    String uttId=String.format("%03d0",count);
+    String outPath=String.format("%s-%s.wav",basename[0],uttId);
+    System.out.println("(" + uttId + ")");
+    count++;
+    dumpStreamChunk(inFile,outPath,startFrame - MIN_FILLER_LENGTH,endFrame - startFrame + MIN_FILLER_LENGTH);
+  }
+}

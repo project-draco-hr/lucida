@@ -1,0 +1,7 @@
+{
+  JSGFRuleState state=rules.get(ruleName);
+  if (state == null) {
+    return false;
+  }
+  return state.isPublic;
+}

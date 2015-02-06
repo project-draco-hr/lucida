@@ -1,0 +1,6 @@
+{
+  streamEndReached=true;
+  if (dataStream != null) {
+    dataStream.close();
+  }
+}

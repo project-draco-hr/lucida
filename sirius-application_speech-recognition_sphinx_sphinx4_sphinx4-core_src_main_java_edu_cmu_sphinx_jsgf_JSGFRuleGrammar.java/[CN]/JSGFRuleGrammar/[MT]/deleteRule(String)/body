@@ -1,0 +1,3 @@
+{
+  rules.remove(getKnownRule(ruleName).ruleName);
+}

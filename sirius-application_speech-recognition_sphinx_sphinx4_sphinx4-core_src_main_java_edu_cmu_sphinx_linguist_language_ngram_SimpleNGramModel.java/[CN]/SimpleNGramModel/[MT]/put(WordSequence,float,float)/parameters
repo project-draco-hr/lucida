@@ -1,0 +1,3 @@
+WordSequence wordSequence
+float logProb
+float logBackoff

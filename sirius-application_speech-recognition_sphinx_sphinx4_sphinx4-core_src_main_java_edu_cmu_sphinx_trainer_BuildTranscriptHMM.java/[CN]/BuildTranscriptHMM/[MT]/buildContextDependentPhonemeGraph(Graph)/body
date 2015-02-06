@@ -1,0 +1,5 @@
+{
+  Graph cdGraph=new Graph();
+  cdGraph.copyGraph(phonemeGraph);
+  return cdGraph;
+}

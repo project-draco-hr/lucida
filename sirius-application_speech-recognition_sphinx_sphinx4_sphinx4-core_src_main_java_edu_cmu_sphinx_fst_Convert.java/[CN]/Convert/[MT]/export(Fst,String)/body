@@ -1,0 +1,5 @@
+{
+  exportSymbols(fst.getIsyms(),basename + ".input.syms");
+  exportSymbols(fst.getOsyms(),basename + ".output.syms");
+  exportFst(fst,basename + ".fst.txt");
+}

@@ -1,0 +1,4 @@
+{
+  cepstraBuffer[bufferPosition++]=cepstrum;
+  bufferPosition%=cepstraBufferSize;
+}

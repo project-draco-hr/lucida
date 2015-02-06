@@ -1,0 +1,13 @@
+{
+  int count=0;
+  for (int i=0; i < buf.length; i++) {
+    if (currentIndex >= bytes.length) {
+      break;
+    }
+ else {
+      buf[i]=bytes[currentIndex++];
+      count++;
+    }
+  }
+  return (count == 0) ? -1 : count;
+}

@@ -1,0 +1,39 @@
+{
+  Token t1, t2;
+  StringBuilder sb=new StringBuilder();
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case IDENTIFIER:
+    t1=jj_consume_token(IDENTIFIER);
+  break;
+case PUBLIC:
+t1=jj_consume_token(PUBLIC);
+break;
+case IMPORT:
+t1=jj_consume_token(IMPORT);
+break;
+case GRAMMAR:
+t1=jj_consume_token(GRAMMAR);
+break;
+default :
+jj_la1[6]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+sb.append(t1.image);
+label_3: while (true) {
+if (jj_2_1(2)) {
+;
+}
+ else {
+break label_3;
+}
+jj_consume_token(29);
+t2=jj_consume_token(IDENTIFIER);
+sb.append('.');
+sb.append(t2.image);
+}
+{
+if (true) return sb.toString();
+}
+throw new Error("Missing return statement in function");
+}

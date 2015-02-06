@@ -1,0 +1,28 @@
+{
+  int ndx1From;
+  int ndx2From;
+  int ndx1To;
+  int ndx2To;
+  int ndxWeightFft;
+  if (currentDistance > 0) {
+    int twiceCurrentDistance=2 * currentDistance;
+    for (int s=0; s < currentDistance; s++) {
+      ndx1From=s;
+      ndx2From=s + currentDistance;
+      ndx1To=s;
+      ndx2To=s + (numberFftPoints >> 1);
+      ndxWeightFft=0;
+      while (ndxWeightFft < (numberFftPoints >> 1)) {
+        weightFftTimesFrom2.multiplyComplex(weightFft[ndxWeightFft],from[ndx2From]);
+        to[ndx1To].addComplex(from[ndx1From],weightFftTimesFrom2);
+        to[ndx2To].subtractComplex(from[ndx1From],weightFftTimesFrom2);
+        ndx1From+=twiceCurrentDistance;
+        ndx2From+=twiceCurrentDistance;
+        ndx1To+=currentDistance;
+        ndx2To+=currentDistance;
+        ndxWeightFft+=currentDistance;
+      }
+    }
+    butterflyStage(to,from,numberFftPoints,(currentDistance >> 1));
+  }
+}

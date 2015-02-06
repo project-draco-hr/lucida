@@ -1,0 +1,4 @@
+{
+  super.setInputStream(utt);
+  bfaGrammar.setUtterance(utt.getName());
+}

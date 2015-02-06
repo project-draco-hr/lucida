@@ -1,0 +1,6 @@
+{
+  System.out.print("   This  Time Audio: " + timeFormat.format(audioTime) + 's');
+  System.out.print("  Proc: " + timeFormat.format(processingTime) + 's');
+  System.out.println("  Speed: " + timeFormat.format(getSpeed()) + " X real time");
+  showAudioSummary();
+}

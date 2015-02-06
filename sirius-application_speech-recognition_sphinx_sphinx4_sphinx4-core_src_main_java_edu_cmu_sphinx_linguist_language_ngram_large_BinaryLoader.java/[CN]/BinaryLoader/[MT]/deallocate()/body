@@ -1,0 +1,3 @@
+{
+  if (null != file)   file.close();
+}

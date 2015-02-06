@@ -1,0 +1,8 @@
+{
+  Integer id=tokenIDMap.get(token);
+  if (id == null) {
+    id=ID++;
+    tokenIDMap.put(token,id);
+  }
+  return id;
+}

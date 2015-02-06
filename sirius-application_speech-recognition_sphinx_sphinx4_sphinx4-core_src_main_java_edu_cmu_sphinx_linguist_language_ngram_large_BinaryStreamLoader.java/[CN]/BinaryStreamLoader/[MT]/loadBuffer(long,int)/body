@@ -1,0 +1,5 @@
+{
+  byte[] result=new byte[size];
+  System.arraycopy(modelData,(int)position,result,0,size);
+  return result;
+}

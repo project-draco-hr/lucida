@@ -1,0 +1,17 @@
+{
+  Set<SearchStateArc> visited=new HashSet<SearchStateArc>();
+  List<SearchStateArc> queue=new ArrayList<SearchStateArc>();
+  queue.add(arc);
+  while (!queue.isEmpty()) {
+    SearchStateArc nextArc=queue.remove(0);
+    if (!visited.contains(nextArc)) {
+      visited.add(nextArc);
+      if (!(nextArc.getState() instanceof HMMSearchState)) {
+        results.add(nextArc);
+      }
+ else {
+        queue.addAll(Arrays.asList(nextArc.getState().getSuccessors()));
+      }
+    }
+  }
+}

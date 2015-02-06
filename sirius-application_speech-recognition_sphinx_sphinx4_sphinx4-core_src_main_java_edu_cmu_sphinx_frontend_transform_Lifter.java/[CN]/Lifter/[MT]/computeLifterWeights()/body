@@ -1,0 +1,6 @@
+{
+  lifterWeights=new double[cepstrumSize];
+  for (int i=0; i < cepstrumSize; i++) {
+    lifterWeights[i]=1 + lifterValue / 2 * Math.sin(i * Math.PI / lifterValue);
+  }
+}

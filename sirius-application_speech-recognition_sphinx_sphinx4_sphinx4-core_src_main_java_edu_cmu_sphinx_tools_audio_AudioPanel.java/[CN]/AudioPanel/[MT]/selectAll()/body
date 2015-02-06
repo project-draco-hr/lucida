@@ -1,0 +1,5 @@
+{
+  setSelectionStart(-1);
+  setSelectionEnd(-1);
+  repaint();
+}

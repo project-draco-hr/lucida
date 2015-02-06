@@ -1,0 +1,4 @@
+{
+  initLogger();
+  initVars(dropEveryNthFrame,replaceNthWithPrevious);
+}

@@ -1,0 +1,10 @@
+{
+  Data data;
+  while (true) {
+    data=readData();
+    if (data == null || data instanceof DataEndSignal || data instanceof DataStartSignal || inSpeech) {
+      break;
+    }
+  }
+  return data;
+}

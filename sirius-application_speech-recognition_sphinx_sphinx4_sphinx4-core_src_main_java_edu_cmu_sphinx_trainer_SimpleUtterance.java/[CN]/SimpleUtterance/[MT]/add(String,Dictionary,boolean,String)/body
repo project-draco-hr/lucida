@@ -1,0 +1,4 @@
+{
+  logger.info("Transcript: " + transcript);
+  transcriptSet.add(new SimpleTranscript(transcript,dictionary,isExact,wordSeparator));
+}

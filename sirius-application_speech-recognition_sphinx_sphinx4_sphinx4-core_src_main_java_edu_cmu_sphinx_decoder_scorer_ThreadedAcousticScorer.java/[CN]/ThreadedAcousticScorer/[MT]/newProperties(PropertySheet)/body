@@ -1,0 +1,4 @@
+{
+  super.newProperties(ps);
+  init(ps.getInt(PROP_MIN_SCOREABLES_PER_THREAD),ps.getBoolean(PROP_IS_CPU_RELATIVE),ps.getInt(PROP_NUM_THREADS),ps.getInt(PROP_THREAD_PRIORITY));
+}

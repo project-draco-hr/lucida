@@ -1,0 +1,4 @@
+{
+  super.newProperties(ps);
+  mappingFile=ConfigurationManagerUtils.getResource(PROP_MAP_FILE,ps);
+}

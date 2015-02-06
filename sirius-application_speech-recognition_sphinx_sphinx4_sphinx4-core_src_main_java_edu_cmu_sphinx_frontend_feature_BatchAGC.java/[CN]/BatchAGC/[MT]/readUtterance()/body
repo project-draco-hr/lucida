@@ -1,0 +1,24 @@
+{
+  Data input=null;
+  int numFrames=0;
+  while (true) {
+    input=getPredecessor().getData();
+    if (input == null) {
+      break;
+    }
+ else     if (input instanceof DataEndSignal || input instanceof SpeechEndSignal) {
+      cepstraList.add(input);
+      break;
+    }
+ else     if (input instanceof DoubleData) {
+      cepstraList.add(input);
+      double c0=((DoubleData)input).getValues()[0];
+      if (agc < c0)       agc=c0;
+    }
+ else {
+      cepstraList.add(input);
+    }
+    numFrames++;
+  }
+  return numFrames;
+}

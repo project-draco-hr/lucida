@@ -1,0 +1,52 @@
+{
+  TimerPool.getTimer(this,"Load LM").start();
+  logger.info("Loading n-gram language model from: " + location);
+  if (ngramLogFile != null)   logFile=new PrintWriter(new FileOutputStream(ngramLogFile));
+  if (location.getProtocol() == null || location.getProtocol().equals("file")) {
+    try {
+      loader=new BinaryLoader(new File(location.toURI()),format,applyLanguageWeightAndWip,languageWeight,wip,unigramWeight);
+    }
+ catch (    Exception e) {
+      loader=new BinaryLoader(new File(location.getPath()),format,applyLanguageWeightAndWip,languageWeight,wip,unigramWeight);
+    }
+  }
+ else {
+    loader=new BinaryStreamLoader(location,format,applyLanguageWeightAndWip,languageWeight,wip,unigramWeight);
+  }
+  unigramIDMap=new HashMap<Word,UnigramProbability>();
+  unigrams=loader.getUnigrams();
+  loadedNGramBuffers=new Map[loader.getMaxDepth()];
+  ngramProbTable=new float[loader.getMaxDepth()][];
+  ngramBackoffTable=new float[loader.getMaxDepth()][];
+  ngramSegmentTable=new int[loader.getMaxDepth()][];
+  for (int i=1; i <= loader.getMaxDepth(); i++) {
+    loadedNGramBuffers[i - 1]=new HashMap<WordSequence,NGramBuffer>();
+    if (i >= 2)     ngramProbTable[i - 1]=loader.getNGramProbabilities(i);
+    if (i > 2) {
+      ngramBackoffTable[i - 1]=loader.getNGramBackoffWeights(i);
+      ngramSegmentTable[i - 1]=loader.getNGramSegments(i);
+    }
+  }
+  ngramDepthCache=new LRUCache<WordSequence,ProbDepth>(ngramCacheSize);
+  if (dictionary != null)   buildUnigramIDMap(dictionary);
+ else   buildUnigramIDMap();
+  loadedBigramBuffers=new NGramBuffer[unigrams.length];
+  if (maxDepth <= 0 || maxDepth > loader.getMaxDepth())   maxDepth=loader.getMaxDepth();
+  for (int i=1; i <= loader.getMaxDepth(); i++)   logger.info(Integer.toString(i) + "-grams: " + loader.getNumberNGrams(i));
+  if (fullSmear) {
+    System.out.println("Full Smear");
+    try {
+      System.out.println("... Reading ...");
+      readSmearInfo("smear.dat");
+      System.out.println("... Done ");
+    }
+ catch (    IOException e) {
+      System.out.println("... " + e);
+      System.out.println("... Calculating");
+      buildSmearInfo();
+      System.out.println("... Writing");
+      System.out.println("... Done");
+    }
+  }
+  TimerPool.getTimer(this,"Load LM").stop();
+}

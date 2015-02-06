@@ -1,0 +1,26 @@
+{
+  Collection<String> compNames=getComponentNames();
+  for (  String componentName : subCM.getComponentNames()) {
+    if (compNames.contains(componentName)) {
+      if (doOverrideComponents && !getPropertySheet(componentName).isInstanciated()) {
+        PropertySheet ps=subCM.getPropertySheet(componentName);
+        symbolTable.put(componentName,ps);
+        rawPropertyMap.put(componentName,new RawPropertyData(componentName,ps.getConfigurableClass().getSimpleName()));
+      }
+ else {
+        throw new RuntimeException(componentName + " is already registered to system configuration");
+      }
+    }
+  }
+  for (  String globProp : subCM.globalProperties.keySet()) {
+    if (globalProperties.containsKey(globProp) && !System.getProperties().containsKey(globProp)) {
+      if (!doOverrideComponents)       throw new RuntimeException(globProp + " is already registered as global property");
+    }
+  }
+  globalProperties.putAll(subCM.globalProperties);
+  for (  PropertySheet ps : subCM.symbolTable.values()) {
+    ps.setCM(this);
+  }
+  symbolTable.putAll(subCM.symbolTable);
+  rawPropertyMap.putAll(subCM.rawPropertyMap);
+}

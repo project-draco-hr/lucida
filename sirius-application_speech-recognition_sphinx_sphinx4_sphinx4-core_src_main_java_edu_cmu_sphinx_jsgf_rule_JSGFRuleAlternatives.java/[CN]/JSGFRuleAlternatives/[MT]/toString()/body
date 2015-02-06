@@ -1,0 +1,16 @@
+{
+  if (rules == null || rules.size() == 0) {
+    return "<VOID>";
+  }
+  StringBuilder sb=new StringBuilder();
+  for (int i=0; i < rules.size(); ++i) {
+    if (i > 0)     sb.append(" | ");
+    if (weights != null)     sb.append("/" + weights.get(i) + "/ ");
+    JSGFRule r=rules.get(i);
+    if (rules.get(i) instanceof JSGFRuleAlternatives)     sb.append("( ").append(r).append(" )");
+ else {
+      sb.append(r);
+    }
+  }
+  return sb.toString();
+}

@@ -1,0 +1,4 @@
+{
+  Object key=getStateKey(state);
+  bestTokenMap.put(key,token);
+}

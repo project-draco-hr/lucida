@@ -1,0 +1,3 @@
+List<SearchState> sourceList
+List<SearchState> destList
+float logLangProb

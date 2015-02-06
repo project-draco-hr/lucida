@@ -1,0 +1,3 @@
+{
+  return "Edge(" + fromNode + "-->"+ toNode+ '['+ acousticScore+ ','+ lmScore+ "])";
+}

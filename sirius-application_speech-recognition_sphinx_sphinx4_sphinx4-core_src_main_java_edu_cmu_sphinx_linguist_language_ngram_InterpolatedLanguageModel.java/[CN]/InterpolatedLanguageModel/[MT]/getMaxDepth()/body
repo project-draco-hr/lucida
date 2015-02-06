@@ -1,0 +1,10 @@
+{
+  int maxDepth=0;
+  for (  LanguageModel languageModel : languageModels) {
+    int d=languageModel.getMaxDepth();
+    if (d > maxDepth) {
+      maxDepth=d;
+    }
+  }
+  return maxDepth;
+}

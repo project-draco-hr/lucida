@@ -1,0 +1,3 @@
+{
+  filterBank.setPredecessor(predecessor);
+}

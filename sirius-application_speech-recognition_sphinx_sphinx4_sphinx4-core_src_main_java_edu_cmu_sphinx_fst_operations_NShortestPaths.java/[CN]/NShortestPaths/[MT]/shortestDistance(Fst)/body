@@ -1,0 +1,32 @@
+{
+  Fst reversed=Reverse.get(fst);
+  float[] d=new float[reversed.getNumStates()];
+  float[] r=new float[reversed.getNumStates()];
+  Semiring semiring=reversed.getSemiring();
+  Arrays.fill(d,semiring.zero());
+  Arrays.fill(r,semiring.zero());
+  LinkedHashSet<State> queue=new LinkedHashSet<State>();
+  queue.add(reversed.getStart());
+  d[reversed.getStart().getId()]=semiring.one();
+  r[reversed.getStart().getId()]=semiring.one();
+  while (!queue.isEmpty()) {
+    State q=queue.iterator().next();
+    queue.remove(q);
+    float rnew=r[q.getId()];
+    r[q.getId()]=semiring.zero();
+    for (int i=0; i < q.getNumArcs(); i++) {
+      Arc a=q.getArc(i);
+      State nextState=a.getNextState();
+      float dnext=d[a.getNextState().getId()];
+      float dnextnew=semiring.plus(dnext,semiring.times(rnew,a.getWeight()));
+      if (dnext != dnextnew) {
+        d[a.getNextState().getId()]=dnextnew;
+        r[a.getNextState().getId()]=semiring.plus(r[a.getNextState().getId()],semiring.times(rnew,a.getWeight()));
+        if (!queue.contains(nextState.getId())) {
+          queue.add(nextState);
+        }
+      }
+    }
+  }
+  return d;
+}

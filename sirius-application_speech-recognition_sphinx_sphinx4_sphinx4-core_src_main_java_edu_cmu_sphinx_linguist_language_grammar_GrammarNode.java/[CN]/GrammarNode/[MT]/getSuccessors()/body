@@ -1,0 +1,3 @@
+{
+  return arcList.toArray(new GrammarArc[arcList.size()]);
+}

@@ -1,0 +1,6 @@
+{
+  out.writeInt(map.length);
+  for (int i=0; i < map.length; i++) {
+    out.writeObject(map[i]);
+  }
+}

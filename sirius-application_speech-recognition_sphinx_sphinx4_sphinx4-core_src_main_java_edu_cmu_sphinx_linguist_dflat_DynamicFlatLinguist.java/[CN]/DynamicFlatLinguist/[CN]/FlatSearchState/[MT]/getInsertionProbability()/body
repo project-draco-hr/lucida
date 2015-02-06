@@ -1,0 +1,3 @@
+{
+  return LogMath.LOG_ONE;
+}

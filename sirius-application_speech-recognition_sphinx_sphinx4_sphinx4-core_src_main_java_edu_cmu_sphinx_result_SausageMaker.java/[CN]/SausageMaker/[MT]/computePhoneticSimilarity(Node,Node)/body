@@ -1,0 +1,7 @@
+{
+  Pronunciation p1=n1.getWord().getMostLikelyPronunciation();
+  Pronunciation p2=n2.getWord().getMostLikelyPronunciation();
+  double sim=stringEditDistance(Arrays.asList(p1.getUnits()),Arrays.asList(p2.getUnits()));
+  sim/=(p1.getUnits().length + p2.getUnits().length);
+  return 1 - sim;
+}

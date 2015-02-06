@@ -1,0 +1,4 @@
+{
+  int stepWidth=r.nextInt((int)uDistWidthSamples);
+  return stepWidth + nextInsertionPoint;
+}

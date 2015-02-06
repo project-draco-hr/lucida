@@ -1,0 +1,12 @@
+{
+  logger=ps.getLogger();
+  propsFile=ps.getString(PROP_PROPERTIES_FILE);
+  loadProperties();
+  unitManager=(UnitManager)ps.getComponent(PROP_UNIT_MANAGER);
+  String mdef=(String)properties.get(PROP_MODEL);
+  model=mdef != null ? mdef : ps.getString(PROP_MODEL);
+  tie1ph=ps.getBoolean(PROP_TIE_1PH);
+  distFloor=ps.getFloat(PROP_MC_FLOOR);
+  mixtureWeightFloor=ps.getFloat(PROP_MW_FLOOR);
+  varianceFloor=ps.getFloat(PROP_VARIANCE_FLOOR);
+}

@@ -1,0 +1,7 @@
+{
+  if (allocated) {
+    dictionary=null;
+    g2pDecoder=null;
+    allocated=false;
+  }
+}

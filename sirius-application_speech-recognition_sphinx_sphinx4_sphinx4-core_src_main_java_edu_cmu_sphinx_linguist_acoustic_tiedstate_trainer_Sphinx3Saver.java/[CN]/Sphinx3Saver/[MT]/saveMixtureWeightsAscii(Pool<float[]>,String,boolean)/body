@@ -1,0 +1,33 @@
+{
+  logger.info("Saving mixture weights to: ");
+  logger.info(path);
+  OutputStream outputStream=StreamFactory.getOutputStream(location,path,append);
+  if (outputStream == null) {
+    throw new IOException("Error trying to write file " + location + path);
+  }
+  PrintWriter pw=new PrintWriter(outputStream,true);
+  pw.print("mixw ");
+  int numStates=pool.getFeature(NUM_SENONES,-1);
+  pw.print(numStates + " ");
+  int numStreams=pool.getFeature(NUM_STREAMS,-1);
+  pw.print(numStreams + " ");
+  int numGaussiansPerState=pool.getFeature(NUM_GAUSSIANS_PER_STATE,-1);
+  pw.println(numGaussiansPerState);
+  for (int i=0; i < numStates; i++) {
+    pw.print("mixw [" + i + " 0] ");
+    float[] mixtureWeight=new float[numGaussiansPerState];
+    float[] logMixtureWeight=pool.get(i);
+    logMath.logToLinear(logMixtureWeight,mixtureWeight);
+    float sum=0.0f;
+    for (int j=0; j < numGaussiansPerState; j++) {
+      sum+=mixtureWeight[j];
+    }
+    pw.println(sum);
+    pw.print("\n\t");
+    for (int j=0; j < numGaussiansPerState; j++) {
+      pw.print(" " + mixtureWeight[j]);
+    }
+    pw.println();
+  }
+  outputStream.close();
+}

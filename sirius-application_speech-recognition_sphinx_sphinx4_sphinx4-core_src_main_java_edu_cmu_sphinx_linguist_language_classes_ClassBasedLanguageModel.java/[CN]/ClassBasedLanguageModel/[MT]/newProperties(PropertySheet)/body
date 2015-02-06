@@ -1,0 +1,7 @@
+{
+  if (allocated) {
+    throw new PropertyException(ClassBasedLanguageModel.class.getName(),null,"Can't change properties after allocation");
+  }
+  classMap=(ClassMap)ps.getComponent(PROP_CLASS_MAP);
+  classLM=(LanguageModel)ps.getComponent(PROP_CLASS_LANGUAGE_MODEL);
+}

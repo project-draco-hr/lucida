@@ -1,0 +1,25 @@
+{
+  naturalLogBase=(float)Math.log(logBase);
+  inverseNaturalLogBase=1.0f / naturalLogBase;
+  maxLogValue=linearToLog(Double.MAX_VALUE);
+  minLogValue=linearToLog(Double.MIN_VALUE);
+  if (useTable) {
+    float innerSummation;
+    int entriesInTheAddTable;
+    final int veryLargeNumberOfEntries=150000;
+    final int verySmallNumberOfEntries=0;
+    entriesInTheAddTable=(int)-Math.rint(linearToLog(logToLinear(0.5f) - 1));
+    if (entriesInTheAddTable > veryLargeNumberOfEntries) {
+      entriesInTheAddTable=veryLargeNumberOfEntries;
+    }
+    if (entriesInTheAddTable <= verySmallNumberOfEntries) {
+      throw new IllegalArgumentException("The log base " + logBase + " yields a very small addTable. "+ "Either choose not to use the addTable, "+ "or choose a logBase closer to 1.0");
+    }
+    theAddTable=new float[entriesInTheAddTable];
+    for (int index=0; index < entriesInTheAddTable; ++index) {
+      innerSummation=(float)logToLinear(-index);
+      innerSummation+=1.0f;
+      theAddTable[index]=linearToLog(innerSummation);
+    }
+  }
+}

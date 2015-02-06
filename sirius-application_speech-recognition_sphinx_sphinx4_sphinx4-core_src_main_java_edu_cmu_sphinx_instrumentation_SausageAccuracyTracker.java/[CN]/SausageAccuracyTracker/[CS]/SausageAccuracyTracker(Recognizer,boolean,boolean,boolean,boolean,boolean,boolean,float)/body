@@ -1,0 +1,5 @@
+{
+  super(recognizer,showSummary,showDetails,showResults,showAlignedResults,showRawResults);
+  this.showFullPath=showFullPath;
+  this.languageModelWeight=languageWeight;
+}

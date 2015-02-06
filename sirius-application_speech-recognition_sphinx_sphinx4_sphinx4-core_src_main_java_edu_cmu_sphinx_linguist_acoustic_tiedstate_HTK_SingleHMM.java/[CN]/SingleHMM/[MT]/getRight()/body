@@ -1,0 +1,5 @@
+{
+  int m=name.indexOf('+');
+  if (m < 0)   return "-";
+  return name.substring(m + 1);
+}

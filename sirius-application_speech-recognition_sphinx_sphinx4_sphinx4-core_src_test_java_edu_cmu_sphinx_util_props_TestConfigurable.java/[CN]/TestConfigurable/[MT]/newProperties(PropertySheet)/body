@@ -1,0 +1,5 @@
+{
+  dataProc=(DummyProcessor)ps.getComponent(PROP_DATA_PROC);
+  myString=ps.getString(PROP_ASTRING);
+  gamma=ps.getDouble(PROP_GAMMA);
+}

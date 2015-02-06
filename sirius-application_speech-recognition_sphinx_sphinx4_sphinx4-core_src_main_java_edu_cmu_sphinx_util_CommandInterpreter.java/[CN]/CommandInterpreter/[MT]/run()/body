@@ -1,0 +1,26 @@
+{
+  while (!done) {
+    try {
+      printPrompt();
+      String message=getInputLine();
+      if (message == null) {
+        break;
+      }
+ else {
+        if (trace) {
+          System.out.println("\n----------");
+          System.out.println("In : " + message);
+        }
+        message=message.trim();
+        if (!message.isEmpty()) {
+          putResponse(execute(message));
+        }
+      }
+    }
+ catch (    IOException e) {
+      System.out.println("Exception: CommandInterpreter.run()");
+      break;
+    }
+  }
+  onExit();
+}

@@ -1,0 +1,5 @@
+{
+  commandList=new HashMap<String,CommandInterface>();
+  addStandardCommands();
+  setStreams(in,out);
+}

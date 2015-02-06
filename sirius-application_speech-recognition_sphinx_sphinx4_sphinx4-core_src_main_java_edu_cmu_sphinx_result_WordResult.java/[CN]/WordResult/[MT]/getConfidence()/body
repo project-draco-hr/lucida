@@ -1,0 +1,3 @@
+{
+  return Math.min(confidence,LogMath.LOG_ONE);
+}

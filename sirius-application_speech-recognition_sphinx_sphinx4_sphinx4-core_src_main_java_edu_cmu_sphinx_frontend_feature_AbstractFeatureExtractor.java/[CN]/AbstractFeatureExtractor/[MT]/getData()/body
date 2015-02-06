@@ -1,0 +1,27 @@
+{
+  if (outputQueue.isEmpty()) {
+    Data input=getNextData();
+    if (input != null) {
+      if (input instanceof DoubleData) {
+        addCepstrum((DoubleData)input);
+        computeFeatures(1);
+      }
+ else       if (input instanceof DataStartSignal) {
+        pendingSignal=null;
+        outputQueue.add(input);
+        Data start=getNextData();
+        int n=processFirstCepstrum(start);
+        computeFeatures(n);
+        if (pendingSignal != null) {
+          outputQueue.add(pendingSignal);
+        }
+      }
+ else       if (input instanceof DataEndSignal || input instanceof SpeechEndSignal) {
+        int n=replicateLastCepstrum();
+        computeFeatures(n);
+        outputQueue.add(input);
+      }
+    }
+  }
+  return outputQueue.isEmpty() ? null : outputQueue.removeFirst();
+}

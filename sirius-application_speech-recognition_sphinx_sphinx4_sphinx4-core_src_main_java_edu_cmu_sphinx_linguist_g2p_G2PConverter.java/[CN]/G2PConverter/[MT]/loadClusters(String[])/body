@@ -1,0 +1,14 @@
+{
+  clusters=new ArrayList[syms.length];
+  for (int i=0; i < syms.length; i++) {
+    clusters[i]=null;
+  }
+  for (int i=2; i < syms.length; i++) {
+    String sym=syms[i];
+    if (sym.contains(tie)) {
+      String split[]=sym.split(Pattern.quote(tie));
+      ArrayList<String> cluster=new ArrayList<String>(Arrays.asList(split));
+      clusters[i]=cluster;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  super.freeze();
+  if (rcSet instanceof Set) {
+    Set<Unit> set=(Set<Unit>)rcSet;
+    rcSet=set.toArray(new Unit[set.size()]);
+  }
+}

@@ -1,0 +1,12 @@
+{
+  Result result=null;
+  checkState(State.READY);
+  try {
+    setState(State.RECOGNIZING);
+    result=decoder.decode(referenceText);
+  }
+  finally {
+    setState(State.READY);
+  }
+  return result;
+}

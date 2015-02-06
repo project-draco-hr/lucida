@@ -1,0 +1,11 @@
+{
+  if ((sourceBase <= 0) || (resultBase <= 0)) {
+    throw new IllegalArgumentException("Trying to take log of " + " non-positive number: " + sourceBase + " or "+ resultBase);
+  }
+  if (logSource == LOG_ZERO) {
+    return LOG_ZERO;
+  }
+  float lnSourceBase=(float)Math.log(sourceBase);
+  float lnResultBase=(float)Math.log(resultBase);
+  return (logSource * lnSourceBase / lnResultBase);
+}

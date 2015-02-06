@@ -1,0 +1,7 @@
+{
+  incomingEdges=new ArrayList<Edge>();
+  outgoingEdges=new ArrayList<Edge>();
+  this.nodeId=nodeSymbol;
+  this.nodeType=nodeType;
+  this.object=null;
+}

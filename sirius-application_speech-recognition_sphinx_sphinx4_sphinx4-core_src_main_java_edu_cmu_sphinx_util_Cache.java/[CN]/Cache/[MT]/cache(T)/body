@@ -1,0 +1,10 @@
+{
+  T result=map.get(object);
+  if (result == null) {
+    map.put(object,object);
+  }
+ else {
+    hits++;
+  }
+  return result;
+}

@@ -1,0 +1,6 @@
+{
+  int nthPosition=0;
+  nthPosition=nthFollower * LargeNGramModel.BYTES_PER_NMAXGRAM * ((is32bits()) ? 4 : 2);
+  setPosition(nthPosition + ((is32bits()) ? 4 : 2));
+  return readBytesAsInt();
+}

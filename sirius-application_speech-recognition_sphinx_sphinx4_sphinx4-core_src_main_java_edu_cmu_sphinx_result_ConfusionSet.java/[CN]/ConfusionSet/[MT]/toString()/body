@@ -1,0 +1,10 @@
+{
+  StringBuilder b=new StringBuilder();
+  for (  Map.Entry<Double,Set<WordResult>> entry : entrySet()) {
+    b.append(entry.getKey()).append(':');
+    for (    WordResult wordResult : entry.getValue())     b.append(wordResult).append(',');
+    if (!entry.getValue().isEmpty())     b.setLength(b.length() - 1);
+    b.append(' ');
+  }
+  return b.toString();
+}

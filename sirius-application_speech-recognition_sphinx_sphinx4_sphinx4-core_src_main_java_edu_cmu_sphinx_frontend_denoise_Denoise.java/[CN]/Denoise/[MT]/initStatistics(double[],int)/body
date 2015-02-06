@@ -1,0 +1,9 @@
+{
+  power=Arrays.copyOf(input,length);
+  noise=Arrays.copyOf(input,length);
+  floor=new double[length];
+  peak=new double[length];
+  for (int i=0; i < length; i++) {
+    floor[i]=input[i] / maxGain;
+  }
+}

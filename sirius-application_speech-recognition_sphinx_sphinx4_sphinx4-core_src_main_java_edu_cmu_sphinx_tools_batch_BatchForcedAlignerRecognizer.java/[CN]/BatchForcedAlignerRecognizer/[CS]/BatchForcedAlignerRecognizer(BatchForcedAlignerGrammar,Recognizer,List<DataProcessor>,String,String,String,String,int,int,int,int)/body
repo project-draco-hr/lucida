@@ -1,0 +1,4 @@
+{
+  super(recognizer,inputDataProcessors,ctlFile,dataDir,refFile,ctmFile,bitsPerSample,samplesPerSecond,framesPerSecond,channelCount);
+  this.bfaGrammar=bfaGrammar;
+}

@@ -1,0 +1,4 @@
+{
+  this.node=node;
+  nodeStateMap.put(node,this);
+}

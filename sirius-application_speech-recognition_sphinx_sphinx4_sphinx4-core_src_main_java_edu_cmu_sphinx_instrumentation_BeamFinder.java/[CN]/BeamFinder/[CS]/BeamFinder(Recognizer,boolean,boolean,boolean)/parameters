@@ -1,0 +1,4 @@
+Recognizer recognizer
+boolean showSummary
+boolean showDetails
+boolean enabled

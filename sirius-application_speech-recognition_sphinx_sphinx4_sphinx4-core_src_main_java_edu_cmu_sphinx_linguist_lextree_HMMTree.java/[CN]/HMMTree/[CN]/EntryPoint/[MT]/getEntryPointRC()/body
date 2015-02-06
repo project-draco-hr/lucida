@@ -1,0 +1,10 @@
+{
+  if (rcSet == null) {
+    rcSet=new HashSet<Unit>();
+    for (    Node node : baseNode.getSuccessorMap().values()) {
+      UnitNode unitNode=(UnitNode)node;
+      rcSet.add(unitNode.getBaseUnit());
+    }
+  }
+  return rcSet;
+}

@@ -1,0 +1,4 @@
+{
+  this.startNode=startNode;
+  this.endNode=endNode;
+}

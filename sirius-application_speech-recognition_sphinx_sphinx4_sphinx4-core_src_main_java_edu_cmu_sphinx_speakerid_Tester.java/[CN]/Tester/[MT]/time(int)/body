@@ -1,0 +1,3 @@
+{
+  return (seconds / 60000) + ":" + (Math.round((double)(seconds % 60000) / 1000));
+}

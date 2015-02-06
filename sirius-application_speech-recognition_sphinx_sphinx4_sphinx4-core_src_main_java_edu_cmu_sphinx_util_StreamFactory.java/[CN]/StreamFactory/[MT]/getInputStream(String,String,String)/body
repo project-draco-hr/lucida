@@ -1,0 +1,44 @@
+{
+  InputStream stream=null;
+  String absoluteLocation;
+  if (location == null) {
+    absoluteLocation=null;
+  }
+ else {
+    URI uri=URI.create(location);
+    String scheme=uri.getScheme();
+    String path=uri.getSchemeSpecificPart();
+    File relativeFile=new File(path);
+    URI absoluteURI=relativeFile.getAbsoluteFile().toURI();
+    if (scheme == null) {
+      absoluteLocation=absoluteURI.getSchemeSpecificPart();
+    }
+ else {
+      absoluteLocation=scheme + ':' + absoluteURI.getSchemeSpecificPart();
+    }
+  }
+  if (format.equals(ZIP_FILE)) {
+    try {
+      URI newURI=new URI(absoluteLocation);
+      ZipFile zipFile=new ZipFile(new File(newURI));
+      ZipEntry entry=zipFile.getEntry(file);
+      if (entry != null) {
+        stream=zipFile.getInputStream(entry);
+      }
+      zipFile.close();
+    }
+ catch (    URISyntaxException use) {
+      use.printStackTrace();
+      throw new ZipException("URISyntaxException: " + use.getMessage());
+    }
+  }
+ else   if (format.equals(DIRECTORY)) {
+    if (absoluteLocation != null) {
+      stream=new FileInputStream(absoluteLocation + File.separator + file);
+    }
+ else {
+      stream=new FileInputStream(file);
+    }
+  }
+  return stream;
+}

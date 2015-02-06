@@ -1,0 +1,17 @@
+{
+  if (iterator == null || !iterator.hasNext()) {
+    HypothesisUtterance utterance=nextUtterance();
+    if (utterance != null) {
+      iterator=utterance.getWords().iterator();
+    }
+ else {
+      iterator=null;
+    }
+  }
+  if (iterator == null) {
+    return null;
+  }
+ else {
+    return iterator.next();
+  }
+}

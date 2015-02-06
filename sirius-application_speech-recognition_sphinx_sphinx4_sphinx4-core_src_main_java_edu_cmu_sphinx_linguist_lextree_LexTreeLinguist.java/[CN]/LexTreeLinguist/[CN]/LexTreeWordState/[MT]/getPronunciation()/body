@@ -1,0 +1,3 @@
+{
+  return ((WordNode)getNode()).getPronunciation();
+}

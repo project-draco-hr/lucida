@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof Context) {
+    Context otherContext=(Context)o;
+    return toString().equals(otherContext.toString());
+  }
+ else {
+    return false;
+  }
+}

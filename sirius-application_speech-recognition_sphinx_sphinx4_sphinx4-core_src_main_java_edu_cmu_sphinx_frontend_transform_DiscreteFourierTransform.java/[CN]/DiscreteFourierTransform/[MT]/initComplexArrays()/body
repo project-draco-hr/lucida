@@ -1,0 +1,10 @@
+{
+  inputFrame=new Complex[numberFftPoints];
+  from=new Complex[numberFftPoints];
+  to=new Complex[numberFftPoints];
+  for (int i=0; i < numberFftPoints; i++) {
+    inputFrame[i]=new Complex();
+    from[i]=new Complex();
+    to[i]=new Complex();
+  }
+}

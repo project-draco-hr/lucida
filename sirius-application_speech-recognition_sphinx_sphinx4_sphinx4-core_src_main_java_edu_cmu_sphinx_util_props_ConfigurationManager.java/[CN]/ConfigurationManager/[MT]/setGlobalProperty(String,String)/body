@@ -1,0 +1,13 @@
+{
+  if (value == null)   globalProperties.remove(propertyName);
+ else   globalProperties.put(propertyName,value);
+  for (  String instanceName : getInstanceNames(Configurable.class)) {
+    PropertySheet ps=getPropertySheet(instanceName);
+    if (ps.isInstanciated())     try {
+      ps.getOwner().newProperties(ps);
+    }
+ catch (    PropertyException e) {
+      e.printStackTrace();
+    }
+  }
+}

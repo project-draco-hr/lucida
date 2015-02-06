@@ -1,0 +1,3 @@
+{
+  grammars=new HashMap<String,JSGFRuleGrammar>();
+}

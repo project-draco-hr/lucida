@@ -1,0 +1,13 @@
+{
+  Runtime rt=Runtime.getRuntime();
+  long free=rt.freeMemory();
+  rt.gc();
+  long reclaimedMemory=(rt.freeMemory() - free) / (1024 * 1024);
+  long freeMemory=rt.freeMemory() / (1024 * 1024);
+  long totalMemory=rt.totalMemory() / (1024 * 1024);
+  long usedMemory=rt.totalMemory() - rt.freeMemory();
+  if (usedMemory > maxUsed) {
+    maxUsed=usedMemory;
+  }
+  System.out.println("Memory (mb) " + " total: " + totalMemory + " reclaimed: "+ reclaimedMemory+ " free: "+ freeMemory+ " Max Used: "+ (maxUsed / (1024 * 1024))+ " -- "+ msg);
+}

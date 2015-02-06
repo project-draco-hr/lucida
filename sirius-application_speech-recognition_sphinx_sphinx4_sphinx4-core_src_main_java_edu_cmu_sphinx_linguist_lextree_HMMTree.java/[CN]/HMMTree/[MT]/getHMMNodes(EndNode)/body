@@ -1,0 +1,24 @@
+{
+  HMMNode[] results=endNodeMap.get(endNode.getKey());
+  if (results == null) {
+    Map<HMM,HMMNode> resultMap=new HashMap<HMM,HMMNode>();
+    Unit baseUnit=endNode.getBaseUnit();
+    Unit lc=endNode.getLeftContext();
+    for (    Unit rc : entryPoints) {
+      HMM hmm=hmmPool.getHMM(baseUnit,lc,rc,HMMPosition.END);
+      HMMNode hmmNode=resultMap.get(hmm);
+      if (hmmNode == null) {
+        hmmNode=new HMMNode(hmm,LogMath.LOG_ONE);
+        resultMap.put(hmm,hmmNode);
+      }
+      hmmNode.addRC(rc);
+      for (      Node node : endNode.getSuccessors()) {
+        WordNode wordNode=(WordNode)node;
+        hmmNode.addSuccessor(wordNode);
+      }
+    }
+    results=resultMap.values().toArray(new HMMNode[resultMap.size()]);
+    endNodeMap.put(endNode.getKey(),results);
+  }
+  return results;
+}

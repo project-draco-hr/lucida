@@ -1,0 +1,4 @@
+double[] values
+int sampleRate
+long collectTime
+long firstSampleNumber

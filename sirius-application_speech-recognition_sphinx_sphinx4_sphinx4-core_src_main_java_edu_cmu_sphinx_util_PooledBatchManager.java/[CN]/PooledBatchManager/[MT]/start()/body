@@ -1,0 +1,10 @@
+{
+  lock();
+  try {
+    createDirectories();
+    redirectStdout();
+  }
+  finally {
+    unlock();
+  }
+}

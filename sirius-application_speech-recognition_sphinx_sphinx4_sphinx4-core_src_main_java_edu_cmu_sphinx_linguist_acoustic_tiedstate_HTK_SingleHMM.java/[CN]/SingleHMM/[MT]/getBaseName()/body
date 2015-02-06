@@ -1,0 +1,8 @@
+{
+  int m=name.indexOf('-');
+  if (m < 0)   m=-1;
+  String b=name.substring(m + 1);
+  m=b.indexOf('+');
+  if (m < 0)   m=b.length();
+  return b.substring(0,m);
+}

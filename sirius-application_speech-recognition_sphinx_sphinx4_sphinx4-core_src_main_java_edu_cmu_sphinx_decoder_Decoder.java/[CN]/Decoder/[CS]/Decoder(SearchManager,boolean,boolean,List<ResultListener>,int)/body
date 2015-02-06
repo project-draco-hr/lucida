@@ -1,0 +1,4 @@
+{
+  super(searchManager,fireNonFinalResults,autoAllocate,resultListeners);
+  this.featureBlockSize=featureBlockSize;
+}

@@ -1,0 +1,88 @@
+{
+  JSGFRuleName rn=new JSGFRuleName(ruleName.getRuleName());
+  String simpleName=rn.getSimpleRuleName();
+  String grammarName=rn.getSimpleGrammarName();
+  String packageName=rn.getPackageName();
+  String fullGrammarName=rn.getFullGrammarName();
+  if (packageName != null && grammarName == null) {
+    throw new JSGFGrammarException("Error: badly formed rulename " + rn);
+  }
+  if (ruleName.getSimpleRuleName().equals("NULL")) {
+    return JSGFRuleName.NULL;
+  }
+  if (ruleName.getSimpleRuleName().equals("VOID")) {
+    return JSGFRuleName.VOID;
+  }
+  if (fullGrammarName == null && this.getRule(simpleName) != null) {
+    return new JSGFRuleName(name + '.' + simpleName);
+  }
+  if (fullGrammarName != null) {
+    JSGFRuleGrammar g=manager.retrieveGrammar(fullGrammarName);
+    if (g != null) {
+      if (g.getRule(simpleName) != null) {
+        return new JSGFRuleName(fullGrammarName + '.' + simpleName);
+      }
+    }
+  }
+  List<JSGFRuleName> matches=new ArrayList<JSGFRuleName>();
+  List<JSGFRuleName> imports=new ArrayList<JSGFRuleName>(this.imports);
+  imports.add(new JSGFRuleName(name + ".*"));
+  for (  JSGFRuleName importName : imports) {
+    String importSimpleName=importName.getSimpleRuleName();
+    String importGrammarName=importName.getSimpleGrammarName();
+    String importFullGrammarName=importName.getFullGrammarName();
+    if (importFullGrammarName == null) {
+      throw new JSGFGrammarException("Error: badly formed import " + ruleName);
+    }
+    JSGFRuleGrammar gref=manager.retrieveGrammar(importFullGrammarName);
+    if (gref == null) {
+      System.out.println("Warning: import of unknown grammar " + ruleName + " in "+ name);
+      continue;
+    }
+    if (!importSimpleName.equals("*") && gref.getRule(importSimpleName) == null) {
+      System.out.println("Warning: import of undefined rule " + ruleName + " in "+ name);
+      continue;
+    }
+    if (importFullGrammarName.equals(fullGrammarName) || importGrammarName.equals(fullGrammarName)) {
+      if (importSimpleName.equals("*")) {
+        if (gref.getRule(simpleName) != null) {
+          matches.add(new JSGFRuleName(importFullGrammarName + '.' + simpleName));
+        }
+        continue;
+      }
+ else {
+        if (importSimpleName.equals(simpleName)) {
+          matches.add(new JSGFRuleName(importFullGrammarName + '.' + simpleName));
+        }
+        continue;
+      }
+    }
+    if (fullGrammarName != null) {
+      continue;
+    }
+    if (importSimpleName.equals("*")) {
+      if (gref.getRule(simpleName) != null) {
+        matches.add(new JSGFRuleName(importFullGrammarName + '.' + simpleName));
+      }
+      continue;
+    }
+    if (importSimpleName.equals(simpleName)) {
+      matches.add(new JSGFRuleName(importFullGrammarName + '.' + simpleName));
+      continue;
+    }
+  }
+switch (matches.size()) {
+case 0:
+    return null;
+case 1:
+  return matches.get(0);
+default :
+StringBuilder b=new StringBuilder();
+b.append("Warning: ambiguous reference ").append(rn).append(" in ").append(name).append(" to ");
+for (JSGFRuleName tmp : matches) {
+b.append(tmp).append(" and ");
+}
+b.setLength(b.length() - 5);
+throw new JSGFGrammarException(b.toString());
+}
+}

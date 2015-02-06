@@ -1,0 +1,8 @@
+{
+  if (caseSensitiveNames) {
+    grammars.put(grammar.getName(),grammar);
+  }
+ else {
+    grammars.put(grammar.getName().toLowerCase(),grammar);
+  }
+}

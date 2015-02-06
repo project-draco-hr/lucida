@@ -1,0 +1,4 @@
+{
+  logUnigramProbability=probability;
+  nodeCount++;
+}

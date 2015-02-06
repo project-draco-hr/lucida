@@ -1,0 +1,7 @@
+{
+  while (aClass != null && !aClass.equals(Object.class)) {
+    aClass=aClass.getSuperclass();
+    if (aClass != null && aClass.equals(possibleSuperclass))     return true;
+  }
+  return false;
+}

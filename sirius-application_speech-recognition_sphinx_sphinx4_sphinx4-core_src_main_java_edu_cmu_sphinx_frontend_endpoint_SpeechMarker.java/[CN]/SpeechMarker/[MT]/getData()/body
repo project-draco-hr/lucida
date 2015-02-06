@@ -1,0 +1,64 @@
+{
+  while (outputQueue.size() < speechLeaderFrames) {
+    Data audio=readData();
+    if (audio != null) {
+      if (!inSpeech) {
+        if (audio instanceof SpeechClassifiedData) {
+          SpeechClassifiedData data=(SpeechClassifiedData)audio;
+          sendToQueue(audio);
+          if (data.isSpeech()) {
+            boolean speechStarted=handleFirstSpeech(data);
+            if (speechStarted) {
+              addSpeechStart();
+              inSpeech=true;
+              startCountingFrames();
+            }
+          }
+        }
+ else         if (audio instanceof DataStartSignal) {
+          reset();
+          sendToQueue(audio);
+        }
+ else {
+          sendToQueue(audio);
+        }
+      }
+ else {
+        if (audio instanceof SpeechClassifiedData) {
+          SpeechClassifiedData data=(SpeechClassifiedData)audio;
+          sendToQueue(data);
+          if (!data.isSpeech()) {
+            inSpeech=!(readEndFrames(data));
+          }
+ else {
+            countSpeechFrame();
+          }
+        }
+ else         if (audio instanceof DataEndSignal) {
+          sendToQueue(new SpeechEndSignal(((Signal)audio).getTime()));
+          sendToQueue(audio);
+          inSpeech=false;
+        }
+ else         if (audio instanceof DataStartSignal) {
+          reset();
+          sendToQueue(audio);
+        }
+      }
+    }
+ else {
+      break;
+    }
+  }
+  if (!outputQueue.isEmpty()) {
+    Data audio=outputQueue.remove(0);
+    if (audio instanceof SpeechClassifiedData) {
+      SpeechClassifiedData data=(SpeechClassifiedData)audio;
+      audio=data.getDoubleData();
+    }
+    if (audio instanceof DataStartSignal)     DataStartSignal.tagAsVadStream((DataStartSignal)audio);
+    return audio;
+  }
+ else {
+    return null;
+  }
+}

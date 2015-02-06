@@ -1,0 +1,7 @@
+{
+  double[] cepstrum=new double[cepstrumSize];
+  for (int i=0; i < cepstrum.length; i++) {
+    for (int j=0; j < numberMelFilters; j++)     cepstrum[i]+=melspectrum[j] * melcosine[i][j];
+  }
+  return cepstrum;
+}

@@ -1,0 +1,26 @@
+{
+  SearchStateArc[] newStates=state.getSuccessors();
+  totalStates++;
+  if (newStates.length > maxSuccessors) {
+    maxSuccessors=newStates.length;
+  }
+  for (  SearchStateArc newState : newStates) {
+    SearchState ns=newState.getState();
+    if (ns.isEmitting()) {
+      totalEmittingStates++;
+      activeList.add(ns);
+    }
+ else     if (!ns.isFinal()) {
+      totalNonEmittingStates++;
+      activeList.add(ns);
+      if (details && ns.isFinal()) {
+        System.out.println("result " + ns.toPrettyString());
+      }
+      expandState(level + 1,activeList,ns);
+    }
+ else {
+      totalFinalStates++;
+    }
+    totalStates++;
+  }
+}

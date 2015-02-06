@@ -1,0 +1,11 @@
+{
+  int numProbs=readInt(stream,bigEndian);
+  if (numProbs <= 0 || numProbs > MAX_PROB_TABLE_SIZE) {
+    throw new Error("Bad probabilities table size: " + numProbs);
+  }
+  float[] probTable=new float[numProbs];
+  for (int i=0; i < numProbs; i++) {
+    probTable[i]=logMath.log10ToLog(readFloat(stream,bigEndian));
+  }
+  return probTable;
+}

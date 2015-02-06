@@ -1,0 +1,9 @@
+{
+  if (history.size() > offset) {
+    return history.get((history.size() - 1) - offset);
+  }
+ else {
+    putResponse("command not found");
+    return "";
+  }
+}

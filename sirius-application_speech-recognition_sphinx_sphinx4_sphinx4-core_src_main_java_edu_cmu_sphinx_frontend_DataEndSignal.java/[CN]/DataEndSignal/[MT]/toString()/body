@@ -1,0 +1,3 @@
+{
+  return ("DataEndSignal: creation time: " + getTime() + ", duration: "+ getDuration()+ "ms");
+}

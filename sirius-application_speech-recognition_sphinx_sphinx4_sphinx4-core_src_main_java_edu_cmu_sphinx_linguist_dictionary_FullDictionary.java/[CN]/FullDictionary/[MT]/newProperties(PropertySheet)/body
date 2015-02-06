@@ -1,0 +1,13 @@
+{
+  logger=ps.getLogger();
+  wordDictionaryFile=ConfigurationManagerUtils.getResource(PROP_DICTIONARY,ps);
+  fillerDictionaryFile=ConfigurationManagerUtils.getResource(PROP_FILLER_DICTIONARY,ps);
+  addendaUrlList=ps.getResourceList(PROP_ADDENDA);
+  addSilEndingPronunciation=ps.getBoolean(PROP_ADD_SIL_ENDING_PRONUNCIATION);
+  wordReplacement=ps.getString(Dictionary.PROP_WORD_REPLACEMENT);
+  allowMissingWords=ps.getBoolean(Dictionary.PROP_ALLOW_MISSING_WORDS);
+  createMissingWords=ps.getBoolean(PROP_CREATE_MISSING_WORDS);
+  unitManager=(UnitManager)ps.getComponent(PROP_UNIT_MANAGER);
+  g2pModelFile=ConfigurationManagerUtils.getResource(PROP_G2P_MODEL_PATH,ps);
+  g2pMaxPron=ps.getInt(PROP_G2P_MAX_PRONUNCIATIONS);
+}

@@ -1,0 +1,6 @@
+{
+  float logTotal=LogMath.LOG_ZERO;
+  LogMath logMath=LogMath.getInstance();
+  for (  Float mixtureScore : calculateComponentScore(data))   logTotal=logMath.addAsLinear(logTotal,mixtureScore);
+  return logTotal;
+}

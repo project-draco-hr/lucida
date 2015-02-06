@@ -1,0 +1,8 @@
+{
+  dictionary.allocate();
+  newGrammar();
+  Timer timer=TimerPool.getTimer(this,"grammarLoad");
+  timer.start();
+  initialNode=createGrammar();
+  timer.stop();
+}

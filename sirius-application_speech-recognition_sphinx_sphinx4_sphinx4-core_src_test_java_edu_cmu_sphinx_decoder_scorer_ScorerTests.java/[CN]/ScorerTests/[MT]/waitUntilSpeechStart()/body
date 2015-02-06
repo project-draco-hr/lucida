@@ -1,0 +1,20 @@
+{
+  List<Class<? extends SimpleAcousticScorer>> scorerClasses=new ArrayList<Class<? extends SimpleAcousticScorer>>();
+  scorerClasses.add(SimpleAcousticScorer.class);
+  scorerClasses.add(ThreadedAcousticScorer.class);
+  for (  Class<? extends SimpleAcousticScorer> scorerClass : scorerClasses) {
+    System.err.println("testing: " + scorerClass.getSimpleName());
+    DataBufferProcessor dummyFrontEnd=createDummyFrontEnd();
+    Map<String,Object> props=new HashMap<String,Object>();
+    props.put(SimpleAcousticScorer.FEATURE_FRONTEND,dummyFrontEnd);
+    AcousticScorer scorer=ConfigurationManager.getInstance(scorerClass,props);
+    int startBufferSize=dummyFrontEnd.getBufferSize();
+    scorer.allocate();
+    scorer.startRecognition();
+    List<Scoreable> dummyTokens=Arrays.asList(testToken);
+    scorer.calculateScores(dummyTokens);
+    Assert.assertTrue(dummyFrontEnd.getBufferSize() < (startBufferSize - 100));
+    scorer.stopRecognition();
+    scorer.deallocate();
+  }
+}

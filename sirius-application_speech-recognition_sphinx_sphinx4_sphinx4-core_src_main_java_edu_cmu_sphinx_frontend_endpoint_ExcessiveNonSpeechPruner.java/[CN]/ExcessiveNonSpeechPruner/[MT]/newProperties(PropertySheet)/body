@@ -1,0 +1,3 @@
+{
+  maxNonSpeechTime=ps.getInt(PROP_MAX_NON_SPEECH_TIME_MS);
+}

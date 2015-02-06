@@ -1,0 +1,4 @@
+{
+  statMap=new HashMap<WordSequence,WordStats>();
+  this.frameNumber=frameNumber;
+}

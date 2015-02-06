@@ -1,0 +1,4 @@
+{
+  super.newProperties(propertySheet);
+  blockSizeMs=propertySheet.getDouble(PROP_BLOCK_SIZE_MS);
+}

@@ -1,0 +1,6 @@
+float[] mean
+float[][] meanTransformationMatrix
+float[] meanTransformationVector
+float[] variance
+float[][] varianceTransformationMatrix
+float[] varianceTransformationVector

@@ -1,0 +1,5 @@
+int which
+int wordID
+int probabilityID
+int backoffID
+int firstNPlus1GramEntry

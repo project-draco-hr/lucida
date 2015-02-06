@@ -1,0 +1,15 @@
+{
+  GMMDiag res=new GMMDiag(getNgauss() + g.getNgauss(),getNcoefs());
+  for (int i=0; i < getNgauss(); i++) {
+    System.arraycopy(means[i],0,res.means[i],0,getNcoefs());
+    System.arraycopy(covar[i],0,res.covar[i],0,getNcoefs());
+    res.setWeight(i,getWeight(i) * w1);
+  }
+  for (int i=0; i < g.getNgauss(); i++) {
+    System.arraycopy(g.means[i],0,res.means[ngauss + i],0,getNcoefs());
+    System.arraycopy(g.covar[i],0,res.covar[ngauss + i],0,getNcoefs());
+    res.setWeight(ngauss + i,g.getWeight(i) * (1f - w1));
+  }
+  res.precomputeDistance();
+  return res;
+}

@@ -1,0 +1,8 @@
+{
+  xScale=originalXScale * zoom;
+  int width=(int)(audio.getAudioData().length * xScale);
+  int height=(int)((1 << 16) * yScale);
+  setPreferredSize(new Dimension(width,height));
+  revalidate();
+  repaint();
+}

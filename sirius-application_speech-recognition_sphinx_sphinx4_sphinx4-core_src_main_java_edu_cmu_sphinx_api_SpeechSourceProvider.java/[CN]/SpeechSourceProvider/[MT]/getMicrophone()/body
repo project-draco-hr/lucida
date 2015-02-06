@@ -1,0 +1,3 @@
+{
+  return new Microphone(16000,16,true,false);
+}

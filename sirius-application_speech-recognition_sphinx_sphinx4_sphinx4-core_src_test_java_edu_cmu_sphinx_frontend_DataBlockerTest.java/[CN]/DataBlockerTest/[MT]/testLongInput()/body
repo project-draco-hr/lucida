@@ -1,0 +1,7 @@
+{
+  int sampleRate=1000;
+  input.add(new DataStartSignal(sampleRate));
+  input.addAll(createDataInput(1000,1000,sampleRate,0));
+  input.add(new DataEndSignal(0));
+  Assert.assertTrue(hasIncreasingOrder(collectOutput(100),1000));
+}

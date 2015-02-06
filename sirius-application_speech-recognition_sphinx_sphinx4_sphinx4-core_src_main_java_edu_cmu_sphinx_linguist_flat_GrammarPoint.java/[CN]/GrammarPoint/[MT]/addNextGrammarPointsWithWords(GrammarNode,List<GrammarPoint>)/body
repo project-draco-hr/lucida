@@ -1,0 +1,8 @@
+{
+  for (  GrammarNode nextNode : getNextGrammarNodesWithWords(node)) {
+    for (int j=0; j < nextNode.getAlternatives().length; j++) {
+      GrammarPoint gp=new GrammarPoint(nextNode,j,0,0,0);
+      nextPoints.add(gp);
+    }
+  }
+}

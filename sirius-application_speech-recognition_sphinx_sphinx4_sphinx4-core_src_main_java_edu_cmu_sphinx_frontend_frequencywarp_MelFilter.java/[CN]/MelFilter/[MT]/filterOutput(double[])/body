@@ -1,0 +1,11 @@
+{
+  double output=0.0f;
+  int indexSpectrum;
+  for (int i=0; i < this.weight.length; i++) {
+    indexSpectrum=this.initialFreqIndex + i;
+    if (indexSpectrum < spectrum.length) {
+      output+=spectrum[indexSpectrum] * this.weight[i];
+    }
+  }
+  return output;
+}

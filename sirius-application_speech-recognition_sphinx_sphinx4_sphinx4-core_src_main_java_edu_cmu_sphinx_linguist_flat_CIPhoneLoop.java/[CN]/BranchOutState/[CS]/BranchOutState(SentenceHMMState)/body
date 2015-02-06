@@ -1,0 +1,3 @@
+{
+  super("BranchOutState",parent,0);
+}

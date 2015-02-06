@@ -1,0 +1,9 @@
+{
+  try {
+    frontEnd=(FrontEnd)cm.lookup(frontEndName);
+    audioSource=(StreamDataSource)cm.lookup("streamDataSource");
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

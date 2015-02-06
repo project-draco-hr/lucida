@@ -1,0 +1,11 @@
+{
+  String path="algorithms/reverse/A.fst";
+  URL url=getClass().getResource(path);
+  File parent=new File(url.toURI()).getParentFile();
+  path=new File(parent,"A").getPath();
+  Fst fst=Convert.importFst(path,new TropicalSemiring());
+  path=new File(parent,"fstreverse.fst.ser").getPath();
+  Fst fstB=Fst.loadModel(path);
+  Fst fstReversed=Reverse.get(fst);
+  assertThat(fstB,equalTo(fstReversed));
+}

@@ -1,0 +1,19 @@
+{
+  if (newRule == null)   return;
+  if (currentRule == null) {
+    currentRule=newRule;
+    return;
+  }
+  if (currentRule instanceof JSGFRuleSequence) {
+    JSGFRuleSequence ruleSequence=(JSGFRuleSequence)currentRule;
+    ruleSequence.append(topRule);
+    newRule.parent=currentRule;
+    currentRule=newRule;
+  }
+ else   if (currentRule instanceof JSGFRuleAlternatives) {
+    JSGFRuleAlternatives ruleAlternatives=(JSGFRuleAlternatives)currentRule;
+    ruleAlternatives.append(topRule);
+    newRule.parent=currentRule;
+    currentRule=newRule;
+  }
+}

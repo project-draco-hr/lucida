@@ -1,0 +1,12 @@
+{
+  Token token=getBestToken();
+  if (token == null)   return null;
+  List<Data> featureList=new LinkedList<Data>();
+  do {
+    Data feature=token.getData();
+    if (feature != null)     featureList.add(0,feature);
+    token=token.getPredecessor();
+  }
+ while (token != null);
+  return featureList;
+}

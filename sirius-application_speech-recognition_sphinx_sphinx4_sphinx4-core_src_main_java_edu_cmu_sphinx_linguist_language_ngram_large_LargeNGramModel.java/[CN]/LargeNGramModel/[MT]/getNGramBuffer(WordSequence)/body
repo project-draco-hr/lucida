@@ -1,0 +1,10 @@
+{
+  NGramBuffer nGramBuffer=null;
+  int order=wordSequence.size();
+  if (order > 1)   nGramBuffer=loadedNGramBuffers[order - 1].get(wordSequence);
+  if (nGramBuffer == null) {
+    nGramBuffer=loadNGramBuffer(wordSequence);
+    if (nGramBuffer != null)     loadedNGramBuffers[order - 1].put(wordSequence,nGramBuffer);
+  }
+  return nGramBuffer;
+}

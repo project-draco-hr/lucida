@@ -1,0 +1,14 @@
+{
+  String response=null;
+  if (!checkOpen()) {
+    return null;
+  }
+  try {
+    response=inReader.readLine();
+  }
+ catch (  IOException ioe) {
+    System.err.println("IO error while reading response");
+    close();
+  }
+  return response;
+}

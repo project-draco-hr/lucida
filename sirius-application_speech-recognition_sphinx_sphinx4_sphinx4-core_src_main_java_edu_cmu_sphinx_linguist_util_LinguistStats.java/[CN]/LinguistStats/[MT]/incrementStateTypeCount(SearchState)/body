@@ -1,0 +1,8 @@
+{
+  Integer count=stateCountByType.get(state.getClass());
+  if (count == null) {
+    count=0;
+  }
+  count=count + 1;
+  stateCountByType.put(state.getClass(),count);
+}

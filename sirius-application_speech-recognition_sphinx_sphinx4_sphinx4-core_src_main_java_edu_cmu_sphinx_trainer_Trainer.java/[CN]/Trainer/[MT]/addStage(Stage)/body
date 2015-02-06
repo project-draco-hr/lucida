@@ -1,0 +1,4 @@
+{
+  StageList.add(stage);
+  StageNames.add(stage.toString());
+}

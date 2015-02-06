@@ -1,0 +1,19 @@
+{
+  final float logArcProbability=LogMath.LOG_ONE;
+  StringTokenizer tok=new StringTokenizer(transcript);
+  GrammarNode firstNode=null;
+  GrammarNode lastNode=null;
+  while (tok.hasMoreTokens()) {
+    String token;
+    token=tok.nextToken();
+    GrammarNode prevNode=lastNode;
+    lastNode=createGrammarNode(token);
+    if (firstNode == null)     firstNode=lastNode;
+    if (prevNode != null) {
+      prevNode.add(lastNode,logArcProbability);
+    }
+  }
+  iNode.add(firstNode,logArcProbability);
+  lastNode.add(fNode,logArcProbability);
+  return firstNode;
+}

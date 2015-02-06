@@ -1,0 +1,6 @@
+{
+  initLogger();
+  this.alpha=alpha;
+  this.windowSizeInMs=windowSizeInMs;
+  this.windowShiftInMs=windowShiftInMs;
+}

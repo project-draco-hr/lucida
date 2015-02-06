@@ -1,0 +1,25 @@
+{
+  int sentenceErrors=substitutions + insertions + deletions;
+  System.out.println();
+  System.out.print("REF: " + toString(alignedReferenceWords));
+  if (referenceAnnotation != null) {
+    System.out.print(' ' + referenceAnnotation);
+  }
+  System.out.println();
+  System.out.print("HYP: " + toString(alignedHypothesisWords));
+  if (referenceAnnotation != null) {
+    System.out.print(' ' + referenceAnnotation);
+  }
+  System.out.println();
+  System.out.println();
+  if (referenceAnnotation != null) {
+    System.out.println("SENTENCE " + totalSentences + "  "+ referenceAnnotation);
+  }
+ else {
+    System.out.println("SENTENCE " + totalSentences);
+  }
+  System.out.println("Correct          = " + toPercentage("##0.0%",correct,referenceItems.size()) + padLeft(5,correct)+ "   ("+ padLeft(6,totalWordsCorrect)+ ')');
+  System.out.println("Errors           = " + toPercentage("##0.0%",sentenceErrors,referenceItems.size()) + padLeft(5,sentenceErrors)+ "   ("+ padLeft(6,totalSentencesWithErrors)+ ')');
+  System.out.println();
+  System.out.println(HRULE);
+}

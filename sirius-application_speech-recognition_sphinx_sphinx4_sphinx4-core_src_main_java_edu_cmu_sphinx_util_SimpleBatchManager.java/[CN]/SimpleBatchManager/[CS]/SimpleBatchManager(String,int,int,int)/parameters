@@ -1,0 +1,4 @@
+String filename
+int skip
+int whichBatch
+int totalBatches

@@ -1,0 +1,13 @@
+{
+  double returnValue;
+  if (logValue < minLogValue) {
+    returnValue=0.0;
+  }
+ else   if (logValue > maxLogValue) {
+    returnValue=Double.MAX_VALUE;
+  }
+ else {
+    returnValue=Math.exp(logToLn(logValue));
+  }
+  return returnValue;
+}

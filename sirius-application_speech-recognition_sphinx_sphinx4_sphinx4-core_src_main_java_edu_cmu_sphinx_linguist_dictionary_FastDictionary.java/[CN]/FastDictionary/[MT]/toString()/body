@@ -1,0 +1,9 @@
+{
+  SortedMap<String,String> sorted=new TreeMap<String,String>(dictionary);
+  StringBuilder result=new StringBuilder();
+  for (  Map.Entry<String,String> entry : sorted.entrySet()) {
+    result.append(entry.getKey());
+    result.append("   ").append(entry.getValue()).append('\n');
+  }
+  return result.toString();
+}

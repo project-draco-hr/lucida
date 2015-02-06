@@ -1,0 +1,31 @@
+{
+  ConcatAudioFileDataSource dataSource=ConfigurationManager.getInstance(ConcatAudioFileDataSource.class);
+  dataSource.addNewFileListener(new AudioFileProcessListener(){
+    public void audioFileProcStarted(    File audioFile){
+      numFileStarts++;
+    }
+    public void audioFileProcFinished(    File audioFile){
+      numFileEnds++;
+    }
+    public void newProperties(    PropertySheet ps) throws PropertyException {
+    }
+  }
+);
+  File tmpFile=File.createTempFile(getClass().getName(),".drv");
+  tmpFile.deleteOnExit();
+  PrintWriter pw=new PrintWriter(tmpFile);
+  String path=new File(getClass().getResource("test.wav").toURI()).getPath();
+  pw.println(path);
+  pw.println(path);
+  pw.print(path);
+  assertFalse(pw.checkError());
+  pw.close();
+  dataSource.setBatchFile(tmpFile);
+  assertThat(dataSource.getData(),instanceOf(DataStartSignal.class));
+  assertThat(dataSource.getData(),instanceOf(DoubleData.class));
+  Data d;
+  while ((d=dataSource.getData()) instanceof DoubleData)   ;
+  assertThat(d,instanceOf(DataEndSignal.class));
+  assertThat(numFileStarts,equalTo(3));
+  assertThat(numFileEnds,equalTo(3));
+}

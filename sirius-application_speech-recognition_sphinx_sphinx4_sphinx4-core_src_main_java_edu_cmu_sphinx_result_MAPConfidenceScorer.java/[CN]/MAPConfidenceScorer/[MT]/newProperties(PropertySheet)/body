@@ -1,0 +1,5 @@
+{
+  languageWeightAdjustment=ps.getFloat(PROP_LANGUAGE_WEIGHT_ADJUSTMENT);
+  dumpLattice=ps.getBoolean(PROP_DUMP_LATTICE);
+  dumpSausage=ps.getBoolean(PROP_DUMP_SAUSAGE);
+}

@@ -1,0 +1,3 @@
+int featDim
+double[] mean
+double[] variance

@@ -1,0 +1,3 @@
+{
+  incomingEdgeIterator=incomingEdges.iterator();
+}

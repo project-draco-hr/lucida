@@ -1,0 +1,6 @@
+{
+  int val=getInt(name);
+  if (val != expecting) {
+    corrupt("Expecting integer " + expecting);
+  }
+}

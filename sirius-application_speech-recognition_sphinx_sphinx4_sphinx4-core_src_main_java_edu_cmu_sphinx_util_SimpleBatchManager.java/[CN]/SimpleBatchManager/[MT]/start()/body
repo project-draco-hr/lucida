@@ -1,0 +1,4 @@
+{
+  curItem=0;
+  items=getBatchItems(batchFile);
+}

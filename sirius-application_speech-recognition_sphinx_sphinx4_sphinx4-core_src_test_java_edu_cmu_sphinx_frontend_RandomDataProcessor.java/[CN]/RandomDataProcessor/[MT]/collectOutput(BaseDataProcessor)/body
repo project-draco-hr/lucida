@@ -1,0 +1,9 @@
+{
+  dataProc.setPredecessor(this);
+  List<Data> output=new ArrayList<Data>();
+  Data d;
+  while ((d=dataProc.getData()) != null) {
+    output.add(d);
+  }
+  return output;
+}

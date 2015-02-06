@@ -1,0 +1,6 @@
+{
+  if (obj == null || !(obj instanceof PropertySheet))   return false;
+  PropertySheet ps=(PropertySheet)obj;
+  if (!rawProps.keySet().equals(ps.rawProps.keySet()))   return false;
+  return true;
+}

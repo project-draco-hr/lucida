@@ -1,0 +1,3 @@
+{
+  return (int)(sampleRate * windowShiftInMs / 1000);
+}

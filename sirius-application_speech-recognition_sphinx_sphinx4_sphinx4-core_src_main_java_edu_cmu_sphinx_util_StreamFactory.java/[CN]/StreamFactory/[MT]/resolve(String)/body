@@ -1,0 +1,8 @@
+{
+  if ((sourceName.endsWith(".jar")) || (sourceName.endsWith(".zip"))) {
+    return StreamFactory.ZIP_FILE;
+  }
+ else {
+    return StreamFactory.DIRECTORY;
+  }
+}

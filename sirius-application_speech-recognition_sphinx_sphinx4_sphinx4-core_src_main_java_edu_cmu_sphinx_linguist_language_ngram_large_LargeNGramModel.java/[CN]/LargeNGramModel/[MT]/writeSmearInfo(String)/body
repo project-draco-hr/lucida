@@ -1,0 +1,23 @@
+{
+  DataOutputStream out=new DataOutputStream(new FileOutputStream(filename));
+  out.writeInt(SMEAR_MAGIC);
+  System.out.println("writing " + unigrams.length);
+  out.writeInt(unigrams.length);
+  for (int i=0; i < unigrams.length; i++)   out.writeFloat(unigramSmearTerm[i]);
+  for (int i=0; i < unigrams.length; i++) {
+    System.out.println("Writing " + i + " of "+ unigrams.length);
+    NGramBuffer bigram=getBigramBuffer(i);
+    if (bigram == null) {
+      out.writeInt(0);
+      continue;
+    }
+    out.writeInt(bigram.getNumberNGrams());
+    for (int j=0; j < bigram.getNumberNGrams(); j++) {
+      int k=bigram.getWordID(j);
+      Float smearTerm=getSmearTerm(i,k);
+      out.writeInt(k);
+      out.writeFloat(smearTerm.floatValue());
+    }
+  }
+  out.close();
+}

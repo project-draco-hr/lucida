@@ -1,0 +1,7 @@
+{
+  expectToken(openToken);
+  List<String> tokens=new ArrayList<String>();
+  String token;
+  while (!closeToken.equals(token=scanner.next()))   tokens.add(token);
+  return tokens;
+}

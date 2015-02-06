@@ -1,0 +1,31 @@
+{
+  try {
+    System.err.println("Dumping " + title + " to "+ fileName);
+    FileWriter f=new FileWriter(fileName);
+    f.write("graph: {\n");
+    f.write("title: \"" + title + "\"\n");
+    f.write("display_edge_labels: yes\n");
+    f.write("orientation: left_to_right\n");
+    int index=0;
+    for (    ConfusionSet set : confusionSets) {
+      f.write("node: { title: \"" + index + "\" label: \""+ index+ "\"}\n");
+      for (      Map.Entry<Double,Set<WordResult>> entry : set.entrySet()) {
+        Double prob=entry.getKey();
+        StringBuilder edge=new StringBuilder();
+        edge.append("edge: { sourcename: \"").append(index).append("\" targetname: \"").append(index + 1).append("\" label: \"");
+        Set<WordResult> wordSet=entry.getValue();
+        for (        WordResult wordResult : wordSet)         edge.append(wordResult).append('/');
+        if (!wordSet.isEmpty())         edge.setLength(edge.length() - 1);
+        edge.append(':').append(prob).append("\" }\n");
+        f.write(edge.toString());
+      }
+      index++;
+    }
+    f.write("node: { title: \"" + size() + "\" label: \""+ size()+ "\"}\n");
+    f.write("}\n");
+    f.close();
+  }
+ catch (  IOException e) {
+    throw new Error(e.toString());
+  }
+}

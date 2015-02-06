@@ -1,0 +1,3 @@
+{
+  reader=new BufferedReader(new FileReader(fileName));
+}

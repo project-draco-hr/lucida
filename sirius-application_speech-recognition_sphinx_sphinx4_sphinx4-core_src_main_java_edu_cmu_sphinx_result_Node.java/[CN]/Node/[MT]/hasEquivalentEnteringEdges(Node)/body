@@ -1,0 +1,12 @@
+{
+  if (enteringEdges.size() != n.getEnteringEdges().size()) {
+    return false;
+  }
+  for (  Edge e : enteringEdges) {
+    Node fromNode=e.getFromNode();
+    if (!n.hasEdgeFromNode(fromNode)) {
+      return false;
+    }
+  }
+  return true;
+}

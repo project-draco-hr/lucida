@@ -1,0 +1,13 @@
+{
+  double[] plpspectrum=input.getValues();
+  if (plpspectrum.length != numberPLPFilters) {
+    throw new IllegalArgumentException("PLPSpectrum size is incorrect: plpspectrum.length == " + plpspectrum.length + ", numberPLPFilters == "+ numberPLPFilters);
+  }
+  double[] compressedspectrum=powerLawCompress(plpspectrum);
+  double[] autocor=applyCosine(compressedspectrum);
+  LinearPredictor LPC=new LinearPredictor(LPCOrder);
+  LPC.getARFilter(autocor);
+  double[] cepstrumDouble=LPC.getData(cepstrumSize);
+  DoubleData cepstrum=new DoubleData(cepstrumDouble,input.getSampleRate(),input.getFirstSampleNumber());
+  return cepstrum;
+}

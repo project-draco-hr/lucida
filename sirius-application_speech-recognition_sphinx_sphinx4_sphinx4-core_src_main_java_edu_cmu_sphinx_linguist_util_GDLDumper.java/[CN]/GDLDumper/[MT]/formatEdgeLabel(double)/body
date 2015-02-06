@@ -1,0 +1,16 @@
+{
+  if (value == 1.0) {
+    return "1";
+  }
+ else   if (value == 0.0) {
+    return "0";
+  }
+ else {
+    int maxStringLength=5;
+    String stringValue=String.valueOf(value);
+    if (stringValue.length() > maxStringLength) {
+      stringValue=Utilities.doubleToScientificString(value,3);
+    }
+    return stringValue;
+  }
+}

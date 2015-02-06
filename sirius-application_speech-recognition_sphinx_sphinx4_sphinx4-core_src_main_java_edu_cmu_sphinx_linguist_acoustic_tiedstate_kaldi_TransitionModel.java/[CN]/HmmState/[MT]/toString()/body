@@ -1,0 +1,3 @@
+{
+  return String.format("HmmSate {%d, %d, %s}",id,pdfClass,transitions);
+}

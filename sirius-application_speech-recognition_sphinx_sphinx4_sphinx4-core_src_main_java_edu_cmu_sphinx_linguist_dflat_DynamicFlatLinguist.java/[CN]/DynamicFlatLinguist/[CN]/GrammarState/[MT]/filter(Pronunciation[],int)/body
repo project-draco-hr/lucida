@@ -1,0 +1,12 @@
+{
+  if (nextBase == ANY) {
+    return pronunciations;
+  }
+  ArrayList<Pronunciation> filteredPronunciation=new ArrayList<Pronunciation>(pronunciations.length);
+  for (  Pronunciation pronunciation : pronunciations) {
+    if (pronunciation.getUnits()[0].getBaseID() == nextBase) {
+      filteredPronunciation.add(pronunciation);
+    }
+  }
+  return filteredPronunciation.toArray(new Pronunciation[filteredPronunciation.size()]);
+}

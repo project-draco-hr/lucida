@@ -1,0 +1,4 @@
+{
+  GrammarNode node=createGrammarNode(maxIdentity + 1,word);
+  return node;
+}

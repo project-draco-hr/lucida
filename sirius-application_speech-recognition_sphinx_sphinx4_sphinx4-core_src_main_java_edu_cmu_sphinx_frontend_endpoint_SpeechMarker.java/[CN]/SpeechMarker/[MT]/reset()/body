@@ -1,0 +1,5 @@
+{
+  inSpeech=false;
+  frameCount=0;
+  this.outputQueue=new ArrayList<Data>();
+}

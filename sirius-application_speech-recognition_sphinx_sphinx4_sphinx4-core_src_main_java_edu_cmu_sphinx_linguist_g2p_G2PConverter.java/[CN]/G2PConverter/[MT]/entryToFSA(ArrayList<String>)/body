@@ -1,0 +1,44 @@
+{
+  TropicalSemiring ts=new TropicalSemiring();
+  Fst efst=new Fst(ts);
+  State s=new State(ts.zero());
+  efst.addState(s);
+  efst.setStart(s);
+  for (int i=0; i < entry.size() + 1; i++) {
+    s=new State(ts.zero());
+    efst.addState(s);
+    if (i >= 1) {
+      int symIndex=Utils.getIndex(g2pmodel.getIsyms(),entry.get(i - 1));
+      efst.getState(i).addArc(new Arc(symIndex,symIndex,0.f,s));
+    }
+ else     if (i == 0) {
+      int symIndex=Utils.getIndex(g2pmodel.getIsyms(),sb);
+      efst.getStart().addArc(new Arc(symIndex,symIndex,0.f,s));
+    }
+    if (i == entry.size()) {
+      State s1=new State(ts.zero());
+      efst.addState(s1);
+      int symIndex=Utils.getIndex(g2pmodel.getIsyms(),se);
+      s.addArc(new Arc(symIndex,symIndex,0.f,s1));
+      s1.setFinalWeight(0.f);
+    }
+  }
+  for (int value=0; value < clusters.length; value++) {
+    ArrayList<String> cluster=clusters[value];
+    if (cluster != null) {
+      int start=0;
+      int k=0;
+      while (k != -1) {
+        k=Utils.search(entry,cluster,start);
+        if (k != -1) {
+          State from=efst.getState(start + k + 1);
+          from.addArc(new Arc(value,value,0.f,efst.getState(start + k + cluster.size()+ 1)));
+          start=start + k + cluster.size();
+        }
+      }
+    }
+  }
+  efst.setIsyms(g2pmodel.getIsyms());
+  efst.setOsyms(g2pmodel.getIsyms());
+  return efst;
+}

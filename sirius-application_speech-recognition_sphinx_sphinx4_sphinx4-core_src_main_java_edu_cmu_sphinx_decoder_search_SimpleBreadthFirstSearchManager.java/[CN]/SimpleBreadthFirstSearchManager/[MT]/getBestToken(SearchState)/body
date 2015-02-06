@@ -1,0 +1,7 @@
+{
+  Token best=bestTokenMap.get(state);
+  if (logger.isLoggable(Level.FINER) && best != null) {
+    logger.finer("BT " + best + " for state "+ state);
+  }
+  return best;
+}

@@ -1,0 +1,8 @@
+{
+  if (id == pool.size()) {
+    pool.add(o);
+  }
+ else {
+    pool.set(id,o);
+  }
+}

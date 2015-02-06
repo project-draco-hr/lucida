@@ -1,0 +1,3 @@
+{
+  init(location,model,dataLocation,unitManager,distFloor,mixtureWeightFloor,varianceFloor,useCDUnits,Logger.getLogger(getClass().getName()));
+}

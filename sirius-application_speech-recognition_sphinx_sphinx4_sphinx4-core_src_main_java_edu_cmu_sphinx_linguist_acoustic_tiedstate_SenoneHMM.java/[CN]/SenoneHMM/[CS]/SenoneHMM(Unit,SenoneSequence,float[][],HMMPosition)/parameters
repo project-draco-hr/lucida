@@ -1,0 +1,4 @@
+Unit unit
+SenoneSequence senoneSequence
+float[][] transitionMatrix
+HMMPosition position

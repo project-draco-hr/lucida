@@ -1,0 +1,21 @@
+{
+  for (  GrammarArc arc : getSuccessors()) {
+    GState gstate=getGState(arc.getGrammarNode());
+    if (!gstate.getNode().isEmpty() && gstate.getNode().getWord().getSpelling().equals(Dictionary.SENTENCE_START_SPELLING)) {
+      continue;
+    }
+    float probability=arc.getProbability();
+    if (spreadWordProbabilitiesAcrossPronunciations && !gstate.getNode().isEmpty()) {
+      int numPronunciations=gstate.getNode().getWord().getPronunciations(null).length;
+      probability-=logMath.linearToLog(numPronunciations);
+    }
+    float fprob=probability;
+    for (    Map.Entry<ContextPair,List<SearchState>> entry : exitPoints.entrySet()) {
+      List<SearchState> destEntryPoints=gstate.getEntryPoints(entry.getKey());
+      if (destEntryPoints != null) {
+        List<SearchState> srcExitPoints=entry.getValue();
+        connect(srcExitPoints,destEntryPoints,fprob);
+      }
+    }
+  }
+}

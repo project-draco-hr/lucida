@@ -1,0 +1,49 @@
+{
+  int annotationIndex;
+  rawReference=reference;
+  rawHypothesis=hypothesis.toString();
+  annotationIndex=rawReference.indexOf('(');
+  if (annotationIndex != -1) {
+    referenceAnnotation=rawReference.substring(annotationIndex);
+    referenceItems=toList(rawReference.substring(0,annotationIndex));
+  }
+ else {
+    referenceAnnotation=null;
+    referenceItems=toList(rawReference);
+  }
+  hypothesisItems=new LinkedList<Object>();
+  for (Iterator<ConfusionSet> it=hypothesis.iterator(); it.hasNext(); ) {
+    hypothesisItems.add(it.next());
+  }
+  substitutions=0;
+  insertions=0;
+  deletions=0;
+  alignWords(backtrace(createBacktraceTable(referenceItems,hypothesisItems,new Comparator(){
+    public boolean isSimilar(    Object refObject,    Object hypObject){
+      if (refObject instanceof String && hypObject instanceof ConfusionSet) {
+        String ref=(String)refObject;
+        ConfusionSet set=(ConfusionSet)hypObject;
+        if (set.containsWord(ref)) {
+          return true;
+        }
+      }
+      return false;
+    }
+  }
+)),new StringRenderer(){
+    public String getRef(    Object ref,    Object hyp){
+      return (String)ref;
+    }
+    public String getHyp(    Object refObject,    Object hypObject){
+      String ref=(String)refObject;
+      ConfusionSet set=(ConfusionSet)hypObject;
+      if (set.containsWord(ref))       return ref;
+      String res=set.getBestHypothesis().toString();
+      return res;
+    }
+  }
+);
+  correct=alignedReferenceWords.size() - (insertions + deletions + substitutions);
+  updateTotals();
+  return (insertions + deletions + substitutions) == 0;
+}

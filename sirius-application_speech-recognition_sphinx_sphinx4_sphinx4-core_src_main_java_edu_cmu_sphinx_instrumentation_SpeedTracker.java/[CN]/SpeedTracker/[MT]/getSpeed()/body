@@ -1,0 +1,8 @@
+{
+  if (processingTime == 0 || audioTime == 0) {
+    return 0;
+  }
+ else {
+    return (processingTime / audioTime);
+  }
+}

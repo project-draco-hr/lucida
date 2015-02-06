@@ -1,0 +1,11 @@
+{
+  try {
+    String ctl=ctlReader.readLine();
+    String ref=refReader.readLine();
+    if (ctl == null || ref == null)     return null;
+ else     return new CTLUtterance(ctl,ref);
+  }
+ catch (  Exception e) {
+    throw new Error(e.getMessage());
+  }
+}

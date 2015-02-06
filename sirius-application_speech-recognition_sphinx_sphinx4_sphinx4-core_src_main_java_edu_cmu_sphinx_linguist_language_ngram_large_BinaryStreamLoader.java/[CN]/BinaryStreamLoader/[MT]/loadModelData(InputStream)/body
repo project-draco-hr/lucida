@@ -1,0 +1,10 @@
+{
+  DataInputStream dataStream=new DataInputStream(new BufferedInputStream(stream));
+  ByteArrayOutputStream bytes=new ByteArrayOutputStream();
+  byte[] buffer=new byte[4096];
+  while (true) {
+    if (dataStream.read(buffer) < 0)     break;
+    bytes.write(buffer);
+  }
+  modelData=bytes.toByteArray();
+}

@@ -1,0 +1,11 @@
+{
+  super.initialize();
+  if (batchFiles == null)   return;
+  try {
+    referenceList=new ArrayList<String>();
+    dataStream=new SequenceInputStream(new InputStreamEnumeration(batchFiles));
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+}

@@ -1,0 +1,11 @@
+{
+  Token bestToken=null;
+  if (activeList != null) {
+    for (    Token token : activeList) {
+      if (bestToken == null || token.getScore() > bestToken.getScore()) {
+        bestToken=token;
+      }
+    }
+  }
+  return bestToken;
+}

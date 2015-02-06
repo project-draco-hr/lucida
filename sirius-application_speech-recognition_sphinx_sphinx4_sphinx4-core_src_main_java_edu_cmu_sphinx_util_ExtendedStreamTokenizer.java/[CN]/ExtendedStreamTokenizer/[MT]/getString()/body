@@ -1,0 +1,20 @@
+{
+  if (!putbackList.isEmpty()) {
+    return putbackList.remove(putbackList.size() - 1);
+  }
+ else {
+    st.nextToken();
+    if (st.ttype == StreamTokenizer.TT_EOF) {
+      atEOF=true;
+    }
+    if (st.ttype != StreamTokenizer.TT_WORD && st.ttype != StreamTokenizer.TT_EOL && st.ttype != StreamTokenizer.TT_EOF) {
+      corrupt("word expected but not found");
+    }
+    if (st.ttype == StreamTokenizer.TT_EOL || st.ttype == StreamTokenizer.TT_EOF) {
+      return null;
+    }
+ else {
+      return st.sval;
+    }
+  }
+}

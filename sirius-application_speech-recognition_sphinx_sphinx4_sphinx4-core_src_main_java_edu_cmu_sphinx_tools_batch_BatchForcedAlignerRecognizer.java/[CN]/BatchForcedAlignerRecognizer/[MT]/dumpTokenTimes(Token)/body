@@ -1,0 +1,6 @@
+{
+  if (token != null) {
+    dumpTokenTimes(token.getPredecessor());
+    System.out.println(token.getWord() + " " + token.getFrameNumber());
+  }
+}

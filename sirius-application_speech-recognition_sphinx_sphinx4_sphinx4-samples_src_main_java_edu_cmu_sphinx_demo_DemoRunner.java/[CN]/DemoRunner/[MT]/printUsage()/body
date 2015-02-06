@@ -1,0 +1,5 @@
+{
+  System.err.println("Usage: DemoRunner <DEMO> [<ARG> ...]\n");
+  System.err.println("Demo names:");
+  for (  String name : classes.keySet())   System.err.println("    " + name);
+}

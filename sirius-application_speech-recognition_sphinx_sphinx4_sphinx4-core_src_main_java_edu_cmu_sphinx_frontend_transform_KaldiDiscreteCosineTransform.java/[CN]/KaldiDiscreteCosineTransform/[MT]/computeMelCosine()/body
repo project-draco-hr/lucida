@@ -1,0 +1,9 @@
+{
+  melcosine=new double[cepstrumSize][numberMelFilters];
+  Arrays.fill(melcosine[0],Math.sqrt(1. / numberMelFilters));
+  double normScale=Math.sqrt(2. / numberMelFilters);
+  for (int i=1; i < cepstrumSize; i++) {
+    double frequency=Math.PI * i / numberMelFilters;
+    for (int j=0; j < numberMelFilters; j++)     melcosine[i][j]=normScale * Math.cos(frequency * (j + 0.5));
+  }
+}

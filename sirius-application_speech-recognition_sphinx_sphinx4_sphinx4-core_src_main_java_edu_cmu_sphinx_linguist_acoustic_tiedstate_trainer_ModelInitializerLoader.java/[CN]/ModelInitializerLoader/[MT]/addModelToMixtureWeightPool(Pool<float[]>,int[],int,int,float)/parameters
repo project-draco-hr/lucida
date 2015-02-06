@@ -1,0 +1,5 @@
+Pool<float[]> pool
+int[] stateID
+int numStreams
+int numGaussiansPerState
+float floor

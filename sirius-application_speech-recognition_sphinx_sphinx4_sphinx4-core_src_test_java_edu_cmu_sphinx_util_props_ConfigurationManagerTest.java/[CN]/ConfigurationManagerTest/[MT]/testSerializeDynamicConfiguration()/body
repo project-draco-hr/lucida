@@ -1,0 +1,13 @@
+{
+  ConfigurationManager cm=new ConfigurationManager();
+  String frontEndName="myFrontEnd";
+  cm.addConfigurable(DummyFrontEnd.class,frontEndName);
+  PropertySheet propSheet=cm.getPropertySheet(frontEndName);
+  propSheet.setComponentList("dataProcs",Arrays.asList("fooBar"),Arrays.<Configurable>asList(new AnotherDummyProcessor()));
+  String xmlString=ConfigurationManagerUtils.toXML(cm);
+  assertThat(xmlString,containsString(frontEndName));
+  assertThat(xmlString,containsString("fooBar"));
+  DummyFrontEnd frontEnd=(DummyFrontEnd)cm.lookup(frontEndName);
+  assertThat(frontEnd.getDataProcs(),hasSize(1));
+  assertThat(frontEnd.getDataProcs().get(0),instanceOf(AnotherDummyProcessor.class));
+}

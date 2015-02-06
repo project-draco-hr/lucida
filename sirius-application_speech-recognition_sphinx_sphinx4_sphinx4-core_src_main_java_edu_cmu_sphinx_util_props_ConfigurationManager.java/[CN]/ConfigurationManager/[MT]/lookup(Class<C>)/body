@@ -1,0 +1,6 @@
+{
+  List<PropertySheet> matchPropSheets=getPropSheets(confClass);
+  if (matchPropSheets.isEmpty())   return null;
+  checkArgument(1 == matchPropSheets.size(),"multiple instances exist");
+  return confClass.cast(lookup(matchPropSheets.get(0).getInstanceName()));
+}

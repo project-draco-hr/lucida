@@ -1,0 +1,3 @@
+{
+  transcriptSet=new LinkedList<SimpleTranscript>();
+}

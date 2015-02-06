@@ -1,0 +1,33 @@
+{
+  StringBuilder dump=new StringBuilder();
+  for (int i=0; i < level; i++) {
+    dump.append("    ");
+  }
+  dump.append("N(").append(getID()).append("):");
+  dump.append("p:").append(logProb);
+  if (isFinalNode()) {
+    dump.append(" !");
+  }
+  Word[][] alternatives=getAlternatives();
+  for (int i=0; i < alternatives.length; i++) {
+    for (int j=0; j < alternatives[i].length; j++) {
+      dump.append(' ').append(alternatives[i][j].getSpelling());
+    }
+    if (i < alternatives.length - 1) {
+      dump.append('|');
+    }
+  }
+  System.out.println(dump);
+  if (!isFinalNode() && !(visitedNodes.contains(this))) {
+    visitedNodes.add(this);
+    GrammarArc[] arcs=getSuccessors();
+    for (    GrammarArc arc : arcs) {
+      GrammarNode child=arc.getGrammarNode();
+      child.traverse(level + 1,visitedNodes,arc.getProbability());
+    }
+  }
+ else   if (isFinalNode()) {
+    visitedNodes.add(this);
+  }
+  return dump.toString();
+}

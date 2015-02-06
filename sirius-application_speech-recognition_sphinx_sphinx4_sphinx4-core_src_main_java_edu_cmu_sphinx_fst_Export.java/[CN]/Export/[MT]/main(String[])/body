@@ -1,0 +1,11 @@
+{
+  if (args.length < 2) {
+    System.err.println("Input and output files not provided");
+    System.err.println("You need to provide both the input serialized java fst model");
+    System.err.println("and the output binary openfst model.");
+    System.exit(1);
+  }
+  Fst fst=Fst.loadModel(args[0]);
+  System.out.println("Saving as openfst text model...");
+  Convert.export(fst,args[1]);
+}

@@ -1,0 +1,3 @@
+{
+  parent=(LanguageModel)ps.getComponent(PROP_PARENT);
+}

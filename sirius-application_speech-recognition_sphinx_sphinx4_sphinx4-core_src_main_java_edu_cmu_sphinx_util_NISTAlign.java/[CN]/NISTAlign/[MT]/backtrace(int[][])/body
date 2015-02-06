@@ -1,0 +1,28 @@
+{
+  LinkedList<Integer> list=new LinkedList<Integer>();
+  int i=referenceItems.size();
+  int j=hypothesisItems.size();
+  while ((i >= 0) && (j >= 0)) {
+    list.add(backtraceTable[i][j]);
+switch (backtraceTable[i][j]) {
+case OK:
+      i--;
+    j--;
+  break;
+case SUBSTITUTION:
+i--;
+j--;
+substitutions++;
+break;
+case INSERTION:
+j--;
+insertions++;
+break;
+case DELETION:
+i--;
+deletions++;
+break;
+}
+}
+return list;
+}

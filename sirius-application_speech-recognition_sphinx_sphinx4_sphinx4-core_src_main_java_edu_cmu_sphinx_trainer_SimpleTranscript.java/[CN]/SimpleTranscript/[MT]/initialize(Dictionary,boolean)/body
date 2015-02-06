@@ -1,0 +1,5 @@
+{
+  this.dictionary=dictionary;
+  this.isExact=isExact;
+  wasInitialized=true;
+}

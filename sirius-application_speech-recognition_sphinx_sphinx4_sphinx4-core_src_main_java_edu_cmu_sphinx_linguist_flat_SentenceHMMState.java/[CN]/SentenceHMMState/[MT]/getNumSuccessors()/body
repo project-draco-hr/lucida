@@ -1,0 +1,3 @@
+{
+  return arcs.size();
+}

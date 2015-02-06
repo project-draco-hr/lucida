@@ -1,0 +1,6 @@
+{
+  localStop();
+  scorer.stopRecognition();
+  pruner.stopRecognition();
+  linguist.stopRecognition();
+}

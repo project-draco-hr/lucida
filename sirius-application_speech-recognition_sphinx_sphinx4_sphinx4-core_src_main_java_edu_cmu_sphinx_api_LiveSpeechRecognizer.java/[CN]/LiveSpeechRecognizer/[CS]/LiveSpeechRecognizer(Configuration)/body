@@ -1,0 +1,5 @@
+{
+  super(configuration);
+  microphone=speechSourceProvider.getMicrophone();
+  context.getInstance(StreamDataSource.class).setInputStream(microphone.getStream());
+}

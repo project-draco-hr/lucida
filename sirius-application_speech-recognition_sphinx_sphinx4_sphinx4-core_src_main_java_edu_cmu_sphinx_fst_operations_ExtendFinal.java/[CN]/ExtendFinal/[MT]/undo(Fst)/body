@@ -1,0 +1,25 @@
+{
+  State f=null;
+  int numStates=fst.getNumStates();
+  for (int i=0; i < numStates; i++) {
+    State s=fst.getState(i);
+    if (s.getFinalWeight() != fst.getSemiring().zero()) {
+      f=s;
+      break;
+    }
+  }
+  if (f == null) {
+    System.err.println("Final state not found.");
+    return;
+  }
+  for (int i=0; i < numStates; i++) {
+    State s=fst.getState(i);
+    for (int j=0; j < s.getNumArcs(); j++) {
+      Arc a=s.getArc(j);
+      if (a.getIlabel() == 0 && a.getOlabel() == 0 && a.getNextState().getId() == f.getId()) {
+        s.setFinalWeight(a.getWeight());
+      }
+    }
+  }
+  fst.deleteState(f);
+}

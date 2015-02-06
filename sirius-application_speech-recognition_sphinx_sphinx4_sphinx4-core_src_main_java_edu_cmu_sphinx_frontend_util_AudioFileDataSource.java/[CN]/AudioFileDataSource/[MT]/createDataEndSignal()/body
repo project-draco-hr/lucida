@@ -1,0 +1,4 @@
+{
+  if (!(this instanceof ConcatAudioFileDataSource))   for (  AudioFileProcessListener fileListener : fileListeners)   fileListener.audioFileProcFinished(curAudioFile);
+  return new DataEndSignal(getDuration());
+}

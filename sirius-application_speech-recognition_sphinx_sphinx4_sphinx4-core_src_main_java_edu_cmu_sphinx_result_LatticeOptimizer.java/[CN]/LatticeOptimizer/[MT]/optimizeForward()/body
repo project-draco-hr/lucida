@@ -1,0 +1,11 @@
+{
+  boolean moreChanges=true;
+  while (moreChanges) {
+    moreChanges=false;
+    for (    Node n : lattice.getCopyOfNodes()) {
+      if (lattice.hasNode(n)) {
+        moreChanges|=optimizeNodeForward(n);
+      }
+    }
+  }
+}

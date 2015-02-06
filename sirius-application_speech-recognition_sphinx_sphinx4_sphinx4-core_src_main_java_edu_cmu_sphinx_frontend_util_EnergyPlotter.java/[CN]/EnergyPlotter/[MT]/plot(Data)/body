@@ -1,0 +1,11 @@
+{
+  if (cepstrum != null) {
+    if (cepstrum instanceof DoubleData) {
+      int energy=(int)((DoubleData)cepstrum).getValues()[0];
+      System.out.println(getPlot(energy));
+    }
+ else {
+      System.out.println(cepstrum);
+    }
+  }
+}

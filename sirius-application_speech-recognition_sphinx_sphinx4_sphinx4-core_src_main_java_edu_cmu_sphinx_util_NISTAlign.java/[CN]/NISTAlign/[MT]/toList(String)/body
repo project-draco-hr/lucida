@@ -1,0 +1,9 @@
+{
+  LinkedList<Object> list=new LinkedList<Object>();
+  StringTokenizer st=new StringTokenizer(s.trim());
+  while (st.hasMoreTokens()) {
+    String token=st.nextToken().toLowerCase();
+    list.add(token);
+  }
+  return list;
+}

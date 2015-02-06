@@ -1,0 +1,18 @@
+{
+  List<GrammarNode> list=new ArrayList<GrammarNode>();
+  for (  GrammarArc arc : node.getSuccessors()) {
+    GrammarNode gnode=arc.getGrammarNode();
+    if (gnode.getAlternatives().length == 0) {
+      if (gnode.isFinalNode()) {
+        list.add(gnode);
+      }
+ else {
+        list.addAll(getNextGrammarNodesWithWords(gnode));
+      }
+    }
+ else {
+      list.add(gnode);
+    }
+  }
+  return list;
+}

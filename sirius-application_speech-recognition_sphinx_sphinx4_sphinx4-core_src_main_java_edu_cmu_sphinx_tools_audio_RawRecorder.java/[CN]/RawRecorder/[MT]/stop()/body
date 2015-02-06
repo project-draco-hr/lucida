@@ -1,0 +1,23 @@
+{
+synchronized (lock) {
+    if (recorder == null) {
+      return new short[0];
+    }
+    ByteArrayOutputStream out=recorder.stopRecording();
+    microphone.close();
+    recorder=null;
+    byte audioBytes[]=out.toByteArray();
+    ByteArrayInputStream in=new ByteArrayInputStream(audioBytes);
+    try {
+      short[] samples=RawReader.readAudioData(in,inFormat);
+      if (downsample) {
+        samples=Downsampler.downsample(samples,(int)(inFormat.getSampleRate() / 1000.0f),(int)(outFormat.getSampleRate() / 1000.0f));
+      }
+      return samples;
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+      return new short[0];
+    }
+  }
+}

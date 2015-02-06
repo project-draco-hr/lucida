@@ -1,0 +1,3 @@
+{
+  this(name,className,new HashMap<String,Object>());
+}

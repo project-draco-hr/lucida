@@ -1,0 +1,7 @@
+{
+  super();
+  this.path=path;
+  this.node=node;
+  this.score=score;
+  this.forwardScore=forwardScore;
+}

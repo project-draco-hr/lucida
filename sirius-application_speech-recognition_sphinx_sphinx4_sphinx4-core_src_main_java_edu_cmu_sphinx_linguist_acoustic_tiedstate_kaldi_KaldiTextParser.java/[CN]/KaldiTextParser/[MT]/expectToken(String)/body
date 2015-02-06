@@ -1,0 +1,4 @@
+{
+  String actual=scanner.next();
+  assertToken(expected,actual);
+}

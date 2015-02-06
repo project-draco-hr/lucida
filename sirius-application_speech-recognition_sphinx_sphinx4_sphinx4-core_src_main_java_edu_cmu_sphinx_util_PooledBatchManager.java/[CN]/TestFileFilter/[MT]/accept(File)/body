@@ -1,0 +1,10 @@
+{
+  String name=pathname.getName();
+  try {
+    Integer.parseInt(name);
+    return true;
+  }
+ catch (  NumberFormatException nfe) {
+    return false;
+  }
+}

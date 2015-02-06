@@ -1,0 +1,17 @@
+{
+  if (state == start) {
+    System.err.println("Cannot delete start state.");
+    return;
+  }
+  states.remove(state);
+  for (  State s1 : states) {
+    ArrayList<Arc> newArcs=new ArrayList<Arc>();
+    for (int j=0; j < s1.getNumArcs(); j++) {
+      Arc a=s1.getArc(j);
+      if (!a.getNextState().equals(state)) {
+        newArcs.add(a);
+      }
+    }
+    s1.setArcs(newArcs);
+  }
+}

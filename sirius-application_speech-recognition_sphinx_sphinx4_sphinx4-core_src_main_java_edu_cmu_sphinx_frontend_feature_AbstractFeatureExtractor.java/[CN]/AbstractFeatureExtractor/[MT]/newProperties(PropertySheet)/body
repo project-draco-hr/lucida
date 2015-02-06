@@ -1,0 +1,4 @@
+{
+  super.newProperties(ps);
+  window=ps.getInt(PROP_FEATURE_WINDOW);
+}

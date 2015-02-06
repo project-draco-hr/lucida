@@ -1,0 +1,8 @@
+{
+  if (property == null || propName == null)   throw new InternalConfigurationException(getInstanceName(),propName,"property or its value is null");
+  if (!registeredProperties.containsKey(propName))   registeredProperties.put(propName,property);
+  if (!propValues.containsKey(propName)) {
+    propValues.put(propName,null);
+    rawProps.put(propName,null);
+  }
+}

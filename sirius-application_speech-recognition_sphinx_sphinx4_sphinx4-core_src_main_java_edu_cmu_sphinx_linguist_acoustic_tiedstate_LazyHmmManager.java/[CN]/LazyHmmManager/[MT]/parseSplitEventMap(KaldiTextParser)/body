@@ -1,0 +1,12 @@
+{
+  int key=parser.getInt();
+  Collection<Integer> values;
+  values=new ArrayList<Integer>();
+  for (  Integer n : parser.getIntArray())   values.add(n);
+  parser.expectToken("{");
+  EventMap yesMap=parseEventMap(parser);
+  EventMap noMap=parseEventMap(parser);
+  EventMap eventMap=new SplitEventMap(key,values,yesMap,noMap);
+  parser.expectToken("}");
+  return eventMap;
+}

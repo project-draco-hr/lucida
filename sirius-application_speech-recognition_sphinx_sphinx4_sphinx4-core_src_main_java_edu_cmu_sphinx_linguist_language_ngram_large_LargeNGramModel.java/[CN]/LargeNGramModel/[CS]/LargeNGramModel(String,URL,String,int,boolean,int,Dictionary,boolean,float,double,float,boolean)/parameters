@@ -1,0 +1,12 @@
+String format
+URL location
+String ngramLogFile
+int maxNGramCacheSize
+boolean clearCacheAfterUtterance
+int maxDepth
+Dictionary dictionary
+boolean applyLanguageWeightAndWip
+float languageWeight
+double wip
+float unigramWeight
+boolean fullSmear

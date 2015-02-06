@@ -1,0 +1,12 @@
+{
+  if (o == this) {
+    return true;
+  }
+ else   if (o instanceof GrammarState) {
+    GrammarState other=(GrammarState)o;
+    return other.node == node && lc == other.lc && nextBaseID == other.nextBaseID;
+  }
+ else {
+    return false;
+  }
+}

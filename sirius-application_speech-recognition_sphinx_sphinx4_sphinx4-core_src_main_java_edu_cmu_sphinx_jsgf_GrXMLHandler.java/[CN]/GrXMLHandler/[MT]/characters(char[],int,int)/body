@@ -1,0 +1,8 @@
+{
+  String item=new String(buf,offset,len).trim();
+  if (item.length() == 0)   return;
+  logger.fine("Processing text " + item);
+  JSGFRuleToken newRule=new JSGFRuleToken(item);
+  addToCurrent(newRule,newRule);
+  currentRule=newRule.parent;
+}

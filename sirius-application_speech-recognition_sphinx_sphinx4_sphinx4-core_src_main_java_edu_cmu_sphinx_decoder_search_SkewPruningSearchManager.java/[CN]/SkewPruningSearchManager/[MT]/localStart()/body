@@ -1,0 +1,3 @@
+{
+  skewMap=new HashMap<SearchState,Token>();
+}

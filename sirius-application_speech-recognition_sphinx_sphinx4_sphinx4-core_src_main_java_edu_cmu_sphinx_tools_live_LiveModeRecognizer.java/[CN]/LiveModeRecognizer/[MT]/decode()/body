@@ -1,0 +1,34 @@
+{
+  List<String> resultList=new LinkedList<String>();
+  Result result;
+  int startReference=0;
+  hypothesisTranscript=new FileWriter(hypothesisFile);
+  recognizer.allocate();
+  while ((result=recognizer.recognize()) != null) {
+    numUtterances++;
+    String resultText=result.getBestResultNoFiller();
+    System.out.println("\nHYP: " + resultText);
+    System.out.println("   Sentences: " + numUtterances);
+    resultList.add(resultText);
+    hypothesisTranscript.write(result.getTimedBestResult(false,true) + '\n');
+    hypothesisTranscript.flush();
+    if (alignInterval > 0 && (numUtterances % alignInterval == 0)) {
+      List<String> references=referenceSource.getReferences();
+      List<String> section=references.subList(startReference,references.size());
+      alignResults(resultList,section);
+      resultList=new LinkedList<String>();
+      startReference=references.size();
+    }
+  }
+  hypothesisTranscript.close();
+  List<String> references=referenceSource.getReferences();
+  List<String> section=references.subList(startReference,references.size());
+  if (!resultList.isEmpty() || !section.isEmpty()) {
+    alignResults(resultList,section);
+  }
+  System.out.println("# ------------- Summary Statistics -------------");
+  aligner.printTotalSummary();
+  recognizer.deallocate();
+  showLiveSummary();
+  System.out.println();
+}

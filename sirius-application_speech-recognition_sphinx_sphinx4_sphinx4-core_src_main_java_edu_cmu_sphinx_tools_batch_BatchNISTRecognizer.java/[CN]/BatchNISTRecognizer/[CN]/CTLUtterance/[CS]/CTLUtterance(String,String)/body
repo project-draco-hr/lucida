@@ -1,0 +1,27 @@
+{
+  this.ref=ref;
+  String[] fields=ctl.split(" ");
+  if (fields.length != 4)   throw new CTLException("CTL Syntax Error: " + ctl);
+  startOffset=Integer.parseInt(fields[1]);
+  endOffset=Integer.parseInt(fields[2]);
+  name=fields[3];
+  data=new byte[(endOffset - startOffset) * bytesPerFrame];
+  int i=fields[0].indexOf('.');
+  file=fields[0];
+  if (i >= 0) {
+    file=file.substring(0,i);
+  }
+  file=dataDir + '/' + file+ ".raw";
+  try {
+    InputStream dataStream=new FileInputStream(file);
+    dataStream.skip(startOffset * bytesPerFrame);
+    if (dataStream.read(data) != data.length) {
+      dataStream.close();
+      throw new CTLException("Unable to read " + data.length + " bytes of utterance "+ name);
+    }
+    dataStream.close();
+  }
+ catch (  IOException e) {
+    throw new CTLException("Unable to read utterance " + name + ": "+ e.getMessage());
+  }
+}

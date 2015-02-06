@@ -1,0 +1,15 @@
+{
+  String response="";
+  CommandInterface ci;
+  if (args.length > 0) {
+    ci=commandList.get(args[0]);
+    if (ci != null) {
+      response=ci.execute(this,args);
+    }
+ else {
+      response="ERR  CMD_NOT_FOUND";
+    }
+    totalCommands++;
+  }
+  return response;
+}

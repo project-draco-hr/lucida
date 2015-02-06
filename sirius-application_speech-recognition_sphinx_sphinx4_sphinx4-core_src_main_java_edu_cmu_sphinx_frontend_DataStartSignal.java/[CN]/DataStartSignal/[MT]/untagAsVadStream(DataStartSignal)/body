@@ -1,0 +1,3 @@
+{
+  dsSignal.getProps().remove(DataStartSignal.SPEECH_TAGGED_FEATURE_STREAM);
+}

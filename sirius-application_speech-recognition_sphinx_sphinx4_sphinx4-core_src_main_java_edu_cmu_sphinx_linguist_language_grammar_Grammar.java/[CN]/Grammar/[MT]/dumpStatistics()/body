@@ -1,0 +1,9 @@
+{
+  if (logger.isLoggable(Level.INFO)) {
+    int successorCount=0;
+    logger.info("Num nodes : " + getNumNodes());
+    for (    GrammarNode grammarNode : grammarNodes)     successorCount+=grammarNode.getSuccessors().length;
+    logger.info("Num arcs  : " + successorCount);
+    logger.info("Avg arcs  : " + ((float)successorCount / getNumNodes()));
+  }
+}

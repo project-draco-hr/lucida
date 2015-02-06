@@ -1,0 +1,44 @@
+{
+  String s;
+  String[] ss;
+  int ng=0;
+  try {
+    BufferedReader fin=new BufferedReader(new FileReader(nom));
+    for (; ; ng++) {
+      s=fin.readLine();
+      if (s == null)       break;
+    }
+    ngauss=ng / 2;
+    fin.close();
+    fin=new BufferedReader(new FileReader(nom));
+    s=fin.readLine();
+    ss=s.split(" ");
+    ncoefs=ss.length - 1;
+    fin.close();
+    fin=new BufferedReader(new FileReader(nom));
+    allocate();
+    nT=0;
+    for (int i=0; i < ngauss; i++) {
+      s=fin.readLine();
+      ss=s.split(" ");
+      weights[i]=Float.parseFloat(ss[0]);
+      nT+=weights[i];
+      for (int j=0; j < ncoefs; j++) {
+        setMean(i,j,Float.parseFloat(ss[j + 1]));
+      }
+      s=fin.readLine();
+      ss=s.split(" ");
+      for (int j=0; j < ncoefs; j++) {
+        setVar(i,j,Float.parseFloat(ss[j]));
+      }
+    }
+    for (int i=0; i < ngauss; i++) {
+      setWeight(i,weights[i] / nT);
+    }
+    fin.close();
+    precomputeDistance();
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+}

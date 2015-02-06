@@ -1,0 +1,24 @@
+{
+  if (((active0&=old0)) == 0L)   return jjStartNfa_0(1,old0);
+  try {
+    curChar=input_stream.readChar();
+  }
+ catch (  java.io.IOException e) {
+    jjStopStringLiteralDfa_0(2,active0);
+    return 3;
+  }
+switch (curChar) {
+case 48:
+    if ((active0 & 0x8000000L) != 0L)     return jjStopAtPos(3,27);
+  break;
+case 108:
+return jjMoveStringLiteralDfa4_0(active0,0x8000L);
+case 109:
+return jjMoveStringLiteralDfa4_0(active0,0x2000L);
+case 111:
+return jjMoveStringLiteralDfa4_0(active0,0x4000L);
+default :
+break;
+}
+return jjStartNfa_0(2,active0);
+}

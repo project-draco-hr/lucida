@@ -1,0 +1,6 @@
+{
+  if (!registeredProperties.containsKey(name))   throw new InternalConfigurationException(getInstanceName(),name,'\'' + name + "' is not a registered boolean-property");
+  Annotation annotation=registeredProperties.get(name).getAnnotation();
+  if (!(annotation instanceof S4Boolean))   throw new InternalConfigurationException(getInstanceName(),name,'\'' + name + "' is of type boolean");
+  applyConfigurationChange(name,value,value);
+}

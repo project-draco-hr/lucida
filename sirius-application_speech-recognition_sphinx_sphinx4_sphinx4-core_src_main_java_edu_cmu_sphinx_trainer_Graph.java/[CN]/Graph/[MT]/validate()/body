@@ -1,0 +1,34 @@
+{
+  boolean passed=true;
+  for (startNodeIterator(); hasMoreNodes(); ) {
+    Node node=nextNode();
+    passed&=node.validate();
+    int incoming=node.incomingEdgesSize();
+    int outgoing=node.outgoingEdgesSize();
+    if (incoming < 1) {
+      if (!isInitialNode(node)) {
+        System.out.println("No incoming edge: " + node);
+        passed=false;
+      }
+    }
+    for (node.startIncomingEdgeIterator(); node.hasMoreIncomingEdges(); ) {
+      passed&=edges.contains(node.nextIncomingEdge());
+    }
+    if (outgoing < 1) {
+      if (!isFinalNode(node)) {
+        System.out.println("No outgoing edge: " + node);
+        passed=false;
+      }
+    }
+    for (node.startOutgoingEdgeIterator(); node.hasMoreOutgoingEdges(); ) {
+      passed&=edges.contains(node.nextOutgoingEdge());
+    }
+  }
+  for (startEdgeIterator(); hasMoreEdges(); ) {
+    Edge edge=nextEdge();
+    passed&=edge.validate();
+    passed&=nodes.contains(edge.getSource());
+    passed&=nodes.contains(edge.getDestination());
+  }
+  return passed;
+}

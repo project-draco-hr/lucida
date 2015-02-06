@@ -1,0 +1,9 @@
+{
+  Float old=getPathWeight(fromState,toState,cl);
+  if (old == null) {
+    put(fromState,toState,weight,cl);
+  }
+ else {
+    put(fromState,toState,semiring.plus(weight,old),cl);
+  }
+}

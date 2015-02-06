@@ -1,0 +1,10 @@
+{
+  count++;
+  if (t.getScore() > maxScore) {
+    maxScore=t.getScore();
+  }
+  if (t.getScore() < minScore) {
+    minScore=t.getScore();
+  }
+  isHMM=t.getSearchState() instanceof HMMSearchState;
+}

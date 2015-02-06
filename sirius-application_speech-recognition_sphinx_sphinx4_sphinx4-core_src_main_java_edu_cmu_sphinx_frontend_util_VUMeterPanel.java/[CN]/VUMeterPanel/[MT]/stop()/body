@@ -1,0 +1,12 @@
+{
+  quit=true;
+  boolean hasQuit=false;
+  while (!hasQuit) {
+    try {
+      thread.join();
+      hasQuit=true;
+    }
+ catch (    InterruptedException e) {
+    }
+  }
+}

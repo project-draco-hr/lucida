@@ -1,0 +1,5 @@
+String filename
+Linguist linguist
+boolean verticalLayout
+boolean skipHMMs
+boolean dumpArcLabels

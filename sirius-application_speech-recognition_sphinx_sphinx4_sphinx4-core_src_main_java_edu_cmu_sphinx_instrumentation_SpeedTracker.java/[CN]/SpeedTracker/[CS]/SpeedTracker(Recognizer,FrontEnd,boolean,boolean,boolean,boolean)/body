@@ -1,0 +1,8 @@
+{
+  initRecognizer(recognizer);
+  initFrontEnd(frontEnd);
+  this.showSummary=showSummary;
+  this.showDetails=showDetails;
+  this.showResponseTime=showResponseTime;
+  this.showTimers=showTimers;
+}

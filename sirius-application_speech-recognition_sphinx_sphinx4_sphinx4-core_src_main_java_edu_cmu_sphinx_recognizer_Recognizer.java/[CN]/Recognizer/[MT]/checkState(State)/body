@@ -1,0 +1,5 @@
+{
+  if (currentState != desiredState) {
+    throw new IllegalStateException("Expected state " + desiredState + " actual state "+ currentState);
+  }
+}

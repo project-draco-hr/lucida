@@ -1,0 +1,4 @@
+Class<? extends Configurable> targetClass
+Map<String,Object> defaultProps
+String componentName
+ConfigurationManager cm

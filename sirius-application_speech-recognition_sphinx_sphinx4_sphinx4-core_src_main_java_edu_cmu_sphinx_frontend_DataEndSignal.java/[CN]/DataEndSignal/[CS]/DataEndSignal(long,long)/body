@@ -1,0 +1,4 @@
+{
+  super(time);
+  this.duration=duration;
+}

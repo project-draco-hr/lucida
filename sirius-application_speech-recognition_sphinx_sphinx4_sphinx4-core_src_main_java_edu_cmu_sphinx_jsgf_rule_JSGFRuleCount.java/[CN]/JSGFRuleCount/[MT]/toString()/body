@@ -1,0 +1,15 @@
+{
+  if (count == OPTIONAL) {
+    return '[' + rule.toString() + ']';
+  }
+  String str=null;
+  if ((rule instanceof JSGFRuleToken) || (rule instanceof JSGFRuleName))   str=rule.toString();
+ else {
+    str='(' + rule.toString() + ')';
+  }
+  if (count == ZERO_OR_MORE)   return str + " *";
+  if (count == ONCE_OR_MORE) {
+    return str + " +";
+  }
+  return str + "???";
+}

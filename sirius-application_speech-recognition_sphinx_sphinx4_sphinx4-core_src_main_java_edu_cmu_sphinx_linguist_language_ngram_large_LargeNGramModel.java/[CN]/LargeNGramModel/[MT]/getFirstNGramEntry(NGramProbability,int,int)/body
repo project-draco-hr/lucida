@@ -1,0 +1,4 @@
+{
+  int firstNGramEntry=ngramSegmentTable[n - 1][(firstNMinus1GramEntry + nMinus1Gram.getWhichFollower()) >> loader.getLogNGramSegmentSize()] + nMinus1Gram.getFirstNPlus1GramEntry();
+  return firstNGramEntry;
+}

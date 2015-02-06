@@ -1,0 +1,41 @@
+{
+  ArrayList<SpeakerCluster> ret=new ArrayList<SpeakerCluster>();
+  Array2DRowRealMatrix featuresMatrix=ArrayToRealMatrix(features,features.size());
+  LinkedList<Integer> l=getAllChangingPoints(featuresMatrix);
+  Iterator<Integer> it=l.iterator();
+  int curent, previous=it.next();
+  while (it.hasNext()) {
+    curent=it.next();
+    Segment s=new Segment(previous * Segment.FRAME_LENGTH,(curent - previous) * (Segment.FRAME_LENGTH));
+    Array2DRowRealMatrix featuresSubset=(Array2DRowRealMatrix)featuresMatrix.getSubMatrix(previous,curent - 1,0,12);
+    ret.add(new SpeakerCluster(s,featuresSubset,getBICValue(featuresSubset)));
+    previous=curent;
+  }
+  int clusterCount=ret.size();
+  Array2DRowRealMatrix distance;
+  distance=new Array2DRowRealMatrix(clusterCount,clusterCount);
+  distance=updateDistances(ret);
+  while (true) {
+    double distmin=0;
+    int imin=-1, jmin=-1;
+    for (int i=0; i < clusterCount; i++)     for (int j=0; j < clusterCount; j++)     if (i != j)     distmin+=distance.getEntry(i,j);
+    distmin/=(clusterCount * (clusterCount - 1) * 4);
+    for (int i=0; i < clusterCount; i++) {
+      for (int j=0; j < clusterCount; j++) {
+        if (distance.getEntry(i,j) < distmin && i != j) {
+          distmin=distance.getEntry(i,j);
+          imin=i;
+          jmin=j;
+        }
+      }
+    }
+    if (imin == -1) {
+      break;
+    }
+    ret.get(imin).mergeWith(ret.get(jmin));
+    updateDistances(ret,imin,jmin,distance);
+    ret.remove(jmin);
+    clusterCount--;
+  }
+  return ret;
+}

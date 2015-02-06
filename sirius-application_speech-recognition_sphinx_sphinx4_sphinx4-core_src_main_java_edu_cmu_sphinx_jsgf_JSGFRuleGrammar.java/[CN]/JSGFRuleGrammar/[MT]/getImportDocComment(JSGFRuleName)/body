@@ -1,0 +1,3 @@
+{
+  return importDocComments.getProperty(imp.toString(),null);
+}

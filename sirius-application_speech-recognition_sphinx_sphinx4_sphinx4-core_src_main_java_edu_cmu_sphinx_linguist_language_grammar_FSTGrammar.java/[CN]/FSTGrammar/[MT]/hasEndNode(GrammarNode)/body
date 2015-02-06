@@ -1,0 +1,3 @@
+{
+  return (expandedNodes.contains(node));
+}

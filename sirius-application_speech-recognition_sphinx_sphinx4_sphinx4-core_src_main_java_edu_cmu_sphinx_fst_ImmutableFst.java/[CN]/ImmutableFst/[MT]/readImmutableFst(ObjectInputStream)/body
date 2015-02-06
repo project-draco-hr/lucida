@@ -1,0 +1,39 @@
+{
+  String[] is=readStringMap(in);
+  String[] os=readStringMap(in);
+  int startid=in.readInt();
+  Semiring semiring=(Semiring)in.readObject();
+  int numStates=in.readInt();
+  ImmutableFst res=new ImmutableFst(numStates);
+  res.isyms=is;
+  res.osyms=os;
+  res.semiring=semiring;
+  for (int i=0; i < numStates; i++) {
+    int numArcs=in.readInt();
+    ImmutableState s=new ImmutableState(numArcs + 1);
+    float f=in.readFloat();
+    if (f == res.semiring.zero()) {
+      f=res.semiring.zero();
+    }
+ else     if (f == res.semiring.one()) {
+      f=res.semiring.one();
+    }
+    s.setFinalWeight(f);
+    s.id=in.readInt();
+    res.states[s.getId()]=s;
+  }
+  res.setStart(res.states[startid]);
+  numStates=res.states.length;
+  for (int i=0; i < numStates; i++) {
+    ImmutableState s1=res.states[i];
+    for (int j=0; j < s1.initialNumArcs - 1; j++) {
+      Arc a=new Arc();
+      a.setIlabel(in.readInt());
+      a.setOlabel(in.readInt());
+      a.setWeight(in.readFloat());
+      a.setNextState(res.states[in.readInt()]);
+      s1.setArc(j,a);
+    }
+  }
+  return res;
+}

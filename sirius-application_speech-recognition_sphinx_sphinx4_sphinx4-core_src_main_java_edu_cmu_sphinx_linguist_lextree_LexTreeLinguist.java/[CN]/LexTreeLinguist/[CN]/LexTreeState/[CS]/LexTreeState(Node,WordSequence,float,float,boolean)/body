@@ -1,0 +1,7 @@
+{
+  this.node=node;
+  this.wordSequence=wordSequence;
+  currentSmearTerm=smearTerm;
+  currentSmearProb=smearProb;
+  this.collapsed=collapsed;
+}

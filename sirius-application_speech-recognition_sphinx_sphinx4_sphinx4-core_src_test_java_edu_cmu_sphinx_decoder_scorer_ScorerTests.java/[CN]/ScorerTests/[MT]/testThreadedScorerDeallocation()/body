@@ -1,0 +1,15 @@
+{
+  Map<String,Object> props=new HashMap<String,Object>();
+  DataBufferProcessor dummyFrontEnd=createDummyFrontEnd();
+  props.put(SimpleAcousticScorer.FEATURE_FRONTEND,dummyFrontEnd);
+  props.put(ThreadedAcousticScorer.PROP_NUM_THREADS,4);
+  props.put(ConfigurationManagerUtils.GLOBAL_COMMON_LOGLEVEL,"FINEST");
+  AcousticScorer scorer=ConfigurationManager.getInstance(ThreadedAcousticScorer.class,props);
+  scorer.allocate();
+  scorer.startRecognition();
+  List<Scoreable> dummyTokens=Arrays.asList(testToken);
+  scorer.calculateScores(dummyTokens);
+  scorer.stopRecognition();
+  scorer.deallocate();
+  Thread.sleep(1000);
+}

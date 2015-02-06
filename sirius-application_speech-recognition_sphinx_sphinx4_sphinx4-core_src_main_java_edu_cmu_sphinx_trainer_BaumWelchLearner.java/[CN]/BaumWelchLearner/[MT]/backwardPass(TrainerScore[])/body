@@ -1,0 +1,71 @@
+{
+  for (int i=0; i < graph.size(); i++) {
+    outputProbs[i]=score[i].getScore();
+    score[i].setBeta(probCurrentFrame[i]);
+  }
+  float[] probNextFrame=probCurrentFrame;
+  probCurrentFrame=new float[graph.size()];
+  for (int indexNode=0; indexNode < graph.size(); indexNode++) {
+    Node node=graph.getNode(indexNode);
+    if (!node.isType("STATE")) {
+      continue;
+    }
+    HMMState state=(HMMState)node.getObject();
+    SenoneHMM hmm=(SenoneHMM)state.getHMM();
+    if (!state.isEmitting()) {
+      continue;
+    }
+    probCurrentFrame[indexNode]=LogMath.LOG_ZERO;
+    for (node.startOutgoingEdgeIterator(); node.hasMoreOutgoingEdges(); ) {
+      float logTransitionProbability;
+      Node nextNode=node.nextOutgoingEdge().getDestination();
+      int indexNextNode=graph.indexOf(nextNode);
+      HMMState nextState=(HMMState)nextNode.getObject();
+      if (nextState != null) {
+        assert((!nextState.isEmitting()) || (nextState.getHMM() == hmm));
+        if (nextState.getHMM() != hmm) {
+          logTransitionProbability=0.0f;
+        }
+ else {
+          logTransitionProbability=hmm.getTransitionProbability(state.getState(),nextState.getState());
+        }
+      }
+ else {
+        logTransitionProbability=0.0f;
+      }
+      probCurrentFrame[indexNode]=logMath.addAsLinear(probCurrentFrame[indexNode],probNextFrame[indexNextNode] + logTransitionProbability + outputProbs[indexNextNode]);
+    }
+    score[indexNode].setBeta(probCurrentFrame[indexNode]);
+  }
+  for (int indexNode=graph.size() - 1; indexNode >= 0; indexNode--) {
+    Node node=graph.getNode(indexNode);
+    HMMState state=null;
+    if (node.isType("STATE")) {
+      state=(HMMState)node.getObject();
+      if (state.isEmitting()) {
+        continue;
+      }
+    }
+ else     if (graph.isFinalNode(node)) {
+      score[indexNode].setBeta(LogMath.LOG_ZERO);
+      probCurrentFrame[indexNode]=LogMath.LOG_ZERO;
+      continue;
+    }
+    probCurrentFrame[indexNode]=LogMath.LOG_ZERO;
+    for (node.startOutgoingEdgeIterator(); node.hasMoreOutgoingEdges(); ) {
+      float logTransitionProbability;
+      Node nextNode=node.nextOutgoingEdge().getDestination();
+      int indexNextNode=graph.indexOf(nextNode);
+      if (nextNode.isType("STATE")) {
+        HMMState nextState=(HMMState)nextNode.getObject();
+        assert((nextState.isEmitting()) || (nextState == state));
+        logTransitionProbability=0.0f;
+      }
+ else {
+        logTransitionProbability=0.0f;
+      }
+      probCurrentFrame[indexNode]=logMath.addAsLinear(probCurrentFrame[indexNode],probCurrentFrame[indexNextNode] + logTransitionProbability);
+    }
+    score[indexNode].setBeta(probCurrentFrame[indexNode]);
+  }
+}

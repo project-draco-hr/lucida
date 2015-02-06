@@ -1,0 +1,14 @@
+{
+  logger.config("Loading HTK acoustic model: " + MMFname);
+  logger.config("    Path      : " + location);
+  logger.config("    modellName: " + model);
+  logger.config("    dataDir   : " + dataDir);
+  HTKStruct htkmods=new HTKStruct();
+  htkmods.load(MMFname);
+  meansPool=htkmods.htkMeans(MMFname);
+  variancePool=htkmods.htkVars(MMFname,varianceFloor);
+  mixtureWeightsPool=htkmods.htkWeights(MMFname,mixtureWeightFloor);
+  matrixPool=htkmods.htkTrans(MMFname);
+  senonePool=createSenonePool(distFloor,varianceFloor);
+  loadHMMPool(useCDUnits,htkmods,location + File.separator + model);
+}

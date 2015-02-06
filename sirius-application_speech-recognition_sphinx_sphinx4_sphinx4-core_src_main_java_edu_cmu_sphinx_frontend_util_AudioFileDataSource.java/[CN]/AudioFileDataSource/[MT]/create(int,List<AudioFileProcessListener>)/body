@@ -1,0 +1,9 @@
+{
+  this.bytesPerRead=bytesPerRead;
+  if (listeners != null) {
+    for (    AudioFileProcessListener configurable : listeners) {
+      addNewFileListener(configurable);
+    }
+  }
+  initialize();
+}

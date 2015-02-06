@@ -1,0 +1,16 @@
+{
+  int curCount=skip;
+  List<String> list=new ArrayList<String>();
+  BufferedReader reader=new BufferedReader(new FileReader(batchFile));
+  String line=null;
+  while ((line=reader.readLine()) != null) {
+    if (!line.isEmpty()) {
+      if (++curCount >= skip) {
+        list.add(line);
+        curCount=0;
+      }
+    }
+  }
+  reader.close();
+  return list;
+}

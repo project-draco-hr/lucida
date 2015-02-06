@@ -1,0 +1,16 @@
+{
+  if ((containsWhiteSpace(text)) || (text.indexOf('\\') >= 0) || (text.indexOf('"') >= 0)) {
+    StringBuilder stringBuilder=new StringBuilder(text);
+    for (int j=stringBuilder.length() - 1; j >= 0; --j) {
+      int i;
+      i=stringBuilder.charAt(j);
+      if ((i == '"') || (i == '\\')) {
+        stringBuilder.insert(j,'\\');
+      }
+    }
+    stringBuilder.insert(0,'"');
+    stringBuilder.append('"');
+    return stringBuilder.toString();
+  }
+  return text;
+}

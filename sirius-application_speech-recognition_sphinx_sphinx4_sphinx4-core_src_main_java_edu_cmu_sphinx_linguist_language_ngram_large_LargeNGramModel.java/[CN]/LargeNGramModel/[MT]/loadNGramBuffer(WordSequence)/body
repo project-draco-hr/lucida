@@ -1,0 +1,45 @@
+{
+  int firstWordID=getWordID(ws.getWord(0));
+  int firstCurrentNGramEntry=0;
+  int numberNGrams=0;
+  int size=0;
+  long position=0;
+  int orderBuffer=ws.size() + 1;
+  NGramBuffer currentBuffer=null;
+  NGramBuffer nMinus1Buffer=null;
+  firstCurrentNGramEntry=unigrams[firstWordID].getFirstBigramEntry();
+  numberNGrams=getNumberBigramFollowers(firstWordID) + 1;
+  if (numberNGrams == 1)   return null;
+  if (orderBuffer == 2) {
+    size=numberNGrams * ((loader.getMaxDepth() == orderBuffer) ? BYTES_PER_NMAXGRAM : BYTES_PER_NGRAM) * loader.getBytesPerField();
+    position=(loader.getNGramOffset(orderBuffer) + (firstCurrentNGramEntry * ((loader.getMaxDepth() == orderBuffer) ? BYTES_PER_NMAXGRAM : BYTES_PER_NGRAM) * loader.getBytesPerField()));
+  }
+ else {
+    int lastWordId=getWordID(ws.getWord(ws.size() - 1));
+    nMinus1Buffer=getNGramBuffer(ws.getOldest());
+    int index=nMinus1Buffer.findNGramIndex(lastWordId);
+    if (index == -1)     return null;
+    int firstNMinus1GramEntry=nMinus1Buffer.getFirstNGramEntry();
+    firstCurrentNGramEntry=getFirstNGramEntry(nMinus1Buffer.getNGramProbability(index),firstNMinus1GramEntry,orderBuffer);
+    int firstNextNGramEntry=getFirstNGramEntry(nMinus1Buffer.getNGramProbability(index + 1),firstNMinus1GramEntry,orderBuffer);
+    numberNGrams=firstNextNGramEntry - firstCurrentNGramEntry;
+    if (numberNGrams == 0)     return null;
+    if (loader.getMaxDepth() != orderBuffer)     numberNGrams++;
+    size=numberNGrams * ((loader.getMaxDepth() == orderBuffer) ? BYTES_PER_NMAXGRAM : BYTES_PER_NGRAM) * loader.getBytesPerField();
+    position=loader.getNGramOffset(orderBuffer) + (long)firstCurrentNGramEntry * (long)((loader.getMaxDepth() == orderBuffer) ? BYTES_PER_NMAXGRAM : BYTES_PER_NGRAM) * loader.getBytesPerField();
+  }
+  try {
+    byte[] buffer=loader.loadBuffer(position,size);
+    if (loader.getMaxDepth() == orderBuffer) {
+      currentBuffer=new NMaxGramBuffer(buffer,numberNGrams,loader.getBigEndian(),is32bits(),orderBuffer,firstCurrentNGramEntry);
+    }
+ else {
+      currentBuffer=new NGramBuffer(buffer,numberNGrams,loader.getBigEndian(),is32bits(),orderBuffer,firstCurrentNGramEntry);
+    }
+  }
+ catch (  IOException ioe) {
+    ioe.printStackTrace();
+    throw new Error("Error loading " + orderBuffer + "-Grams.");
+  }
+  return currentBuffer;
+}

@@ -1,0 +1,6 @@
+{
+  Word unigram=wordSequence.getWord(0);
+  UnigramProbability unigramProb=getUnigram(unigram);
+  if (unigramProb == null)   throw new Error("Unigram not in LM: " + unigram);
+  return new ProbDepth(unigramProb.getLogProbability(),1);
+}

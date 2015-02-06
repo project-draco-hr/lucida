@@ -1,0 +1,34 @@
+{
+  boolean done=false;
+  Result result=null;
+  streamEnd=false;
+  for (int i=0; i < nFrames && !done; i++) {
+    done=recognize();
+  }
+  try {
+    pw_out=new PrintWriter(new FileOutputStream(new File("hmm_data_out.txt"),false));
+  }
+ catch (  FileNotFoundException ex) {
+    Logger.getLogger(SimpleBreadthFirstSearchManager.class.getName()).log(Level.SEVERE,null,ex);
+  }
+  pw_out.printf("%d %d %d %f\n",currentFrameNumber,activeList.size(),activeList.getBestToken().hashCode(),activeList.getBestScore());
+  for (  Token token : activeList) {
+    pw_out.printf("%d ",token.hashCode());
+  }
+  pw_out.printf("\n\n");
+  pw_out.printf("%d\n",resultList.size());
+  for (  Token token : resultList) {
+    pw_out.printf("%d ",token.hashCode());
+  }
+  pw_out.printf("\n");
+  if (activeList.getBestToken() != null) {
+    ActiveList fixedList=undoLastGrowStep();
+    if (!streamEnd)     result=new Result(activeList,resultList,currentFrameNumber,done);
+  }
+  if (showTokenCount) {
+    showTokenCount();
+  }
+  pw_out.printf("\n");
+  pw_out.close();
+  return result;
+}

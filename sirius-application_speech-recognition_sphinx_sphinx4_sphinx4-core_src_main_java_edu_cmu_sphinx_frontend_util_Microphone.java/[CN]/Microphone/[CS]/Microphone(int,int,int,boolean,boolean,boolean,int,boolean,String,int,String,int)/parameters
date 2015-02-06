@@ -1,0 +1,12 @@
+int sampleRate
+int bitsPerSample
+int channels
+boolean bigEndian
+boolean signed
+boolean closeBetweenUtterances
+int msecPerRead
+boolean keepLastAudio
+String stereoToMono
+int selectedChannel
+String selectedMixerIndex
+int audioBufferSize

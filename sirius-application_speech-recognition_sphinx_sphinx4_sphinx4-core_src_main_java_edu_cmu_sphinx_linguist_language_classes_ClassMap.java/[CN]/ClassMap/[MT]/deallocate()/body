@@ -1,0 +1,5 @@
+{
+  allocated=false;
+  wordToClassProbabilities=null;
+  classVocabulary=null;
+}

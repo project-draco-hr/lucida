@@ -1,0 +1,5 @@
+{
+  super("G",null,node.getID());
+  this.grammarNode=node;
+  setFinalState(grammarNode.isFinalNode());
+}

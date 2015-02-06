@@ -1,0 +1,23 @@
+{
+  SearchStateArc[] arcs=getCachedSuccessors();
+  if (arcs != null) {
+    return arcs;
+  }
+  if (isFinal()) {
+    arcs=EMPTY_ARCS;
+  }
+ else   if (node.isEmpty()) {
+    arcs=getNextGrammarStates(lc,nextBaseID);
+  }
+ else {
+    Word word=node.getWord();
+    Pronunciation[] pronunciations=word.getPronunciations();
+    SearchStateArc[] nextArcs=new SearchStateArc[pronunciations.length];
+    for (int i=0; i < pronunciations.length; i++) {
+      nextArcs[i]=new PronunciationState(this,pronunciations[i]);
+    }
+    arcs=nextArcs;
+  }
+  cacheSuccessors(arcs);
+  return arcs;
+}

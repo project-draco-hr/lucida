@@ -1,0 +1,3 @@
+{
+  resultListeners.add(resultListener);
+}

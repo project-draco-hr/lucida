@@ -1,0 +1,8 @@
+{
+  if (pronunciation.getWord().isFiller()) {
+    return LogMath.LOG_ONE;
+  }
+ else {
+    return logWordInsertionProbability;
+  }
+}

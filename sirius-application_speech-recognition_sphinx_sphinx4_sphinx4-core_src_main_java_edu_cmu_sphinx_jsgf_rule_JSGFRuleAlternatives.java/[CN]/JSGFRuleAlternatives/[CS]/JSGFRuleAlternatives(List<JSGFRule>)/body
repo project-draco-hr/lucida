@@ -1,0 +1,4 @@
+{
+  setRules(rules);
+  weights=null;
+}

@@ -1,0 +1,14 @@
+{
+  boolean response=false;
+  if (!checkOpen()) {
+    return false;
+  }
+  try {
+    response=inReader.ready();
+  }
+ catch (  IOException ioe) {
+    System.err.println("IO error while checking response");
+    close();
+  }
+  return response;
+}

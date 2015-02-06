@@ -1,0 +1,6 @@
+{
+  if (!registeredProperties.containsKey(name))   throw new InternalConfigurationException(getInstanceName(),name,'\'' + name + "' is not a registered int-property");
+  Annotation annotation=registeredProperties.get(name).getAnnotation();
+  if (!(annotation instanceof S4Integer))   throw new InternalConfigurationException(getInstanceName(),name,'\'' + name + "' is of type int");
+  applyConfigurationChange(name,value,value);
+}

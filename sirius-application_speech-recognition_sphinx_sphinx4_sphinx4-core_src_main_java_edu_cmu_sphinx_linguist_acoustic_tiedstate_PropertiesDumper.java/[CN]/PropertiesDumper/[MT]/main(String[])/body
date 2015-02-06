@@ -1,0 +1,10 @@
+{
+  try {
+    PropertiesDumper dumper=new PropertiesDumper("model.props");
+    System.out.println();
+    System.out.println(dumper);
+  }
+ catch (  IOException ioe) {
+    ioe.printStackTrace();
+  }
+}

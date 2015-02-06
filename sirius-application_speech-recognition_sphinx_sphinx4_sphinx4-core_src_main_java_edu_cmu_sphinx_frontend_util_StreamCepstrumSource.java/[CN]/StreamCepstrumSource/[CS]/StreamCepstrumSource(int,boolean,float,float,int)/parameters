@@ -1,0 +1,5 @@
+int cepstrumLength
+boolean binary
+float frameShiftMs
+float frameSizeMs
+int sampleRate

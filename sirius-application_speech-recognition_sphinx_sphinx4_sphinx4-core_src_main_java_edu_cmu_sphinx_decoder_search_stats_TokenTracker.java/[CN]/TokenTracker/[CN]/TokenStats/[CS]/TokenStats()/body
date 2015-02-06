@@ -1,0 +1,5 @@
+{
+  count=0;
+  maxScore=-Float.MAX_VALUE;
+  minScore=Float.MIN_VALUE;
+}

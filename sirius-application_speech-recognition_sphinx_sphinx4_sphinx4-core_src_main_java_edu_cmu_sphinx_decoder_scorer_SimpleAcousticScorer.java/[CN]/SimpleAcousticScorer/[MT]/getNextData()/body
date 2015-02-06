@@ -1,0 +1,6 @@
+{
+  Data data=frontEnd.getData();
+  if (data instanceof DataStartSignal)   handleDataStartSignal((DataStartSignal)data);
+  if (data instanceof DataEndSignal)   handleDataEndSignal((DataEndSignal)data);
+  return data;
+}

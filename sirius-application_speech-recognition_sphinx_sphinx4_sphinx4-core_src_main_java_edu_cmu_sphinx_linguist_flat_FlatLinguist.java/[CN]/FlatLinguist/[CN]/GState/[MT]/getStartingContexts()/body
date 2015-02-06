@@ -1,0 +1,21 @@
+{
+  if (startingContexts == null) {
+    startingContexts=new HashSet<UnitContext>();
+    if (node.isEmpty()) {
+      GrammarArc[] arcs=getSuccessors();
+      for (      GrammarArc arc : arcs) {
+        GState gstate=getGState(arc.getGrammarNode());
+        startingContexts.addAll(gstate.getStartingContexts());
+      }
+    }
+ else {
+      Word word=node.getWord();
+      Pronunciation[] prons=word.getPronunciations(null);
+      for (      Pronunciation pron : prons) {
+        UnitContext startingContext=getStartingContext(pron);
+        startingContexts.add(startingContext);
+      }
+    }
+  }
+  return startingContexts;
+}

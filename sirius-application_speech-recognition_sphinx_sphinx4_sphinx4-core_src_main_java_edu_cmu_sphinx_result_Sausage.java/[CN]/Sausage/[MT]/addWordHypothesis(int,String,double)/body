@@ -1,0 +1,4 @@
+{
+  WordResult wr=new WordResult(word,confidence);
+  addWordHypothesis(position,wr);
+}

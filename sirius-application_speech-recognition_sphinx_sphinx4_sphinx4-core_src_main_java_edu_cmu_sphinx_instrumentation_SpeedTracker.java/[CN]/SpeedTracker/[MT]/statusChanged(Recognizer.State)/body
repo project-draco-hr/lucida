@@ -1,0 +1,17 @@
+{
+  if (status == State.ALLOCATED) {
+    if (showTimers) {
+      TimerPool.dumpAll();
+    }
+  }
+  if (status == State.DEALLOCATING) {
+    if (showTimers) {
+      TimerPool.dumpAll();
+    }
+  }
+  if (status == State.DEALLOCATED) {
+    if (showSummary) {
+      showAudioSummary();
+    }
+  }
+}

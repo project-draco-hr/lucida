@@ -1,0 +1,12 @@
+{
+  source=new AudioFileDataSource(320,null);
+  RaisedCosineWindower windower=new RaisedCosineWindower(0.97f,25.625f,10.0f);
+  DiscreteFourierTransform fft=new DiscreteFourierTransform(512,false);
+  MelFrequencyFilterBank filterbank=new MelFrequencyFilterBank(130.0,6800.0,bands);
+  ArrayList<DataProcessor> list=new ArrayList<DataProcessor>();
+  list.add(source);
+  list.add(windower);
+  list.add(fft);
+  list.add(filterbank);
+  frontend=new FrontEnd(list);
+}

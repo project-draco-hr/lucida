@@ -1,0 +1,6 @@
+{
+  List<SpeechClassifiedData> datas=new ArrayList<SpeechClassifiedData>();
+  List<DoubleData> featVecs=createFeatVectors(1,sampleRate,0,10,10);
+  for (  DoubleData featVec : featVecs)   datas.add(new SpeechClassifiedData(featVec,isSpeech));
+  return datas;
+}

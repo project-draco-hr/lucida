@@ -1,0 +1,4 @@
+{
+  items.add(item);
+  if (items.size() > maxSize)   items.pollFirst();
+}

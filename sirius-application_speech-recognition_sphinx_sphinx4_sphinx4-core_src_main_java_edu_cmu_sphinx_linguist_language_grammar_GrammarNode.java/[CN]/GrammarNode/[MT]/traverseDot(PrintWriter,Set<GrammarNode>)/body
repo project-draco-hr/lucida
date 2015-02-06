@@ -1,0 +1,13 @@
+{
+  if (!(visitedNodes.contains(this))) {
+    visitedNodes.add(this);
+    out.println("\tnode" + this.getID() + " [ label="+ getGDLLabel(this)+ ", color="+ getGDLColor(this)+ ", shape="+ getGDLShape(this)+ " ]\n");
+    GrammarArc[] arcs=getSuccessors();
+    for (    GrammarArc arc : arcs) {
+      GrammarNode child=arc.getGrammarNode();
+      float prob=arc.getProbability();
+      out.write("\tnode" + this.getID() + " -> node"+ child.getID()+ " [ label="+ prob+ " ]\n");
+      child.traverseDot(out,visitedNodes);
+    }
+  }
+}

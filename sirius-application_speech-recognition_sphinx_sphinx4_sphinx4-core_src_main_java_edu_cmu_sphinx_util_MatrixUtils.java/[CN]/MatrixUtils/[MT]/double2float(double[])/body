@@ -1,0 +1,7 @@
+{
+  float[] newVals=new float[values.length];
+  for (int i=0; i < newVals.length; i++) {
+    newVals[i]=(float)values[i];
+  }
+  return newVals;
+}

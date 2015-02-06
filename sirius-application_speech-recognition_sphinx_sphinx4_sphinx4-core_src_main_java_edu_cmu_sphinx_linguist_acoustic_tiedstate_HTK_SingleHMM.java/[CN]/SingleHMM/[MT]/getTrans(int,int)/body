@@ -1,0 +1,6 @@
+{
+  if (trans == null) {
+    trans=hmmset.transitions.get(transidx);
+  }
+  return trans[i][j];
+}

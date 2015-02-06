@@ -1,0 +1,5 @@
+{
+  double result=0;
+  for (int i=0; i < weights.length; ++i)   result+=weights[i] * powerSpectrum[offset + i];
+  return result;
+}

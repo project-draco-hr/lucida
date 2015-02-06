@@ -1,0 +1,5 @@
+{
+  edges=new HashSet<Edge>();
+  nodes=new HashMap<String,Node>();
+  logMath=LogMath.getInstance();
+}

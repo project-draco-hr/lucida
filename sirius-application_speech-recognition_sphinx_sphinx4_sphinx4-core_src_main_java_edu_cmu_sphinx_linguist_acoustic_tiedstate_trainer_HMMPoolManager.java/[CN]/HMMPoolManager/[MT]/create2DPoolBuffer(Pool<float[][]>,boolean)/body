@@ -1,0 +1,14 @@
+{
+  Pool<Buffer[]> bufferPool=new Pool<Buffer[]>(pool.getName());
+  for (int i=0; i < pool.size(); i++) {
+    float[][] element=pool.get(i);
+    indexMap.put(element,i);
+    int poolSize=element.length;
+    Buffer[] bufferArray=new Buffer[poolSize];
+    for (int j=0; j < poolSize; j++) {
+      bufferArray[j]=new Buffer(element[j].length,isLog,j);
+    }
+    bufferPool.put(i,bufferArray);
+  }
+  return bufferPool;
+}

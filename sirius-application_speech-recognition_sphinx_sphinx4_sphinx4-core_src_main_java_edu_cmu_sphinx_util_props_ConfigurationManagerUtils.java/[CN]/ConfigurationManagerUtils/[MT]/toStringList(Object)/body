@@ -1,0 +1,10 @@
+{
+  List<String> result=new ArrayList<String>();
+  if (!(obj instanceof List<?>))   return null;
+  for (  Object o : (List<?>)obj) {
+    if (o instanceof String) {
+      result.add((String)o);
+    }
+  }
+  return result;
+}

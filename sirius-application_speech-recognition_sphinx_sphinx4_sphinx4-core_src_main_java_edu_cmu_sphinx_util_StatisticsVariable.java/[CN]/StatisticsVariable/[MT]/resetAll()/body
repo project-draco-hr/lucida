@@ -1,0 +1,5 @@
+{
+  for (  StatisticsVariable stats : pool.values()) {
+    stats.reset();
+  }
+}

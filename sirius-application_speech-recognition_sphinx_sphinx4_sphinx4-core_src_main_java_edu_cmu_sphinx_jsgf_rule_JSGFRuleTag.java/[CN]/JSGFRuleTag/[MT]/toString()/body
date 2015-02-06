@@ -1,0 +1,7 @@
+{
+  String str=" {" + escapeTag(tag) + "}";
+  if ((rule instanceof JSGFRuleToken) || (rule instanceof JSGFRuleName)) {
+    return rule.toString() + str;
+  }
+  return "(" + rule.toString() + ")"+ str;
+}

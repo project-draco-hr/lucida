@@ -1,0 +1,80 @@
+{
+  for (int i=0; i < graph.size(); i++) {
+    outputProbs[i]=calculateScores(i);
+    score[i]=new TrainerScore(curFeature,outputProbs[i],(HMMState)graph.getNode(i).getObject(),componentScores);
+    score[i].setAlpha(probCurrentFrame[i]);
+  }
+  float[] probPreviousFrame=probCurrentFrame;
+  probCurrentFrame=new float[graph.size()];
+  for (int indexNode=0; indexNode < graph.size(); indexNode++) {
+    Node node=graph.getNode(indexNode);
+    if (!node.isType("STATE")) {
+      continue;
+    }
+    SenoneHMMState state=(SenoneHMMState)node.getObject();
+    SenoneHMM hmm=(SenoneHMM)state.getHMM();
+    if (!state.isEmitting()) {
+      continue;
+    }
+    probCurrentFrame[indexNode]=LogMath.LOG_ZERO;
+    for (node.startIncomingEdgeIterator(); node.hasMoreIncomingEdges(); ) {
+      Node previousNode=node.nextIncomingEdge().getSource();
+      int indexPreviousNode=graph.indexOf(previousNode);
+      HMMState previousState=(HMMState)previousNode.getObject();
+      float logTransitionProbability;
+      if (previousState != null) {
+        assert((!previousState.isEmitting()) || (previousState.getHMM() == hmm));
+        if (!previousState.isEmitting()) {
+          logTransitionProbability=0.0f;
+        }
+ else {
+          logTransitionProbability=hmm.getTransitionProbability(previousState.getState(),state.getState());
+        }
+      }
+ else {
+        logTransitionProbability=0.0f;
+      }
+      probCurrentFrame[indexNode]=logMath.addAsLinear(probCurrentFrame[indexNode],probPreviousFrame[indexPreviousNode] + logTransitionProbability);
+    }
+    probCurrentFrame[indexNode]+=outputProbs[indexNode];
+    score[indexNode].setAlpha(probCurrentFrame[indexNode]);
+  }
+  for (int indexNode=0; indexNode < graph.size(); indexNode++) {
+    Node node=graph.getNode(indexNode);
+    HMMState state=null;
+    SenoneHMM hmm=null;
+    if (node.isType("STATE")) {
+      state=(HMMState)node.getObject();
+      hmm=(SenoneHMM)state.getHMM();
+      if (state.isEmitting()) {
+        continue;
+      }
+    }
+ else     if (graph.isInitialNode(node)) {
+      score[indexNode].setAlpha(LogMath.LOG_ZERO);
+      probCurrentFrame[indexNode]=LogMath.LOG_ZERO;
+      continue;
+    }
+    probCurrentFrame[indexNode]=LogMath.LOG_ZERO;
+    for (node.startIncomingEdgeIterator(); node.hasMoreIncomingEdges(); ) {
+      float logTransitionProbability;
+      Node previousNode=node.nextIncomingEdge().getSource();
+      int indexPreviousNode=graph.indexOf(previousNode);
+      if (previousNode.isType("STATE")) {
+        HMMState previousState=(HMMState)previousNode.getObject();
+        assert((!previousState.isEmitting()) || (previousState.getHMM() == hmm));
+        if (!previousState.isEmitting()) {
+          logTransitionProbability=0.0f;
+        }
+ else {
+          logTransitionProbability=hmm.getTransitionProbability(previousState.getState(),state.getState());
+        }
+      }
+ else {
+        logTransitionProbability=0.0f;
+      }
+      probCurrentFrame[indexNode]=logMath.addAsLinear(probCurrentFrame[indexNode],probCurrentFrame[indexPreviousNode] + logTransitionProbability);
+    }
+    score[indexNode].setAlpha(probCurrentFrame[indexNode]);
+  }
+}

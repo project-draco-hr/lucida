@@ -1,0 +1,7 @@
+{
+  Senone[] senones=new Senone[stateId.length];
+  for (int i=0; i < stateId.length; i++) {
+    senones[i]=senonePool.get(stateId[i]);
+  }
+  return new SenoneSequence(senones);
+}

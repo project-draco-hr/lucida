@@ -1,0 +1,5 @@
+{
+  this.context=context;
+  recognizer=context.getInstance(Recognizer.class);
+  speechSourceProvider=new SpeechSourceProvider();
+}

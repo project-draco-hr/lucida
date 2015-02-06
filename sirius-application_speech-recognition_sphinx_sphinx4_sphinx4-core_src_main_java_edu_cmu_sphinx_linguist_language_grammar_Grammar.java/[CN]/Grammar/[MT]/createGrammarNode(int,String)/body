@@ -1,0 +1,17 @@
+{
+  GrammarNode node;
+  Word[][] alternatives=EMPTY_ALTERNATIVE;
+  Word wordObject=getDictionary().getWord(word);
+  if (wordObject != null) {
+    alternatives=new Word[1][];
+    alternatives[0]=new Word[1];
+    alternatives[0][0]=wordObject;
+    node=new GrammarNode(identity,alternatives);
+    add(node);
+  }
+ else {
+    node=createGrammarNode(identity,false);
+    logger.warning("Can't find pronunciation for " + word);
+  }
+  return node;
+}

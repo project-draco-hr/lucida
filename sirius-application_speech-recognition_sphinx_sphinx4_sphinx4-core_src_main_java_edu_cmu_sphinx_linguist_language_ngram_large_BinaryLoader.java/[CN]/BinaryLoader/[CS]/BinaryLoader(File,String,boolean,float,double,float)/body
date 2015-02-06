@@ -1,0 +1,5 @@
+{
+  this(format,applyLanguageWeightAndWip,languageWeight,wip,unigramWeight);
+  loadModelLayout(new FileInputStream(location));
+  file=new RandomAccessFile(location,"r");
+}

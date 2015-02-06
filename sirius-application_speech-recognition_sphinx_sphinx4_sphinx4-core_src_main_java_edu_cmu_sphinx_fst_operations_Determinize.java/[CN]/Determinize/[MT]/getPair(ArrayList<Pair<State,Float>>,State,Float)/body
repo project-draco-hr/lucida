@@ -1,0 +1,14 @@
+{
+  Pair<State,Float> res=null;
+  for (  Pair<State,Float> tmp : queue) {
+    if (state.getId() == tmp.getLeft().getId()) {
+      res=tmp;
+      break;
+    }
+  }
+  if (res == null) {
+    res=new Pair<State,Float>(state,zero);
+    queue.add(res);
+  }
+  return res;
+}

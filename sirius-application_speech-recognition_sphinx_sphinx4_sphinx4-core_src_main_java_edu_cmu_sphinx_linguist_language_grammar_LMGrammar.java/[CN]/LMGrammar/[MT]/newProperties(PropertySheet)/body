@@ -1,0 +1,4 @@
+{
+  super.newProperties(ps);
+  languageModel=(LanguageModel)ps.getComponent(PROP_LANGUAGE_MODEL);
+}

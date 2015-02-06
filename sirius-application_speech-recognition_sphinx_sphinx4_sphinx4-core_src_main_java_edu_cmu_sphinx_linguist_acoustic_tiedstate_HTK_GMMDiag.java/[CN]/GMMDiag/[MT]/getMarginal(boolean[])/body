@@ -1,0 +1,20 @@
+{
+  int nc=0;
+  for (  boolean flag : mask)   if (flag)   nc++;
+  GMMDiag g=new GMMDiag(getNgauss(),nc);
+  int curc=0;
+  for (int j=0; j < ncoefs; j++) {
+    if (mask[j]) {
+      for (int i=0; i < ngauss; i++) {
+        g.setMean(i,curc,getMean(i,j));
+        g.setVar(i,curc,getVar(i,j));
+      }
+      curc++;
+    }
+  }
+  for (int i=0; i < ngauss; i++) {
+    g.setWeight(i,getWeight(i));
+  }
+  g.precomputeDistance();
+  return g;
+}

@@ -1,0 +1,9 @@
+URL location
+String model
+String dataLocatoin
+UnitManager unitManager
+float distFloor
+float mixtureWeightFloor
+float varianceFloor
+boolean useCDUnits
+Logger logger

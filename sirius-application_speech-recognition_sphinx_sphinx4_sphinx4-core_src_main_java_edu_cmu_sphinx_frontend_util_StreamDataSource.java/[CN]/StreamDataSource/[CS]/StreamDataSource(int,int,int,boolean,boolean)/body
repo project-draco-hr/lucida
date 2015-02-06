@@ -1,0 +1,4 @@
+{
+  initLogger();
+  init(sampleRate,bytesPerRead,bitsPerSample,bigEndian,signedData);
+}

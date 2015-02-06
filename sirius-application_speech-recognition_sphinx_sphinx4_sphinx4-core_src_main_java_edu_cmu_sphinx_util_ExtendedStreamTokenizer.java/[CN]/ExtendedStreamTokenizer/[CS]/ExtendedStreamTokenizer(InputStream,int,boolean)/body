@@ -1,0 +1,4 @@
+{
+  this(new InputStreamReader(inputStream),eolIsSignificant);
+  commentChar(commentChar);
+}

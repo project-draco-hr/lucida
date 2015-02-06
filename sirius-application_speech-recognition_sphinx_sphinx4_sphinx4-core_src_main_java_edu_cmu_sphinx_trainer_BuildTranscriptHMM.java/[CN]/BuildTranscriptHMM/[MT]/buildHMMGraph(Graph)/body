@@ -1,0 +1,21 @@
+{
+  Graph hmmGraph=new Graph();
+  hmmGraph.copyGraph(cdGraph);
+  for (  Node node : hmmGraph.nodeToArray()) {
+    Unit unit=null;
+    if (node.getType().equals(NodeType.PHONE)) {
+      unit=unitManager.getUnit(node.getID());
+    }
+ else     if (node.getType().equals(NodeType.SILENCE_WITH_LOOPBACK)) {
+      unit=unitManager.getUnit("SIL");
+    }
+ else {
+      continue;
+    }
+    HMM hmm=acousticModel.lookupNearestHMM(unit,HMMPosition.UNDEFINED,false);
+    Graph modelGraph=buildModelGraph((SenoneHMM)hmm);
+    modelGraph.validate();
+    hmmGraph.insertGraph(modelGraph,node);
+  }
+  return hmmGraph;
+}

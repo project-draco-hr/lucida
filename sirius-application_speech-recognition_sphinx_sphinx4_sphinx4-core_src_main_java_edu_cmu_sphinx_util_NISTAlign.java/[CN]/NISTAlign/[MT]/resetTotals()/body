@@ -1,0 +1,14 @@
+{
+  totalSentences=0;
+  totalSentencesWithErrors=0;
+  totalSentencesWithSubtitutions=0;
+  totalSentencesWithInsertions=0;
+  totalSentencesWithDeletions=0;
+  totalReferenceWords=0;
+  totalHypothesisWords=0;
+  totalAlignedWords=0;
+  totalWordsCorrect=0;
+  totalSubstitutions=0;
+  totalInsertions=0;
+  totalDeletions=0;
+}

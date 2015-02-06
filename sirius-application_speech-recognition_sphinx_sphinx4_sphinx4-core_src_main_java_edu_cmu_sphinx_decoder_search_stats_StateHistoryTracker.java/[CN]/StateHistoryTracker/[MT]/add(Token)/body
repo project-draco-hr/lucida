@@ -1,0 +1,10 @@
+{
+  stateCount++;
+  WordSequence ws=getWordSequence(t);
+  WordStats stats=statMap.get(ws);
+  if (stats == null) {
+    stats=new WordStats(ws);
+    statMap.put(ws,stats);
+  }
+  stats.update(t);
+}

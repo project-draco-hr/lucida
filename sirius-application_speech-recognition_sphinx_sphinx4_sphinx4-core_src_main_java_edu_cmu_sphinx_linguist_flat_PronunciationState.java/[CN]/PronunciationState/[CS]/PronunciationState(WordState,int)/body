@@ -1,0 +1,4 @@
+{
+  super("P",parent,which);
+  pronunciation=parent.getWord().getPronunciations(null)[which];
+}

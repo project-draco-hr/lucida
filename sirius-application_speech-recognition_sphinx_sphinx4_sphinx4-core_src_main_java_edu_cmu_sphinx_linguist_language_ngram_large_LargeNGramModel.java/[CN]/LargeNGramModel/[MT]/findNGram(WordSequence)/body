@@ -1,0 +1,15 @@
+{
+  int numberWords=wordSequence.size();
+  NGramProbability nGram=null;
+  WordSequence oldest=wordSequence.getOldest();
+  NGramBuffer nGramBuffer=loadedNGramBuffers[numberWords - 1].get(oldest);
+  if (nGramBuffer == null) {
+    nGramBuffer=getNGramBuffer(oldest);
+    if (nGramBuffer != null)     loadedNGramBuffers[numberWords - 1].put(oldest,nGramBuffer);
+  }
+  if (nGramBuffer != null) {
+    int nthWordID=getWordID(wordSequence.getWord(numberWords - 1));
+    nGram=nGramBuffer.findNGram(nthWordID);
+  }
+  return nGram;
+}

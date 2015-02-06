@@ -1,0 +1,6 @@
+PronunciationState parent
+SentenceHMMState tail
+Unit[] units
+int which
+UnitContext leftContext
+UnitContext rightContext

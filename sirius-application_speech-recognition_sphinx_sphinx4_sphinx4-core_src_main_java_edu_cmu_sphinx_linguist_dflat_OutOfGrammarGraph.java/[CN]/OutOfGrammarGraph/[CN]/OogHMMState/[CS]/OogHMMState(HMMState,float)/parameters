@@ -1,0 +1,2 @@
+HMMState hmmState
+float logProbability

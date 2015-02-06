@@ -1,0 +1,15 @@
+{
+  if (selectedMixerIndex.equals("default")) {
+    return null;
+  }
+ else {
+    Mixer.Info[] mixerInfo=AudioSystem.getMixerInfo();
+    if (selectedMixerIndex.equals("last")) {
+      return AudioSystem.getMixer(mixerInfo[mixerInfo.length - 1]);
+    }
+ else {
+      int index=Integer.parseInt(selectedMixerIndex);
+      return AudioSystem.getMixer(mixerInfo[index]);
+    }
+  }
+}

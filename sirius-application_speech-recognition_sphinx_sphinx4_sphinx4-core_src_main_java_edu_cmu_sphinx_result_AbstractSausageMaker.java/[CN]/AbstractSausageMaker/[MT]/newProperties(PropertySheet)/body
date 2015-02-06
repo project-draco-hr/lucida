@@ -1,0 +1,3 @@
+{
+  languageWeight=ps.getFloat(PROP_LANGUAGE_WEIGHT);
+}

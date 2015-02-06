@@ -1,0 +1,14 @@
+{
+  logger=ps.getLogger();
+  cm=ConfigurationManagerUtils.getPropertyManager(ps);
+  skip=ps.getInt(PROP_SKIP);
+  utteranceId=ps.getInt(PROP_COUNT);
+  if (utteranceId <= 0) {
+    utteranceId=Integer.MAX_VALUE;
+  }
+  whichBatch=ps.getInt(PROP_WHICH_BATCH);
+  totalBatches=ps.getInt(PROP_TOTAL_BATCHES);
+  usePooledBatchManager=ps.getBoolean(PROP_USE_POOLED_BATCH_MANAGER);
+  recognizer=(Recognizer)ps.getComponent(PROP_RECOGNIZER);
+  inputDataProcessors=ps.getComponentList(PROP_INPUT_DATA_PROCESSORS,DataProcessor.class);
+}

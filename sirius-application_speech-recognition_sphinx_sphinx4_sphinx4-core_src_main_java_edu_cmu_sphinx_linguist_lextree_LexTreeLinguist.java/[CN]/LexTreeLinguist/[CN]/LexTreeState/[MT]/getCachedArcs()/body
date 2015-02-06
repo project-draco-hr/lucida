@@ -1,0 +1,15 @@
+{
+  if (cacheEnabled) {
+    SearchStateArc[] arcs=arcCache.get(this);
+    if (arcs != null) {
+      cacheHits++;
+    }
+    if (++cacheTrys % 1000000 == 0) {
+      System.out.println("Hits: " + cacheHits + " of "+ cacheTrys+ ' '+ ((float)cacheHits) / cacheTrys * 100f);
+    }
+    return arcs;
+  }
+ else {
+    return null;
+  }
+}

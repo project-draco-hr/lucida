@@ -1,0 +1,7 @@
+{
+  entryPointTable.freeze();
+  dictionary=null;
+  lm=null;
+  exitPoints=null;
+  allWords=null;
+}

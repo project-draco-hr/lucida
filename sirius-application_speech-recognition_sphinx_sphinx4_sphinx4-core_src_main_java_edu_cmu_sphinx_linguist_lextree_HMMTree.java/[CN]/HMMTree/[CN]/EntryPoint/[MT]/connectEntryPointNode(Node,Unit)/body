@@ -1,0 +1,8 @@
+{
+  for (  Node node : baseNode.getSuccessors()) {
+    UnitNode successor=(UnitNode)node;
+    if (successor.getBaseUnit() == rc) {
+      epNode.addSuccessor(successor);
+    }
+  }
+}

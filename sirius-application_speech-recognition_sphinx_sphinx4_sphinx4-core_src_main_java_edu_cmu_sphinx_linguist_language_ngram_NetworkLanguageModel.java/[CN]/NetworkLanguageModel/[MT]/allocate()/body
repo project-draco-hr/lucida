@@ -1,0 +1,11 @@
+{
+  allocated=true;
+  socket=new Socket(host,port);
+  inReader=new BufferedReader(new InputStreamReader(socket.getInputStream()));
+  outWriter=new PrintWriter(socket.getOutputStream(),true);
+  String greeting=inReader.readLine();
+  if (!greeting.equals("probserver ready")) {
+    throw new IOException("Incorrect input");
+  }
+  cache=new LRUCache<WordSequence,Float>(1000);
+}

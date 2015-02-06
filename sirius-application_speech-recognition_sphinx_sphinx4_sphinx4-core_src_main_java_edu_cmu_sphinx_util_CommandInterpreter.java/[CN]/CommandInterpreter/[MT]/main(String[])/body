@@ -1,0 +1,12 @@
+{
+  CommandInterpreter ci=new CommandInterpreter();
+  try {
+    System.out.println("Welcome to the Command interpreter test program");
+    ci.setPrompt("CI> ");
+    ci.run();
+    System.out.println("Goodbye!");
+  }
+ catch (  Throwable t) {
+    System.out.println(t);
+  }
+}

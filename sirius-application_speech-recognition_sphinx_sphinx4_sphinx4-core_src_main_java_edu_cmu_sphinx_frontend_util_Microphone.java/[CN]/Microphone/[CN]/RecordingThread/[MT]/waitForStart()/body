@@ -1,0 +1,10 @@
+{
+  try {
+    while (!started) {
+      wait();
+    }
+  }
+ catch (  InterruptedException ie) {
+    logger.warning("wait was interrupted");
+  }
+}

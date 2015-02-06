@@ -1,0 +1,12 @@
+{
+  super(sampleRate,bytesPerRead,bitsPerSample,bigEndian,signedData);
+  this.bytesPerSecond=sampleRate * (bitsPerSample / 8);
+  this.addRandomSilence=addRandomSilence;
+  this.maxSilence=maxSilence;
+  this.skip=skip;
+  this.silenceFileName=silenceFileName;
+  this.startFile=startFile;
+  this.totalFiles=totalFiles;
+  this.transcriptFile=transcriptFile;
+  this.batchFile=batchFile;
+}

@@ -1,0 +1,3 @@
+{
+  return super.toString() + "numWords=" + wordDictionary.size()+ " dictLlocation="+ getWordDictionaryFile();
+}

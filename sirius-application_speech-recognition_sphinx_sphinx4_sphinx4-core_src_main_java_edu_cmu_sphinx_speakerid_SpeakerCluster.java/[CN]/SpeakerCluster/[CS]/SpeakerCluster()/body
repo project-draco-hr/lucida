@@ -1,0 +1,3 @@
+{
+  this.segmentSet=new TreeSet<Segment>();
+}

@@ -1,0 +1,3 @@
+GrammarNode node
+float languageProbability
+int lc

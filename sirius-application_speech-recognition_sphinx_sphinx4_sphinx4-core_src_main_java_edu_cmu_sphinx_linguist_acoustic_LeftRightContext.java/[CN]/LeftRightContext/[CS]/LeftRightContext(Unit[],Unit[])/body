@@ -1,0 +1,4 @@
+{
+  this.leftContext=leftContext;
+  this.rightContext=rightContext;
+}

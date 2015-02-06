@@ -1,0 +1,30 @@
+{
+  logger=ps.getLogger();
+  this.dictionary=(TrainerDictionary)ps.getComponent(DICTIONARY);
+  try {
+    dictionary.allocate();
+  }
+ catch (  IOException e) {
+    throw new PropertyException(e);
+  }
+  this.audioFile=ps.getString(PROP_AUDIO_FILE);
+  this.transcriptFile=ps.getString(PROP_TRANSCRIPT_FILE);
+  this.currentPartition=ps.getInt(PROP_WHICH_BATCH);
+  this.numberOfPartitions=ps.getInt(PROP_TOTAL_BATCHES);
+  logger.info("Audio control file: " + this.audioFile);
+  logger.info("Transcript file: " + this.transcriptFile);
+  this.wordSeparator=" \t\n\r\f";
+  logger.info("Processing part " + this.currentPartition + " of "+ this.numberOfPartitions);
+  try {
+    this.audioFileList=getLines(audioFile);
+  }
+ catch (  IOException ioe) {
+    throw new Error("IOE: Can't open file " + audioFile,ioe);
+  }
+  try {
+    this.transcriptFileList=getLines(transcriptFile);
+  }
+ catch (  IOException ioe) {
+    throw new Error("IOE: Can't open file " + transcriptFile,ioe);
+  }
+}

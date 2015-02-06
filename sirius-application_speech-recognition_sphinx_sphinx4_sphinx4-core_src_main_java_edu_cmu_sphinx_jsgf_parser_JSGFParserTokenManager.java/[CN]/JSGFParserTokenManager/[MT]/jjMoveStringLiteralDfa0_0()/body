@@ -1,0 +1,41 @@
+{
+switch (curChar) {
+case 40:
+    return jjStopAtPos(0,36);
+case 41:
+  return jjStopAtPos(0,37);
+case 42:
+return jjStopAtPos(0,30);
+case 43:
+return jjStopAtPos(0,35);
+case 46:
+return jjStartNfaWithStates_0(0,29,5);
+case 47:
+jjmatchedKind=34;
+return jjMoveStringLiteralDfa1_0(0x140L);
+case 59:
+return jjStopAtPos(0,26);
+case 60:
+return jjStopAtPos(0,28);
+case 61:
+return jjStopAtPos(0,32);
+case 62:
+return jjStopAtPos(0,31);
+case 86:
+return jjMoveStringLiteralDfa1_0(0x8000000L);
+case 91:
+return jjStopAtPos(0,38);
+case 93:
+return jjStopAtPos(0,39);
+case 103:
+return jjMoveStringLiteralDfa1_0(0x2000L);
+case 105:
+return jjMoveStringLiteralDfa1_0(0x4000L);
+case 112:
+return jjMoveStringLiteralDfa1_0(0x8000L);
+case 124:
+return jjStopAtPos(0,33);
+default :
+return jjMoveNfa_0(3,0);
+}
+}

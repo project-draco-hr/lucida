@@ -1,0 +1,4 @@
+String location
+String path
+Properties props
+boolean append

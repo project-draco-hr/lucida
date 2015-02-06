@@ -1,0 +1,4 @@
+{
+  batchFiles=new ArrayList<URL>(urls);
+  initialize();
+}

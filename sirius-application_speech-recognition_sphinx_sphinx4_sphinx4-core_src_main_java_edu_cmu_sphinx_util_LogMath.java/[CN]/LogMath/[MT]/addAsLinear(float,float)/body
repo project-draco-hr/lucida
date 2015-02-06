@@ -1,0 +1,9 @@
+{
+  float logHighestValue=logVal1;
+  float logDifference=logVal1 - logVal2;
+  if (logDifference < 0) {
+    logHighestValue=logVal2;
+    logDifference=-logDifference;
+  }
+  return logHighestValue + addTable(logDifference);
+}

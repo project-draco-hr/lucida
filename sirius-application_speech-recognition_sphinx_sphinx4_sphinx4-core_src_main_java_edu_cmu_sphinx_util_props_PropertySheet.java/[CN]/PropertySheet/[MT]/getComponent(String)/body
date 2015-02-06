@@ -1,0 +1,23 @@
+{
+  S4PropWrapper s4PropWrapper=getProperty(name,S4Component.class);
+  Configurable configurable=null;
+  S4Component s4Component=(S4Component)s4PropWrapper.getAnnotation();
+  Class<? extends Configurable> expectedType=s4Component.type();
+  Object propVal=propValues.get(name);
+  if (propVal != null && propVal instanceof Configurable) {
+    return (Configurable)propVal;
+  }
+  if (propVal != null && propVal instanceof String) {
+    PropertySheet ps=cm.getPropertySheet(flattenProp(name));
+    if (ps != null)     configurable=ps.getOwner();
+ else     throw new InternalConfigurationException(getInstanceName(),name,"component '" + flattenProp(name) + "' is missing");
+  }
+  if (configurable != null && !expectedType.isInstance(configurable))   throw new InternalConfigurationException(getInstanceName(),name,"mismatch between annotation and component type");
+  if (configurable != null) {
+    propValues.put(name,configurable);
+    return configurable;
+  }
+  configurable=getComponentFromAnnotation(name,s4Component);
+  propValues.put(name,configurable);
+  return configurable;
+}

@@ -1,0 +1,7 @@
+{
+  if (overflowBuffer.getOccupancy() > 0) {
+    overflowBuffer.padWindow(cosineWindow.length);
+    applyRaisedCosineWindow(overflowBuffer.getBuffer(),cosineWindow.length);
+    overflowBuffer.reset();
+  }
+}

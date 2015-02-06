@@ -1,0 +1,5 @@
+GrammarNode node
+int alternativeIndex
+int wordIndex
+int pronunciationIndex
+int unitIndex

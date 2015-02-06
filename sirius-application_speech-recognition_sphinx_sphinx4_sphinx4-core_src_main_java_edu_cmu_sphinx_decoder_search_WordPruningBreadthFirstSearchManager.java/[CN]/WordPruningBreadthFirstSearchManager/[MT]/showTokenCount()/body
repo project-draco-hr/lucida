@@ -1,0 +1,18 @@
+{
+  Set<Token> tokenSet=new HashSet<Token>();
+  for (  Token token : activeList) {
+    while (token != null) {
+      tokenSet.add(token);
+      token=token.getPredecessor();
+    }
+  }
+  System.out.println("Token Lattice size: " + tokenSet.size());
+  tokenSet=new HashSet<Token>();
+  for (  Token token : resultList) {
+    while (token != null) {
+      tokenSet.add(token);
+      token=token.getPredecessor();
+    }
+  }
+  System.out.println("Result Lattice size: " + tokenSet.size());
+}

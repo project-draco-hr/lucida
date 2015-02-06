@@ -1,0 +1,5 @@
+{
+  super(msg,cause);
+  this.instanceName=instanceName;
+  this.propertyName=propertyName;
+}

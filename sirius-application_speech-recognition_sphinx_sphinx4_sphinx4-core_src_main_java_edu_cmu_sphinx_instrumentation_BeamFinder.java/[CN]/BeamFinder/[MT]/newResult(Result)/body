@@ -1,0 +1,8 @@
+{
+  if (enabled) {
+    process(result);
+    if (result.isFinal() && showDetails) {
+      showLatestResult();
+    }
+  }
+}

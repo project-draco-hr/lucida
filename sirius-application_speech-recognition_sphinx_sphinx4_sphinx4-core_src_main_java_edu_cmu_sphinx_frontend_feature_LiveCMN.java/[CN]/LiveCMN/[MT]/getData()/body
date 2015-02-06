@@ -1,0 +1,23 @@
+{
+  Data input, output;
+  getTimer().start();
+  if (initialList == null) {
+    initialList=new LinkedList<Data>();
+    while (initialList.size() < initialCmnWindow) {
+      input=getPredecessor().getData();
+      initialList.add(input);
+      if (input instanceof SpeechEndSignal || input instanceof DataEndSignal)       break;
+    }
+    initMeansSums();
+    output=initialList.remove(0);
+  }
+ else   if (!initialList.isEmpty()) {
+    output=initialList.remove(0);
+  }
+ else {
+    output=getPredecessor().getData();
+  }
+  normalize(output);
+  getTimer().stop();
+  return output;
+}

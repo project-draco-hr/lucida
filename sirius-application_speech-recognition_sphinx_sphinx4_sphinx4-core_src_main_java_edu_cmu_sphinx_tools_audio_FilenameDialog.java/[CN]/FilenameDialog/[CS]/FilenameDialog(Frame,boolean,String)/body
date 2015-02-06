@@ -1,0 +1,12 @@
+{
+  super(parent,modal);
+  setTitle(title);
+  addWindowListener(new WindowAdapter(){
+    @Override public void windowClosing(    WindowEvent event){
+      setVisible(false);
+    }
+  }
+);
+  createFilenamePanel();
+  pack();
+}

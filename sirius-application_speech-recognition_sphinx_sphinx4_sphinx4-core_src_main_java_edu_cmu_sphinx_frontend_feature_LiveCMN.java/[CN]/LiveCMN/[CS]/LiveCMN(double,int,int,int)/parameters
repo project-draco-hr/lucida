@@ -1,0 +1,4 @@
+double initialMean
+int cmnWindow
+int cmnShiftWindow
+int initialCmnWindow

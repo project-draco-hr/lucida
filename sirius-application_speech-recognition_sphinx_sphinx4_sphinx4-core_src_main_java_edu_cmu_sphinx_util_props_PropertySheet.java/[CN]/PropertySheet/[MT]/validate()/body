@@ -1,0 +1,7 @@
+{
+  for (  String propName : rawProps.keySet()) {
+    if (propName.equals(ConfigurationManagerUtils.GLOBAL_COMMON_LOGLEVEL))     continue;
+    if (!registeredProperties.containsKey(propName))     return false;
+  }
+  return true;
+}

@@ -1,0 +1,4 @@
+{
+  this(predecessor,null,logTotalScore,logInsertionScore,logLanguageScore,0);
+  this.logAcousticScore=logAcousticScore;
+}

@@ -1,0 +1,13 @@
+{
+  if (1 == acousticModels.size()) {
+    acousticModels.get(0).save(null);
+  }
+ else {
+    for (    AcousticModel model : acousticModels) {
+      if (model instanceof TrainerAcousticModel) {
+        TrainerAcousticModel tmodel=(TrainerAcousticModel)model;
+        tmodel.save(model.getName());
+      }
+    }
+  }
+}

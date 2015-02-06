@@ -1,0 +1,6 @@
+{
+  acousticModel.allocate();
+  if (addOutOfGrammarBranch) {
+    phoneLoopAcousticModel.allocate();
+  }
+}

@@ -1,0 +1,10 @@
+{
+  initRecognizer(recognizer);
+  this.showSummary=showSummary;
+  this.showDetails=showDetails;
+  this.showResults=showResults;
+  this.showAlignedResults=showAlignedResults;
+  this.showRaw=showRawResults;
+  aligner.setShowResults(showResults);
+  aligner.setShowAlignedResults(showAlignedResults);
+}

@@ -1,0 +1,6 @@
+{
+  initLogger();
+  this.minFreq=minFreq;
+  this.maxFreq=maxFreq;
+  this.numberFilters=numberFilters;
+}

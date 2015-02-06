@@ -1,0 +1,16 @@
+{
+  int sampleRate=1000;
+  input.add(new DataStartSignal(sampleRate));
+  input.addAll(createFeatVectors(1,sampleRate,0,10,10));
+  input.add(new SpeechStartSignal(-1));
+  input.addAll(createFeatVectors(0.5,sampleRate,0,10,10));
+  input.add(new SpeechEndSignal(-1));
+  input.addAll(createFeatVectors(1,sampleRate,0,10,10));
+  input.add(new DataEndSignal(0));
+  List<Data> result=collectOutput(ConfigurationManager.getInstance(NonSpeechDataFilter.class));
+  Assert.assertTrue(result.size() == 54);
+  Assert.assertTrue(result.get(0) instanceof DataStartSignal);
+  Assert.assertTrue(result.get(1) instanceof SpeechStartSignal);
+  Assert.assertTrue(result.get(52) instanceof SpeechEndSignal);
+  Assert.assertTrue(result.get(53) instanceof DataEndSignal);
+}

@@ -1,0 +1,6 @@
+{
+  if ((count != OPTIONAL) && (count != ZERO_OR_MORE) && (count != ONCE_OR_MORE)) {
+    return;
+  }
+  this.count=count;
+}

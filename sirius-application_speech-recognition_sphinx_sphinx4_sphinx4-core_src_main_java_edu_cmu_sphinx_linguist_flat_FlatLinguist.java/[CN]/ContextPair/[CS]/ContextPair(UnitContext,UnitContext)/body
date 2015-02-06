@@ -1,0 +1,5 @@
+{
+  this.left=left;
+  this.right=right;
+  hashCode=99 + left.hashCode() * 113 + right.hashCode();
+}

@@ -1,0 +1,25 @@
+{
+  if (numThreads > 1) {
+    int totalSize=scoreableList.size();
+    int jobSize=Math.max((totalSize + numThreads - 1) / numThreads,minScoreablesPerThread);
+    if (jobSize < totalSize) {
+      List<Callable<T>> tasks=new ArrayList<Callable<T>>();
+      for (int from=0, to=jobSize; from < totalSize; from=to, to+=jobSize) {
+        final List<T> scoringJob=scoreableList.subList(from,Math.min(to,totalSize));
+        tasks.add(new Callable<T>(){
+          public T call() throws Exception {
+            return ThreadedAcousticScorer.super.doScoring(scoringJob,data);
+          }
+        }
+);
+      }
+      List<T> finalists=new ArrayList<T>(tasks.size());
+      for (      Future<T> result : executorService.invokeAll(tasks))       finalists.add(result.get());
+      if (finalists.size() == 0) {
+        throw new DataProcessingException("No scoring jobs ended");
+      }
+      return Collections.min(finalists,Scoreable.COMPARATOR);
+    }
+  }
+  return super.doScoring(scoreableList,data);
+}

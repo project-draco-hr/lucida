@@ -1,0 +1,11 @@
+{
+  ActiveList fixedList=activeList.newInstance();
+  for (  Token token : activeList) {
+    Token curToken=token.getPredecessor();
+    while (curToken.getPredecessor() != null && ((curToken.isFinal() && curToken.getPredecessor() != null && !curToken.getPredecessor().isFinal()) || (curToken.isEmitting() && curToken.getData() == null) || (!curToken.isFinal() && !curToken.isEmitting()))) {
+      curToken=curToken.getPredecessor();
+    }
+    fixedList.add(curToken);
+  }
+  return fixedList;
+}

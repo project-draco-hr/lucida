@@ -1,0 +1,5 @@
+{
+  maxIdentity=0;
+  grammarNodes=new HashSet<GrammarNode>();
+  initialNode=null;
+}

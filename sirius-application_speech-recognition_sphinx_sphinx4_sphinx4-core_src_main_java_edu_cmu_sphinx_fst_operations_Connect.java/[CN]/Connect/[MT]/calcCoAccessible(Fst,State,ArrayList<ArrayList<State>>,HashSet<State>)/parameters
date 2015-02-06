@@ -1,0 +1,4 @@
+Fst fst
+State state
+ArrayList<ArrayList<State>> paths
+HashSet<State> coaccessible

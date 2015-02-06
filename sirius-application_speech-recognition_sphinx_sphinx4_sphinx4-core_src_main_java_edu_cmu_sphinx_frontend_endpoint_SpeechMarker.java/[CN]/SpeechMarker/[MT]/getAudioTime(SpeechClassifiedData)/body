@@ -1,0 +1,3 @@
+{
+  return (int)(audio.getValues().length * 1000.0f / audio.getSampleRate());
+}

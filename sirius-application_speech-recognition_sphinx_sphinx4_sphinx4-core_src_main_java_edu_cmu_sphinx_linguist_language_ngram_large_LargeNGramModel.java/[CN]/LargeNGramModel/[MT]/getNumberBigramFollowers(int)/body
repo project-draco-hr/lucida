@@ -1,0 +1,4 @@
+{
+  if (wordID == unigrams.length - 1)   return 0;
+ else   return unigrams[wordID + 1].getFirstBigramEntry() - unigrams[wordID].getFirstBigramEntry();
+}

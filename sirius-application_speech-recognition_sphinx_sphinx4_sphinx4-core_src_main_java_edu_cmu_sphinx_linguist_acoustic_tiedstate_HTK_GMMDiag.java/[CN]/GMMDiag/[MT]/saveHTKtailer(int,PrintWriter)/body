@@ -1,0 +1,13 @@
+{
+  fout.println("<TRANSP> " + nstates);
+  for (int j=0; j < nstates; j++)   fout.print("0 ");
+  fout.println();
+  for (int i=1; i < nstates - 1; i++) {
+    for (int j=0; j < i; j++)     fout.print("0 ");
+    fout.print("0.5 0.5");
+    for (int j=i + 3; j < nstates; j++)     fout.print("0 ");
+  }
+  fout.println();
+  fout.println("0 0 0");
+  fout.println("<ENDHMM>");
+}

@@ -1,0 +1,3 @@
+{
+  f.println("edge: " + fromNode.getId() + ' '+ toNode.getId()+ ' '+ acousticScore+ ' '+ lmScore);
+}

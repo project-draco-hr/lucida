@@ -1,0 +1,6 @@
+{
+  double logInnerSummation;
+  logInnerSummation=logToLinear(-index);
+  logInnerSummation+=1.0;
+  return linearToLog(logInnerSummation);
+}

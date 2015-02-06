@@ -1,0 +1,2 @@
+PropertySheet ps
+Class<? extends Configurable> confClass

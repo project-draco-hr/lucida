@@ -1,0 +1,7 @@
+{
+  for (  Data data : cepstraList) {
+    if (data instanceof DoubleData) {
+      ((DoubleData)data).getValues()[0]-=agc;
+    }
+  }
+}

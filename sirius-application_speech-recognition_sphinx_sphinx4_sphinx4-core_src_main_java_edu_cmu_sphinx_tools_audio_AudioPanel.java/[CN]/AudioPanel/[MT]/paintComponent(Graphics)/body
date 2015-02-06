@@ -1,0 +1,49 @@
+{
+  int pos, index;
+  int length;
+  super.paintComponent(g);
+  Dimension sz=getSize();
+  int gZero=sz.height / 2;
+  short[] audioData=audio.getAudioData();
+  JViewport viewport=getViewport();
+  if (viewport != null) {
+    Rectangle r=viewport.getViewRect();
+    pos=(int)r.getX();
+    length=(int)r.getWidth();
+  }
+ else {
+    pos=0;
+    length=(int)(audioData.length * xScale);
+  }
+  g.setColor(Color.WHITE);
+  g.fillRect(pos,0,length,sz.height - 1);
+  index=Math.max(0,getSelectionStart());
+  int start=(int)(index * xScale);
+  index=getSelectionEnd();
+  if (index == -1) {
+    index=audioData.length - 1;
+  }
+  int end=(int)(index * xScale);
+  g.setColor(Color.LIGHT_GRAY);
+  g.fillRect(start,0,end - start,sz.height - 1);
+  int[] x=new int[length];
+  int[] y=new int[length];
+  for (int i=0; i < length; i++) {
+    x[i]=pos;
+    index=(int)(pos / xScale);
+    if (index < audioData.length) {
+      y[i]=gZero - (int)(audioData[index] * yScale);
+    }
+ else {
+      break;
+    }
+    pos++;
+  }
+  g.setColor(Color.RED);
+  g.drawPolyline(x,y,length);
+  for (int i=0; i < labelTimes.length; i++) {
+    pos=(int)(xScale * labelTimes[i] * audio.getAudioFormat().getSampleRate());
+    g.drawLine(pos,0,pos,sz.height - 1);
+    g.drawString(labels[i],pos + 5,sz.height - 5);
+  }
+}

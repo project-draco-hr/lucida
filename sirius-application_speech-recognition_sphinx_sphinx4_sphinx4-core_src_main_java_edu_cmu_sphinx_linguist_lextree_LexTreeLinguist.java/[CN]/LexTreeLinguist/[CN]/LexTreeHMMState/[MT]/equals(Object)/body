@@ -1,0 +1,12 @@
+{
+  if (o == this) {
+    return true;
+  }
+ else   if (o instanceof LexTreeHMMState) {
+    LexTreeHMMState other=(LexTreeHMMState)o;
+    return hmmState == other.hmmState && parentNode == other.parentNode && super.equals(o);
+  }
+ else {
+    return false;
+  }
+}

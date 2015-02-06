@@ -1,0 +1,10 @@
+{
+  if (bigEndian) {
+    bytes[0]=(byte)(sVal >> 8);
+    bytes[1]=(byte)(sVal & 0xff);
+  }
+ else {
+    bytes[0]=(byte)(sVal & 0xff);
+    bytes[1]=(byte)(sVal >> 8);
+  }
+}

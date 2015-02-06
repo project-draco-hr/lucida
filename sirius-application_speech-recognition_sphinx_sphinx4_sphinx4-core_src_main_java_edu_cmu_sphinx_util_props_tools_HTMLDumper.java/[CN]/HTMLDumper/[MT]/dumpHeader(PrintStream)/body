@@ -1,0 +1,6 @@
+{
+  out.println("<html><head>");
+  out.println("    <title> Sphinx-4 Configuration</title");
+  out.println("</head>");
+  out.println("<body>");
+}

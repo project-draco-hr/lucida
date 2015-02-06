@@ -1,0 +1,10 @@
+{
+  if (isSpeech) {
+    totalSpeechLevel=totalSpeechLevel + level;
+    speechFrames=speechFrames + 1;
+  }
+ else {
+    totalBackgroundLevel=totalBackgroundLevel + background;
+    backgroundFrames=backgroundFrames + 1;
+  }
+}

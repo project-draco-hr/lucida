@@ -1,0 +1,11 @@
+{
+  try {
+synchronized (lock) {
+      done=true;
+      lock.wait();
+    }
+  }
+ catch (  InterruptedException e) {
+  }
+  return out;
+}

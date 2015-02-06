@@ -1,0 +1,6 @@
+{
+  dictionary.allocate();
+  acousticModel.allocate();
+  languageModel.allocate();
+  compileGrammar();
+}

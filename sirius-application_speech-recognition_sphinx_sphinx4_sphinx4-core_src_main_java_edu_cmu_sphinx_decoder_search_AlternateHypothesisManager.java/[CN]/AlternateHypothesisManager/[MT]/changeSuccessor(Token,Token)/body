@@ -1,0 +1,5 @@
+{
+  List<Token> list=viterbiLoserMap.get(oldSuccessor);
+  viterbiLoserMap.put(newSuccessor,list);
+  viterbiLoserMap.remove(oldSuccessor);
+}

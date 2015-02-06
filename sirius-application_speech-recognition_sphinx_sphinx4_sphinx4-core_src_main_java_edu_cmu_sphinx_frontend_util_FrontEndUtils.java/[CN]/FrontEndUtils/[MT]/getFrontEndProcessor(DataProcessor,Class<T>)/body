@@ -1,0 +1,8 @@
+{
+  while (!predecClass.isInstance(dp)) {
+    if (dp instanceof FrontEnd)     dp=((FrontEnd)dp).getLastDataProcessor();
+ else     dp=dp.getPredecessor();
+    if (dp == null)     return null;
+  }
+  return predecClass.cast(dp);
+}

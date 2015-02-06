@@ -1,0 +1,10 @@
+{
+  initRecognizer((Recognizer)ps.getComponent(PROP_RECOGNIZER));
+  showSummary=ps.getBoolean(PROP_SHOW_SUMMARY);
+  showDetails=ps.getBoolean(PROP_SHOW_DETAILS);
+  showResults=ps.getBoolean(PROP_SHOW_RESULTS);
+  showAlignedResults=ps.getBoolean(PROP_SHOW_ALIGNED_RESULTS);
+  showRaw=ps.getBoolean(PROP_SHOW_RAW_RESULTS);
+  aligner.setShowResults(showResults);
+  aligner.setShowAlignedResults(showAlignedResults);
+}

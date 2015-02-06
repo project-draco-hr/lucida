@@ -1,0 +1,40 @@
+{
+  byte[] data=new byte[frameSizeInBytes];
+  int channels=audioStream.getFormat().getChannels();
+  long firstSampleNumber=totalSamplesRead / channels;
+  int numBytesRead=audioStream.read(data,0,data.length);
+  if (!started) {
+synchronized (this) {
+      started=true;
+      notifyAll();
+    }
+  }
+  if (logger.isLoggable(Level.FINE)) {
+    logger.info("Read " + numBytesRead + " bytes from audio stream.");
+  }
+  if (numBytesRead <= 0) {
+    return null;
+  }
+  int sampleSizeInBytes=audioStream.getFormat().getSampleSizeInBits() / 8;
+  totalSamplesRead+=(numBytesRead / sampleSizeInBytes);
+  if (numBytesRead != frameSizeInBytes) {
+    if (numBytesRead % sampleSizeInBytes != 0) {
+      throw new Error("Incomplete sample read.");
+    }
+    data=Arrays.copyOf(data,numBytesRead);
+  }
+  if (keepDataReference) {
+    utterance.add(data);
+  }
+  double[] samples;
+  if (bigEndian) {
+    samples=DataUtil.bytesToValues(data,0,data.length,sampleSizeInBytes,signed);
+  }
+ else {
+    samples=DataUtil.littleEndianBytesToValues(data,0,data.length,sampleSizeInBytes,signed);
+  }
+  if (channels > 1) {
+    samples=convertStereoToMono(samples,channels);
+  }
+  return (new DoubleData(samples,(int)audioStream.getFormat().getSampleRate(),firstSampleNumber));
+}

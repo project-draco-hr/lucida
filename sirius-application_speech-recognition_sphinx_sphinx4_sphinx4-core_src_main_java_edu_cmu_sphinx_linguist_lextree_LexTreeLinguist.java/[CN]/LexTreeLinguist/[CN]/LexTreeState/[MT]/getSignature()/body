@@ -1,0 +1,3 @@
+{
+  return "lts-" + node.hashCode() + "-ws-"+ wordSequence;
+}

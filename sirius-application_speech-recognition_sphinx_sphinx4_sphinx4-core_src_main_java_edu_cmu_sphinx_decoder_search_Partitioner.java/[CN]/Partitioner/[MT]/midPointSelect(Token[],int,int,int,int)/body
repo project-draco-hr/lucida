@@ -1,0 +1,19 @@
+{
+  if (depth > MAX_DEPTH) {
+    return simplePointSelect(tokens,start,end,targetSize);
+  }
+  if (start == end) {
+    return start;
+  }
+  int partitionToken=midPointPartition(tokens,start,end);
+  int newSize=partitionToken - start + 1;
+  if (targetSize == newSize) {
+    return partitionToken;
+  }
+ else   if (targetSize < newSize) {
+    return midPointSelect(tokens,start,partitionToken - 1,targetSize,depth + 1);
+  }
+ else {
+    return midPointSelect(tokens,partitionToken + 1,end,targetSize - newSize,depth + 1);
+  }
+}

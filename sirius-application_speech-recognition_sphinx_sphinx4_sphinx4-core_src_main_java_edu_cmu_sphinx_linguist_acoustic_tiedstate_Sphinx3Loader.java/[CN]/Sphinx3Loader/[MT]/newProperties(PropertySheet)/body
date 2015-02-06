@@ -1,0 +1,3 @@
+{
+  init(ConfigurationManagerUtils.getResource(PROP_LOCATION,ps),ps.getString(PROP_MODEL),ps.getString(PROP_DATA_LOCATION),(UnitManager)ps.getComponent(PROP_UNIT_MANAGER),ps.getFloat(PROP_MC_FLOOR),ps.getFloat(PROP_MW_FLOOR),ps.getFloat(PROP_VARIANCE_FLOOR),ps.getBoolean(PROP_USE_CD_UNITS),ps.getLogger());
+}

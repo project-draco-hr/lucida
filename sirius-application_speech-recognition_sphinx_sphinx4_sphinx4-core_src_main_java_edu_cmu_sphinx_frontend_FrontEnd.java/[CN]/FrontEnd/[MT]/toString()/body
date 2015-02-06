@@ -1,0 +1,9 @@
+{
+  if (last == null)   return super.toString() + " {}";
+  LinkedList<DataProcessor> list=new LinkedList<DataProcessor>();
+  for (DataProcessor current=last; current != null; current=current.getPredecessor())   list.addFirst(current);
+  StringBuilder description=new StringBuilder(super.toString()).append(" {");
+  for (  DataProcessor dp : list)   description.append(dp).append(", ");
+  description.setLength(description.length() - 2);
+  return description.append('}').toString();
+}

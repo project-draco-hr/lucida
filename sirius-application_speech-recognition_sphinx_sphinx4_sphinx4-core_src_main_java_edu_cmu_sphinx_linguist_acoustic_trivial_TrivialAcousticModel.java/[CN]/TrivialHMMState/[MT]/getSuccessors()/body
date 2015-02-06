@@ -1,0 +1,11 @@
+{
+  if (isFinal) {
+    return EMPTY_ARC;
+  }
+ else {
+    HMMStateArc[] arcs=new HMMStateArc[2];
+    arcs[0]=new HMMStateArc(this,0f);
+    arcs[1]=new HMMStateArc(hmm.getState(which + 1),0f);
+    return arcs;
+  }
+}

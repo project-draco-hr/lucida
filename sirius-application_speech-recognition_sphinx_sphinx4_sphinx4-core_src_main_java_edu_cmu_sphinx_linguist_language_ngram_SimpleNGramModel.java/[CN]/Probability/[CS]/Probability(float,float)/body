@@ -1,0 +1,4 @@
+{
+  this.logProbability=logProbability;
+  this.logBackoff=logBackoff;
+}

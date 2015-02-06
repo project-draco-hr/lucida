@@ -1,0 +1,9 @@
+{
+  SearchStateArc[] arcs=getCachedSuccessors();
+  if (arcs == null) {
+    arcs=new SearchStateArc[1];
+    arcs[0]=new HMMStateSearchState(this,hmm.getInitialState());
+    cacheSuccessors(arcs);
+  }
+  return arcs;
+}

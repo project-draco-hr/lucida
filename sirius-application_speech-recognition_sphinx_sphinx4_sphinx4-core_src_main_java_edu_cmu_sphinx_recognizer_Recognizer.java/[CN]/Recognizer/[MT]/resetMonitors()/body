@@ -1,0 +1,5 @@
+{
+  for (  Monitor listener : monitors) {
+    if (listener instanceof Resetable)     ((Resetable)listener).reset();
+  }
+}

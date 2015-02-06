@@ -1,0 +1,4 @@
+Complex[] from
+Complex[] to
+int numberFftPoints
+int currentDistance

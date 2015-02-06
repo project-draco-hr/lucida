@@ -1,0 +1,5 @@
+{
+  initRecognizer((Recognizer)ps.getComponent(PROP_RECOGNIZER));
+  allocatedMonitors=ps.getComponentList(PROP_ALLOCATED_MONITORS,Runnable.class);
+  deallocatedMonitors=ps.getComponentList(PROP_DEALLOCATED_MONITORS,Runnable.class);
+}

@@ -1,0 +1,10 @@
+{
+  String color="grey";
+  if (node.isFinalNode()) {
+    color="red";
+  }
+ else   if (!node.isEmpty()) {
+    color="green";
+  }
+  return color;
+}

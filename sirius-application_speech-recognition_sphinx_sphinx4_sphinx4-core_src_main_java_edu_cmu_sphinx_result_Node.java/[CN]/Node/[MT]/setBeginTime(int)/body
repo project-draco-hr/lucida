@@ -1,0 +1,6 @@
+{
+  if (beginTime > getEndTime()) {
+    throw new Error("Attempting to set a begin time (" + beginTime + ") that is later than the end time ("+ getEndTime()+ ").");
+  }
+  this.beginTime=beginTime;
+}

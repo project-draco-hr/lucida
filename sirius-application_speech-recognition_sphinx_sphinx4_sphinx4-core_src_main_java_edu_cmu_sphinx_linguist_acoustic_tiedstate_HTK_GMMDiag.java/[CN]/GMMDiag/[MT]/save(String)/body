@@ -1,0 +1,18 @@
+{
+  try {
+    PrintWriter fout=new PrintWriter(new FileWriter(name));
+    fout.println(ngauss + " " + ncoefs);
+    for (int i=0; i < ngauss; i++) {
+      fout.println("gauss " + i + ' '+ getWeight(i));
+      for (int j=0; j < ncoefs; j++)       fout.print(means[i][j] + " ");
+      fout.println();
+      for (int j=0; j < ncoefs; j++)       fout.print(getVar(i,j) + " ");
+      fout.println();
+    }
+    fout.println(nT);
+    fout.close();
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+}

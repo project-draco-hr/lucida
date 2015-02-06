@@ -1,0 +1,17 @@
+{
+  Data data=getPredecessor().getData();
+  if (null == transform || null == data || !(data instanceof FloatData))   return data;
+  FloatData floatData=(FloatData)data;
+  float[] features=floatData.getValues();
+  if (features.length > transform[0].length + 1)   throw new IllegalArgumentException("dimenstion mismatch");
+  float[] result=new float[transform.length];
+  getTimer().start();
+  for (int i=0; i < transform.length; ++i) {
+    for (int j=0; j < features.length; ++j)     result[i]+=transform[i][j] * features[j];
+  }
+  if (features.length > transform[0].length) {
+    for (int i=0; i < transform.length; ++i)     result[i]+=transform[i][features.length];
+  }
+  getTimer().stop();
+  return new FloatData(result,floatData.getSampleRate(),floatData.getFirstSampleNumber());
+}

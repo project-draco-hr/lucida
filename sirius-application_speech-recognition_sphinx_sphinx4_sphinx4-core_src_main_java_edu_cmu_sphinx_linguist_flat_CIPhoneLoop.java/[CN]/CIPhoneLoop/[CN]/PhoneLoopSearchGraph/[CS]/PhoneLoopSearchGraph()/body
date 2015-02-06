@@ -1,0 +1,20 @@
+{
+  existingStates=new HashMap<String,SearchState>();
+  firstState=new UnknownWordState();
+  SentenceHMMState branchState=new BranchOutState(firstState);
+  attachState(firstState,branchState,logOne,logOne);
+  SentenceHMMState lastState=new LoopBackState(firstState);
+  lastState.setFinalState(true);
+  attachState(lastState,branchState,logOne,logOne);
+  for (Iterator<Unit> i=model.getContextIndependentUnitIterator(); i.hasNext(); ) {
+    UnitState unitState=new UnitState(i.next(),HMMPosition.UNDEFINED);
+    attachState(branchState,unitState,logOne,logPhoneInsertionProbability);
+    HMM hmm=model.lookupNearestHMM(unitState.getUnit(),unitState.getPosition(),false);
+    HMMState initialState=hmm.getInitialState();
+    HMMStateState hmmTree=new HMMStateState(unitState,initialState);
+    addStateToCache(hmmTree);
+    attachState(unitState,hmmTree,logOne,logOne);
+    HMMStateState finalState=expandHMMTree(unitState,hmmTree);
+    attachState(finalState,lastState,logOne,logOne);
+  }
+}

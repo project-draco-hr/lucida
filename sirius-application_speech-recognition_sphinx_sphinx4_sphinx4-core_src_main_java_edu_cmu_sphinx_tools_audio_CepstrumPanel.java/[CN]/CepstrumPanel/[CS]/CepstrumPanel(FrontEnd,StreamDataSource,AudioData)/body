@@ -1,0 +1,11 @@
+{
+  audio=audioData;
+  this.frontEnd=frontEnd;
+  this.dataSource=dataSource;
+  audio.addChangeListener(new ChangeListener(){
+    public void stateChanged(    ChangeEvent event){
+      computeCepstrum();
+    }
+  }
+);
+}

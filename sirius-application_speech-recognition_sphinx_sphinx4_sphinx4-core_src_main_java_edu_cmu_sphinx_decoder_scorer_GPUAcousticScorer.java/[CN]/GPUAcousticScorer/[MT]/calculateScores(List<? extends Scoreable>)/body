@@ -1,0 +1,26 @@
+{
+  try {
+    Data data;
+    while ((data=getNextData()) instanceof Signal) {
+      if (data instanceof SpeechEndSignal || data instanceof DataEndSignal) {
+        return data;
+      }
+    }
+    if (data == null || scoreableList.isEmpty()) {
+      return null;
+    }
+    if (data instanceof DoubleData) {
+      data=DataUtil.DoubleData2FloatData((DoubleData)data);
+    }
+    feat_vect=FloatData.toFloatData(data).getValues();
+    Scoreable bestToken=doScoring(scoreableList,data);
+    if (scoreNormalizer != null && bestToken instanceof Token) {
+      bestToken=scoreNormalizer.normalize(scoreableList,bestToken);
+    }
+    return bestToken;
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    return null;
+  }
+}

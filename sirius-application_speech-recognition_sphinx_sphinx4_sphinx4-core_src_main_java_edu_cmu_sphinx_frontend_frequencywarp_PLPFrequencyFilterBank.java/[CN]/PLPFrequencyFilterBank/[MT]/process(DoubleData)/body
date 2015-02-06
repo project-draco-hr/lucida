@@ -1,0 +1,19 @@
+{
+  double[] in=input.getValues();
+  if (criticalBandFilter == null || sampleRate != input.getSampleRate()) {
+    numberFftPoints=(in.length - 1) << 1;
+    sampleRate=input.getSampleRate();
+    buildCriticalBandFilterbank();
+    buildEqualLoudnessScalingFactors();
+  }
+ else   if (in.length != ((numberFftPoints >> 1) + 1)) {
+    throw new IllegalArgumentException("Window size is incorrect: in.length == " + in.length + ", numberFftPoints == "+ ((numberFftPoints >> 1) + 1));
+  }
+  double[] outputPLPSpectralArray=new double[numberFilters];
+  for (int i=0; i < numberFilters; i++) {
+    outputPLPSpectralArray[i]=criticalBandFilter[i].filterOutput(in);
+    outputPLPSpectralArray[i]*=equalLoudnessScaling[i];
+  }
+  DoubleData output=new DoubleData(outputPLPSpectralArray,input.getSampleRate(),input.getFirstSampleNumber());
+  return output;
+}

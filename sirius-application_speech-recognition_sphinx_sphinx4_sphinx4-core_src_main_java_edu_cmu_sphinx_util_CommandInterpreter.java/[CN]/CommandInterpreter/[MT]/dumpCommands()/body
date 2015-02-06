@@ -1,0 +1,3 @@
+{
+  for (  Map.Entry<String,CommandInterface> entry : new TreeMap<String,CommandInterface>(commandList).entrySet())   putResponse(entry.getKey() + " - " + entry.getValue().getHelp());
+}

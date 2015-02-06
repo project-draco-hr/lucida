@@ -1,0 +1,31 @@
+{
+  int jp1=(currentPosition - 1 + cepstraBufferSize) % cepstraBufferSize;
+  int jp2=(currentPosition - 2 + cepstraBufferSize) % cepstraBufferSize;
+  int jp3=(currentPosition - 3 + cepstraBufferSize) % cepstraBufferSize;
+  int jf1=(currentPosition + 1) % cepstraBufferSize;
+  int jf2=(currentPosition + 2) % cepstraBufferSize;
+  int jf3=(currentPosition + 3) % cepstraBufferSize;
+  DoubleData currentCepstrum=cepstraBuffer[currentPosition];
+  double[] mfc3f=cepstraBuffer[jf3].getValues();
+  double[] mfc2f=cepstraBuffer[jf2].getValues();
+  double[] mfc1f=cepstraBuffer[jf1].getValues();
+  double[] current=currentCepstrum.getValues();
+  double[] mfc1p=cepstraBuffer[jp1].getValues();
+  double[] mfc2p=cepstraBuffer[jp2].getValues();
+  double[] mfc3p=cepstraBuffer[jp3].getValues();
+  float[] feature=new float[current.length * 3];
+  currentPosition=(currentPosition + 1) % cepstraBufferSize;
+  int j=0;
+  for (int k=1; k < current.length; k++) {
+    feature[j++]=(float)current[k];
+  }
+  for (int k=1; k < mfc2f.length; k++) {
+    feature[j++]=(float)(mfc2f[k] - mfc2p[k]);
+  }
+  feature[j++]=(float)current[0];
+  feature[j++]=(float)(mfc2f[0] - mfc2p[0]);
+  for (int k=0; k < mfc3f.length; k++) {
+    feature[j++]=(float)((mfc3f[k] - mfc1p[k]) - (mfc1f[k] - mfc3p[k]));
+  }
+  return (new FloatData(feature,currentCepstrum.getSampleRate(),currentCepstrum.getFirstSampleNumber()));
+}

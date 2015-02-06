@@ -1,0 +1,21 @@
+{
+  int numDumped=0;
+  if (lineInfo != null) {
+    for (    Line.Info info : lineInfo) {
+      if (info instanceof DataLine.Info) {
+        AudioFormat[] formats=((DataLine.Info)info).getFormats();
+        for (        AudioFormat format : formats) {
+          System.out.println(indent + format);
+        }
+        numDumped++;
+      }
+ else       if (info instanceof Port.Info) {
+        System.out.println(indent + info);
+        numDumped++;
+      }
+    }
+  }
+  if (numDumped == 0) {
+    System.out.println(indent + "none");
+  }
+}

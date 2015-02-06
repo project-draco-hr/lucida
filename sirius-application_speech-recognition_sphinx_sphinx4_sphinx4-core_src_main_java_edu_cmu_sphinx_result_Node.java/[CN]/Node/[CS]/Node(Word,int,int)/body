@@ -1,0 +1,3 @@
+{
+  this(getNextNodeId(),word,beginTime,endTime);
+}

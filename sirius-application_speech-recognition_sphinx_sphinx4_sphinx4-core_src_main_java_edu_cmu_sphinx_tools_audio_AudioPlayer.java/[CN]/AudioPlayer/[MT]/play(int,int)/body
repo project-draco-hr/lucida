@@ -1,0 +1,7 @@
+{
+synchronized (audio) {
+    this.selectionStart=selectionStart;
+    this.selectionEnd=selectionEnd;
+    audio.notify();
+  }
+}

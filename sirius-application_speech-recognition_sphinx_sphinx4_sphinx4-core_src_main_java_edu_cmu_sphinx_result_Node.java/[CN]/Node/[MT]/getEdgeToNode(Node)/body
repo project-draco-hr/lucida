@@ -1,0 +1,8 @@
+{
+  for (  Edge e : leavingEdges) {
+    if (e.getToNode() == n) {
+      return e;
+    }
+  }
+  return null;
+}

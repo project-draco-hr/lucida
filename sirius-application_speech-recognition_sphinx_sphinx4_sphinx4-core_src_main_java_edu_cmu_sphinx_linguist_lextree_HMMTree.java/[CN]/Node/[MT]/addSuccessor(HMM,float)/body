@@ -1,0 +1,15 @@
+{
+  Node child=null;
+  Node matchingChild=getSuccessor(hmm);
+  if (matchingChild == null) {
+    child=new HMMNode(hmm,probability);
+    putSuccessor(hmm,child);
+  }
+ else {
+    if (matchingChild.getUnigramProbability() < probability) {
+      matchingChild.setUnigramProbability(probability);
+    }
+    child=matchingChild;
+  }
+  return child;
+}

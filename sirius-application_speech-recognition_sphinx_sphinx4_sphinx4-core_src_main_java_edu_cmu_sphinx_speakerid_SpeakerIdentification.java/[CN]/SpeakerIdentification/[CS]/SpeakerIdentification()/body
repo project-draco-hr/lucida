@@ -1,0 +1,6 @@
+{
+  URL url=getClass().getResource("frontend.config.xml");
+  cm=new ConfigurationManager(url);
+  audioSource=cm.lookup("streamDataSource");
+  frontEnd=cm.lookup(FRONTEND_NAME);
+}

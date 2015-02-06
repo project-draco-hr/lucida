@@ -1,0 +1,6 @@
+{
+  List<Node> sorted=new ArrayList<Node>(nodes.size());
+  sortHelper(initialNode,sorted,new HashSet<Node>());
+  Collections.reverse(sorted);
+  return sorted;
+}

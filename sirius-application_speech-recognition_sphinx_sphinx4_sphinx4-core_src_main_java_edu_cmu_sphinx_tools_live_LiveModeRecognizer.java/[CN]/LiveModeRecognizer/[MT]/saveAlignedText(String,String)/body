@@ -1,0 +1,12 @@
+{
+  try {
+    FileWriter writer=new FileWriter("align.txt");
+    writer.write(hypothesis);
+    writer.write("\n");
+    writer.write(reference);
+    writer.close();
+  }
+ catch (  IOException ioe) {
+    ioe.printStackTrace();
+  }
+}

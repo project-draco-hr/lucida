@@ -1,0 +1,5 @@
+{
+  this.decoder=decoder;
+  this.monitors=monitors;
+  name=null;
+}

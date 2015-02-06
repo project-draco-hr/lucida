@@ -1,0 +1,3 @@
+{
+  f.println("node: " + id + ' '+ word.getSpelling()+ " p:"+ getPosterior());
+}

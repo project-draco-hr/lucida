@@ -1,0 +1,4 @@
+{
+  if (states[idx] == null && st != null)   nbEmittingStates++;
+  states[idx]=st;
+}

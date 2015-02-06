@@ -1,0 +1,8 @@
+{
+  if (enabled) {
+    frame=0;
+    utteranceStateCount=0;
+    utteranceMaxStates=-Integer.MAX_VALUE;
+    utteranceSumStates=0;
+  }
+}

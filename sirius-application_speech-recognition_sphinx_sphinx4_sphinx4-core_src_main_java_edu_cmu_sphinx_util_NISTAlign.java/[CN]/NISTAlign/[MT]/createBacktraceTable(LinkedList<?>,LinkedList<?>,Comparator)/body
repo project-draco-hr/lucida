@@ -1,0 +1,52 @@
+{
+  int[][] penaltyTable;
+  int[][] backtraceTable;
+  int penalty;
+  int minPenalty;
+  penaltyTable=new int[referenceItems.size() + 1][hypothesisItems.size() + 1];
+  backtraceTable=new int[referenceItems.size() + 1][hypothesisItems.size() + 1];
+  penaltyTable[0][0]=0;
+  backtraceTable[0][0]=OK;
+  for (int i=1; i <= referenceItems.size(); i++) {
+    penaltyTable[i][0]=DELETION_PENALTY * i;
+    backtraceTable[i][0]=DELETION;
+  }
+  for (int j=1; j <= hypothesisItems.size(); j++) {
+    penaltyTable[0][j]=INSERTION_PENALTY * j;
+    backtraceTable[0][j]=INSERTION;
+  }
+  for (int i=1; i <= referenceItems.size(); i++) {
+    for (int j=1; j <= hypothesisItems.size(); j++) {
+      minPenalty=MAX_PENALTY;
+      penalty=penaltyTable[i - 1][j] + DELETION_PENALTY;
+      if (penalty < minPenalty) {
+        minPenalty=penalty;
+        penaltyTable[i][j]=penalty;
+        backtraceTable[i][j]=DELETION;
+      }
+      if (comparator.isSimilar(referenceItems.get(i - 1),(hypothesisItems.get(j - 1)))) {
+        penalty=penaltyTable[i - 1][j - 1];
+        if (penalty < minPenalty) {
+          minPenalty=penalty;
+          penaltyTable[i][j]=penalty;
+          backtraceTable[i][j]=OK;
+        }
+      }
+ else {
+        penalty=penaltyTable[i - 1][j - 1] + SUBSTITUTION_PENALTY;
+        if (penalty < minPenalty) {
+          minPenalty=penalty;
+          penaltyTable[i][j]=penalty;
+          backtraceTable[i][j]=SUBSTITUTION;
+        }
+      }
+      penalty=penaltyTable[i][j - 1] + INSERTION_PENALTY;
+      if (penalty < minPenalty) {
+        minPenalty=penalty;
+        penaltyTable[i][j]=penalty;
+        backtraceTable[i][j]=INSERTION;
+      }
+    }
+  }
+  return backtraceTable;
+}

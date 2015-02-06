@@ -1,0 +1,8 @@
+{
+  if (totalProcessingTime == 0 || totalAudioTime == 0) {
+    return 0;
+  }
+ else {
+    return (totalProcessingTime / totalAudioTime);
+  }
+}

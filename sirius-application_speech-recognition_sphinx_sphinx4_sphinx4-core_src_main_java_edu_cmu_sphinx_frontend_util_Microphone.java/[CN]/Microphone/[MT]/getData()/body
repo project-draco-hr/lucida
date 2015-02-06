@@ -1,0 +1,17 @@
+{
+  getTimer().start();
+  Data output=null;
+  if (!utteranceEndReached) {
+    try {
+      output=audioList.take();
+    }
+ catch (    InterruptedException ie) {
+      throw new DataProcessingException("cannot take Data from audioList",ie);
+    }
+    if (output instanceof DataEndSignal) {
+      utteranceEndReached=true;
+    }
+  }
+  getTimer().stop();
+  return output;
+}

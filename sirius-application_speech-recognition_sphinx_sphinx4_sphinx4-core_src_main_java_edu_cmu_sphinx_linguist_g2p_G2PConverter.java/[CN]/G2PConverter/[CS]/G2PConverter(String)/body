@@ -1,0 +1,4 @@
+{
+  g2pmodel=ImmutableFst.loadModel(g2pmodel_file);
+  init();
+}

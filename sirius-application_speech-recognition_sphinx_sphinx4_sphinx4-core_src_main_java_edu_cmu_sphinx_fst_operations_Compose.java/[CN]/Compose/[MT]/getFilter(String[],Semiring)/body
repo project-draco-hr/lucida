@@ -1,0 +1,32 @@
+{
+  Fst filter=new Fst(semiring);
+  int e1index=syms.length;
+  int e2index=syms.length + 1;
+  filter.setIsyms(syms);
+  filter.setOsyms(syms);
+  State s0=new State(syms.length + 3);
+  s0.setFinalWeight(semiring.one());
+  State s1=new State(syms.length);
+  s1.setFinalWeight(semiring.one());
+  State s2=new State(syms.length);
+  s2.setFinalWeight(semiring.one());
+  filter.addState(s0);
+  s0.addArc(new Arc(e2index,e1index,semiring.one(),s0));
+  s0.addArc(new Arc(e1index,e1index,semiring.one(),s1));
+  s0.addArc(new Arc(e2index,e2index,semiring.one(),s2));
+  for (int i=1; i < syms.length; i++) {
+    s0.addArc(new Arc(i,i,semiring.one(),s0));
+  }
+  filter.setStart(s0);
+  filter.addState(s1);
+  s1.addArc(new Arc(e1index,e1index,semiring.one(),s1));
+  for (int i=1; i < syms.length; i++) {
+    s1.addArc(new Arc(i,i,semiring.one(),s0));
+  }
+  filter.addState(s2);
+  s2.addArc(new Arc(e2index,e2index,semiring.one(),s2));
+  for (int i=1; i < syms.length; i++) {
+    s2.addArc(new Arc(i,i,semiring.one(),s0));
+  }
+  return filter;
+}

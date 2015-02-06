@@ -1,0 +1,12 @@
+{
+  System.out.println("Testing Project...");
+  Fst fst=createFst();
+  Fst p=createPi();
+  Project.apply(fst,ProjectType.INPUT);
+  Assert.assertTrue(fst.equals(p));
+  fst=createFst();
+  p=createPo();
+  Project.apply(fst,ProjectType.OUTPUT);
+  Assert.assertTrue(fst.equals(p));
+  System.out.println("Testing Project Completed!\n");
+}

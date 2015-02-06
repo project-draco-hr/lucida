@@ -1,0 +1,4 @@
+{
+  initLogger();
+  this.blockSizeMs=blockSizeMs;
+}

@@ -1,0 +1,17 @@
+{
+  LinkedList<Integer> ret=new LinkedList<Integer>();
+  ret.add(0);
+  int framesCount=features.getRowDimension(), step=500;
+  int start=0, end=step, cp;
+  while (end < framesCount) {
+    cp=getPoint(start,end - start + 1,step / 10,features);
+    if (cp > 0) {
+      start=cp;
+      end=start + step;
+      ret.add(cp);
+    }
+ else     end+=step;
+  }
+  ret.add(framesCount);
+  return ret;
+}

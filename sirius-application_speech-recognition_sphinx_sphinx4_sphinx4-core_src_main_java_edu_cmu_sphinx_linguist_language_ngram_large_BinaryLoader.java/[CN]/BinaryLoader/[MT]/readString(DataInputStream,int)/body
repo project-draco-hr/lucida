@@ -1,0 +1,9 @@
+{
+  StringBuilder builder=new StringBuilder();
+  byte[] bytes=new byte[length];
+  bytesRead+=stream.read(bytes);
+  for (int i=0; i < length; i++) {
+    builder.append((char)bytes[i]);
+  }
+  return builder.toString();
+}

@@ -1,0 +1,22 @@
+{
+  this.bigEndian=bigEndian;
+  if (binary) {
+    binaryStream=new DataInputStream(new BufferedInputStream(is));
+    if (bigEndian) {
+      numPoints=binaryStream.readInt();
+      System.out.println("BigEndian");
+    }
+ else {
+      numPoints=Utilities.readLittleEndianInt(binaryStream);
+      System.out.println("LittleEndian");
+    }
+    System.out.println("Frames: " + numPoints / cepstrumLength);
+  }
+ else {
+    est=new ExtendedStreamTokenizer(is,false);
+    numPoints=est.getInt("num_frames");
+    est.expectString("frames");
+  }
+  curPoint=-1;
+  firstSampleNumber=0;
+}

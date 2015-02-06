@@ -1,0 +1,3 @@
+{
+  this(feature,probability,state,0.0f,0.0f,null);
+}

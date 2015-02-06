@@ -1,0 +1,14 @@
+{
+  URL dictUrl=getClass().getResource("100.dict");
+  URL noisedictUrl=getClass().getResource("/edu/cmu/sphinx/models/acoustic/wsj/noisedict");
+  Dictionary dictionary=new FullDictionary(dictUrl,noisedictUrl,null,false,null,false,false,new UnitManager());
+  URL lm=getClass().getResource("100.arpa.dmp");
+  LargeTrigramModel model=new LargeTrigramModel("",lm,null,100,100,false,3,dictionary,false,1.0f,1.0f,1.0f,false);
+  dictionary.allocate();
+  model.allocate();
+  assertThat(model.getMaxDepth(),equalTo(3));
+  Word[] words={new Word("huggins",null,false),new Word("daines",null,false)};
+  assertThat((double)model.getProbability(new WordSequence(words)),closeTo(-830.862,.001));
+  Word[] words1={new Word("huggins",null,false),new Word("daines",null,false),new Word("david",null,false)};
+  assertThat((double)model.getProbability(new WordSequence(words1)),closeTo(-67625.77,.01));
+}

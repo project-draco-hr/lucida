@@ -1,0 +1,8 @@
+{
+  initLogger();
+  this.cepstrumLength=cepstrumLength;
+  this.binary=binary;
+  this.sampleRate=sampleRate;
+  this.frameShift=DataUtil.getSamplesPerWindow(sampleRate,frameShiftMs);
+  this.frameSize=DataUtil.getSamplesPerShift(sampleRate,frameSizeMs);
+}

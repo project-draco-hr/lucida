@@ -1,0 +1,3 @@
+List<GrammarNode> wordGrammarNodes
+GrammarNode branchNode
+GrammarNode finalNode

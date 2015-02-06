@@ -1,0 +1,3 @@
+int level
+Set<GrammarNode> visitedNodes
+float logProb

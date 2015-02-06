@@ -1,0 +1,10 @@
+{
+  for (  Set<WordResult> wordSet : values()) {
+    for (    WordResult wordResult : wordSet) {
+      if (wordResult.isFiller()) {
+        return true;
+      }
+    }
+  }
+  return false;
+}

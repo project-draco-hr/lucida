@@ -1,0 +1,7 @@
+{
+  tokenSum+=activeList.size();
+  tokenCount++;
+  if ((tokenCount % 1000) == 0) {
+    logger.info("Average Tokens/State: " + (tokenSum / tokenCount));
+  }
+}

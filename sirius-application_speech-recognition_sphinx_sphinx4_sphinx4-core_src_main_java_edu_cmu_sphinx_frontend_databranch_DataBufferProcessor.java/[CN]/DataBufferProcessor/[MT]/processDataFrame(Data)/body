@@ -1,0 +1,9 @@
+{
+  featureBuffer.add(data);
+  for (  DataListener dataListener : dataListeners) {
+    dataListener.processDataFrame(data);
+  }
+  while (featureBuffer.size() > maxBufferSize) {
+    featureBuffer.remove(0);
+  }
+}

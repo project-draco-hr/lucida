@@ -1,0 +1,14 @@
+{
+  SortedMap<String,Object> sorted=new TreeMap<String,Object>(wordDictionary);
+  StringBuilder result=new StringBuilder();
+  sorted.putAll(fillerDictionary);
+  for (  String text : sorted.keySet()) {
+    Word word=getWord(text);
+    Pronunciation[] pronunciations=word.getPronunciations(null);
+    result.append(word).append('\n');
+    for (    Pronunciation pronunciation : pronunciations) {
+      result.append("   ").append(pronunciation).append('\n');
+    }
+  }
+  return result.toString();
+}

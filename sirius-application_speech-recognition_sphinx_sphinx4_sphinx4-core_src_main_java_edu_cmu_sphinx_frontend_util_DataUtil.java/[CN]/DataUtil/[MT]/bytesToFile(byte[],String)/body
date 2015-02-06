@@ -1,0 +1,5 @@
+{
+  FileOutputStream file=new FileOutputStream(filename);
+  file.write(data);
+  file.close();
+}

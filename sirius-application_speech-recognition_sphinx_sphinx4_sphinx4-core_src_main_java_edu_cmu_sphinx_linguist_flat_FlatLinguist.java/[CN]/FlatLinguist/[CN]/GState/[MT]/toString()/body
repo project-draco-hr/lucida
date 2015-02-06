@@ -1,0 +1,8 @@
+{
+  if (node.isEmpty()) {
+    return "GState " + node + "(empty)";
+  }
+ else {
+    return "GState " + node + " word "+ node.getWord();
+  }
+}

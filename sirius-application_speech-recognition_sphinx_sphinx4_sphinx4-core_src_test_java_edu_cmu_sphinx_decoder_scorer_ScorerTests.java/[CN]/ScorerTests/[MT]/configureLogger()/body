@@ -1,0 +1,3 @@
+{
+  Logger.getLogger(ScorerTests.class.getSimpleName()).setLevel(Level.FINER);
+}

@@ -1,0 +1,29 @@
+{
+  for (  UnitContext leftContext : leftContexts) {
+    for (    UnitContext startingContext : getStartingContexts()) {
+      ContextPair contextPair=ContextPair.get(leftContext,startingContext);
+      entryPoints.put(contextPair,new ArrayList<SearchState>());
+    }
+  }
+  if (node.isFinalNode()) {
+    GrammarState gs=new GrammarState(node);
+    for (    List<SearchState> epList : entryPoints.values()) {
+      epList.add(gs);
+    }
+  }
+ else   if (!node.isEmpty()) {
+    for (    UnitContext leftContext : leftContexts) {
+      expandWord(leftContext);
+    }
+  }
+ else {
+    for (    Map.Entry<ContextPair,List<SearchState>> entry : entryPoints.entrySet()) {
+      ContextPair cp=entry.getKey();
+      List<SearchState> epList=entry.getValue();
+      SentenceHMMState bs=new BranchState(cp.getLeftContext().toString(),cp.getRightContext().toString(),node.getID());
+      epList.add(bs);
+      addExitPoint(cp,bs);
+    }
+  }
+  addEmptyEntryPoints();
+}

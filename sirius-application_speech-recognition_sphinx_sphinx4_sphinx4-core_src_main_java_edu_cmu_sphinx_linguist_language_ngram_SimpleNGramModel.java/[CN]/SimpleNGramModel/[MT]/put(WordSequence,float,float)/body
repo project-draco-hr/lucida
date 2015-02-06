@@ -1,0 +1,4 @@
+{
+  map.put(wordSequence,new Probability(logProb,logBackoff));
+  tokens.add(wordSequence);
+}

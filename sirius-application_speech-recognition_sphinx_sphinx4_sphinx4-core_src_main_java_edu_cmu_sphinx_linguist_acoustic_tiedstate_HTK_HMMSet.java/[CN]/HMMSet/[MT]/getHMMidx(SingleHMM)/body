@@ -1,0 +1,7 @@
+{
+  for (int i=0; i < hmms.size(); i++) {
+    SingleHMM h=hmms.get(i);
+    if (h == hmm)     return i;
+  }
+  return -1;
+}

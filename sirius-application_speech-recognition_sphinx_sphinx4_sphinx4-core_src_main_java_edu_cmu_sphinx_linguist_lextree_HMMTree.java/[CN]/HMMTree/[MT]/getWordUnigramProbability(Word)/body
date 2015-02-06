@@ -1,0 +1,10 @@
+{
+  float prob=LogMath.LOG_ONE;
+  if (!word.isFiller()) {
+    Word[] wordArray=new Word[1];
+    wordArray[0]=word;
+    prob=lm.getProbability((new WordSequence(wordArray)));
+    prob*=languageWeight;
+  }
+  return prob;
+}

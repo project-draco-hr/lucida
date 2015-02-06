@@ -1,0 +1,6 @@
+Recognizer recognizer
+ConcatFileDataSource dataSource
+int skip
+boolean showGapInsertions
+String hypothesisFile
+int alignInterval

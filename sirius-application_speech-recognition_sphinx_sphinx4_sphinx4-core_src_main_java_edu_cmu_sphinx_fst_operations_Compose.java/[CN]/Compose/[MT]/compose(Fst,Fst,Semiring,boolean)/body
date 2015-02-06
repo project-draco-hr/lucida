@@ -1,0 +1,52 @@
+{
+  if (!Arrays.equals(fst1.getOsyms(),fst2.getIsyms())) {
+    return null;
+  }
+  Fst res=new Fst(semiring);
+  HashMap<Pair<State,State>,State> stateMap=new HashMap<Pair<State,State>,State>();
+  Queue<Pair<State,State>> queue=new LinkedList<Pair<State,State>>();
+  State s1=fst1.getStart();
+  State s2=fst2.getStart();
+  if ((s1 == null) || (s2 == null)) {
+    System.err.println("Cannot find initial state.");
+    return null;
+  }
+  Pair<State,State> p=new Pair<State,State>(s1,s2);
+  State s=new State(semiring.times(s1.getFinalWeight(),s2.getFinalWeight()));
+  res.addState(s);
+  res.setStart(s);
+  stateMap.put(p,s);
+  queue.add(p);
+  while (!queue.isEmpty()) {
+    p=queue.remove();
+    s1=p.getLeft();
+    s2=p.getRight();
+    s=stateMap.get(p);
+    int numArcs1=s1.getNumArcs();
+    int numArcs2=s2.getNumArcs();
+    for (int i=0; i < numArcs1; i++) {
+      Arc a1=s1.getArc(i);
+      for (int j=0; j < numArcs2; j++) {
+        Arc a2=s2.getArc(j);
+        if (sorted && a1.getOlabel() < a2.getIlabel())         break;
+        if (a1.getOlabel() == a2.getIlabel()) {
+          State nextState1=a1.getNextState();
+          State nextState2=a2.getNextState();
+          Pair<State,State> nextPair=new Pair<State,State>(nextState1,nextState2);
+          State nextState=stateMap.get(nextPair);
+          if (nextState == null) {
+            nextState=new State(semiring.times(nextState1.getFinalWeight(),nextState2.getFinalWeight()));
+            res.addState(nextState);
+            stateMap.put(nextPair,nextState);
+            queue.add(nextPair);
+          }
+          Arc a=new Arc(a1.getIlabel(),a2.getOlabel(),semiring.times(a1.getWeight(),a2.getWeight()),nextState);
+          s.addArc(a);
+        }
+      }
+    }
+  }
+  res.setIsyms(fst1.getIsyms());
+  res.setOsyms(fst2.getOsyms());
+  return res;
+}

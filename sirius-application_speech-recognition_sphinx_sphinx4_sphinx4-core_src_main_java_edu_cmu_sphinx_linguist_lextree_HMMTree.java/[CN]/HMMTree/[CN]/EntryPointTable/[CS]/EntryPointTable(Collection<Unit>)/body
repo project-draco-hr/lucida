@@ -1,0 +1,6 @@
+{
+  entryPoints=new HashMap<Unit,EntryPoint>();
+  for (  Unit unit : entryPointCollection) {
+    entryPoints.put(unit,new EntryPoint(unit));
+  }
+}

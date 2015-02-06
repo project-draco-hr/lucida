@@ -1,0 +1,12 @@
+{
+  System.out.print("ID: " + nodeId);
+  System.out.print(" Type: " + nodeType + " | ");
+  for (startIncomingEdgeIterator(); hasMoreIncomingEdges(); ) {
+    System.out.print(nextIncomingEdge() + " ");
+  }
+  System.out.print(" | ");
+  for (startOutgoingEdgeIterator(); hasMoreOutgoingEdges(); ) {
+    System.out.print(nextOutgoingEdge() + " ");
+  }
+  System.out.println();
+}

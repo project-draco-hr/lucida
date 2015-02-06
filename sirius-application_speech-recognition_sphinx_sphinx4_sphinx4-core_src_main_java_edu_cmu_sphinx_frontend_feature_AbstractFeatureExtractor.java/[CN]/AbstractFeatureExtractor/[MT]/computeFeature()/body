@@ -1,0 +1,4 @@
+{
+  Data feature=computeNextFeature();
+  outputQueue.add(feature);
+}

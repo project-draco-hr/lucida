@@ -1,0 +1,17 @@
+{
+  for (int i=0; i < loadedBigramBuffers.length; i++) {
+    NGramBuffer buffer=loadedBigramBuffers[i];
+    if (buffer != null) {
+      if (!buffer.getUsed())       loadedBigramBuffers[i]=null;
+ else       buffer.setUsed(false);
+    }
+  }
+  loadedBigramBuffers=new NGramBuffer[unigrams.length];
+  for (int i=2; i <= loader.getMaxDepth(); i++) {
+    loadedNGramBuffers[i - 1]=new HashMap<WordSequence,NGramBuffer>();
+  }
+  logger.info("LM Cache Size: " + ngramDepthCache.size() + " Hits: "+ ngramHits+ " Misses: "+ ngramMisses);
+  if (clearCacheAfterUtterance) {
+    ngramDepthCache=new LRUCache<WordSequence,ProbDepth>(ngramCacheSize);
+  }
+}

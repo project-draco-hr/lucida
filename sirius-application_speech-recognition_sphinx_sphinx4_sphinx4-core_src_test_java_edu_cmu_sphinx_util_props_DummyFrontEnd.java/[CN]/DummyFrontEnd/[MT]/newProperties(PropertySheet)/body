@@ -1,0 +1,4 @@
+{
+  useMfccs=ps.getBoolean(PROP_USE_MFFCS);
+  dataProcs=ps.getComponentList(DATA_PROCS,Configurable.class);
+}

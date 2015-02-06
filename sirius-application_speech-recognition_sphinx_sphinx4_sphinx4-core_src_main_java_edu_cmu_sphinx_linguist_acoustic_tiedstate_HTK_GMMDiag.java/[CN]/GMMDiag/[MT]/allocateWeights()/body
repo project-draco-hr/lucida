@@ -1,0 +1,7 @@
+{
+  logMath=LogMath.getInstance();
+  weights=new float[ngauss];
+  for (int i=0; i < ngauss; i++) {
+    setWeight(i,1f / ngauss);
+  }
+}

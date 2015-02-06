@@ -1,0 +1,7 @@
+{
+  List<PropertySheet> psCol=new ArrayList<PropertySheet>();
+  for (  PropertySheet ps : symbolTable.values()) {
+    if (ConfigurationManagerUtils.isDerivedClass(ps.getConfigurableClass(),confClass))     psCol.add(ps);
+  }
+  return psCol;
+}

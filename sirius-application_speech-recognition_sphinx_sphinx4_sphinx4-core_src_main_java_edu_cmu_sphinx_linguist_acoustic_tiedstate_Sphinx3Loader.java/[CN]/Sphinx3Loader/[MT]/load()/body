@@ -1,0 +1,20 @@
+{
+  if (!loaded) {
+    TimerPool.getTimer(this,"Load AM").start();
+    hmmManager=new HMMManager();
+    contextIndependentUnits=new LinkedHashMap<String,Unit>();
+    meanTransformationMatrixPool=null;
+    meanTransformationVectorPool=null;
+    varianceTransformationMatrixPool=null;
+    varianceTransformationVectorPool=null;
+    transformMatrix=null;
+    try {
+      loadModelFiles(model);
+    }
+ catch (    URISyntaxException e) {
+      throw new RuntimeException(e);
+    }
+    loaded=true;
+    TimerPool.getTimer(this,"Load AM").stop();
+  }
+}

@@ -1,0 +1,8 @@
+{
+  if (totalSentences > 0) {
+    System.out.print("   Accuracy: " + toPercentage("##0.000%",getTotalWordAccuracy()));
+    System.out.println("    Errors: " + getTotalWordErrors() + "  (Sub: "+ totalSubstitutions+ "  Ins: "+ totalInsertions+ "  Del: "+ totalDeletions+ ')');
+    System.out.println("   Words: " + totalReferenceWords + "   Matches: "+ totalWordsCorrect+ "    WER: "+ toPercentage("##0.000%",getTotalWordErrorRate()));
+    System.out.println("   Sentences: " + totalSentences + "   Matches: "+ (totalSentences - totalSentencesWithErrors)+ "   SentenceAcc: "+ toPercentage("##0.000%",getTotalSentenceAccuracy()));
+  }
+}

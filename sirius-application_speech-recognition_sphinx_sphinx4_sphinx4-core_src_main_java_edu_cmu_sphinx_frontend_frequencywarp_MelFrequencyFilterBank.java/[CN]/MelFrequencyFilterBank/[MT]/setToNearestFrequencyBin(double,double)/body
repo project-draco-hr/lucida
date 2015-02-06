@@ -1,0 +1,6 @@
+{
+  if (stepFreq == 0) {
+    throw new IllegalArgumentException("stepFreq is zero");
+  }
+  return stepFreq * Math.round(inFreq / stepFreq);
+}

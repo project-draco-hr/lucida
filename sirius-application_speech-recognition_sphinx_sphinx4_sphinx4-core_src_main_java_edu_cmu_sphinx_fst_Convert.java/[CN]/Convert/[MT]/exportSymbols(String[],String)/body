@@ -1,0 +1,10 @@
+{
+  if (syms == null)   return;
+  FileWriter file=new FileWriter(filename);
+  PrintWriter out=new PrintWriter(file);
+  for (int i=0; i < syms.length; i++) {
+    String key=syms[i];
+    out.println(key + "\t" + i);
+  }
+  out.close();
+}

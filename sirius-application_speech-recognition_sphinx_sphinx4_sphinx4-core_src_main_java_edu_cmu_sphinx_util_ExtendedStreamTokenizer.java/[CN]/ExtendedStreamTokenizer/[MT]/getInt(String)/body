@@ -1,0 +1,11 @@
+{
+  int iVal=0;
+  try {
+    String val=getString();
+    iVal=Integer.parseInt(val);
+  }
+ catch (  NumberFormatException nfe) {
+    corrupt("while parsing int " + name);
+  }
+  return iVal;
+}

@@ -1,0 +1,3 @@
+int level
+List<SearchState> activeList
+SearchState state

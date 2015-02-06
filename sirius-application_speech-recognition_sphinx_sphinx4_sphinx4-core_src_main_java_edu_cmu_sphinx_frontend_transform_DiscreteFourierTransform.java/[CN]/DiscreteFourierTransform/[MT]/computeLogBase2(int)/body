@@ -1,0 +1,8 @@
+{
+  this.logBase2NumberFftPoints=0;
+  for (int k=numberFftPoints; k > 1; k>>=1, this.logBase2NumberFftPoints++) {
+    if (((k % 2) != 0) || (numberFftPoints < 0)) {
+      throw new IllegalArgumentException("Not a power of 2: " + numberFftPoints);
+    }
+  }
+}

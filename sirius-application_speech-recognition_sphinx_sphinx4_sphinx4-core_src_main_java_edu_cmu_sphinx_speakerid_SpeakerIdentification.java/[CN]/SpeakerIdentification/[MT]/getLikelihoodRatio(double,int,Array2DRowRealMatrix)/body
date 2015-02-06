@@ -1,0 +1,12 @@
+{
+  double bicValue1, bicValue2;
+  int d=Segment.FEATURES_SIZE;
+  double penalty=0.5 * (d + 0.5 * d * (d + 1)) * Math.log(features.getRowDimension())* 2;
+  int nrows=features.getRowDimension(), ncols=features.getColumnDimension();
+  Array2DRowRealMatrix sub1, sub2;
+  sub1=(Array2DRowRealMatrix)features.getSubMatrix(0,frame - 1,0,ncols - 1);
+  sub2=(Array2DRowRealMatrix)features.getSubMatrix(frame,nrows - 1,0,ncols - 1);
+  bicValue1=getBICValue(sub1);
+  bicValue2=getBICValue(sub2);
+  return (bicValue - bicValue1 - bicValue2- penalty);
+}

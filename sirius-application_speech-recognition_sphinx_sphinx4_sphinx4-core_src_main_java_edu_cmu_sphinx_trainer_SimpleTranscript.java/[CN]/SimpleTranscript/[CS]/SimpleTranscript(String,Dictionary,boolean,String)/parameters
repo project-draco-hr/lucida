@@ -1,0 +1,4 @@
+String transcript
+Dictionary dictionary
+boolean isExact
+String wordSeparator

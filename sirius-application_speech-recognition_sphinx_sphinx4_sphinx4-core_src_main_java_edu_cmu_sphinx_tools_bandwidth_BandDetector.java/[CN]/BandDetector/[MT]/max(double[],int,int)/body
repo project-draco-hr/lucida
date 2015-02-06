@@ -1,0 +1,5 @@
+{
+  double max=0;
+  for (int i=start; i <= end; i++)   max=Math.max(max,energy[i]);
+  return max;
+}

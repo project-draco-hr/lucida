@@ -1,0 +1,3 @@
+JSGFRule rule
+boolean isEnabled
+boolean isPublic

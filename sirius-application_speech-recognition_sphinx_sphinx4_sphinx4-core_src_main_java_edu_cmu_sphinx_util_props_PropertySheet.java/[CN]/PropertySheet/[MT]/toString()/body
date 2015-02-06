@@ -1,0 +1,3 @@
+{
+  return getInstanceName() + "; isInstantiated=" + isInstanciated()+ "; props="+ rawProps.keySet();
+}

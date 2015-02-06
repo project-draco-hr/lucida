@@ -1,0 +1,16 @@
+{
+  if (0 < length && (offset + length) <= byteArray.length) {
+    int shortLength=length / 2;
+    short[] shortArray=new short[shortLength];
+    int temp;
+    for (int i=offset, j=0; j < shortLength; j++, temp=0x00000000) {
+      temp=byteArray[i++] << 8;
+      temp|=0x000000FF & byteArray[i++];
+      shortArray[j]=(short)temp;
+    }
+    return shortArray;
+  }
+ else {
+    throw new ArrayIndexOutOfBoundsException("offset: " + offset + ", length: "+ length+ ", array length: "+ byteArray.length);
+  }
+}

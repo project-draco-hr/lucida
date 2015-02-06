@@ -1,0 +1,12 @@
+Linguist linguist
+Pruner pruner
+AcousticScorer scorer
+ActiveListManager activeListManager
+boolean showTokenCount
+double relativeWordBeamWidth
+int growSkipInterval
+boolean checkStateOrder
+boolean buildWordLattice
+int maxLatticeEdges
+float acousticLookaheadFrames
+boolean keepAllTokens

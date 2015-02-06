@@ -1,0 +1,4 @@
+{
+  setName(s);
+  setStateIdx(n);
+}

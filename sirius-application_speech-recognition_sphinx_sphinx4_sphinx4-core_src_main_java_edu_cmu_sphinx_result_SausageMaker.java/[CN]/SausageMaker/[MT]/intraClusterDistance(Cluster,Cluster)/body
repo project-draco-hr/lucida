@@ -1,0 +1,19 @@
+{
+  LogMath logMath=LogMath.getInstance();
+  double maxSim=Double.NEGATIVE_INFINITY;
+  for (  Node node1 : cluster1.getElements()) {
+    for (    Node node2 : cluster2.getElements()) {
+      if (!node1.getWord().getSpelling().equals(node2.getWord().getSpelling()))       return Double.NEGATIVE_INFINITY;
+      if (node1.hasAncestralRelationship(node2))       return Double.NEGATIVE_INFINITY;
+      double overlap=getOverlap(node1,node2);
+      if (overlap > 0.0) {
+        overlap=logMath.logToLinear((float)overlap);
+        overlap+=node1.getPosterior() + node2.getPosterior();
+        if (overlap > maxSim) {
+          maxSim=overlap;
+        }
+      }
+    }
+  }
+  return maxSim;
+}

@@ -1,0 +1,10 @@
+{
+  int fftPoints=1;
+  while (fftPoints < numberSamples) {
+    fftPoints<<=1;
+    if (fftPoints < 1) {
+      throw new Error("Invalid # of FFT points: " + fftPoints);
+    }
+  }
+  return fftPoints;
+}

@@ -1,0 +1,5 @@
+{
+  UnigramProbability probability=getUnigram(word);
+  if (probability == null)   throw new IllegalArgumentException("No word ID: " + word);
+ else   return probability.getWordID();
+}

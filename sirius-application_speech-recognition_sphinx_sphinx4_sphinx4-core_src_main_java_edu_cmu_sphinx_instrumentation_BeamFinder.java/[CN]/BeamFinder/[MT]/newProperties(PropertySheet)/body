@@ -1,0 +1,6 @@
+{
+  initRecognizer((Recognizer)ps.getComponent(PROP_RECOGNIZER));
+  showSummary=ps.getBoolean(PROP_SHOW_SUMMARY);
+  showDetails=ps.getBoolean(PROP_SHOW_DETAILS);
+  enabled=ps.getBoolean(PROP_ENABLED);
+}

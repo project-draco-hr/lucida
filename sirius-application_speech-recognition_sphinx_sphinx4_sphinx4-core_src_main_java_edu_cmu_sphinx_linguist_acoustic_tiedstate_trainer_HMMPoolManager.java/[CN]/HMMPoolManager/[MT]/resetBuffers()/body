@@ -1,0 +1,4 @@
+{
+  createBuffers();
+  logLikelihood=0.0f;
+}

@@ -1,0 +1,7 @@
+{
+  Unit unit=getUnit();
+  if (unit == null) {
+    unit=UnitManager.SILENCE;
+  }
+  return unit;
+}

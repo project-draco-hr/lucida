@@ -1,0 +1,11 @@
+{
+  maxAbsoluteBeam=0;
+  avgAbsoluteBeam=0;
+  maxRelativeBeam=0;
+  avgRelativeBeam=0;
+  totMaxAbsoluteBeam=0;
+  sumAbsoluteBeam=0;
+  totMaxRelativeBeam=0;
+  sumRelativeBeam=0;
+  totalUtterances=0;
+}

@@ -1,0 +1,8 @@
+{
+  if (color == Color.RED) {
+    this.fields|=MASK_COLOR_RED;
+  }
+ else {
+    this.fields&=~MASK_COLOR_RED;
+  }
+}

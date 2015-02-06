@@ -1,0 +1,8 @@
+{
+  File modelFile=new File(path,"final.mdl");
+  InputStream modelStream=new URL(modelFile.getPath()).openStream();
+  File treeFile=new File(path,"tree");
+  InputStream treeStream=new URL(treeFile.getPath()).openStream();
+  InputStream stream=new SequenceInputStream(modelStream,treeStream);
+  scanner=new Scanner(stream);
+}

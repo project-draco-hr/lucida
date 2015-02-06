@@ -1,0 +1,19 @@
+{
+  Fst efst=entryToFSA(entry);
+  Semiring s=efst.getSemiring();
+  Compose.augment(1,efst,s);
+  ArcSort.apply(efst,new OLabelCompare());
+  Fst result=Compose.compose(efst,epsilonFilter,s,true);
+  ArcSort.apply(result,new OLabelCompare());
+  result=Compose.compose(result,g2pmodel,s,true);
+  Project.apply(result,ProjectType.OUTPUT);
+  if (nbest == 1) {
+    result=NShortestPaths.get(result,1,false);
+  }
+ else {
+    result=NShortestPaths.get(result,nbest * 10,false);
+  }
+  result=RmEpsilon.get(result);
+  ArrayList<Path> paths=findAllPaths(result,nbest,skipSeqs,tie);
+  return paths;
+}

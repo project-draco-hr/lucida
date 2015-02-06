@@ -1,0 +1,3 @@
+DataInputStream stream
+boolean bigEndian
+int tableSize

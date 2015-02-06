@@ -1,0 +1,5 @@
+{
+  DataProcessor dp;
+  dp=selectedDataProcessors.get(selectedDataProcessors.size() - 1);
+  return dp.getData();
+}

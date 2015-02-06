@@ -1,0 +1,12 @@
+{
+  StringBuilder output=new StringBuilder().append("name : ").append(name);
+  for (  Object value : properties.values()) {
+    if (value != null) {
+      if (value instanceof String) {
+        output.append("value string : ");
+      }
+      output.append(value);
+    }
+  }
+  return output.toString();
+}

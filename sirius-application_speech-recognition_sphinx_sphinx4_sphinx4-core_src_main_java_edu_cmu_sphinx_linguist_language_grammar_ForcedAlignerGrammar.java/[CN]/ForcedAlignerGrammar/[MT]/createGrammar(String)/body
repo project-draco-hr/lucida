@@ -1,0 +1,6 @@
+{
+  initialNode=createGrammarNode(false);
+  finalNode=createGrammarNode(true);
+  createForcedAlignerGrammar(initialNode,finalNode,referenceText);
+  return initialNode;
+}

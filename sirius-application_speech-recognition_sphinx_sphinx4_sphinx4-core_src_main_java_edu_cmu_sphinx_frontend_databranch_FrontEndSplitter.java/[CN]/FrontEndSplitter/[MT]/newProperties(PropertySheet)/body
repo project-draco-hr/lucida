@@ -1,0 +1,4 @@
+{
+  super.newProperties(ps);
+  listeners=ps.getComponentList(PROP_DATA_LISTENERS,DataListener.class);
+}

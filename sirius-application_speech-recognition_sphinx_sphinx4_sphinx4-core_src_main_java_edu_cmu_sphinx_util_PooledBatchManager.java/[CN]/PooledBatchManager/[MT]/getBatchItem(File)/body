@@ -1,0 +1,8 @@
+{
+  List<String> list=BatchFile.getLines(file.getPath());
+  if (list.size() != 1) {
+    throw new IOException("Bad batch file size");
+  }
+  String line=list.get(0);
+  return new BatchItem(BatchFile.getFilename(line),BatchFile.getReference(line));
+}

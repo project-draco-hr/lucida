@@ -1,0 +1,8 @@
+{
+  URL url=getClass().getResource("ConfigurationManagerTest.sxl");
+  ConfigurationManager cm=new ConfigurationManager(url);
+  String instanceName="duco";
+  PropertySheet ps=cm.getPropertySheet(instanceName);
+  assertEquals(ps.getComponentClass("frontend"),DummyFrontEnd.class);
+  assertEquals(ps.getComponentClass("anotherFrontend"),DummyFrontEnd.class);
+}

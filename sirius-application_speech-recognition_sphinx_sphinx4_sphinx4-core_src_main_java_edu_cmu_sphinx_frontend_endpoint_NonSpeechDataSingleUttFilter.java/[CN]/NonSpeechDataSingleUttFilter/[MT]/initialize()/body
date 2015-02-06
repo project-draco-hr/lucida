@@ -1,0 +1,4 @@
+{
+  super.initialize();
+  this.inSpeech=false;
+}

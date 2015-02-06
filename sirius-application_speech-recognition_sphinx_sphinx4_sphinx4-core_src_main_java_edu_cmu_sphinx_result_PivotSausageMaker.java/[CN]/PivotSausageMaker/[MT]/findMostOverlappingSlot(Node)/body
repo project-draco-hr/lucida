@@ -1,0 +1,19 @@
+{
+  int maxOverlap=Integer.MIN_VALUE;
+  int bestCluster=-1;
+  ListIterator<Cluster> i=clusters.listIterator();
+  i.next();
+  while (i.hasNext()) {
+    int index=i.nextIndex();
+    if (!i.hasNext()) {
+      return bestCluster;
+    }
+    Cluster c=i.next();
+    int overlap=getOverlap(n,c.startTime,c.endTime);
+    if (overlap > maxOverlap) {
+      maxOverlap=overlap;
+      bestCluster=index;
+    }
+  }
+  return bestCluster;
+}

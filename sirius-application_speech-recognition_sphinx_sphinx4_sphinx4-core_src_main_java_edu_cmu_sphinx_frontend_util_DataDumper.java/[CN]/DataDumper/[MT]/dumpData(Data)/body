@@ -1,0 +1,38 @@
+{
+  logger.finer("dumping data...");
+  if (input instanceof Signal) {
+    if (outputSignals) {
+      System.out.println("Signal: " + input);
+    }
+  }
+ else   if (input instanceof DoubleData) {
+    DoubleData dd=(DoubleData)input;
+    double[] values=dd.getValues();
+    System.out.print("Frame " + values.length);
+    for (    double val : values) {
+      System.out.print(' ' + formatter.format(val));
+    }
+    System.out.println();
+  }
+ else   if (input instanceof SpeechClassifiedData) {
+    SpeechClassifiedData dd=(SpeechClassifiedData)input;
+    double[] values=dd.getValues();
+    System.out.print("Frame ");
+    if (dd.isSpeech())     System.out.print('*');
+ else     System.out.print(' ');
+    System.out.print(" " + values.length);
+    for (    double val : values) {
+      System.out.print(' ' + formatter.format(val));
+    }
+    System.out.println();
+  }
+ else   if (input instanceof FloatData) {
+    FloatData fd=(FloatData)input;
+    float[] values=fd.getValues();
+    System.out.print("Frame " + values.length);
+    for (    float val : values) {
+      System.out.print(' ' + formatter.format(val));
+    }
+    System.out.println();
+  }
+}

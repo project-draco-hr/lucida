@@ -1,0 +1,6 @@
+{
+  this.segmentSet=new TreeSet<Segment>();
+  this.featureMatrix=new Array2DRowRealMatrix(c.getFeatureMatrix().getData());
+  Iterator<Segment> it=c.segmentSet.iterator();
+  while (it.hasNext())   this.addSegment(it.next());
+}

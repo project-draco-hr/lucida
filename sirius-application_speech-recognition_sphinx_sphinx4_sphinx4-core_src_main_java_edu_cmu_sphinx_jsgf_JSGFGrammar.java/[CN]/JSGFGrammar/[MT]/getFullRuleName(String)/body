@@ -1,0 +1,4 @@
+{
+  JSGFRuleName rname=ruleGrammar.resolve(new JSGFRuleName(ruleName));
+  return rname.getRuleName();
+}

@@ -1,0 +1,3 @@
+{
+  return obj instanceof OVector && Arrays.equals(values,((OVector)obj).values);
+}

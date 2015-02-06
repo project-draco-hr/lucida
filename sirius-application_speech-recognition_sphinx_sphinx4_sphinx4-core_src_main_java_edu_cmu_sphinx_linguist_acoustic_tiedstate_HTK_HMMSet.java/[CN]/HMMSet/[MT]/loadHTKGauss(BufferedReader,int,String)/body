@@ -1,0 +1,39 @@
+{
+  String s;
+  String[] ss;
+  if (prem != null) {
+    s=prem;
+  }
+ else   s=f.readLine().trim();
+  if (s.startsWith("<GCONST>"))   s=f.readLine().trim();
+  if (s.startsWith("<RCLASS>"))   s=f.readLine().trim();
+  if (!s.startsWith("<MEAN>")) {
+    System.err.println("Error loading model: can't find <MEAN> ! " + s);
+    System.exit(1);
+  }
+  int ncoefs=Integer.parseInt(s.substring(s.indexOf(' ') + 1));
+  if (g == null)   g=new GMMDiag(nGaussians,ncoefs);
+  s=f.readLine().trim();
+  ss=s.split(" ");
+  if (ss.length != ncoefs) {
+    System.err.println("Error loading model: incorrect number of coefficients " + ncoefs + ' '+ s+ ' '+ ss[0]+ ' '+ ss[39]);
+    System.exit(1);
+  }
+  for (int i=0; i < ncoefs; i++) {
+    g.setMean(n,i,Float.parseFloat(ss[i]));
+  }
+  s=f.readLine().trim();
+  if (!s.startsWith("<VARIANCE>")) {
+    System.err.println("Error loading model: missing <VARIANCE> ! " + s);
+    System.exit(1);
+  }
+  s=f.readLine().trim();
+  ss=s.split(" ");
+  if (ss.length != ncoefs) {
+    System.err.println("Error loading model: incorrect number of coefficients " + ncoefs + ' '+ s);
+    System.exit(1);
+  }
+  for (int i=0; i < ncoefs; i++) {
+    g.setVar(n,i,Float.parseFloat(ss[i]));
+  }
+}

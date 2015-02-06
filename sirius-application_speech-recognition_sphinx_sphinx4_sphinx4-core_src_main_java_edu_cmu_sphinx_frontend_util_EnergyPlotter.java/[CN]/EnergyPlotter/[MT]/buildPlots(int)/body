@@ -1,0 +1,6 @@
+{
+  plots=new String[maxEnergy + 1];
+  for (int i=0; i < maxEnergy + 1; i++) {
+    plots[i]=getPlotString(i);
+  }
+}

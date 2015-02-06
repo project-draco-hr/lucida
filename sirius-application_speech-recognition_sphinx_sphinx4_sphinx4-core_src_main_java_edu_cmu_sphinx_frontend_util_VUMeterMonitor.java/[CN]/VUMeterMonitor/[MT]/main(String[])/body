@@ -1,0 +1,11 @@
+{
+  Microphone mic=new Microphone(16000,16,1,true,true,true,10,false,"selectChannel",2,"default",6400);
+  mic.initialize();
+  mic.startRecording();
+  VUMeterMonitor monitor=new VUMeterMonitor();
+  monitor.getVuMeterDialog().setModal(true);
+  monitor.setPredecessor(mic);
+  while (true) {
+    monitor.getData();
+  }
+}

@@ -1,0 +1,10 @@
+{
+  if (showResults) {
+    System.out.println("REF:       " + toString(referenceItems));
+    System.out.println("HYP:       " + toString(hypothesisItems));
+  }
+  if (showAlignedResults) {
+    System.out.println("ALIGN_REF: " + toString(alignedReferenceWords));
+    System.out.println("ALIGN_HYP: " + toString(alignedHypothesisWords));
+  }
+}

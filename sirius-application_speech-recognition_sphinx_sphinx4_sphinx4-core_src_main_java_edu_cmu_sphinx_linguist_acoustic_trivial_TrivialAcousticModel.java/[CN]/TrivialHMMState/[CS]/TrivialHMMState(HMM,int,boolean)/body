@@ -1,0 +1,5 @@
+{
+  this.hmm=hmm;
+  this.which=which;
+  this.isFinal=isFinal;
+}

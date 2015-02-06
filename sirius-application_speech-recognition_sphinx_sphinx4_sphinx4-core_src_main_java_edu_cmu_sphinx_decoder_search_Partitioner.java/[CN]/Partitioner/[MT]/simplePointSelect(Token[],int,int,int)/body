@@ -1,0 +1,4 @@
+{
+  Arrays.sort(tokens,start,end + 1,Scoreable.COMPARATOR);
+  return start + targetSize - 1;
+}

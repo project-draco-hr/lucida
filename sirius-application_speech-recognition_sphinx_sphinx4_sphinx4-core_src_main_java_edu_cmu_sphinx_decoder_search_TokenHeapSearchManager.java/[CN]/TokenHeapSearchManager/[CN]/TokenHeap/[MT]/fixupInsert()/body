@@ -1,0 +1,3 @@
+{
+  Arrays.sort(tokens,0,curSize - 1,Scoreable.COMPARATOR);
+}

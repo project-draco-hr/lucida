@@ -1,0 +1,32 @@
+{
+  int tokenType;
+  List<String> words=new ArrayList<String>(20);
+  StreamTokenizer st=new StreamTokenizer(new StringReader(message));
+  st.resetSyntax();
+  st.whitespaceChars(0,' ');
+  st.wordChars('!',255);
+  st.quoteChar('"');
+  st.quoteChar('\"');
+  st.commentChar('#');
+  while (true) {
+    try {
+      tokenType=st.nextToken();
+      if (tokenType == StreamTokenizer.TT_WORD) {
+        words.add(st.sval);
+      }
+ else       if (tokenType == '\'' || tokenType == '"') {
+        words.add(st.sval);
+      }
+ else       if (tokenType == StreamTokenizer.TT_NUMBER) {
+        System.out.println("Unexpected numeric token!");
+      }
+ else {
+        break;
+      }
+    }
+ catch (    IOException e) {
+      break;
+    }
+  }
+  return words.toArray(new String[words.size()]);
+}

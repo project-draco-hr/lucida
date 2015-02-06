@@ -1,0 +1,5 @@
+{
+  runAssert("test.wav");
+  runAssert("test.aiff");
+  runAssert("test.au");
+}

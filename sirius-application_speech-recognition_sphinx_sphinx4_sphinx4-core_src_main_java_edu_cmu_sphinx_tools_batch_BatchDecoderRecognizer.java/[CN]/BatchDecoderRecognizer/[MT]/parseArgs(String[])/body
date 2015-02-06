@@ -1,0 +1,25 @@
+{
+  for (int i=0; i < argv.length; i++) {
+    if (argv[i].equals("-ctl")) {
+      ctl=argv[++i];
+    }
+    if (argv[i].equals("-config")) {
+      config=argv[++i];
+    }
+    if (argv[i].equals("-hmm")) {
+      hmm=argv[++i];
+    }
+    if (argv[i].equals("-ctloffset")) {
+      ctlOffset=Integer.parseInt(argv[++i]);
+    }
+    if (argv[i].equals("-ctlcount")) {
+      ctlCount=Integer.parseInt(argv[++i]);
+    }
+    if (argv[i].equals("-hyp")) {
+      hyp=argv[++i];
+    }
+    if (argv[i].equals("-feat")) {
+      featDir=argv[++i];
+    }
+  }
+}

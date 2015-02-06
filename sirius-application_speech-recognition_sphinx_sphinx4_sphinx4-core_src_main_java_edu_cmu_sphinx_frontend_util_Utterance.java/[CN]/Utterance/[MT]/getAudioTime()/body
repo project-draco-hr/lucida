@@ -1,0 +1,3 @@
+{
+  return audioBuffer.size() / (audioFormat.getSampleRate() * audioFormat.getSampleSizeInBits() / 8);
+}

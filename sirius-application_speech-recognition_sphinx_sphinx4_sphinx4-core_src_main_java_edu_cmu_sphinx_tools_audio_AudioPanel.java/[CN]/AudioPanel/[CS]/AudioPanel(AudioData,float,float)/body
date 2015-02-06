@@ -1,0 +1,31 @@
+{
+  this.audio=audioData;
+  labelTimes=new float[0];
+  labels=new String[0];
+  this.xScale=scaleX;
+  this.yScale=scaleY;
+  this.originalXScale=this.xScale;
+  int width=(int)(audio.getAudioData().length * xScale);
+  int height=(int)((1 << 16) * yScale);
+  setPreferredSize(new Dimension(width,height));
+  setBackground(Color.white);
+  audio.addChangeListener(new ChangeListener(){
+    public void stateChanged(    ChangeEvent event){
+      int width=(int)(audio.getAudioData().length * xScale);
+      int height=(int)((1 << 16) * yScale);
+      labelTimes=new float[0];
+      labels=new String[0];
+      setSelectionStart(-1);
+      setSelectionEnd(-1);
+      setPreferredSize(new Dimension(width,height));
+      Dimension sz=getSize();
+      revalidate();
+      repaint(0,0,0,sz.width,sz.height);
+    }
+  }
+);
+  addMouseMotionListener(this);
+  addMouseListener(this);
+  setFocusable(true);
+  requestFocus();
+}

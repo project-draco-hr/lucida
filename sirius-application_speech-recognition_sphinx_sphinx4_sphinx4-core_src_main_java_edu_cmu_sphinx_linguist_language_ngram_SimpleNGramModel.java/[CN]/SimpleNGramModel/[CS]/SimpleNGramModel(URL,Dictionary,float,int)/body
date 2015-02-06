@@ -1,0 +1,10 @@
+{
+  this.urlLocation=urlLocation;
+  this.unigramWeight=unigramWeight;
+  this.logMath=LogMath.getInstance();
+  this.desiredMaxDepth=desiredMaxDepth;
+  this.dictionary=dictionary;
+  this.map=new HashMap<WordSequence,Probability>();
+  this.vocabulary=new HashSet<String>();
+  this.tokens=new LinkedList<WordSequence>();
+}

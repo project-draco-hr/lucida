@@ -1,0 +1,6 @@
+{
+  super(key);
+  this.values=new HashSet<Integer>(values);
+  this.yesMap=yesMap;
+  this.noMap=noMap;
+}

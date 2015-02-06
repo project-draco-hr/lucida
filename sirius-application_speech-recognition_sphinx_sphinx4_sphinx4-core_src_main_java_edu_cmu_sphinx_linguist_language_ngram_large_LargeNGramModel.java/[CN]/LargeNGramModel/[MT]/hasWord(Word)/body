@@ -1,0 +1,3 @@
+{
+  return (unigramIDMap.get(new Word(w.toString(),null,false)) != null);
+}

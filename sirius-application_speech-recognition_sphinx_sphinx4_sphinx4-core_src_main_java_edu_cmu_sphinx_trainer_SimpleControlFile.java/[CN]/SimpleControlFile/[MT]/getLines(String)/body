@@ -1,0 +1,26 @@
+{
+  List<String> list=new ArrayList<String>();
+  BufferedReader reader=new BufferedReader(new FileReader(file));
+  String line=null;
+  while ((line=reader.readLine()) != null) {
+    list.add(line);
+  }
+  reader.close();
+  if (numberOfPartitions > 1) {
+    int linesPerBatch=list.size() / numberOfPartitions;
+    if (linesPerBatch < 1) {
+      linesPerBatch=1;
+    }
+    if (currentPartition >= numberOfPartitions) {
+      currentPartition=numberOfPartitions - 1;
+    }
+    int startLine=currentPartition * linesPerBatch;
+    if (currentPartition == (numberOfPartitions - 1)) {
+      list=list.subList(startLine,list.size());
+    }
+ else {
+      list=list.subList(startLine,startLine + linesPerBatch);
+    }
+  }
+  return list;
+}

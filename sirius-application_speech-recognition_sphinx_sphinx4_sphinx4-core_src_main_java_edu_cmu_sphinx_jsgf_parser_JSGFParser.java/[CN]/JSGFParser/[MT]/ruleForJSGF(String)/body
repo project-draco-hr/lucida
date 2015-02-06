@@ -1,0 +1,13 @@
+{
+  JSGFRule r=null;
+  try {
+    StringReader sread=new StringReader(text);
+    if (parser == null)     parser=new JSGFParser(sread);
+ else     parser.ReInit(sread);
+    r=parser.alternatives();
+  }
+ catch (  ParseException e) {
+    System.out.println("JSGF Parser Version " + version + ":  Encountered errors during parse.");
+  }
+  return r;
+}

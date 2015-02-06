@@ -1,0 +1,6 @@
+{
+  for (int i=0; i < signal.length; i++) {
+    if (signal[i] > envelope[i])     envelope[i]=lambdaA * envelope[i] + (1 - lambdaA) * signal[i];
+ else     envelope[i]=lambdaB * envelope[i] + (1 - lambdaB) * signal[i];
+  }
+}

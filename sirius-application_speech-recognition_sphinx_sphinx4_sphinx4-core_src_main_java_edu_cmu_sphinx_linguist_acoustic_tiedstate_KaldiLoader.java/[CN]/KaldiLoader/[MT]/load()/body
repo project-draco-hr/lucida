@@ -1,0 +1,24 @@
+{
+  KaldiTextParser parser=new KaldiTextParser(location);
+  TransitionModel transitionModel=new TransitionModel(parser);
+  senonePool=new KaldiGmmPool(parser);
+  File file=new File(location,"phones.txt");
+  InputStream stream=new URL(file.getPath()).openStream();
+  Reader reader=new InputStreamReader(stream);
+  BufferedReader br=new BufferedReader(reader);
+  Map<String,Integer> symbolTable=new HashMap<String,Integer>();
+  String line;
+  while (null != (line=br.readLine())) {
+    String[] fields=line.split(" ");
+    if (Character.isLetter(fields[0].charAt(0)))     symbolTable.put(fields[0],Integer.parseInt(fields[1]));
+  }
+  contextIndependentUnits=new HashMap<String,Unit>();
+  hmmManager=new LazyHmmManager(parser,transitionModel,senonePool,symbolTable);
+  for (  String phone : symbolTable.keySet()) {
+    Unit unit=unitManager.getUnit(phone,"SIL".equals(phone));
+    contextIndependentUnits.put(unit.getName(),unit);
+    hmmManager.get(HMMPosition.UNDEFINED,unit);
+  }
+  loadTransform();
+  loadProperties();
+}
