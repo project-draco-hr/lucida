@@ -1,0 +1,16 @@
+import subprocess, re, os, sys
+from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
+from SimpleHTTPServer import SimpleHTTPRequestHandler
+from SocketServer import ThreadingMixIn
+import threading
+import cgi
+from datetime import datetime
+dlog = 'log/'
+if (__name__ == '__main__'):
+    cmd = ('mkdir -p ' + dlog)
+    shcmd(cmd)
+    host = sys.argv[1]
+    port = int(sys.argv[2])
+    server = ThreadedHTTPServer((host, port), Handler)
+    print ('Starting server on %s:%s, use <Ctrl-C> to stop' % (host, port))
+    server.serve_forever()
