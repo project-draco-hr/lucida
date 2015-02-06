@@ -1,5 +1,5 @@
 def record():
-    '\n    Record a word or words from the microphone and \n    return the data as an array of signed shorts.\n\n    Normalizes the audio, trims silence from the \n    start and end, and pads with 0.5 seconds of \n    blank sound to make sure VLC et al can play \n    it without getting chopped off.\n    '
+    '\n    Record a word or words from the microphone and\n    return the data as an array of signed shorts.\n\n    Normalizes the audio, trims silence from the\n    start and end, and pads with 0.5 seconds of\n    blank sound to make sure VLC et al can play\n    it without getting chopped off.\n    '
     p = pyaudio.PyAudio()
     try:
         stream = p.open(format=FORMAT, channels=1, rate=RATE, input=True, output=True, frames_per_buffer=CHUNK_SIZE)
