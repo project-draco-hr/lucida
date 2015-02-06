@@ -1,7 +1,0 @@
-{
-  this.host=host;
-  this.port=port;
-  this.maxDepth=maxDepth;
-  this.location=location;
-  logMath=LogMath.getInstance();
-}

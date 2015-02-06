@@ -1,4 +1,0 @@
-Pool<Senone> pool
-int[] stateID
-float distFloor
-float varianceFloor

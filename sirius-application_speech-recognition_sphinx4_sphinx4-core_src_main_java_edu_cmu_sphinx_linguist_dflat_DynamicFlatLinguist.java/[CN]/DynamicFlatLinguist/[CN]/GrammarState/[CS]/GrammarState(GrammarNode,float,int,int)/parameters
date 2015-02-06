@@ -1,4 +1,0 @@
-GrammarNode node
-float languageProbability
-int lc
-int nextBaseID

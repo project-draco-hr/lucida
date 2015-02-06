@@ -1,6 +1,0 @@
-{
-  manager=new ConfigurationManager(config);
-  recognizer=(Recognizer)manager.lookup("recognizer");
-  source=(StreamDataSource)manager.lookup("streamDataSource");
-  recognizer.allocate();
-}

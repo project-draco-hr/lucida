@@ -1,8 +1,0 @@
-{
-  int nthPosition=0, wordID=0, probID=0, backoffID=0, firstNGram=0;
-  nthPosition=nthFollower * LargeNGramModel.BYTES_PER_NMAXGRAM * ((is32bits()) ? 4 : 2);
-  setPosition(nthPosition);
-  wordID=readBytesAsInt();
-  probID=readBytesAsInt();
-  return (new NGramProbability(nthFollower,wordID,probID,backoffID,firstNGram));
-}

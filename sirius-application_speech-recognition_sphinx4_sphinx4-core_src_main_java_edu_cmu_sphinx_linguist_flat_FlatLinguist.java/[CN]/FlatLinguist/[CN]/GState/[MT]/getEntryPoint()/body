@@ -1,5 +1,0 @@
-{
-  ContextPair cp=ContextPair.get(UnitContext.SILENCE,UnitContext.SILENCE);
-  List<SearchState> list=getEntryPoints(cp);
-  return list == null || list.isEmpty() ? null : (SentenceHMMState)list.get(0);
-}

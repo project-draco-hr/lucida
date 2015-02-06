@@ -1,7 +1,0 @@
-{
-  collectEntryAndExitUnits();
-  entryPointTable=new EntryPointTable(entryPoints);
-  addWords();
-  entryPointTable.createEntryPointMaps();
-  freeze();
-}

@@ -1,3 +1,0 @@
-GrammarNode thisNode
-Set<GrammarNode> vistedNodes
-Set<Unit> unitSet

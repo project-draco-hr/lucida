@@ -1,5 +1,0 @@
-{
-  super.newProperties(ps);
-  maxPathsPerWord=ps.getInt(PROP_MAX_PATHS_PER_WORD);
-  maxFiller=ps.getInt(PROP_MAX_FILLER_WORDS);
-}

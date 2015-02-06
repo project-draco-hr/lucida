@@ -1,4 +1,0 @@
-{
-  this.states.add(state);
-  state.id=states.size() - 1;
-}

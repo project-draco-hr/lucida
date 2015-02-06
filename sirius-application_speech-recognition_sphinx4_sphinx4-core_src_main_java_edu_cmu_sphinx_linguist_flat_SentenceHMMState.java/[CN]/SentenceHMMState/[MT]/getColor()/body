@@ -1,8 +1,0 @@
-{
-  if ((fields & MASK_COLOR_RED) == MASK_COLOR_RED) {
-    return Color.RED;
-  }
- else {
-    return Color.GREEN;
-  }
-}

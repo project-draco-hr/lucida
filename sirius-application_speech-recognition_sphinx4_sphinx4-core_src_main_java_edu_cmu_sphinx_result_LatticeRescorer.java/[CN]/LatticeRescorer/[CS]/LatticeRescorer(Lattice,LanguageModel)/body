@@ -1,5 +1,0 @@
-{
-  this.lattice=lattice;
-  this.model=model;
-  depth=model.getMaxDepth();
-}

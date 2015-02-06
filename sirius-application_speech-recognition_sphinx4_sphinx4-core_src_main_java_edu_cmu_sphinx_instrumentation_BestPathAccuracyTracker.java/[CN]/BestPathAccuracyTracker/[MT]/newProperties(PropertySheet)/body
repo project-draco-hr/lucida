@@ -1,4 +1,0 @@
-{
-  super.newProperties(ps);
-  showFullPath=ps.getBoolean(PROP_SHOW_FULL_PATH);
-}

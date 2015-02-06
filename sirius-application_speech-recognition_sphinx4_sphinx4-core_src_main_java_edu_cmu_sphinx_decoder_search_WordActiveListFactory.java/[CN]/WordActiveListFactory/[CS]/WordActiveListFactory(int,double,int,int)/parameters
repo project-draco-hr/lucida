@@ -1,4 +1,0 @@
-int absoluteBeamWidth
-double relativeBeamWidth
-int maxPathsPerWord
-int maxFiller

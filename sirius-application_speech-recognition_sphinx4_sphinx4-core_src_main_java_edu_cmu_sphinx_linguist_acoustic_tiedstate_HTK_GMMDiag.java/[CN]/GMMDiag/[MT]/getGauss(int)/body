@@ -1,8 +1,0 @@
-{
-  GMMDiag res=new GMMDiag(1,getNcoefs());
-  System.arraycopy(means[i],0,res.means[0],0,getNcoefs());
-  System.arraycopy(covar[i],0,res.covar[0],0,getNcoefs());
-  res.setWeight(0,1);
-  res.precomputeDistance();
-  return res;
-}

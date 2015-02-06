@@ -1,4 +1,0 @@
-def shcom(cmd):
-    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
-    err = p.communicate()[1]
-    return err

@@ -1,4 +1,0 @@
-int indexHmm
-int indexScore
-TrainerScore[] score
-TrainerScore[] nextScore

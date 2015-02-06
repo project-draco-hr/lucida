@@ -1,3 +1,0 @@
-{
-  return pState.getGrammarState().getGrammarNode().hashCode() * 29 + pState.getPronunciation().hashCode() * 19 + index * 7 + 43 * lc + rc;
-}

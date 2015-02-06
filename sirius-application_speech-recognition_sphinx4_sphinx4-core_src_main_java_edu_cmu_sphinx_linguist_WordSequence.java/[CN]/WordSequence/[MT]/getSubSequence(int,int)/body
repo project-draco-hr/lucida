@@ -1,7 +1,0 @@
-{
-  List<Word> subseqWords=new ArrayList<Word>();
-  for (int i=startIndex; i < stopIndex; i++) {
-    subseqWords.add(getWord(i));
-  }
-  return new WordSequence(subseqWords);
-}

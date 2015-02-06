@@ -1,8 +1,0 @@
-{
-  if (processed) {
-    this.fields|=MASK_PROCESSED;
-  }
- else {
-    this.fields&=~MASK_PROCESSED;
-  }
-}

@@ -1,7 +1,0 @@
-{
-  double confidence=LogMath.LOG_ONE;
-  for (  WordResult wr : path) {
-    confidence+=wr.getConfidence();
-  }
-  return confidence;
-}

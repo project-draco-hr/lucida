@@ -1,4 +1,0 @@
-{
-  long bigramID=(((long)word1) << 32) | word2;
-  bigramSmearMap.put(bigramID,smearTerm);
-}

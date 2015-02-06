@@ -1,4 +1,0 @@
-{
-  ProbDepth probDepth=getProbDepth(wordSequence);
-  return probDepth.probability;
-}

@@ -1,6 +1,0 @@
-Recognizer recognizer
-FrontEnd frontEnd
-boolean showSummary
-boolean showDetails
-boolean showResponseTime
-boolean showTimers

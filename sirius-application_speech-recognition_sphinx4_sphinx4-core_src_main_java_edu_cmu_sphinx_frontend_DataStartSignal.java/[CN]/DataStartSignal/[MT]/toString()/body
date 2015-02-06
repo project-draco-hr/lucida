@@ -1,3 +1,0 @@
-{
-  return "DataStartSignal: creation time: " + getTime();
-}

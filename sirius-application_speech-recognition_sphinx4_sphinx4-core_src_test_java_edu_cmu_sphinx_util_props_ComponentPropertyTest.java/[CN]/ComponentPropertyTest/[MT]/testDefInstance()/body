@@ -1,5 +1,0 @@
-{
-  ComponentPropertyTest cpt=ConfigurationManager.getInstance(ComponentPropertyTest.class);
-  Assert.assertTrue(cpt != null);
-  Assert.assertTrue(cpt.dataProc instanceof AnotherDummyProcessor);
-}

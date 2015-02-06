@@ -1,3 +1,0 @@
-{
-  tokenList=Arrays.copyOf(tokenList,tokenList.length * 2);
-}

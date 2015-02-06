@@ -1,7 +1,0 @@
-{
-  Data input=getPredecessor().getData();
-  if (enable) {
-    dumpData(input);
-  }
-  return input;
-}

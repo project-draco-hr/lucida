@@ -1,4 +1,0 @@
-{
-  SentenceHMMState state=(SentenceHMMState)arc.getState();
-  arcs.put(state.getValueSignature() + state.getStateNumber(),arc);
-}

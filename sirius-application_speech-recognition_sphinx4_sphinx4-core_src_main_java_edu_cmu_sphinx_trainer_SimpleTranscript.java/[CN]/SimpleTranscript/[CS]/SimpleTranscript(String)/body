@@ -1,6 +1,0 @@
-{
-  if (!wasInitialized) {
-    initialize(null,false);
-  }
-  this.transcript=transcript;
-}

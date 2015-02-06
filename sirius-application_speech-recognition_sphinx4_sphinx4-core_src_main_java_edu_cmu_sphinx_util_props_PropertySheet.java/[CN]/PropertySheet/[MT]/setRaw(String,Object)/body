@@ -1,4 +1,0 @@
-{
-  rawProps.put(key,val);
-  propValues.put(key,null);
-}

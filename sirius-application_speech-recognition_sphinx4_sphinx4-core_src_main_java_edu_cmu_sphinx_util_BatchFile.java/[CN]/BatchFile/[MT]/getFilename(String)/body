@@ -1,4 +1,0 @@
-{
-  int firstSpace=batchFileLine.indexOf(' ');
-  return batchFileLine.substring(0,firstSpace).trim();
-}

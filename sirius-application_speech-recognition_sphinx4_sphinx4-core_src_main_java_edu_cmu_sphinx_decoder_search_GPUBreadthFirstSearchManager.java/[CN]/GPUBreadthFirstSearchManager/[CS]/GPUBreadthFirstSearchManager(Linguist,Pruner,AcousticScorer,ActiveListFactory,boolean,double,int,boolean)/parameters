@@ -1,8 +1,0 @@
-Linguist linguist
-Pruner pruner
-AcousticScorer scorer
-ActiveListFactory activeListFactory
-boolean showTokenCount
-double relativeWordBeamWidth
-int growSkipInterval
-boolean wantEntryPruning

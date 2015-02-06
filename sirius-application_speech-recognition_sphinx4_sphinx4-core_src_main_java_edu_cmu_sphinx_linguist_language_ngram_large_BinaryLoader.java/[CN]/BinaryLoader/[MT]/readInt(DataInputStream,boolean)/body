@@ -1,9 +1,0 @@
-{
-  bytesRead+=4;
-  if (bigEndian) {
-    return stream.readInt();
-  }
- else {
-    return Utilities.readLittleEndianInt(stream);
-  }
-}

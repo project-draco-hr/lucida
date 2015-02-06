@@ -1,3 +1,0 @@
-{
-  return (int)(sampleRate * windowSizeInMs / 1000);
-}

@@ -1,3 +1,0 @@
-{
-  return existingStates.get(state.getSignature());
-}

@@ -1,4 +1,0 @@
-{
-  if (props == null)   props=new HashMap<String,Object>();
-  return props;
-}

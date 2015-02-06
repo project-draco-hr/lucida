@@ -1,5 +1,0 @@
-{
-  super(wordNode,wordSequence,smearTerm,smearProb,collapsed);
-  this.lastNode=lastNode;
-  this.logLanguageProbability=languageProbability;
-}

@@ -1,3 +1,0 @@
-{
-  return searchManager.recognize(1);
-}

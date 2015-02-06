@@ -1,7 +1,0 @@
-{
-  clearCache();
-  if (logFile != null) {
-    logFile.println("<END_UTT>");
-    logFile.flush();
-  }
-}

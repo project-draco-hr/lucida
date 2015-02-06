@@ -1,9 +1,0 @@
-{
-  try {
-    return file.toURI().toURL();
-  }
- catch (  MalformedURLException e) {
-    e.printStackTrace();
-  }
-  return null;
-}

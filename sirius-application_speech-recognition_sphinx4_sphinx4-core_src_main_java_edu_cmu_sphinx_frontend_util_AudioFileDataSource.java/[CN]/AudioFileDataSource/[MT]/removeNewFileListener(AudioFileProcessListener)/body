@@ -1,4 +1,0 @@
-{
-  if (l == null)   return;
-  fileListeners.remove(l);
-}

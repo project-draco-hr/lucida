@@ -1,5 +1,0 @@
-{
-  pruneTimer.start();
-  activeList=pruner.prune(activeList);
-  pruneTimer.stop();
-}

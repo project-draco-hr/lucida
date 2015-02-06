@@ -1,4 +1,0 @@
-{
-  this.absoluteBeamWidth=absoluteBeamWidth;
-  this.logRelativeBeamWidth=logRelativeBeamWidth;
-}

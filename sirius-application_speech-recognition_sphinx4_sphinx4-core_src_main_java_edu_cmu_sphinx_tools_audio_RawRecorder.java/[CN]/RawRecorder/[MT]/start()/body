@@ -1,9 +1,0 @@
-{
-synchronized (lock) {
-    if (recorder != null) {
-      recorder.stopRecording();
-    }
-    recorder=new RecordThread();
-    recorder.start();
-  }
-}

@@ -1,5 +1,0 @@
-{
-  UnitContext left=cp.getLeftContext();
-  Unit[] units=left.getUnits();
-  return units.length > 0 && (getRightContextSize(units[0]) < getRightContextSize());
-}

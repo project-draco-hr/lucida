@@ -1,7 +1,0 @@
-Recognizer recognizer
-List<DataProcessor> inputDataProcessors
-int skip
-int utteranceId
-int whichBatch
-int totalBatches
-boolean usePooledBatchManager

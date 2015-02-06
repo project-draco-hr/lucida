@@ -1,3 +1,0 @@
-{
-  return (Short.MAX_VALUE) < (2 * peak);
-}

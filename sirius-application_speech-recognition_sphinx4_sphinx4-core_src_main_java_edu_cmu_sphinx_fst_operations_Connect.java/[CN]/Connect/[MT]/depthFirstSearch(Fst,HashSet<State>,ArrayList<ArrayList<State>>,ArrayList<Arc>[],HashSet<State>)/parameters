@@ -1,5 +1,0 @@
-Fst fst
-HashSet<State> accessible
-ArrayList<ArrayList<State>> paths
-ArrayList<Arc>[] exploredArcs
-HashSet<State> coaccessible

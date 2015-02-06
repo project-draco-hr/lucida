@@ -1,5 +1,0 @@
-{
-  this.source=source;
-  this.transition=transition;
-  this.destination=destination;
-}

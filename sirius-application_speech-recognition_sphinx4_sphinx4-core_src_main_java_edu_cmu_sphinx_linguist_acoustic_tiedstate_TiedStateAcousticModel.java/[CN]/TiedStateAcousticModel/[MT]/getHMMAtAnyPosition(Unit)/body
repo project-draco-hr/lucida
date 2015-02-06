@@ -1,8 +1,0 @@
-{
-  HMMManager mgr=loader.getHMMManager();
-  for (  HMMPosition pos : HMMPosition.values()) {
-    SenoneHMM hmm=(SenoneHMM)mgr.get(pos,unit);
-    if (hmm != null)     return hmm;
-  }
-  return null;
-}

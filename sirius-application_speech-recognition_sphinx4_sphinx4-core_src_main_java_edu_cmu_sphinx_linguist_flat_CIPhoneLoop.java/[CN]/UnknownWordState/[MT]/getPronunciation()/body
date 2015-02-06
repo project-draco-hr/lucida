@@ -1,3 +1,0 @@
-{
-  return Word.UNKNOWN.getPronunciations()[0];
-}

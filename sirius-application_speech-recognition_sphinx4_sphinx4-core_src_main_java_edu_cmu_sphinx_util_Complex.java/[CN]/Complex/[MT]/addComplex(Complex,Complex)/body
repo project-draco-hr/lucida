@@ -1,4 +1,0 @@
-{
-  this.real=a.real + b.real;
-  this.imaginary=a.imaginary + b.imaginary;
-}

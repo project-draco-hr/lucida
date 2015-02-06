@@ -1,4 +1,0 @@
-{
-  super.initialize();
-  this.id=-1;
-}

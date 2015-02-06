@@ -1,8 +1,0 @@
-{
-  Unit[] prevUnits=prevLeftContext.getUnits();
-  int actSize=Math.min(prevUnits.length,getLeftContextSize());
-  if (actSize == 0)   return UnitContext.EMPTY;
-  Unit[] leftUnits=Arrays.copyOfRange(prevUnits,1,actSize + 1);
-  leftUnits[actSize - 1]=unit;
-  return UnitContext.get(leftUnits);
-}

@@ -1,5 +1,0 @@
-Node node
-WordSequence wordSequence
-float smearTerm
-float smearProb
-boolean collapsed

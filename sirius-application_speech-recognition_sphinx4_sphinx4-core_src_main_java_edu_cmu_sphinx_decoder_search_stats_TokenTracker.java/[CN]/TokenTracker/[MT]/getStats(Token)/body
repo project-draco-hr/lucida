@@ -1,8 +1,0 @@
-{
-  TokenStats stats=stateMap.get(t.getSearchState().getLexState());
-  if (stats == null) {
-    stats=new TokenStats();
-    stateMap.put(t.getSearchState().getLexState(),stats);
-  }
-  return stats;
-}

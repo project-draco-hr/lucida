@@ -1,6 +1,0 @@
-{
-  Lattice lattice=new Lattice(args[0]);
-  LatticeOptimizer optimizer=new LatticeOptimizer(lattice);
-  optimizer.optimize();
-  lattice.dump(args[1]);
-}

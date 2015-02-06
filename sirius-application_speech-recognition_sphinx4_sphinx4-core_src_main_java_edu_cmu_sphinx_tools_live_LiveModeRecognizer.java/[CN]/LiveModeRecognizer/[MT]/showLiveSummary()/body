@@ -1,6 +1,0 @@
-{
-  int actualUtterances=referenceSource.getReferences().size();
-  int gapInsertions=detectGapInsertionErrors();
-  System.out.println("   Utterances:  Actual: " + actualUtterances + "  Found: "+ numUtterances);
-  System.out.println("   Gap Insertions: " + gapInsertions);
-}

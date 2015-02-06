@@ -1,5 +1,0 @@
-{
-  super();
-  this.probability=probability;
-  this.depth=depth;
-}

@@ -1,3 +1,0 @@
-{
-  return (float)logMath.logToLinear(weights[i]);
-}

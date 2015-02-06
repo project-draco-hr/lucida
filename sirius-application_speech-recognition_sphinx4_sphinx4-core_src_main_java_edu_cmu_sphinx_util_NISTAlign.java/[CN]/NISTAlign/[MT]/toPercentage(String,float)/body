@@ -1,4 +1,0 @@
-{
-  percentageFormat.applyPattern(pattern);
-  return percentageFormat.format(value);
-}

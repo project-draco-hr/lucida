@@ -1,8 +1,0 @@
-{
-  Data d=getPredecessor().getData();
-  while (d != null && !(d instanceof DoubleData || d instanceof DataEndSignal || d instanceof DataStartSignal|| d instanceof SpeechEndSignal)) {
-    outputQueue.add(d);
-    d=getPredecessor().getData();
-  }
-  return d;
-}

@@ -1,7 +1,0 @@
-{
-  JSGFRuleState state=rules.get(ruleName);
-  if (state == null) {
-    throw new IllegalArgumentException("Unknown Rule: " + ruleName);
-  }
-  return state.rule;
-}

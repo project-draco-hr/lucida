@@ -1,3 +1,0 @@
-{
-  return Utilities.pad(timeFormatter.format(time) + 's',10);
-}

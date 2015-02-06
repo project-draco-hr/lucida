@@ -1,9 +1,0 @@
-{
-  if (curItem >= items.size()) {
-    return null;
-  }
- else {
-    String line=items.get(curItem++);
-    return new BatchItem(BatchFile.getFilename(line),BatchFile.getReference(line));
-  }
-}

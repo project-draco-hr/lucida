@@ -1,3 +1,0 @@
-{
-  return String.valueOf(level) + ' ' + state.getSignature()+ " 1 "+ getTypeLabel(state);
-}

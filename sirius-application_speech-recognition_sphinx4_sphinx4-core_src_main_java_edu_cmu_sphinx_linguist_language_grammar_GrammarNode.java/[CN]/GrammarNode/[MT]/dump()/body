@@ -1,3 +1,0 @@
-{
-  System.out.println(traverse(0,new HashSet<GrammarNode>(),1.0f));
-}

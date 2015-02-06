@@ -1,6 +1,0 @@
-{
-  if (rcSet instanceof HashSet<?>) {
-    freeze();
-  }
-  return (Unit[])rcSet;
-}

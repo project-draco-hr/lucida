@@ -1,3 +1,0 @@
-{
-  if (!condition)   throw new IllegalStateException(format(message,arguments));
-}

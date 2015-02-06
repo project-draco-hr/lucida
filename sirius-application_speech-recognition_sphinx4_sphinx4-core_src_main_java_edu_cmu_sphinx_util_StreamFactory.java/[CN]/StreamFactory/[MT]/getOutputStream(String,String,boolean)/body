@@ -1,8 +1,0 @@
-{
-  if (location != null) {
-    return StreamFactory.getOutputStream(StreamFactory.resolve(location),location,file,append);
-  }
- else {
-    return StreamFactory.getOutputStream(StreamFactory.DIRECTORY,location,file);
-  }
-}

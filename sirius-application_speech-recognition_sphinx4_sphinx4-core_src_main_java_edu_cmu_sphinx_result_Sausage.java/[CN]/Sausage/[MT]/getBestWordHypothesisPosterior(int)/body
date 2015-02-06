@@ -1,3 +1,0 @@
-{
-  return confusionSets.get(pos).lastKey();
-}

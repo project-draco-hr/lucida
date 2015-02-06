@@ -1,7 +1,0 @@
-{
-  logger=ps.getLogger();
-  optimizeGrammar=ps.getBoolean(PROP_OPTIMIZE_GRAMMAR);
-  addSilenceWords=ps.getBoolean(PROP_ADD_SIL_WORDS);
-  addFillerWords=ps.getBoolean(PROP_ADD_FILLER_WORDS);
-  dictionary=(Dictionary)ps.getComponent(PROP_DICTIONARY);
-}

@@ -1,6 +1,0 @@
-{
-  Word[] wd=new Word[1];
-  wd[0]=dictionary.getWord(loader.getWords()[firstWordID]);
-  WordSequence ws=new WordSequence(wd);
-  return loadNGramBuffer(ws);
-}

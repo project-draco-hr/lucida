@@ -1,6 +1,0 @@
-{
-  allocated=false;
-  classLM.deallocate();
-  classMap.deallocate();
-  vocabulary=null;
-}

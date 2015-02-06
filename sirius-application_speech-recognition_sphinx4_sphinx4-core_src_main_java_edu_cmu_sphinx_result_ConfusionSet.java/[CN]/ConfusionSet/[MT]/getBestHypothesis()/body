@@ -1,4 +1,0 @@
-{
-  Set<WordResult> s=getBestHypothesisSet();
-  return s.iterator().next();
-}

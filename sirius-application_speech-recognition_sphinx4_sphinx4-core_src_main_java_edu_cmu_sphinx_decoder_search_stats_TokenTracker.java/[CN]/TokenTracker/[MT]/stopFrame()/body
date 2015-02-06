@@ -1,6 +1,0 @@
-{
-  if (enabled) {
-    frame++;
-    dumpDetails();
-  }
-}

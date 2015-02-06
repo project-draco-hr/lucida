@@ -1,5 +1,0 @@
-{
-  BatchDecoderRecognizer batchRecognizer=new BatchDecoderRecognizer();
-  batchRecognizer.parseArgs(argv);
-  batchRecognizer.recognize();
-}

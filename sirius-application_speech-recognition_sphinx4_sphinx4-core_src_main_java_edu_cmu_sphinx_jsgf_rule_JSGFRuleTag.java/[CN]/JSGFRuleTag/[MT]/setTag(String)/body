@@ -1,4 +1,0 @@
-{
-  if (tag == null)   this.tag="";
- else   this.tag=tag;
-}

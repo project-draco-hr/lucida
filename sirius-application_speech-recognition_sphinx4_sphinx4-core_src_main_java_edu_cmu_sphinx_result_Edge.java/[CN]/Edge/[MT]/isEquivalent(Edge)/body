@@ -1,4 +1,0 @@
-{
-  double diff=Math.abs(acousticScore) * 0.00001;
-  return ((Math.abs(acousticScore - other.getAcousticScore()) <= diff && lmScore == other.getLMScore()) && (fromNode.isEquivalent(other.getFromNode()) && toNode.isEquivalent(other.getToNode())));
-}

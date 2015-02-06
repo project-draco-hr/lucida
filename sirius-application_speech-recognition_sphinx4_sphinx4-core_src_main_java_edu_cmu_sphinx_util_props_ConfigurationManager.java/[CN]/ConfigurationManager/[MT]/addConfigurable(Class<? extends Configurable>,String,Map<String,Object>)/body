@@ -1,8 +1,0 @@
-{
-  if (name == null)   name=confClass.getName();
-  if (symbolTable.containsKey(name))   throw new IllegalArgumentException("tried to override existing component name : " + name);
-  PropertySheet ps=getPropSheetInstanceFromClass(confClass,props,name,this);
-  symbolTable.put(name,ps);
-  rawPropertyMap.put(name,new RawPropertyData(name,confClass.getName()));
-  for (  ConfigurationChangeListener changeListener : changeListeners)   changeListener.componentAdded(this,ps);
-}

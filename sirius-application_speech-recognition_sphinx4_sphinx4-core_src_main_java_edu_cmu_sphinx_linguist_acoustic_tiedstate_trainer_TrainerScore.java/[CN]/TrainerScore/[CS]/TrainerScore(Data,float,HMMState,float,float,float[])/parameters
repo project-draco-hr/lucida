@@ -1,6 +1,0 @@
-Data feature
-float probability
-HMMState state
-float logAlpha
-float logBeta
-float[] logComponentProb

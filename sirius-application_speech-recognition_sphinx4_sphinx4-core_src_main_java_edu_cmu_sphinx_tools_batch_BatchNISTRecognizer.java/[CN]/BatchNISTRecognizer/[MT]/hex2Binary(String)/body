@@ -1,9 +1,0 @@
-{
-  byte[] bin=new byte[spelling.length() / 2];
-  for (int i=0; i < spelling.length(); i+=2) {
-    int i0=hexToByte(spelling.charAt(i));
-    int i1=hexToByte(spelling.charAt(i + 1));
-    bin[i / 2]=(byte)(i1 + (16 * i0));
-  }
-  return bin;
-}

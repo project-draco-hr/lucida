@@ -1,7 +1,0 @@
-{
-  String response=null;
-  if (sendCommand(command)) {
-    response=getResponse();
-  }
-  return response;
-}

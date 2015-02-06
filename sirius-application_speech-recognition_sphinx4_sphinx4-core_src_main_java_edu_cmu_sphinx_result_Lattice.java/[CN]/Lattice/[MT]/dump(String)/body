@@ -1,8 +1,0 @@
-{
-  try {
-    dump(new PrintWriter(new FileWriter(file)));
-  }
- catch (  IOException e) {
-    throw new Error(e.toString());
-  }
-}

@@ -1,4 +1,0 @@
-{
-  percentageFormat.applyPattern(pattern);
-  return padLeft(6,percentageFormat.format((double)numerator / (double)denominator));
-}

@@ -1,6 +1,0 @@
-{
-  logMath=LogMath.getInstance();
-  dataSource=(StreamCepstrumSource)ps.getComponent(DATA_SOURCE);
-  frontEnd=(FrontEnd)ps.getComponent(FRONT_END);
-  frontEnd.setDataSource(dataSource);
-}

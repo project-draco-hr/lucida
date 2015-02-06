@@ -1,6 +1,0 @@
-{
-  if (prompt != null) {
-    out.print(prompt);
-    out.flush();
-  }
-}

@@ -1,5 +1,0 @@
-{
-  if (curItem != null) {
-    curItem.append(ch,start,length);
-  }
-}

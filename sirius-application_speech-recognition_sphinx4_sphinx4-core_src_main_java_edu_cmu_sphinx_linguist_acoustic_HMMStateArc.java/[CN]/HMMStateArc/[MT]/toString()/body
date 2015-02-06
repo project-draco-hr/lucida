@@ -1,3 +1,0 @@
-{
-  return "HSA " + hmmState + " prob "+ probability;
-}

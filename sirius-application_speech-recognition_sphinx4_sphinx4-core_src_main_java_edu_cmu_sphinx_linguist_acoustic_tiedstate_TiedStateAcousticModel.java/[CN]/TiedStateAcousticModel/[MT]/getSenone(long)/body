@@ -1,3 +1,0 @@
-{
-  return loader.getSenonePool().get((int)id);
-}

@@ -1,4 +1,0 @@
-{
-  batchManager.stop();
-  recognizer.deallocate();
-}

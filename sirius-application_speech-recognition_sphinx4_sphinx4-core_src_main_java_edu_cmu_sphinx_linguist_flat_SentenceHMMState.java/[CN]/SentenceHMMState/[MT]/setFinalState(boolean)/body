@@ -1,8 +1,0 @@
-{
-  if (state) {
-    this.fields|=MASK_IS_FINAL;
-  }
- else {
-    this.fields&=~MASK_IS_FINAL;
-  }
-}

@@ -1,6 +1,0 @@
-{
-  if (actual.equals(expected))   return;
-  String msg;
-  msg=String.format("'%s' expected, '%s' got",expected,actual);
-  throw new InputMismatchException(msg);
-}

@@ -1,8 +1,0 @@
-{
-  super(filename,linguist);
-  this.verticalLayout=verticalLayout;
-  this.skipHMMs=skipHMMs;
-  this.dumpArcLabels=dumpArcLabels;
-  setDepthFirst(false);
-  logMath=LogMath.getInstance();
-}

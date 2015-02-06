@@ -1,3 +1,0 @@
-{
-  return incomingEdgeIterator.next();
-}

@@ -1,3 +1,0 @@
-{
-  for (  Word word : words)   if (word == null)   throw new Error("WordSequence should not have null Words.");
-}

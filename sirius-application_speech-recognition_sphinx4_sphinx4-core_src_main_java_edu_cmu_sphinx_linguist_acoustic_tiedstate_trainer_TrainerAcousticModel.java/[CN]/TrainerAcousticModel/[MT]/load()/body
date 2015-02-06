@@ -1,4 +1,0 @@
-{
-  logInfo();
-  hmmPoolManager=new HMMPoolManager(loader);
-}

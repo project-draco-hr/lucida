@@ -1,6 +1,0 @@
-{
-  GrammarNode node;
-  node=new GrammarNode(identity,isFinal);
-  add(node);
-  return node;
-}

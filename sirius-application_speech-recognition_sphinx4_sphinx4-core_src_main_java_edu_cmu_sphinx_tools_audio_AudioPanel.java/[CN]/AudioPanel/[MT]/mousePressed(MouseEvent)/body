@@ -1,6 +1,0 @@
-{
-  xDragStart=Math.max(0,evt.getX());
-  setSelectionStart((int)(xDragStart / xScale));
-  setSelectionEnd((int)(xDragStart / xScale));
-  repaint();
-}

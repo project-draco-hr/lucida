@@ -1,5 +1,0 @@
-{
-  initLogger();
-  this.frontEndList=frontEndList;
-  init();
-}

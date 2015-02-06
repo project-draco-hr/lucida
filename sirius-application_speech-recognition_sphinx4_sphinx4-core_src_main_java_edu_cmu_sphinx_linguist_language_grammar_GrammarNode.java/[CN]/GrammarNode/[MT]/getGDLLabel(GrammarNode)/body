@@ -1,4 +1,0 @@
-{
-  String label=node.isEmpty() ? "" : node.getWord().getSpelling();
-  return '\"' + label + '\"';
-}

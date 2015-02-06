@@ -1,8 +1,0 @@
-{
-  if (currentIndex >= bytes.length) {
-    return -1;
-  }
- else {
-    return bytes[currentIndex++];
-  }
-}

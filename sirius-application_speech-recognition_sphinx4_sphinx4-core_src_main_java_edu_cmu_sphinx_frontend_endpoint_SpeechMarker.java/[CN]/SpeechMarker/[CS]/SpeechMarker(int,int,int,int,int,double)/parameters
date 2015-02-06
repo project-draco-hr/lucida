@@ -1,6 +1,0 @@
-int startSpeechTime
-int endSilenceTime
-int speechLeader
-int speechLeaderFrames
-int speechTrailer
-double endSilenceDecay

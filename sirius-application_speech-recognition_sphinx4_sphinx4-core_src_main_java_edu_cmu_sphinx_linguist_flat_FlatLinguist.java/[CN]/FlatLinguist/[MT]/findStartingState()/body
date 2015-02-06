@@ -1,5 +1,0 @@
-{
-  GrammarNode node=grammar.getInitialNode();
-  GState gstate=getGState(node);
-  return gstate.getEntryPoint();
-}

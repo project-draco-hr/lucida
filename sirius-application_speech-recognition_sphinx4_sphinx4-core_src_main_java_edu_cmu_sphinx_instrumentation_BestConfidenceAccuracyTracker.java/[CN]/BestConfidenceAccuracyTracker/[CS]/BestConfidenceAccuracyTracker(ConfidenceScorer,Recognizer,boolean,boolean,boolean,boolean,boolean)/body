@@ -1,4 +1,0 @@
-{
-  super(recognizer,showSummary,showDetails,showResults,showAlignedResults,showRawResults);
-  this.confidenceScorer=confidenceScorer;
-}

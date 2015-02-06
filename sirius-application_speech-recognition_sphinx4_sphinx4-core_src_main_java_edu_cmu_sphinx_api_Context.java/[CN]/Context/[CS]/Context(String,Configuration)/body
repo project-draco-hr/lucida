@@ -1,9 +1,0 @@
-{
-  configurationManager=new ConfigurationManager(resourceToURL(path));
-  setAcousticModel(config.getAcousticModelPath());
-  setDictionary(config.getDictionaryPath());
-  if (null != config.getGrammarPath() && config.getUseGrammar())   setGrammar(config.getGrammarPath(),config.getGrammarName());
-  if (null != config.getLanguageModelPath() && !config.getUseGrammar())   setLanguageModel(config.getLanguageModelPath());
-  setSampleRate(config.getSampleRate());
-  configurationManager.lookup("recognizer");
-}

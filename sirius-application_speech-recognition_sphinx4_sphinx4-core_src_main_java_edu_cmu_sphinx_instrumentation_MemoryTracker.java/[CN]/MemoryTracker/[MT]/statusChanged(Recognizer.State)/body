@@ -1,5 +1,0 @@
-{
-  if (status == State.DEALLOCATED) {
-    calculateMemoryUsage(showSummary);
-  }
-}

@@ -1,5 +1,0 @@
-{
-  super.newProperties(ps);
-  logger=ps.getLogger();
-  create(ps.getInt(PROP_BYTES_PER_READ),ps.getComponentList(AUDIO_FILE_LISTENERS,AudioFileProcessListener.class));
-}

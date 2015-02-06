@@ -1,8 +1,0 @@
-{
-  if (absoluteBeamWidth > 0) {
-    if (size > absoluteBeamWidth) {
-      size=partitioner.partition(tokenList,size,absoluteBeamWidth) + 1;
-    }
-  }
-  return this;
-}

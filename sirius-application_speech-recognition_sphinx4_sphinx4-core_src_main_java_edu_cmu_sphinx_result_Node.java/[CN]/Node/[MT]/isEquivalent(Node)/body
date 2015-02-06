@@ -1,3 +1,0 @@
-{
-  return ((word.getSpelling().equals(other.getWord().getSpelling()) && (getEnteringEdges().size() == other.getEnteringEdges().size() && getLeavingEdges().size() == other.getLeavingEdges().size())) && (getBeginTime() == other.getBeginTime() && endTime == other.getEndTime()));
-}

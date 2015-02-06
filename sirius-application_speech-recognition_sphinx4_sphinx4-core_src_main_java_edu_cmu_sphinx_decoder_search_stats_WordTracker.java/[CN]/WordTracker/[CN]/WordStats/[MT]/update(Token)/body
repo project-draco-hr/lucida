@@ -1,9 +1,0 @@
-{
-  size++;
-  if (t.getScore() > maxScore) {
-    maxScore=t.getScore();
-  }
-  if (t.getScore() < minScore) {
-    minScore=t.getScore();
-  }
-}

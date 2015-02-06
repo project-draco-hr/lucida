@@ -1,5 +1,0 @@
-{
-  this.probability=prob;
-  fullHMMSearchState=hss;
-  this.hmmState=hmmState;
-}

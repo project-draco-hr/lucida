@@ -1,5 +1,0 @@
-{
-  super.newProperties(ps);
-  showFullPath=ps.getBoolean(PROP_SHOW_FULL_PATH);
-  languageModelWeight=ps.getFloat(PROP_LANGUAGE_WEIGHT);
-}

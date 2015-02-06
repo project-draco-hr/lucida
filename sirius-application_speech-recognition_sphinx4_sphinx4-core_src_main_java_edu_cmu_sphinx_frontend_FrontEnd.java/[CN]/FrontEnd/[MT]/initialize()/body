@@ -1,6 +1,0 @@
-{
-  super.initialize();
-  for (  DataProcessor dp : frontEndList) {
-    dp.initialize();
-  }
-}

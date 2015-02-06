@@ -1,6 +1,0 @@
-{
-  tokenList.add(token);
-  if (bestToken == null || token.getScore() > bestToken.getScore()) {
-    bestToken=token;
-  }
-}

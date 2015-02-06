@@ -1,3 +1,0 @@
-{
-  getConfusionSet(position).addWordHypothesis(word);
-}

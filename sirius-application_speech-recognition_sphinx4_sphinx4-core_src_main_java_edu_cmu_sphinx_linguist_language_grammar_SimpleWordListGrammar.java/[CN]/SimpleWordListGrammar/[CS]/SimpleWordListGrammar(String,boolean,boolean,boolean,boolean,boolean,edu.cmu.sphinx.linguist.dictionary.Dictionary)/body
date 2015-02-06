@@ -1,6 +1,0 @@
-{
-  super(showGrammar,optimizeGrammar,addSilenceWords,addFillerWords,dictionary);
-  this.path=path;
-  this.isLooping=isLooping;
-  logMath=LogMath.getInstance();
-}

@@ -1,8 +1,0 @@
-{
-  float logPreComputedGaussianFactor=0.0f;
-  for (int i=0; i < variance.length; i++) {
-    logPreComputedGaussianFactor+=logMath.linearToLog(precisionTransformed[i] * -2);
-  }
-  logPreComputedGaussianFactor=logMath.linearToLog(2.0 * Math.PI) * variance.length - logPreComputedGaussianFactor;
-  return logPreComputedGaussianFactor * 0.5f;
-}

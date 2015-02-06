@@ -1,3 +1,0 @@
-{
-  addStartingPath(grammar.getInitialNode());
-}

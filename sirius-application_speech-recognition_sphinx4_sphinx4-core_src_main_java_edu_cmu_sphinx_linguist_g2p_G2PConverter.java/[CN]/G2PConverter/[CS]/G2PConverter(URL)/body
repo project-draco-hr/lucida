@@ -1,9 +1,0 @@
-{
-  try {
-    g2pmodel=ImmutableFst.loadModel(g2pModelUrl.openStream());
-  }
- catch (  ClassNotFoundException e) {
-    throw new IOException("Failed to load the model from " + g2pModelUrl,e);
-  }
-  init();
-}

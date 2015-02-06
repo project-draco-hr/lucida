@@ -1,4 +1,0 @@
-PrintStream out
-SearchState from
-SearchStateArc arc
-int level

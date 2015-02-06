@@ -1,4 +1,0 @@
-{
-  initLogger();
-  create(bytesPerRead,listeners);
-}

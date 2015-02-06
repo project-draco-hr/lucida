@@ -1,5 +1,0 @@
-{
-  decoder=(Decoder)ps.getComponent(PROP_DECODER);
-  monitors=ps.getComponentList(PROP_MONITORS,Monitor.class);
-  name=ps.getInstanceName();
-}

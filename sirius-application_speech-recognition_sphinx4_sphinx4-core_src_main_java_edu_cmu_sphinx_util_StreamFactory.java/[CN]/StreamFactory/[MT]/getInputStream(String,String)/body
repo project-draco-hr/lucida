@@ -1,8 +1,0 @@
-{
-  if (location != null) {
-    return StreamFactory.getInputStream(StreamFactory.resolve(location),location,file);
-  }
- else {
-    return StreamFactory.getInputStream(StreamFactory.DIRECTORY,location,file);
-  }
-}

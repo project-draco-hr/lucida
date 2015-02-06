@@ -1,6 +1,0 @@
-{
-  System.out.println("   CompositeSenone " + msg + ": ");
-  for (  Senone senone : senones) {
-    senone.dump("   ");
-  }
-}

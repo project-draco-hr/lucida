@@ -1,9 +1,0 @@
-{
-  double logInnerSummation;
-  if (logMinuend < logSubtrahend) {
-    throw new IllegalArgumentException("Subtraction results in log " + "of a negative number: " + logMinuend + " - "+ logSubtrahend);
-  }
-  logInnerSummation=1.0;
-  logInnerSummation-=logToLinear(logSubtrahend - logMinuend);
-  return logMinuend + linearToLog(logInnerSummation);
-}

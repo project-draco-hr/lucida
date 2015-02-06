@@ -1,6 +1,0 @@
-{
-  this.nextState=nextState;
-  this.logLanguageProbability=logLanguageProbability;
-  this.logInsertionProbability=logInsertionProbability;
-  hashCode=111 + nextState.hashCode() + 17 * Float.floatToIntBits(logLanguageProbability) + 23 * Float.floatToIntBits(logInsertionProbability);
-}

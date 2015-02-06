@@ -1,3 +1,0 @@
-{
-  throw new IllegalArgumentException("You cannot modify an ImmutableState.");
-}

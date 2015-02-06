@@ -1,9 +1,0 @@
-{
-  String line;
-  lineNumber++;
-  line=reader.readLine();
-  if (line == null) {
-    corrupt("Premature EOF");
-  }
-  return line.trim();
-}

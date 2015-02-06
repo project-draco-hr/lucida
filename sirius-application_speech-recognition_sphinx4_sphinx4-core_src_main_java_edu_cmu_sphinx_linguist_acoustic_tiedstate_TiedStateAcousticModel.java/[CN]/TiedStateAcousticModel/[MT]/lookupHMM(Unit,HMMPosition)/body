@@ -1,3 +1,0 @@
-{
-  return (SenoneHMM)loader.getHMMManager().get(position,unit);
-}

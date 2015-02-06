@@ -1,5 +1,0 @@
-{
-  initLogger();
-  this.numberMelFilters=numberMelFilters;
-  this.cepstrumSize=cepstrumSize;
-}

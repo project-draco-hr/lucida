@@ -1,4 +1,0 @@
-int numberFftPoints
-int numberFilters
-double minFreq
-double maxFreq

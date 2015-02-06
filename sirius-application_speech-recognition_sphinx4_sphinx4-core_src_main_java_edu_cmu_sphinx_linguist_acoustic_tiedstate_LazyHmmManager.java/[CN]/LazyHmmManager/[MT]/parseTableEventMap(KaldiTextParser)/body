@@ -1,9 +1,0 @@
-{
-  int key=parser.getInt();
-  int size=parser.getInt();
-  List<EventMap> table=new ArrayList<EventMap>(size);
-  parser.expectToken("(");
-  while (0 < size--)   table.add(parseEventMap(parser));
-  parser.expectToken(")");
-  return new TableEventMap(key,table);
-}

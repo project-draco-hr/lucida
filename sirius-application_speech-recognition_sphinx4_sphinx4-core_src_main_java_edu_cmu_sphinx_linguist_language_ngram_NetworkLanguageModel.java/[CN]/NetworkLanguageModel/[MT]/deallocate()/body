@@ -1,9 +1,0 @@
-{
-  allocated=false;
-  try {
-    socket.close();
-  }
- catch (  IOException e) {
-    e.printStackTrace();
-  }
-}

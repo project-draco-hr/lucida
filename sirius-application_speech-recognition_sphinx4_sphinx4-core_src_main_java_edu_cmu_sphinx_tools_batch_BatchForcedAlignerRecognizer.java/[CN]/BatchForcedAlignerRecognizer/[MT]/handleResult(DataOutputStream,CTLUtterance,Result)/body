@@ -1,5 +1,0 @@
-{
-  System.out.println(utt + " --> " + result);
-  Token token=result.getBestToken();
-  dumpTokenTimes(token);
-}

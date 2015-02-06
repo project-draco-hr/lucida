@@ -1,4 +1,0 @@
-{
-  props=new Properties();
-  props.load(getClass().getResource(propsFile).openStream());
-}

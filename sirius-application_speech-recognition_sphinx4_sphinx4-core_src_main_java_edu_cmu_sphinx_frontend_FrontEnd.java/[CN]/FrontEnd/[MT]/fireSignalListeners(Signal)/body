@@ -1,3 +1,0 @@
-{
-  for (  SignalListener listener : new ArrayList<SignalListener>(signalListeners))   listener.signalOccurred(signal);
-}

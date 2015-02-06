@@ -1,6 +1,0 @@
-{
-  if (successors instanceof Map<?,?>) {
-    freeze();
-  }
-  return (Node[])successors;
-}

@@ -1,8 +1,0 @@
-{
-  for (int i=0; i < p; i++) {
-    Assert.assertTrue(tokens[i].getScore() >= tokens[p].getScore());
-  }
-  for (int i=p; i < tokens.length; i++) {
-    Assert.assertTrue(tokens[i].getScore() <= tokens[p].getScore());
-  }
-}

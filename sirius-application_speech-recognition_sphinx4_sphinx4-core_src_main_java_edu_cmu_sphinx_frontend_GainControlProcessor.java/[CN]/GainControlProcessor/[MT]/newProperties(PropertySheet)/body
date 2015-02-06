@@ -1,4 +1,0 @@
-{
-  super.newProperties(ps);
-  gainFactor=ps.getDouble(GAIN_FACTOR);
-}

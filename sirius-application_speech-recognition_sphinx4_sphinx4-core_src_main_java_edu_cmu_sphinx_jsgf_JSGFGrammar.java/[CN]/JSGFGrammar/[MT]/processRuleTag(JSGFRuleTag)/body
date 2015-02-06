@@ -1,5 +1,0 @@
-{
-  logger.fine("parseRuleTag: " + ruleTag);
-  JSGFRule rule=ruleTag.getRule();
-  return processRule(rule);
-}

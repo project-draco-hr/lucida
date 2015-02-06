@@ -1,8 +1,0 @@
-{
-  recognizer=(Recognizer)ps.getComponent(PROP_RECOGNIZER);
-  dataSource=(ConcatFileDataSource)ps.getComponent(PROP_INPUT_SOURCE);
-  showGapInsertions=ps.getBoolean(PROP_SHOW_GAP_INSERTIONS);
-  hypothesisFile=ps.getString(PROP_HYPOTHESIS_TRANSCRIPT);
-  alignInterval=ps.getInt(PROP_ALIGN_INTERVAL);
-  referenceSource=dataSource;
-}

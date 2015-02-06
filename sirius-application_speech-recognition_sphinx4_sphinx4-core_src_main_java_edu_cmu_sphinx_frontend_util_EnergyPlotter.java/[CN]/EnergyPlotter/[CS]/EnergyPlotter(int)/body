@@ -1,4 +1,0 @@
-{
-  this.maxEnergy=maxEnergy;
-  buildPlots(maxEnergy);
-}

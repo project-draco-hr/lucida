@@ -1,9 +1,0 @@
-{
-  if (allocated) {
-    fillerDictionary=null;
-    wordDictionary=null;
-    g2pDecoder=null;
-    loadTimer=null;
-    allocated=false;
-  }
-}

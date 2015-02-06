@@ -1,7 +1,0 @@
-{
-  this.context=context;
-  hashCode=12;
-  for (int i=0; i < context.length; i++) {
-    hashCode+=context[i].getName().hashCode() * ((i + 1) * 34);
-  }
-}

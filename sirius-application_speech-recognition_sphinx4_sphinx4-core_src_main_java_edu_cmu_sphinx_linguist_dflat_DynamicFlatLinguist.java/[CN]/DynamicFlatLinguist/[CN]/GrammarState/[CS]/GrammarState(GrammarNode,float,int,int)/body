@@ -1,6 +1,0 @@
-{
-  this.lc=lc;
-  this.nextBaseID=nextBaseID;
-  this.node=node;
-  this.languageProbability=languageProbability;
-}

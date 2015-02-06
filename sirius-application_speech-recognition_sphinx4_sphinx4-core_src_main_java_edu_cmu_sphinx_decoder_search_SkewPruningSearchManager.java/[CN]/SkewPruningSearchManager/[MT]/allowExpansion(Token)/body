@@ -1,4 +1,0 @@
-{
-  if (pruneHMM)   return skewPruneHMM(t);
-  return skewPruneWord(t);
-}

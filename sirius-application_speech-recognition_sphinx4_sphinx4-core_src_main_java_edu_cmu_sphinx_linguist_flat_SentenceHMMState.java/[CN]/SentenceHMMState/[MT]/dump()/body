@@ -1,7 +1,0 @@
-{
-  System.out.println(" ----- " + getTitle() + " ---- ");
-  for (int i=0; i < getSuccessors().length; i++) {
-    SentenceHMMStateArc arc=(SentenceHMMStateArc)getSuccessors()[i];
-    System.out.println("   -> " + arc.getState().toPrettyString());
-  }
-}

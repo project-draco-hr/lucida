@@ -1,4 +1,0 @@
-int lineNumber
-int charNumber
-String message
-String details

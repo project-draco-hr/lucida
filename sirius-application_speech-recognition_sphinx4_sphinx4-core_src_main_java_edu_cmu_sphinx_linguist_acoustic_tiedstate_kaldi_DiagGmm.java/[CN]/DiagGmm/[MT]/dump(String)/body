@@ -1,3 +1,0 @@
-{
-  System.out.format("%s DiagGmm: ID %d\n",msg,id);
-}

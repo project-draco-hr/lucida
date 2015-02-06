@@ -1,2 +1,0 @@
-Set<GrammarNode> visitedSet
-Collection<UnitContext> leftContext

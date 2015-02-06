@@ -1,8 +1,0 @@
-{
-  MixtureComponent gaussian=new MixtureComponent(new float[]{2},new float[][]{{3}},new float[]{4},new float[]{5},new float[][]{{6}},new float[]{7});
-  MixtureComponent clonedGaussian=gaussian.clone();
-  Assert.assertTrue(!clonedGaussian.equals(gaussian));
-  Assert.assertTrue(gaussian.getMean() != clonedGaussian.getMean());
-  Assert.assertTrue(gaussian.getVariance() != clonedGaussian.getVariance());
-  Assert.assertTrue(gaussian.getScore(new float[]{2}) == clonedGaussian.getScore(new float[]{2}));
-}

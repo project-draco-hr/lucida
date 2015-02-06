@@ -1,8 +1,0 @@
-{
-  initLogger();
-  this.ditherMax=ditherMax;
-  this.useRandSeed=useRandSeed;
-  this.maxValue=maxValue;
-  this.minValue=minValue;
-  initialize();
-}

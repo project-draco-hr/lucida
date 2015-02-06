@@ -1,7 +1,0 @@
-{
-  StringBuilder dump=new StringBuilder().append(data.length);
-  for (  short val : data) {
-    dump.append(' ').append(val);
-  }
-  return dump.toString();
-}

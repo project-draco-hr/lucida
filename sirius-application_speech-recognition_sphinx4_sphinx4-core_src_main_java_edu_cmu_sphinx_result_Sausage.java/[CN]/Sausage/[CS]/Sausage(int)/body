@@ -1,6 +1,0 @@
-{
-  confusionSets=new ArrayList<ConfusionSet>(size);
-  for (int i=0; i < size; i++) {
-    confusionSets.add(new ConfusionSet());
-  }
-}

@@ -1,7 +1,0 @@
-{
-  this.shorts=new short[(int)(8000 * duration)];
-  double radiansPerSample=(frequency * 2.0 * Math.PI) / 8000.0;
-  for (int i=0; i < shorts.length; i++) {
-    shorts[i]=(short)(amplitude * Math.cos((radiansPerSample * i) + phase));
-  }
-}

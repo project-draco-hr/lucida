@@ -1,5 +1,0 @@
-{
-  this.name=name;
-  this.className=className;
-  this.properties=properties;
-}

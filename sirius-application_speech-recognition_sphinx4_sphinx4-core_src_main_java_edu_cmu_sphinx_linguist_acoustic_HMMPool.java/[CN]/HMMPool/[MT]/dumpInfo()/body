@@ -1,9 +1,0 @@
-{
-  logger.info("Max CI Units " + numCIUnits);
-  logger.info("Unit table size " + unitTable.length);
-  if (logger.isLoggable(Level.FINER)) {
-    for (int i=0; i < unitTable.length; i++) {
-      logger.finer(String.valueOf(i) + ' ' + unitTable[i]);
-    }
-  }
-}

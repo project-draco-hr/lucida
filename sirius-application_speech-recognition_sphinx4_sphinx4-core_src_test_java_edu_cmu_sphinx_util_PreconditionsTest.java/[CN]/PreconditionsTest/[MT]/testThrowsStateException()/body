@@ -1,3 +1,0 @@
-{
-  Preconditions.checkState(false,"foo %s %d","bar",42);
-}

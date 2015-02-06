@@ -1,3 +1,0 @@
-{
-  return nodeToNextUnitArrayMap.get(node);
-}

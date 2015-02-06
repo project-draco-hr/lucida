@@ -1,4 +1,0 @@
-{
-  this.offsetFactor=offsetFactor;
-  computeCepstrum();
-}

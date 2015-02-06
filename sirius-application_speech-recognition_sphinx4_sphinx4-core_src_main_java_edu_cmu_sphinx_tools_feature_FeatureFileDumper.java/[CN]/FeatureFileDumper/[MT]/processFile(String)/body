@@ -1,6 +1,0 @@
-{
-  audioSource.setInputStream(new FileInputStream(inputAudioFile));
-  allFeatures=new LinkedList<float[]>();
-  getAllFeatures();
-  logger.info("Frames: " + allFeatures.size());
-}

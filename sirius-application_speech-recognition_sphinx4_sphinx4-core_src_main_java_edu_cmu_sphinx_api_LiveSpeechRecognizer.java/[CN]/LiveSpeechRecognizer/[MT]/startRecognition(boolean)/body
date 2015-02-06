@@ -1,4 +1,0 @@
-{
-  recognizer.allocate();
-  microphone.startRecording();
-}

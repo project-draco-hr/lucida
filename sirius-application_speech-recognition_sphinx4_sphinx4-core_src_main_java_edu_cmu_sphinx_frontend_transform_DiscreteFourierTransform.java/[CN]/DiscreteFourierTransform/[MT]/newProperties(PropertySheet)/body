@@ -1,7 +1,0 @@
-{
-  super.newProperties(ps);
-  logger=ps.getLogger();
-  numberFftPoints=ps.getInt(PROP_NUMBER_FFT_POINTS);
-  isNumberFftPointsSet=(numberFftPoints != -1);
-  invert=ps.getBoolean(PROP_INVERT);
-}

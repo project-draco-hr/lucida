@@ -1,8 +1,0 @@
-{
-  if (wordStart) {
-    this.fields|=MASK_IS_WORD_START;
-  }
- else {
-    this.fields&=~MASK_IS_WORD_START;
-  }
-}

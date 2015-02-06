@@ -1,5 +1,0 @@
-{
-  super("S",parent,hmmState.getState());
-  this.hmmState=hmmState;
-  this.isEmitting=hmmState.isEmitting();
-}

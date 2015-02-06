@@ -1,5 +1,0 @@
-{
-  this.phone=phone;
-  this.hmmState=hmmState;
-  this.pdf=pdf;
-}

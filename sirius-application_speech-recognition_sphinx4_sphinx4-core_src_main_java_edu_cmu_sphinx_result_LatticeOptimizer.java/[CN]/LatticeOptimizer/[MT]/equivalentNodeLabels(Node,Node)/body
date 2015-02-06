@@ -1,3 +1,0 @@
-{
-  return (n1.getWord().equals(n2.getWord()) && (n1.getBeginTime() == n2.getBeginTime() && n1.getEndTime() == n2.getEndTime()));
-}

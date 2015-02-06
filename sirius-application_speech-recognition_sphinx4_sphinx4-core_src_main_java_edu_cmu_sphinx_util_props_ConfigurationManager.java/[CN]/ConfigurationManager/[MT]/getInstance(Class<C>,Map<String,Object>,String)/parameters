@@ -1,3 +1,0 @@
-Class<C> targetClass
-Map<String,Object> props
-String compName

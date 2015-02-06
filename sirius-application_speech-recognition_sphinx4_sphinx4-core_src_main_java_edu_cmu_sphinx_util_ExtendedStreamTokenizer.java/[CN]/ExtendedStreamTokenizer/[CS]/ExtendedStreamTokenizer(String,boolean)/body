@@ -1,4 +1,0 @@
-{
-  this(new FileReader(path),eolIsSignificant);
-  this.path=path;
-}

@@ -1,6 +1,0 @@
-{
-  frameCount++;
-  int minTime=speechLeader + speechTrailer;
-  endSilenceTime=(int)(initialEndSilenceTime - ((float)initialEndSilenceTime - minTime) / endSilenceDecay * (frameCount / 100.0));
-  if (endSilenceTime <= minTime)   endSilenceTime=minTime;
-}

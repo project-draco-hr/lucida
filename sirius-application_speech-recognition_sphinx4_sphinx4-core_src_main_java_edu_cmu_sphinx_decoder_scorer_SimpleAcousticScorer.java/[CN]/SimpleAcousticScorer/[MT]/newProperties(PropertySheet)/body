@@ -1,5 +1,0 @@
-{
-  super.newProperties(ps);
-  this.frontEnd=(BaseDataProcessor)ps.getComponent(FEATURE_FRONTEND);
-  this.scoreNormalizer=(ScoreNormalizer)ps.getComponent(SCORE_NORMALIZER);
-}

@@ -1,9 +1,0 @@
-{
-  Object key=getStateKey(state);
-  TokenHeap th=bestTokenMap.get(key);
-  if (th == null) {
-    th=new TokenHeap(maxTokenHeapSize);
-    bestTokenMap.put(key,th);
-  }
-  th.add(token);
-}

@@ -1,3 +1,0 @@
-float[] logMixtureWeights
-MixtureComponent[] mixtureComponents
-long id

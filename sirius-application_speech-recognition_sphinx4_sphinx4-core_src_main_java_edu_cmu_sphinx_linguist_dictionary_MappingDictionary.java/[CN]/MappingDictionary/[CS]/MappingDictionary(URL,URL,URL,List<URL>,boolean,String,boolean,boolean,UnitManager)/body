@@ -1,4 +1,0 @@
-{
-  super(wordDictionaryFile,fillerDictionaryFile,addendaUrlList,addSilEndingPronunciation,wordReplacement,allowMissingWords,createMissingWords,unitManager);
-  this.mappingFile=mappingFile;
-}

@@ -1,9 +1,0 @@
-{
-  String name="G" + id;
-  GrammarNode grammarNode=nodes.get(name);
-  if (grammarNode == null) {
-    grammarNode=createGrammarNode(id,false);
-    nodes.put(name,grammarNode);
-  }
-  return grammarNode;
-}

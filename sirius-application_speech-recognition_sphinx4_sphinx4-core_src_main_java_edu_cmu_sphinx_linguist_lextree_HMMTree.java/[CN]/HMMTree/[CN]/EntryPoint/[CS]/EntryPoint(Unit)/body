@@ -1,7 +1,0 @@
-{
-  this.baseUnit=baseUnit;
-  this.baseNode=new Node(LogMath.LOG_ZERO);
-  this.unitToEntryPointMap=new HashMap<Unit,Node>();
-  this.singleUnitWords=new ArrayList<Pronunciation>();
-  this.totalProbability=LogMath.LOG_ZERO;
-}

@@ -1,8 +1,0 @@
-{
-  StringBuilder result=new StringBuilder().append(word).append(' ');
-  for (  Unit unit : units) {
-    result.append(unit).append(' ');
-  }
-  result.append("\n   class: ").append(wordClassification).append(" tag: ").append(tag).append(" prob: ").append(probability);
-  return result.toString();
-}

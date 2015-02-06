@@ -1,3 +1,0 @@
-{
-  return "HSS " + pState.getGrammarState().getGrammarNode() + pState.getPronunciation()+ index+ '-'+ rc+ '-'+ lc;
-}

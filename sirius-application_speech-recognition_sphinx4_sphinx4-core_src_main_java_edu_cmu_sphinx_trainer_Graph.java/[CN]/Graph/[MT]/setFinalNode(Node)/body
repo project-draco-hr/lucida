@@ -1,8 +1,0 @@
-{
-  if (isNodeInGraph(node)) {
-    finalNode=node;
-  }
- else {
-    throw new IllegalArgumentException("Final node not in graph");
-  }
-}

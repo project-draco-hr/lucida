@@ -1,9 +1,0 @@
-{
-  allocateAcousticModel();
-  grammar.allocate();
-  totalStates=StatisticsVariable.getStatisticsVariable(getName(),"totalStates");
-  totalArcs=StatisticsVariable.getStatisticsVariable(getName(),"totalArcs");
-  actualArcs=StatisticsVariable.getStatisticsVariable(getName(),"actualArcs");
-  stateSet=compileGrammar();
-  totalStates.value=stateSet.size();
-}

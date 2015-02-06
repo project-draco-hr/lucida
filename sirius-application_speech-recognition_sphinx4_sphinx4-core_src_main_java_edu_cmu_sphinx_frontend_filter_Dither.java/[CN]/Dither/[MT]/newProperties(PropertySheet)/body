@@ -1,7 +1,0 @@
-{
-  super.newProperties(ps);
-  ditherMax=ps.getDouble(PROP_MAX_DITHER);
-  useRandSeed=ps.getBoolean(PROP_USE_RANDSEED);
-  maxValue=ps.getDouble(PROP_MAX_VAL);
-  minValue=ps.getDouble(PROP_MIN_VAL);
-}

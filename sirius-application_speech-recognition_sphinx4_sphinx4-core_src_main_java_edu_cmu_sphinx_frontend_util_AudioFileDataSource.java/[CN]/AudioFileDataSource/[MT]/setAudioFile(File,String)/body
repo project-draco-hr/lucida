@@ -1,8 +1,0 @@
-{
-  try {
-    setAudioFile(audioFile.toURI().toURL(),streamName);
-  }
- catch (  MalformedURLException e) {
-    e.printStackTrace();
-  }
-}

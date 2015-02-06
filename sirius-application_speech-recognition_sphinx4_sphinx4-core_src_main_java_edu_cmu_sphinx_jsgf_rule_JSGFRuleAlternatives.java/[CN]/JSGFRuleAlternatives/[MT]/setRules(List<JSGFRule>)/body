@@ -1,6 +1,0 @@
-{
-  if ((weights != null) && (rules.size() != weights.size())) {
-    weights=null;
-  }
-  this.rules=rules;
-}

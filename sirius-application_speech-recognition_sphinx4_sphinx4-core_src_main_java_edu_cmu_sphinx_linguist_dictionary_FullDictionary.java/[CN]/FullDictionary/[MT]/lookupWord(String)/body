@@ -1,7 +1,0 @@
-{
-  Word word=wordDictionary.get(spelling);
-  if (word == null) {
-    word=fillerDictionary.get(spelling);
-  }
-  return word;
-}

@@ -1,5 +1,0 @@
-String dumpFilePath
-boolean isCompletePath
-int bitsPerSample
-boolean isSigned
-boolean captureUtts

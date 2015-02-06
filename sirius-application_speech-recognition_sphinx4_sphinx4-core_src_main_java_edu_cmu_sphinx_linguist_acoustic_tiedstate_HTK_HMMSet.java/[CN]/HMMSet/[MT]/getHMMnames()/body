@@ -1,8 +1,0 @@
-{
-  String[] rep=new String[hmms.size()];
-  for (int i=0; i < rep.length; i++) {
-    SingleHMM h=hmms.get(i);
-    rep[i]=h.getName();
-  }
-  return rep;
-}

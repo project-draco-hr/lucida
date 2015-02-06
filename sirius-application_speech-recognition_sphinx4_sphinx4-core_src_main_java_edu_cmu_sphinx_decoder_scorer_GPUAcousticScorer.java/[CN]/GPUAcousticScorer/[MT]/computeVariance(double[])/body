@@ -1,8 +1,0 @@
-{
-  double mean=computeMean(data);
-  double temp=0;
-  for (  double a : data) {
-    temp+=(mean - a) * (mean - a);
-  }
-  return temp / data.length;
-}

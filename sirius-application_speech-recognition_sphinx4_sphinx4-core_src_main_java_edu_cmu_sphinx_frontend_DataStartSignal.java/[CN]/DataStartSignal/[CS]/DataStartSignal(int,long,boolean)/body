@@ -1,7 +1,0 @@
-{
-  super(time);
-  this.sampleRate=sampleRate;
-  if (tagAsVadStream) {
-    this.getProps().put(SPEECH_TAGGED_FEATURE_STREAM,tagAsVadStream);
-  }
-}

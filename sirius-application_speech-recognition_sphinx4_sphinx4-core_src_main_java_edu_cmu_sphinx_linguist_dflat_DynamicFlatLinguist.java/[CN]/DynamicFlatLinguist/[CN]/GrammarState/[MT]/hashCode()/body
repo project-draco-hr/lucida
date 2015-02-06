@@ -1,3 +1,0 @@
-{
-  return node.hashCode() * 17 + lc * 7 + nextBaseID;
-}

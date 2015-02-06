@@ -1,3 +1,0 @@
-{
-  return "Word dictionary:\n" + wordDictionary.toString() + "Classes:\n"+ classMap.toString();
-}

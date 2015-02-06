@@ -1,4 +1,0 @@
-{
-  Object value=propValues.get(name);
-  return value instanceof String ? (String)value : null;
-}

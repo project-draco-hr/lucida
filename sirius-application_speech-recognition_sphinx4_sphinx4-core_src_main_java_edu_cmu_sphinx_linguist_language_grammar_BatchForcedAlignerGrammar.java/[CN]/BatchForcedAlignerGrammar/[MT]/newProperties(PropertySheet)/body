@@ -1,4 +1,0 @@
-{
-  super.newProperties(ps);
-  refFile=ps.getString(PROP_REF_FILE);
-}

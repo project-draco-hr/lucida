@@ -1,6 +1,0 @@
-{
-  HashMap<String,Object> props=new HashMap<String,Object>();
-  props.put("dataProc",new AnotherDummyProcessor());
-  TestConfigurable teco=ConfigurationManager.getInstance(TestConfigurable.class,props);
-  Assert.assertTrue(teco.myString == null);
-}

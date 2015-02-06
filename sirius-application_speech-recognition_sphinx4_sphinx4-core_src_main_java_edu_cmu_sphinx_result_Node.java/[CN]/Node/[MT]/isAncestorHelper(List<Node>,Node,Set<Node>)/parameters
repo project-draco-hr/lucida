@@ -1,3 +1,0 @@
-List<Node> children
-Node node
-Set<Node> seenNodes

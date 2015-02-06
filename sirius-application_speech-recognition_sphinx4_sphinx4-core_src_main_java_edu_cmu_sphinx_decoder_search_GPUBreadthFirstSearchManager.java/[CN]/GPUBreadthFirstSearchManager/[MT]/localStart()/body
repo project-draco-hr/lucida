@@ -1,9 +1,0 @@
-{
-  currentFrameNumber=0;
-  curTokensScored.value=0;
-  ActiveList newActiveList=activeListFactory.newInstance();
-  SearchState state=linguist.getSearchGraph().getInitialState();
-  newActiveList.add(new Token(state,currentFrameNumber));
-  activeList=newActiveList;
-  growBranches();
-}

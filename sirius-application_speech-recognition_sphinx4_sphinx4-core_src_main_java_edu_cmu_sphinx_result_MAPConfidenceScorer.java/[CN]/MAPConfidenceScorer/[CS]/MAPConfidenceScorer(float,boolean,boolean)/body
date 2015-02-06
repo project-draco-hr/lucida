@@ -1,5 +1,0 @@
-{
-  this.languageWeightAdjustment=languageWeightAdjustment;
-  this.dumpLattice=dumpLattice;
-  this.dumpSausage=dumpSausage;
-}

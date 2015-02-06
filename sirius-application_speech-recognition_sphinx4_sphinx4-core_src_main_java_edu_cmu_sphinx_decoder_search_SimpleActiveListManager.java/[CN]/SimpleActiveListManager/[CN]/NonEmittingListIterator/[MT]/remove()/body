@@ -1,3 +1,0 @@
-{
-  currentActiveLists[listPtr]=currentActiveLists[listPtr].newInstance();
-}

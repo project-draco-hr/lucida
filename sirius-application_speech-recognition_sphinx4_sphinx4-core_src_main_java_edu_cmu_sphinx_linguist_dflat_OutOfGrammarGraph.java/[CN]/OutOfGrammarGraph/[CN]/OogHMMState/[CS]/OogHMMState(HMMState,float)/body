@@ -1,4 +1,0 @@
-{
-  this.hmmState=hmmState;
-  this.logProbability=logProbability;
-}

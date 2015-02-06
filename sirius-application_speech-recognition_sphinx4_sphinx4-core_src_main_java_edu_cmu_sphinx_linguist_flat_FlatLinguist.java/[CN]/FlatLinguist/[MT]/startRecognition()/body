@@ -1,6 +1,0 @@
-{
-  if (grammarHasChanged()) {
-    stateSet=compileGrammar();
-    totalStates.value=stateSet.size();
-  }
-}

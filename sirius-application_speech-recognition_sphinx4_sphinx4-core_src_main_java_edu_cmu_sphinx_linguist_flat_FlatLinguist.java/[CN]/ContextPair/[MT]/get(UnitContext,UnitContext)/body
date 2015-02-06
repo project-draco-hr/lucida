@@ -1,5 +1,0 @@
-{
-  ContextPair newCP=new ContextPair(left,right);
-  ContextPair cachedCP=contextPairCache.cache(newCP);
-  return cachedCP == null ? newCP : cachedCP;
-}

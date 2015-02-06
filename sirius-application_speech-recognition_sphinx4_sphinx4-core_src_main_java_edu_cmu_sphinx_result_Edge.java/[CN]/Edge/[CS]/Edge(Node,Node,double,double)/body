@@ -1,6 +1,0 @@
-{
-  this.acousticScore=acousticScore;
-  this.lmScore=lmScore;
-  this.fromNode=fromNode;
-  this.toNode=toNode;
-}

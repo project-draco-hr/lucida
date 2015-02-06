@@ -1,8 +1,0 @@
-{
-  Word[] fillerWordArray=new Word[fillerWords.size()];
-  int index=0;
-  for (  String spelling : fillerWords) {
-    fillerWordArray[index++]=getWord(spelling);
-  }
-  return fillerWordArray;
-}

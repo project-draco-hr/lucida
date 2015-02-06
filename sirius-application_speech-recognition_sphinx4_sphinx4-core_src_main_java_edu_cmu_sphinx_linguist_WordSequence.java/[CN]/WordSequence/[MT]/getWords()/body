@@ -1,3 +1,0 @@
-{
-  return getSubSequence(0,size()).words;
-}

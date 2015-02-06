@@ -1,6 +1,0 @@
-{
-  SpeakerIdentification sd=new SpeakerIdentification();
-  URL url=SpeakerIdentificationDemo.class.getResource("test.wav");
-  ArrayList<SpeakerCluster> clusters=sd.cluster(url.openStream());
-  printSpeakerIntervals(clusters,url.getPath());
-}

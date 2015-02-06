@@ -1,6 +1,0 @@
-{
-  Set<Word> words=getAllWords();
-  for (  Word word : words) {
-    addWord(word);
-  }
-}

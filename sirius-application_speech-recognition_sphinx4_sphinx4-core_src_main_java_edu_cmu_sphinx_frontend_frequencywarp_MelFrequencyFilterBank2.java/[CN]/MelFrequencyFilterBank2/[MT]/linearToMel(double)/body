@@ -1,3 +1,0 @@
-{
-  return 1127 * Math.log1p(inputFreq / 700);
-}

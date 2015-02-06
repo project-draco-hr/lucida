@@ -1,9 +1,0 @@
-{
-  allocated=true;
-  load(urlLocation,unigramWeight,dictionary);
-  if (desiredMaxDepth > 0) {
-    if (desiredMaxDepth < maxNGram) {
-      maxNGram=desiredMaxDepth;
-    }
-  }
-}

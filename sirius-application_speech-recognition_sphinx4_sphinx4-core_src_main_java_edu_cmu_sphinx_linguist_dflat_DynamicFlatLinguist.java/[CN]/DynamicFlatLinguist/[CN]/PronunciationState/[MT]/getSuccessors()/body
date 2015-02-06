@@ -1,8 +1,0 @@
-{
-  SearchStateArc[] arcs=getCachedSuccessors();
-  if (arcs == null) {
-    arcs=getSuccessors(gs.getLC(),0);
-    cacheSuccessors(arcs);
-  }
-  return arcs;
-}

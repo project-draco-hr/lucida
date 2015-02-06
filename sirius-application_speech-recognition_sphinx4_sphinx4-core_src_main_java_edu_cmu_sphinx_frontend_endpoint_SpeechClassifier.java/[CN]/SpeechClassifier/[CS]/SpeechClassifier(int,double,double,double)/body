@@ -1,8 +1,0 @@
-{
-  initLogger();
-  this.frameLengthSec=frameLengthMs / 1000.f;
-  this.adjustment=adjustment;
-  this.threshold=threshold;
-  this.minSignal=minSignal;
-  initialize();
-}

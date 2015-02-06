@@ -1,4 +1,0 @@
-{
-  ConfusionSet set=confusionSets.get(pos);
-  return set.get(set.lastKey());
-}

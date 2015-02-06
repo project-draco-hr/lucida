@@ -1,6 +1,0 @@
-{
-  System.out.println(" SenoneSequence " + msg + ':');
-  for (  Senone senone : senones) {
-    senone.dump("  seq:");
-  }
-}

@@ -1,3 +1,0 @@
-InputStream inputStream
-int commentChar
-boolean eolIsSignificant

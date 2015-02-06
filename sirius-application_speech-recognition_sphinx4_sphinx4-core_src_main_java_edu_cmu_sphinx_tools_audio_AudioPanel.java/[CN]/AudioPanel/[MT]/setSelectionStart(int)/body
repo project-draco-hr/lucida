@@ -1,8 +1,0 @@
-{
-  selectionStart=newStart;
-  if (selectionEnd != -1) {
-    if (selectionEnd < selectionStart) {
-      selectionEnd=selectionStart;
-    }
-  }
-}

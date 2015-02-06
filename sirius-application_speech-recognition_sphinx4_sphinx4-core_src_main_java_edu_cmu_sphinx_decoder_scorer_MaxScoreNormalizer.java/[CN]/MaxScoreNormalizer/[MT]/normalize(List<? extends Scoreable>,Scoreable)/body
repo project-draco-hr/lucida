@@ -1,6 +1,0 @@
-{
-  for (  Scoreable scoreable : scoreableList) {
-    scoreable.normalizeScore(bestToken.getScore());
-  }
-  return bestToken;
-}

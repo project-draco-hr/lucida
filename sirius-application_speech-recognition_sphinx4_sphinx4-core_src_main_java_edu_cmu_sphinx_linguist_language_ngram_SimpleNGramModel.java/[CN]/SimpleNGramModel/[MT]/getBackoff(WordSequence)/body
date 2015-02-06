@@ -1,8 +1,0 @@
-{
-  float logBackoff=0.0f;
-  Probability prob=getProb(wordSequence);
-  if (prob != null) {
-    logBackoff=prob.logBackoff;
-  }
-  return logBackoff;
-}

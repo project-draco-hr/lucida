@@ -1,4 +1,0 @@
-float frameShiftMs
-float frameSizeMs
-boolean bigEndian
-int sampleRate

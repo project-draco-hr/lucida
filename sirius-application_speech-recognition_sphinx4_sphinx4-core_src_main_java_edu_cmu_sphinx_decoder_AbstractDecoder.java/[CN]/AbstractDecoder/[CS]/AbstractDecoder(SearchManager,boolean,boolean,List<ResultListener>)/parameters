@@ -1,4 +1,0 @@
-SearchManager searchManager
-boolean fireNonFinalResults
-boolean autoAllocate
-List<ResultListener> resultListeners

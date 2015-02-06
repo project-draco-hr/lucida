@@ -1,4 +1,0 @@
-int wordID
-float logProbability
-float logBackoff
-int firstBigramEntry

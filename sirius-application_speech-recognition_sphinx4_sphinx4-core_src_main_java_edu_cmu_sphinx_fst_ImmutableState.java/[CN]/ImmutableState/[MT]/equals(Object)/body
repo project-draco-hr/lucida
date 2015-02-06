@@ -1,8 +1,0 @@
-{
-  if (this == obj)   return true;
-  if (getClass() != obj.getClass())   return false;
-  ImmutableState other=(ImmutableState)obj;
-  if (!Arrays.equals(arcs,other.arcs))   return false;
-  if (!super.equals(obj))   return false;
-  return true;
-}

@@ -1,3 +1,0 @@
-Unit lc
-Node epNode
-HashMap<HMM,HMMNode> map

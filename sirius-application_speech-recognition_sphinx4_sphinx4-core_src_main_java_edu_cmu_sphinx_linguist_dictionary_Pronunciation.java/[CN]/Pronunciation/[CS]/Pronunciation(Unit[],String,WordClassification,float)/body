@@ -1,6 +1,0 @@
-{
-  this.wordClassification=wordClassification;
-  this.units=units;
-  this.tag=tag;
-  this.probability=probability;
-}

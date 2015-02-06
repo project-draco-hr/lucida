@@ -1,3 +1,0 @@
-{
-  return Math.round(sampleRate * ms / 1000);
-}

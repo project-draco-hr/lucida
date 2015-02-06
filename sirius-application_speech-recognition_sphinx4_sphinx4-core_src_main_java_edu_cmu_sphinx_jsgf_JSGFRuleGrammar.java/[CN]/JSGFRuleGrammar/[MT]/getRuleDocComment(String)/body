@@ -1,3 +1,0 @@
-{
-  return ruleDocComments.getProperty(rname,null);
-}

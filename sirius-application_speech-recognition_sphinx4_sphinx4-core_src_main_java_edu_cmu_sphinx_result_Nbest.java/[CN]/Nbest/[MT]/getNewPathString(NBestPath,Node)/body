@@ -1,7 +1,0 @@
-{
-  String newPathString;
-  if (newNode.getWord().isSentenceEndWord())   newPathString=path.path + " </s>";
- else   if (newNode.getWord().isFiller())   newPathString=path.path;
- else   newPathString=path.path + " " + newNode.getWord();
-  return newPathString;
-}

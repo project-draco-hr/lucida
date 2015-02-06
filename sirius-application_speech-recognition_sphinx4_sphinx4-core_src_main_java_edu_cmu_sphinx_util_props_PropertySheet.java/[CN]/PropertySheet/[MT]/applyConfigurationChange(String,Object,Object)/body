@@ -1,6 +1,0 @@
-{
-  rawProps.put(propName,cmName);
-  propValues.put(propName,value != null ? value : cmName);
-  if (getInstanceName() != null)   cm.fireConfChanged(getInstanceName(),propName);
-  if (owner != null)   owner.newProperties(this);
-}

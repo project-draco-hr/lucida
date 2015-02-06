@@ -1,5 +1,0 @@
-{
-  Word word=new Word(text,pronunciation,isFiller);
-  dictionary.put(text,word.toString());
-  return word;
-}

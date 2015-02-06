@@ -1,3 +1,0 @@
-{
-  return numFmt.format(getFrameNumber()) + ' ' + scoreFmt.format(getScore())+ ' '+ scoreFmt.format(getAcousticScore())+ ' '+ scoreFmt.format(getLanguageScore())+ ' '+ getSearchState()+ (tokenProps == null ? "" : " " + tokenProps);
-}

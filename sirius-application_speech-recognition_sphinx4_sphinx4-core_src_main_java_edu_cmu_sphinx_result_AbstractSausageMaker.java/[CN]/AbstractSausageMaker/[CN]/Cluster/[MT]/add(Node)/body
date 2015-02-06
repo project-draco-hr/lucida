@@ -1,9 +1,0 @@
-{
-  if (n.getBeginTime() < startTime) {
-    startTime=n.getBeginTime();
-  }
-  if (n.getEndTime() > endTime) {
-    endTime=n.getEndTime();
-  }
-  elements.add(n);
-}

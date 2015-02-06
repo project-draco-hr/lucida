@@ -1,9 +1,0 @@
-{
-  super();
-  Graph transcriptGraph;
-  for (utterance.startTranscriptIterator(); utterance.hasMoreTranscripts(); ) {
-    Transcript transcript=utterance.nextTranscript();
-    transcriptGraph=new TranscriptHMMGraph(context,transcript,acousticModel,unitManager);
-    add(transcriptGraph);
-  }
-}

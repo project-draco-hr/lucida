@@ -1,4 +1,0 @@
-{
-  initLogger();
-  this.lifterValue=lifterValue;
-}

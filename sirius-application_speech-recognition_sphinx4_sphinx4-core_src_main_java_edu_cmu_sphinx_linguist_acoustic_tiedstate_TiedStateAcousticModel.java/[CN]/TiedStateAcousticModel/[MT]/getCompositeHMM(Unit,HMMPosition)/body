@@ -1,7 +1,0 @@
-{
-  Unit ciUnit=unitManager.getUnit(unit.getName(),unit.isFiller(),Context.EMPTY_CONTEXT);
-  SenoneSequence compositeSequence=getCompositeSenoneSequence(unit,position);
-  SenoneHMM contextIndependentHMM=(SenoneHMM)lookupNearestHMM(ciUnit,HMMPosition.UNDEFINED,true);
-  float[][] tmat=contextIndependentHMM.getTransitionMatrix();
-  return new SenoneHMM(unit,compositeSequence,tmat,position);
-}

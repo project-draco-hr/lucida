@@ -1,9 +1,0 @@
-{
-  if (!conv.containsKey(item)) {
-    String cand=item.toUpperCase();
-    while (conv.containsValue(cand)) {
-      cand=cand + "_X";
-    }
-    conv.put(item,cand);
-  }
-}

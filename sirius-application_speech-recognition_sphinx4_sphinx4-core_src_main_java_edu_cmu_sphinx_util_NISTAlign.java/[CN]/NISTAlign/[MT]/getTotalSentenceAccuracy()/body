@@ -1,9 +1,0 @@
-{
-  int totalSentencesCorrect=totalSentences - totalSentencesWithErrors;
-  if (totalSentences == 0) {
-    return 0;
-  }
- else {
-    return ((float)totalSentencesCorrect / (float)totalSentences);
-  }
-}

@@ -1,6 +1,0 @@
-{
-  float mean=20;
-  float var=0.001f;
-  MixtureComponent gaussian=new MixtureComponent(new float[]{mean},new float[][]{{2}},new float[]{5},new float[]{var},null,null);
-  Assert.assertTrue(LogMath.getInstance().logToLinear(gaussian.getScore(new float[]{2 * mean + 5})) > 10);
-}

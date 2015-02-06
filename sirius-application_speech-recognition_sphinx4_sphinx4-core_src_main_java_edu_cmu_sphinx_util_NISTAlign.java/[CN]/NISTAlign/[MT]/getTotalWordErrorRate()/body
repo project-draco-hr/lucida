@@ -1,8 +1,0 @@
-{
-  if (totalReferenceWords == 0) {
-    return 0;
-  }
- else {
-    return ((float)getTotalWordErrors()) / ((float)totalReferenceWords);
-  }
-}

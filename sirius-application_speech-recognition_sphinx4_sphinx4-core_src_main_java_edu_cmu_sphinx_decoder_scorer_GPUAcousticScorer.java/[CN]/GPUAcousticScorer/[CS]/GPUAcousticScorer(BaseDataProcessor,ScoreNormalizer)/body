@@ -1,5 +1,0 @@
-{
-  initLogger();
-  this.frontEnd=frontEnd;
-  this.scoreNormalizer=scoreNormalizer;
-}

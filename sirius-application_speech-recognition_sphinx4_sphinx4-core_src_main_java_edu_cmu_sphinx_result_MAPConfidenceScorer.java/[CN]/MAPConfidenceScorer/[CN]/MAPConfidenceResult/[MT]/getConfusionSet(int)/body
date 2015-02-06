@@ -1,3 +1,0 @@
-{
-  return sausage.getConfusionSet(i);
-}

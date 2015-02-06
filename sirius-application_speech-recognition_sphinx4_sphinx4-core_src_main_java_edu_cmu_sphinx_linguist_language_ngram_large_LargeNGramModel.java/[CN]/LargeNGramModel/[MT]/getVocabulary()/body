@@ -1,4 +1,0 @@
-{
-  Set<String> vocabulary=new HashSet<String>(Arrays.asList(loader.getWords()));
-  return Collections.unmodifiableSet(vocabulary);
-}

@@ -1,3 +1,0 @@
-{
-  return listPtr + 1 < currentActiveLists.length - 1;
-}

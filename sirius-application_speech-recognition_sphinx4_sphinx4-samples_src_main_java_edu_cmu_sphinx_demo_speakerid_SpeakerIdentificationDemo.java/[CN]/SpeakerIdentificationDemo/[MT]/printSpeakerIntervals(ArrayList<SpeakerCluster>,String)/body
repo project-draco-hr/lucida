@@ -1,8 +1,0 @@
-{
-  int idx=0;
-  for (  SpeakerCluster spk : speakers) {
-    idx++;
-    ArrayList<Segment> segments=spk.getSpeakerIntervals();
-    for (    Segment seg : segments)     System.out.println(fileName + " " + " "+ time(seg.getStartTime())+ " "+ time(seg.getLength())+ " Speaker"+ idx);
-  }
-}

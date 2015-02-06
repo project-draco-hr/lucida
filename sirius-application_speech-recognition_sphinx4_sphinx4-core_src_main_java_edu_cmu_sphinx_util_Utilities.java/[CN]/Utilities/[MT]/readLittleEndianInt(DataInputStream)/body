@@ -1,3 +1,0 @@
-{
-  return dataStream.readUnsignedByte() | dataStream.readUnsignedByte() << 8 | dataStream.readUnsignedByte() << 16 | dataStream.readUnsignedByte() << 24;
-}

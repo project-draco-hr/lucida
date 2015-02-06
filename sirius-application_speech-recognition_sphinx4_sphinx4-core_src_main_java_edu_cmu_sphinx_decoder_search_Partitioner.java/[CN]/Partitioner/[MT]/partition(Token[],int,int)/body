@@ -1,8 +1,0 @@
-{
-  if (tokens.length > n) {
-    return midPointSelect(tokens,0,size - 1,n,0);
-  }
- else {
-    return findBest(tokens,size);
-  }
-}

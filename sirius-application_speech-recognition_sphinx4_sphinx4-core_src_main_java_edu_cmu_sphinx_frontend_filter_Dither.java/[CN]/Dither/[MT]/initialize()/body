@@ -1,5 +1,0 @@
-{
-  super.initialize();
-  if (useRandSeed)   r=new Random();
- else   r=new Random(12345);
-}

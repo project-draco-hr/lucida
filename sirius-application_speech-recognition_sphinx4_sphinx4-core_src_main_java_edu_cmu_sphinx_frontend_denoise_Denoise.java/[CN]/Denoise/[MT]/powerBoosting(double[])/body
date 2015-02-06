@@ -1,6 +1,0 @@
-{
-  for (int i=0; i < signal.length; i++) {
-    if (signal[i] < floor[i])     signal[i]=floor[i];
-    if (signal[i] < excitationThreshold * noise[i])     signal[i]=floor[i];
-  }
-}

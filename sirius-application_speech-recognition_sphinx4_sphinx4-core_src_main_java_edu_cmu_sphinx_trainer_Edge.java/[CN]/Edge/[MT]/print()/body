@@ -1,5 +1,0 @@
-{
-  System.out.print("ID: " + id);
-  System.out.print(" | " + sourceNode);
-  System.out.println(" | " + destinationNode);
-}

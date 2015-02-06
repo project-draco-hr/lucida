@@ -1,9 +1,0 @@
-{
-  long factor=1L;
-  long id=0L;
-  for (  Senone senone : senones) {
-    id+=senone.getID() * factor;
-    factor=factor * MAX_SENONES;
-  }
-  return id;
-}

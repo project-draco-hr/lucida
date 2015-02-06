@@ -1,5 +1,0 @@
-{
-  if (occupancy < windowSize) {
-    Arrays.fill(buffer,occupancy,windowSize,0);
-  }
-}

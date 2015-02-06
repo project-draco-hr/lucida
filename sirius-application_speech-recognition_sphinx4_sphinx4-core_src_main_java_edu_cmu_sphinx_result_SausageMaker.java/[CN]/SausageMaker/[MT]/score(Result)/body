@@ -1,7 +1,0 @@
-{
-  lattice=new Lattice(result);
-  LatticeOptimizer lop=new LatticeOptimizer(lattice);
-  lop.optimize();
-  lattice.computeNodePosteriors(languageWeight);
-  return makeSausage();
-}

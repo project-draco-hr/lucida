@@ -1,4 +1,0 @@
-{
-  this.filename=filename;
-  this.transcript=transcript;
-}

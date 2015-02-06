@@ -1,6 +1,0 @@
-{
-  System.err.println("HTK loading...");
-  hmmsHTK=new HMMSet();
-  hmmsHTK.loadHTK(name);
-  System.err.println("HTK loading finished");
-}

@@ -1,8 +1,0 @@
-{
-  short bits=0x0000;
-  for (int shift=0; shift < 16; shift+=8) {
-    int byteRead=(0x00ff & dataStream.readByte());
-    bits|=(byteRead << shift);
-  }
-  return bits;
-}

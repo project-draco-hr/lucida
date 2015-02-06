@@ -1,3 +1,0 @@
-{
-  return !Float.isNaN(w) && (w >= 0);
-}

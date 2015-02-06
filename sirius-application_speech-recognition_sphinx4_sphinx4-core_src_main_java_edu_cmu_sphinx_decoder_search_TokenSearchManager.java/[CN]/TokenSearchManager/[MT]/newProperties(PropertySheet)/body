@@ -1,4 +1,0 @@
-{
-  buildWordLattice=ps.getBoolean(PROP_BUILD_WORD_LATTICE);
-  keepAllTokens=ps.getBoolean(PROP_KEEP_ALL_TOKENS);
-}

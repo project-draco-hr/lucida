@@ -1,8 +1,0 @@
-{
-  if (this.word == null) {
-    this.word=word;
-  }
- else {
-    throw new Error("Word of Pronunciation cannot be set twice.");
-  }
-}

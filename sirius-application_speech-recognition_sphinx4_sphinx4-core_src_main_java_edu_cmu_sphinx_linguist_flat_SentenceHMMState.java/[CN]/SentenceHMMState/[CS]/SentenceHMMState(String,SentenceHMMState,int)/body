@@ -1,8 +1,0 @@
-{
-  this();
-  this.name=name + which;
-  this.parent=parent;
-  setWhich(which);
-  setProcessed(false);
-  setColor(Color.RED);
-}

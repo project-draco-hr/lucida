@@ -1,7 +1,0 @@
-{
-  double snr=(totalBackgroundLevel / backgroundFrames - totalSpeechLevel / speechFrames);
-  logger.fine("Background " + totalBackgroundLevel / backgroundFrames);
-  logger.fine("Speech " + totalSpeechLevel / speechFrames);
-  logger.fine("SNR is " + snr);
-  return snr;
-}

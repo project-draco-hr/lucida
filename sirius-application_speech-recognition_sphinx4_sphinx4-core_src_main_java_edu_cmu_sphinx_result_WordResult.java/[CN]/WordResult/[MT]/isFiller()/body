@@ -1,3 +1,0 @@
-{
-  return word.isFiller() || word.toString().equals("<skip>");
-}

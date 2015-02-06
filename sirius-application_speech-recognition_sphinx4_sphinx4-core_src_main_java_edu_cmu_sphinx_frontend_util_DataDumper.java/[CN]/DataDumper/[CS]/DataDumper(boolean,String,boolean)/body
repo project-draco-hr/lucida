@@ -1,6 +1,0 @@
-{
-  initLogger();
-  this.formatter=new DecimalFormat(format,new DecimalFormatSymbols(Locale.US));
-  this.outputSignals=outputSignals;
-  this.enable=enable;
-}

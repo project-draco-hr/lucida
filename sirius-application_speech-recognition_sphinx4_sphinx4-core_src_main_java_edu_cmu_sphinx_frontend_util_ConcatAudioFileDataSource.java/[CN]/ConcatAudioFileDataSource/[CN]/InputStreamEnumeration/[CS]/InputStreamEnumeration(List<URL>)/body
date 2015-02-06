@@ -1,3 +1,0 @@
-{
-  fileIt=new ArrayList<URL>(files).iterator();
-}

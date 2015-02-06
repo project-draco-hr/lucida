@@ -1,5 +1,0 @@
-{
-  super.newProperties(ps);
-  path=ps.getString(PROP_PATH);
-  isLooping=ps.getBoolean(PROP_LOOP);
-}

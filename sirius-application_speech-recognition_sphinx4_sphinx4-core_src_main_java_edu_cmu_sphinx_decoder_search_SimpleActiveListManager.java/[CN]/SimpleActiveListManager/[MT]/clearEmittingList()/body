@@ -1,4 +1,0 @@
-{
-  ActiveList list=currentActiveLists[currentActiveLists.length - 1];
-  currentActiveLists[currentActiveLists.length - 1]=list.newInstance();
-}

@@ -1,5 +1,0 @@
-{
-  this.sourceNode=source;
-  this.destinationNode=destination;
-  this.id=id;
-}

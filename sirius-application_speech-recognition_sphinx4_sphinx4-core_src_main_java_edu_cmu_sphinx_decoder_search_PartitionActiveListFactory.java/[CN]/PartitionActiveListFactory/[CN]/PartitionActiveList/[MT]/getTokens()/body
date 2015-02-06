@@ -1,3 +1,0 @@
-{
-  return Arrays.asList(tokenList).subList(0,size);
-}

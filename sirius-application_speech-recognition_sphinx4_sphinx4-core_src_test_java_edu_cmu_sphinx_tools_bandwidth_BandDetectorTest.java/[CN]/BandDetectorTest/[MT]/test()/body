@@ -1,8 +1,0 @@
-{
-  BandDetector detector=new BandDetector();
-  String path;
-  path=new File(getClass().getResource("10001-90210-01803-8khz.wav").toURI()).getPath();
-  assertTrue(detector.bandwidth(path));
-  path=new File(getClass().getResource("10001-90210-01803.wav").toURI()).getPath();
-  assertFalse(detector.bandwidth(path));
-}

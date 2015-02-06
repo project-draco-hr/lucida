@@ -1,3 +1,0 @@
-{
-  return new Object[][]{{"preempTest","after-preemp.dump"},{"windowTest","after-window.dump"},{"fftTest","after-fft.dump"},{"melTest","after-mel.dump"},{"dctTest","after-dct.dump"},{"cmnTest","after-cmn.dump"},{"feTest","after-feature.dump"}};
-}

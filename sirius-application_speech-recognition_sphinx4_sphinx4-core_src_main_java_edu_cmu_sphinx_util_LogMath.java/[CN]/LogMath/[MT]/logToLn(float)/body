@@ -1,6 +1,0 @@
-{
-  if (logSource == LOG_ZERO) {
-    return LOG_ZERO;
-  }
-  return logSource * naturalLogBase;
-}

@@ -1,4 +1,0 @@
-{
-  super.initialize();
-  outputQueue=new LinkedList<Data>();
-}

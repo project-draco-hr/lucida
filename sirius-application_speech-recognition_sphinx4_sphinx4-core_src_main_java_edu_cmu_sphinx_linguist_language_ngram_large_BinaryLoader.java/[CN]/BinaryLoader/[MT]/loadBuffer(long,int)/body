@@ -1,8 +1,0 @@
-{
-  file.seek(position);
-  byte[] bytes=new byte[size];
-  if (file.read(bytes) != size) {
-    throw new IOException("Incorrect number of bytes read. Size = " + size + ". Position ="+ position+ ".");
-  }
-  return bytes;
-}

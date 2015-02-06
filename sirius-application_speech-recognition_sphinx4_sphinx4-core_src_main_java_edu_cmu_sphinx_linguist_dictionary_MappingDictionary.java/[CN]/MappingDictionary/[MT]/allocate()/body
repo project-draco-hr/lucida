@@ -1,4 +1,0 @@
-{
-  super.allocate();
-  if (!mappingFile.getFile().equals(""))   loadMapping(mappingFile.openStream());
-}

@@ -1,5 +1,0 @@
-{
-  this.activeListProvider=(SimpleBreadthFirstSearchManager)ps.getComponent(ACTIVE_LIST_PROVIDER);
-  this.logger=ps.getLogger();
-  logger.warning("no active list set.");
-}

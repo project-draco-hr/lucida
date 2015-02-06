@@ -1,9 +1,0 @@
-{
-  Data input=getPredecessor().getData();
-  if (input != null && ditherMax != 0) {
-    if (input instanceof DoubleData || input instanceof FloatData) {
-      input=process(input);
-    }
-  }
-  return input;
-}

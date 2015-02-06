@@ -1,8 +1,0 @@
-{
-  if (l.getState() != -1 && getState() != -1) {
-    return l.getName().equals(getName()) && l.getState() == getState();
-  }
- else {
-    return l.getName().equals(getName());
-  }
-}

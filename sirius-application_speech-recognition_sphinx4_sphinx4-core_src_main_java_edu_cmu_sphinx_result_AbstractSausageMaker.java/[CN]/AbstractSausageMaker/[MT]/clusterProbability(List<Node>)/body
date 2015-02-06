@@ -1,6 +1,0 @@
-{
-  float p=LogMath.LOG_ZERO;
-  LogMath logMath=LogMath.getInstance();
-  for (  Node node : cluster)   p=logMath.addAsLinear(p,(float)node.getPosterior());
-  return p;
-}

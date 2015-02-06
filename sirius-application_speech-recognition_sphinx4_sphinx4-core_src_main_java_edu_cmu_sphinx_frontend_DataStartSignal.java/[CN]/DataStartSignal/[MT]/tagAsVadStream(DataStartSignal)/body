@@ -1,3 +1,0 @@
-{
-  dsSignal.getProps().put(DataStartSignal.SPEECH_TAGGED_FEATURE_STREAM,true);
-}

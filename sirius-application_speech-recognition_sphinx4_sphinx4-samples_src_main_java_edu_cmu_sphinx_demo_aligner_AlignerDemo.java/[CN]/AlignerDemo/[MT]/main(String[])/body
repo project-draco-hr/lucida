@@ -1,8 +1,0 @@
-{
-  Configuration config=new Configuration();
-  config.setAcousticModelPath(MODEL_PATH);
-  config.setDictionaryPath(MODEL_PATH + "/dict/cmudict.0.6d");
-  SpeechAligner aligner=new SpeechAligner(config);
-  URL url=AlignerDemo.class.getResource("10001-90210-01803.wav");
-  for (  WordResult result : aligner.align(url,TEXT))   System.out.println(result);
-}

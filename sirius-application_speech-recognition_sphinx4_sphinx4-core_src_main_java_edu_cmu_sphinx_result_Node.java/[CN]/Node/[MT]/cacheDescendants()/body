@@ -1,4 +1,0 @@
-{
-  descendants=new HashSet<Node>();
-  cacheDescendantsHelper(this);
-}

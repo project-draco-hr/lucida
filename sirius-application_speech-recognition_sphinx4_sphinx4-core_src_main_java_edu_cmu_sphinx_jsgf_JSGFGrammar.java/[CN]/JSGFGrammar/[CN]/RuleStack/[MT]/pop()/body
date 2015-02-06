@@ -1,3 +1,0 @@
-{
-  map.remove(stack.remove(0));
-}

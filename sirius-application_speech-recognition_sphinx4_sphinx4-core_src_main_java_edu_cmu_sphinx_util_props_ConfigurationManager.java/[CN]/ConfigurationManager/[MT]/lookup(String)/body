@@ -1,7 +1,0 @@
-{
-  instanceName=getStrippedComponentName(instanceName);
-  PropertySheet ps=getPropertySheet(instanceName);
-  if (ps == null)   return null;
-  if (showCreations)   getRootLogger().config("Creating: " + instanceName);
-  return (C)ps.getOwner();
-}

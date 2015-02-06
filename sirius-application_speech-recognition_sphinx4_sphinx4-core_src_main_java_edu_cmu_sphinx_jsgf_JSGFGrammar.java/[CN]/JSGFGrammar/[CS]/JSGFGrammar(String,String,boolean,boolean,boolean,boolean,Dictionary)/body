@@ -1,3 +1,0 @@
-{
-  this(ConfigurationManagerUtils.resourceToURL(location),grammarName,showGrammar,optimizeGrammar,addSilenceWords,addFillerWords,dictionary);
-}

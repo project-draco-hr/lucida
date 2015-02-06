@@ -1,9 +1,0 @@
-{
-  Data audio=getPredecessor().getData();
-  if (audio instanceof DataStartSignal)   reset();
-  if (audio instanceof DoubleData) {
-    DoubleData data=(DoubleData)audio;
-    audio=classify(data);
-  }
-  return audio;
-}

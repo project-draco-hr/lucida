@@ -1,3 +1,0 @@
-{
-  return -1f / (2f * covar[i][j]);
-}

@@ -1,4 +1,0 @@
-{
-  Set<Unit> unitSet=nodeToUnitSetMap.get(node);
-  return unitSet.contains(hmmPool.getUnit(unitID));
-}

@@ -1,4 +1,0 @@
-{
-  audioFileIterator=audioFileList.iterator();
-  transcriptFileIterator=transcriptFileList.iterator();
-}

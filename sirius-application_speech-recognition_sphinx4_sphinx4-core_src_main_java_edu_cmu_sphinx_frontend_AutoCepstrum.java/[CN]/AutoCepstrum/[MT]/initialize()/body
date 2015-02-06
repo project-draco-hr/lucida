@@ -1,4 +1,0 @@
-{
-  super.initialize();
-  for (  DataProcessor dataProcessor : selectedDataProcessors)   dataProcessor.initialize();
-}
