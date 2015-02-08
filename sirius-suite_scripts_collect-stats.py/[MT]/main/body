@@ -1,0 +1,27 @@
+def main(args):
+    if (len(args) < 2):
+        print 'Usage: ./collect-stats.py <top-directory of kernels>'
+        return
+    kernels = ['fe', 'fd', 'gmm', 'regex', 'stemmer', 'crf', 'dnn-asr']
+    platforms = ['baseline', 'pthread', 'gpu']
+    LOOP = 10
+    kdir = args[1]
+    os.chdir(kdir)
+    if (shcom('which nvcc') == ''):
+        platforms = ['baseline', 'pthread']
+    root = os.getcwd()
+    for k in kernels:
+        d = ((os.getcwd() + '/') + k)
+        os.chdir(d)
+        kroot = os.getcwd()
+        for plat in platforms:
+            if (not os.path.isdir(plat)):
+                continue
+            os.chdir(plat)
+            for i in range(1, LOOP):
+                if (k == 'crf'):
+                    shcmd('./test-crf.sh')
+                else:
+                    shcmd('make test')
+            os.chdir(kroot)
+        os.chdir(root)

@@ -1,0 +1,30 @@
+def main(args):
+    file = args[1]
+    data = json.loads(open(file).read())
+    dict_of_lists = defaultdict(list)
+    for i in range(0, len(data)):
+        dict_of_lists[data[i]['abrv']].append(data[i][data[i]['abrv']])
+    avg = {}
+    median = {}
+    stddev = {}
+    mn = {}
+    mx = {}
+    for (k, v) in dict_of_lists.iteritems():
+        avg[k] = np.average(v)
+        median[k] = np.median(v)
+        stddev[k] = np.std(v)
+        mn[k] = min(v)
+        mx[k] = max(v)
+    print 'kernel,mean,median,stddev,min,max'
+    for base in kernels:
+        print ('%s,%.2f,%.2f,%.2f,%.2f,%.2f' % (base, avg[base], median[base], stddev[base], mn[base], mx[base]))
+    for pth in kernels:
+        base = ('pthread_' + pth)
+        print ('%s,%.2f,%.2f,%.2f,%.2f,%.2f' % (base, avg[base], median[base], stddev[base], mn[base], mx[base]))
+    if (shcom('which nvcc') == ''):
+        return
+    for gpu in kernels:
+        base = ('gpu_' + gpu)
+        if ((base == 'gpu_regex') or (base == 'gpu_crf')):
+            continue
+        print ('%s,%.2f,%.2f,%.2f,%.2f,%.2f' % (base, avg[base], median[base], stddev[base], mn[base], mx[base]))
