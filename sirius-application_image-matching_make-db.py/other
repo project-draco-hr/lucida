@@ -3,12 +3,11 @@ import subprocess, re, os, sys
 if (__name__ == '__main__'):
     pwd = os.getcwd()
     db_name = sys.argv[1]
-    ddb = ('matching/%s/db' % db_name)
-    cmd = ('./match --build %s' % ddb)
+    cmd = ('./match --build %s' % db_name)
     print cmd
     shcmd(cmd)
     pickdb = pickledb.load((db_name + '.pickle'), False)
-    imgs = os.listdir(ddb)
+    imgs = os.listdir(db_name)
     for i in imgs:
         if i.endswith('.jpg'):
             data = os.path.splitext(i)[0].split('-')
