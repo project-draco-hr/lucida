@@ -12,5 +12,8 @@ if (__name__ == '__main__'):
     host = sys.argv[1]
     port = int(sys.argv[2])
     server = ThreadedHTTPServer((host, port), Handler)
+    cmd = './server.sh'
+    global server_process
+    server_process = shback(cmd)
     print ('Starting server on %s:%s, use <Ctrl-C> to stop' % (host, port))
     server.serve_forever()

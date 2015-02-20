@@ -1,0 +1,3 @@
+def shcin(stdin_data, server):
+    out = server.communicate(input=stdin_data)[0]
+    return out
