@@ -7,7 +7,7 @@ def do_POST(self):
         f.write(form.value)
     cmd = ('./convert_sample_rate.sh %s %s8k_%s' % (filepath, dlog, filename))
     shcom(cmd)
-    filename = (dlog + filename)
+    filename = ((dlog + '8k_') + filename)
     res = shcin(filename, server_process)
     print ('Transcript: %s' % res)
     answer = ('%s\n' % res)
