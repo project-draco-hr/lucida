@@ -8,10 +8,7 @@ def record():
             f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             filename = ('input-log/' + filename)
             question = req_asr(filename).strip()
-            if ('serious' in question):
-                answer = sirius
-            else:
-                answer = req_qa(question).strip()
+            answer = req_qa(question).strip()
             data = [question, answer]
             return render_template('record.html', form=form, data=map(json.dumps, data))
     else:
