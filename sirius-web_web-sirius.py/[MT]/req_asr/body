@@ -1,8 +1,10 @@
 def req_asr(speech, return_dict=None):
+    start = time.time()
     cmd = ('wget -q -U "Mozilla/5.0" --post-file ' + str(speech))
     cmd += ' --header "Content-Type: audio/vnd.wave; rate=16000" -O - '
     cmd += make_server(ASR, ports[1])
     result = shcom(cmd)
     if (return_dict is not None):
         return_dict[speech] = result
+    print ('ASR time: %f' % float((time.time() - start)))
     return result

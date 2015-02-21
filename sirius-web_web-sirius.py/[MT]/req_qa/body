@@ -1,4 +1,5 @@
 def req_qa(text, return_dict=None):
+    start = time.time()
     words = text.split()
     query = ''
     for w in words:
@@ -11,6 +12,7 @@ def req_qa(text, return_dict=None):
         answer = resp.read()
     except BadStatusLine:
         answer = ''
+    print ('QA time: %f' % float((time.time() - start)))
     print text
     print answer
     return answer
