@@ -4,11 +4,12 @@ from httplib import BadStatusLine
 from flask import Flask, request, render_template, redirect, url_for
 from werkzeug import secure_filename
 from OpenSSL import SSL
+import time
 UPLOAD_FOLDER = 'input-log/'
 ALLOWED_EXTENSIONS = set(['wav'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-servers = ['localhost']
+servers = ['141.212.106.240']
 WEB = 8000
 QA = servers[0]
 ASR = servers[0]
@@ -25,6 +26,6 @@ if (__name__ == '__main__'):
         context = SSL.Context(SSL.SSLv3_METHOD)
         context.use_privatekey_file(pkey)
         context.use_certificate_file((os.getcwd() + '/server.crt'))
-        app.run(host='localhost', port=WEB, debug=True, ssl_context=(cert, pkey))
+        app.run(host=servers[0], port=WEB, debug=True, ssl_context=(cert, pkey))
     else:
-        app.run(host='localhost', port=WEB, debug=True)
+        app.run(host=servers[0], port=WEB, debug=True)
