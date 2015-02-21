@@ -5,7 +5,7 @@ from SocketServer import ThreadingMixIn
 import threading
 import cgi
 from datetime import datetime
-dlog = '../../input-log/'
+dlog = '../input-log/'
 if (__name__ == '__main__'):
     cmd = ('mkdir -p ' + dlog)
     shcmd(cmd)
@@ -13,7 +13,7 @@ if (__name__ == '__main__'):
     port = int(sys.argv[2])
     server = ThreadedHTTPServer((host, port), Handler)
     cmd = './server.sh'
-    global server_process
-    server_process = shback(cmd)
+    global server_pid
+    server_pid = shback(cmd)
     print ('Starting server on %s:%s, use <Ctrl-C> to stop' % (host, port))
     server.serve_forever()
