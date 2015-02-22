@@ -1,3 +1,0 @@
-{
-  return getName() + " in P" + getParent().getWhich();
-}

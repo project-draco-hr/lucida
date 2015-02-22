@@ -1,8 +1,0 @@
-{
-  Collection<String> instanceNames=new ArrayList<String>();
-  for (  PropertySheet ps : symbolTable.values()) {
-    if (!ps.isInstanciated())     continue;
-    if (ConfigurationManagerUtils.isDerivedClass(ps.getConfigurableClass(),type))     instanceNames.add(ps.getInstanceName());
-  }
-  return instanceNames;
-}

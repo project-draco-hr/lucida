@@ -1,8 +1,0 @@
-{
-  if (null == instance) {
-synchronized (LogMath.class) {
-      if (null == instance)       instance=new LogMath();
-    }
-  }
-  return instance;
-}

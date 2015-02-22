@@ -1,9 +1,0 @@
-String propsFile
-UnitManager unitManager
-boolean isBinary
-int vectorLength
-String model
-boolean tie1ph
-float distFloor
-float mixtureWeightFloor
-float varianceFloor

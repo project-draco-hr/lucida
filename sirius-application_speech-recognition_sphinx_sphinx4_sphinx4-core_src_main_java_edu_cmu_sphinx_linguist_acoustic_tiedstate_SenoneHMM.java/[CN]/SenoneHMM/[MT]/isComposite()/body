@@ -1,9 +1,0 @@
-{
-  Senone[] senones=getSenoneSequence().getSenones();
-  for (  Senone senone : senones) {
-    if (senone instanceof CompositeSenone) {
-      return true;
-    }
-  }
-  return false;
-}

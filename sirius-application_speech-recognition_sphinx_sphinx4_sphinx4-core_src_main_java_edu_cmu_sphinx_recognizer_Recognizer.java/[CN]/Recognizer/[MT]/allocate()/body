@@ -1,7 +1,0 @@
-{
-  checkState(State.DEALLOCATED);
-  setState(State.ALLOCATING);
-  decoder.allocate();
-  setState(State.ALLOCATED);
-  setState(State.READY);
-}

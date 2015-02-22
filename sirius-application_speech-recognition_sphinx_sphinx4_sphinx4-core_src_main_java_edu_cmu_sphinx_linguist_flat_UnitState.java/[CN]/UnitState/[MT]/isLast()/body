@@ -1,3 +1,0 @@
-{
-  return position == HMMPosition.SINGLE || position == HMMPosition.END;
-}

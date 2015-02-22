@@ -1,7 +1,0 @@
-{
-  List<Float> floats=new ArrayList<Float>();
-  for (  String token : getTokenList("[","]"))   floats.add(Float.parseFloat(token));
-  float[] result=new float[floats.size()];
-  for (int i=0; i < result.length; ++i)   result[i]=floats.get(i);
-  return result;
-}

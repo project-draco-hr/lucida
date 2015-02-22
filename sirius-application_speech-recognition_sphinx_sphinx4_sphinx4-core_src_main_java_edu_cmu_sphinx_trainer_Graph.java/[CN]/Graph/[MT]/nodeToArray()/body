@@ -1,3 +1,0 @@
-{
-  return nodes.toArray(new Node[nodes.size()]);
-}

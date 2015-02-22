@@ -1,7 +1,0 @@
-{
-  double[] ret=new double[doubles.size()];
-  for (int i=0; i < ret.length; i++) {
-    ret[i]=doubles.get(i).doubleValue();
-  }
-  return ret;
-}

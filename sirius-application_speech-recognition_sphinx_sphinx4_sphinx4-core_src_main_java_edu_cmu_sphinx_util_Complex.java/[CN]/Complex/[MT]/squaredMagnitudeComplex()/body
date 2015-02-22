@@ -1,5 +1,0 @@
-{
-  double squaredMag;
-  squaredMag=this.real * this.real + this.imaginary * this.imaginary;
-  return squaredMag;
-}

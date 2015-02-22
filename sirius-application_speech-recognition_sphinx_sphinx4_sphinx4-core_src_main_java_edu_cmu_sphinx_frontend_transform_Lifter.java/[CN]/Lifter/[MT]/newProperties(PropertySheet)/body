@@ -1,4 +1,0 @@
-{
-  super.newProperties(ps);
-  lifterValue=ps.getInt(PROP_LIFTER_VALUE);
-}

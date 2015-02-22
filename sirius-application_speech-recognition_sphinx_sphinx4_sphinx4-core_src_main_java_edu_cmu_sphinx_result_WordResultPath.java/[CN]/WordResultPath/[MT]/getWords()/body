@@ -1,3 +1,0 @@
-{
-  return path.toArray(new WordResult[path.size()]);
-}

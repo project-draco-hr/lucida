@@ -1,3 +1,0 @@
-{
-  computeNodePosteriors(languageModelWeightAdjustment,false);
-}

@@ -1,4 +1,0 @@
-float sampleRate
-int sampleSize
-boolean signed
-boolean bigEndian

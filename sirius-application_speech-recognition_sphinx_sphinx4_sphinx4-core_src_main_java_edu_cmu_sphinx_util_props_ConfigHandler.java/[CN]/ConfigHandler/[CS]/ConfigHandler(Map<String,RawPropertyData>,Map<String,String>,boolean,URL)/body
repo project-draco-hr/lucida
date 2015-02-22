@@ -1,6 +1,0 @@
-{
-  this.rpdMap=rpdMap;
-  this.globalProperties=globalProperties;
-  this.replaceDuplicates=replaceDuplicates;
-  this.baseURL=baseURL;
-}

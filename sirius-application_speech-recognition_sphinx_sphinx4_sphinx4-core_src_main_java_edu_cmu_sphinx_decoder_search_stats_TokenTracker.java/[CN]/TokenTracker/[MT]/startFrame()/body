@@ -1,5 +1,0 @@
-{
-  if (enabled) {
-    stateMap=new HashMap<Object,TokenStats>();
-  }
-}

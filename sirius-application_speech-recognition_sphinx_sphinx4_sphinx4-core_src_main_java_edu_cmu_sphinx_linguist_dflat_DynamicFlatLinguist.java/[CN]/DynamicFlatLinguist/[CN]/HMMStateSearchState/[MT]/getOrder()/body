@@ -1,3 +1,0 @@
-{
-  return isEmitting() ? 4 : 0;
-}

@@ -1,5 +1,0 @@
-{
-  audioSource.setInputStream(stream);
-  ArrayList<float[]> features=getFeatures();
-  return cluster(features);
-}

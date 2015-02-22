@@ -1,5 +1,0 @@
-{
-  Node n=new Node(word,beginTime,endTime);
-  addNode(n);
-  return n;
-}

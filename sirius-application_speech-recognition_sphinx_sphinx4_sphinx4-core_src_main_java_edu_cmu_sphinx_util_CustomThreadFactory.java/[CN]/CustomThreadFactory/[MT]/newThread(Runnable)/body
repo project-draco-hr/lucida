@@ -1,6 +1,0 @@
-{
-  Thread t=new Thread(group,r,namePrefix + threadNumber.getAndIncrement(),0);
-  if (t.isDaemon() != daemon)   t.setDaemon(daemon);
-  if (t.getPriority() != priority)   t.setPriority(priority);
-  return t;
-}

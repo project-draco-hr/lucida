@@ -1,8 +1,0 @@
-{
-  numUtterances=0;
-  numOutOfGrammarUtterances=0;
-  numCorrectOutOfGrammarUtterances=0;
-  numFalseOutOfGrammarUtterances=0;
-  numCorrectInGrammarUtterances=0;
-  numFalseInGrammarUtterances=0;
-}

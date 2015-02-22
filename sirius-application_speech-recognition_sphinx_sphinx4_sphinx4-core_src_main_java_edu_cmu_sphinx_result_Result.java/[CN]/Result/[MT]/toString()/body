@@ -1,9 +1,0 @@
-{
-  Token token=getBestToken();
-  if (token == null) {
-    return "";
-  }
- else {
-    return token.getWordPath();
-  }
-}

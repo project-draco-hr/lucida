@@ -1,4 +1,0 @@
-int numSamples
-int blockSize
-int sampleRate
-int offSet

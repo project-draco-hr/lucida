@@ -1,7 +1,0 @@
-{
-  if (!key.startsWith("${"))   return key;
-  while (true) {
-    key=globalProperties.get(key);
-    if (key == null || !(key.startsWith("${") && key.endsWith("}")))     return key;
-  }
-}

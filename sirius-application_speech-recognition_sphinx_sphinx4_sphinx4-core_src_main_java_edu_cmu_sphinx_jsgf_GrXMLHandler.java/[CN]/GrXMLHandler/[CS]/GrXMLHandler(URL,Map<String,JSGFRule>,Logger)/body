@@ -1,5 +1,0 @@
-{
-  this.baseURL=baseURL;
-  this.topRuleMap=rules;
-  this.logger=logger;
-}

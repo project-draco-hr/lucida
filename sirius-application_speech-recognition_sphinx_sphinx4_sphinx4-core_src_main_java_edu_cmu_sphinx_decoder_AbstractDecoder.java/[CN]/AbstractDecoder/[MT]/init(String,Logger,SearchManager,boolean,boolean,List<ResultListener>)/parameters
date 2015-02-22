@@ -1,6 +1,0 @@
-String name
-Logger logger
-SearchManager searchManager
-boolean fireNonFinalResults
-boolean autoAllocate
-List<ResultListener> listeners

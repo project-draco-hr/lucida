@@ -1,9 +1,0 @@
-{
-  if (history.size() > which) {
-    return history.get(which);
-  }
- else {
-    putResponse("command not found");
-    return "";
-  }
-}

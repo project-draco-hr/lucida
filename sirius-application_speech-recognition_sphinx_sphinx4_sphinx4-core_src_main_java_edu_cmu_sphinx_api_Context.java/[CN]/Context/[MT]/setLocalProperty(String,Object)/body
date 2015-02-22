@@ -1,3 +1,0 @@
-{
-  setProperty(configurationManager,name,value.toString());
-}

@@ -1,4 +1,0 @@
-{
-  edges=new ArrayList<Edge>();
-  nodes=new ArrayList<Node>();
-}

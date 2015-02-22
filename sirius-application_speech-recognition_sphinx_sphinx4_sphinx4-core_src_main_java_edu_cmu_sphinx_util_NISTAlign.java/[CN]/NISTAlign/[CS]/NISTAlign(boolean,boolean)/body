@@ -1,5 +1,0 @@
-{
-  this.showResults=showResults;
-  this.showAlignedResults=showAlignedResults;
-  resetTotals();
-}

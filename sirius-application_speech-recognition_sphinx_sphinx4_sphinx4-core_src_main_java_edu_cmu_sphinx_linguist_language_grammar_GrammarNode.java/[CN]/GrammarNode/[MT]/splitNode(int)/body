@@ -1,7 +1,0 @@
-{
-  GrammarNode branchNode=new GrammarNode(id,false);
-  branchNode.arcList=arcList;
-  arcList=new ArrayList<GrammarArc>();
-  add(branchNode,0.0f);
-  return branchNode;
-}

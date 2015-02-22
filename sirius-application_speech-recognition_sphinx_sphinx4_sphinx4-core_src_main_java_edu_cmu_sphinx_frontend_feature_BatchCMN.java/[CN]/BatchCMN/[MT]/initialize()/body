@@ -1,5 +1,0 @@
-{
-  super.initialize();
-  sums=null;
-  cepstraList=new LinkedList<Data>();
-}

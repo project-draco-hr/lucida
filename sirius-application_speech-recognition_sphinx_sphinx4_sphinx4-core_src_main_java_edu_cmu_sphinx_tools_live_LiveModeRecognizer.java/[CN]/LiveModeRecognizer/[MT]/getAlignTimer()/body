@@ -1,3 +1,0 @@
-{
-  return TimerPool.getTimer(this,"Align");
-}

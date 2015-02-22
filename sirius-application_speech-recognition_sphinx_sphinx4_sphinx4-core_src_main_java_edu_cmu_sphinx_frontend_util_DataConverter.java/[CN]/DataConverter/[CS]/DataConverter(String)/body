@@ -1,4 +1,0 @@
-{
-  initLogger();
-  this.convMode=convMode;
-}

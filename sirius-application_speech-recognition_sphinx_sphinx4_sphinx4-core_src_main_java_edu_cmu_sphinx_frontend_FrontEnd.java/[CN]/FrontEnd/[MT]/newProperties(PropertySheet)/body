@@ -1,5 +1,0 @@
-{
-  super.newProperties(ps);
-  frontEndList=ps.getComponentList(PROP_PIPELINE,DataProcessor.class);
-  init();
-}

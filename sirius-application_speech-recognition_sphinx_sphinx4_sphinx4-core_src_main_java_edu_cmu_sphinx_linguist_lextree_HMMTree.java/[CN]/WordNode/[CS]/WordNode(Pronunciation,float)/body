@@ -1,5 +1,0 @@
-{
-  super(probability);
-  this.pronunciation=pronunciation;
-  this.isFinal=pronunciation.getWord().isSentenceEndWord();
-}

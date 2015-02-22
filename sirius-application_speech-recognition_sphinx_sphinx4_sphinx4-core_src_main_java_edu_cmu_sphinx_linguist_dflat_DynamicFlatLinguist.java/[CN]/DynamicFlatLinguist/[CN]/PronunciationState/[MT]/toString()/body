@@ -1,3 +1,0 @@
-{
-  return pronunciation.getWord().getSpelling();
-}

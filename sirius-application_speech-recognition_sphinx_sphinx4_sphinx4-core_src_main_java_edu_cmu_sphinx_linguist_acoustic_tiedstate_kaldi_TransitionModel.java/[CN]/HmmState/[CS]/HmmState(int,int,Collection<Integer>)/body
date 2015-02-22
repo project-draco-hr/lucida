@@ -1,5 +1,0 @@
-{
-  this.id=id;
-  this.pdfClass=pdfClass;
-  this.transitions=new ArrayList<Integer>(transitions);
-}

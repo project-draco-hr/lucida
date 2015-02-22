@@ -1,3 +1,0 @@
-Pool<float[]> pool
-String path
-boolean append

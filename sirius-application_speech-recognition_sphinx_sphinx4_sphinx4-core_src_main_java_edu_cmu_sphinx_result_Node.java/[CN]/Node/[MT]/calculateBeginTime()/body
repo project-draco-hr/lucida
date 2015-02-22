@@ -1,8 +1,0 @@
-{
-  beginTime=0;
-  for (  Edge edge : enteringEdges) {
-    if (edge.getFromNode().getEndTime() > beginTime) {
-      beginTime=edge.getFromNode().getEndTime();
-    }
-  }
-}

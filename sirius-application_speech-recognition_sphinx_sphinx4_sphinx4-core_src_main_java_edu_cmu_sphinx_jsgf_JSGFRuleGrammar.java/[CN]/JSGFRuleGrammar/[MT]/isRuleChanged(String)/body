@@ -1,4 +1,0 @@
-{
-  JSGFRuleState state=rules.get(ruleName);
-  return state.isChanged;
-}

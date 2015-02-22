@@ -1,3 +1,0 @@
-{
-  importDocComments.put(imp.toString(),comment);
-}

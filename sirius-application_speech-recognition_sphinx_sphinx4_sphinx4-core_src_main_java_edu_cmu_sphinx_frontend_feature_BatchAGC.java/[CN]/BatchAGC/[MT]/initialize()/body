@@ -1,4 +1,0 @@
-{
-  super.initialize();
-  cepstraList=new LinkedList<Data>();
-}

@@ -1,5 +1,0 @@
-{
-  if (jj_scan_token(29))   return true;
-  if (jj_scan_token(IDENTIFIER))   return true;
-  return false;
-}

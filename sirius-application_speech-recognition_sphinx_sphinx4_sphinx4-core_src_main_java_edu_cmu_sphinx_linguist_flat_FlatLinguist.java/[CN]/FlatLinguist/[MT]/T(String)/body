@@ -1,5 +1,0 @@
-{
-  if (tracing) {
-    System.out.println(s);
-  }
-}

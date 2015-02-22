@@ -1,3 +1,0 @@
-{
-  return (this.startTime == ref.startTime) ? 1 : 0;
-}

@@ -1,9 +1,0 @@
-{
-  String ref=result.getReferenceText();
-  if (result.isFinal() && ref != null) {
-    String hyp=result.getBestResultNoFiller();
-    getAligner().align(ref,hyp);
-    showFullPath(result);
-    showDetails(result.toString());
-  }
-}

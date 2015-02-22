@@ -1,8 +1,0 @@
-{
-  if (symbolTable.containsKey(name))   throw new IllegalArgumentException("tried to override existing component name");
-  RawPropertyData dummyRPD=new RawPropertyData(name,configurable.getClass().getName());
-  PropertySheet ps=new PropertySheet(configurable,name,dummyRPD,this);
-  symbolTable.put(name,ps);
-  rawPropertyMap.put(name,dummyRPD);
-  for (  ConfigurationChangeListener changeListener : changeListeners)   changeListener.componentAdded(this,ps);
-}

@@ -1,4 +1,0 @@
-{
-  successors=new SearchStateArc[1];
-  successors[0]=fbs;
-}

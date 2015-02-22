@@ -1,5 +1,0 @@
-{
-  resultList=new LinkedList<Token>();
-  createBestTokenMap();
-  activeListManager.clearEmittingList();
-}

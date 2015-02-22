@@ -1,4 +1,0 @@
-{
-  super.newProperties(ps);
-  bfaGrammar=(BatchForcedAlignerGrammar)ps.getComponent("forcedAlignerGrammar");
-}

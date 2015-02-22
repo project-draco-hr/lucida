@@ -1,4 +1,0 @@
-{
-  this.batchFile=filename;
-  this.skip=skip;
-}

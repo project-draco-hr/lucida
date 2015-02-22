@@ -1,5 +1,0 @@
-{
-  this.audio=audio;
-  selectionStart=0;
-  selectionEnd=audio.getAudioData().length;
-}

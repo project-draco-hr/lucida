@@ -1,5 +1,0 @@
-{
-  assert(rules.size() == weights.size());
-  setRules(rules);
-  setWeights(weights);
-}

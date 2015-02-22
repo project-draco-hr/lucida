@@ -1,7 +1,0 @@
-{
-  File[] match=inputDir.listFiles(testFileFilter);
-  if (match.length > 0) {
-    return match[0];
-  }
-  return null;
-}

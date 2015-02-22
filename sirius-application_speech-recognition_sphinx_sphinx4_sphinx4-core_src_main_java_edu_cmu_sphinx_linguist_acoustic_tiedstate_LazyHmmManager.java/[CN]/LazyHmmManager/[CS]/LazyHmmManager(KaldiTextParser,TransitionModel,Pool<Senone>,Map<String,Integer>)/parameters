@@ -1,4 +1,0 @@
-KaldiTextParser parser
-TransitionModel transitionModel
-Pool<Senone> senonePool
-Map<String,Integer> symbolTable

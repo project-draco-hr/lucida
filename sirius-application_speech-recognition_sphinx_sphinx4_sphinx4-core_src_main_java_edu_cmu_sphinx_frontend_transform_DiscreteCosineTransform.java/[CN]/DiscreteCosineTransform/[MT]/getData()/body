@@ -1,9 +1,0 @@
-{
-  Data input=getPredecessor().getData();
-  getTimer().start();
-  if (input != null && input instanceof DoubleData) {
-    input=process((DoubleData)input);
-  }
-  getTimer().stop();
-  return input;
-}

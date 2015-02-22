@@ -1,4 +1,0 @@
-{
-  Set<GrammarNode> nodes=getGrammarNodes();
-  for (  GrammarNode node : nodes)   node.optimize();
-}

@@ -1,4 +1,0 @@
-{
-  Unit[] units=pronunciation.getUnits();
-  return units[units.length - 1];
-}

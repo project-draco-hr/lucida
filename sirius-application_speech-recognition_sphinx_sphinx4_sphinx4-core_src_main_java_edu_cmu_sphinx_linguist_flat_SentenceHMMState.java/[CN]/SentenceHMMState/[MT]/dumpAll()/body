@@ -1,9 +1,0 @@
-{
-  visitStates(new SentenceHMMStateVisitor(){
-    public boolean visit(    SentenceHMMState state){
-      state.dump();
-      return false;
-    }
-  }
-,this,true);
-}

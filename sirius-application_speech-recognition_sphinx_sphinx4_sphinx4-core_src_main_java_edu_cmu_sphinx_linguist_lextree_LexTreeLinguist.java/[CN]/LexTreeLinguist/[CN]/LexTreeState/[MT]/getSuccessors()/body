@@ -1,8 +1,0 @@
-{
-  SearchStateArc[] arcs=getCachedArcs();
-  if (arcs == null) {
-    arcs=getSuccessors(node);
-    putCachedArcs(arcs);
-  }
-  return arcs;
-}

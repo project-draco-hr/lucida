@@ -1,5 +1,0 @@
-{
-  for (  String path : allPaths()) {
-    System.out.println(path);
-  }
-}

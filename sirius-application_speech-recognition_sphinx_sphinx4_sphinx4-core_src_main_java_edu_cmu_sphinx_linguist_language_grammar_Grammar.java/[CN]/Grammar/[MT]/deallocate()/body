@@ -1,5 +1,0 @@
-{
-  initialNode=null;
-  grammarNodes=null;
-  dictionary.deallocate();
-}

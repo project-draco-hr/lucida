@@ -1,4 +1,0 @@
-{
-  super(frontEnd,scoreNormalizer);
-  init(minScoreablesPerThread,cpuRelative,numThreads,threadPriority);
-}

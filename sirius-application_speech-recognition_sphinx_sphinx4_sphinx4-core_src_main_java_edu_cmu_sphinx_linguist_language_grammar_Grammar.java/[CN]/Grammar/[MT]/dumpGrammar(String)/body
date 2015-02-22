@@ -1,3 +1,0 @@
-{
-  getInitialNode().dumpDot(name);
-}

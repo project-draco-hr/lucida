@@ -1,7 +1,0 @@
-{
-  if (absoluteBeamWidth > 0 && tokenList.size() > absoluteBeamWidth) {
-    Collections.sort(tokenList,Scoreable.COMPARATOR);
-    tokenList=tokenList.subList(0,absoluteBeamWidth);
-  }
-  return this;
-}

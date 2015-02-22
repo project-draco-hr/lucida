@@ -1,7 +1,0 @@
-{
-  Data data=readData();
-  while (data != null && !(data instanceof DataEndSignal) && !(data instanceof DataStartSignal) && !(data instanceof SpeechEndSignal) && !inSpeech) {
-    data=readData();
-  }
-  return data;
-}

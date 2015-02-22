@@ -1,6 +1,0 @@
-{
-  initLogger();
-  this.loader=loader;
-  loader.load();
-  initDataProcessors();
-}

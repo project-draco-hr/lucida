@@ -1,3 +1,0 @@
-{
-  putSuccessor(wordNode,wordNode);
-}

@@ -1,7 +1,0 @@
-{
-  int middle=(start + end) >>> 1;
-  Token temp=tokens[end];
-  setToken(tokens,end,tokens[middle]);
-  setToken(tokens,middle,temp);
-  return endPointPartition(tokens,start,end);
-}

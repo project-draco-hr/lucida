@@ -1,6 +1,0 @@
-{
-  if (acousticModel != null) {
-    acousticModel.deallocate();
-  }
-  grammar.deallocate();
-}

@@ -1,3 +1,0 @@
-{
-  System.out.println("Frame: " + frameNumber + " states: "+ stateCount+ " histories "+ statMap.size());
-}

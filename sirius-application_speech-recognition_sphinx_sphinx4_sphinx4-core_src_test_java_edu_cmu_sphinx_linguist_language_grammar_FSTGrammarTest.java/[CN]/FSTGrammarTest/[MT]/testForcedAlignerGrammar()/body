@@ -1,9 +1,0 @@
-{
-  URL dictionaryUrl=getClass().getResource("FSTGrammarTest.dic");
-  URL noisedictUrl=getClass().getResource("/edu/cmu/sphinx/models/acoustic/wsj/noisedict");
-  Dictionary dictionary=new FastDictionary(dictionaryUrl,noisedictUrl,null,false,null,false,false,new UnitManager());
-  URL url=getClass().getResource("FSTGrammarTest.gram");
-  FSTGrammar grammar=new FSTGrammar(new File(url.toURI()).getPath(),true,true,true,true,dictionary);
-  grammar.allocate();
-  assertThat(grammar.getGrammarNodes(),hasSize(14));
-}

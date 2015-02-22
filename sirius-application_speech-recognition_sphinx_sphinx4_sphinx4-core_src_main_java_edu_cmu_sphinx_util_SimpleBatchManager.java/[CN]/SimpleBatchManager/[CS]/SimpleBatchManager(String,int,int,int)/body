@@ -1,6 +1,0 @@
-{
-  this.batchFile=filename;
-  this.skip=skip;
-  this.whichBatch=whichBatch;
-  this.totalBatches=totalBatches;
-}

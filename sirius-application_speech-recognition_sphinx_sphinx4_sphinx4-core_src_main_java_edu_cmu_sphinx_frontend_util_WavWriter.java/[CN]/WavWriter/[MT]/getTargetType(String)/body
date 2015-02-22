@@ -1,9 +1,0 @@
-{
-  AudioFileFormat.Type[] typesSupported=AudioSystem.getAudioFileTypes();
-  for (  AudioFileFormat.Type aTypesSupported : typesSupported) {
-    if (aTypesSupported.getExtension().equals(extension)) {
-      return aTypesSupported;
-    }
-  }
-  return null;
-}

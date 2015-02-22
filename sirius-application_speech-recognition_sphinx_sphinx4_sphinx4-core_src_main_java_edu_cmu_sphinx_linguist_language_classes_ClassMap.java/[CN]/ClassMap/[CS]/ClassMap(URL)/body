@@ -1,5 +1,0 @@
-{
-  this.logger=Logger.getLogger(getClass().getName());
-  this.classDefsLocation=classDefsLocation;
-  logMath=LogMath.getInstance();
-}

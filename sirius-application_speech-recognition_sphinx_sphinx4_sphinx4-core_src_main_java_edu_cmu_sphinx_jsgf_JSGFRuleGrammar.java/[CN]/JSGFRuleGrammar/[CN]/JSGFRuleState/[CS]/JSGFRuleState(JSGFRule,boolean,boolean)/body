@@ -1,6 +1,0 @@
-{
-  this.rule=rule;
-  this.isPublic=isPublic;
-  this.isEnabled=isEnabled;
-  this.samples=new ArrayList<String>();
-}

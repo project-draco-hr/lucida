@@ -1,9 +1,0 @@
-{
-  if (weights == null)   allocateWeights();
-  if (means == null) {
-    loglikes=new float[ngauss];
-    means=new float[ngauss][ncoefs];
-    covar=new float[ngauss][ncoefs];
-    logPreComputedGaussianFactor=new float[ngauss];
-  }
-}

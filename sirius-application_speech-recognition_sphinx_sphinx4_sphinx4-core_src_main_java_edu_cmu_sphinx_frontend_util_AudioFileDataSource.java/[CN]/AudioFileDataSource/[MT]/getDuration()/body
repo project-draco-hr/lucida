@@ -1,3 +1,0 @@
-{
-  return (long)(((double)totalValuesRead / (double)sampleRate) * 1000.0);
-}

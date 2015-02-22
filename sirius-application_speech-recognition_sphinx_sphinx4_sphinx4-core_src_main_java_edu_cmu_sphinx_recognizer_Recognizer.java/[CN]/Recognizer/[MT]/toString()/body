@@ -1,3 +1,0 @@
-{
-  return "Recognizer: " + name + " State: "+ currentState;
-}

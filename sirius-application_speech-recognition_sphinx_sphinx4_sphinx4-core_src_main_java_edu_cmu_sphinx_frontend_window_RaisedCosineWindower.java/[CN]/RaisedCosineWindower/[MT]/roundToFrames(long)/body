@@ -1,9 +1,0 @@
-{
-  int windowSize=DataUtil.getSamplesPerWindow(sampleRate,windowSizeInMs);
-  int windowShift=DataUtil.getSamplesPerShift(sampleRate,windowShiftInMs);
-  long mxNumShifts=samples / windowShift;
-  for (int i=(int)mxNumShifts; ; i--) {
-    long remainingSamples=samples - windowShift * i;
-    if (remainingSamples > windowSize)     return windowShift * (i + 1) + windowSize;
-  }
-}

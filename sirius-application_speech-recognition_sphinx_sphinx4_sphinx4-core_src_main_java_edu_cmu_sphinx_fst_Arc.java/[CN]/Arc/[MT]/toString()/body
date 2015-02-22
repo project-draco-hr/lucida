@@ -1,3 +1,0 @@
-{
-  return "(" + iLabel + ", "+ oLabel+ ", "+ weight+ ", "+ nextState+ ")";
-}

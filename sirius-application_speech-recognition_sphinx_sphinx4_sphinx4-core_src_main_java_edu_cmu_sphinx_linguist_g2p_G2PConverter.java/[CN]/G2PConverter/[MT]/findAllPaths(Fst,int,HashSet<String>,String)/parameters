@@ -1,4 +1,0 @@
-Fst fst
-int nbest
-HashSet<String> skipSeqs
-String tie

@@ -1,9 +1,0 @@
-{
-  lock();
-  try {
-    closeStdout();
-  }
-  finally {
-    unlock();
-  }
-}

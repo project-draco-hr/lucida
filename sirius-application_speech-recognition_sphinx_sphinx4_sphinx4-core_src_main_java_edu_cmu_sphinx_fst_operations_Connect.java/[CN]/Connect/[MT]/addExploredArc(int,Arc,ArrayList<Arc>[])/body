@@ -1,6 +1,0 @@
-{
-  if (exploredArcs[stateId] == null) {
-    exploredArcs[stateId]=new ArrayList<Arc>();
-  }
-  exploredArcs[stateId].add(arc);
-}

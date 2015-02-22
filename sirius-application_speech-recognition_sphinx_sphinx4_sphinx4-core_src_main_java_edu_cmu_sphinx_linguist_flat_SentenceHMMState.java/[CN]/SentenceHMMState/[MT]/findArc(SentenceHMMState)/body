@@ -1,3 +1,0 @@
-{
-  return arcs.get(state.getValueSignature());
-}

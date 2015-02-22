@@ -1,6 +1,0 @@
-{
-  System.out.println("Dumping Tree ...");
-  Map<Node,Node> dupNode=new HashMap<Node,Node>();
-  dumpTree(0,getInitialNode(),dupNode);
-  System.out.println("... done Dumping Tree");
-}

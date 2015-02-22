@@ -1,3 +1,0 @@
-{
-  return input.isEmpty() ? null : input.remove(0);
-}

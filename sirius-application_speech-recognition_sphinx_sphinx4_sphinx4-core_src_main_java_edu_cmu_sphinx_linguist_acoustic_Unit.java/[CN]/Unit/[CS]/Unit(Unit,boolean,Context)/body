@@ -1,8 +1,0 @@
-{
-  this.name=baseUnit.getName();
-  this.filler=filler;
-  this.silence=name.equals(UnitManager.SILENCE_NAME);
-  this.baseID=baseUnit.getBaseID();
-  this.baseUnit=baseUnit;
-  this.context=context;
-}

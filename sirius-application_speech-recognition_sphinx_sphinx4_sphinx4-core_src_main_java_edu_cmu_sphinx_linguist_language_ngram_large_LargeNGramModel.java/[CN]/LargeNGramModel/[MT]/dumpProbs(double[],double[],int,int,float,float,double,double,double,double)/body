@@ -1,8 +1,0 @@
-{
-  System.out.println("ubo " + ugprob + ' '+ bgprob+ ' '+ backoffbgprob);
-  System.out.println("logubo " + logugprob + ' '+ logbgprob+ ' '+ logbackoffbgprob);
-  System.out.println("n/d " + j + ' '+ ugNumerator[i]+ ' '+ ugDenominator[i]);
-  System.out.print(ugprob + " " + bgprob+ ' '+ backoffbgprob);
-  System.out.print(" " + logugprob + ' '+ logbgprob+ ' '+ logbackoffbgprob);
-  System.out.println("  " + ugNumerator[i] + ' '+ ugDenominator[i]);
-}

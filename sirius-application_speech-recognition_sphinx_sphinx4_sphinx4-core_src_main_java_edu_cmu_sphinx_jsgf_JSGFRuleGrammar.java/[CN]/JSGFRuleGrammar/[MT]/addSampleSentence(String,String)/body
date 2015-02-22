@@ -1,7 +1,0 @@
-{
-  JSGFRuleState state=rules.get(ruleName);
-  if (state == null) {
-    return;
-  }
-  state.samples.add(sample);
-}

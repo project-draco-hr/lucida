@@ -1,5 +1,0 @@
-Pool<float[][]> pool
-int hmmId
-int numEmittingStates
-float floor
-boolean skip

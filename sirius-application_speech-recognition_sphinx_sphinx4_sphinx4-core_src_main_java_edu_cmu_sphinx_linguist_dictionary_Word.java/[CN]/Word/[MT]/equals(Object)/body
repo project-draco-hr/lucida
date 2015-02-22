@@ -1,3 +1,0 @@
-{
-  return obj instanceof Word && spelling.equals(((Word)obj).spelling);
-}

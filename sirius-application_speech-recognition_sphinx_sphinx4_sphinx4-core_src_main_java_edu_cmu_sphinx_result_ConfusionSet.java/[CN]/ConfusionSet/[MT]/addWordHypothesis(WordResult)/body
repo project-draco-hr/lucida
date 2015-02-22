@@ -1,8 +1,0 @@
-{
-  Set<WordResult> wordSet=getWordSet(word.getConfidence());
-  if (wordSet == null) {
-    wordSet=new HashSet<WordResult>();
-    put(word.getConfidence(),wordSet);
-  }
-  wordSet.add(word);
-}

@@ -1,6 +1,0 @@
-{
-  logAcousticScore=((ScoreProvider)searchState).getScore(feature);
-  logTotalScore+=logAcousticScore;
-  setData(feature);
-  return logTotalScore;
-}

@@ -1,5 +1,0 @@
-{
-  this.spelling=spelling;
-  this.pronunciations=pronunciations;
-  this.isFiller=isFiller;
-}

@@ -1,3 +1,0 @@
-{
-  super(hmmNode,wordSequence,smearTerm,smearProb,hmmState,logOne,probability,parentNode,collapsed);
-}

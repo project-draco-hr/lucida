@@ -1,3 +1,0 @@
-{
-  return "SpeechClassifiedData containing " + data.toString() + " classified as "+ (isSpeech ? "speech" : "non-speech");
-}

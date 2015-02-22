@@ -1,4 +1,0 @@
-{
-  microphone.stopRecording();
-  recognizer.deallocate();
-}

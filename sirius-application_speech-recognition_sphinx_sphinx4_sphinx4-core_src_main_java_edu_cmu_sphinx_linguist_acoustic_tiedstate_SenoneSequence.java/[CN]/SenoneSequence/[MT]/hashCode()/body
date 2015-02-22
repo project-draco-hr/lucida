@@ -1,7 +1,0 @@
-{
-  int hashCode=31;
-  for (  Senone senone : senones) {
-    hashCode=hashCode * 91 + senone.hashCode();
-  }
-  return hashCode;
-}

@@ -1,7 +1,0 @@
-{
-  Data frame=getPredecessor().getData();
-  if (frame != null) {
-    id++;
-  }
-  return frame;
-}

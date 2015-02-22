@@ -1,9 +1,0 @@
-{
-  if (skipHMMs && (state instanceof HMMSearchState)) {
-  }
- else {
-    String color=getColor(state);
-    String shape="box";
-    out.println("    node: {" + "title: " + qs(getUniqueName(state)) + " label: "+ qs(state.toPrettyString())+ " color: "+ color+ " shape: "+ shape+ " vertical_order: "+ level+ '}');
-  }
-}

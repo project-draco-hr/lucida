@@ -1,3 +1,0 @@
-{
-  words=new StringTokenizer(transcript,wordSeparator);
-}

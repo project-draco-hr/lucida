@@ -1,9 +1,0 @@
-{
-  super.initialize();
-  streamEndReached=false;
-  utteranceEndSent=false;
-  utteranceStarted=false;
-  if (bytesPerRead % 2 == 1) {
-    bytesPerRead++;
-  }
-}

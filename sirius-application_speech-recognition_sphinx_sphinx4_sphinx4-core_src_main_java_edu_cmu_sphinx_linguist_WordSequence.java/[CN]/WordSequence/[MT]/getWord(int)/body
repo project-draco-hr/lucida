@@ -1,6 +1,0 @@
-{
-  if (n >= words.length) {
-    throw new ArrayIndexOutOfBoundsException(n);
-  }
-  return words[n];
-}

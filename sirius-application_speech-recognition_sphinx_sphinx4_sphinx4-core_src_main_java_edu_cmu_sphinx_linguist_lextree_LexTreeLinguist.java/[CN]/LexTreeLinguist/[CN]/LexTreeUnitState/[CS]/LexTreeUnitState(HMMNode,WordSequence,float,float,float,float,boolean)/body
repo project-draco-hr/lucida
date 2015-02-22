@@ -1,3 +1,0 @@
-{
-  this(hmmNode,wordSequence,smearTerm,smearProb,languageProbability,insertionProbability,null,collapsed);
-}

@@ -1,5 +1,0 @@
-{
-  for (  float val : data) {
-    writeFloat(dos,val);
-  }
-}

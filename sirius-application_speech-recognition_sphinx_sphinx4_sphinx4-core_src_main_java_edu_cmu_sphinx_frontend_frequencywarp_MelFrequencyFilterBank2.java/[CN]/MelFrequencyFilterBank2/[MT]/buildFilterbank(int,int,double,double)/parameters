@@ -1,4 +1,0 @@
-int windowLength
-int numberFilters
-double minFreq
-double maxFreq

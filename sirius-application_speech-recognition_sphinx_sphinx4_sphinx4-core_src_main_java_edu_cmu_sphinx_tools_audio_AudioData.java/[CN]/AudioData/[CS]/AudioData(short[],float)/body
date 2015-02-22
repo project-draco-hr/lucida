@@ -1,4 +1,0 @@
-{
-  this.shorts=data;
-  this.format=new AudioFormat(sampleRate,16,1,true,false);
-}

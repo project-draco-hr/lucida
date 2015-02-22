@@ -1,3 +1,0 @@
-{
-  init(ps.getString(PROP_LOCATION),(UnitManager)ps.getComponent(PROP_UNIT_MANAGER));
-}

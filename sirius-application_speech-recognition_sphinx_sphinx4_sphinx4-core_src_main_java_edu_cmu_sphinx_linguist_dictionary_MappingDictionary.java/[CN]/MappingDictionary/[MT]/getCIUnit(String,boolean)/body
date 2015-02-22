@@ -1,6 +1,0 @@
-{
-  if (mapping.containsKey(name)) {
-    name=mapping.get(name);
-  }
-  return unitManager.getUnit(name,isFiller,Context.EMPTY_CONTEXT);
-}

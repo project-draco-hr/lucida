@@ -1,8 +1,0 @@
-{
-  currentState=newState;
-synchronized (stateListeners) {
-    for (    StateListener sl : stateListeners) {
-      sl.statusChanged(currentState);
-    }
-  }
-}

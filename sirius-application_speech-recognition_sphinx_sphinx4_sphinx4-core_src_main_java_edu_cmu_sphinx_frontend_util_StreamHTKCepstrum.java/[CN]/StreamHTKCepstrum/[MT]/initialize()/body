@@ -1,5 +1,0 @@
-{
-  super.initialize();
-  curPoint=-1;
-  firstSampleNumber=0;
-}

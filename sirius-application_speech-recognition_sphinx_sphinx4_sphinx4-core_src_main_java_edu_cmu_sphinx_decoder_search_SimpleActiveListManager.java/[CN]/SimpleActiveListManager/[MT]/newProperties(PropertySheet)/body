@@ -1,5 +1,0 @@
-{
-  logger=ps.getLogger();
-  activeListFactories=ps.getComponentList(PROP_ACTIVE_LIST_FACTORIES,ActiveListFactory.class);
-  checkPriorLists=ps.getBoolean(PROP_CHECK_PRIOR_LISTS_EMPTY);
-}

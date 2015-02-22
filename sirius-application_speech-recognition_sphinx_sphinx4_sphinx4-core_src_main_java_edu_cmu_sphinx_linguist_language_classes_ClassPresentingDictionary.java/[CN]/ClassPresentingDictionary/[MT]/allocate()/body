@@ -1,7 +1,0 @@
-{
-  if (!allocated) {
-    allocated=true;
-    wordDictionary.allocate();
-    classMap.allocate();
-  }
-}

@@ -1,5 +1,0 @@
-{
-  hmm=acousticModel.lookupNearestHMM(unit,HMMPosition.UNDEFINED,false);
-  successors=new SearchStateArc[1];
-  successors[0]=new OogHMMState(hmm.getInitialState(),LogMath.LOG_ONE);
-}

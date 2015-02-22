@@ -1,4 +1,0 @@
-{
-  String name=getClass().getName();
-  init(name,Logger.getLogger(name),searchManager,fireNonFinalResults,autoAllocate,resultListeners);
-}

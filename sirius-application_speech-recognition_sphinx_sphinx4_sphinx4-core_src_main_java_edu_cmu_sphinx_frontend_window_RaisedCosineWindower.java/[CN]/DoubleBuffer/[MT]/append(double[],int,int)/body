@@ -1,8 +1,0 @@
-{
-  if (occupancy + length > buffer.length) {
-    throw new Error("RaisedCosineWindower: " + "overflow-buffer: attempting to fill " + "buffer beyond its capacity.");
-  }
-  System.arraycopy(src,srcPos,buffer,occupancy,length);
-  occupancy+=length;
-  return occupancy;
-}

@@ -1,8 +1,0 @@
-{
-  for (  Node cNode : c.getElements()) {
-    if (cNode.isAncestorOf(n)) {
-      return true;
-    }
-  }
-  return false;
-}

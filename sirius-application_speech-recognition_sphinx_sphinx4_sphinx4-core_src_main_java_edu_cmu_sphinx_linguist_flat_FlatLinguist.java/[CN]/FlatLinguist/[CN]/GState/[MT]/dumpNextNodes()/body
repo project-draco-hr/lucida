@@ -1,6 +1,0 @@
-{
-  System.out.println("     Next Grammar Nodes: ");
-  for (  GrammarArc arc : node.getSuccessors()) {
-    System.out.println("          " + arc.getGrammarNode());
-  }
-}

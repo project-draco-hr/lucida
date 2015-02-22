@@ -1,5 +1,0 @@
-{
-  this.name=name;
-  this.audioFormat=format;
-  this.audioBuffer=new ByteArrayOutputStream();
-}

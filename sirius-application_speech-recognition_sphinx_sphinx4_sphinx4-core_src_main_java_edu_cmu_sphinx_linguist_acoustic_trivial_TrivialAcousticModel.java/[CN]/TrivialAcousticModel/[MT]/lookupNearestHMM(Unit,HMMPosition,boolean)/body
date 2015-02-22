@@ -1,8 +1,0 @@
-{
-  HMM hmm=null;
-  if (!exactMatch || position == HMMPosition.UNDEFINED) {
-    unit=unit.getBaseUnit();
-    hmm=hmmMap.get(unit);
-  }
-  return hmm;
-}

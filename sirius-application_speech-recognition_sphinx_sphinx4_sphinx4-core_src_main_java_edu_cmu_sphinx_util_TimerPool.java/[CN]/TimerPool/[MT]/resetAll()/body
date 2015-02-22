@@ -1,7 +1,0 @@
-{
-  for (  List<Timer> timers : weakRefTimerPool.values()) {
-    for (    Timer timer : timers) {
-      timer.reset();
-    }
-  }
-}

@@ -1,4 +1,0 @@
-{
-  this(configurable.getClass(),name,ConfigurationManager,rpd);
-  owner=configurable;
-}

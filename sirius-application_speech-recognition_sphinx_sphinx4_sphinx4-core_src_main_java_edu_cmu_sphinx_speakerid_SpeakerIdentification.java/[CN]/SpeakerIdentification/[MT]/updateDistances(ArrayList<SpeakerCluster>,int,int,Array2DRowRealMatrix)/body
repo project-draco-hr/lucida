@@ -1,9 +1,0 @@
-{
-  int clusterCount=clustering.size();
-  for (int i=0; i < clusterCount; i++) {
-    distance.setEntry(i,posi,computeDistance(clustering.get(i),clustering.get(posi)));
-    distance.setEntry(posi,i,distance.getEntry(i,posi));
-  }
-  for (int i=posj; i < clusterCount - 1; i++)   for (int j=0; j < clusterCount; j++)   distance.setEntry(i,j,distance.getEntry(i + 1,j));
-  for (int i=0; i < clusterCount; i++)   for (int j=posj; j < clusterCount - 1; j++)   distance.setEntry(i,j,distance.getEntry(i,j + 1));
-}

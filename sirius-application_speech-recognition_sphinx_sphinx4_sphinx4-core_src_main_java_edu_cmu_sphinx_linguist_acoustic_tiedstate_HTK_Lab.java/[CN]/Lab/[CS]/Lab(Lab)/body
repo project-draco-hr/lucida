@@ -1,6 +1,0 @@
-{
-  setDeb(ref.getStart());
-  setFin(ref.getEnd());
-  setName(ref.getName());
-  setStateIdx(ref.getState());
-}

@@ -1,3 +1,0 @@
-{
-  f.write("edge: { sourcename: \"" + fromNode.getId() + "\" targetname: \""+ toNode.getId()+ "\" label: \""+ acousticScore+ ','+ lmScore+ "\" }\n");
-}

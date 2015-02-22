@@ -1,7 +1,0 @@
-{
-  int n=0;
-  for (  SingleHMM hmm : hmms) {
-    if (hmm.getName().indexOf('-') >= 0 || hmm.getName().indexOf('+') >= 0)     n++;
-  }
-  return n;
-}

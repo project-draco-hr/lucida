@@ -1,8 +1,0 @@
-{
-  if (usePooledBatchManager) {
-    batchManager=new PooledBatchManager(batchFile,skip);
-  }
- else {
-    batchManager=new SimpleBatchManager(batchFile,skip,whichBatch,totalBatches);
-  }
-}

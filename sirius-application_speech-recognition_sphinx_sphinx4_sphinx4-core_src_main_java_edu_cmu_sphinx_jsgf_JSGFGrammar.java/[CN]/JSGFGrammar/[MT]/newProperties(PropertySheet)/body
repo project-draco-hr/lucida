@@ -1,7 +1,0 @@
-{
-  super.newProperties(ps);
-  baseURL=ConfigurationManagerUtils.getResource(PROP_BASE_GRAMMAR_URL,ps);
-  logger=ps.getLogger();
-  grammarName=ps.getString(PROP_GRAMMAR_NAME);
-  loadGrammar=true;
-}

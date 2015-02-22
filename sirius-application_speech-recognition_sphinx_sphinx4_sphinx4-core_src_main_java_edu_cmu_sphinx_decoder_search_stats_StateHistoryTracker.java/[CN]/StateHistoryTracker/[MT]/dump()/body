@@ -1,8 +1,0 @@
-{
-  dumpSummary();
-  List<WordStats> stats=new ArrayList<WordStats>(statMap.values());
-  Collections.sort(stats,WordStats.COMPARATOR);
-  for (  WordStats stat : stats) {
-    System.out.println("   " + stat);
-  }
-}

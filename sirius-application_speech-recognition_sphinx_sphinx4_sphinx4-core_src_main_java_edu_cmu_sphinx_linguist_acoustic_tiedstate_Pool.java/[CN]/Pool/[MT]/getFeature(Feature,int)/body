@@ -1,4 +1,0 @@
-{
-  Integer val=features.get(feature);
-  return val == null ? defaultValue : val;
-}

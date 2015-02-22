@@ -1,9 +1,0 @@
-{
-  URL url=getClass().getResource("openfst/basic.fst");
-  String dir=new File(url.toURI()).getParent();
-  String path=new File(dir,"basic").getPath();
-  Fst fst1=Convert.importFst(path,new TropicalSemiring());
-  path=new File(dir,"basic.fst.ser").getPath();
-  Fst fst2=Fst.loadModel(path);
-  assertThat(fst1,equalTo(fst2));
-}

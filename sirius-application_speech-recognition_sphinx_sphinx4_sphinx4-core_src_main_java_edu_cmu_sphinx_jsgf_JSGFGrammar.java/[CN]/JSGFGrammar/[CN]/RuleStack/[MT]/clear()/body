@@ -1,4 +1,0 @@
-{
-  stack=new LinkedList<String>();
-  map=new HashMap<String,GrammarGraph>();
-}

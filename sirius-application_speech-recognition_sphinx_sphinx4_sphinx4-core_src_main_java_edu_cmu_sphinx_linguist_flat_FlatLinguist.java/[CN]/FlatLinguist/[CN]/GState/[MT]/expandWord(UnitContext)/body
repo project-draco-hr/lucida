@@ -1,8 +1,0 @@
-{
-  Word word=node.getWord();
-  T("  Expanding word " + word + " for lc "+ leftContext);
-  Pronunciation[] pronunciations=word.getPronunciations(null);
-  for (int i=0; i < pronunciations.length; i++) {
-    expandPronunciation(leftContext,pronunciations[i],i);
-  }
-}

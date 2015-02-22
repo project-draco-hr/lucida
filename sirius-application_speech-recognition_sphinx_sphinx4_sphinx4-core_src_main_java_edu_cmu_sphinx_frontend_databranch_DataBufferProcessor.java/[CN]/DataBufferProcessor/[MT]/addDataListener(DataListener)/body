@@ -1,4 +1,0 @@
-{
-  if (l == null)   return;
-  dataListeners.add(l);
-}

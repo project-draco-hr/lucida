@@ -1,3 +1,0 @@
-{
-  return SimpleActiveListFactory.this.newInstance();
-}

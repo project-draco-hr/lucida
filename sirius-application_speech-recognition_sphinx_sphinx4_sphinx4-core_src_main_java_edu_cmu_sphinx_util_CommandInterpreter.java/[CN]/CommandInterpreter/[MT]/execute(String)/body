@@ -1,6 +1,0 @@
-{
-  if (trace) {
-    System.out.println("Execute: " + cmdString);
-  }
-  return execute(parseMessage(cmdString));
-}

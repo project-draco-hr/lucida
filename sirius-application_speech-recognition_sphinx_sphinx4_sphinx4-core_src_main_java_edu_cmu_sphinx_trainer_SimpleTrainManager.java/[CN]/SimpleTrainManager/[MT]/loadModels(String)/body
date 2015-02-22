@@ -1,7 +1,0 @@
-{
-  dumpMemoryInfo("TrainManager start");
-  for (  TrainerAcousticModel model : acousticModels) {
-    model.load();
-  }
-  dumpMemoryInfo("acoustic model");
-}

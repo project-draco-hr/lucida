@@ -1,5 +1,0 @@
-{
-  Collection<UnitContext> endingContext=getEndingContexts();
-  Set<GrammarNode> visitedSet=new HashSet<GrammarNode>();
-  pushLeftContexts(visitedSet,endingContext);
-}

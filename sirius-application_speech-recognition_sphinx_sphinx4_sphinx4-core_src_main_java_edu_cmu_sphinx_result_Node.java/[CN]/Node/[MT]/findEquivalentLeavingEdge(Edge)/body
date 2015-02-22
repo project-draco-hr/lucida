@@ -1,8 +1,0 @@
-{
-  for (  Edge e : leavingEdges) {
-    if (e.isEquivalent(edge)) {
-      return e;
-    }
-  }
-  return null;
-}

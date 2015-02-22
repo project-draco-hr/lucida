@@ -1,4 +1,0 @@
-{
-  String label="" + acousticScore + ","+ lmScore;
-  f.write("\tnode" + fromNode.getId() + " -> node"+ toNode.getId()+ " [ label=\""+ label+ "\" ]\n");
-}

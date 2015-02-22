@@ -1,6 +1,0 @@
-{
-  this.initialNumArcs=initialNumArcs;
-  if (initialNumArcs > 0) {
-    arcs=new ArrayList<Arc>(initialNumArcs);
-  }
-}

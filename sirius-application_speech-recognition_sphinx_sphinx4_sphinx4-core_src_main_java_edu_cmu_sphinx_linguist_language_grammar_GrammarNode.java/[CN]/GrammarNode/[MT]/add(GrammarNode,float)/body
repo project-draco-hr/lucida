@@ -1,6 +1,0 @@
-{
-  if (isEmpty() && this == node) {
-    return;
-  }
-  arcList.add(new GrammarArc(node,logProbability));
-}

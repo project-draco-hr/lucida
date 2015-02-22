@@ -1,3 +1,0 @@
-{
-  return logMath.lnToLog(-lnProb);
-}

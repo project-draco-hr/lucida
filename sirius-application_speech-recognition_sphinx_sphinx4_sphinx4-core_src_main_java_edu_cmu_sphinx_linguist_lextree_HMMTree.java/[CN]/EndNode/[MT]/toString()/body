@@ -1,3 +1,0 @@
-{
-  return "EndNode base:" + baseUnit + " lc "+ leftContext+ ' '+ key;
-}

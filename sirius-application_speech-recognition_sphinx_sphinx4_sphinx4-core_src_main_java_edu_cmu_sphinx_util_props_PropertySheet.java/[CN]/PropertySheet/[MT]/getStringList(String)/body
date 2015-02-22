@@ -1,4 +1,0 @@
-{
-  getProperty(name,S4StringList.class);
-  return ConfigurationManagerUtils.toStringList(propValues.get(name));
-}

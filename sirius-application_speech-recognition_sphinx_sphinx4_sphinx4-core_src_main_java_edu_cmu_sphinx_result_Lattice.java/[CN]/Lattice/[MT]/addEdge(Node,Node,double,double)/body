@@ -1,7 +1,0 @@
-{
-  Edge e=new Edge(fromNode,toNode,acousticScore,lmScore);
-  fromNode.addLeavingEdge(e);
-  toNode.addEnteringEdge(e);
-  edges.add(e);
-  return e;
-}

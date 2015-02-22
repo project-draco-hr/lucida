@@ -1,4 +1,0 @@
-{
-  super.newProperties(ps);
-  filename=ps.getString(PROP_FILENAME);
-}

@@ -1,7 +1,0 @@
-{
-  computeLogBase2(numberFftPoints);
-  createWeightFft(numberFftPoints,invert);
-  initComplexArrays();
-  weightFftTimesFrom2=new Complex();
-  tempComplex=new Complex();
-}

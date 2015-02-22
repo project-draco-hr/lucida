@@ -1,3 +1,0 @@
-{
-  logger.info("Pool " + name + " Entries: "+ size());
-}

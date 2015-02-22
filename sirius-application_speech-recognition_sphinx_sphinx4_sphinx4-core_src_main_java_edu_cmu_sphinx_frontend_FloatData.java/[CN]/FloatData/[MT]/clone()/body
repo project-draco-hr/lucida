@@ -1,9 +1,0 @@
-{
-  try {
-    FloatData data=(FloatData)super.clone();
-    return data;
-  }
- catch (  CloneNotSupportedException e) {
-    throw new InternalError(e.toString());
-  }
-}

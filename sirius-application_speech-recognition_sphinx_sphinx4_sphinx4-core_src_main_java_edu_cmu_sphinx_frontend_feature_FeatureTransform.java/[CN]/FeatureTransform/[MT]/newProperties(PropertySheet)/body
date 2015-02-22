@@ -1,4 +1,0 @@
-{
-  super.newProperties(ps);
-  init((Loader)ps.getComponent(PROP_LOADER));
-}

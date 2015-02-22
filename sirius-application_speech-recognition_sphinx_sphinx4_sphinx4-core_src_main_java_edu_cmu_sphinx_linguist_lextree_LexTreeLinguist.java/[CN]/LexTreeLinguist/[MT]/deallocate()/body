@@ -1,6 +1,0 @@
-{
-  if (acousticModel != null)   acousticModel.deallocate();
-  if (dictionary != null)   dictionary.deallocate();
-  if (languageModel != null)   languageModel.deallocate();
-  hmmTree=null;
-}

@@ -1,3 +1,0 @@
-{
-  return append(src,0,src.length);
-}

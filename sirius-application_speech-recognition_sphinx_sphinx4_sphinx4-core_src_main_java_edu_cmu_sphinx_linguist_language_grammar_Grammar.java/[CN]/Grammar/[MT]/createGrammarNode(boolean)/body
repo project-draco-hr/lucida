@@ -1,3 +1,0 @@
-{
-  return createGrammarNode(maxIdentity + 1,isFinal);
-}

@@ -1,4 +1,0 @@
-{
-  super(showGrammar,optimizeGrammar,addSilenceWords,addFillerWords,dictionary);
-  logMath=LogMath.getInstance();
-}

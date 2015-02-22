@@ -1,3 +1,0 @@
-{
-  return new URL(location.toURI().toString() + "/" + path).openStream();
-}

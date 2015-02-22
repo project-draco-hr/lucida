@@ -1,5 +1,0 @@
-{
-  quit=false;
-  thread=new VUMeterPanelThread();
-  thread.start();
-}

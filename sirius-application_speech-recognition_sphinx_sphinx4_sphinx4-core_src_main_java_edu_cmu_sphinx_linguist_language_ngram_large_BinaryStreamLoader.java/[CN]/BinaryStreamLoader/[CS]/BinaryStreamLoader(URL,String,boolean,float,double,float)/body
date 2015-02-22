@@ -1,7 +1,0 @@
-{
-  super(format,applyLanguageWeightAndWip,languageWeight,wip,unigramWeight);
-  InputStream stream=location.openStream();
-  loadModelLayout(stream);
-  stream=location.openStream();
-  loadModelData(stream);
-}

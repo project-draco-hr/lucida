@@ -1,5 +1,0 @@
-{
-  super();
-  BuildTranscriptHMM builder=new BuildTranscriptHMM(context,transcript,acousticModel,unitManager);
-  copyGraph(builder.getGraph());
-}

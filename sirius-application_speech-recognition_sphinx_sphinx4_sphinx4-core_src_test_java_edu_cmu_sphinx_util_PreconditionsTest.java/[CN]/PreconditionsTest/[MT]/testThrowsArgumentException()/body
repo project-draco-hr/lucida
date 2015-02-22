@@ -1,3 +1,0 @@
-{
-  Preconditions.checkArgument(false,"%s %d baz","bar",42);
-}

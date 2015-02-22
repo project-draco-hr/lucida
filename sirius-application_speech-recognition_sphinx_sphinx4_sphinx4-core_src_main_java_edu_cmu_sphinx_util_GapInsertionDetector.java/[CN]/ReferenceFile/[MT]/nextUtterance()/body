@@ -1,9 +1,0 @@
-{
-  String line=reader.readLine();
-  if (line != null) {
-    return new ReferenceUtterance(line);
-  }
- else {
-    return null;
-  }
-}

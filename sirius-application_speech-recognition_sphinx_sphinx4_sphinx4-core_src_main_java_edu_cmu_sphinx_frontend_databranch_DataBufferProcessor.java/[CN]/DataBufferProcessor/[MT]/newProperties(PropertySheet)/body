@@ -1,7 +1,0 @@
-{
-  super.newProperties(ps);
-  maxBufferSize=ps.getInt(PROP_BUFFER_SIZE);
-  waitIfEmpty=ps.getBoolean(PROP_WAIT_IF_EMPTY);
-  if (waitIfEmpty)   waitTime=ps.getInt(PROP_WAIT_TIME_MS);
-  dataListeners=ps.getComponentList(DATA_LISTENERS,DataListener.class);
-}

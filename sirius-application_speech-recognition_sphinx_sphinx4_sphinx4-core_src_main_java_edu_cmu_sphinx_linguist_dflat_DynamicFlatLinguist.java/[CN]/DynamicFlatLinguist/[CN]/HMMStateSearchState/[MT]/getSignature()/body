@@ -1,3 +1,0 @@
-{
-  return "HSSS " + fullHMMSearchState.getSignature() + '-'+ hmmState;
-}

@@ -1,3 +1,0 @@
-{
-  return hmms.indexOf(h);
-}

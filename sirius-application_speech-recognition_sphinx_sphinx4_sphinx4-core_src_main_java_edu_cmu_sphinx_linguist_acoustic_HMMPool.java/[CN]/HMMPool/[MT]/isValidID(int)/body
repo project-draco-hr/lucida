@@ -1,3 +1,0 @@
-{
-  return unitID >= 0 && unitID < unitTable.length && unitTable[unitID] != null;
-}

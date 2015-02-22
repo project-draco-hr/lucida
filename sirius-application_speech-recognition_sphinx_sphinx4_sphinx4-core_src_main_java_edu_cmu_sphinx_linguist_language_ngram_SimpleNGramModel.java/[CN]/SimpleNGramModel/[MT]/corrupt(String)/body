@@ -1,3 +1,0 @@
-{
-  throw new IOException("Corrupt Language Model " + fileName + " at line "+ lineNumber+ ':'+ why);
-}

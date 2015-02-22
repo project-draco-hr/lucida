@@ -1,5 +1,0 @@
-{
-  if (status == State.DEALLOCATED) {
-    printStats();
-  }
-}

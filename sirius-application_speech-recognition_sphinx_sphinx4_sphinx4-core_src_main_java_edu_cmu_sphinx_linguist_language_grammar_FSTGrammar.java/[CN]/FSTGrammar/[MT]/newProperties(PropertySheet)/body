@@ -1,4 +1,0 @@
-{
-  super.newProperties(ps);
-  path=ps.getString(PROP_PATH);
-}

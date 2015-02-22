@@ -1,8 +1,0 @@
-{
-  String posterior=String.valueOf(getPosterior());
-  if (getPosterior() == LogMath.LOG_ZERO) {
-    posterior="log zero";
-  }
-  String label=getWord().toString() + '[' + getBeginTime()+ ','+ getEndTime()+ " p:"+ posterior+ ']';
-  f.write("\tnode" + id + " [ label=\""+ label+ "\" ]\n");
-}

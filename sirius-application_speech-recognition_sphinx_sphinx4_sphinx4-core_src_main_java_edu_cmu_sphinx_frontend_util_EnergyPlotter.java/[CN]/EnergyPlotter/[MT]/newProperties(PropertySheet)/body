@@ -1,4 +1,0 @@
-{
-  maxEnergy=ps.getInt(PROP_MAX_ENERGY);
-  buildPlots(maxEnergy);
-}

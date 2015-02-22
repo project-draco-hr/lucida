@@ -1,3 +1,0 @@
-{
-  return "PS " + gs.getSignature() + '-'+ pronunciation;
-}

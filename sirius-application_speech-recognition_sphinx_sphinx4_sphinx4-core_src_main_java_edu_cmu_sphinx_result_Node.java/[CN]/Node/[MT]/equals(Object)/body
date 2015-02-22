@@ -1,3 +1,0 @@
-{
-  return obj instanceof Node && id.equals(((Node)obj).getId());
-}

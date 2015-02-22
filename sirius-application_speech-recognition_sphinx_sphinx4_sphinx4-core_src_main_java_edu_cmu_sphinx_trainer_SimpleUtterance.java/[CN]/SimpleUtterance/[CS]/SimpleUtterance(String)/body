@@ -1,5 +1,0 @@
-{
-  logger.info("Utterance ID: " + utteranceID);
-  this.utteranceID=utteranceID;
-  this.transcriptSet=new LinkedList<SimpleTranscript>();
-}

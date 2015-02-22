@@ -1,4 +1,0 @@
-{
-  JSGFRuleState state=new JSGFRuleState(rule,true,isPublic);
-  rules.put(ruleName,state);
-}

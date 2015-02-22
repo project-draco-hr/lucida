@@ -1,4 +1,0 @@
-{
-  Word w=new Word(word,new Pronunciation[0],false);
-  return addNode(id,w,beginTime,endTime);
-}

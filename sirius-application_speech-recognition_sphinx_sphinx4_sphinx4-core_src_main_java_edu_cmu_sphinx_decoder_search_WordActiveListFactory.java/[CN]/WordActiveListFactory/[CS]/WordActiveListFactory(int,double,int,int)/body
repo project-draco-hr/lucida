@@ -1,5 +1,0 @@
-{
-  super(absoluteBeamWidth,relativeBeamWidth);
-  this.maxPathsPerWord=maxPathsPerWord;
-  this.maxFiller=maxFiller;
-}

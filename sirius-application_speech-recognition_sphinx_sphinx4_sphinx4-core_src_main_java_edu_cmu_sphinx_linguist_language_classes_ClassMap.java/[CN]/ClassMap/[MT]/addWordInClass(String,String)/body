@@ -1,8 +1,0 @@
-{
-  Set<String> words=classToWord.get(className);
-  if (words == null) {
-    words=new HashSet<String>();
-    classToWord.put(className,words);
-  }
-  words.add(word);
-}

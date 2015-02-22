@@ -1,4 +1,0 @@
-{
-  double x=bark / 6.0;
-  return (300.0 * (Math.exp(x) - Math.exp(-x)));
-}

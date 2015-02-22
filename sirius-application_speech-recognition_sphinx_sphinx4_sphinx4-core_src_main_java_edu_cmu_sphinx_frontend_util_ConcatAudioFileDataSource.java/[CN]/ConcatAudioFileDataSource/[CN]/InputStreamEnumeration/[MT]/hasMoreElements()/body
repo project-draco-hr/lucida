@@ -1,6 +1,0 @@
-{
-  if (nextFile == null) {
-    nextFile=readNext();
-  }
-  return (nextFile != null);
-}

@@ -1,4 +1,0 @@
-{
-  if (manager == null)   manager=new JSGFRuleGrammarManager();
-  return manager;
-}

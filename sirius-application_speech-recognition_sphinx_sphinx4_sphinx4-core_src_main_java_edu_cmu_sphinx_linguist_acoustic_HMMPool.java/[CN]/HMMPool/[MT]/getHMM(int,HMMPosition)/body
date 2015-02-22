@@ -1,3 +1,0 @@
-{
-  return hmmTable.get(position)[unitID];
-}

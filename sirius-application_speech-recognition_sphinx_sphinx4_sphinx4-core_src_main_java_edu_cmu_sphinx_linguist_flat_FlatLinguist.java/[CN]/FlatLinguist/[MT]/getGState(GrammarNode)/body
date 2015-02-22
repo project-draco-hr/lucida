@@ -1,3 +1,0 @@
-{
-  return nodeStateMap.get(node);
-}

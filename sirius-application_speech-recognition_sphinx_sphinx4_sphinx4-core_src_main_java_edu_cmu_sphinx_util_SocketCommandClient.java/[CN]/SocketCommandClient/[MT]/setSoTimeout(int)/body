@@ -1,8 +1,0 @@
-{
-  if (socket != null) {
-    socket.setSoTimeout(millisecs);
-  }
- else {
-    System.err.println("SocketCommandClient.setSoTimeout(): " + "socket is null");
-  }
-}

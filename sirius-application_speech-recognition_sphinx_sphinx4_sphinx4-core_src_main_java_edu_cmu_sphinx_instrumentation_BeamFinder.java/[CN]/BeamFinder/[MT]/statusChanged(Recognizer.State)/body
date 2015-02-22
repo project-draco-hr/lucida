@@ -1,7 +1,0 @@
-{
-  if (enabled && status == State.DEALLOCATED) {
-    if (showSummary) {
-      showSummary();
-    }
-  }
-}

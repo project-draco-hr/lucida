@@ -1,3 +1,0 @@
-{
-  init(ps.getInstanceName(),ps.getLogger(),(SearchManager)ps.getComponent(PROP_SEARCH_MANAGER),ps.getBoolean(FIRE_NON_FINAL_RESULTS),ps.getBoolean(AUTO_ALLOCATE),ps.getComponentList(PROP_RESULT_LISTENERS,ResultListener.class));
-}

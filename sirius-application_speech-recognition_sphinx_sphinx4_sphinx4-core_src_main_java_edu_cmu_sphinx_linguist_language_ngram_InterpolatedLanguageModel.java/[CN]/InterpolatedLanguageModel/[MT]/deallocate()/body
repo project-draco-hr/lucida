@@ -1,6 +1,0 @@
-{
-  allocated=false;
-  for (  LanguageModel model : languageModels) {
-    model.deallocate();
-  }
-}

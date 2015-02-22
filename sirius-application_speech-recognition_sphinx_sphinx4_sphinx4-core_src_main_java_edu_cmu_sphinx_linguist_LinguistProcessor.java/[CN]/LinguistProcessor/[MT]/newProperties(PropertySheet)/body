@@ -1,3 +1,0 @@
-{
-  linguist=(Linguist)ps.getComponent(PROP_LINGUIST);
-}

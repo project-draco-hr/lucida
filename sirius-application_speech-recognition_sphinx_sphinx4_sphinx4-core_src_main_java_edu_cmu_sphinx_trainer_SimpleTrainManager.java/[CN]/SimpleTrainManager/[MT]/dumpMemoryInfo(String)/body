@@ -1,5 +1,0 @@
-{
-  if (dumpMemoryInfo) {
-    Utilities.dumpMemoryInfo(what);
-  }
-}

@@ -1,3 +1,0 @@
-{
-  setLocalProperty("threadedScorer->frontend","batchFrontEnd");
-}

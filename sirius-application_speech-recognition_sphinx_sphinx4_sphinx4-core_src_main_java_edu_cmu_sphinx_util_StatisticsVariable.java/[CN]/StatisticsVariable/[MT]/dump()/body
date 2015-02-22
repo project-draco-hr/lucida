@@ -1,5 +1,0 @@
-{
-  if (isEnabled()) {
-    System.out.println(name + ' ' + value);
-  }
-}

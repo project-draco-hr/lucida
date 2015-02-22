@@ -1,7 +1,0 @@
-{
-  int imax=0;
-  for (int i=1; i < ngauss; i++) {
-    if (loglikes[i] > loglikes[imax])     imax=i;
-  }
-  return imax;
-}

@@ -1,6 +1,0 @@
-{
-  if (data instanceof DoubleData) {
-    double[] samples=((DoubleData)data).getValues();
-    calculateVULevels(samples);
-  }
-}

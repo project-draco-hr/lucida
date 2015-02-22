@@ -1,5 +1,0 @@
-{
-  this.version=version;
-  this.encoding=encoding;
-  this.locale=locale;
-}

@@ -1,6 +1,0 @@
-{
-  this.segmentSet=new TreeSet<Segment>();
-  this.featureMatrix=new Array2DRowRealMatrix(featureMatrix.getData());
-  this.bicValue=bicValue;
-  addSegment(s);
-}

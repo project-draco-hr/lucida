@@ -1,4 +1,0 @@
-{
-  GMMDiag gmm=hmmsHTK.gmms.get(0);
-  return gmm.getNcoefs();
-}

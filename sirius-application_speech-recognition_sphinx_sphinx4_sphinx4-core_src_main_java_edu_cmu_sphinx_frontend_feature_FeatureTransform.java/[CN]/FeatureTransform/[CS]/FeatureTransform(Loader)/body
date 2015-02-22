@@ -1,4 +1,0 @@
-{
-  initLogger();
-  init(loader);
-}

@@ -1,7 +1,0 @@
-{
-  dataStream=inputStream;
-  streamEndReached=false;
-  utteranceEndSent=false;
-  utteranceStarted=false;
-  totalValuesRead=0;
-}

@@ -1,6 +1,0 @@
-{
-  List<Node> l=makeWordSubCluster(cluster.elements,word);
-  Cluster c=new Cluster(cluster.startTime,cluster.endTime);
-  c.elements=l;
-  return c;
-}

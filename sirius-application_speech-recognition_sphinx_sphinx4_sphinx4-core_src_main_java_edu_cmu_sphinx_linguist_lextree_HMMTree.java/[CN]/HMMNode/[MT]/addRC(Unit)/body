@@ -1,3 +1,0 @@
-{
-  getRCSet().add(rc);
-}

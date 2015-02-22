@@ -1,6 +1,0 @@
-byte[] buffer
-int numberNGrams
-boolean bigEndian
-boolean is32bits
-int n
-int firstCurrentNGramEntry

@@ -1,3 +1,0 @@
-{
-  dataProc=(DummyProcessor)ps.getComponent(PROP_DATA_PROC);
-}

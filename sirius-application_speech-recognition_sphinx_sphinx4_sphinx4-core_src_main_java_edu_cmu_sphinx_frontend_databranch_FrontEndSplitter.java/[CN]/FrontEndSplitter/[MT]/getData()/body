@@ -1,5 +1,0 @@
-{
-  Data input=getPredecessor().getData();
-  for (  DataListener l : listeners)   l.processDataFrame(input);
-  return input;
-}

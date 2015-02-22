@@ -1,3 +1,0 @@
-{
-  return String.format("{%s, %f, [%d, %d]}",word,confidence,timeFrame.getStart(),timeFrame.getEnd());
-}

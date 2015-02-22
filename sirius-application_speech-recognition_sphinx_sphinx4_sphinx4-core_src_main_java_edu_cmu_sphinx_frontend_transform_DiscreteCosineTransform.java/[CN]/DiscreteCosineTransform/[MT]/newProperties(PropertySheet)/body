@@ -1,5 +1,0 @@
-{
-  super.newProperties(ps);
-  numberMelFilters=ps.getInt(PROP_NUMBER_FILTERS);
-  cepstrumSize=ps.getInt(PROP_CEPSTRUM_LENGTH);
-}

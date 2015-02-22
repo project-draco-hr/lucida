@@ -1,3 +1,0 @@
-{
-  this(ConfigurationManagerUtils.getURL(new File(configFileName)));
-}

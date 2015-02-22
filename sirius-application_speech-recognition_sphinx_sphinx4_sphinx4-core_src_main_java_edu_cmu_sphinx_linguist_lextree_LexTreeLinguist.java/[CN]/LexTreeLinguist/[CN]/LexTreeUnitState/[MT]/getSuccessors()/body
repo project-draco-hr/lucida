@@ -1,6 +1,0 @@
-{
-  SearchStateArc[] arcs=new SearchStateArc[1];
-  HMM hmm=getHMMNode().getHMM();
-  arcs[0]=new LexTreeHMMState(getHMMNode(),getWordHistory(),getSmearTerm(),getSmearProb(),hmm.getInitialState(),logOne,logOne,parentNode,collapsed);
-  return arcs;
-}

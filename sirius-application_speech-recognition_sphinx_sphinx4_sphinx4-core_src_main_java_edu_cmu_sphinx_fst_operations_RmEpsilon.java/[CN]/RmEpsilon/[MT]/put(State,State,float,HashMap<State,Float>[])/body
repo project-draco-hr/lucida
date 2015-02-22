@@ -1,8 +1,0 @@
-{
-  HashMap<State,Float> tmp=cl[fromState.getId()];
-  if (tmp == null) {
-    tmp=new HashMap<State,Float>();
-    cl[fromState.getId()]=tmp;
-  }
-  tmp.put(toState,weight);
-}

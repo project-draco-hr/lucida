@@ -1,3 +1,0 @@
-{
-  return clusterProbability(cluster.elements);
-}

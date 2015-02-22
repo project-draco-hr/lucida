@@ -1,3 +1,0 @@
-{
-  return "GS " + node + "-lc-"+ hmmPool.getUnit(lc)+ "-rc-"+ hmmPool.getUnit(nextBaseID);
-}

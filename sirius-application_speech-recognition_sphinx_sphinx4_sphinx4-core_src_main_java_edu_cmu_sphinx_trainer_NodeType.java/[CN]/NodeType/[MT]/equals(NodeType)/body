@@ -1,8 +1,0 @@
-{
-  if (nodeType != null) {
-    return toString().equals(nodeType.toString());
-  }
- else {
-    return false;
-  }
-}

@@ -1,4 +1,0 @@
-{
-  super.newProperties(ps);
-  initVars(ps.getInt(PROP_DROP_EVERY_NTH_FRAME),ps.getBoolean(PROP_REPLACE_NTH_WITH_PREVIOUS));
-}

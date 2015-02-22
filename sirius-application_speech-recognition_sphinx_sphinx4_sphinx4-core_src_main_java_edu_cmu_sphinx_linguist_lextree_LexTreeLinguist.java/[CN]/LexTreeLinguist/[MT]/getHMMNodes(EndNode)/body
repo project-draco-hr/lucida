@@ -1,3 +1,0 @@
-{
-  return hmmTree.getHMMNodes(endNode);
-}

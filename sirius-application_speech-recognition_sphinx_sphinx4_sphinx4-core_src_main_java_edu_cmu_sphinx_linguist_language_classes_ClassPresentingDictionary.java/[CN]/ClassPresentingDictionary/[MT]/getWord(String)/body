@@ -1,4 +1,0 @@
-{
-  Word word=classMap.getClassAsWord(text);
-  return (word != null) ? word : wordDictionary.getWord(text);
-}

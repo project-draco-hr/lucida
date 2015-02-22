@@ -1,3 +1,0 @@
-{
-  return Dictionary.SENTENCE_END_SPELLING.equals(this.spelling);
-}

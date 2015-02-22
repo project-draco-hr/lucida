@@ -1,7 +1,0 @@
-{
-  Data data=getPredecessor().getData();
-  if (data != null && data instanceof DoubleData) {
-    liftCepstrum((DoubleData)data);
-  }
-  return data;
-}

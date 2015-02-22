@@ -1,8 +1,0 @@
-{
-  int actual=n;
-  if ((currentIndex + n) > bytes.length) {
-    actual=bytes.length - currentIndex;
-  }
-  currentIndex+=actual;
-  return actual;
-}

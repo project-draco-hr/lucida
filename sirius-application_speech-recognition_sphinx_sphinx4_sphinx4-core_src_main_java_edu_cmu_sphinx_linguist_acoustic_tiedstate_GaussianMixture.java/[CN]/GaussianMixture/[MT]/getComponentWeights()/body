@@ -1,5 +1,0 @@
-{
-  float[] mixWeights=new float[getMixtureComponents().length];
-  for (int i=0; i < mixWeights.length; i++)   mixWeights[i]=(float)logMath.logToLinear(logMixtureWeights[i]);
-  return mixWeights;
-}

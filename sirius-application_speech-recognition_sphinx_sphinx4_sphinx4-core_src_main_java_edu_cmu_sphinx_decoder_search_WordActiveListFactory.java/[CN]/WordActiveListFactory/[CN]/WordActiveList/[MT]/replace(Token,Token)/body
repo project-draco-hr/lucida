@@ -1,6 +1,0 @@
-{
-  add(newToken);
-  if (oldToken != null) {
-    tokenList.remove(oldToken);
-  }
-}

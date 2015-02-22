@@ -1,8 +1,0 @@
-{
-  super(showGrammar,optimizeGrammar,addSilenceWords,addFillerWords,dictionary);
-  logMath=LogMath.getInstance();
-  this.baseURL=baseURL;
-  this.grammarName=grammarName;
-  loadGrammar=true;
-  logger=Logger.getLogger(getClass().getName());
-}

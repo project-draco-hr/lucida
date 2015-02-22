@@ -1,7 +1,0 @@
-{
-  String r="";
-  if (start >= 0 && end >= start)   r+=start + " " + end+ ' ';
-  r+=nameHMM;
-  if (numState >= 0)   r+="[" + numState + ']';
-  return r;
-}

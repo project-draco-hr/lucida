@@ -1,3 +1,0 @@
-{
-  return mixtureComponents[0].getMean().length;
-}

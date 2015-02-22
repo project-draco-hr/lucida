@@ -1,8 +1,0 @@
-{
-  localStop();
-  scorer.stopRecognition();
-  pruner.stopRecognition();
-  linguist.stopRecognition();
-  System.out.println("Total time: " + getTotalTime());
-  logger.finer("recognition stopped");
-}

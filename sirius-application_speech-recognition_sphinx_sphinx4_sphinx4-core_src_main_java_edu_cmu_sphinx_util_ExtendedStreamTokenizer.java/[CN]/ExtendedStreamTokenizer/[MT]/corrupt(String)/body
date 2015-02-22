@@ -1,3 +1,0 @@
-{
-  throw new StreamCorruptedException(msg + " at line " + st.lineno()+ " in file "+ path);
-}

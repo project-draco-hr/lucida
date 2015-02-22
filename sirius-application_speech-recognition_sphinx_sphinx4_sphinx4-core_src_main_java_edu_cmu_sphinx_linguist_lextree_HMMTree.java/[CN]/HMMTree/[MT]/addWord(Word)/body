@@ -1,7 +1,0 @@
-{
-  float prob=getWordUnigramProbability(word);
-  Pronunciation[] pronunciations=word.getPronunciations();
-  for (  Pronunciation pronunciation : pronunciations) {
-    addPronunciation(pronunciation,prob);
-  }
-}

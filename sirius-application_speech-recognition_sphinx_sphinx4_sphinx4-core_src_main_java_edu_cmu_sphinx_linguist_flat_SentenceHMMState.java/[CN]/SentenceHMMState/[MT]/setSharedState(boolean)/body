@@ -1,8 +1,0 @@
-{
-  if (shared) {
-    this.fields|=MASK_IS_SHARED_STATE;
-  }
- else {
-    this.fields&=~MASK_IS_SHARED_STATE;
-  }
-}

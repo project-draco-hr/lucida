@@ -1,7 +1,0 @@
-String location
-String grammarName
-boolean showGrammar
-boolean optimizeGrammar
-boolean addSilenceWords
-boolean addFillerWords
-Dictionary dictionary

@@ -1,6 +1,0 @@
-{
-  this.word=w;
-  this.timeFrame=timeFrame;
-  this.score=score;
-  this.confidence=confidence;
-}

@@ -1,8 +1,0 @@
-{
-  if (swap) {
-    dos.writeInt(Utilities.swapInteger(val));
-  }
- else {
-    dos.writeInt(val);
-  }
-}

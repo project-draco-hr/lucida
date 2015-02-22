@@ -1,6 +1,0 @@
-{
-  FileInputStream stream=new FileInputStream(inputFile);
-  source.setInputStream(stream);
-  Result result=recognizer.recognize();
-  writer.println(result.getBestFinalResultNoFiller() + " (" + utteranceId+ ")");
-}

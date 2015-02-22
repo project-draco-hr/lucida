@@ -1,6 +1,0 @@
-{
-  JSGFRuleState state=rules.get(ruleName);
-  if (state.isEnabled != enabled) {
-    state.isEnabled=enabled;
-  }
-}

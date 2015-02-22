@@ -1,8 +1,0 @@
-{
-  if (curSize == 0) {
-    return null;
-  }
- else {
-    return tokens[curSize - 1];
-  }
-}

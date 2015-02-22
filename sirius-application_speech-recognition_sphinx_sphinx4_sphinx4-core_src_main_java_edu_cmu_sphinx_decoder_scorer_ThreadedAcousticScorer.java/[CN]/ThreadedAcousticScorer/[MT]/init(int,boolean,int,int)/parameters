@@ -1,4 +1,0 @@
-int minScoreablesPerThread
-boolean cpuRelative
-int numThreads
-int threadPriority

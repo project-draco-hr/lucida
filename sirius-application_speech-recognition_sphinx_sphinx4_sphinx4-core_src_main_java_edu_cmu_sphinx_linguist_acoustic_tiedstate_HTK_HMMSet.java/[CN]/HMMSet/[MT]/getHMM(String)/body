@@ -1,8 +1,0 @@
-{
-  SingleHMM h=null;
-  for (  SingleHMM hmm : hmms) {
-    h=hmm;
-    if (h.getName().equals(nom))     break;
-  }
-  return h;
-}

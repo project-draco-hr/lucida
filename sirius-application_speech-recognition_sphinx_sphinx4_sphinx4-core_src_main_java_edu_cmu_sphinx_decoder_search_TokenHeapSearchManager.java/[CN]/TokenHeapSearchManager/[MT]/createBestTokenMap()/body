@@ -1,7 +1,0 @@
-{
-  int mapSize=activeList.size() << 2;
-  if (mapSize == 0) {
-    mapSize=1;
-  }
-  bestTokenMap=new HashMap<Object,TokenHeap>(mapSize,0.3F);
-}

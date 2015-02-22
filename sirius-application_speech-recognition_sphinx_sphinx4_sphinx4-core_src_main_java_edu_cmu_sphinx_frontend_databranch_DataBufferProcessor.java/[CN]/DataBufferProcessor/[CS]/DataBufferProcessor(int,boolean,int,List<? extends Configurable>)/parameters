@@ -1,4 +1,0 @@
-int maxBufferSize
-boolean waitIfEmpty
-int waitTime
-List<? extends Configurable> listeners

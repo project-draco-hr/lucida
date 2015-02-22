@@ -1,5 +1,0 @@
-{
-  this.grammarName=grammarName;
-  loadGrammar=true;
-  commitChanges();
-}

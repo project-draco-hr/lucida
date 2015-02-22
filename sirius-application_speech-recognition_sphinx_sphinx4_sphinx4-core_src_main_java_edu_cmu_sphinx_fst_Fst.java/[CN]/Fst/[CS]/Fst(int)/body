@@ -1,5 +1,0 @@
-{
-  if (numStates > 0) {
-    states=new ArrayList<State>(numStates);
-  }
-}

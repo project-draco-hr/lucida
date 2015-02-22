@@ -1,5 +1,0 @@
-AlternateHypothesisManager alternateHypothesisManager
-ActiveList activeList
-List<Token> resultList
-int frameNumber
-boolean isFinal

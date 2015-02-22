@@ -1,6 +1,0 @@
-{
-  super.newProperties(ps);
-  alpha=ps.getDouble(PROP_ALPHA);
-  windowSizeInMs=ps.getFloat(PROP_WINDOW_SIZE_MS);
-  windowShiftInMs=ps.getFloat(PROP_WINDOW_SHIFT_MS);
-}

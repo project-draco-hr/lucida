@@ -1,4 +1,0 @@
-Complex[] input
-double[] output
-int numberFftPoints
-boolean invert

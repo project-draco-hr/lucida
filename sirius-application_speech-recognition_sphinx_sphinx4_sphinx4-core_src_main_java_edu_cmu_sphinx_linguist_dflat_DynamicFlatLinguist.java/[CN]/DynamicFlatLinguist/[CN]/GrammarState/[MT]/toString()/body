@@ -1,3 +1,0 @@
-{
-  return node + "[" + hmmPool.getUnit(lc)+ ','+ hmmPool.getUnit(nextBaseID)+ ']';
-}

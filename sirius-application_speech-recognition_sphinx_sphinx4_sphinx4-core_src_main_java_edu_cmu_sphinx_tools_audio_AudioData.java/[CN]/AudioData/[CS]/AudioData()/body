@@ -1,4 +1,0 @@
-{
-  this.format=new AudioFormat(8000f,16,1,true,false);
-  shorts=new short[0];
-}

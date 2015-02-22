@@ -1,5 +1,0 @@
-{
-  CTLUtterance u=utterance;
-  utterance=nextUtterance();
-  return u;
-}

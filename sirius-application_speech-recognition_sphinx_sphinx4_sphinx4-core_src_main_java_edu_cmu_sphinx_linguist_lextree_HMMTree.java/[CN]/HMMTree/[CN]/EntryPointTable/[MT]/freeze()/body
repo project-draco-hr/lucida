@@ -1,5 +1,0 @@
-{
-  for (  EntryPoint ep : entryPoints.values()) {
-    ep.freeze();
-  }
-}

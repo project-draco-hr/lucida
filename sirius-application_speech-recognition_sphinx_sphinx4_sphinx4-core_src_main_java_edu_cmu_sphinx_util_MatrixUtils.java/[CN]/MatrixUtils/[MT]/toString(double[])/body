@@ -1,7 +1,0 @@
-{
-  StringBuilder s=new StringBuilder("[");
-  for (  double val : m) {
-    s.append(' ').append(df.format(val));
-  }
-  return s.append(" ]").toString();
-}

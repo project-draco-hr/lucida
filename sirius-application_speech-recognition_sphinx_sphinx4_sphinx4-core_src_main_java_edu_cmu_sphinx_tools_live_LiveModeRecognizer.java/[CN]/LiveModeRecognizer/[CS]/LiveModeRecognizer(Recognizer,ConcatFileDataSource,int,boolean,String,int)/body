@@ -1,8 +1,0 @@
-{
-  this.recognizer=recognizer;
-  this.dataSource=dataSource;
-  this.showGapInsertions=showGapInsertions;
-  this.hypothesisFile=hypothesisFile;
-  this.alignInterval=alignInterval;
-  this.referenceSource=dataSource;
-}

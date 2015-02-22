@@ -1,3 +1,0 @@
-{
-  return initialGrammarState == null || initialGrammarState != grammar.getInitialNode();
-}

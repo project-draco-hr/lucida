@@ -1,4 +1,0 @@
-{
-  hmm.getSenoneSequence();
-  return senone.calculateComponentScore(feature);
-}

@@ -1,8 +1,0 @@
-{
-  if (!doCheckSum)   return;
-  int oldCheckSum=(int)calculatedCheckSum;
-  int checkSum=readInt(dis);
-  if (checkSum != oldCheckSum) {
-    throw new IOException("Invalid checksum " + Long.toHexString(calculatedCheckSum) + " must be "+ Integer.toHexString(checkSum));
-  }
-}

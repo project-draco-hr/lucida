@@ -1,6 +1,0 @@
-{
-  this.values=values;
-  this.sampleRate=sampleRate;
-  this.collectTime=collectTime;
-  this.firstSampleNumber=firstSampleNumber;
-}

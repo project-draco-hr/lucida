@@ -1,4 +1,0 @@
-{
-  Map<Object,Node> successors=getSuccessorMap();
-  successors.put(key,child);
-}

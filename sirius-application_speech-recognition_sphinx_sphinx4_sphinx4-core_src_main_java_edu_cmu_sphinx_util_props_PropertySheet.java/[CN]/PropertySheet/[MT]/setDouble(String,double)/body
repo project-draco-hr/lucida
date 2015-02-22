@@ -1,6 +1,0 @@
-{
-  if (!registeredProperties.containsKey(name))   throw new InternalConfigurationException(getInstanceName(),name,'\'' + name + "' is not a registered double-property");
-  Annotation annotation=registeredProperties.get(name).getAnnotation();
-  if (!(annotation instanceof S4Double))   throw new InternalConfigurationException(getInstanceName(),name,'\'' + name + "' is of type double");
-  applyConfigurationChange(name,value,value);
-}

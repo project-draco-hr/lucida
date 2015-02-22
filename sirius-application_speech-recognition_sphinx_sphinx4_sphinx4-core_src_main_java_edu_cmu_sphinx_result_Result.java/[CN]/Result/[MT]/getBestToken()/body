@@ -1,7 +1,0 @@
-{
-  Token bestToken=getBestFinalToken();
-  if (bestToken == null) {
-    bestToken=getBestActiveToken();
-  }
-  return bestToken;
-}

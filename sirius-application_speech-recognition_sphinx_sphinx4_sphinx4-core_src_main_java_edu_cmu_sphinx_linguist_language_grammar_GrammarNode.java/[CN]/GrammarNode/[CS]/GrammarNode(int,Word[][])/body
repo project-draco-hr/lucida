@@ -1,4 +1,0 @@
-{
-  this(id,false);
-  this.alternatives=alternatives;
-}

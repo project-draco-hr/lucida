@@ -1,4 +1,0 @@
-{
-  String name=grammar.getName();
-  grammars.remove(name);
-}

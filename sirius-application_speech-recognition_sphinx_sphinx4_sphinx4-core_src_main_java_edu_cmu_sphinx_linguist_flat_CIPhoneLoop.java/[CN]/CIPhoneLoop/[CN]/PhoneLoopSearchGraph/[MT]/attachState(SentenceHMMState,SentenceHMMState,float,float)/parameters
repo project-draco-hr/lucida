@@ -1,4 +1,0 @@
-SentenceHMMState prevState
-SentenceHMMState nextState
-float logLanguageProbability
-float logInsertionProbability

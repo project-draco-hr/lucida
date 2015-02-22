@@ -1,6 +1,0 @@
-{
-  meansBufferPool=create1DPoolBuffer(meansPool,false);
-  varianceBufferPool=create1DPoolBuffer(variancePool,false);
-  matrixBufferPool=create2DPoolBuffer(matrixPool,true);
-  mixtureWeightsBufferPool=create1DPoolBuffer(mixtureWeightsPool,true);
-}

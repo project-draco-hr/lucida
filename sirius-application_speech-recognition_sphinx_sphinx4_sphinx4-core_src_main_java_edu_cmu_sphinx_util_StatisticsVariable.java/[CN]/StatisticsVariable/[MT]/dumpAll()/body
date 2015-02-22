@@ -1,6 +1,0 @@
-{
-  System.out.println(" ========= statistics  " + "=======");
-  for (  StatisticsVariable stats : pool.values()) {
-    stats.dump();
-  }
-}

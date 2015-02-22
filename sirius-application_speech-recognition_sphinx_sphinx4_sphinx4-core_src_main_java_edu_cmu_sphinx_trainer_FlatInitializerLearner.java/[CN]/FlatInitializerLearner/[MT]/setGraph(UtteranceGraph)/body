@@ -1,3 +1,0 @@
-{
-  throw new Error("Flat initializer does not use a graph!");
-}

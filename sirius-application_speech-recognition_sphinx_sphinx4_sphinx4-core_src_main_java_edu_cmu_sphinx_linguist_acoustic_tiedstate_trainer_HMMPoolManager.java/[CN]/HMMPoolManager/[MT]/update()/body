@@ -1,7 +1,0 @@
-{
-  updateMeans();
-  updateVariances();
-  recomputeMixtureComponents();
-  updateMixtureWeights();
-  updateTransitionMatrices();
-}

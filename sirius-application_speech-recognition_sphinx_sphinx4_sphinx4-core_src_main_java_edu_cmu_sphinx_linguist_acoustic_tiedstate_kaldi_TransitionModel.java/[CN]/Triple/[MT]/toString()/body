@@ -1,3 +1,0 @@
-{
-  return String.format("Triple {%d, %d, %d}",phone,hmmState,pdf);
-}

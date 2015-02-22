@@ -1,9 +1,0 @@
-{
-  if (!topDir.isDirectory()) {
-    topDir.mkdir();
-    inProcessDir.mkdir();
-    completedDir.mkdir();
-    resultsDir.mkdir();
-    createInputDirectory();
-  }
-}

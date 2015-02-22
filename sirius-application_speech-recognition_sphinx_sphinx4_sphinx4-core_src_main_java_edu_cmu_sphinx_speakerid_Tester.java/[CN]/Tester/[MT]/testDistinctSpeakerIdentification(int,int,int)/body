@@ -1,4 +1,0 @@
-{
-  ArrayList<float[]> ret=generateDistinctSpeakers(vectorSize,vectorsCount,speakersCount);
-  printIntervals(new SpeakerIdentification().cluster(ret));
-}

@@ -1,4 +1,0 @@
-{
-  EntryPoint ep=entryPointTable.getEntryPoint(base);
-  return ep.getEntryPointsFromLeftContext(lc).getSuccessors();
-}

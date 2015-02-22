@@ -1,3 +1,0 @@
-{
-  signalListeners.remove(listener);
-}

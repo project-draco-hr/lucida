@@ -1,7 +1,0 @@
-{
-  float bestScore=-Float.MAX_VALUE;
-  if (bestToken != null) {
-    bestScore=bestToken.getScore();
-  }
-  return bestScore;
-}

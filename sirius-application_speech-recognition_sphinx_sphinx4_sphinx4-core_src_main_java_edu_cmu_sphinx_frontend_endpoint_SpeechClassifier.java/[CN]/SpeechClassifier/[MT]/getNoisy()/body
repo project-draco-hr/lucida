@@ -1,3 +1,0 @@
-{
-  return (getSNR() > -20);
-}

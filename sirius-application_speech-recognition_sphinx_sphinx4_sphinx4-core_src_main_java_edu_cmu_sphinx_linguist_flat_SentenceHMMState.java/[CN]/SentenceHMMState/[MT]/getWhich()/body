@@ -1,3 +1,0 @@
-{
-  return (fields >> SHIFT_WHICH) & MASK_WHICH;
-}

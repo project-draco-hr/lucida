@@ -1,6 +1,0 @@
-{
-  size=0;
-  maxScore=-Float.MAX_VALUE;
-  minScore=Float.MAX_VALUE;
-  this.ws=ws;
-}

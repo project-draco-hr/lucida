@@ -1,4 +1,0 @@
-{
-  this.startTime=ref.startTime;
-  this.length=ref.length;
-}

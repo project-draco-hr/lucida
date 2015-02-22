@@ -1,8 +1,0 @@
-{
-  URL url=getClass().getResource("frontend.xml");
-  ConfigurationManager cm=new ConfigurationManager(url);
-  AudioFileDataSource ds=cm.lookup("audioFileDataSource");
-  ds.setAudioFile(getClass().getResource("test-feat.wav"),null);
-  FrontEnd frontend=cm.lookup(frontendName);
-  compareDump(frontend,name);
-}

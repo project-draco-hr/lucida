@@ -1,6 +1,0 @@
-{
-  if (successorArray == null) {
-    successorArray=arcs.values().toArray(new SentenceHMMStateArc[arcs.size()]);
-  }
-  return successorArray;
-}

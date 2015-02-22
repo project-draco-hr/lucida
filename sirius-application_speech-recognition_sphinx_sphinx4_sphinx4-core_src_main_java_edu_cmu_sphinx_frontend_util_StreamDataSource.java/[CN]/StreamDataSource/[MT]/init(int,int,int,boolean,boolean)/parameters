@@ -1,5 +1,0 @@
-int sampleRate
-int bytesPerRead
-int bitsPerSample
-boolean bigEndian
-boolean signedData

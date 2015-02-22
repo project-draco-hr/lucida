@@ -1,7 +1,0 @@
-{
-  super.newProperties(ps);
-  verticalLayout=ps.getBoolean(PROP_VERTICAL_LAYOUT);
-  skipHMMs=ps.getBoolean(PROP_SKIP_HMMS);
-  dumpArcLabels=ps.getBoolean(PROP_DUMP_ARC_LABELS);
-  setDepthFirst(false);
-}

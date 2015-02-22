@@ -1,5 +1,0 @@
-{
-  BufferedReader bin=new BufferedReader(new InputStreamReader(System.in));
-  PrintWriter pw=new PrintWriter(System.out);
-  init(bin,pw);
-}

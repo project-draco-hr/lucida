@@ -1,4 +1,0 @@
-{
-  pw.print(pad(padding));
-  pw.println(string);
-}

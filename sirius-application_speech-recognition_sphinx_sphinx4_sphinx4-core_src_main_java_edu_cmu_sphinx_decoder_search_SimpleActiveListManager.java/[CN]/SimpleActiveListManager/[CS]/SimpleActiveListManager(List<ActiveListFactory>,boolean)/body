@@ -1,5 +1,0 @@
-{
-  this.logger=Logger.getLogger(getClass().getName());
-  this.activeListFactories=activeListFactories;
-  this.checkPriorLists=checkPriorLists;
-}

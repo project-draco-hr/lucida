@@ -1,3 +1,0 @@
-{
-  return getInstance(targetClass,new HashMap<String,Object>());
-}

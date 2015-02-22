@@ -1,3 +1,0 @@
-{
-  return getWord(SENTENCE_END_SPELLING);
-}

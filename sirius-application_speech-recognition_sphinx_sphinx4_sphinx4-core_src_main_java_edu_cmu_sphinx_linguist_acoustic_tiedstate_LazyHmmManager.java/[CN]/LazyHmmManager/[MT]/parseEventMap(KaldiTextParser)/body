@@ -1,8 +1,0 @@
-{
-  String token=parser.getToken();
-  if ("CE".equals(token))   return new ConstantEventMap(parser.getInt());
-  if ("SE".equals(token))   return parseSplitEventMap(parser);
-  if ("TE".equals(token))   return parseTableEventMap(parser);
-  if ("NULL".equals(token))   return null;
-  throw new InputMismatchException(token);
-}

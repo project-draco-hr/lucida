@@ -1,8 +1,0 @@
-{
-  if (stage != null) {
-    return toString().equals(stage.toString());
-  }
- else {
-    return false;
-  }
-}

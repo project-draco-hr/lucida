@@ -1,4 +1,0 @@
-int lastPathIndex
-State fromState
-State toState
-ArrayList<ArrayList<State>> paths
