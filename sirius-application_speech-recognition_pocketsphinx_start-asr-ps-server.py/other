@@ -6,6 +6,7 @@ import threading
 import cgi
 from datetime import datetime
 dlog = '../input-log/'
+argfile = '-argfile ps-args-en.txt'
 if (__name__ == '__main__'):
     cmd = ('mkdir -p ' + dlog)
     shcmd(cmd)
