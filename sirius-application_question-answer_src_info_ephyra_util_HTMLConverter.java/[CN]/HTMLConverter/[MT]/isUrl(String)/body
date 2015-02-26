@@ -1,9 +1,0 @@
-{
-  try {
-    new URL(s);
-  }
- catch (  MalformedURLException e) {
-    return false;
-  }
-  return true;
-}

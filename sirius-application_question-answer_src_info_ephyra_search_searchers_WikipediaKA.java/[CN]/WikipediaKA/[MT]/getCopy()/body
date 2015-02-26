@@ -1,4 +1,0 @@
-{
-  KnowledgeAnnotator ka=new WikipediaKA(name,qPatterns,qContents);
-  return ka;
-}

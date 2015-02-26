@@ -1,6 +1,0 @@
-{
-  verb=verb.toLowerCase();
-  String[] sp=IrregularVerbs.getSimplePast(verb);
-  if (sp == null)   sp=new String[]{verb};
-  return sp;
-}

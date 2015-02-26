@@ -1,4 +1,0 @@
-{
-  if (!(o instanceof AnswerPattern))   return false;
-  return desc.equals(((AnswerPattern)o).getDesc());
-}

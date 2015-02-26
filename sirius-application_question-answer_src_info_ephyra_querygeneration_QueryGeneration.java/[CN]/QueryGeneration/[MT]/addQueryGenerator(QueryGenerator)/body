@@ -1,3 +1,0 @@
-{
-  queryGenerators.add(queryGenerator);
-}

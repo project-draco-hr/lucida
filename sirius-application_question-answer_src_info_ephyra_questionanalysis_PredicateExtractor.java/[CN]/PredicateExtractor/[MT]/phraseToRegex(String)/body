@@ -1,6 +1,0 @@
-{
-  phrase=RegexConverter.strToRegex(phrase);
-  phrase=phrase.replace(" ","\\s*+");
-  phrase=phrase.replaceAll("(\\.|\\?|!|\")",".?");
-  return phrase;
-}

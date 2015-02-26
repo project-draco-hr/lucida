@@ -1,6 +1,0 @@
-{
-  if (result == null)   return null;
-  String answer=result.getAnswer();
-  if (answer.matches("(?i).*?(^|\\W)" + "(what|which|when|where|who|why|how)($|\\W).*+"))   return null;
-  return result;
-}

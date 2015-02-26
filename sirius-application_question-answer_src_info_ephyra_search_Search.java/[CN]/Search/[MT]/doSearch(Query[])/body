@@ -1,9 +1,0 @@
-{
-  results=new ArrayList<Result>();
-  pending=0;
-  if (queries.length > 0)   queryKAs(queries[0]);
-  for (  Query query : queries)   queryKMs(query);
-  waitForResults();
-  results=dropDuplicates(results);
-  return results.toArray(new Result[results.size()]);
-}

@@ -1,8 +1,0 @@
-{
-  HierarchicalClassifierLearner copy=new HierarchicalClassifierLearner(prototypes);
-  String[] keys=toKeyArray(classifierLearners);
-  for (int i=0; i < keys.length; i++) {
-    copy.classifierLearners.put(keys[i],classifierLearners.get(keys[i]).copy());
-  }
-  return copy;
-}

@@ -1,9 +1,0 @@
-{
-  try {
-    new MaxentTagger(model);
-  }
- catch (  Exception e) {
-    return false;
-  }
-  return true;
-}

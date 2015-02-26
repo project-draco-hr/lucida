@@ -1,9 +1,0 @@
-{
-  Dataset dataSet=createDataset(features,serializedDir);
-  ClassifierLearner learner=createLearner(model);
-  RandomElement r=new RandomElement(System.currentTimeMillis());
-  Splitter splitter=new CrossValSplitter(r,NUM_FOLDS);
-  CrossValidatedDataset cvDataset=new CrossValidatedDataset(learner,dataSet,splitter,true);
-  Evaluation eval=cvDataset.getEvaluation();
-  return eval;
-}

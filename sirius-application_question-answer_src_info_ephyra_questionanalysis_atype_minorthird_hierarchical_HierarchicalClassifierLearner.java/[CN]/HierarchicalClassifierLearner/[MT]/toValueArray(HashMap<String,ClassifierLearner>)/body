@@ -1,3 +1,0 @@
-{
-  return learnerHash.values().toArray(new ClassifierLearner[learnerHash.size()]);
-}

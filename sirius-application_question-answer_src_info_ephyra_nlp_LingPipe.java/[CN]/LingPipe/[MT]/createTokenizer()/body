@@ -1,3 +1,0 @@
-{
-  if (tokenizerFactory == null)   tokenizerFactory=new IndoEuropeanTokenizerFactory();
-}

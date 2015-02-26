@@ -1,3 +1,0 @@
-{
-  return learnerHash.keySet().toArray(new String[learnerHash.size()]);
-}

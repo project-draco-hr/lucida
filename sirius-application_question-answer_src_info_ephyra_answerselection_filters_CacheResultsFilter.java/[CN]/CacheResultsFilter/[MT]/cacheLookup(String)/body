@@ -1,4 +1,0 @@
-{
-  if (query.equals(this.lastQuery))   return this.lastQueryResults;
- else   return null;
-}

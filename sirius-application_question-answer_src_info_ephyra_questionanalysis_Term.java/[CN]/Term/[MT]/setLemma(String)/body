@@ -1,3 +1,0 @@
-{
-  this.lemma=StringUtils.normalize(lemma);
-}

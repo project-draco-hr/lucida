@@ -1,6 +1,0 @@
-{
-  Query query=new Query(queryString,analyzedQuestion,score);
-  query.extractionTechniques=extractionTechniques;
-  query.qi=qi;
-  return query;
-}

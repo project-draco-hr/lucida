@@ -1,3 +1,0 @@
-{
-  return (chunker != null) ? chunker.chunk(tokens,pos) : null;
-}

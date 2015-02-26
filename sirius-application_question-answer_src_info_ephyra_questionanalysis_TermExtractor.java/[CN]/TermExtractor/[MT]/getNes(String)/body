@@ -1,6 +1,0 @@
-{
-  String[] tokens=NETagger.tokenize(sentence);
-  String[][] nes=NETagger.extractNes(new String[][]{tokens})[0];
-  for (int i=0; i < nes.length; i++)   for (int j=0; j < nes[i].length; j++)   nes[i][j]=OpenNLP.untokenize(nes[i][j],sentence);
-  return nes;
-}

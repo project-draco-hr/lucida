@@ -1,5 +1,0 @@
-{
-  float sum=0;
-  for (  float score : scores)   sum+=score;
-  return sum;
-}

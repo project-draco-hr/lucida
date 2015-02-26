@@ -1,4 +1,0 @@
-{
-  this.prototypes=prototypes;
-  classifierLearners=new HashMap<String,ClassifierLearner>();
-}

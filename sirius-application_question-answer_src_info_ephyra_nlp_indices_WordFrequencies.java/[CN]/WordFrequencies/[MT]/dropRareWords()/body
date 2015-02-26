@@ -1,9 +1,0 @@
-{
-  Hashtable<String,Integer> newIndex=new Hashtable<String,Integer>();
-  for (  String word : index.keySet()) {
-    int frequency=index.get(word);
-    if (frequency < MIN_FREQUENCY)     distinct--;
- else     newIndex.put(word,frequency);
-  }
-  index=newIndex;
-}

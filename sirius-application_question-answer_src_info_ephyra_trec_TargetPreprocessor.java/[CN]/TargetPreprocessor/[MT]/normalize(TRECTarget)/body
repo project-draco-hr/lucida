@@ -1,5 +1,0 @@
-{
-  String condensed=target.getTargetDesc();
-  condensed=condensed.replaceAll("\\s*\\([^\\)]*\\)","");
-  target.setCondensedTarget(condensed);
-}

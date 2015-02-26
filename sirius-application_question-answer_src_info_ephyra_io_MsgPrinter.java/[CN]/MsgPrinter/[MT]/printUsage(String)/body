@@ -1,3 +1,0 @@
-{
-  printMessage("Usage: " + instr);
-}

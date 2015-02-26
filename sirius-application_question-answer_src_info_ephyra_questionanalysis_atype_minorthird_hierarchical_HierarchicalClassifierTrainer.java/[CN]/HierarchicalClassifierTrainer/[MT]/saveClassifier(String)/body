@@ -1,8 +1,0 @@
-{
-  try {
-    IOUtil.saveSerialized((Serializable)classifier,new File(fileName));
-  }
- catch (  Exception e) {
-    e.printStackTrace(System.err);
-  }
-}

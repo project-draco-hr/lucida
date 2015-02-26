@@ -1,5 +1,0 @@
-{
-  if (neType == null)   return false;
-  for (  String modelType : MODEL_TYPES)   if (neType.matches(modelType))   return true;
-  return false;
-}

@@ -1,7 +1,0 @@
-{
-  initFactoid();
-  MsgPrinter.printAnalyzingQuestion();
-  AnalyzedQuestion aq=QuestionAnalysis.analyze(question);
-  Result[] results=runPipeline(aq,maxAnswers,absThresh);
-  return results;
-}

@@ -1,8 +1,0 @@
-{
-  StringBuilder sb=new StringBuilder();
-  for (  Word wd : node.getWords()) {
-    sb.append(wd.getLemma().replaceAll("\\s","_") + "-");
-  }
-  sb.append(node.getKey());
-  return sb.toString();
-}

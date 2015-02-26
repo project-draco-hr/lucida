@@ -1,3 +1,0 @@
-{
-  return coveredNuggets.toArray(new String[coveredNuggets.size()]);
-}

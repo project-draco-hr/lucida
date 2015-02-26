@@ -1,3 +1,0 @@
-{
-  for (  Term term : terms)   expandTerm(term,ps,ontologies);
-}

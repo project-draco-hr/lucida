@@ -1,4 +1,0 @@
-{
-  for (int i=0; i < inf.size(); i++)   if (matches(verb,inf.get(i)) || matches(verb,sp.get(i)) || matches(verb,pp.get(i)))   return i;
-  return -1;
-}

@@ -1,7 +1,0 @@
-{
-  FileInputStream fis=new FileInputStream(input);
-  ObjectInputStream ois=new ObjectInputStream(fis);
-  Object o=ois.readObject();
-  ois.close();
-  return o;
-}

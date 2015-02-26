@@ -1,7 +1,0 @@
-{
-  String regex;
-  for (  Result result : results) {
-    regex=regexs.get(result.getQuery().getQueryString());
-    AnswerPatternFilter.assessPatterns(result,regex);
-  }
-}

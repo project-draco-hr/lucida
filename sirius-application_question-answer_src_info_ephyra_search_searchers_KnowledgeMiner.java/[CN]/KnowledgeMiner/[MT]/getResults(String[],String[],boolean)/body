@@ -1,3 +1,0 @@
-{
-  return getResults(passages,docIDs,new String[docIDs.length],isHtml);
-}

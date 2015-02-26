@@ -1,7 +1,0 @@
-{
-  this(question,qn,stemmed,verbMod,kws,nes,terms);
-  setFocus(focus);
-  setAnswerTypes(ats);
-  setInterpretations(qis);
-  setPredicates(ps);
-}

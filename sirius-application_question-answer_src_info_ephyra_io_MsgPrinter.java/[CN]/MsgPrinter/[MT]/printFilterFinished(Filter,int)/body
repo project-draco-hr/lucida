@@ -1,7 +1,0 @@
-{
-  if (statusMsgs && (filter != null)) {
-    String filterName=filter.getClass().getName();
-    filterName=filterName.substring(filterName.lastIndexOf(".") + 1);
-    printMessage("Filter \"" + filterName + "\" finished, "+ resCount+ " Results ("+ getTimestamp()+ ")");
-  }
-}

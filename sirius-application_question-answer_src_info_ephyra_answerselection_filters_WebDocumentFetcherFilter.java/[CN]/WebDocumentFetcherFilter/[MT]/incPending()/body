@@ -1,5 +1,0 @@
-{
-synchronized (docs) {
-    pending++;
-  }
-}

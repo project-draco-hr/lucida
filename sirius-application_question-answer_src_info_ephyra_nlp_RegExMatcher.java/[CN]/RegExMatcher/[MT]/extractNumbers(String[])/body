@@ -1,3 +1,0 @@
-{
-  return markAllMatches(tokens,NUMBER_PATTERN,10);
-}

@@ -1,5 +1,0 @@
-{
-  String answer=answerTemplates.get(prop);
-  if (answer == null)   return null;
-  return answer.replace("<PO>",po);
-}

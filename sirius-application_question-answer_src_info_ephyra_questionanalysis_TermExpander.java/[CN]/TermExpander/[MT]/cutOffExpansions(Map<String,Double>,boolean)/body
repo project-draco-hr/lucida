@@ -1,3 +1,0 @@
-{
-  return cutOffExpansions(expansions,MAX_EXPANSIONS,MIN_EXPANSION_WEIGHT,strict);
-}

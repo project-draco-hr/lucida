@@ -1,9 +1,0 @@
-{
-  MsgPrinter.printGeneratingQueries();
-  Query[] queries=QueryGeneration.getQueries(aq);
-  MsgPrinter.printSearching();
-  Result[] results=Search.doSearch(queries);
-  MsgPrinter.printSelectingAnswers();
-  results=AnswerSelection.getResults(results,maxAnswers,absThresh);
-  return results;
-}

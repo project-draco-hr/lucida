@@ -1,9 +1,0 @@
-{
-  if (statusMsgs) {
-    printMessage("\nPredicates:");
-    if (ps.length == 0)     printMessage("-");
-    for (    Predicate p : ps) {
-      printMessage(p.toStringMultiLine());
-    }
-  }
-}

@@ -1,6 +1,0 @@
-{
-  if (index == null)   return 0;
-  if (LOWER_CASE)   word=word.toLowerCase();
-  if (index.containsKey(word))   return (index.get(word)).intValue();
- else   return 0;
-}

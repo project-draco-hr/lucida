@@ -1,4 +1,0 @@
-String[] passages
-String[] docIDs
-String[] cacheIDs
-boolean isHtml

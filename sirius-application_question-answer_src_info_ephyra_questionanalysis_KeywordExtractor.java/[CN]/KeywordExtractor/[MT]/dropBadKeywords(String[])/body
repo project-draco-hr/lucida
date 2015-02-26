@@ -1,5 +1,0 @@
-{
-  ArrayList<String> goodKeywords=new ArrayList<String>();
-  for (  String word : words)   if (!word.matches("(?i)" + IGNORE))   goodKeywords.add(word);
-  return goodKeywords.toArray(new String[goodKeywords.size()]);
-}

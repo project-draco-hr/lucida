@@ -1,9 +1,0 @@
-{
-  String targetString=target.getCondensedTarget();
-  TRECQuestion[] questionsArray=target.getQuestions();
-  String question=questionsArray[next].getQuestionString();
-  ArrayList<String> temp=resoveNP(targetString,question);
-  temp.add(question);
-  questionsArray[next].setQuestionString(temp.get(0));
-  MsgPrinter.printResolvedQuestion(question);
-}

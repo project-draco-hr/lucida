@@ -1,4 +1,0 @@
-String[] tokens
-String[] numberMarkers
-Pattern dimensionPattern
-int maxTokens

@@ -1,8 +1,0 @@
-{
-  TRECQuestion[] questions=TREC8To12Parser.loadQuestions(qFile);
-  qss=new String[questions.length];
-  for (int i=0; i < questions.length; i++)   qss[i]=questions[i].getQuestionString();
-  TRECPattern[] patterns=TREC8To12Parser.loadPatternsAligned(pFile);
-  regexs=new String[questions.length];
-  for (int i=0; i < questions.length; i++)   if ((i < patterns.length) && (patterns[i] != null))   regexs[i]=patterns[i].getRegexs()[0];
-}

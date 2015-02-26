@@ -1,6 +1,0 @@
-{
-  if (isRunning) {
-    stopTime=System.currentTimeMillis();
-    isRunning=false;
-  }
-}

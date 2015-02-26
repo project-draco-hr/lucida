@@ -1,3 +1,0 @@
-{
-  for (int i=0; i < kms.size(); i++)   kms.get(i).start(query);
-}

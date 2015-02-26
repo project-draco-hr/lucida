@@ -1,5 +1,0 @@
-{
-  if (char1 == char2)   return 0;
-  if (!caseSensitive && (Character.toLowerCase(char1) == Character.toLowerCase(char2)))   return 0;
-  return substCost;
-}

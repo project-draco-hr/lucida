@@ -1,8 +1,0 @@
-{
-  String type=parse.getType();
-  if (type.startsWith("NE")) {
-    String text=parse.getText().substring(parse.getSpan().getStart(),parse.getSpan().getEnd());
-    nes[getNeIds(type)[0]].add(text.trim());
-  }
-  for (  Parse child : parse.getChildren())   extractNesRec(child,nes);
-}

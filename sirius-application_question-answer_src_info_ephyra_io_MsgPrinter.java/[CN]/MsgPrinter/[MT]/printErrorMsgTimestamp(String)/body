@@ -1,3 +1,0 @@
-{
-  if (errorMsgs)   printErrorMsg(error + " (" + getTimestamp()+ ")");
-}
