@@ -8,9 +8,10 @@ def do_POST(self):
     cmd = ('ffmpeg -y -i %s -acodec pcm_s16le -ac 1 -ar 16000 %s16k_%s 1>/dev/null 2>/dev/null' % (filepath, dlog, filename))
     shcmd(cmd)
     f1 = ((dlog + '16k_') + filename)
-    cmd = ('pocketsphinx_continuous %s -logfn /dev/null -infile %s ' % (argfile, f1))
-    res = shcom(cmd).strip()
-    print ('transcript: %s' % res)
+    for f in argfiles:
+        cmd = ('pocketsphinx_continuous %s -logfn /dev/null -infile %s ' % (f, f1))
+        res = shcom(cmd).strip()
+        print ('transcript [%s]: %s' % (f, res))
     answer = ('%s\n' % res)
     self.wfile.write(answer)
     return
