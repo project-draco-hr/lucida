@@ -6,7 +6,7 @@ def main(args):
     platforms = ['baseline', 'pthread', 'gpu']
     kdir = args[1]
     os.chdir(kdir)
-    LOOP = args[2]
+    LOOP = int(args[2])
     if (shcom('which nvcc') == ''):
         platforms = ['baseline', 'pthread']
     root = os.getcwd()
@@ -19,9 +19,6 @@ def main(args):
                 continue
             os.chdir(plat)
             for i in range(1, LOOP):
-                if (k == 'crf'):
-                    shcmd('./test-crf.sh')
-                else:
-                    shcmd('make test')
+                shcmd('make test')
             os.chdir(kroot)
         os.chdir(root)
