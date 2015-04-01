@@ -9,7 +9,7 @@ def do_POST(self):
     shcmd(cmd)
     f1 = ((dlog + '16k_') + filename)
     for f in argfiles:
-        cmd = ('pocketsphinx_continuous %s -logfn /dev/null -infile %s ' % (f, f1))
+        cmd = ('./pocketsphinx_continuous %s -logfn /dev/null -infile %s ' % (f, f1))
         res = shcom(cmd).strip()
         print ('transcript [%s]: %s' % (f, res))
     answer = ('%s\n' % res)
