@@ -1,0 +1,49 @@
+def get_args(k, plat):
+    'To change inputs or # of threads'
+    args = []
+    if (k == 'fe'):
+        args.append('surf-fe')
+        if (plat == 'pthread'):
+            args.append(threads)
+            args.append(overlap)
+        args.append('../input/2048x2048.jpg')
+    elif (k == 'fd'):
+        args.append('surf-fd')
+        if (plat == 'pthread'):
+            args.append(int(threads))
+            args.append(int(overlap))
+        args.append('../input/2048x2048.jpg')
+    elif (k == 'gmm'):
+        args.append('gmm_scoring')
+        if (plat == 'pthread'):
+            args.append(threads)
+        args.append(100)
+        args.append('../input/gmm_data.txt')
+    elif (k == 'regex'):
+        args.append('regex_slre')
+        if (plat == 'pthread'):
+            args.append(threads)
+        args.append(100)
+        args.append('../input/patterns.txt')
+        args.append(10000)
+        args.append('../input/questions-10k.txt')
+    elif (k == 'stemmer'):
+        args.append('stem_porter')
+        if (plat == 'pthread'):
+            args.append(threads)
+        args.append(50000000)
+        args.append('../input/voc-50M.txt')
+    elif (k == 'crf'):
+        args.append('crf_tag')
+        if (plat == 'pthread'):
+            args.append(threads)
+        args.append('../input/model.la')
+        args.append('../input/test-input.txt')
+    elif (k == 'dnn-asr'):
+        args.append('dnn_asr')
+        if (plat == 'pthread'):
+            args.append(threads)
+        args.append('../model/asr.prototxt')
+        args.append('../model/asr.caffemodel')
+        args.append('../input/features.in')
+    return args

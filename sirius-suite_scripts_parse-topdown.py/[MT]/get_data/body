@@ -1,0 +1,9 @@
+def get_data(fname, metrics):
+    data = {}
+    with open(fname, 'rb') as f:
+        d = csv.DictReader(f)
+        for row in d:
+            for (k, v) in row.iteritems():
+                if any(((v[0] in s) for s in metrics)):
+                    data[v[0]] = v[1]
+    return data

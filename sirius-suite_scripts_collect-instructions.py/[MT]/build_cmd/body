@@ -1,0 +1,10 @@
+def build_cmd(root, args):
+    built = ''
+    for (k, a) in enumerate(args):
+        if (k == 0):
+            built = (built + './')
+        if (type(a) == type('str')):
+            built = ((((built + root) + '/') + a) + ' ')
+        else:
+            built = ((built + str(a)) + ' ')
+    return built

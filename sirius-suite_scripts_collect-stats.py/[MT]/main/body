@@ -2,23 +2,30 @@ def main(args):
     if (len(args) < 3):
         print 'Usage: ./collect-stats.py <top-directory of kernels> <# of runs>'
         return
-    kernels = ['fe', 'fd', 'gmm', 'regex', 'stemmer', 'crf', 'dnn-asr']
-    platforms = ['baseline', 'pthread', 'gpu']
+    kernels = ['fe', 'fd', 'gmm', 'dnn-asr', 'regex', 'stemmer', 'crf']
+    platforms = ['baseline', 'smt']
     kdir = args[1]
     os.chdir(kdir)
     LOOP = int(args[2])
-    if (shcom('which nvcc') == ''):
-        platforms = ['baseline', 'pthread']
     root = os.getcwd()
     for k in kernels:
         d = ((os.getcwd() + '/') + k)
         os.chdir(d)
         kroot = os.getcwd()
         for plat in platforms:
-            if (not os.path.isdir(plat)):
-                continue
-            os.chdir(plat)
-            for i in range(1, LOOP):
-                shcmd('make test')
+            fname = ('sirius-suite-%s' % plat)
+            if ((plat == 'smt') or (plat == 'cores') or (plat == 'pthread')):
+                os.chdir('pthread')
+            else:
+                os.chdir(plat)
+            for i in range(0, LOOP):
+                if (plat == 'smt'):
+                    task = 'taskset -c 0,8 '
+                elif (plat == 'cores'):
+                    task = 'taskset -c 0,1 '
+                else:
+                    task = 'taskset -c 0 '
+                cmd = ((task + ' ') + run_kernel(k, plat))
+                shcmd(cmd)
             os.chdir(kroot)
         os.chdir(root)
