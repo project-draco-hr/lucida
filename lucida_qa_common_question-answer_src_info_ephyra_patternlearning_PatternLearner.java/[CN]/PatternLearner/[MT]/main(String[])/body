@@ -1,0 +1,8 @@
+{
+  MsgPrinter.enableStatusMsgs(true);
+  MsgPrinter.enableErrorMsgs(true);
+  init();
+  extract();
+  assess();
+  filter();
+}

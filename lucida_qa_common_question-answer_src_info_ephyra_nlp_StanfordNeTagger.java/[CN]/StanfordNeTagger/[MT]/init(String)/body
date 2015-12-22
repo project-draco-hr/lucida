@@ -1,0 +1,10 @@
+{
+  try {
+    classifier=CRFClassifier.getClassifier(customSerializedClassifier);
+    serializedClassifier=customSerializedClassifier;
+    return true;
+  }
+ catch (  Exception e) {
+    return false;
+  }
+}

@@ -1,0 +1,22 @@
+{
+  String[] ats=aq.getAnswerTypes();
+  if (ats.length == 0 && aq.isFactoid())   return new Query[0];
+  ArrayList<Query> results=new ArrayList<Query>();
+  String verbMod=aq.getVerbMod();
+  String[] kws=aq.getKeywords();
+  if (reformulators != null) {
+    Query[] queries;
+    for (    QuestionReformulator reformulator : reformulators) {
+      queries=reformulator.apply(verbMod);
+      if (queries != null)       for (      Query query : queries) {
+        String queryString=query.getQueryString();
+        for (        String kw : kws)         if (!StringUtils.equalsCommonNorm(queryString,kw))         queryString+=" " + kw;
+        query.setQueryString(queryString);
+        query.setAnalyzedQuestion(aq);
+        query.setExtractionTechniques(EXTRACTION_TECHNIQUES);
+        results.add(query);
+      }
+    }
+  }
+  return results.toArray(new Query[results.size()]);
+}

@@ -1,0 +1,12 @@
+{
+  List t=MaxentTagger.tokenizeText(new StringReader(sentence));
+  List<String> tokens=new ArrayList<String>();
+  for (int j=0; j < t.size(); j++) {
+    Sentence s1=(Sentence)t.get(j);
+    for (int i=0; i < s1.length(); i++) {
+      HasWord w=s1.getHasWord(i);
+      tokens.add(w.word());
+    }
+  }
+  return (String[])tokens.toArray(new String[tokens.size()]);
+}

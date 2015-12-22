@@ -1,0 +1,59 @@
+{
+  this.sentence=sentence;
+  this.annotated=annotated;
+  Matcher verbM=VERB_P.matcher(annotated);
+  if (!verbM.find()) {
+    MsgPrinter.printErrorMsg("Problem building predicate: " + "TARGET missing.");
+    MsgPrinter.printErrorMsg("Sentence: " + sentence);
+    MsgPrinter.printErrorMsg("Annotation: " + annotated);
+    throw new ParseException("Predicate annotation could not be parsed.",0);
+  }
+  verb=ASSERT.untokenize(verbM.group(1).trim(),sentence);
+  if (verb == null) {
+    MsgPrinter.printErrorMsg("Problem building predicate: " + "TARGET not in original sentence.");
+    MsgPrinter.printErrorMsg("Sentence: " + sentence);
+    MsgPrinter.printErrorMsg("Annotation: " + annotated);
+    throw new ParseException("Predicate annotation could not be parsed.",0);
+  }
+  ArrayList<String> rolesL=new ArrayList<String>();
+  ArrayList<String> argsL=new ArrayList<String>();
+  Matcher argM=ARG_P.matcher(annotated);
+  while (argM.find()) {
+    String role=argM.group(1).toUpperCase();
+    String arg=ASSERT.untokenize(argM.group(2).trim(),sentence);
+    if (arg == null) {
+      MsgPrinter.printErrorMsg("Problem building predicate: " + role + " not in original sentence.");
+      MsgPrinter.printErrorMsg("Sentence: " + sentence);
+      MsgPrinter.printErrorMsg("Annotation: " + annotated);
+    }
+ else {
+      rolesL.add(role);
+      argsL.add(arg);
+    }
+  }
+  Matcher modM=MOD_P.matcher(annotated);
+  while (modM.find()) {
+    String role=modM.group(1).toUpperCase();
+    String arg=ASSERT.untokenize(modM.group(2).trim(),sentence);
+    if (arg == null) {
+      MsgPrinter.printErrorMsg("Problem building predicate: " + role + " not in original sentence.");
+      MsgPrinter.printErrorMsg("Sentence: " + sentence);
+      MsgPrinter.printErrorMsg("Annotation: " + annotated);
+    }
+ else {
+      rolesL.add(role);
+      argsL.add(arg);
+    }
+  }
+  String[] roles=rolesL.toArray(new String[rolesL.size()]);
+  String[] args=argsL.toArray(new String[argsL.size()]);
+  appendAll(roles,args);
+  setVerbTerm(terms);
+  if (verbTerm == null) {
+    throw new ParseException("Predicate annotation could not be parsed.",0);
+  }
+  setArgTerms(terms);
+  if (argTerms.length == 0) {
+    throw new ParseException("Predicate annotation could not be parsed.",0);
+  }
+}

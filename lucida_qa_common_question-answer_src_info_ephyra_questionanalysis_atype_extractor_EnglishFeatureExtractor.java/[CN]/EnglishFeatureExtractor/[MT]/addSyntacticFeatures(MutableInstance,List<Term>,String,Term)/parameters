@@ -1,0 +1,4 @@
+MutableInstance instance
+List<Term> terms
+String parseTree
+Term focusTerm

@@ -1,0 +1,40 @@
+{
+  HashSet<String> gens=new HashSet<String>();
+  Pattern p=Pattern.compile("(<TO>.*?<PO_.*?>)|(<PO_.*?>.*?<TO>)");
+  for (  String pattern : patterns) {
+    Matcher m=p.matcher(pattern);
+    if (m.find()) {
+      gens.add(m.group(0));
+      gens.add(pattern.replaceFirst("<PO_.*?>","<PO>"));
+    }
+ else     gens.add(pattern);
+  }
+  patterns=gens.toArray(new String[gens.size()]);
+  for (  String pattern : patterns) {
+    String[] tokens=pattern.split(" ");
+    String gen="";
+    int nOfTags=0;
+    boolean dropped=false;
+    for (int i=0; i < tokens.length; i++) {
+      if (tokens[i].matches("<TO>") || tokens[i].matches("<PO.*>") || (i > 0 && tokens[i - 1].matches("<PO>"))|| (i < tokens.length - 1 && tokens[i + 1].matches("<PO>"))) {
+        gen+=tokens[i] + " ";
+        dropped=false;
+      }
+ else       if (tokens[i].matches("<.*>")) {
+        gen+="(?:" + tokens[i] + " )?";
+        nOfTags++;
+        dropped=false;
+      }
+ else       if (QuestionInterpreter.lookupKeyword(tokens[i],prop)) {
+        gen+=tokens[i] + " ";
+        dropped=false;
+      }
+ else {
+        if (!dropped)         gen+="[^<]*?";
+        dropped=true;
+      }
+    }
+    if (nOfTags <= MAX_TAGS)     gens.add(gen.trim());
+  }
+  return gens.toArray(new String[gens.size()]);
+}

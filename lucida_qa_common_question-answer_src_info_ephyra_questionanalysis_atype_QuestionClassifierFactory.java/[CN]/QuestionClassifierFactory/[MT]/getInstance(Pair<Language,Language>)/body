@@ -1,0 +1,10 @@
+{
+  QuestionClassifier classifier=null;
+  Properties properties=propertyMap.get(languagePair.getFirst() + "_" + languagePair.getSecond());
+  String classifierType=properties.getProperty("classifierType");
+  if (classifierType == null)   throw new Exception("Required property classifierType is undefined for language pair " + languagePair);
+  classifier=(QuestionClassifier)Class.forName(classifierType).newInstance();
+  classifier.setLanguagePair(languagePair);
+  classifier.initialize();
+  return classifier;
+}

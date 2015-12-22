@@ -1,0 +1,6 @@
+{
+  String className=this.getClass().getName();
+  System.out.println("WebTermImportanceFilter: caching web lookup result for target '" + target + "' from class '"+ className+ "'");
+  CacheEntry ce=new CacheEntry(target,termCounters);
+  cache.put(className,ce);
+}

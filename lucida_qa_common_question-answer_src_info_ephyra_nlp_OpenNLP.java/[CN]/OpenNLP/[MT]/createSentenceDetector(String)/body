@@ -1,0 +1,9 @@
+{
+  try {
+    sentenceDetector=new SentenceDetector(model);
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

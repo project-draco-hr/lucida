@@ -1,0 +1,6 @@
+{
+  if (!isInitialized())   throw new Exception("getAnswerTypes called while not initialized");
+  Instance instance=new MutableInstance(question);
+  if (extractor != null)   instance=extractor.createInstance(question);
+  return classify(instance);
+}

@@ -1,0 +1,70 @@
+{
+  MsgPrinter.printStatusMsg("Parsing " + input.getName() + "...");
+  ArrayList<String> headers=new ArrayList<String>();
+  ArrayList<String> contents=new ArrayList<String>();
+  try {
+    FileInputStream fis=new FileInputStream(input);
+    BufferedReader reader=new BufferedReader(new InputStreamReader(fis,"UTF-8"));
+    boolean content=false;
+    while (reader.ready()) {
+      if (content == false) {
+        StringBuilder sb=new StringBuilder();
+        while (reader.ready()) {
+          String line=reader.readLine();
+          sb.append(line + "\n");
+          if (line.matches("\\s*?</DOCHDR>\\s*+"))           break;
+        }
+        headers.add(sb.toString());
+        content=true;
+      }
+ else {
+        StringBuilder sb=new StringBuilder();
+        while (reader.ready()) {
+          String line=reader.readLine();
+          sb.append(line + "\n");
+          if (line.matches("\\s*?</DOC>\\s*+"))           break;
+        }
+        contents.add(sb.toString());
+        content=false;
+      }
+    }
+    reader.close();
+    if (headers.size() == 0 || contents.size() == 0 || headers.size() != contents.size()) {
+      MsgPrinter.printErrorMsg(input.getName() + " is malformatted.");
+      System.exit(1);
+    }
+  }
+ catch (  IOException e) {
+    MsgPrinter.printErrorMsg("Could not read from " + input.getName() + ".");
+    System.exit(1);
+  }
+  for (int i=0; i < contents.size(); i++) {
+    String text=HTMLConverter.html2text(contents.get(i));
+    if (text == null) {
+      MsgPrinter.printErrorMsg(input.getName() + " could not be parsed.");
+      System.exit(1);
+    }
+    contents.set(i,text);
+  }
+  for (int i=0; i < contents.size(); i++) {
+    String[] lines=contents.get(i).split("\\n");
+    StringBuilder sb=new StringBuilder();
+    for (int j=0; j < lines.length; j++)     sb.append("<P>" + lines[j] + "</P>\n");
+    contents.set(i,sb.toString());
+  }
+  File output=new File(input.getPath() + ".parsed");
+  try {
+    FileOutputStream fos=new FileOutputStream(output);
+    PrintWriter writer=new PrintWriter(new OutputStreamWriter(fos,"UTF-8"));
+    for (int i=0; i < headers.size(); i++) {
+      writer.print(headers.get(i));
+      writer.print(contents.get(i));
+      writer.print("</DOC>\n");
+    }
+    writer.close();
+  }
+ catch (  IOException e) {
+    MsgPrinter.printErrorMsg("Could not write to " + output.getName() + ".");
+    System.exit(1);
+  }
+}

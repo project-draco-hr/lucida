@@ -1,0 +1,4 @@
+{
+  this.lastQuery=query;
+  this.lastQueryResults=results;
+}

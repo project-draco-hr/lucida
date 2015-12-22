@@ -1,0 +1,3 @@
+{
+  return "Always classify instance as " + soleLabelName;
+}

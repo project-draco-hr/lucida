@@ -1,0 +1,18 @@
+{
+  HashMap<String,String[][]> results=new HashMap<String,String[][]>();
+  for (int s=0; s < sentences.length; s++) {
+    HashMap<String,String[]> sentenceNEs=extractNEs(sentences[s]);
+    ArrayList<String> sentenceNeTypes=new ArrayList<String>(sentenceNEs.keySet());
+    for (int t=0; t < sentenceNeTypes.size(); t++) {
+      String type=sentenceNeTypes.get(t);
+      String[][] nes=results.get(type);
+      if (nes == null) {
+        nes=new String[sentences.length][];
+        for (int i=0; i < sentences.length; i++)         nes[i]=new String[0];
+        results.put(type,nes);
+      }
+      nes[s]=sentenceNEs.get(type);
+    }
+  }
+  return results;
+}

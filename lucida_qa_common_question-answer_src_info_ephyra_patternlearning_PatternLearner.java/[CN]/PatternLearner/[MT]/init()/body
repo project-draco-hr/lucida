@@ -1,0 +1,31 @@
+{
+  MsgPrinter.printInitializing();
+  MsgPrinter.printStatusMsg("Creating tokenizer...");
+  if (!OpenNLP.createTokenizer("res/nlp/tokenizer/opennlp/" + "EnglishTok.bin.gz"))   MsgPrinter.printErrorMsg("Could not create tokenizer.");
+  MsgPrinter.printStatusMsg("Creating sentence detector...");
+  if (!OpenNLP.createSentenceDetector("res/nlp/sentencedetector/" + "opennlp/EnglishSD.bin.gz"))   MsgPrinter.printErrorMsg("Could not create sentence detector.");
+  MsgPrinter.printStatusMsg("Creating stemmer...");
+  SnowballStemmer.create();
+  MsgPrinter.printStatusMsg("Creating POS tagger...");
+  if (!OpenNLP.createPosTagger("res/nlp/postagger/opennlp/tag.bin.gz","res/nlp/postagger/opennlp/tagdict"))   MsgPrinter.printErrorMsg("Could not create OpenNLP POS tagger.");
+  MsgPrinter.printStatusMsg("Creating chunker...");
+  if (!OpenNLP.createChunker("res/nlp/phrasechunker/opennlp/" + "EnglishChunk.bin.gz"))   MsgPrinter.printErrorMsg("Could not create chunker.");
+  MsgPrinter.printStatusMsg("Creating NE taggers...");
+  NETagger.loadListTaggers("res/nlp/netagger/lists/");
+  NETagger.loadRegExTaggers("res/nlp/netagger/patterns.lst");
+  MsgPrinter.printStatusMsg("  ...loading models");
+  if (!StanfordNeTagger.isInitialized() && !StanfordNeTagger.init())   MsgPrinter.printErrorMsg("Could not create Stanford NE tagger.");
+  MsgPrinter.printStatusMsg("  ...done");
+  MsgPrinter.printStatusMsg("Creating WordNet dictionary...");
+  if (!WordNet.initialize("res/ontologies/wordnet/file_properties.xml"))   MsgPrinter.printErrorMsg("Could not create WordNet dictionary.");
+  MsgPrinter.printStatusMsg("Loading function verbs...");
+  if (!FunctionWords.loadIndex("res/indices/functionwords_nonumbers"))   MsgPrinter.printErrorMsg("Could not load function words.");
+  MsgPrinter.printStatusMsg("Loading prepositions...");
+  if (!Prepositions.loadIndex("res/indices/prepositions"))   MsgPrinter.printErrorMsg("Could not load prepositions.");
+  MsgPrinter.printStatusMsg("Loading irregular verbs...");
+  if (!IrregularVerbs.loadVerbs("res/indices/irregularverbs"))   MsgPrinter.printErrorMsg("Could not load irregular verbs.");
+  MsgPrinter.printStatusMsg("Loading question patterns...");
+  if (!QuestionInterpreter.loadPatterns("res/patternlearning/" + "questionpatterns/"))   MsgPrinter.printErrorMsg("Could not load question patterns.");
+  MsgPrinter.printStatusMsg("Adding BingKM...");
+  Search.addKnowledgeMiner(new BingKM());
+}

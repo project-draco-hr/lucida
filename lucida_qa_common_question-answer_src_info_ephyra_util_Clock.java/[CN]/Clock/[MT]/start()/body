@@ -1,0 +1,6 @@
+{
+  if (!isRunning) {
+    startTime=System.currentTimeMillis();
+    isRunning=true;
+  }
+}

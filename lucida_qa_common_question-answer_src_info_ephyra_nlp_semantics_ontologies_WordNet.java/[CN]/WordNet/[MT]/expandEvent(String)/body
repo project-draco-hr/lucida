@@ -1,0 +1,59 @@
+{
+  if (!isVerb(event))   return new Hashtable<String,Double>();
+  Map<Synset,Double> synsets=new Hashtable<Synset,Double>();
+  Map<Synset,Double> expanded=new Hashtable<Synset,Double>();
+  double hurdle=TermExpander.MIN_EXPANSION_WEIGHT;
+  if (SYNONYM_WEIGHT >= hurdle) {
+    Synset synset=getCommonSynset(event,VERB);
+    if (synset != null)     synsets.put(synset,1d);
+  }
+  int pathLength=0;
+  while (pathLength++ < MAX_PATH_LENGTH && synsets.size() > 0) {
+    Synset[] currSynsets=synsets.keySet().toArray(new Synset[synsets.size()]);
+    double[] currWeights=new double[synsets.size()];
+    for (int i=0; i < synsets.size(); i++)     currWeights[i]=synsets.get(currSynsets[i]);
+    for (int i=0; i < currSynsets.length; i++) {
+      Synset synset=currSynsets[i];
+      double weight=currWeights[i];
+      if (synsets.get(synset) == weight)       synsets.remove(synset);
+      if (!expanded.containsKey(synset) || expanded.get(synset) < weight) {
+        expanded.put(synset,weight);
+      }
+ else       continue;
+      double hypernymWeight=weight * HYPERNYM_WEIGHT;
+      if (hypernymWeight >= hurdle) {
+        Synset[] hypernyms=getHypernymSynsets(synset);
+        for (        Synset hypernym : hypernyms)         if (!synsets.containsKey(hypernym) || synsets.get(hypernym) < hypernymWeight)         synsets.put(hypernym,hypernymWeight);
+      }
+      double hyponymWeight=weight * HYPONYM_WEIGHT;
+      if (hyponymWeight >= hurdle) {
+        Synset[] hyponyms=getHyponymSynsets(synset);
+        for (        Synset hyponym : hyponyms)         if (!synsets.containsKey(hyponym) || synsets.get(hyponym) < hyponymWeight)         synsets.put(hyponym,hyponymWeight);
+      }
+      double entailingWeight=weight * ENTAILING_WEIGHT;
+      if (entailingWeight >= hurdle) {
+        Synset[] entailing=getEntailingSynsets(synset);
+        for (        Synset entails : entailing)         if (!synsets.containsKey(entails) || synsets.get(entails) < entailingWeight)         synsets.put(entails,entailingWeight);
+      }
+      double causingWeight=weight * CAUSING_WEIGHT;
+      if (causingWeight >= hurdle) {
+        Synset[] causing=getCausingSynsets(synset);
+        for (        Synset causes : causing)         if (!synsets.containsKey(causes) || synsets.get(causes) < causingWeight)         synsets.put(causes,causingWeight);
+      }
+    }
+  }
+  for (  Synset synset : synsets.keySet()) {
+    double weight=synsets.get(synset);
+    if (!expanded.containsKey(synset) || expanded.get(synset) < weight)     expanded.put(synset,weight);
+  }
+  Map<String,Double> expansions=new Hashtable<String,Double>();
+  for (  Synset synset : expanded.keySet()) {
+    double weight=expanded.get(synset);
+    if (weight == 1)     weight=SYNONYM_WEIGHT;
+    for (    String expansion : getLemmas(synset))     if (!expansions.containsKey(expansion) || expansions.get(expansion) < weight)     expansions.put(expansion,weight);
+  }
+  List<String> dropped=new ArrayList<String>();
+  for (  String expansion : expansions.keySet())   if (expansion.equalsIgnoreCase(event))   dropped.add(expansion);
+  for (  String expansion : dropped)   expansions.remove(expansion);
+  return expansions;
+}

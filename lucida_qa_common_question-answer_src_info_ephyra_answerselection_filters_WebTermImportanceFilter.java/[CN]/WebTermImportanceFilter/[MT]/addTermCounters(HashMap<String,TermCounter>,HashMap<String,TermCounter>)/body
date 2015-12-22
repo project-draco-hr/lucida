@@ -1,0 +1,8 @@
+{
+  for (Iterator<String> keys=source.keySet().iterator(); keys.hasNext(); ) {
+    String key=keys.next();
+    int count=source.get(key).getValue();
+    if (!target.containsKey(key))     target.put(key,new TermCounter());
+    target.get(key).increment(count);
+  }
+}

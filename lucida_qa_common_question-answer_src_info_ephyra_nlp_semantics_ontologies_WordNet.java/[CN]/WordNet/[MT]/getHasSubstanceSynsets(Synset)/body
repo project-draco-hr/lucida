@@ -1,0 +1,10 @@
+{
+  PointerTargetNodeList haveSubstance=null;
+  try {
+    haveSubstance=PointerUtils.getInstance().getSubstanceMeronyms(synset);
+  }
+ catch (  JWNLException e) {
+  }
+  if (haveSubstance == null)   return null;
+  return getSynsets(haveSubstance);
+}

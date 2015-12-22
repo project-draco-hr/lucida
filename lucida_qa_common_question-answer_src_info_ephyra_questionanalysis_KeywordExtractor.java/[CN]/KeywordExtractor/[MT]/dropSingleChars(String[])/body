@@ -1,0 +1,5 @@
+{
+  ArrayList<String> noChar=new ArrayList<String>();
+  for (  String word : words)   if (word.length() > 1)   noChar.add(word);
+  return noChar.toArray(new String[noChar.size()]);
+}

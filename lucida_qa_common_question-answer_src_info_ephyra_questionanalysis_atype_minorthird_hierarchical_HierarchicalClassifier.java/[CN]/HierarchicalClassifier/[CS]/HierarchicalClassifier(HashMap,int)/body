@@ -1,0 +1,4 @@
+{
+  this.classifiers=classifiers;
+  this.classLevels=classLevels;
+}

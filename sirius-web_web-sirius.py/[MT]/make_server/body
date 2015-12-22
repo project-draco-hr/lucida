@@ -1,2 +1,0 @@
-def make_server(ip, port):
-    return str(((('http://' + ip) + ':') + str(port)))

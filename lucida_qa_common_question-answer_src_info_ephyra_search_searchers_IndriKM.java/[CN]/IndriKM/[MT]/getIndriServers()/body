@@ -1,0 +1,11 @@
+{
+  ArrayList<String[]> servers=new ArrayList<String[]>();
+  String server=System.getenv("INDRI_SERVER");
+  if (server != null && server.length() > 0)   servers.add(server.split(";"));
+  for (int i=2; ; i++) {
+    server=System.getenv("INDRI_SERVER" + i);
+    if (server != null && server.length() > 0)     servers.add(server.split(";"));
+ else     break;
+  }
+  return servers.toArray(new String[servers.size()][]);
+}

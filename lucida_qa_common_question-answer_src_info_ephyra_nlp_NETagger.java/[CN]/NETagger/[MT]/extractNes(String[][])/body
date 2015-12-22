@@ -1,0 +1,70 @@
+{
+  String[][][] nes=new String[sentences.length][][];
+  Map[] prevTokenMaps=new HashMap[finders.length];
+  for (int i=0; i < finders.length; i++)   prevTokenMaps[i]=new HashMap();
+  for (int s=0; s < sentences.length; s++) {
+    String[] tokens=sentences[s];
+    nes[s]=new String[finders.length + allPatternNames.length + lists.length+ stanfordNames.length][];
+    String[][] finderTags=new String[finders.length][];
+    for (int i=0; i < finders.length; i++)     finderTags[i]=finders[i].find(tokens,prevTokenMaps[i]);
+    for (int i=0; i < prevTokenMaps.length; i++)     for (int j=0; j < tokens.length; j++)     prevTokenMaps[i].put(tokens[j],finderTags[i][j]);
+    for (int i=0; i < finders.length; i++) {
+      ArrayList<String> neList=new ArrayList<String>();
+      String ne="";
+      for (int j=0; j < tokens.length; j++) {
+        if ((finderTags[i][j].equals(NameFinderME.START) || finderTags[i][j].equals(NameFinderME.OTHER)) && ne.length() > 0) {
+          neList.add(ne.trim());
+          ne="";
+        }
+        if (finderTags[i][j].equals(NameFinderME.START))         ne=tokens[j];
+        if (finderTags[i][j].equals(NameFinderME.CONTINUE))         ne+=" " + tokens[j];
+      }
+      if (ne.length() > 0)       neList.add(ne);
+      nes[s][i]=neList.toArray(new String[neList.size()]);
+    }
+    String[][] regExTags=new String[allPatternNames.length][];
+    regExTags[0]=new String[tokens.length];
+    for (int i=0; i < tokens.length; i++)     regExTags[0][i]=NameFinderME.OTHER;
+    for (int i=1; i < patterns.length; i++)     regExTags[i]=RegExMatcher.markAllMatches(tokens,patterns[i],patternMaxTokens[i]);
+    String[] numberMarkers=RegExMatcher.extractNumbers(tokens);
+    regExTags[patterns.length]=numberMarkers;
+    for (int i=0; i < quantityUnitPatterns.length; i++)     regExTags[patterns.length + i + 1]=RegExMatcher.extractQuantities(tokens,numberMarkers,quantityUnitPatterns[i],quantityUnitPatternMaxTokens[i]);
+    for (int i=0; i < allPatternNames.length; i++) {
+      ArrayList<String> neList=new ArrayList<String>();
+      String ne="";
+      for (int j=0; j < tokens.length; j++) {
+        if ((regExTags[i][j].equals(NameFinderME.START) || regExTags[i][j].equals(NameFinderME.OTHER)) && ne.length() > 0) {
+          neList.add(ne.trim());
+          ne="";
+        }
+        if (regExTags[i][j].equals(NameFinderME.START))         ne=tokens[j];
+        if (regExTags[i][j].equals(NameFinderME.CONTINUE))         ne+=" " + tokens[j];
+      }
+      if (ne.length() > 0)       neList.add(ne);
+      nes[s][finders.length + i]=neList.toArray(new String[neList.size()]);
+    }
+    String[][] listTags=new String[listNames.length][];
+    for (int i=0; i < lists.length; i++)     listTags[i]=RegExMatcher.markAllContained(tokens,RegExMatcher.getDictionary(lists[i]),fuzzyListLookupThreshold);
+    for (int i=0; i < lists.length; i++) {
+      ArrayList<String> neList=new ArrayList<String>();
+      String ne="";
+      for (int j=0; j < tokens.length; j++) {
+        if ((listTags[i][j].equals(NameFinderME.START) || listTags[i][j].equals(NameFinderME.OTHER)) && ne.length() > 0) {
+          neList.add(ne.trim());
+          ne="";
+        }
+        if (listTags[i][j].equals(NameFinderME.START))         ne=tokens[j];
+        if (listTags[i][j].equals(NameFinderME.CONTINUE))         ne+=" " + tokens[j];
+      }
+      if (ne.length() > 0)       neList.add(ne);
+      nes[s][finders.length + allPatternNames.length + i]=neList.toArray(new String[neList.size()]);
+    }
+    HashMap<String,String[]> allStanfordNEs=StanfordNeTagger.extractNEs(StringUtils.concatWithSpaces(sentences[s]));
+    for (int i=0; i < stanfordNames.length; i++) {
+      String[] stanfordNEs=allStanfordNEs.get(stanfordNames[i]);
+      if (stanfordNEs == null)       stanfordNEs=new String[0];
+      nes[s][finders.length + allPatternNames.length + lists.length+ i]=stanfordNEs;
+    }
+  }
+  return nes;
+}

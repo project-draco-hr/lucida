@@ -1,0 +1,33 @@
+{
+  ArrayList<Result> filtered=new ArrayList<Result>();
+  Hashtable<String,Hashtable<String,Result>> truncated=new Hashtable<String,Hashtable<String,Result>>();
+  results=(new ScoreSorterFilter()).apply(results);
+  for (  Result result : results) {
+    if (result.getScore() <= 0 || result.getScore() == Float.POSITIVE_INFINITY) {
+      filtered.add(result);
+      continue;
+    }
+    String[] extractors=result.getExtractionTechniques();
+    if (extractors == null || extractors.length != 1) {
+      filtered.add(result);
+      continue;
+    }
+    String extractor=extractors[0];
+    result=apply(result);
+    Hashtable<String,Result> truncatedT=truncated.get(extractor);
+    if (truncatedT == null) {
+      truncatedT=new Hashtable<String,Result>();
+      truncated.put(extractor,truncatedT);
+    }
+    String norm=StringUtils.normalize(result.getAnswer());
+    Result similar=truncatedT.get(norm);
+    if (similar == null) {
+      filtered.add(result);
+      truncatedT.put(norm,result);
+    }
+ else {
+      similar.incScore(result.getScore());
+    }
+  }
+  return filtered.toArray(new Result[filtered.size()]);
+}

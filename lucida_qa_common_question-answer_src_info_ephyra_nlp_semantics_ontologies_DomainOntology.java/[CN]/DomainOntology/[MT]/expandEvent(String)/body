@@ -1,0 +1,9 @@
+{
+  Map<String,Double> expansions=new Hashtable<String,Double>();
+  expansions.put(event,1d);
+  expansions=expandMapTransitive(expansions,"is-a");
+  expansions=expandMapTransitive(expansions,"implied-by");
+  expansions=expandMapTransitive(expansions,"subtype");
+  expansions.remove(event);
+  return expansions;
+}

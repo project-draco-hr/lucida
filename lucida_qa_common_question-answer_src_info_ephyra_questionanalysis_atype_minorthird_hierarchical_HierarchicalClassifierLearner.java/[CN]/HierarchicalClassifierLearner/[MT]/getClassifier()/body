@@ -1,0 +1,8 @@
+{
+  HashMap<String,Classifier> classifiers=new HashMap<String,Classifier>();
+  String[] keys=toKeyArray(classifierLearners);
+  for (int i=0; i < keys.length; i++) {
+    classifiers.put(keys[i],classifierLearners.get(keys[i]).getClassifier());
+  }
+  return new HierarchicalClassifier(classifiers,prototypes.length);
+}

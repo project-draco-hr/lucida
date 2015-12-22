@@ -1,0 +1,4 @@
+{
+  verbMod=verbMod.replaceFirst(LOCATION_P,"") + " " + LOCATION_R;
+  return verbMod;
+}

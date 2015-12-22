@@ -1,0 +1,4 @@
+int level
+double confidence
+String type
+List<AnswerType> subtypes

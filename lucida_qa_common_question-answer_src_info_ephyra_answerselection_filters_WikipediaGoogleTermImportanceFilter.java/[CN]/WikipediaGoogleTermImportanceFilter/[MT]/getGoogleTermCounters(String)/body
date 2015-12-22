@@ -1,0 +1,53 @@
+{
+  HashMap<String,TermCounter> targetTermCounters=new HashMap<String,TermCounter>();
+  for (int startResult=0; startResult < MAX_RESULTS_TOTAL; startResult+=MAX_RESULTS_PERQUERY) {
+    GoogleSearch search=new GoogleSearch();
+    if (TEST_TARGET_GENERATION)     System.out.println("Got search ...");
+    search.setKey(GOOGLE_KEY);
+    if (TEST_TARGET_GENERATION)     System.out.println(" - key is " + GOOGLE_KEY);
+    search.setQueryString(target);
+    if (TEST_TARGET_GENERATION)     System.out.println(" - target is " + target);
+    search.setLanguageRestricts("English");
+    if (TEST_TARGET_GENERATION)     System.out.println(" - language set");
+    search.setStartResult(startResult);
+    if (TEST_TARGET_GENERATION)     System.out.println(" - start result set to " + startResult);
+    search.setMaxResults(MAX_RESULTS_PERQUERY);
+    if (TEST_TARGET_GENERATION)     System.out.println(" - max results set");
+    GoogleSearchResult googleResult=null;
+    int retries=0;
+    while (googleResult == null)     try {
+      googleResult=search.doSearch();
+    }
+ catch (    GoogleSearchFault e) {
+      MsgPrinter.printSearchError(e);
+      if (retries == RETRIES) {
+        MsgPrinter.printErrorMsg("\nSearch failed.");
+        return targetTermCounters;
+      }
+      retries++;
+      try {
+        GoogleKM.sleep(1000);
+      }
+ catch (      InterruptedException ie) {
+      }
+    }
+    GoogleSearchResultElement[] elements=googleResult.getResultElements();
+    if (TEST_TARGET_GENERATION)     System.out.println(" - got results: " + elements.length);
+    int lengthSum=0;
+    for (int i=0; i < elements.length; i++) {
+      String plain=elements[i].getSnippet().replaceAll("\\<[^\\>]++\\>"," ");
+      plain=plain.replaceAll("\\&\\#39\\;","'");
+      if (TEST_TARGET_GENERATION)       System.out.println(" - plain: " + plain);
+      String[] sentence=NETagger.tokenize(plain);
+      lengthSum+=sentence.length;
+      for (int s=0; s < sentence.length; s++) {
+        String term=SnowballStemmer.stem(sentence[s].toLowerCase());
+        if (term.length() > 1) {
+          if (!targetTermCounters.containsKey(term))           targetTermCounters.put(term,new TermCounter());
+          targetTermCounters.get(term).increment();
+        }
+      }
+    }
+  }
+  return targetTermCounters;
+}

@@ -1,0 +1,3 @@
+{
+  return getFullType(-1) + " (" + confidence+ ")";
+}

@@ -1,0 +1,6 @@
+{
+  double maxScore=0;
+  for (  Result r : results)   if (r.getScore() > 0 && r.getScore() < Float.POSITIVE_INFINITY)   maxScore=Math.max(r.getScore(),maxScore);
+  Feature feature=new Feature(MAX_SCORE_F);
+  instance.addNumeric(feature,maxScore);
+}

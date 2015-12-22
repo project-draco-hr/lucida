@@ -1,0 +1,10 @@
+{
+  ArrayList<Integer> idList=new ArrayList<Integer>();
+  for (int i=0; i < finderNames.length; i++)   if (finderNames[i].equals(neType))   idList.add(i);
+  for (int i=0; i < allPatternNames.length; i++)   if (allPatternNames[i].equals(neType))   idList.add(finderNames.length + i);
+  for (int i=0; i < listNames.length; i++)   if (listNames[i].equals(neType))   idList.add(finderNames.length + allPatternNames.length + i);
+  for (int i=0; i < stanfordNames.length; i++)   if (stanfordNames[i].equals(neType))   idList.add(finderNames.length + allPatternNames.length + listNames.length+ i);
+  int[] ids=new int[idList.size()];
+  for (int i=0; i < ids.length; i++)   ids[i]=idList.get(i);
+  return ids;
+}

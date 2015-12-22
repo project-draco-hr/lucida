@@ -1,0 +1,26 @@
+{
+  String basename=input.getCanonicalPath();
+  basename=basename.substring(0,basename.lastIndexOf('.'));
+  File logf=new File(basename + ".log");
+  Process process;
+  try {
+    process=Runtime.getRuntime().exec("bash");
+    PrintWriter pw=new PrintWriter(process.getOutputStream());
+    String cmd="cd " + input.getParent() + " 2> "+ logf.getCanonicalPath()+ "; rv=\"$?\"; if [ \"$rv\" -ne \"0\" ]; then exit $rv; fi; "+ ASSERT_DIR+ "/scripts/assert "+ (ASSERT_CLIENT_MODE ? "--mode=client " : "")+ input.getCanonicalPath()+ " >> "+ logf.getCanonicalPath()+ " 2>&1; exit";
+    pw.println(cmd);
+    pw.close();
+  }
+ catch (  Exception e) {
+    throw new Exception("Failed to execute annotator process.",e);
+  }
+  int rv;
+  try {
+    rv=process.waitFor();
+  }
+ catch (  InterruptedException e) {
+    process.destroy();
+    throw new Exception("Process timed out.");
+  }
+  if (rv != 0)   throw new Exception("Process returned error code: " + rv);
+  return logf;
+}

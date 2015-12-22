@@ -1,0 +1,29 @@
+{
+  if (!enabled || logfile == null)   return false;
+  try {
+    PrintWriter out=new PrintWriter(new FileOutputStream(logfile,true));
+    for (int i=0; i < results.length; i++) {
+      out.println("\t<result>");
+      out.println("\t\t<answer>");
+      out.println("\t\t\t" + results[i].getAnswer());
+      out.println("\t\t</answer>");
+      out.println("\t\t<score>");
+      out.println("\t\t\t" + results[i].getScore());
+      out.println("\t\t</score>");
+      if (results[i].getDocID() != null) {
+        out.println("\t\t<docid>");
+        out.println("\t\t\t" + results[i].getDocID());
+        out.println("\t\t</docid>");
+      }
+      out.println("\t\t<correct>");
+      out.println((correct[i]) ? "\t\t\ttrue" : "\t\t\tfalse");
+      out.println("\t\t</correct>");
+      out.println("\t</result>");
+    }
+    out.close();
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

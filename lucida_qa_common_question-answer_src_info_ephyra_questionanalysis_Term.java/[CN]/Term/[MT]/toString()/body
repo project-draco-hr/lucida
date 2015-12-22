@@ -1,0 +1,15 @@
+{
+  String s="{\"" + text + "\"; POS: "+ pos;
+  if (neTypes.length > 0) {
+    s+="; NE types: " + neTypes[0];
+    for (int i=1; i < neTypes.length; i++)     s+=", " + neTypes[i];
+  }
+  if (expansions != null && expansions.size() > 0) {
+    String[] texts=expansions.keySet().toArray(new String[expansions.size()]);
+    s+="; Expansions: {" + texts[0] + "="+ expansions.get(texts[0]);
+    for (int i=1; i < expansions.size(); i++)     s+=", " + texts[i] + "="+ expansions.get(texts[i]);
+    s+="}";
+  }
+  s+="}";
+  return s;
+}

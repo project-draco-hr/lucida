@@ -1,0 +1,10 @@
+{
+  PointerTargetNodeList partsOf=null;
+  try {
+    partsOf=PointerUtils.getInstance().getPartHolonyms(synset);
+  }
+ catch (  JWNLException e) {
+  }
+  if (partsOf == null)   return null;
+  return getSynsets(partsOf);
+}

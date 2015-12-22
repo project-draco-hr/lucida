@@ -1,0 +1,4 @@
+String qn
+String verbMod
+String[] ats
+Term[] terms

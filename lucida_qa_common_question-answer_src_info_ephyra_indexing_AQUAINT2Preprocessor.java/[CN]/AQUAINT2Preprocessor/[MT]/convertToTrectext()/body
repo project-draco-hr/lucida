@@ -1,0 +1,58 @@
+{
+  File[] files=FileUtils.getFilesRec(dir);
+  for (  File file : files) {
+    if (file.getName().contains(".")) {
+      MsgPrinter.printStatusMsg("Ignoring " + file.getPath() + ".\n");
+      continue;
+    }
+    MsgPrinter.printStatusMsg("Parsing " + file.getName() + "...");
+    ArrayList<String> doc=new ArrayList<String>();
+    try {
+      FileInputStream fis=new FileInputStream(file);
+      BufferedReader in=new BufferedReader(new InputStreamReader(fis,"UTF-8"));
+      String line;
+      Pattern p=Pattern.compile("\\s*+<DOC\\s*+id=\"([^\"]*+)\"" + "\\s*+type=\"([^\"]*+)\"\\s*+>\\s*+");
+      String docNo=null, docType=null;
+      while (in.ready()) {
+        line=in.readLine();
+        if (line.matches("\\s*+<\\?xml .*+") || line.matches("\\s*+<!DOCTYPE .*+") || line.matches("\\s*+<DOCSTREAM>\\s*+")|| line.matches("\\s*+</DOCSTREAM>\\s*+")) {
+          System.out.println("Dropping line: " + line);
+        }
+ else         if (line.matches("\\s*+<HEADLINE>\\s*+")) {
+          doc.add("<TITLE>");
+        }
+ else         if (line.matches("\\s*+</HEADLINE>\\s*+")) {
+          doc.add("</TITLE>");
+        }
+ else {
+          Matcher m=p.matcher(line);
+          if (m.find()) {
+            docNo=m.group(1);
+            docType=m.group(2);
+            doc.add("<DOC>");
+            doc.add("<DOCNO>" + docNo + "</DOCNO>");
+            doc.add("<DOCTYPE>" + docType + "</DOCTYPE>");
+          }
+ else {
+            doc.add(line);
+          }
+        }
+      }
+      in.close();
+    }
+ catch (    IOException e) {
+      return false;
+    }
+    try {
+      FileOutputStream fos=new FileOutputStream(file);
+      PrintWriter out=new PrintWriter(new OutputStreamWriter(fos,"UTF-8"));
+      for (      String line : doc)       out.println(line);
+      out.close();
+    }
+ catch (    IOException e) {
+      return false;
+    }
+    MsgPrinter.printStatusMsg("...parsed.\n");
+  }
+  return true;
+}
