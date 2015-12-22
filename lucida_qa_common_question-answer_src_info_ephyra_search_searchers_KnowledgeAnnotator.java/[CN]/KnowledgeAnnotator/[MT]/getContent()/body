@@ -1,0 +1,10 @@
+{
+  String content=qContents.get(index);
+  Pattern p=Pattern.compile("\\[(\\d*)\\]");
+  Matcher m=p.matcher(content);
+  while (m.find()) {
+    int group=Integer.parseInt(m.group(1));
+    content=content.replace(m.group(),matcher.group(group));
+  }
+  return content;
+}

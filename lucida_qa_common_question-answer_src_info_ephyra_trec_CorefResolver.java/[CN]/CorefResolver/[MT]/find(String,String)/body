@@ -1,0 +1,23 @@
+{
+  Map<Integer,String> map=new HashMap<Integer,String>();
+  int i=parse.indexOf("(" + POS);
+  while (i != -1) {
+    int count=-1;
+    int j=i;
+    String temp="";
+    do {
+      char c=parse.charAt(j++);
+      temp+=c;
+      if (c == '(') {
+        count++;
+      }
+      if (c == ')') {
+        count--;
+      }
+    }
+ while (count != -1);
+    map.put(i,temp);
+    i=parse.indexOf("(" + POS,i + 1);
+  }
+  return map;
+}

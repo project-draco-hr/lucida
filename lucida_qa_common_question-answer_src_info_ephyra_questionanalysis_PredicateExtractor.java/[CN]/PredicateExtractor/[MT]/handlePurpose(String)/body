@@ -1,0 +1,4 @@
+{
+  verbMod=verbMod.replaceFirst(PURPOSE_P,"") + " " + PURPOSE_R;
+  return verbMod;
+}

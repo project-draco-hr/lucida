@@ -1,0 +1,5 @@
+{
+  double frequency=lookup(word);
+  if (total > 0)   return frequency / total;
+ else   return 0;
+}

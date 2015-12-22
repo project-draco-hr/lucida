@@ -1,0 +1,6 @@
+{
+  Object[][] subsets=getAllSubsets(objects);
+  Object[][] nonempty=new Object[subsets.length - 1][];
+  for (int i=0; i < nonempty.length; i++)   nonempty[i]=subsets[i + 1];
+  return nonempty;
+}

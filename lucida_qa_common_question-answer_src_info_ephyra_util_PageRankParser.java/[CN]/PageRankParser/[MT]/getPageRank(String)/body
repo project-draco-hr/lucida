@@ -1,0 +1,27 @@
+{
+  int pageRank=-1;
+  String query=getQueryUrl(url);
+  if (query == null) {
+    return pageRank;
+  }
+  BufferedReader in=null;
+  try {
+    URL pr=new URL(query);
+    URLConnection conn=pr.openConnection();
+    in=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+    String line=null;
+    do {
+      if ((line=in.readLine()) == null) {
+        break;
+      }
+      if (line.contains(":")) {
+        String tokens[]=line.split(":");
+        if (tokens.length > 2)         pageRank=Integer.parseInt(tokens[2]);
+      }
+    }
+ while (true);
+  }
+ catch (  Exception e) {
+  }
+  return pageRank;
+}

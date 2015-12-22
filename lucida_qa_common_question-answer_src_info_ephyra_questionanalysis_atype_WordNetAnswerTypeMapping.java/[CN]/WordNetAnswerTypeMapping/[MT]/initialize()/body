@@ -1,0 +1,24 @@
+{
+  if (isInitialized())   return;
+  if (!JWNL.isInitialized()) {
+    String file_properties=System.getProperty("jwnl.configuration");
+    if (file_properties == null)     throw new Exception("Required property 'jwnl.configuration' is undefined");
+    JWNL.initialize(new FileInputStream(file_properties));
+  }
+  pUtils=PointerUtils.getInstance();
+  Properties properties=Properties.loadFromClassName(WordNetAnswerTypeMapping.class.getName());
+  String wnAtypeMapFile=properties.getProperty("mapFile");
+  if (wnAtypeMapFile == null)   throw new RuntimeException("Required parameter mapFile is undefined");
+  BufferedReader in=new BufferedReader(new FileReader(wnAtypeMapFile));
+  String line;
+  wnAtypeMap=new HashMap<String,String>();
+  wnAtypeMapKeys=new ArrayList<String>();
+  while ((line=in.readLine()) != null) {
+    if (line.matches("#.*") || line.matches("\\s*"))     continue;
+    String[] strs=line.split(",");
+    wnAtypeMap.put(strs[0],strs[1]);
+    wnAtypeMapKeys.add(strs[0]);
+  }
+  in.close();
+  setInitialized(true);
+}

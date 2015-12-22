@@ -1,0 +1,41 @@
+{
+  TRECPattern pattern=null;
+  for (  TRECPattern listPattern : listPatterns)   if (listPattern.getId().equals(qid)) {
+    pattern=listPattern;
+    break;
+  }
+  if (pattern == null)   return new boolean[0];
+  ArrayList<Result> resultList=new ArrayList<Result>();
+  if (results.length > 0) {
+    float topScore=results[0].getScore();
+    for (    Result result : results)     if (result.getScore() >= relThresh * topScore)     resultList.add(result);
+  }
+  float f=0;
+  boolean[] correct=new boolean[resultList.size()];
+  if (resultList.size() > 0) {
+    String[] regexs=pattern.getRegexs();
+    int total=regexs.length;
+    int returned=resultList.size();
+    int covered=0;
+    for (    String regex : regexs) {
+      boolean found=false;
+      for (int i=0; i < resultList.size(); i++) {
+        String answer=resultList.get(i).getAnswer();
+        if (answer.matches(".*?" + regex + ".*+")) {
+          if (!found) {
+            covered++;
+            found=true;
+          }
+          correct[i]=true;
+        }
+      }
+    }
+    if (covered > 0) {
+      float recall=((float)covered) / total;
+      float precision=((float)covered) / returned;
+      f=(2 * recall * precision) / (recall + precision);
+    }
+  }
+  listQuestionScores.add(f);
+  return correct;
+}

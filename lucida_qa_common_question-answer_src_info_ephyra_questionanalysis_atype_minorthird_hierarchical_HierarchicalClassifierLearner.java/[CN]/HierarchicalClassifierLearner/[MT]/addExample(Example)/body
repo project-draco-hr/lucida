@@ -1,0 +1,10 @@
+{
+  for (int i=0; i < prototypes.length; i++) {
+    String labelName=example.getLabel().bestClassName();
+    String prefix=getLabelPrefix(labelName,i);
+    String sublabel=getSublabel(labelName,i);
+    Example subExample=new Example(example.asInstance(),new ClassLabel(sublabel));
+    ClassifierLearner subLearner=classifierLearners.get(prefix);
+    subLearner.addExample(subExample);
+  }
+}

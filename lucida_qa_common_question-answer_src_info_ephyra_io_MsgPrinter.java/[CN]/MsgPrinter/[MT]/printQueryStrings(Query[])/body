@@ -1,0 +1,6 @@
+{
+  if (statusMsgs) {
+    printMessage("Query strings:");
+    for (    Query query : queries)     printMessage(query.getQueryString());
+  }
+}

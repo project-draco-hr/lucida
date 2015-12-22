@@ -1,0 +1,12 @@
+{
+  if (!enabled || logfile == null)   return false;
+  try {
+    PrintWriter out=new PrintWriter(new FileOutputStream(logfile,true));
+    out.println("</list>");
+    out.close();
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

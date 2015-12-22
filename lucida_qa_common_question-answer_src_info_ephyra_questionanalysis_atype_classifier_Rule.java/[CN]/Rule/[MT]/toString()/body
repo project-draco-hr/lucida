@@ -1,0 +1,11 @@
+{
+  StringBuilder sb=new StringBuilder();
+  sb.append("Atype: " + atype + "\n");
+  if (elements == null)   sb.append("null");
+ else {
+    for (    RuleElement re : elements) {
+      sb.append("Element:\n" + re.toString() + "\n");
+    }
+  }
+  return sb.toString();
+}

@@ -1,0 +1,11 @@
+{
+  if (!StanfordNeTagger.isInitialized())   StanfordNeTagger.init();
+  HashMap<String,String[]> nesByType=StanfordNeTagger.extractNEs(target);
+  ArrayList<String> neTypes=new ArrayList<String>(nesByType.keySet());
+  for (int t=0; t < neTypes.size(); t++) {
+    String type=neTypes.get(t);
+    String[] nes=nesByType.get(type);
+    for (int n=0; n < nes.length; n++)     if (nes[n].equals(target))     return type.replace("NE","");
+  }
+  return null;
+}

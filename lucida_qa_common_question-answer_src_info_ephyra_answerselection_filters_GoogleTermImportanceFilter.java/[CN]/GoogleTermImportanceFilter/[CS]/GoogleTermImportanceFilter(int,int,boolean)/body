@@ -1,0 +1,3 @@
+{
+  super(normalizationMode,tfNormalizationMode,isCombined);
+}

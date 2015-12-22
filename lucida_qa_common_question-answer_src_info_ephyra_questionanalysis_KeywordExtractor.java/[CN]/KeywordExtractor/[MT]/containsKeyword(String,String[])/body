@@ -1,0 +1,7 @@
+{
+  HashSet<String> kwsSet=new HashSet<String>();
+  for (  String kw : kws)   kwsSet.add(kw);
+  String[] words=tokenize(text);
+  for (  String word : words)   if (kwsSet.contains(word))   return true;
+  return false;
+}

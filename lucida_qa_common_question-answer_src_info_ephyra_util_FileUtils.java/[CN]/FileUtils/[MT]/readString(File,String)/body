@@ -1,0 +1,8 @@
+{
+  StringBuffer buffer=new StringBuffer();
+  FileInputStream fis=new FileInputStream(input);
+  BufferedReader reader=new BufferedReader(new InputStreamReader(fis,encoding));
+  for (String nextLine; (nextLine=reader.readLine()) != null; )   buffer.append(nextLine + "\n");
+  reader.close();
+  return buffer.toString();
+}

@@ -1,0 +1,3 @@
+{
+  return (sentenceDetector != null) ? sentenceDetector.sentDetect(text) : null;
+}

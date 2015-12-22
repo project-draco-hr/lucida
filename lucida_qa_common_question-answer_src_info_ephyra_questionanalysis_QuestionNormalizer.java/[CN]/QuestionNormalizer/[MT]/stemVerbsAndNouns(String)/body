@@ -1,0 +1,19 @@
+{
+  String[] tokens=OpenNLP.tokenize(qn);
+  String[] pos=OpenNLP.tagPos(tokens);
+  qn=qn.toLowerCase();
+  for (int i=0; i < tokens.length; i++)   tokens[i]=tokens[i].toLowerCase();
+  for (int i=0; i < tokens.length; i++) {
+    if (pos[i].startsWith("VB")) {
+      String rep=WordNet.getLemma(tokens[i],WordNet.VERB);
+      if (rep == null)       rep=tokens[i];
+      qn=qn.replace(tokens[i],rep);
+    }
+ else     if (pos[i].startsWith("NN")) {
+      String rep=PlingStemmer.stem(tokens[i]);
+      qn=qn.replace(tokens[i],rep);
+    }
+  }
+  qn=dropPunctuationMarks(qn);
+  return qn;
+}

@@ -1,0 +1,7 @@
+{
+  question=question.trim();
+  question=question.replaceAll("\\s+"," ");
+  question=replaceShortForms(question);
+  question=dropFillers(question);
+  return question;
+}

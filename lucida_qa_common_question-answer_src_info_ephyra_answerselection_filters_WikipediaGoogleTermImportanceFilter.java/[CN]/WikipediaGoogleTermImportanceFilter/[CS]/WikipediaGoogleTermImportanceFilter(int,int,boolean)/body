@@ -1,0 +1,4 @@
+{
+  super(normalizationMode,tfNormalizationMode,isCombined);
+  this.initMissTerms();
+}

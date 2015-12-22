@@ -1,0 +1,4 @@
+{
+  for (  Result r : results)   this.apply(r);
+  return results;
+}

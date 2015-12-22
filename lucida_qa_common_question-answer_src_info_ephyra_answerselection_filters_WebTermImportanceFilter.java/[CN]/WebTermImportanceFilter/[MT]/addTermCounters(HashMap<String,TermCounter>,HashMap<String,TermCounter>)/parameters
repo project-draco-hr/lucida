@@ -1,0 +1,2 @@
+HashMap<String,TermCounter> source
+HashMap<String,TermCounter> target

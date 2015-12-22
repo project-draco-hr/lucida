@@ -1,0 +1,5 @@
+{
+  String[] tokens=NETagger.tokenize(result.getAnswer());
+  for (  String token : tokens)   if (!FunctionWords.lookup(token))   return result;
+  return null;
+}

@@ -1,0 +1,3 @@
+{
+  this.extraScores.put(sourceName,new Float(score));
+}

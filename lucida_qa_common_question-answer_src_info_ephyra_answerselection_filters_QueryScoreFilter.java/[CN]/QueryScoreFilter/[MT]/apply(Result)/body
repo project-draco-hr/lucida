@@ -1,0 +1,4 @@
+{
+  result.incScore(result.getQuery().getScore());
+  return result;
+}

@@ -1,0 +1,18 @@
+{
+  if (useClassLevels) {
+    String[] split=original.split("\\.");
+    String classLabelName=split[0];
+    for (int i=1; i < levels; i++) {
+      if (split.length <= i) {
+        classLabelName+=".DEFAULT";
+      }
+ else {
+        classLabelName+="." + split[i];
+      }
+    }
+    return classLabelName;
+  }
+ else {
+    return original.replace('.','-');
+  }
+}

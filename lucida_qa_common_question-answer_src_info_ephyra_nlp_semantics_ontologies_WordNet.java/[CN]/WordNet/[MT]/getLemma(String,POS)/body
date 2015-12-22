@@ -1,0 +1,13 @@
+{
+  if (dict == null)   return null;
+  IndexWord indexWord=null;
+  try {
+    indexWord=dict.lookupIndexWord(pos,word);
+  }
+ catch (  JWNLException e) {
+  }
+  if (indexWord == null)   return null;
+  String lemma=indexWord.getLemma();
+  lemma=lemma.replace("_"," ");
+  return lemma;
+}

@@ -1,0 +1,9 @@
+{
+  if (result.getScore() <= 0)   return result;
+  if (result.isNamedEntity() && !NETagger.allModelType(result.getNeTypes()))   return result;
+  result=filterFunctionWords(result);
+  result=filterInterrogatives(result);
+  result=filterSingleBracket(result);
+  result=filterAdverbs(result);
+  return result;
+}

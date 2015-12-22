@@ -1,0 +1,139 @@
+{
+  String currentTarget=target.getCondensedTarget();
+  TRECQuestion[] questions=target.getQuestions();
+  String currentQuestionString=questions[next].getQuestionString();
+  String temp=isTargetPerson(currentTarget);
+  boolean personFlag=temp != null;
+  String currentTargetPerson=currentTarget;
+  if (personFlag) {
+    currentTargetPerson=temp;
+  }
+  String currentTargetGen=null;
+  String currentTargetPersonGen=null;
+  String rest=null;
+  String[] tokens=OpenNLP.tokenize(currentTarget);
+  if (currentTarget.endsWith("s")) {
+    currentTargetGen=currentTarget.concat("'");
+  }
+ else {
+    currentTargetGen=currentTarget.concat("'s");
+  }
+  if (currentTargetPerson.endsWith("s")) {
+    currentTargetPersonGen=currentTargetPerson.concat("'");
+  }
+ else {
+    currentTargetPersonGen=currentTargetPerson.concat("'s");
+  }
+  String firstPronoun="";
+  int firstIndex=Integer.MAX_VALUE;
+  String[] splitSgpers=currentQuestionString.split(singularThirdPersonPronounString);
+  int firstSgpers=splitSgpers[0].length();
+  if (splitSgpers.length > 1 && firstSgpers < firstIndex) {
+    firstPronoun="sgpers";
+    firstIndex=firstSgpers;
+  }
+  String[] splitSgthing=currentQuestionString.split(singularThirdThingPronounString);
+  int firstSgthing=splitSgthing[0].length();
+  if (splitSgthing.length > 1 && firstSgthing < firstIndex) {
+    firstPronoun="sgthing";
+    firstIndex=firstSgthing;
+  }
+  String[] splitPlpers=currentQuestionString.split(pluralThirdPersonPronounString);
+  int firstPlpers=splitPlpers[0].length();
+  if (splitPlpers.length > 1 && firstPlpers < firstIndex) {
+    firstPronoun="plpers";
+    firstIndex=firstPlpers;
+  }
+  String[] splitSgposs=currentQuestionString.split(singularThirdPersonPronounStringGen);
+  int firstSgposs=splitSgposs[0].length();
+  if (splitSgposs.length > 1 && firstSgposs < firstIndex) {
+    firstPronoun="sgposs";
+    firstIndex=firstSgposs;
+  }
+  String[] splitSgthingposs=currentQuestionString.split(singularThirdThingPronounStringGen);
+  int firstSgthingposs=splitSgthingposs[0].length();
+  if (splitSgthingposs.length > 1 && firstSgthingposs < firstIndex) {
+    firstPronoun="sgthingposs";
+    firstIndex=firstSgthingposs;
+  }
+  String[] splitPlposs=currentQuestionString.split(pluralThirdPersonPronounStringGen);
+  int firstPlposs=splitPlposs[0].length();
+  if (splitPlposs.length > 1 && firstPlposs < firstIndex) {
+    firstPronoun="plposs";
+    firstIndex=firstPlposs;
+  }
+  Matcher her=singularThirdPersonPronounPatternAmb.matcher(currentQuestionString);
+  String[] splitHer=currentQuestionString.split(singularThirdPersonPronounStringAmb);
+  int firstHer=splitHer[0].length();
+  if (splitHer.length > 1 && firstPlposs < firstIndex) {
+    firstPronoun="her";
+    firstIndex=firstHer;
+  }
+  Matcher sgdem=singularDemPronounPattern.matcher(currentQuestionString);
+  String[] splitSgdem=currentQuestionString.split(singularDemPronounString);
+  int firstSgdem=splitSgdem[0].length();
+  if (splitSgdem.length > 1 && firstSgdem < firstIndex) {
+    firstPronoun="sgdem";
+    firstIndex=firstSgdem;
+  }
+  Matcher pldem=pluralDemPronounPattern.matcher(currentQuestionString);
+  String[] splitPldem=currentQuestionString.split(pluralDemPronounString);
+  int firstPldem=splitPldem[0].length();
+  if (splitPldem.length > 1 && firstPldem < firstIndex) {
+    firstPronoun="pldem";
+    firstIndex=firstPldem;
+  }
+  if (personFlag && firstPronoun.equals("sgposs")) {
+    currentQuestionString=currentQuestionString.replaceFirst(singularThirdPersonPronounStringGen,currentTargetPersonGen);
+  }
+  if (firstPronoun.equals("sgthingposs")) {
+    currentQuestionString=currentQuestionString.replaceFirst(singularThirdThingPronounStringGen,currentTargetGen);
+  }
+  if (firstPronoun.equals("plposs")) {
+    currentQuestionString=currentQuestionString.replaceFirst(pluralThirdPersonPronounStringGen,currentTargetGen);
+  }
+  if (personFlag && firstPronoun.equals("her") && her.matches()) {
+    rest=currentQuestionString.substring(currentQuestionString.indexOf(her.group(2)) + her.group(2).length() + 1).toLowerCase();
+    String[] questionTokens=OpenNLP.tokenize(rest);
+    String[] pos=OpenNLP.tagPos(questionTokens);
+    if (pos[0].equalsIgnoreCase("NN")) {
+      currentQuestionString=currentQuestionString.replaceFirst(singularThirdPersonPronounStringAmb,currentTargetPersonGen);
+    }
+ else {
+      currentQuestionString=currentQuestionString.replaceFirst(singularThirdPersonPronounStringAmb,currentTargetPerson);
+    }
+  }
+  if (firstPronoun.equals("sgdem") && sgdem.matches()) {
+    rest=currentQuestionString.substring(currentQuestionString.indexOf(sgdem.group(2)) + sgdem.group(2).length() + 1).toLowerCase();
+    for (int i=0; i < tokens.length; i++) {
+      if (rest.contains(tokens[i].toLowerCase())) {
+        currentQuestionString=currentQuestionString.replaceFirst(" " + tokens[i].toLowerCase() + "\\b","");
+        currentQuestionString=currentQuestionString.replaceFirst("\\b" + tokens[i].toLowerCase() + " ","");
+        currentQuestionString=currentQuestionString.replaceFirst(singularDemPronounString,currentTarget);
+      }
+    }
+    currentQuestionString=currentQuestionString.replaceFirst(singularDemPronounString,currentTargetGen);
+  }
+  if (firstPronoun.equals("pldem") && pldem.matches()) {
+    rest=currentQuestionString.substring(currentQuestionString.indexOf(pldem.group(2)) + pldem.group(2).length() + 1).toLowerCase();
+    for (int i=0; i < tokens.length; i++) {
+      if (rest.contains(tokens[i].toLowerCase())) {
+        currentQuestionString=currentQuestionString.replaceFirst(" " + tokens[i].toLowerCase() + "\\b","");
+        currentQuestionString=currentQuestionString.replaceFirst("\\b" + tokens[i].toLowerCase() + " ","");
+        currentQuestionString=currentQuestionString.replaceFirst(pluralDemPronounString,currentTarget);
+      }
+    }
+    currentQuestionString=currentQuestionString.replaceFirst(pluralDemPronounString,currentTargetGen);
+  }
+  if (personFlag && firstPronoun.equals("sgpers")) {
+    currentQuestionString=currentQuestionString.replaceFirst(singularThirdPersonPronounString,currentTargetPerson);
+  }
+  if (firstPronoun.equals("sgthing")) {
+    currentQuestionString=currentQuestionString.replaceFirst(singularThirdThingPronounString,currentTarget);
+  }
+  if (firstPronoun.equals("plpers")) {
+    currentQuestionString=currentQuestionString.replaceFirst(pluralThirdPersonPronounString,currentTarget);
+  }
+  questions[next].setQuestionString(currentQuestionString);
+  MsgPrinter.printResolvedQuestion(currentQuestionString);
+}

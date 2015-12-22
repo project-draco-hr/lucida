@@ -1,0 +1,9 @@
+{
+synchronized (results) {
+    while (pending > 0)     try {
+      results.wait();
+    }
+ catch (    InterruptedException e) {
+    }
+  }
+}

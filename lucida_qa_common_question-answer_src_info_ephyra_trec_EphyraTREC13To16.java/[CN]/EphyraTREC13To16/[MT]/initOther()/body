@@ -1,0 +1,21 @@
+{
+  QueryGeneration.clearQueryGenerators();
+  Search.clearKnowledgeMiners();
+  for (  String[] indriIndices : IndriKM.getIndriIndices())   Search.addKnowledgeMiner(new IndriKM(indriIndices,false));
+  for (  String[] indriServers : IndriKM.getIndriServers())   Search.addKnowledgeMiner(new IndriKM(indriServers,true));
+  Search.clearKnowledgeAnnotators();
+  AnswerSelection.clearFilters();
+  AnswerSelection.addFilter(new ScoreResetterFilter());
+  AnswerSelection.addFilter(new SentenceExtractionFilter());
+  AnswerSelection.addFilter(new CutKeywordsFilter());
+  AnswerSelection.addFilter(new CutStatementProviderFilter());
+  AnswerSelection.addFilter(new SentenceSplitterFilter());
+  AnswerSelection.addFilter(new CutKeywordsFilter());
+  AnswerSelection.addFilter(new DuplicateSnippetFilter());
+  AnswerSelection.addFilter(new ProperNameFilter());
+  AnswerSelection.addFilter(new DirectSpeechFilter());
+  AnswerSelection.addFilter(new TermFilter());
+  AnswerSelection.addFilter(new WikipediaGoogleTermImportanceFilter(WebTermImportanceFilter.LOG_LENGTH_NORMALIZATION,WebTermImportanceFilter.LOG_LENGTH_NORMALIZATION,false));
+  AnswerSelection.addFilter(new ScoreSorterFilter());
+  AnswerSelection.addFilter(new ResultLengthFilter(3000));
+}

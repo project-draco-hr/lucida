@@ -1,0 +1,12 @@
+{
+  HashSet<String> reps=new HashSet<String>();
+  for (  String[] neType : nes)   for (  String ne : neType)   for (  String co : cos)   if (StringUtils.equalsCommonNorm(ne,co))   reps.add(ne);
+  for (  String co : cos)   reps.add(co);
+  String[] sorted=reps.toArray(new String[reps.size()]);
+  StringUtils.sortByLengthDesc(sorted);
+  for (  String rep : sorted) {
+    rep=RegexConverter.strToRegexWithBounds(rep);
+    sentence=sentence.replaceAll(rep,"<CO>");
+  }
+  return sentence;
+}

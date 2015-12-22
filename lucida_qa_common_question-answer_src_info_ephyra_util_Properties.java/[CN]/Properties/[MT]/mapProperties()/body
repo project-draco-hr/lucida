@@ -1,0 +1,25 @@
+{
+  Map<String,Properties> properties_map=new HashMap<String,Properties>();
+  for (  Map.Entry<String,String> property : entrySet()) {
+    String key=property.getKey();
+    int i=key.indexOf('.');
+    if (i == -1) {
+      Properties properties=properties_map.get(key);
+      if (properties == null) {
+        properties=new Properties();
+        properties_map.put(key,properties);
+      }
+      properties.put(key,property.getValue());
+      continue;
+    }
+    String name=key.substring(0,i);
+    String property_name=key.substring(i + 1);
+    Properties properties=properties_map.get(name);
+    if (properties == null) {
+      properties=new Properties();
+      properties_map.put(name,properties);
+    }
+    properties.put(property_name,property.getValue());
+  }
+  return properties_map;
+}

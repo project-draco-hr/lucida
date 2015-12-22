@@ -1,3 +1,0 @@
-def shback(cmd):
-    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
-    return p

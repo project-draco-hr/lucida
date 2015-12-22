@@ -1,0 +1,4 @@
+{
+  String[] split=labelName.split("\\.");
+  return split[level];
+}

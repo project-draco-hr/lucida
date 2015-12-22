@@ -1,0 +1,8 @@
+{
+  MsgPrinter.printLoadingPatterns();
+  if (!loadPatterns("res/patternlearning/answerpatterns_assess"))   return false;
+  MsgPrinter.printFilteringPatterns();
+  filterPatterns();
+  MsgPrinter.printSavingPatterns();
+  return savePatterns("res/patternlearning/answerpatterns");
+}
