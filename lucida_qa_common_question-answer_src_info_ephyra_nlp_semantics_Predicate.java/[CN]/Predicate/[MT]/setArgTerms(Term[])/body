@@ -1,0 +1,29 @@
+{
+  List<String> tokenizedArgs=new ArrayList<String>();
+  for (  String arg : args)   if (arg != null)   tokenizedArgs.add(NETagger.tokenizeWithSpaces(arg));
+  if (argLOC != null)   tokenizedArgs.add(NETagger.tokenizeWithSpaces(argLOC));
+  if (argCAU != null)   tokenizedArgs.add(NETagger.tokenizeWithSpaces(argCAU));
+  if (argEXT != null)   tokenizedArgs.add(NETagger.tokenizeWithSpaces(argEXT));
+  if (argTMP != null)   tokenizedArgs.add(NETagger.tokenizeWithSpaces(argTMP));
+  if (argDIS != null)   tokenizedArgs.add(NETagger.tokenizeWithSpaces(argDIS));
+  if (argPNC != null)   tokenizedArgs.add(NETagger.tokenizeWithSpaces(argPNC));
+  if (argADV != null)   tokenizedArgs.add(NETagger.tokenizeWithSpaces(argADV));
+  if (argMNR != null)   tokenizedArgs.add(NETagger.tokenizeWithSpaces(argMNR));
+  if (argNEG != null)   tokenizedArgs.add(NETagger.tokenizeWithSpaces(argNEG));
+  if (argDIR != null)   tokenizedArgs.add(NETagger.tokenizeWithSpaces(argDIR));
+  if (argMOD != null)   tokenizedArgs.add(NETagger.tokenizeWithSpaces(argMOD));
+  List<Term> argTerms=new ArrayList<Term>();
+  Set<String> uniqueTerms=new HashSet<String>();
+  for (  Term term : terms) {
+    String tokenizedTerm=NETagger.tokenizeWithSpaces(term.getText());
+    Pattern p=Pattern.compile("(^|\\W)" + RegexConverter.strToRegex(tokenizedTerm) + "($|\\W)");
+    for (    String tokenizedArg : tokenizedArgs) {
+      Matcher m=p.matcher(tokenizedArg);
+      if (m.find()) {
+        if (uniqueTerms.add(tokenizedTerm))         argTerms.add(term);
+        break;
+      }
+    }
+  }
+  this.argTerms=argTerms.toArray(new Term[argTerms.size()]);
+}

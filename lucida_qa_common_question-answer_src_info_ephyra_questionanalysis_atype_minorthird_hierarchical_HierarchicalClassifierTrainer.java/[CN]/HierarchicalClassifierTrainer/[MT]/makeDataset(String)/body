@@ -1,0 +1,46 @@
+{
+  if (trainingLabels == null) {
+    loadTraining=true;
+    trainingLabels=new HashSet<String>();
+  }
+  Dataset set=new BasicDataset();
+  extractor.setUseClassLevels(useClassLevels);
+  extractor.setClassLevels(learnerNames.length);
+  Example[] examples=extractor.loadFile(fileName);
+  for (int i=0; i < examples.length; i++) {
+    String label=examples[i].getLabel().bestClassName();
+    if (classLabels.contains(label)) {
+      MutableInstance instance=new MutableInstance(examples[i].getSource(),examples[i].getSubpopulationId());
+      Feature.Looper bLooper=examples[i].binaryFeatureIterator();
+      while (bLooper.hasNext()) {
+        Feature f=bLooper.nextFeature();
+        if (featureTypes.contains(f.getPart(0))) {
+          instance.addBinary(f);
+        }
+      }
+      Feature.Looper nLooper=examples[i].numericFeatureIterator();
+      while (nLooper.hasNext()) {
+        Feature f=nLooper.nextFeature();
+        if (featureTypes.contains(f.getPart(0))) {
+          instance.addNumeric(f,examples[i].getWeight(f));
+        }
+      }
+      Example example=new Example(instance,examples[i].getLabel());
+      MLToolkit.println(example);
+      if (loadTraining) {
+        trainingLabels.add(label);
+        set.add(example);
+      }
+ else {
+        if (!trainingLabels.contains(label))         MLToolkit.println("Label of test example not found in training set (discarding): " + label);
+ else         set.add(example);
+      }
+    }
+ else {
+      MLToolkit.println("Discarding example for Class: " + label);
+    }
+  }
+  if (loadTraining)   loadTraining=false;
+  MLToolkit.println("Loaded " + set.size() + " examples for experiment from "+ fileName);
+  return set;
+}

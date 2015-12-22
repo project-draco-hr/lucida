@@ -1,0 +1,16 @@
+{
+  Matcher matcher=pattern.matcher(verbMod);
+  if (!matcher.matches())   return null;
+  ArrayList<Query> queries=new ArrayList<Query>();
+  String[] queryStrings;
+  Query query;
+  for (  QuestionReformulation reform : reforms) {
+    queryStrings=reform.get(matcher);
+    for (    String queryString : queryStrings) {
+      query=new Query(queryString);
+      query.setScore(reform.getScore());
+      queries.add(query);
+    }
+  }
+  return queries.toArray(new Query[queries.size()]);
+}

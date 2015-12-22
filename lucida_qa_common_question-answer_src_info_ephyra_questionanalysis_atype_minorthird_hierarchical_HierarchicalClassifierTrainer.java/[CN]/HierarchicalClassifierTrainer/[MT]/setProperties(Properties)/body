@@ -1,0 +1,11 @@
+{
+  for (  String property : properties.keySet()) {
+    this.properties.put(property,properties.get(property));
+  }
+  try {
+    initialize();
+  }
+ catch (  Exception e) {
+    log.error("Error re-initializing: ",e);
+  }
+}

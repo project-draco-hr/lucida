@@ -1,0 +1,3 @@
+{
+  return compile(regEx,PATTERNS_CASE_INSENSITIVE);
+}

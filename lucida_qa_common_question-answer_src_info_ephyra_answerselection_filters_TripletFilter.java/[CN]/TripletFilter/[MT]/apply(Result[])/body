@@ -1,0 +1,56 @@
+{
+  ArrayList<Result> rawResults=new ArrayList<Result>();
+  HashSet<String> found=new HashSet<String>();
+  for (  Result r : results) {
+    if (r.getScore() != Float.NEGATIVE_INFINITY) {
+      String stemmedQuestion=SnowballStemmer.stemAllTokens(r.getQuery().getAnalyzedQuestion().getQuestion());
+      String text=r.getAnswer();
+      if (!text.endsWith("."))       text+=".";
+      String[] sentence=OpenNLP.tokenize(text);
+      String[] posTags=OpenNLP.tagPos(sentence);
+      String[] chunkTags=OpenNLP.tagChunks(sentence,posTags);
+      chunkTags=OpenNLP.joinNounPhrases(sentence,chunkTags);
+      int tripStart=-1;
+      int index=0;
+      int numberOfTriplets=0;
+      while (index < sentence.length) {
+        while ((index < sentence.length) && !"B-NP".equals(chunkTags[index]))         index++;
+        if (index < sentence.length) {
+          tripStart=index;
+          int i=1;
+          while (((index + i) < sentence.length) && !"B-VP".equals(chunkTags[index + i])) {
+            if ("B-NP".equals(chunkTags[index + i]))             i=sentence.length;
+ else             if ("O".equals(chunkTags[index + i]))             i=sentence.length;
+ else             i++;
+          }
+          i++;
+          while (((index + i) < sentence.length) && !"B-NP".equals(chunkTags[index + i])) {
+            if ("B-VP".equals(chunkTags[index + i]))             i=sentence.length;
+ else             if ("O".equals(chunkTags[index + i]))             i=sentence.length;
+ else             if ("B-SBAR".equals(chunkTags[index + i]))             i=sentence.length;
+ else             i++;
+          }
+          i++;
+          while (((index + i) < sentence.length) && "I-NP".equals(chunkTags[index + i]))           i++;
+          if ((index + i) < sentence.length) {
+            String trip="";
+            for (int s=tripStart; s < (tripStart + i); s++)             trip+=" " + sentence[s];
+            trip=SnowballStemmer.stemAllTokens(trip.trim());
+            if (!found.contains(trip)) {
+              found.add(trip);
+              if (!StringUtils.isSubsetKeywords(trip,stemmedQuestion)) {
+                numberOfTriplets++;
+              }
+            }
+          }
+          index++;
+        }
+      }
+      if (numberOfTriplets != 0) {
+        r.incScore(numberOfTriplets);
+        rawResults.add(r);
+      }
+    }
+  }
+  return rawResults.toArray(new Result[rawResults.size()]);
+}

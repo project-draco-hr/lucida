@@ -1,0 +1,4 @@
+{
+  Arrays.sort(results,new HitPositionComparator<Result>());
+  return results;
+}

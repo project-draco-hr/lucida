@@ -1,0 +1,4 @@
+{
+  int pr=PageRankParser.getPageRank(args[0]);
+  System.out.println(pr);
+}

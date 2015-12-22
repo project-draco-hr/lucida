@@ -1,0 +1,9 @@
+{
+  if (!isInitialized())   throw new Exception("getAnswerTypes called while not initialized");
+  String[] tokens=question.split("\\s+");
+  List<Term> terms=new ArrayList<Term>();
+  for (  String token : tokens) {
+    terms.add(new Term(0,0,token));
+  }
+  return getAnswerTypes(terms,parseTreeStr);
+}

@@ -1,0 +1,5 @@
+{
+  WorldFactbookKA ka=new WorldFactbookKA(name,qPatterns,qContents);
+  ka.countries=countries;
+  return ka;
+}

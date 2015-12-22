@@ -1,0 +1,7 @@
+{
+  property=prop;
+  expr=".*?" + expr;
+  expr=replaceTargetTag(expr);
+  expr=replaceContextTags(expr);
+  pattern=Pattern.compile(expr,Pattern.CASE_INSENSITIVE);
+}

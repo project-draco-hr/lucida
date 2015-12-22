@@ -1,0 +1,4 @@
+{
+  String[] tokens=tokenize(text);
+  return StringUtils.concatWithSpaces(tokens);
+}

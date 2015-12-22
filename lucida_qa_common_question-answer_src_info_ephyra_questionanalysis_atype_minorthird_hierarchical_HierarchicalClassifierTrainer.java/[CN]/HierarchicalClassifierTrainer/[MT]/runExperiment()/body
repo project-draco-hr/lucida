@@ -1,0 +1,14 @@
+{
+  runTime=System.currentTimeMillis();
+  ClassifierLearner learner=createHierarchicalClassifierLearner(learnerNames);
+  if (crossValidationFolds < 0) {
+    evaluation=Tester.evaluate(learner,trainingSet,testingSet);
+  }
+ else {
+    Splitter splitter=new CrossValSplitter(new RandomElement(System.currentTimeMillis()),crossValidationFolds);
+    cvDataset=new CrossValidatedDataset(learner,trainingSet,splitter,true);
+    evaluation=cvDataset.getEvaluation();
+  }
+  runTime=System.currentTimeMillis() - runTime;
+  return evaluation;
+}

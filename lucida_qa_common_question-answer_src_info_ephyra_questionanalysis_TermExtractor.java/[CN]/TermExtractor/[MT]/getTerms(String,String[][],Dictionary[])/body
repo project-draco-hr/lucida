@@ -1,0 +1,48 @@
+{
+  String[] tokens=OpenNLP.tokenize(sentence);
+  String[] pos=OpenNLP.tagPos(tokens);
+  String[] chunks=OpenNLP.tagChunks(tokens,pos);
+  boolean[] assigned=new boolean[tokens.length];
+  Arrays.fill(assigned,false);
+  Term[] terms=new Term[tokens.length];
+  Set<String> termSet=new HashSet<String>();
+  for (int length=MAX_TERM_LENGTH; length > 1; length--)   for (int id=0; id < tokens.length - length + 1; id++) {
+    boolean skip=false;
+    for (int offset=0; offset < length; offset++)     if (assigned[id + offset]) {
+      skip=true;
+      continue;
+    }
+    if (skip)     continue;
+    String text=tokens[id];
+    for (int offset=1; offset < length; offset++)     text+=" " + tokens[id + offset];
+    text=OpenNLP.untokenize(text,sentence);
+    if (!termSet.add(StringUtils.normalize(text)))     continue;
+    if (KeywordExtractor.getKeywords(text).length == 0)     continue;
+    String[] neTypes=getNeTypes(text,nes);
+    if (neTypes.length > 0) {
+      terms[id]=new Term(text,Term.COMPOUND,neTypes);
+      for (int offset=0; offset < length; offset++)       assigned[id + offset]=true;
+      continue;
+    }
+    for (    Dictionary dict : dicts) {
+      if (!(chunks[id].endsWith("NP") && chunks[id + length - 1].endsWith("NP")))       continue;
+      if (text.matches(".*?[^\\w\\s\\.].*+"))       continue;
+      if (!text.equals(TruncationFilter.truncate(text)))       continue;
+      if (dict.contains(text)) {
+        terms[id]=new Term(text,Term.COMPOUND);
+        for (int offset=0; offset < length; offset++)         assigned[id + offset]=true;
+        continue;
+      }
+    }
+  }
+  for (int id=0; id < tokens.length; id++) {
+    if (assigned[id])     continue;
+    if (!termSet.add(StringUtils.normalize(tokens[id])))     continue;
+    if (KeywordExtractor.getKeywords(tokens[id]).length == 0)     continue;
+    String[] neTypes=getNeTypes(tokens[id],nes);
+    terms[id]=new Term(tokens[id],pos[id],neTypes);
+  }
+  List<Term> termsL=new ArrayList<Term>();
+  for (  Term term : terms)   if (term != null)   termsL.add(term);
+  return termsL.toArray(new Term[termsL.size()]);
+}

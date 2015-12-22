@@ -1,0 +1,39 @@
+{
+  TRECQuestion[] factoidQuestions=target.getQuestions();
+  ArrayList<String> props=new ArrayList<String>();
+  ArrayList<String> vals=new ArrayList<String>();
+  ArrayList<String> sentences=new ArrayList<String>();
+  String[] targetTokens=NETagger.tokenize(target.getTargetDesc());
+  for (  String tt : targetTokens)   sentences.add(tt);
+  for (  TRECQuestion fq : factoidQuestions) {
+    QuestionInterpretation qi=fq.getInterpretation();
+    if (qi != null) {
+      String prop=qi.getProperty();
+      TRECAnswer[] answers=fq.getAnswers();
+      if (answers.length != 0) {
+        String val=answers[0].getAnswerString();
+        props.add(prop);
+        vals.add(val);
+        String[] questionTokens=NETagger.tokenize(fq.getQuestionString());
+        for (        String qt : questionTokens)         sentences.add(qt);
+      }
+    }
+  }
+  TermFilter.setPreviousResultsTerms(sentences.toArray(new String[sentences.size()]));
+  Dossier dossier=Dossier.getDossier(target.getTargetDesc(),null,props.toArray(new String[props.size()]),vals.toArray(new String[vals.size()]));
+  ArrayList<Result> rawResults=new ArrayList<Result>();
+  String[] missingProps=dossier.getMissingPropertyNames();
+  for (  String mp : missingProps) {
+    String question=QuestionInterpreter.getQuestion(target.getTargetDesc(),mp);
+    if (question != null) {
+    }
+  }
+  NuggetEvaluationFilter.setTargetID(target.getId());
+  Result[] nuggets=askOther(target.getTargetDesc());
+  for (  Result r : nuggets)   rawResults.add(r);
+  nuggets=rawResults.toArray(new Result[rawResults.size()]);
+  NuggetEvaluationFilter.targetFinished();
+  TermFilter.setPreviousResultsTerms(null);
+  NuggetEvaluationFilter.setTargetID(null);
+  return nuggets;
+}

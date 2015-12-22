@@ -1,0 +1,69 @@
+{
+  try {
+    ArrayList<String> entries;
+    if (type.equals("FACTOID"))     entries=factoidEntries;
+ else     if (type.equals("LIST"))     entries=listEntries;
+ else     entries=otherEntries;
+    if (entries == null) {
+      entries=new ArrayList<String>();
+      String entry="";
+      BufferedReader in=new BufferedReader(new FileReader(logfile));
+      while (in.ready()) {
+        String line=in.readLine();
+        for (int i=0; i < SPECIALCHARS.length; i++)         line=line.replace(SPECIALCHARS[i],REPLACEMENTS[i]);
+        if (line.matches("<" + type.toLowerCase() + ">"))         entry="";
+        entry+=line + "\n";
+        if (line.matches("</" + type.toLowerCase() + ">"))         entries.add(entry);
+      }
+      if (type.equals("FACTOID"))       factoidEntries=entries;
+ else       if (type.equals("LIST"))       listEntries=entries;
+ else       otherEntries=entries;
+    }
+    for (int i=entries.size() - 1; i >= 0; i--) {
+      DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
+      DocumentBuilder parser=factory.newDocumentBuilder();
+      Document entryD=parser.parse(new InputSource(new StringReader(entries.get(i))));
+      Element questionE=(Element)entryD.getElementsByTagName("question").item(0);
+      String questionS=questionE.getFirstChild().getNodeValue().trim();
+      if (!questionS.equals(question))       continue;
+      ArrayList<Result> results=new ArrayList<Result>();
+      NodeList resultsL=entryD.getElementsByTagName("result");
+      for (int j=0; j < resultsL.getLength(); j++) {
+        Element resultE=(Element)resultsL.item(j);
+        Element answerE=(Element)resultE.getElementsByTagName("answer").item(0);
+        String answerS=answerE.getFirstChild().getNodeValue().trim();
+        Element scoreE=(Element)resultE.getElementsByTagName("score").item(0);
+        float scoreF=Float.parseFloat(scoreE.getFirstChild().getNodeValue().trim());
+        Element docidE=(Element)resultE.getElementsByTagName("docid").item(0);
+        String docidS=docidE.getFirstChild().getNodeValue().trim();
+        Element qiE=(Element)resultE.getElementsByTagName("interpretation").item(0);
+        QuestionInterpretation qi=null;
+        if (qiE != null) {
+          Element propertyE=(Element)qiE.getElementsByTagName("property").item(0);
+          String propertyS=propertyE.getFirstChild().getNodeValue().trim();
+          Element targetE=(Element)qiE.getElementsByTagName("target").item(0);
+          String targetS=targetE.getFirstChild().getNodeValue().trim();
+          NodeList contextL=qiE.getElementsByTagName("context");
+          String[] contextS=new String[contextL.getLength()];
+          for (int k=0; k < contextS.length; k++) {
+            Element contextE=(Element)contextL.item(k);
+            contextS[k]=contextE.getFirstChild().getNodeValue().trim();
+          }
+          qi=new QuestionInterpretation(targetS,contextS,propertyS);
+        }
+        Query query=new Query(null);
+        query.setInterpretation(qi);
+        Result result=new Result(answerS,query,docidS);
+        result.setScore(scoreF);
+        results.add(result);
+      }
+      return results.toArray(new Result[results.size()]);
+    }
+    return null;
+  }
+ catch (  Exception e) {
+    MsgPrinter.printErrorMsg("Failed to load or parse log file:");
+    MsgPrinter.printErrorMsg(e.toString());
+    return null;
+  }
+}

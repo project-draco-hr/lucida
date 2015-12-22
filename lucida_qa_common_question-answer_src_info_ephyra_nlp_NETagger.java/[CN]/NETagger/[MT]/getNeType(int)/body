@@ -1,0 +1,11 @@
+{
+  if (neId < 0)   return null;
+  if (neId < finderNames.length)   return finderNames[neId];
+  neId-=finderNames.length;
+  if (neId < allPatternNames.length)   return allPatternNames[neId];
+  neId-=allPatternNames.length;
+  if (neId < listNames.length)   return listNames[neId];
+  neId-=listNames.length;
+  if (neId < stanfordNames.length)   return stanfordNames[neId];
+  return null;
+}

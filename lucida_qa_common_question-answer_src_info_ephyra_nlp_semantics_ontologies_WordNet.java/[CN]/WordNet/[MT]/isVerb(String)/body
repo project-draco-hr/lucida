@@ -1,0 +1,10 @@
+{
+  if (dict == null)   return false;
+  IndexWord indexWord=null;
+  try {
+    indexWord=dict.lookupIndexWord(POS.VERB,word);
+  }
+ catch (  JWNLException e) {
+  }
+  return (indexWord != null) ? true : false;
+}

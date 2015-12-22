@@ -1,0 +1,11 @@
+{
+  String[] kws=result.getQuery().getAnalyzedQuestion().getKeywords();
+  String[] wordsInResult=KeywordExtractor.tokenize(result.getAnswer());
+  int k=kws.length;
+  int m=getNumberOfMatches(kws,wordsInResult);
+  if (m >= Math.floor(Math.sqrt(k - 1)) + 1) {
+    result.incScore(m);
+    return result;
+  }
+  return null;
+}

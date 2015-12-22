@@ -1,0 +1,4 @@
+{
+  Span[] spans=NameFinder.tokenizeToSpans(text);
+  return NameFinder.spansToStrings(spans,text);
+}

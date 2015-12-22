@@ -1,4 +1,0 @@
-def shcin(stdin_data, server):
-    server.stdin.write(stdin_data)
-    out = server.stdout.readline()
-    return out

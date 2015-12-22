@@ -1,0 +1,8 @@
+{
+  if (tokenizerFactory == null)   return null;
+  ArrayList<String> tokenList=new ArrayList<String>();
+  ArrayList<String> whiteList=new ArrayList<String>();
+  Tokenizer tokenizer=tokenizerFactory.tokenizer(text.toCharArray(),0,text.length());
+  tokenizer.tokenize(tokenList,whiteList);
+  return tokenList.toArray(new String[tokenList.size()]);
+}

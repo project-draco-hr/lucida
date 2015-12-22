@@ -1,0 +1,3 @@
+{
+  return normalize(s1).equals(normalize(s2));
+}

@@ -1,0 +1,14 @@
+{
+  Pattern p=Pattern.compile("(?i)(.* )?does/.*? (\\S*)/vb(\\W.*)?");
+  Matcher m=p.matcher(tagged);
+  String[] results;
+  if (m.matches()) {
+    String verb=m.group(2);
+    String tps=VerbFormConverter.infinitiveToThirdPersonS(verb);
+    results=new String[1];
+    results[0]=question.replaceFirst(verb,tps);
+    results[0]=results[0].replaceFirst("does ","");
+    return results;
+  }
+  return null;
+}

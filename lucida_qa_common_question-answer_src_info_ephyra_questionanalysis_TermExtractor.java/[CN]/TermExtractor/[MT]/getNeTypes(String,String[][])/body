@@ -1,0 +1,10 @@
+{
+  List<String> neTypes=new ArrayList<String>();
+  Set<String> neTypesSet=new HashSet<String>();
+  for (int neId=0; neId < nes.length; neId++)   for (  String ne : nes[neId])   if (term.equals(ne)) {
+    String neType=NETagger.getNeType(neId);
+    if (neTypesSet.add(neType))     neTypes.add(neType);
+    break;
+  }
+  return neTypes.toArray(new String[neTypes.size()]);
+}

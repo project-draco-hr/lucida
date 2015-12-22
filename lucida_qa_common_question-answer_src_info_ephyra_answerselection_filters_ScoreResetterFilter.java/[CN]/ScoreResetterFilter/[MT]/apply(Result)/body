@@ -1,0 +1,4 @@
+{
+  result.setScore(0f);
+  return result;
+}

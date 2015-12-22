@@ -1,0 +1,17 @@
+{
+  ArrayList<Result> rawResults=new ArrayList<Result>();
+  ArrayList<Result> namedEntities=new ArrayList<Result>();
+  ArrayList<Result> notNamedEntities=new ArrayList<Result>();
+  for (  Result result : results)   if (result.getScore() == Float.NEGATIVE_INFINITY || result.getScore() == Float.POSITIVE_INFINITY) {
+    rawResults.add(result);
+  }
+ else {
+    if (result.isNamedEntity())     namedEntities.add(result);
+ else     notNamedEntities.add(result);
+  }
+  ArrayList<Result> preferred=(namedEntities.size() > 0) ? namedEntities : notNamedEntities;
+  Result[] allResults=new Result[preferred.size() + rawResults.size()];
+  preferred.toArray(allResults);
+  for (int i=0; i < rawResults.size(); i++)   allResults[preferred.size() + i]=rawResults.get(i);
+  return allResults;
+}

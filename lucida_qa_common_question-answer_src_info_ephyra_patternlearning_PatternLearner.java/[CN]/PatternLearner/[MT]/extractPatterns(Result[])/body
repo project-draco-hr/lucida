@@ -1,0 +1,7 @@
+{
+  String as;
+  for (  Result result : results) {
+    as=ass.get(result.getQuery().getQueryString());
+    PatternExtractor.extract(result,as);
+  }
+}

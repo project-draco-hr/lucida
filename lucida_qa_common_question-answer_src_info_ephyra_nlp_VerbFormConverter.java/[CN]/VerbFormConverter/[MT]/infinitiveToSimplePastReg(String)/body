@@ -1,0 +1,19 @@
+{
+  if (verb.matches(".*e")) {
+    return new String[]{verb + "d"};
+  }
+ else   if (verb.matches(".*[bcdfghjklmnpqrstvwxyz]y")) {
+    return new String[]{verb.substring(0,verb.length() - 1) + "ied"};
+  }
+ else   if (verb.matches(".*[bcdfghjklmnpqrstvwxyz][aeiou]" + "[bcdfghjklmnpqrstvz]")) {
+    String sp1=verb + "ed";
+    String sp2=verb + verb.substring(verb.length() - 1) + "ed";
+    if (WordNet.isVerb(sp1))     if (WordNet.isVerb(sp2))     return new String[]{sp1,sp2};
+ else     return new String[]{sp1};
+ else     if (WordNet.isVerb(sp2))     return new String[]{sp2};
+ else     return new String[]{sp1};
+  }
+ else {
+    return new String[]{verb + "ed"};
+  }
+}

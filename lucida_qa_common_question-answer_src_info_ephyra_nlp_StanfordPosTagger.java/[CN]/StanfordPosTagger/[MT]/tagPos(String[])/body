@@ -1,0 +1,12 @@
+{
+  Sentence untagged=createSentence(tokens);
+  Sentence tagged=MaxentTagger.tagSentence(untagged);
+  String[] pos=new String[tagged.size()];
+  for (int i=0; i < tagged.size(); i++) {
+    HasWord w=(HasWord)tagged.get(i);
+    String[] s=w.toString().split("/");
+    if (s.length > 1)     pos[i]=s[s.length - 1];
+ else     pos[i]="";
+  }
+  return pos;
+}

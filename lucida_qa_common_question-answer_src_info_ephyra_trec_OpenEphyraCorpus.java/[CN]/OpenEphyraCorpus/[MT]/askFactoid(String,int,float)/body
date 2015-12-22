@@ -1,0 +1,17 @@
+{
+  initFactoidCorpus();
+  MsgPrinter.printAnalyzingQuestion();
+  AnalyzedQuestion aq=QuestionAnalysis.analyze(question);
+  Result[] resultsCorp=runPipeline(aq,Integer.MAX_VALUE,Float.NEGATIVE_INFINITY);
+  initFactoidWeb(resultsCorp);
+  Result[] results=runPipeline(aq,maxAnswers,absThresh);
+  if (results.length > 0)   return results;
+  if (aq.getAnswerTypes().length == 0) {
+    aq.setAnswerTypes(new String[]{"NEproperName"});
+    initFactoidCorpus();
+    resultsCorp=runPipeline(aq,Integer.MAX_VALUE,0);
+    initFactoidWeb(resultsCorp);
+    results=runPipeline(aq,maxAnswers,absThresh);
+  }
+  return results;
+}

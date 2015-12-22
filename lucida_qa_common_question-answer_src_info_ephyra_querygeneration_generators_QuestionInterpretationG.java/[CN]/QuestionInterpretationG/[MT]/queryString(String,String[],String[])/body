@@ -1,0 +1,6 @@
+{
+  String queryString="\"" + target + "\"";
+  for (  String ct : context)   queryString+=" \"" + ct + "\"";
+  for (  String kw : kws)   queryString+=" " + kw;
+  return queryString;
+}

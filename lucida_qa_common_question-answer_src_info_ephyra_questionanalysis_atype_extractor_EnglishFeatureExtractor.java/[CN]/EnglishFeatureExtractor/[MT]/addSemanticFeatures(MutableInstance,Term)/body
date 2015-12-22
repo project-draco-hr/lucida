@@ -1,0 +1,6 @@
+{
+  String focusType=WordNetAnswerTypeMapping.getAnswerType(focusTerm);
+  if (focusType == null)   focusType="-";
+  instance.addBinary(new Feature("FOCUS_TYPE" + "." + focusType));
+  return;
+}

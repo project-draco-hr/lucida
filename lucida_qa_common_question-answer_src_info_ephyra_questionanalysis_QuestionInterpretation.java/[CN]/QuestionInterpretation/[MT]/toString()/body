@@ -1,0 +1,6 @@
+{
+  String s="Property: " + getProperty();
+  s+="\nTarget: " + getTarget();
+  for (  String context : getContext())   s+="\nContext: " + context;
+  return s;
+}

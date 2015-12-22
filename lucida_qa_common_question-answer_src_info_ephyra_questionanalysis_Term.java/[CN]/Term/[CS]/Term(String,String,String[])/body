@@ -1,0 +1,4 @@
+{
+  this(text,pos);
+  this.neTypes=neTypes;
+}

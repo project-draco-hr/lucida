@@ -1,0 +1,6 @@
+{
+  String type=((targetType == null) ? getTargetType(givenProperties) : targetType);
+  Dossier dossier=new Dossier(target,type);
+  for (int p=0; p < givenProperties.length; p++)   dossier.setProperty(givenProperties[p],givenValues[p]);
+  return dossier;
+}

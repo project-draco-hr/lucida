@@ -1,0 +1,16 @@
+{
+  if (!enabled || logfile == null)   return false;
+  try {
+    PrintWriter out=new PrintWriter(new FileOutputStream(logfile,true));
+    for (    Predicate p : ps) {
+      out.println("\t<predicate>");
+      out.println("\t\t" + p.getAnnotated());
+      out.println("\t</predicate>");
+    }
+    out.close();
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

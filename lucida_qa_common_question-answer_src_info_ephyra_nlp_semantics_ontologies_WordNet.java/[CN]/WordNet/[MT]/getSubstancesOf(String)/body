@@ -1,0 +1,7 @@
+{
+  Synset synset=getCommonSynset(noun,NOUN);
+  if (synset == null)   return null;
+  Synset[] substancesOf=getSubstanceOfSynsets(synset);
+  if (substancesOf == null)   return null;
+  return getLemmas(substancesOf);
+}

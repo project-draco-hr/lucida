@@ -1,0 +1,16 @@
+{
+  if (!enabled || logfile == null)   return false;
+  try {
+    PrintWriter out=new PrintWriter(new FileOutputStream(logfile,true));
+    for (    String at : ats) {
+      out.println("\t<answertype>");
+      out.println("\t\t" + at);
+      out.println("\t</answertype>");
+    }
+    out.close();
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

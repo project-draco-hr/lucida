@@ -1,0 +1,26 @@
+{
+  ArrayList<String> phraseL=new ArrayList<String>();
+  HashSet<String> normSet=new HashSet<String>();
+  for (  Term term : terms) {
+    String text=term.getText();
+    if (normSet.add(StringUtils.normalize(text))) {
+      if (text.matches(".*?\\s.*+"))       text="\"" + text + "\"";
+      String phrase=text;
+      Map<String,Double> expMap=term.getExpansions();
+      expMap=TermExpander.reduceExpansionsQuery(expMap,true);
+      if (expMap != null && expMap.size() > 0) {
+        String[] expansions=expMap.keySet().toArray(new String[expMap.size()]);
+        phrase="(" + phrase;
+        for (        String expansion : expansions) {
+          if (expansion.matches(".*?\\s.*+"))           expansion="\"" + expansion + "\"";
+          phrase+=" OR " + expansion;
+        }
+        phrase+=")";
+      }
+      phraseL.add(phrase);
+    }
+  }
+  String[] phrases=phraseL.toArray(new String[phraseL.size()]);
+  String queryString=StringUtils.concatWithSpaces(phrases);
+  return queryString;
+}

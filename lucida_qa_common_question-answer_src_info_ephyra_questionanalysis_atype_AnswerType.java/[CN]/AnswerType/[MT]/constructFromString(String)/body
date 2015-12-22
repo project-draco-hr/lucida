@@ -1,0 +1,10 @@
+{
+  String[] atypes=answerTypeStr.split("\\.");
+  List<AnswerType> subtypes=new ArrayList<AnswerType>(1);
+  if (atypes.length > 1) {
+    for (int i=1; i < atypes.length; i++) {
+      if (!atypes[i].equals("DEFAULT"))       subtypes.add(new AnswerType(i + 1,1.0,atypes[i]));
+    }
+  }
+  return new AnswerType(1,1.0,atypes[0],subtypes);
+}

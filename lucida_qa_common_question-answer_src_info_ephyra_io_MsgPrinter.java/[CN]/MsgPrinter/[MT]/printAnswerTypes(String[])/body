@@ -1,0 +1,7 @@
+{
+  if (statusMsgs) {
+    printMessage("\nAnswer types:");
+    if (ats.length == 0)     printMessage("-");
+    for (    String at : ats)     printMessage(at);
+  }
+}

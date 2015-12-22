@@ -1,0 +1,6 @@
+{
+  Matcher m=Pattern.compile("<PO_([^>]++)>").matcher(desc);
+  if (!m.find())   return null;
+  String[] neTypes=m.group(1).split("_");
+  return neTypes;
+}

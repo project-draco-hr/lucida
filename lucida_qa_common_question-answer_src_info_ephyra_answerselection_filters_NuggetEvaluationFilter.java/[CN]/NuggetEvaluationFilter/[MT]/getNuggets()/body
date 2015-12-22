@@ -1,0 +1,3 @@
+{
+  return nuggets.toArray(new TRECNugget[nuggets.size()]);
+}

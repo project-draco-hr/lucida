@@ -1,0 +1,5 @@
+{
+  regEx="\\b" + regEx + "\\b";
+  if (caseSensitive)   return Pattern.compile(regEx);
+ else   return Pattern.compile(regEx,Pattern.CASE_INSENSITIVE);
+}

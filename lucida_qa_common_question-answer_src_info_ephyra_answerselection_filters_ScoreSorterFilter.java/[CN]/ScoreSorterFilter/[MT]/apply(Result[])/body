@@ -1,0 +1,6 @@
+{
+  for (  Result result : results)   result.setScore(result.getScore() * -1);
+  Arrays.sort(results);
+  for (  Result result : results)   result.setScore(result.getScore() * -1);
+  return results;
+}

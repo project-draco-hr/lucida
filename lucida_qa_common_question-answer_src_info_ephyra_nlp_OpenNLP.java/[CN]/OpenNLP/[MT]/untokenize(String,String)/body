@@ -1,0 +1,11 @@
+{
+  String regex=RegexConverter.strToRegexWithBounds(text);
+  regex=regex.replace(" ","\\s*+");
+  Matcher m=Pattern.compile(regex).matcher(original);
+  if (m.find())   return m.group(0);
+  regex=RegexConverter.strToRegex(text);
+  regex=regex.replace(" ","\\s*+");
+  m=Pattern.compile(regex).matcher(original);
+  if (m.find())   return m.group(0);
+  return text;
+}

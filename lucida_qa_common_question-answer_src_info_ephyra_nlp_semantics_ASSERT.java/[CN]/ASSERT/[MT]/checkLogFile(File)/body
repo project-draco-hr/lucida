@@ -1,0 +1,21 @@
+{
+  try {
+    BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(logf),"ISO-8859-1"));
+    int lastIndex=-1;
+    Pattern p=Pattern.compile("^(\\d++): ");
+    while (br.ready()) {
+      String line=br.readLine();
+      Matcher m=p.matcher(line);
+      if (m.find())       lastIndex=Integer.parseInt(m.group(1));
+      if (line.contains(" DOMAIN/FRAME/")) {
+        br.close();
+        return lastIndex;
+      }
+    }
+    br.close();
+    return Integer.MAX_VALUE;
+  }
+ catch (  IOException e) {
+    return -1;
+  }
+}

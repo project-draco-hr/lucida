@@ -1,0 +1,9 @@
+{
+  for (  String prop : props.keySet()) {
+    HashSet<AnswerPattern> patterns=props.get(prop);
+    int n=nOfPassages.get(prop);
+    HashSet<AnswerPattern> remaining=new HashSet<AnswerPattern>();
+    for (    AnswerPattern pattern : patterns)     if ((pattern.getCorrect() / (float)n) >= supportThresh)     remaining.add(pattern);
+    props.put(prop,remaining);
+  }
+}
