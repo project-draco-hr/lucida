@@ -1,0 +1,4 @@
+{
+  if (isServers)   indriUrls=locations;
+ else   indriDirs=locations;
+}

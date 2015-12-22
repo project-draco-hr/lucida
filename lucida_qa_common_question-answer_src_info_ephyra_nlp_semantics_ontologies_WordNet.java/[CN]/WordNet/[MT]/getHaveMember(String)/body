@@ -1,0 +1,7 @@
+{
+  Synset synset=getCommonSynset(noun,NOUN);
+  if (synset == null)   return null;
+  Synset[] haveMember=getHasMemberSynsets(synset);
+  if (haveMember == null)   return null;
+  return getLemmas(haveMember);
+}

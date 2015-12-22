@@ -1,0 +1,12 @@
+{
+  if (args.length < 2) {
+    MsgPrinter.printUsage("java WordFrequencies corpus_folder " + "output_file");
+    System.exit(1);
+  }
+  MsgPrinter.enableStatusMsgs(true);
+  MsgPrinter.printStatusMsg("Building index of word frequencies...");
+  createIndexFromDir(args[0]);
+  dropRareWords();
+  saveIndex(args[1]);
+  MsgPrinter.printStatusMsg("...completed.");
+}

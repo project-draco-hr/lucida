@@ -1,0 +1,9 @@
+{
+synchronized (docs) {
+    while (pending > 0)     try {
+      docs.wait();
+    }
+ catch (    InterruptedException e) {
+    }
+  }
+}

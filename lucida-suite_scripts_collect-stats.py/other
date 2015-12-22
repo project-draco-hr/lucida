@@ -1,0 +1,5 @@
+import sys, os, re, subprocess
+threads = 2
+overlap = 15
+if (__name__ == '__main__'):
+    sys.exit(main(sys.argv))

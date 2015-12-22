@@ -1,0 +1,24 @@
+{
+  MsgPrinter.enableStatusMsgs(true);
+  MsgPrinter.enableErrorMsgs(true);
+  Logger.setLogfile("log/OpenEphyra");
+  Logger.enableLogging(true);
+  String addr="localhost";
+  int port=8080;
+  if (args.length > 1) {
+    addr=args[0];
+    port=Integer.parseInt(args[1]);
+  }
+  int NTHREADS=Integer.parseInt(System.getenv("THREADS"));
+  Server server=new Server();
+  SelectChannelConnector con1=new SelectChannelConnector();
+  con1.setHost(addr);
+  con1.setPort(port);
+  con1.setThreadPool(new QueuedThreadPool(NTHREADS));
+  con1.setMaxIdleTime(30000);
+  con1.setRequestHeaderSize(8192);
+  server.setConnectors(new Connector[]{con1});
+  server.setHandler(new OpenEphyraServer());
+  server.start();
+  server.join();
+}

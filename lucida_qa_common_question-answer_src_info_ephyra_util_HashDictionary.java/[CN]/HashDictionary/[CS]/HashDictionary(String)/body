@@ -1,0 +1,18 @@
+{
+  this();
+  if (fileName != null) {
+    File file=new File(fileName);
+    BufferedReader in=new BufferedReader(new FileReader(file));
+    while (in.ready()) {
+      String word=in.readLine().trim();
+      if (word.startsWith("//"))       continue;
+      word=NETagger.tokenizeWithSpaces(word.toLowerCase());
+      word=SnowballStemmer.stemAllTokens(word);
+      if (word.length() > 0)       words.add(word);
+      String[] tokens=word.split(" ");
+      if (tokens.length > maxTokens)       maxTokens=tokens.length;
+      for (int p=0; p < tokens.length; p++)       if (tokens[p].length() > 0)       this.tokens.add(tokens[p]);
+    }
+    in.close();
+  }
+}

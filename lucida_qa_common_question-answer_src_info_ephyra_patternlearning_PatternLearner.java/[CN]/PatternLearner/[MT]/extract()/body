@@ -1,0 +1,18 @@
+{
+  MsgPrinter.printFormingQueries();
+  ass=new Hashtable<String,String>();
+  regexs=new Hashtable<String,String>();
+  Query[] queries;
+  ArrayList<Query> queryList=new ArrayList<Query>();
+  queries=formQueries("res/patternlearning/interpretations");
+  for (  Query query : queries)   queryList.add(query);
+  queries=formQueries("res/patternlearning/interpretations_extract");
+  for (  Query query : queries)   queryList.add(query);
+  queries=queryList.toArray(new Query[queryList.size()]);
+  MsgPrinter.printFetchingPassages();
+  Result[] results=fetchPassages(queries);
+  MsgPrinter.printExtractingPatterns();
+  extractPatterns(results);
+  MsgPrinter.printSavingPatterns();
+  return savePatterns("res/patternlearning/answerpatterns_extract");
+}

@@ -1,0 +1,25 @@
+{
+  ass=new Hashtable<String,String>();
+  regexs=new Hashtable<String,String>();
+  TRECQuestion[] questions=TREC8To12Parser.loadQuestions(qFile);
+  qss=new String[questions.length];
+  for (int i=0; i < questions.length; i++)   qss[i]=questions[i].getQuestionString();
+  if (!aFile.equals("")) {
+    TRECAnswer[] answers=TREC8To12Parser.loadTREC9Answers(aFile);
+    String answer;
+    for (int i=0; i < questions.length; i++) {
+      answer=answers[i].getAnswerString();
+      ass.put(qss[i],answer);
+      if (pFile.equals(""))       regexs.put(qss[i],RegexConverter.strToRegex(answer));
+    }
+  }
+  if (!pFile.equals("")) {
+    TRECPattern[] patterns=TREC8To12Parser.loadPatternsAligned(pFile);
+    String pattern;
+    for (int i=0; i < questions.length; i++)     if ((i < patterns.length) && (patterns[i] != null)) {
+      pattern=patterns[i].getRegexs()[0];
+      regexs.put(qss[i],pattern);
+      if (aFile.equals(""))       ass.put(qss[i],RegexConverter.regexToQueryStr(pattern));
+    }
+  }
+}

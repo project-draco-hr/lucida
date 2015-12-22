@@ -1,0 +1,45 @@
+{
+  if (threshold == 0)   return markAllContained(tokens,dictionary);
+  String[] markers=new String[tokens.length];
+  int markerIndex=0;
+  int lastStartIndex=0;
+  int lastMatchedIndex=0;
+  int index=0;
+  String currentPart=null;
+  boolean foundMatch=false;
+  while (index < tokens.length) {
+    lastStartIndex=index;
+    while ((index < tokens.length) && dictionary.fuzzyContainsToken(tokens[index],threshold) && (((index - lastStartIndex) < dictionary.getMaxTokens()))) {
+      currentPart=((currentPart == null) ? tokens[index] : (currentPart + " " + tokens[index]));
+      if (dictionary.fuzzyContains(currentPart,threshold)) {
+        foundMatch=true;
+        lastMatchedIndex=index;
+      }
+      index++;
+    }
+    if (foundMatch) {
+      while (markerIndex < lastStartIndex) {
+        markers[markerIndex]=OTHER;
+        markerIndex++;
+      }
+      markers[markerIndex]=START;
+      markerIndex++;
+      while (markerIndex <= lastMatchedIndex) {
+        markers[markerIndex]=CONTINUE;
+        markerIndex++;
+      }
+      index=lastMatchedIndex;
+    }
+ else {
+      index=lastStartIndex;
+    }
+    foundMatch=false;
+    currentPart=null;
+    index++;
+  }
+  while (markerIndex < tokens.length) {
+    markers[markerIndex]=OTHER;
+    markerIndex++;
+  }
+  return markers;
+}

@@ -1,0 +1,3 @@
+int level
+double confidence
+String type

@@ -1,0 +1,49 @@
+{
+  docs=new ArrayList<Result>();
+  HashSet<String> urls=new HashSet<String>();
+  for (  Result result : results) {
+    Query query=result.getQuery();
+    Predicate[] ps=query.getAnalyzedQuestion().getPredicates();
+    if (!query.extractWith(FactoidsFromPredicatesFilter.ID) || ps.length == 0 || result.getScore() > Float.NEGATIVE_INFINITY)     continue;
+    if (!result.getDocID().contains(":")) {
+      Result newResult=result.getCopy();
+      newResult.setScore(0);
+      docs.add(newResult);
+      continue;
+    }
+    if (urls.size() >= MAX_DOCS)     break;
+    String url=result.getDocID();
+    if (url.matches("(?i).*?" + FORBIDDEN_DOCS))     continue;
+    try {
+      URLConnection conn=(new URL(url)).openConnection();
+      if (!(conn instanceof HttpURLConnection))       continue;
+    }
+ catch (    IOException e) {
+      continue;
+    }
+    if (!urls.add(url))     continue;
+    if (CACHING) {
+      FileCache cache=new FileCache(CACHE_DIR);
+      String[] entries=cache.read(url);
+      if (entries != null) {
+        StringBuilder sb=new StringBuilder();
+        for (        String entry : entries) {
+          sb.append(entry);
+          sb.append("\n");
+        }
+        String docText=sb.toString();
+        Result doc=new Result(docText,result.getQuery(),url,result.getHitPos());
+        doc.setScore(0);
+        docs.add(doc);
+        continue;
+      }
+    }
+    (new WebDocumentFetcher()).start(this,result);
+  }
+  waitForDocs();
+  Result[] newResults=docs.toArray(new Result[docs.size()]);
+  Result[] allResults=new Result[results.length + newResults.length];
+  for (int i=0; i < results.length; i++)   allResults[i]=results[i];
+  for (int i=0; i < newResults.length; i++)   allResults[results.length + i]=newResults[i];
+  return allResults;
+}

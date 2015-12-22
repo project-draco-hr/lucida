@@ -1,0 +1,4 @@
+{
+  String fillers="(approximate|approximately|one of|so-called)";
+  return question.replaceAll(fillers + " ","");
+}

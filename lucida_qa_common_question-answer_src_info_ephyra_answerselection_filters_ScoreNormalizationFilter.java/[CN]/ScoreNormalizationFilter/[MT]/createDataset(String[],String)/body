@@ -1,0 +1,16 @@
+{
+  Dataset set=new BasicDataset();
+  File[] files=FileUtils.getFilesRec(serializedDir);
+  for (  File file : files) {
+    String filename=file.getName();
+    if (!filename.endsWith(".serialized"))     continue;
+    String qid=filename.replace(".serialized","");
+    Result[] results=readSerializedResults(file);
+    for (    Result result : results) {
+      if (result.getScore() <= 0 || result.getScore() == Float.POSITIVE_INFINITY || result.getExtractionTechniques() == null || result.getExtractionTechniques().length != 1)       continue;
+      Example example=createExample(features,result,results,qid);
+      set.add(example);
+    }
+  }
+  return set;
+}

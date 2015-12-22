@@ -1,5 +1,0 @@
-def shcin(stdin_data):
-    server_pid.stdin.write(stdin_data)
-    out = server_pid.stdout.readline()
-    print out
-    return out

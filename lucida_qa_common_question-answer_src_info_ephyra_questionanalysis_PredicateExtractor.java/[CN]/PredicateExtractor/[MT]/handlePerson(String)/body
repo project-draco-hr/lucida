@@ -1,0 +1,4 @@
+{
+  verbMod=verbMod.replaceFirst(PERSON_P,PERSON_R);
+  return verbMod;
+}

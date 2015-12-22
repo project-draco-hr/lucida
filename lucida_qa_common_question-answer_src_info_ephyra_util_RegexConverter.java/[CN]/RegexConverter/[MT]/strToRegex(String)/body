@@ -1,0 +1,10 @@
+{
+  expr=expr.replace("\\","\\\\").replace("|","\\|");
+  expr=expr.replace("*","\\*").replace("+","\\+");
+  expr=expr.replace("?","\\?").replace(".","\\.");
+  expr=expr.replace("^","\\^").replace("$","\\$");
+  expr=expr.replace("(","\\(").replace(")","\\)");
+  expr=expr.replace("{","\\{").replace("}","\\}");
+  expr=expr.replace("[","\\[").replace("]","\\]");
+  return expr;
+}

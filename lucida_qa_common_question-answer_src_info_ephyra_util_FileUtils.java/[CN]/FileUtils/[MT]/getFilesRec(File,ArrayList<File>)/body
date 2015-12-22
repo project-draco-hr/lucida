@@ -1,0 +1,5 @@
+{
+  File[] filesOrDirs=dir.listFiles();
+  for (  File fileOrDir : filesOrDirs)   if (fileOrDir.isFile())   files.add(fileOrDir);
+ else   getFilesRec(fileOrDir,files);
+}

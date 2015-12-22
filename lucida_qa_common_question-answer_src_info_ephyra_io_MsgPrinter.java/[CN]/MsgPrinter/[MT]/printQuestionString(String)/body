@@ -1,0 +1,3 @@
+{
+  if (statusMsgs)   printMessage("\nQuestion: " + qs);
+}

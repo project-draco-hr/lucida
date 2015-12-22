@@ -1,0 +1,6 @@
+{
+  if (result == null)   return null;
+  String[] tokens=NETagger.tokenize(result.getAnswer());
+  for (  String token : tokens)   if ((token.length() > 1 || token.matches("\\d")) && !FunctionWords.lookup(token))   return result;
+  return null;
+}

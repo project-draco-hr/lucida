@@ -1,0 +1,4 @@
+{
+  if (targets.length == 0)   return new HashMap<String,TermCounter>();
+  return this.getTermCounters(targets[0]);
+}

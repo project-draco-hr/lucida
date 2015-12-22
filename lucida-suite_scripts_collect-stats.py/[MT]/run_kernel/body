@@ -1,0 +1,46 @@
+def run_kernel(k, plat):
+    'To change inputs or # of threads'
+    cmd = ''
+    if (k == 'fe'):
+        inp = ' ../input/2048x2048.jpg'
+        if ((plat == 'smt') or (plat == 'cores')):
+            cmd = (((('./surf-fe ' + str(threads)) + ' ') + str(overlap)) + inp)
+        else:
+            cmd = ('./surf-fe' + inp)
+    elif (k == 'fd'):
+        inp = ' ../input/2048x2048.jpg'
+        if ((plat == 'smt') or (plat == 'cores')):
+            cmd = (((('./surf-fd ' + str(threads)) + ' ') + str(overlap)) + inp)
+        else:
+            cmd = ('./surf-fd' + inp)
+    elif (k == 'gmm'):
+        inp = ' 100 ../input/gmm_data.txt'
+        if ((plat == 'smt') or (plat == 'cores')):
+            cmd = (('./gmm_scoring ' + str(threads)) + inp)
+        else:
+            cmd = ('./gmm_scoring ' + inp)
+    elif (k == 'regex'):
+        inp = ' 100 ../input/patterns.txt 10000 ../input/questions-10k.txt'
+        if ((plat == 'smt') or (plat == 'cores')):
+            cmd = (('./regex_slre ' + str(threads)) + inp)
+        else:
+            cmd = ('./regex_slre' + inp)
+    elif (k == 'stemmer'):
+        inp = ' 50000000 ../input/voc-50M.txt'
+        if ((plat == 'smt') or (plat == 'cores')):
+            cmd = (('./stem_porter ' + str(threads)) + inp)
+        else:
+            cmd = ('./stem_porter' + inp)
+    elif (k == 'crf'):
+        inp = ' ../input/model.la ../input/test-input.txt'
+        if ((plat == 'smt') or (plat == 'cores')):
+            cmd = (('./crf_tag ' + str(threads)) + inp)
+        else:
+            cmd = ('./crf_tag' + inp)
+    elif (k == 'dnn-asr'):
+        inp = ' ../model/asr.prototxt ../model/asr.caffemodel ../input/features.in'
+        if ((plat == 'smt') or (plat == 'cores')):
+            cmd = (('./dnn_asr ' + str(threads)) + inp)
+        else:
+            cmd = ('./dnn_asr' + inp)
+    return cmd

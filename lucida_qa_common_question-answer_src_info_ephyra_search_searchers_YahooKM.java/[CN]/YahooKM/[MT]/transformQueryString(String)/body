@@ -1,0 +1,5 @@
+{
+  qs=qs.replace("(","");
+  qs=qs.replace(")","");
+  return qs;
+}

@@ -1,0 +1,6 @@
+{
+  if ((targetTokens.length == 1) && (targetTokens[0].endsWith("s"))) {
+    return true;
+  }
+ else   return false;
+}

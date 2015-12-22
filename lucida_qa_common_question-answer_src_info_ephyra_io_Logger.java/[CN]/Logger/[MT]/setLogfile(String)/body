@@ -1,0 +1,3 @@
+{
+  logfile=new File(filename);
+}

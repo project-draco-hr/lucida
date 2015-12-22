@@ -1,0 +1,24 @@
+{
+  HashSet<String> duplicateFreeTargets=new LinkedHashSet<String>(targets);
+  for (Iterator<String> iter=duplicateFreeTargets.iterator(); iter.hasNext(); ) {
+    String target=iter.next();
+    String[] targetTokens=target.split("\\s");
+    String upperCasePart=null;
+    int i=0;
+    while (i < targetTokens.length) {
+      while ((i < targetTokens.length) && !Character.isUpperCase(targetTokens[i].charAt(0)))       i++;
+      if (i < targetTokens.length) {
+        upperCasePart=targetTokens[i];
+        i++;
+      }
+      while ((i < targetTokens.length) && !Character.isLowerCase(targetTokens[i].charAt(0))) {
+        upperCasePart+=" " + targetTokens[i];
+        i++;
+      }
+      if (upperCasePart != null) {
+        targets.add(upperCasePart);
+        upperCasePart=null;
+      }
+    }
+  }
+}

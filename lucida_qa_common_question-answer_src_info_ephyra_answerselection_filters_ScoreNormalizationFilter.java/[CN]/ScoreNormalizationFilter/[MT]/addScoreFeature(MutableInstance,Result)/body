@@ -1,0 +1,5 @@
+{
+  float score=result.getScore();
+  Feature feature=new Feature(SCORE_F);
+  instance.addNumeric(feature,score);
+}

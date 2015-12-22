@@ -1,0 +1,10 @@
+{
+  PointerTargetNodeList haveMember=null;
+  try {
+    haveMember=PointerUtils.getInstance().getMemberMeronyms(synset);
+  }
+ catch (  JWNLException e) {
+  }
+  if (haveMember == null)   return null;
+  return getSynsets(haveMember);
+}

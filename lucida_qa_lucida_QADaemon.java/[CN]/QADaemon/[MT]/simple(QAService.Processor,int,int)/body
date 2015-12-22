@@ -1,0 +1,26 @@
+{
+  try {
+    TServerTransport serverTransport=new TServerSocket(port);
+    final TServer server=new TSimpleServer(new Args(serverTransport).processor(processor));
+    Thread t1=new Thread(new Runnable(){
+      public void run(){
+        System.out.println("Starting qa at port " + port + "...");
+        server.serve();
+      }
+    }
+);
+    t1.start();
+    TTransport transport=new TSocket("localhost",cmdcenterport);
+    transport.open();
+    TProtocol protocol=new TBinaryProtocol(transport);
+    CommandCenter.Client client=new CommandCenter.Client(protocol);
+    System.out.println("Registering qa with sirius...");
+    MachineData mDataObj=new MachineData("localhost",port);
+    client.registerService("QA",mDataObj);
+    transport.close();
+    t1.join();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

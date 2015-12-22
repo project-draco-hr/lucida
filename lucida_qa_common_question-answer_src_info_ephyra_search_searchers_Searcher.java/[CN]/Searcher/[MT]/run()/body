@@ -1,0 +1,6 @@
+{
+  if (query != null) {
+    Result[] results=doSearch();
+    Search.addResults(results);
+  }
+}

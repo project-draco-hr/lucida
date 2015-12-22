@@ -1,0 +1,34 @@
+def main(args):
+    if (len(args) < 2):
+        print 'Usage: ./collect-stats.py <top-directory of kernels>'
+        return
+    kernels = ['fe', 'fd', 'gmm', 'regex', 'stemmer', 'crf', 'dnn-asr']
+    platforms = ['baseline', 'smt']
+    kdir = args[1]
+    os.chdir(kdir)
+    root = os.getcwd()
+    for k in kernels:
+        d = ((os.getcwd() + '/') + k)
+        os.chdir(d)
+        kroot = os.getcwd()
+        for plat in platforms:
+            fname = ('sirius-suite-%s' % plat)
+            if ((plat == 'smt') or (plat == 'cores')):
+                os.chdir('pthread')
+            else:
+                os.chdir(plat)
+            if (plat == 'cores'):
+                vtune = 'amplxe-cl -collect general-exploration -start-paused -quiet taskset -c 0,1 '
+            elif (plat == 'smt'):
+                vtune = 'amplxe-cl -collect general-exploration -start-paused -quiet taskset -c 0,8 '
+            else:
+                vtune = 'amplxe-cl -collect general-exploration -start-paused -quiet taskset -c 0 '
+            cmd = (((vtune + ' ') + run_kernel(k, plat)) + (' > %s.out 2> %s.err' % (fname, fname)))
+            print cmd
+            shcmd(cmd)
+            report = ('amplxe-cl -report summary -report-output %s.report -format csv -csv-delimiter ,' % fname)
+            shcmd(report)
+            shcmd(("cat %s.report| sed 's/^[ \t]*//;s/[ \t]*$//' > temp.txt && mv temp.txt %s.report" % (fname, fname)))
+            shcmd('rm -rf r00*')
+            os.chdir(kroot)
+        os.chdir(root)

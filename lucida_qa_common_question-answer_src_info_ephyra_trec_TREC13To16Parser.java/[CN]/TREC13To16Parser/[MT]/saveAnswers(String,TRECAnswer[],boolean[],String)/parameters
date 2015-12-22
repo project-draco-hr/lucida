@@ -1,0 +1,4 @@
+String filename
+TRECAnswer[] answers
+boolean[] correct
+String runTag

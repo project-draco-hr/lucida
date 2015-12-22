@@ -1,0 +1,22 @@
+{
+  if (lists.length > 0)   return;
+  MsgPrinter.printStatusMsg("  ...loading lists");
+  ArrayList<String> listsList=new ArrayList<String>();
+  ArrayList<String> listNamesList=new ArrayList<String>();
+  File[] listFiles=new File(listDirectory).listFiles(new FileFilter(){
+    public boolean accept(    File pathname){
+      return pathname.getName().endsWith(".lst");
+    }
+  }
+);
+  Arrays.sort(listFiles);
+  for (  File list : listFiles) {
+    String listName=list.getName();
+    listsList.add(list.getName());
+    listName=listName.substring(0,(listName.length() - 4));
+    listNamesList.add("NE" + listName);
+    MsgPrinter.printStatusMsg("    ...for NE" + listName);
+  }
+  lists=listsList.toArray(new String[listsList.size()]);
+  listNames=listNamesList.toArray(new String[listNamesList.size()]);
+}

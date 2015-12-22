@@ -1,0 +1,23 @@
+{
+  results=(new ScoreSorterFilter()).apply(results);
+  for (  String as : forbidden)   for (int i=0; i < results.length; i++) {
+    if (results[i] == null || results[i].getScore() == Float.POSITIVE_INFINITY)     continue;
+    if (results[i].getScore() == Float.NEGATIVE_INFINITY)     break;
+    if (StringUtils.equalsCommonNorm(as,results[i].getAnswer()))     results[i]=null;
+  }
+  for (int i=0; i < results.length - 1; i++) {
+    if (results[i] == null || results[i].getScore() == Float.POSITIVE_INFINITY)     continue;
+    if (results[i].getScore() == Float.NEGATIVE_INFINITY)     break;
+    for (int j=i + 1; j < results.length; j++) {
+      if (results[j] == null || results[j].getScore() == Float.POSITIVE_INFINITY)       continue;
+      if (results[j].getScore() == Float.NEGATIVE_INFINITY)       break;
+      if (StringUtils.equalsCommonNorm(results[i].getAnswer(),results[j].getAnswer())) {
+        results[i].incScore(results[j].getScore());
+        results[j]=null;
+      }
+    }
+  }
+  ArrayList<Result> noDups=new ArrayList<Result>();
+  for (  Result result : results)   if (result != null)   noDups.add(result);
+  return noDups.toArray(new Result[noDups.size()]);
+}

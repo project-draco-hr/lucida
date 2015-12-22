@@ -1,0 +1,11 @@
+{
+  String[] split=questionParse.split(" ");
+  String temp="";
+  for (  String s : split) {
+    int i=s.indexOf(")");
+    if (i > -1) {
+      temp+=s.substring(0,i) + " ";
+    }
+  }
+  return temp;
+}

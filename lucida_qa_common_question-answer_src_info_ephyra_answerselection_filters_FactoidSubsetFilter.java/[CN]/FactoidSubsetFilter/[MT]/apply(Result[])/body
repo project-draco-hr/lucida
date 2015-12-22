@@ -1,0 +1,16 @@
+{
+  results=(new ReverseScoreSorterFilter()).apply(results);
+  results=(new ResultLengthSorterFilter()).apply(results);
+  String[] norms=new String[results.length];
+  for (int i=0; i < results.length; i++)   if (results[i].getScore() != Float.POSITIVE_INFINITY && results[i].getScore() != Float.NEGATIVE_INFINITY)   norms[i]=StringUtils.normalize(results[i].getAnswer());
+  for (int i=0; i < results.length - 1; i++) {
+    if (results[i].getScore() != Float.POSITIVE_INFINITY && results[i].getScore() != Float.NEGATIVE_INFINITY)     for (int j=results.length - 1; j > i; j--)     if (results[j].getScore() != Float.POSITIVE_INFINITY && results[j].getScore() != Float.NEGATIVE_INFINITY && results[j].isNamedEntity() && !NETagger.allModelType(results[j].getNeTypes()) && StringUtils.isSubsetKeywords(norms[i],norms[j])) {
+      results[j].incScore(results[i].getScore());
+      results[i]=null;
+      break;
+    }
+  }
+  ArrayList<Result> remaining=new ArrayList<Result>();
+  for (  Result result : results)   if (result != null)   remaining.add(result);
+  return remaining.toArray(new Result[remaining.size()]);
+}

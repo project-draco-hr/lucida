@@ -1,0 +1,36 @@
+{
+  DecimalFormat format=new DecimalFormat("#0.00");
+  int correct=0;
+  List<GoldStandard> goldStandards;
+  goldStandards=GoldStandard.loadFile(testSetFileName);
+  int size=goldStandards.size();
+  for (  GoldStandard gs : goldStandards) {
+    String question=gs.getQuestion(languagePair.getFirst().name().split("_")[0].toUpperCase());
+    String actual=gs.getAnswerType();
+    Set<AnswerType> actuals=new HashSet<AnswerType>();
+    Set<AnswerType> predicted=new HashSet<AnswerType>();
+    for (    String atypeStr : actual.split("\\|")) {
+      actuals.add(AnswerType.constructFromString(atypeStr));
+    }
+    List<AnswerType> atypes=getAnswerTypes(question);
+    if (atypes.size() > 0) {
+      double topConf=atypes.get(0).getConfidence();
+      for (int i=0; i < atypes.size(); i++) {
+        if (atypes.get(i).getConfidence() == topConf) {
+          predicted.add(atypes.get(i));
+          atypes.remove(i);
+          i--;
+        }
+      }
+    }
+    boolean corr=false;
+    for (    AnswerType a : predicted)     if (actuals.contains(a))     corr=true;
+    if (corr)     correct++;
+ else {
+      log.debug("A: " + actuals + ", P: "+ predicted+ ", "+ question);
+      if (atypes.size() > 0)       log.debug("        2nd: " + atypes.get(0));
+    }
+  }
+  if (size > 0)   System.out.println("Test set accuracy: " + correct + "/"+ size+ " ("+ format.format((double)correct / (double)size * 100)+ "%)");
+ else   System.out.println("No examples classified.");
+}

@@ -1,0 +1,11 @@
+{
+  String labelName="";
+  String explanation="";
+  for (int i=0; i < classLevels; i++) {
+    Classifier currentClassifier=(Classifier)classifiers.get(labelName);
+    ClassLabel currentLabel=currentClassifier.classification(instance);
+    labelName=getNewLabelName(labelName,currentLabel.bestClassName(),i);
+    explanation+=currentClassifier.explain(instance);
+  }
+  return explanation;
+}

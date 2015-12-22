@@ -1,0 +1,11 @@
+{
+  for (Iterator it=instance.binaryFeatureIterator(); it.hasNext(); ) {
+    Feature f=(Feature)it.next();
+    if (f.getPart(0).equals(featName)) {
+      String val=f.getPart(1).trim();
+      val=val.equals("-") ? null : val;
+      return val;
+    }
+  }
+  return null;
+}

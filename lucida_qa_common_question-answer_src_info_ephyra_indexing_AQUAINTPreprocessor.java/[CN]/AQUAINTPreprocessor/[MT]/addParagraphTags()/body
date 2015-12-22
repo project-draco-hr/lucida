@@ -1,0 +1,71 @@
+{
+  File[] files=FileUtils.getFilesRec(dir);
+  for (  File file : files) {
+    MsgPrinter.printStatusMsg("Parsing " + file.getName() + "...");
+    ArrayList<String> doc=new ArrayList<String>();
+    boolean mod=false;
+    try {
+      BufferedReader in=new BufferedReader(new FileReader(file));
+      String line, prevLine="";
+      boolean text=false, paragraph=false;
+      while (in.ready()) {
+        line=in.readLine();
+        if (text) {
+          if (paragraph) {
+            if (line.contains("</P>")) {
+              paragraph=false;
+            }
+ else             if (line.contains("<P>")) {
+              doc.add("</P>");
+              mod=true;
+            }
+ else             if (line.matches("\\s*+<[^>]++>\\s*+")) {
+              doc.add("</P>");
+              mod=true;
+              paragraph=false;
+            }
+ else             if (!prevLine.contains("<P>") && (line.startsWith("\t") || line.startsWith("  "))) {
+              doc.add("</P>");
+              doc.add("<P>");
+              mod=true;
+            }
+          }
+ else {
+            if (line.contains("<P>")) {
+              paragraph=true;
+            }
+ else             if (line.contains("</P>")) {
+              doc.add("<P>");
+              mod=true;
+            }
+ else             if (!line.matches("\\s*+<[^>]++>\\s*+")) {
+              doc.add("<P>");
+              mod=true;
+              paragraph=true;
+            }
+          }
+        }
+        if (line.contains("<TEXT>"))         text=true;
+        if (line.contains("</TEXT>"))         text=false;
+        doc.add(line);
+        prevLine=line;
+      }
+      in.close();
+    }
+ catch (    IOException e) {
+      return false;
+    }
+    if (mod) {
+      try {
+        PrintWriter out=new PrintWriter(file,"UTF-8");
+        for (        String line : doc)         out.println(line);
+        out.close();
+      }
+ catch (      IOException e) {
+        return false;
+      }
+      MsgPrinter.printStatusMsg("...modified");
+    }
+  }
+  return true;
+}

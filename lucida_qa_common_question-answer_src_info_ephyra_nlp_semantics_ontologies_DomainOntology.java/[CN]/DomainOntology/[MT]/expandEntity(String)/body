@@ -1,0 +1,7 @@
+{
+  Map<String,Double> expansions=new Hashtable<String,Double>();
+  expansions.put(entity,1d);
+  expansions=expandMapTransitiveLeaves(expansions,"subtype");
+  expansions.remove(entity);
+  return expansions;
+}

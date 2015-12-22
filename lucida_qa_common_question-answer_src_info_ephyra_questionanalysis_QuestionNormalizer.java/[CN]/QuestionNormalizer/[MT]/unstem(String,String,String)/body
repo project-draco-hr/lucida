@@ -1,0 +1,14 @@
+{
+  String result=sub;
+  qn=dropPunctuationMarks(qn);
+  String[] truncs=stemmed.split(sub,-1);
+  if (truncs.length > 1) {
+    int start=NETagger.tokenize(truncs[0]).length;
+    int end=start + NETagger.tokenize(sub).length;
+    String[] tokens=NETagger.tokenize(qn);
+    result=tokens[start];
+    for (int i=start + 1; i < end; i++)     result+=" " + tokens[i];
+    result=OpenNLP.untokenize(result,qn);
+  }
+  return result;
+}
