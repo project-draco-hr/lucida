@@ -1,0 +1,42 @@
+{
+  File file=new File("temp/");
+  file.mkdirs();
+  System.out.println("Parsing urls...");
+  for (int i=0; i < urls.size(); ++i) {
+    String parsed_text="";
+    String temp_file_path="temp/" + i + ".txt";
+    try {
+      parsed_text=Jsoup.parse(new URL(urls.get(i)),Integer.MAX_VALUE).text();
+      FileWriter fileWriter=new FileWriter(temp_file_path);
+      BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
+      bufferedWriter.write(parsed_text);
+      bufferedWriter.close();
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+      return false;
+    }
+  }
+  File indri_dir=new File(Indri_path);
+  indri_dir.mkdirs();
+  System.out.println("Parsing files...");
+  IndexEnvironment env=new IndexEnvironment();
+  try {
+    env.setStemmer("krovetz");
+    env.create(Indri_path);
+    for (int i=0; i < urls.size(); ++i) {
+      String temp_file_path="temp/" + i + ".txt";
+      env.addFile(temp_file_path);
+    }
+    for (int i=0; i < files.size(); ++i) {
+      env.addFile(files.get(i));
+    }
+    env.close();
+    System.out.println("documentsIndexed: " + env.documentsIndexed());
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    return false;
+  }
+  return true;
+}

@@ -1,0 +1,4 @@
+{
+  System.out.println("Usage: java ParserClient (PORT) (pathToIndriRepository) (numberOfUrls) (numberOfFiles) (listOfUrls) (listOfFilePaths)");
+  System.out.println("The lists of urls and files must be space-separated, and must be valid urls and paths to files.");
+}
