@@ -1,0 +1,8 @@
+def create_learn(addr='localhost', port=8083):
+    learn = {}
+    socket = TSocket.TSocket(addr, port)
+    learn['transport'] = TTransport.TFramedTransport(socket)
+    learn['transport'].open()
+    protocol = TBinaryProtocol.TBinaryProtocol(learn['transport'])
+    learn['client'] = ParserService.Client(protocol)
+    return learn

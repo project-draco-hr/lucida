@@ -1,0 +1,20 @@
+'\nSave this file as server.py\n>>> python server.py 0.0.0.0 8001\nserving on 0.0.0.0:8001\n\nor simply\n\n>>> python server.py\nServing on localhost:8000\n\nYou can use this to test GET and POST methods.\n\n'
+import SimpleHTTPServer
+import SocketServer
+import logging
+import cgi
+import sys
+if (len(sys.argv) > 2):
+    PORT = int(sys.argv[2])
+    I = sys.argv[1]
+elif (len(sys.argv) > 1):
+    PORT = int(sys.argv[1])
+    I = ''
+else:
+    PORT = 8000
+    I = ''
+Handler = ServerHandler
+httpd = SocketServer.TCPServer(('', PORT), Handler)
+print '@rochacbruno Python http server version 0.1 (for testing purposes only)'
+print ('Serving at: http://%(interface)s:%(port)s' % dict(interface=(I or 'localhost'), port=PORT))
+httpd.serve_forever()

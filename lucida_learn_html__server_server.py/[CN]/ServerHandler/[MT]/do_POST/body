@@ -1,0 +1,15 @@
+def do_POST(self):
+    logging.warning('======= POST STARTED =======')
+    logging.warning(self.headers)
+    form = cgi.FieldStorage(fp=self.rfile, headers=self.headers, environ={'REQUEST_METHOD': 'POST', 'CONTENT_TYPE': self.headers['Content-Type'], })
+    logging.warning('======= POST VALUES =======')
+    for item in form.list:
+        logging.warning(item)
+        if (item.name == 'facts'):
+            with open('fact.txt', 'w') as fp:
+                fp.write(item.value)
+            self.send_response(301)
+            self.send_header('Location', 'success.html')
+            self.end_headers()
+    logging.warning('\n')
+    SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET('success.html')

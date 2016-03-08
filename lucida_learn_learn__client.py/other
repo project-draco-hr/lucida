@@ -1,0 +1,12 @@
+import sys, os
+from thrift.transport import TSocket
+from thrift.transport import TTransport
+from thrift.protocol import TBinaryProtocol
+sys.path.append((os.environ.get('LUCIDAROOT') + '/learn/gen-py'))
+from parser_service import ParserService
+from parser_service.ttypes import *
+INDRI_PATH = os.getenv('INDRI_INDEX', '/opt/indri_db')
+urls = []
+myfiles = ['facts.txt']
+learn = create_learn()
+print learn['client'].parseThrift(INDRI_PATH, urls, myfiles)
