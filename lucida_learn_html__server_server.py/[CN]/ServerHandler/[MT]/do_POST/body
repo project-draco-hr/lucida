@@ -6,8 +6,11 @@ def do_POST(self):
     for item in form.list:
         logging.warning(item)
         if (item.name == 'facts'):
+            learn = create_learn()
             with open('fact.txt', 'w') as fp:
                 fp.write(item.value)
+            cur_dir = (os.environ.get('LUCIDAROOT') + '/learn/html_server/')
+            learn['client'].parseThrift(INDRI_PATH, [], [(cur_dir + 'fact.txt')])
             self.send_response(301)
             self.send_header('Location', 'success.html')
             self.end_headers()

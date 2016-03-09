@@ -1,4 +1,4 @@
-def create_learn(addr='localhost', port=8083):
+def create_learn(addr='localhost', port=LEARN_PORT):
     learn = {}
     socket = TSocket.TSocket(addr, port)
     learn['transport'] = TTransport.TFramedTransport(socket)
