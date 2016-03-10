@@ -1,5 +1,0 @@
-def Glorot(dim1, dim2):
-    if o.with_glorot:
-        return (35.0 * math.sqrt((2.0 / (dim1 + dim2))))
-    else:
-        return 1.0

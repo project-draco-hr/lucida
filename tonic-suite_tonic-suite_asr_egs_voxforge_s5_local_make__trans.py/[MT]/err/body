@@ -1,2 +1,0 @@
-def err(msg):
-    print  >> sys.stderr, msg
