@@ -1,0 +1,15 @@
+{
+  Pattern p=Pattern.compile("(?i)(.* )?did/.*? (\\S*)/vb(\\W.*)?");
+  Matcher m=p.matcher(tagged);
+  String[] results;
+  if (m.matches()) {
+    String verb=m.group(2);
+    results=VerbFormConverter.infinitiveToSimplePast(verb);
+    for (int i=0; i < results.length; i++) {
+      results[i]=question.replace(verb,results[i]);
+      results[i]=results[i].replace("did ","");
+    }
+    return results;
+  }
+  return null;
+}

@@ -1,0 +1,25 @@
+{
+  try {
+    int tmp_port=9091;
+    if (args.length == 1) {
+      tmp_port=Integer.parseInt(args[0].trim());
+      System.out.println("Using port: " + tmp_port);
+    }
+ else {
+      System.out.println("Using default port: " + tmp_port);
+    }
+    final int port=tmp_port;
+    handler=new QAServiceHandler();
+    processor=new QAService.Processor<QAServiceHandler>(handler);
+    Runnable simple=new Runnable(){
+      public void run(){
+        simple(processor,port);
+      }
+    }
+;
+    new Thread(simple).start();
+  }
+ catch (  Exception x) {
+    x.printStackTrace();
+  }
+}

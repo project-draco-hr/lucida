@@ -1,0 +1,17 @@
+{
+  if (!enabled || logfile == null)   return false;
+  DecimalFormat df=new DecimalFormat();
+  df.setMaximumFractionDigits(3);
+  df.setMinimumFractionDigits(3);
+  try {
+    PrintWriter out=new PrintWriter(new FileOutputStream(logfile,true));
+    out.println("<listscore rel_thresh=\"" + relThresh + "\">");
+    out.println("\t" + df.format(score));
+    out.println("</listscore>");
+    out.close();
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

@@ -1,0 +1,10 @@
+{
+  try {
+synchronized (threadToTimeout) {
+      threadToTimeout.wait(timeout);
+    }
+  }
+ catch (  InterruptedException e) {
+  }
+  threadToTimeout.interrupt();
+}

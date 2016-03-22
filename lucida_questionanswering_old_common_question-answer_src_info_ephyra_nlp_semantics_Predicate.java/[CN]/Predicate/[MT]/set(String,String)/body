@@ -1,0 +1,22 @@
+{
+  if (id.equals("TARGET"))   verb=verbArg;
+ else   if (id.equals("ARG0"))   args[0]=verbArg;
+ else   if (id.equals("ARG1"))   args[1]=verbArg;
+ else   if (id.equals("ARG2"))   args[2]=verbArg;
+ else   if (id.equals("ARG3"))   args[3]=verbArg;
+ else   if (id.equals("ARG4"))   args[4]=verbArg;
+ else   if (id.equals("ARG5"))   args[5]=verbArg;
+ else   if (id.equals("ARGM-LOC"))   argLOC=verbArg;
+ else   if (id.equals("ARGM-CAU"))   argCAU=verbArg;
+ else   if (id.equals("ARGM-EXT"))   argEXT=verbArg;
+ else   if (id.equals("ARGM-TMP"))   argTMP=verbArg;
+ else   if (id.equals("ARGM-DIS"))   argDIS=verbArg;
+ else   if (id.equals("ARGM-PNC"))   argPNC=verbArg;
+ else   if (id.equals("ARGM-ADV"))   argADV=verbArg;
+ else   if (id.equals("ARGM-MNR"))   argMNR=verbArg;
+ else   if (id.equals("ARGM-NEG"))   argNEG=verbArg;
+ else   if (id.equals("ARGM-DIR"))   argDIR=verbArg;
+ else   if (id.equals("ARGM-MOD"))   argMOD=verbArg;
+ else   return false;
+  return true;
+}

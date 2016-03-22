@@ -1,0 +1,9 @@
+{
+  FeatureExtractor extractor=null;
+  Properties properties=propertyMap.get(language.toString());
+  String extractorType=properties.getProperty("extractorType");
+  if (extractorType == null)   throw new Exception("Required property extractorType is undefined for language" + language);
+  extractor=(FeatureExtractor)Class.forName(extractorType).newInstance();
+  extractor.initialize();
+  return extractor;
+}

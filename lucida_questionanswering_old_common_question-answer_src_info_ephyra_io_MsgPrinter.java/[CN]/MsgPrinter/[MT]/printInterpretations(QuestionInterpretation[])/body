@@ -1,0 +1,9 @@
+{
+  if (statusMsgs) {
+    printMessage("\nInterpretations:");
+    if (qis.length == 0)     printMessage("-");
+    for (    QuestionInterpretation qi : qis) {
+      printMessage(qi.toString());
+    }
+  }
+}

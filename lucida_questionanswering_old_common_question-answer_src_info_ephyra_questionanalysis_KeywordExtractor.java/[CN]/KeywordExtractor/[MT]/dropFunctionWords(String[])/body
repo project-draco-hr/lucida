@@ -1,0 +1,5 @@
+{
+  ArrayList<String> content=new ArrayList<String>();
+  for (  String word : words)   if (!FunctionWords.lookup(word))   content.add(word);
+  return content.toArray(new String[content.size()]);
+}

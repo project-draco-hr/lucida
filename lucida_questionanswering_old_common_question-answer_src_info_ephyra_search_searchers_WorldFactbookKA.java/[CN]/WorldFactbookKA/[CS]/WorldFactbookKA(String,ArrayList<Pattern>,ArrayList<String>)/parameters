@@ -1,0 +1,3 @@
+String name
+ArrayList<Pattern> qPatterns
+ArrayList<String> qContents

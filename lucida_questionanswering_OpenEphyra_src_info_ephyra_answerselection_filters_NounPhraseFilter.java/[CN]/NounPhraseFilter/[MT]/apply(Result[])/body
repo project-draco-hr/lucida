@@ -1,0 +1,47 @@
+{
+  ArrayList<Result> rawResults=new ArrayList<Result>();
+  HashSet<String> found=new HashSet<String>();
+  for (  Result r : results) {
+    if (r.getScore() != Float.NEGATIVE_INFINITY) {
+      String stemmedQuestion=SnowballStemmer.stemAllTokens(r.getQuery().getAnalyzedQuestion().getQuestion());
+      String text=r.getAnswer();
+      String[] sentence=OpenNLP.tokenize(text);
+      String[] posTags=OpenNLP.tagPos(sentence);
+      String[] chunkTags=OpenNLP.tagChunks(sentence,posTags);
+      String np=null;
+      int numberOfNPs=0;
+      for (int i=0; i < sentence.length; i++) {
+        if ("B-NP".equals(chunkTags[i])) {
+          np=sentence[i];
+        }
+ else         if ("I-NP".equals(chunkTags[i]) && (np != null)) {
+          np+=" " + sentence[i];
+        }
+ else         if (np != null) {
+          np=SnowballStemmer.stemAllTokens(np);
+          if (!found.contains(np)) {
+            found.add(np);
+            if (!StringUtils.isSubsetKeywords(np,stemmedQuestion)) {
+              numberOfNPs++;
+            }
+          }
+          np=null;
+        }
+      }
+      if (np != null) {
+        np=SnowballStemmer.stemAllTokens(np);
+        if (!found.contains(np)) {
+          found.add(np);
+          if (!StringUtils.isSubsetKeywords(np,stemmedQuestion)) {
+            numberOfNPs++;
+          }
+        }
+      }
+      if (numberOfNPs != 0) {
+        r.incScore(numberOfNPs * (((float)results.length) / ((float)sentence.length)));
+        rawResults.add(r);
+      }
+    }
+  }
+  return rawResults.toArray(new Result[rawResults.size()]);
+}

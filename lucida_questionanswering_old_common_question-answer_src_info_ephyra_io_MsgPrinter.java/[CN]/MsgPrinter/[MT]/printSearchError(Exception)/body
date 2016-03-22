@@ -1,0 +1,6 @@
+{
+  if (errorMsgs) {
+    System.err.println("\nSearch error:");
+    System.err.println(e);
+  }
+}

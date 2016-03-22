@@ -1,0 +1,44 @@
+{
+  String[] words=new String[terms.size()];
+  for (int i=0; i < terms.size(); i++) {
+    Term term=terms.get(i);
+    if (term.getText() != null)     words[i]=term.getText().replaceAll("\\s+","_");
+ else     words[i]="-";
+  }
+  for (int i=0; i < words.length; i++) {
+    instance.addBinary(new Feature("UNIGRAM" + "." + words[i]));
+  }
+  for (int i=0; i < words.length - 1; i++) {
+    instance.addBinary(new Feature("BIGRAM" + "." + words[i] + "-"+ words[i + 1]));
+  }
+  String question="";
+  for (  Term term : terms)   question+=term.getText() + " ";
+  question=question.trim();
+  String whWord=null;
+  for (  String ptrn : whPtrns) {
+    Matcher m=Pattern.compile("^" + ptrn + REST_PTRN).matcher(question);
+    if (m.matches()) {
+      whWord=m.group(1).toLowerCase().replaceAll("\\s+","_");
+      instance.addBinary(new Feature("WH_WORD" + "." + whWord));
+      break;
+    }
+  }
+  if (whWord == null) {
+    for (    String ptrn : whPtrns) {
+      Matcher m=Pattern.compile(ptrn + REST_PTRN).matcher(question);
+      if (m.find()) {
+        whWord=m.group(1).toLowerCase().replaceAll("\\s+","_");
+        instance.addBinary(new Feature("WH_WORD" + "." + whWord));
+        break;
+      }
+    }
+  }
+  if (focus == null)   return;
+  for (  String word : OF_HEAD_WORDS) {
+    Matcher m=Pattern.compile(word + "s? of " + focus.getText()).matcher(question);
+    if (m.find()) {
+      instance.addBinary(new Feature("OF_HEAD" + "." + word));
+      break;
+    }
+  }
+}

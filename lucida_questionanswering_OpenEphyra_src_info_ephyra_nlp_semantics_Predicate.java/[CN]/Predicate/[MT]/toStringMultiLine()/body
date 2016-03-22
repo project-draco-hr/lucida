@@ -1,0 +1,17 @@
+{
+  String s="TARGET: " + verb;
+  for (int i=0; i < args.length; i++)   if (args[i] != null)   s+="\nARG" + i + ": "+ args[i];
+  if (argLOC != null)   s+="\nARGM-LOC: " + argLOC;
+  if (argCAU != null)   s+="\nARGM-CAU: " + argCAU;
+  if (argEXT != null)   s+="\nARGM-EXT: " + argEXT;
+  if (argTMP != null)   s+="\nARGM-TMP: " + argTMP;
+  if (argDIS != null)   s+="\nARGM-DIS: " + argDIS;
+  if (argPNC != null)   s+="\nARGM-PNC: " + argPNC;
+  if (argADV != null)   s+="\nARGM-ADV: " + argADV;
+  if (argMNR != null)   s+="\nARGM-MNR: " + argMNR;
+  if (argNEG != null)   s+="\nARGM-NEG: " + argNEG;
+  if (argDIR != null)   s+="\nARGM-DIR: " + argDIR;
+  if (argMOD != null)   s+="\nARGM-MOD: " + argMOD;
+  for (  String missingArg : missingArgs)   s+="\n" + missingArg + ": "+ MISSING_ARG;
+  return s;
+}

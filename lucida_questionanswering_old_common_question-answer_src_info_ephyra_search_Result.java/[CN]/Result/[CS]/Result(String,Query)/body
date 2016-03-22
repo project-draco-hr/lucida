@@ -1,0 +1,4 @@
+{
+  this(answer);
+  this.query=query;
+}

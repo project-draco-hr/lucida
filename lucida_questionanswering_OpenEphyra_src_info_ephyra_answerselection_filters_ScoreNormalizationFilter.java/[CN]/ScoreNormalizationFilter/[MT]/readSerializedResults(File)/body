@@ -1,0 +1,23 @@
+{
+  ArrayList<Result> results=new ArrayList<Result>();
+  try {
+    FileInputStream fis=new FileInputStream(input);
+    ObjectInputStream ois=new ObjectInputStream(fis);
+    if (!(ois.readObject() instanceof AnalyzedQuestion)) {
+      MsgPrinter.printErrorMsg("First serialized object is not an" + "AnalyzedQuestion.");
+      System.exit(1);
+    }
+    try {
+      while (true)       results.add((Result)ois.readObject());
+    }
+ catch (    EOFException e) {
+    }
+    ois.close();
+  }
+ catch (  Exception e) {
+    MsgPrinter.printErrorMsg("Could not read serialized results:");
+    MsgPrinter.printErrorMsg(e.toString());
+    System.exit(1);
+  }
+  return results.toArray(new Result[results.size()]);
+}

@@ -1,0 +1,5 @@
+{
+  System.out.println("NuggetEvaluationFilter (" + this.fileName + "): local target ID set to "+ tid);
+  targetId=tid;
+  nuggets=(tid == null) ? new ArrayList<TRECNugget>() : ((ArrayList<TRECNugget>)nuggetsByTargetID.get(tid).clone());
+}

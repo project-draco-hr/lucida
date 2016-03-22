@@ -1,0 +1,3 @@
+String LUCID
+QuerySpec knowledge
+org.apache.thrift.async.AsyncMethodCallback resultHandler

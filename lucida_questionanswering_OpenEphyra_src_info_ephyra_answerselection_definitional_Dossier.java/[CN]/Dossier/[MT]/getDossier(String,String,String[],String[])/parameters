@@ -1,0 +1,4 @@
+String target
+String targetType
+String[] givenProperties
+String[] givenValues

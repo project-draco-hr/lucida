@@ -1,0 +1,3 @@
+{
+  this.cutoffLength=((cutoffLength < MAX_NON_WHITESPACE) ? cutoffLength : MAX_NON_WHITESPACE);
+}

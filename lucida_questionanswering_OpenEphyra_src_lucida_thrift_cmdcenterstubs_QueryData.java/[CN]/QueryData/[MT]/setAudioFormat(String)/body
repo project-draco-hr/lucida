@@ -1,0 +1,4 @@
+{
+  this.audioFormat=audioFormat;
+  return this;
+}

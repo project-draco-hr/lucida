@@ -1,0 +1,5 @@
+{
+  ArrayList<String> list=new ArrayList<String>();
+  for (int n=0; n < this.propertyNames.length; n++)   if (!this.properties.containsKey(this.propertyNames[n]))   list.add(this.propertyNames[n]);
+  return list.toArray(new String[list.size()]);
+}

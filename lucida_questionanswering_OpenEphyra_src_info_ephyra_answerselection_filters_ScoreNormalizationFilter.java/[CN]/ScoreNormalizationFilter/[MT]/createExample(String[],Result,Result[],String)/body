@@ -1,0 +1,6 @@
+{
+  Instance instance=createInstance(features,result,results,qid);
+  String label=result.isCorrect() ? ExampleSchema.POS_CLASS_NAME : ExampleSchema.NEG_CLASS_NAME;
+  Example example=new Example(instance,new ClassLabel(label));
+  return example;
+}

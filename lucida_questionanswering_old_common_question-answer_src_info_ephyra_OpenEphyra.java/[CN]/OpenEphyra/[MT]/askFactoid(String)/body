@@ -1,0 +1,4 @@
+{
+  Result[] results=askFactoid(question,1,0);
+  return (results.length > 0) ? results[0] : null;
+}

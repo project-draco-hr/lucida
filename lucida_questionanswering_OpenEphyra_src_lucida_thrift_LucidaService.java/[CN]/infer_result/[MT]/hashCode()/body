@@ -1,0 +1,10 @@
+{
+  List<Object> list=new ArrayList<Object>();
+  boolean present_success=true && (isSetSuccess());
+  list.add(present_success);
+  if (present_success)   list.add(success);
+  boolean present_e=true && (isSetE());
+  list.add(present_e);
+  if (present_e)   list.add(e);
+  return list.hashCode();
+}

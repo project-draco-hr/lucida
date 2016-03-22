@@ -1,0 +1,4 @@
+{
+  send_registerService(serviceType,mDataObj);
+  recv_registerService();
+}

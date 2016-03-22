@@ -1,0 +1,14 @@
+{
+  if (neTypes != null)   for (  String existing : neTypes)   if (neType.equals(existing))   return false;
+  String[] newNeTypes;
+  if (neTypes == null) {
+    newNeTypes=new String[1];
+  }
+ else {
+    newNeTypes=new String[neTypes.length + 1];
+    for (int i=0; i < neTypes.length; i++)     newNeTypes[i]=neTypes[i];
+  }
+  newNeTypes[newNeTypes.length - 1]=neType;
+  neTypes=newNeTypes;
+  return true;
+}

@@ -1,0 +1,10 @@
+{
+  if (statusMsgs) {
+    question="Question: " + question;
+    String line="";
+    for (int i=0; i < question.length(); i++)     line+="-";
+    printMessage("\n" + line);
+    printMessage(question);
+    printMessage(line);
+  }
+}

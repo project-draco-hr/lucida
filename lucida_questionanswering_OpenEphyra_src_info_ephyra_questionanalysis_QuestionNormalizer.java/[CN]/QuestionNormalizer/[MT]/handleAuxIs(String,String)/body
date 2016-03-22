@@ -1,0 +1,14 @@
+{
+  Pattern p=Pattern.compile("(?i)(.* )?(is|are|was|were)/.*? " + "(\\S*)/vb(g|n).*");
+  Matcher m=p.matcher(tagged);
+  String[] results;
+  if (m.matches()) {
+    String aux=m.group(2);
+    String verb=m.group(3);
+    results=new String[1];
+    results[0]=question.replaceFirst(verb,aux + " " + verb);
+    results[0]=results[0].replaceFirst(aux + " ","");
+    return results;
+  }
+  return null;
+}

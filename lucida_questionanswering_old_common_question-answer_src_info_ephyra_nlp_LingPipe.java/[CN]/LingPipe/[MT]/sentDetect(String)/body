@@ -1,0 +1,24 @@
+{
+  if (sentenceModel == null)   return null;
+  ArrayList<String> tokenList=new ArrayList<String>();
+  ArrayList<String> whiteList=new ArrayList<String>();
+  Tokenizer tokenizer=tokenizerFactory.tokenizer(text.toCharArray(),0,text.length());
+  tokenizer.tokenize(tokenList,whiteList);
+  String[] tokens=tokenList.toArray(new String[tokenList.size()]);
+  String[] whites=whiteList.toArray(new String[whiteList.size()]);
+  int[] sentenceBoundaries=sentenceModel.boundaryIndices(tokens,whites);
+  int sentStartTok=0;
+  int sentEndTok=0;
+  String[] sentences=new String[sentenceBoundaries.length];
+  for (int i=0; i < sentenceBoundaries.length; i++) {
+    sentEndTok=sentenceBoundaries[i];
+    StringBuilder sb=new StringBuilder();
+    for (int j=sentStartTok; j <= sentEndTok; j++) {
+      sb.append(tokens[j]);
+      if (whites[j + 1].length() > 0 && j < sentEndTok)       sb.append(" ");
+    }
+    sentences[i]=sb.toString();
+    sentStartTok=sentEndTok + 1;
+  }
+  return sentences;
+}

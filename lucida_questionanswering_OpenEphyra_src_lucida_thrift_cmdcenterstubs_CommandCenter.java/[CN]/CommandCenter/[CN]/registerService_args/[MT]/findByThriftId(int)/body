@@ -1,0 +1,10 @@
+{
+switch (fieldId) {
+case 1:
+    return SERVICE_TYPE;
+case 2:
+  return M_DATA_OBJ;
+default :
+return null;
+}
+}

@@ -1,0 +1,8 @@
+{
+  handleRequest_result result=new handleRequest_result();
+  receiveBase(result,"handleRequest");
+  if (result.isSetSuccess()) {
+    return result.success;
+  }
+  throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT,"handleRequest failed: unknown result");
+}

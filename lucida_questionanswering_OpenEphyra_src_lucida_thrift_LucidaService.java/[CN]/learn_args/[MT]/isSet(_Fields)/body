@@ -1,0 +1,12 @@
+{
+  if (field == null) {
+    throw new IllegalArgumentException();
+  }
+switch (field) {
+case LUCID:
+    return isSetLUCID();
+case KNOWLEDGE:
+  return isSetKnowledge();
+}
+throw new IllegalStateException();
+}

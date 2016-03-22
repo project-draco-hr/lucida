@@ -1,0 +1,13 @@
+{
+  if (tlp == null || parser == null)   throw new RuntimeException("Parser has not been initialized");
+  log.debug("Parsing sentence");
+  double score;
+synchronized (parser) {
+    Tokenizer tokenizer=tlp.getTokenizerFactory().getTokenizer(new StringReader(sentence));
+    List<Word> words=tokenizer.tokenize();
+    log.debug("Tokenization: " + words);
+    parser.parse(new Sentence(words));
+    score=parser.getPCFGScore();
+  }
+  return score;
+}

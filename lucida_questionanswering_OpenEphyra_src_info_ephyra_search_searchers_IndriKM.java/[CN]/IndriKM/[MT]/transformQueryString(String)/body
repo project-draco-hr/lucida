@@ -1,0 +1,17 @@
+{
+  qs=qs.replaceAll("&\\w++;"," ");
+  qs=qs.replaceAll(FORBIDDEN_CHAR," ");
+  String dotsRemoved="";
+  for (int i=0; i < qs.length(); i++)   if (qs.charAt(i) != '.' || (i > 0 && i < qs.length() - 1 && Character.isDigit(qs.charAt(i - 1)) && Character.isDigit(qs.charAt(i + 1))))   dotsRemoved+=qs.charAt(i);
+  qs=dotsRemoved;
+  Matcher m=Pattern.compile("((\\([^\\(\\)]*+\\)|\\\"[^\\\"]*+\\\"|[^\\s\\(\\)]++) OR )++" + "(\\([^\\(\\)]*+\\)|\\\"[^\\\"]*+\\\"|[^\\s\\(\\)]++)").matcher(qs);
+  while (m.find())   qs=qs.replace(m.group(0),"#or(" + m.group(0) + ")");
+  qs=qs.replace(" OR","");
+  m=Pattern.compile("((\\([^\\(\\)]*+\\)|\\\"[^\\\"]*+\\\"|[^\\s\\(\\)]++) AND )++" + "(\\([^\\(\\)]*+\\)|\\\"[^\\\"]*+\\\"|[^\\s\\(\\)]++)").matcher(qs);
+  while (m.find())   qs=qs.replace(m.group(0),"#combine(" + m.group(0) + ")");
+  qs=qs.replace(" AND","");
+  m=Pattern.compile("\"([^\"]*+)\"").matcher(qs);
+  while (m.find())   qs=qs.replace(m.group(0),"#1(" + m.group(1) + ")");
+  qs="#combine(" + qs + ")";
+  return qs;
+}

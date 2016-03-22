@@ -1,0 +1,8 @@
+{
+  if (!isInitialized())   throw new Exception("getAnswerTypes called while not initialized");
+  String question="";
+  for (  Term term : terms)   question+=term.getText() + " ";
+  Instance instance=new MutableInstance(question);
+  if (extractor != null)   instance=extractor.createInstance(terms,parseTreeStr);
+  return classify(instance);
+}

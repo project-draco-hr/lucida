@@ -1,0 +1,8 @@
+{
+  this.query=query;
+  this.firstResult=firstResult;
+  this.maxResults=Math.min(getMaxResultsPerQuery(),getMaxResultsTotal() - firstResult + 1);
+  Search.waitForPending();
+  start();
+  Search.incPending();
+}

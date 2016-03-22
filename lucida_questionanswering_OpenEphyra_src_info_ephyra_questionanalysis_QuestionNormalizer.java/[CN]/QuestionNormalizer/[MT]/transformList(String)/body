@@ -1,0 +1,12 @@
+{
+  question=normalize(question);
+  String listPattern=("(?i)^") + "(name|(what|which|who)( (is|are|was|were))?|list|give|provide|identify) " + "((a list of )?((the )?names of )?(all|every|a few|more|(the )?other|(the )?several|some( of)?|(the )?various) )?";
+  Matcher m=Pattern.compile(listPattern).matcher(question);
+  if (m.find()) {
+    String match=m.group(0);
+    String rep=m.group(1);
+    if (rep.matches("(?i)(list|give|provide|identify)"))     rep="name";
+    question=question.replaceFirst(match,rep + " ");
+  }
+  return question;
+}

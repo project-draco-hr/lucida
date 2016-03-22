@@ -1,0 +1,44 @@
+{
+  Hashtable<String,Result> factoids=new Hashtable<String,Result>();
+  for (  Result result : results) {
+    Query query=result.getQuery();
+    String[] answerTypes=query.getAnalyzedQuestion().getAnswerTypes();
+    if (!query.extractWith(ID) || answerTypes.length == 0 || result.getScore() > Float.NEGATIVE_INFINITY)     continue;
+    String answer=result.getAnswer();
+    String[] sentences=OpenNLP.sentDetect(answer);
+    String[][] tokens=new String[sentences.length][];
+    for (int i=0; i < sentences.length; i++)     tokens[i]=NETagger.tokenize(sentences[i]);
+    for (    String answerType : answerTypes) {
+      String[] neTypes=answerType.split("->");
+      int neIds[]=new int[0];
+      for (      String neType : neTypes) {
+        int[] thisIds=NETagger.getNeIds(neType);
+        if (thisIds.length > 0)         neIds=thisIds;
+      }
+      for (      int neId : neIds) {
+        String neType=NETagger.getNeType(neId);
+        String[][] nes=NETagger.extractNes(tokens,neId);
+        for (int i=0; i < sentences.length; i++) {
+          for (int j=0; j < nes[i].length; j++)           nes[i][j]=OpenNLP.untokenize(nes[i][j],sentences[i]);
+          for (          String ne : nes[i]) {
+            String norm=StringUtils.normalize(ne);
+            Result factoid=factoids.get(norm);
+            if (factoid == null) {
+              factoid=new Result(ne,result.getQuery(),result.getDocID());
+              factoid.setSentence(sentences[i]);
+              factoid.addExtractionTechnique(ID);
+              factoids.put(norm,factoid);
+            }
+            factoid.addNeType(neType);
+            factoid.incScore(1);
+          }
+        }
+      }
+    }
+  }
+  Result[] newResults=factoids.values().toArray(new Result[factoids.size()]);
+  Result[] allResults=new Result[results.length + newResults.length];
+  for (int i=0; i < results.length; i++)   allResults[i]=results[i];
+  for (int i=0; i < newResults.length; i++)   allResults[results.length + i]=newResults[i];
+  return allResults;
+}

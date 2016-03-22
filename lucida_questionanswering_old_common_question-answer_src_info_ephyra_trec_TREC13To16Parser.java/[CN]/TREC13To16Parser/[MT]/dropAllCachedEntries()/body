@@ -1,0 +1,5 @@
+{
+  dropCachedFactoidEntries();
+  dropCachedListEntries();
+  dropCachedOtherEntries();
+}

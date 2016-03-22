@@ -1,0 +1,11 @@
+{
+  try {
+    Tree t=findFocusNode(tree);
+    if (t != null)     return TreeHelper.getLeaves(t);
+    return null;
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    return null;
+  }
+}

@@ -1,0 +1,22 @@
+{
+  if (field == null) {
+    throw new IllegalArgumentException();
+  }
+switch (field) {
+case AUDIO_DATA:
+    return isSetAudioData();
+case AUDIO_FORMAT:
+  return isSetAudioFormat();
+case AUDIO_B64_ENCODING:
+return isSetAudioB64Encoding();
+case IMG_DATA:
+return isSetImgData();
+case IMG_FORMAT:
+return isSetImgFormat();
+case IMG_B64_ENCODING:
+return isSetImgB64Encoding();
+case TEXT_DATA:
+return isSetTextData();
+}
+throw new IllegalStateException();
+}

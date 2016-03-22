@@ -1,0 +1,80 @@
+{
+  Hashtable<String,Result> factoids=new Hashtable<String,Result>();
+  Hashtable<String,Result> sentences=new Hashtable<String,Result>();
+  ArrayList<String> normSentences=new ArrayList<String>();
+  Filter sorter=new HitPositionSorterFilter();
+  resultsCorp=sorter.apply(resultsCorp);
+  for (  Result resultCorp : resultsCorp) {
+    if (resultCorp.getScore() > 0) {
+      String norm=StringUtils.normalize(resultCorp.getAnswer());
+      Result factoid=factoids.get(norm);
+      if (factoid != null) {
+        if (hasHigherPreference(resultCorp,factoid)) {
+          factoids.put(norm,resultCorp);
+          String[] neTypes=factoid.getNeTypes();
+          if (neTypes != null)           for (          String neType : neTypes)           resultCorp.addNeType(neType);
+        }
+ else {
+          String[] neTypes=resultCorp.getNeTypes();
+          if (neTypes != null)           for (          String neType : neTypes)           factoid.addNeType(neType);
+        }
+      }
+ else {
+        factoids.put(norm,resultCorp);
+      }
+    }
+ else {
+      String[] sents=OpenNLP.sentDetect(resultCorp.getAnswer());
+      for (      String sent : sents) {
+        String norm=StringUtils.normalize(sent);
+        if (!sentences.containsKey(norm)) {
+          Result sentence=resultCorp.getCopy();
+          sentence.setAnswer(sent);
+          sentences.put(norm,sentence);
+          normSentences.add(norm);
+        }
+      }
+    }
+  }
+  ArrayList<Result> projected=new ArrayList<Result>();
+  for (  Result resultWeb : results) {
+    if (resultWeb.getScore() <= 0)     continue;
+    String norm=StringUtils.normalize(resultWeb.getAnswer());
+    Result factoid=factoids.get(norm);
+    if (factoid != null && (!NETagger.allModelType(resultWeb.getNeTypes()) || factoid.isNamedEntity())) {
+      Result result=resultWeb.getCopy();
+      result.setAnswer(factoid.getAnswer());
+      result.setDocID(factoid.getDocID());
+      result.setSentence(factoid.getSentence());
+      projected.add(result);
+    }
+ else     if (!NETagger.allModelType(resultWeb.getNeTypes())) {
+      String normRegex=RegexConverter.strToRegexWithBounds(norm);
+      for (      String normSentence : normSentences) {
+        String[] truncs=normSentence.split(normRegex,-1);
+        if (truncs.length > 1) {
+          Result sentence=sentences.get(normSentence);
+          String sent=sentence.getAnswer();
+          int start=truncs[0].split(" ",-1).length - 1;
+          int end=start + norm.split(" ").length;
+          String[] tokens=NETagger.tokenize(sent);
+          String answer=tokens[start];
+          for (int i=start + 1; i < end; i++)           answer+=" " + tokens[i];
+          answer=OpenNLP.untokenize(answer,sent);
+          if (norm.equals(StringUtils.normalize(answer))) {
+            Result result=resultWeb.getCopy();
+            result.setAnswer(answer);
+            result.setDocID(sentence.getDocID());
+            result.setSentence(sentence.getAnswer());
+            projected.add(result);
+            break;
+          }
+ else {
+            MsgPrinter.printErrorMsg("\nNormalization could " + "not be undone:\n" + norm);
+          }
+        }
+      }
+    }
+  }
+  return projected.toArray(new Result[projected.size()]);
+}

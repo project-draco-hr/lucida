@@ -1,0 +1,7 @@
+{
+  if (expr.length() == 0)   return expr;
+  expr=strToRegex(expr);
+  if (expr.substring(0,1).matches("\\w"))   expr="\\b" + expr;
+  if (expr.substring(expr.length() - 1,expr.length()).matches("\\w"))   expr+="\\b";
+  return expr;
+}

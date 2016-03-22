@@ -1,0 +1,12 @@
+{
+  if (this.extensionList.isEmpty())   for (int i=0; i < extensions.length; i++)   this.extensionList.add(extensions[i]);
+  String[] targetTokens=target.split("\\s");
+  String last=targetTokens[targetTokens.length - 1];
+  if (this.extensionList.contains(last) && (targetTokens.length > 1)) {
+    String cutTarget=targetTokens[0];
+    for (int i=1; i < (targetTokens.length - 1); i++)     cutTarget+=" " + targetTokens[i];
+    targets.add(cutTarget);
+    return true;
+  }
+  return false;
+}

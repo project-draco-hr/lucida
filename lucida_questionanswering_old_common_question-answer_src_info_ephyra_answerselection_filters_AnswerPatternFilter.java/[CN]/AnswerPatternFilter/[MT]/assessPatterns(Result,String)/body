@@ -1,0 +1,12 @@
+{
+  String prop=result.getQuery().getInterpretation().getProperty();
+  int n=(nOfPassages.get(prop) == null) ? 1 : nOfPassages.get(prop) + 1;
+  nOfPassages.put(prop,n);
+  extractPos(result);
+  for (int i=0; i < extr.size(); i++) {
+    String po=extr.get(i);
+    AnswerPattern ap=aps.get(i);
+    if (po.matches("(?i)" + regex))     ap.incCorrect();
+ else     ap.incWrong();
+  }
+}

@@ -1,0 +1,10 @@
+{
+  int diffSum=0;
+  for (Iterator<String> keys=counters.keySet().iterator(); keys.hasNext(); ) {
+    String key=keys.next();
+    int count=counters.get(key).getValue();
+    int comp=(compare.containsKey(key) ? compare.get(key).getValue() : 0);
+    diffSum+=Math.max((count - comp),0);
+  }
+  return diffSum;
+}

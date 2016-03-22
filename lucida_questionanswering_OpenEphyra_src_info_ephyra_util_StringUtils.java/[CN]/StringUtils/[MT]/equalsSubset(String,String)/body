@@ -1,0 +1,3 @@
+{
+  return isSubset(s1,s2) || isSubset(s2,s1);
+}

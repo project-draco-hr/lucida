@@ -1,0 +1,16 @@
+{
+  struct.validate();
+  oprot.writeStructBegin(STRUCT_DESC);
+  if (struct.serviceType != null) {
+    oprot.writeFieldBegin(SERVICE_TYPE_FIELD_DESC);
+    oprot.writeString(struct.serviceType);
+    oprot.writeFieldEnd();
+  }
+  if (struct.mDataObj != null) {
+    oprot.writeFieldBegin(M_DATA_OBJ_FIELD_DESC);
+    struct.mDataObj.write(oprot);
+    oprot.writeFieldEnd();
+  }
+  oprot.writeFieldStop();
+  oprot.writeStructEnd();
+}

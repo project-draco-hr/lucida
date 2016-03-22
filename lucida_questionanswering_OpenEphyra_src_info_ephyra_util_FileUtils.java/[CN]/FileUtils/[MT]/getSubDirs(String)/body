@@ -1,0 +1,6 @@
+{
+  ArrayList<String> subDirs=new ArrayList<String>();
+  File[] filesOrDirs=new File(dir).listFiles();
+  for (  File fileOrDir : filesOrDirs)   if (fileOrDir.isDirectory())   subDirs.add(fileOrDir.getName());
+  return subDirs.toArray(new String[subDirs.size()]);
+}

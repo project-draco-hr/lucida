@@ -1,0 +1,30 @@
+{
+  String question=query_input.trim();
+  if (question.equalsIgnoreCase("exit"))   System.exit(0);
+  String type;
+  if (question.matches("(?i)" + FACTOID + ":.*+")) {
+    type=FACTOID;
+    question=question.split(":",2)[1].trim();
+  }
+ else   if (question.matches("(?i)" + LIST + ":.*+")) {
+    type=LIST;
+    question=question.split(":",2)[1].trim();
+  }
+ else {
+    type=FACTOID;
+  }
+  Result[] results=new Result[0];
+  if (type.equals(FACTOID)) {
+    Logger.logFactoidStart(question);
+    results=askFactoid(question,FACTOID_MAX_ANSWERS,FACTOID_ABS_THRESH);
+    Logger.logResults(results);
+    Logger.logFactoidEnd();
+  }
+ else   if (type.equals(LIST)) {
+    Logger.logListStart(question);
+    results=askList(question,LIST_REL_THRESH);
+    Logger.logResults(results);
+    Logger.logListEnd();
+  }
+  MsgPrinter.printAnswers(results);
+}

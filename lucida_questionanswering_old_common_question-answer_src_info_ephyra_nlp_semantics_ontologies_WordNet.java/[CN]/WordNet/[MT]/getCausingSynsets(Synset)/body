@@ -1,0 +1,10 @@
+{
+  PointerTargetNodeList causing=null;
+  try {
+    causing=PointerUtils.getInstance().getCauses(synset);
+  }
+ catch (  JWNLException e) {
+  }
+  if (causing == null)   return null;
+  return getSynsets(causing);
+}

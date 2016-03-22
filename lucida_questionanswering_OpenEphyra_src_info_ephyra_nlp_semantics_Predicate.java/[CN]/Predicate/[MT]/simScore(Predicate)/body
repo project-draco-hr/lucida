@@ -1,0 +1,23 @@
+{
+  Term pVerbTerm=p.getVerbTerm();
+  if (verbTerm == null || pVerbTerm == null)   return 0;
+  String verbTermLemma=verbTerm.getLemma();
+  double verbScore=pVerbTerm.simScore(verbTermLemma);
+  if (verbScore == 0)   return 0;
+  Term[] pArgTerms=p.getArgTerms();
+  if (argTerms.length == 0 || pArgTerms.length == 0)   return 0;
+  double intersect=0;
+  int union=pArgTerms.length;
+  for (  Term argTerm : argTerms) {
+    String argTermLemma=argTerm.getLemma();
+    double argTermScore=0;
+    for (    Term pArgTerm : pArgTerms)     argTermScore=Math.max(argTermScore,pArgTerm.simScore(argTermLemma));
+    if (argTermScore > 0)     intersect+=argTermScore;
+ else     union++;
+  }
+  double argScore=intersect / union;
+  if (argScore == 0)   return 0;
+  simScore=verbScore * argScore;
+  simPredicate=p;
+  return simScore;
+}

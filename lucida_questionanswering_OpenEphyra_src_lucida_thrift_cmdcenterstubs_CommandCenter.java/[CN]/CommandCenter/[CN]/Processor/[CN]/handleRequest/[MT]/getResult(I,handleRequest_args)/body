@@ -1,0 +1,5 @@
+{
+  handleRequest_result result=new handleRequest_result();
+  result.success=iface.handleRequest(args.data);
+  return result;
+}

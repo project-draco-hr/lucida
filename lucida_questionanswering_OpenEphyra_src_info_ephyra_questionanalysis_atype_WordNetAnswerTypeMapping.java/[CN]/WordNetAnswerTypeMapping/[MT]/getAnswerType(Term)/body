@@ -1,0 +1,25 @@
+{
+  if (focusTerm == null) {
+    return null;
+  }
+  String focusText=focusTerm.getText();
+  List<AnswerType> focusTypes=new ArrayList<AnswerType>();
+  try {
+    IndexWord indexWord=Dictionary.getInstance().lookupIndexWord(POS.NOUN,focusText);
+    if (indexWord == null)     throw new Exception("Failed to get index word");
+    Synset[] senses=indexWord.getSenses();
+    if (senses == null)     throw new Exception("Failed to get synsets");
+    for (    Synset sense : senses) {
+      AnswerType type=findWnMapMatch(sense,0);
+      if (type != null) {
+        focusTypes.add(type);
+      }
+    }
+  }
+ catch (  Exception e) {
+    log.warn("Failed to get hypernyms for noun '" + focusText + "'");
+  }
+  if (focusTypes.size() == 0)   return focusText.toLowerCase().replaceAll(" ","_");
+  Collections.sort(focusTypes,atypeComparator);
+  return focusTypes.get(0).getType();
+}

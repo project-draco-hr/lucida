@@ -1,0 +1,10 @@
+{
+  Pattern p=Pattern.compile("<(TO|CO|NE).*?>");
+  Matcher m=p.matcher(po);
+  while (m.find()) {
+    String tag=m.group(0);
+    String rep=reverseMap.get(tag);
+    if (rep != null)     po=po.replace(tag,rep);
+  }
+  return po;
+}

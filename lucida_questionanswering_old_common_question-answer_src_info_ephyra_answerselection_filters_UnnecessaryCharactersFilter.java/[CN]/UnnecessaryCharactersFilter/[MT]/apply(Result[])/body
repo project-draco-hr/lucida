@@ -1,0 +1,10 @@
+{
+  for (  Result r : results) {
+    if (r.getScore() != Float.NEGATIVE_INFINITY) {
+      String sentence=r.getAnswer();
+      sentence=sentence.replaceAll("(\\'|\\\"|\\`|\\_)","");
+      r.setAnswer(sentence);
+    }
+  }
+  return results;
+}

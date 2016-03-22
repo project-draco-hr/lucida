@@ -1,0 +1,10 @@
+{
+  List<AnswerType> res=new ArrayList<AnswerType>();
+  for (  Rule rule : rules) {
+    AnswerType result=rule.matches(instance);
+    if (result != null) {
+      res.add(result);
+    }
+  }
+  return res;
+}

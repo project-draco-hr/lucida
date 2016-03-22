@@ -1,0 +1,7 @@
+{
+  if (result.isNamedEntity() && !NETagger.allModelType(result.getNeTypes()))   return result;
+  String answer=result.getAnswer();
+  answer=truncate(answer);
+  result.setAnswer(answer);
+  return result;
+}

@@ -1,0 +1,7 @@
+{
+  TRECPattern[] aligned=loadPatternsAligned(filename);
+  if (aligned == null)   return null;
+  ArrayList<TRECPattern> patterns=new ArrayList<TRECPattern>();
+  for (  TRECPattern pattern : aligned)   if (pattern != null)   patterns.add(pattern);
+  return patterns.toArray(new TRECPattern[patterns.size()]);
+}

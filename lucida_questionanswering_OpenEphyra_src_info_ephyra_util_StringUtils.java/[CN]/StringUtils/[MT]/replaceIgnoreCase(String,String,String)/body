@@ -1,0 +1,3 @@
+{
+  return s.replaceAll("(?i)" + RegexConverter.strToRegex(s1),RegexConverter.strToRegex(s2));
+}

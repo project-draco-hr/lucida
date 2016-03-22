@@ -1,0 +1,9 @@
+{
+  try {
+    tokenizer=new Tokenizer(model);
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

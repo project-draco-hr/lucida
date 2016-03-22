@@ -1,0 +1,11 @@
+{
+  infer_result result=new infer_result();
+  receiveBase(result,"infer");
+  if (result.isSetSuccess()) {
+    return result.success;
+  }
+  if (result.e != null) {
+    throw result.e;
+  }
+  throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT,"infer failed: unknown result");
+}

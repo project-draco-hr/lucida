@@ -1,0 +1,21 @@
+{
+  try {
+    File file=new File(dir + "/" + qi.getProperty());
+    String tuple=qi.getTarget();
+    for (    String context : qi.getContext())     tuple+="#" + context;
+    tuple+="#" + as;
+    tuple+="#" + regex;
+    if (file.exists()) {
+      BufferedReader in=new BufferedReader(new FileReader(file));
+      while (in.ready())       if (tuple.equalsIgnoreCase(in.readLine()))       return true;
+      in.close();
+    }
+    PrintWriter out=new PrintWriter(new FileOutputStream(file,true));
+    out.println(tuple);
+    out.close();
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

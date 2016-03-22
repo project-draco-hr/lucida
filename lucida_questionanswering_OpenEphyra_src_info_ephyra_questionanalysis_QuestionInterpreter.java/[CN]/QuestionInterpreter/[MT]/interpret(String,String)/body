@@ -1,0 +1,12 @@
+{
+  ArrayList<QuestionInterpretation> qis=new ArrayList<QuestionInterpretation>();
+  for (  QuestionPattern questionPattern : questionPatterns) {
+    QuestionInterpretation qi=questionPattern.apply(qn,stemmed);
+    if (qi != null)     qis.add(qi);
+  }
+  QuestionInterpretation[] sorted=qis.toArray(new QuestionInterpretation[qis.size()]);
+  Arrays.sort(sorted);
+  ArrayList<QuestionInterpretation> minLength=new ArrayList<QuestionInterpretation>();
+  for (  QuestionInterpretation qi : sorted)   if (qi.getLength() == sorted[0].getLength())   minLength.add(qi);
+  return minLength.toArray(new QuestionInterpretation[minLength.size()]);
+}

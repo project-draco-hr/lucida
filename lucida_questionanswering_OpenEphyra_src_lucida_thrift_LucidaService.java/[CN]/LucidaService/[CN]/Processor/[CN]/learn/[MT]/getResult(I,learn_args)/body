@@ -1,0 +1,10 @@
+{
+  learn_result result=new learn_result();
+  try {
+    iface.learn(args.LUCID,args.knowledge);
+  }
+ catch (  RuntimeException e) {
+    result.e=e;
+  }
+  return result;
+}

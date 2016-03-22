@@ -1,0 +1,11 @@
+{
+  try {
+    File file=new File(properties);
+    JWNL.initialize(new FileInputStream(file));
+    dict=net.didion.jwnl.dictionary.Dictionary.getInstance();
+  }
+ catch (  Exception e) {
+    return false;
+  }
+  return true;
+}

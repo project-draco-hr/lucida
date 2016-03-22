@@ -1,0 +1,3 @@
+{
+  return this.imgB64Encoding;
+}

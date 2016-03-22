@@ -1,0 +1,4 @@
+{
+  if (this.extraScores.containsKey(sourceName))   return this.extraScores.get(sourceName).floatValue();
+ else   return 0f;
+}

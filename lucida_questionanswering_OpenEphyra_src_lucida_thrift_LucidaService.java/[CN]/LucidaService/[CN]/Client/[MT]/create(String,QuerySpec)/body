@@ -1,0 +1,4 @@
+{
+  send_create(LUCID,spec);
+  recv_create();
+}

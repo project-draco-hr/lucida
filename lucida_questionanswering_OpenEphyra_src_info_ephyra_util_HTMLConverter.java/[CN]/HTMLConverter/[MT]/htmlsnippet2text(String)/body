@@ -1,0 +1,6 @@
+{
+  snippet=snippet.replaceAll("<[^>]*+>","");
+  snippet=replaceSpecialCharacters(snippet);
+  snippet=snippet.replaceAll("\\s++"," ").trim();
+  return snippet;
+}

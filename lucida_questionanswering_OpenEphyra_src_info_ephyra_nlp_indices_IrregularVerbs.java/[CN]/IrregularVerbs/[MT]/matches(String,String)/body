@@ -1,0 +1,5 @@
+{
+  String[] list=words.split("/");
+  for (  String elem : list)   if (elem.toLowerCase().equals(word.toLowerCase()))   return true;
+  return false;
+}

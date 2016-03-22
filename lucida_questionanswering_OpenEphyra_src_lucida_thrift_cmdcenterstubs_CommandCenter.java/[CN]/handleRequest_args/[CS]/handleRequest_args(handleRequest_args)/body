@@ -1,0 +1,5 @@
+{
+  if (other.isSetData()) {
+    this.data=new QueryData(other.data);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return this.properties.containsKey(property);
+}

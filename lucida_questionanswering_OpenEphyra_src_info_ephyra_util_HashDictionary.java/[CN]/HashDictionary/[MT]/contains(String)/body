@@ -1,0 +1,5 @@
+{
+  word=NETagger.tokenizeWithSpaces(word.trim().toLowerCase());
+  word=SnowballStemmer.stemAllTokens(word);
+  return words.contains(word);
+}

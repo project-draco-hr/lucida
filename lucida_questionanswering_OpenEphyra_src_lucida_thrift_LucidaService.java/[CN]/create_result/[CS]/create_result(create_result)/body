@@ -1,0 +1,5 @@
+{
+  if (other.isSetE()) {
+    this.e=new RuntimeException(other.e);
+  }
+}

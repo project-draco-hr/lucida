@@ -1,0 +1,10 @@
+{
+  if (that == null)   return false;
+  boolean this_present_e=true && this.isSetE();
+  boolean that_present_e=true && that.isSetE();
+  if (this_present_e || that_present_e) {
+    if (!(this_present_e && that_present_e))     return false;
+    if (!this.e.equals(that.e))     return false;
+  }
+  return true;
+}

@@ -1,0 +1,48 @@
+{
+  HashMap<String,TermCounter> rawTermCounters=null;
+  try {
+    String url="http://en.wikipedia.org/wiki/" + target.replaceAll("\\s","_");
+    URLConnection connection=new URL(url).openConnection();
+    connection.setDoInput(true);
+    connection.setDoOutput(true);
+    connection.setUseCaches(false);
+    connection.setRequestProperty("User-Agent","Ephyra");
+    connection.connect();
+    BufferedReader reader=new BufferedReader(new InputStreamReader(connection.getInputStream()));
+    rawTermCounters=new HashMap<String,TermCounter>();
+    boolean inTag=false;
+    int c=0;
+    StringBuffer term=new StringBuffer();
+    while ((c=reader.read()) != -1) {
+      if (c == '<') {
+        inTag=true;
+        if (term.length() != 0) {
+          String stemmedTerm=SnowballStemmer.stem(term.toString().toLowerCase());
+          System.out.println(stemmedTerm);
+          if (!rawTermCounters.containsKey(stemmedTerm))           rawTermCounters.put(stemmedTerm,new TermCounter());
+          rawTermCounters.get(stemmedTerm).increment(1);
+          term=new StringBuffer();
+        }
+      }
+ else       if (c == '>') {
+        inTag=false;
+      }
+ else       if (!inTag) {
+        if (c < 33) {
+          if (term.length() != 0) {
+            String stemmedTerm=SnowballStemmer.stem(term.toString().toLowerCase());
+            System.out.println(stemmedTerm);
+            if (!rawTermCounters.containsKey(stemmedTerm))             rawTermCounters.put(stemmedTerm,new TermCounter());
+            rawTermCounters.get(stemmedTerm).increment(1);
+            term=new StringBuffer();
+          }
+        }
+ else         term.append((char)c);
+      }
+    }
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+  return rawTermCounters;
+}

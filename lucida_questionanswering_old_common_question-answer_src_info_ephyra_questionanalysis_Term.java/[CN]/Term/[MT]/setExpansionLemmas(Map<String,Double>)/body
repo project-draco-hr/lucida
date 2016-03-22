@@ -1,0 +1,9 @@
+{
+  Map<String,Double> normalized=new Hashtable<String,Double>();
+  for (  String lemma : expansionLemmas.keySet()) {
+    double weight=expansionLemmas.get(lemma);
+    String norm=StringUtils.normalize(lemma);
+    normalized.put(norm,weight);
+  }
+  this.expansionLemmas=normalized;
+}

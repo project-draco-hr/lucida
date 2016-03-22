@@ -1,0 +1,5 @@
+{
+  if (neTypes == null)   return false;
+  for (  String neType : neTypes)   if (isModelType(neType))   return true;
+  return false;
+}

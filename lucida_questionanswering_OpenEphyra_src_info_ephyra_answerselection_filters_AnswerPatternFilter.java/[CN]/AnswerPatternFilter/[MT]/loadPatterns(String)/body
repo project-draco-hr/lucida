@@ -1,0 +1,37 @@
+{
+  File[] files=FileUtils.getFiles(dir);
+  try {
+    BufferedReader in;
+    String prop, expr;
+    int passages, correct, wrong;
+    HashSet<AnswerPattern> patterns;
+    for (    File file : files) {
+      MsgPrinter.printStatusMsg("  ...for " + file.getName());
+      prop=file.getName();
+      in=new BufferedReader(new FileReader(file));
+      passages=Integer.parseInt(in.readLine().split(" ")[1]);
+      nOfPassages.put(prop,passages);
+      patterns=new HashSet<AnswerPattern>();
+      while (in.ready()) {
+        in.readLine();
+        expr=in.readLine();
+        correct=Integer.parseInt(in.readLine().split(" ")[1]);
+        wrong=Integer.parseInt(in.readLine().split(" ")[1]);
+        try {
+          patterns.add(new AnswerPattern(expr,prop,correct,wrong));
+        }
+ catch (        PatternSyntaxException pse) {
+          MsgPrinter.printErrorMsg("Problem loading pattern:\n" + prop + " "+ expr);
+          MsgPrinter.printErrorMsg(pse.getMessage());
+        }
+      }
+      props.put(prop,patterns);
+      in.close();
+    }
+    MsgPrinter.printStatusMsg("  ...done");
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

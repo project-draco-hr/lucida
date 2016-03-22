@@ -1,0 +1,42 @@
+{
+  Object[][] subsets=ArrayUtils.getNonemptySubsets(ALL_FEATURES);
+  String[][] featureSets=new String[subsets.length][];
+  for (int i=0; i < subsets.length; i++) {
+    featureSets[i]=new String[subsets[i].length];
+    for (int j=0; j < subsets[i].length; j++)     featureSets[i][j]=(String)subsets[i][j];
+  }
+  double maxF1=-1;
+  String[][] bestCombination=new String[2][];
+  for (  String[] features : featureSets)   for (  String model : ALL_MODELS) {
+    String[] dataSets=FileUtils.getVisibleSubDirs(serializedDir);
+    String filename=model + "_" + StringUtils.concat(features,"+")+ "_"+ StringUtils.concat(dataSets,"+");
+    File reportFile=new File(reportDir,filename);
+    if (reportFile.exists()) {
+      MsgPrinter.printErrorMsg("File " + reportFile + " already exists.");
+      continue;
+    }
+    String msg="Evaluating model " + model + " with feature(s) "+ StringUtils.concat(features,", ")+ " ("+ MsgPrinter.getTimestamp()+ ")...";
+    MsgPrinter.printStatusMsg(StringUtils.repeat("-",msg.length()));
+    MsgPrinter.printStatusMsg(msg);
+    MsgPrinter.printStatusMsg(StringUtils.repeat("-",msg.length()));
+    long runTime=System.currentTimeMillis();
+    Evaluation eval=evaluate(serializedDir,features,model);
+    runTime=System.currentTimeMillis() - runTime;
+    String report=createReport(dataSets,features,model,eval,runTime);
+    try {
+      FileUtils.writeString(report,reportFile,"UTF-8");
+    }
+ catch (    IOException e) {
+      MsgPrinter.printErrorMsg("Failed to write report to file " + reportFile + ":");
+      MsgPrinter.printErrorMsg(e.toString());
+      System.exit(1);
+    }
+    double thisF1=eval.f1();
+    if (thisF1 > maxF1) {
+      maxF1=thisF1;
+      bestCombination[0]=features;
+      bestCombination[1]=new String[]{model};
+    }
+  }
+  return bestCombination;
+}

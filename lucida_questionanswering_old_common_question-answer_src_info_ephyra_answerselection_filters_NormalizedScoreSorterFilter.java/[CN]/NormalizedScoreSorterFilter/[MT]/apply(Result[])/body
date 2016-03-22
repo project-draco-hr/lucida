@@ -1,0 +1,16 @@
+{
+  for (  Result result : results) {
+    float normScore=result.getNormScore();
+    if (normScore == 0)     continue;
+    result.setNormScore(result.getScore());
+    result.setScore(normScore);
+  }
+  results=(new ScoreSorterFilter()).apply(results);
+  for (  Result result : results) {
+    float normScore=result.getNormScore();
+    if (normScore == 0)     continue;
+    result.setNormScore(result.getScore());
+    result.setScore(normScore);
+  }
+  return results;
+}

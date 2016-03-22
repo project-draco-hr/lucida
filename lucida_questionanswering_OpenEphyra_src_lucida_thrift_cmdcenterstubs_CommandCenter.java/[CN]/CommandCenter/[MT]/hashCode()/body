@@ -1,0 +1,10 @@
+{
+  List<Object> list=new ArrayList<Object>();
+  boolean present_serviceType=true && (isSetServiceType());
+  list.add(present_serviceType);
+  if (present_serviceType)   list.add(serviceType);
+  boolean present_mDataObj=true && (isSetMDataObj());
+  list.add(present_mDataObj);
+  if (present_mDataObj)   list.add(mDataObj);
+  return list.hashCode();
+}

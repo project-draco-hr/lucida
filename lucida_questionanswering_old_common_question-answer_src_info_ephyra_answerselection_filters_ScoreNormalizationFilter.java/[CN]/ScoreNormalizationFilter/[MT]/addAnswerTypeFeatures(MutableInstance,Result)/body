@@ -1,0 +1,7 @@
+{
+  String[] answerTypes=result.getQuery().getAnalyzedQuestion().getAnswerTypes();
+  for (  String answerType : answerTypes) {
+    Feature feature=new Feature(answerType.split("->"));
+    instance.addBinary(feature);
+  }
+}

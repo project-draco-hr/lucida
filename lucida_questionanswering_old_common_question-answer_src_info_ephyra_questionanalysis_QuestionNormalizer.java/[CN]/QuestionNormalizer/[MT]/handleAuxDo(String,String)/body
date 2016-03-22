@@ -1,0 +1,11 @@
+{
+  Pattern p=Pattern.compile("(?i)(.* )?do/.*? (\\S*)/vb(\\W.*)?");
+  Matcher m=p.matcher(tagged);
+  String[] results;
+  if (m.matches()) {
+    results=new String[1];
+    results[0]=question.replaceFirst("do ","");
+    return results;
+  }
+  return null;
+}

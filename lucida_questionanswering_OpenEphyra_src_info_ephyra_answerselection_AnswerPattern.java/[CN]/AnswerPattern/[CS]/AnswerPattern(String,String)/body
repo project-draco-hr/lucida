@@ -1,0 +1,11 @@
+{
+  desc=expr;
+  property=prop;
+  expr=addDistGroup(expr);
+  expr=replaceTargetTag(expr);
+  expr=replaceContextTags(expr);
+  expr=replacePropertyTag(expr);
+  expr=replaceNeTags(expr);
+  expr=optimizePattern(expr);
+  pattern=Pattern.compile(expr,Pattern.CASE_INSENSITIVE);
+}

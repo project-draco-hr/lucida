@@ -1,0 +1,5 @@
+{
+  if (mDataObj != null) {
+    mDataObj.validate();
+  }
+}

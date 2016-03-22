@@ -1,0 +1,3 @@
+{
+  iface.infer(args.LUCID,args.query,resultHandler);
+}

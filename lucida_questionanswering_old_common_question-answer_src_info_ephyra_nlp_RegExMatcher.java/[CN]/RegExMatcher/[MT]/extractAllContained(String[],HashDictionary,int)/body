@@ -1,0 +1,34 @@
+{
+  if (threshold == 0)   return extractAllContained(tokens,dictionary);
+  ArrayList<String> tokenList=new ArrayList<String>();
+  for (int t=0; t < tokens.length; t++)   if (tokens[t].length() != 0)   tokenList.add(tokens[t]);
+  tokens=tokenList.toArray(new String[tokenList.size()]);
+  ArrayList<String> matches=new ArrayList<String>();
+  int lastStartIndex=0;
+  int lastMatchedIndex=0;
+  int index=0;
+  String currentPart=null;
+  String match=null;
+  while (index < tokens.length) {
+    lastStartIndex=index;
+    while ((index < tokens.length) && dictionary.fuzzyContainsToken(tokens[index],threshold) && (((index - lastStartIndex) < dictionary.getMaxTokens()))) {
+      currentPart=((currentPart == null) ? tokens[index] : (currentPart + " " + tokens[index]));
+      if (dictionary.fuzzyContains(currentPart,threshold)) {
+        match=currentPart;
+        lastMatchedIndex=index;
+      }
+      index++;
+    }
+    if (match != null) {
+      matches.add(match);
+      index=lastMatchedIndex;
+    }
+ else {
+      index=lastStartIndex;
+    }
+    currentPart=null;
+    match=null;
+    index++;
+  }
+  return matches.toArray(new String[matches.size()]);
+}

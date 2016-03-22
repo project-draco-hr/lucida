@@ -1,0 +1,11 @@
+{
+  ArrayList<Query> results=new ArrayList<Query>();
+  for (  QueryGenerator queryGenerator : queryGenerators) {
+    Query[] queries=queryGenerator.generateQueries(aq);
+    for (    Query query : queries)     results.add(query);
+  }
+  Query[] queries=results.toArray(new Query[results.size()]);
+  MsgPrinter.printQueryStrings(queries);
+  Logger.logQueryStrings(queries);
+  return queries;
+}

@@ -1,0 +1,16 @@
+{
+  if (that == null)   return false;
+  boolean this_present_serviceType=true && this.isSetServiceType();
+  boolean that_present_serviceType=true && that.isSetServiceType();
+  if (this_present_serviceType || that_present_serviceType) {
+    if (!(this_present_serviceType && that_present_serviceType))     return false;
+    if (!this.serviceType.equals(that.serviceType))     return false;
+  }
+  boolean this_present_mDataObj=true && this.isSetMDataObj();
+  boolean that_present_mDataObj=true && that.isSetMDataObj();
+  if (this_present_mDataObj || that_present_mDataObj) {
+    if (!(this_present_mDataObj && that_present_mDataObj))     return false;
+    if (!this.mDataObj.equals(that.mDataObj))     return false;
+  }
+  return true;
+}

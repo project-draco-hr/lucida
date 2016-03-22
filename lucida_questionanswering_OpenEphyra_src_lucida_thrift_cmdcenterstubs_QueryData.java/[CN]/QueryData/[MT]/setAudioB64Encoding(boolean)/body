@@ -1,0 +1,5 @@
+{
+  this.audioB64Encoding=audioB64Encoding;
+  setAudioB64EncodingIsSet(true);
+  return this;
+}

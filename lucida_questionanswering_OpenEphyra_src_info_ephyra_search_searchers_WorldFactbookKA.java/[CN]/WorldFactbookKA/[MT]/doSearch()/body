@@ -1,0 +1,27 @@
+{
+  try {
+    String[] content=getContent().split("#");
+    String info=content[0];
+    String country=content[1];
+    String countryPage=countries.get(country.toLowerCase());
+    if (countryPage == null)     return new Result[0];
+    URL page=new URL(URL + countryPage);
+    BufferedReader in;
+    String html="";
+    in=new BufferedReader(new InputStreamReader(page.openStream(),Charset.forName("iso-8859-1")));
+    while (in.ready()) {
+      html+=in.readLine() + " ";
+    }
+    in.close();
+    Pattern p=Pattern.compile("(?i).*" + info + ":</div>\\s*</td>"+ "\\s*<td .*?>(.*?)</td>.*");
+    Matcher m=p.matcher(html);
+    if (m.matches()) {
+      String sentence=SentenceExtractor.getSentencesFromHtml(m.group(1))[0];
+      return getResult(sentence,page.toString());
+    }
+  }
+ catch (  Exception e) {
+    MsgPrinter.printSearchError(e);
+  }
+  return new Result[0];
+}

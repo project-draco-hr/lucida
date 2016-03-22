@@ -1,0 +1,11 @@
+{
+  String[] rTokens=NETagger.tokenize(result);
+  HashSet<String> rSet=new HashSet<String>();
+  for (  String r : rTokens)   if (!FunctionWords.lookup(r) && (r.length() > 1))   rSet.add(SnowballStemmer.stem(r).toLowerCase());
+  String[] nTokens=NETagger.tokenize(nugget);
+  HashSet<String> nSet=new HashSet<String>();
+  for (  String n : nTokens)   if (!FunctionWords.lookup(n) && (n.length() > 1))   nSet.add(SnowballStemmer.stem(n).toLowerCase());
+  nSet.removeAll(rSet);
+  ArrayList<String> remaining=new ArrayList<String>(nSet);
+  return remaining.toArray(new String[remaining.size()]);
+}

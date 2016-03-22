@@ -1,0 +1,14 @@
+{
+  List<AnswerType> res=new ArrayList<AnswerType>();
+  ClassLabel label=null;
+synchronized (classifier) {
+    label=classifier.classification(instance);
+  }
+  String labelStr=label.bestClassName().replaceAll("-",".");
+  AnswerType atype=AnswerType.constructFromString(labelStr);
+  double weight=label.bestWeight();
+  if (weight > 1.0)   weight=(1 - (1 / weight));
+  atype.setConfidence(weight);
+  res.add(atype);
+  return res;
+}

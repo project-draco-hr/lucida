@@ -1,0 +1,8 @@
+{
+  if (other.isSetServiceType()) {
+    this.serviceType=other.serviceType;
+  }
+  if (other.isSetMDataObj()) {
+    this.mDataObj=new MachineData(other.mDataObj);
+  }
+}

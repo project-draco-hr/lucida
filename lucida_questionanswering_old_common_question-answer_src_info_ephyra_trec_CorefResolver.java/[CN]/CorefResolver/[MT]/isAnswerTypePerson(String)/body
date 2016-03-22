@@ -1,0 +1,20 @@
+{
+  ArrayList<Pattern> patterns=new ArrayList<Pattern>();
+  boolean f=false;
+  String qn=QuestionNormalizer.normalize(question);
+  String stemmed=QuestionNormalizer.stemVerbsAndNouns(qn);
+  String[] tokens=new String[3];
+  tokens[0]="who";
+  tokens[1]="whom";
+  tokens[2]="(what|which|name) (.* )?(actor|actress|adventurer|architect|artist|assassin|aunt|author|boy|builder|chairman|chancellor|child|creator|dancer|daughter|designer|developer|dictator|discoverer|emperor|employee|enemy|explorer|father|founder|friend|girl|governor|graduate|guy|head|hostage|husband|individual|inventor|killer|leader|maker|man|member|minister|monarch|mother|murderer|musician|official|opponent|owner|partner|person|personnel|player|politician|president|recipient|ruler|scientist|secretary|sender|singer|slayer|son|student|terrorist|uncle|victim|wife|winner|witness|woman|writer)";
+  for (int i=0; i < tokens.length; i++) {
+    patterns.add(Pattern.compile("\\b" + tokens[i] + "\\b",Pattern.CASE_INSENSITIVE));
+  }
+  for (int i=0; i < tokens.length; i++) {
+    Matcher m=patterns.get(i).matcher(stemmed);
+    if (m.find()) {
+      f=true;
+    }
+  }
+  return f;
+}

@@ -1,0 +1,5 @@
+{
+  this();
+  this.LUCID=LUCID;
+  this.knowledge=knowledge;
+}
