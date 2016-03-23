@@ -45,6 +45,8 @@
   try {
     transport.open();
     System.out.println("///// Connecting to OpenEphyra... /////");
+    client.create(LUCID,spec);
+    client.learn(LUCID,knowledge);
     String answer=client.infer(LUCID,query);
     System.out.println("///// Answer: /////");
     System.out.println(answer);
