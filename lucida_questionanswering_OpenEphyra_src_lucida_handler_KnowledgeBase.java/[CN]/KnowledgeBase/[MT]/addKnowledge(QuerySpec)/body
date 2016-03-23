@@ -1,0 +1,28 @@
+{
+  for (  QueryInput i : knowledge.content) {
+switch (i.type.toLowerCase()) {
+case "text":
+      for (      String text : i.data) {
+        texts.add(text);
+      }
+    break;
+case "file":
+  for (  String file : i.data) {
+    files.add(file);
+  }
+break;
+case "url":
+for (String url : i.data) {
+urls.add(url);
+}
+break;
+case "indri":
+for (String indri : i.data) {
+custom_Indri_repos.add(indri);
+}
+break;
+default :
+break;
+}
+}
+}

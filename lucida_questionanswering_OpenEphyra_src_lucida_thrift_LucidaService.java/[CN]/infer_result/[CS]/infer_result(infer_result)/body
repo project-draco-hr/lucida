@@ -2,7 +2,4 @@
   if (other.isSetSuccess()) {
     this.success=other.success;
   }
-  if (other.isSetE()) {
-    this.e=new RuntimeException(other.e);
-  }
 }

@@ -1,10 +1,5 @@
 {
   infer_result result=new infer_result();
-  try {
-    result.success=iface.infer(args.LUCID,args.query);
-  }
- catch (  RuntimeException e) {
-    result.e=e;
-  }
+  result.success=iface.infer(args.LUCID,args.query);
   return result;
 }

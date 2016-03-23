@@ -1,7 +1,5 @@
 {
 switch (field) {
-case E:
-    return getE();
-}
-throw new IllegalStateException();
+  }
+  throw new IllegalStateException();
 }

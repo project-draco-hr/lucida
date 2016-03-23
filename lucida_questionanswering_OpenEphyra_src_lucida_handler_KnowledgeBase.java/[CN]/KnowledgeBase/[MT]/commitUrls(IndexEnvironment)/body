@@ -1,0 +1,19 @@
+{
+  for (int i=0; i < urls.size(); ++i) {
+    try {
+      String parsed_text=Jsoup.parse(new URL(urls.get(i)),Integer.MAX_VALUE).text();
+      String file_path=Indri_repo + "/url_" + i+ ".txt";
+      File file=new File(file_path);
+      FileWriter fileWriter=new FileWriter(file);
+      fileWriter.write(parsed_text);
+      fileWriter.flush();
+      fileWriter.close();
+      env.addFile(file_path);
+      file.delete();
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+  }
+  urls.clear();
+}

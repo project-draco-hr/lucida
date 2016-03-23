@@ -1,8 +1,5 @@
 {
   learn_result result=new learn_result();
   receiveBase(result,"learn");
-  if (result.e != null) {
-    throw result.e;
-  }
   return;
 }

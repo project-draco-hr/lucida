@@ -1,3 +1,10 @@
 {
-  return "";
+  MsgPrinter.printStatusMsg("@@@@@ Infer; User: " + LUCID);
+  KnowledgeBase kb=User.getUserKB(LUCID);
+  kb.commitKnowledge();
+  System.setProperty("INDRI_INDEX",kb.getIndriIndex());
+  if (query.content.isEmpty() || query.content.get(0).data.isEmpty()) {
+    throw new IllegalArgumentException();
+  }
+  return askFactoidThrift(query.content.get(0).data.get(0));
 }

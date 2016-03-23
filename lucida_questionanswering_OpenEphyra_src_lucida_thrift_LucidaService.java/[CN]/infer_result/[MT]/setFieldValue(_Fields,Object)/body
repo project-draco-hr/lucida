@@ -8,13 +8,5 @@ case SUCCESS:
       setSuccess((String)value);
     }
   break;
-case E:
-if (value == null) {
-  unsetE();
-}
- else {
-  setE((RuntimeException)value);
-}
-break;
 }
 }

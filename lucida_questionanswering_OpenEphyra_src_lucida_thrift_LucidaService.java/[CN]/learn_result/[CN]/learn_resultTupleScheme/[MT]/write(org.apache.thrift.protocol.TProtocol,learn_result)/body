@@ -1,11 +1,3 @@
 {
   TTupleProtocol oprot=(TTupleProtocol)prot;
-  BitSet optionals=new BitSet();
-  if (struct.isSetE()) {
-    optionals.set(0);
-  }
-  oprot.writeBitSet(optionals,1);
-  if (struct.isSetE()) {
-    struct.e.write(oprot);
-  }
 }

@@ -1,12 +1,4 @@
 {
 switch (field) {
-case E:
-    if (value == null) {
-      unsetE();
-    }
- else {
-      setE((RuntimeException)value);
-    }
-  break;
-}
+  }
 }

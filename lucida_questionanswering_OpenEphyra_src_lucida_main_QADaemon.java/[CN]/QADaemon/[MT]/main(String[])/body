@@ -12,12 +12,11 @@
     }
  else {
       System.out.println("Using default port for qa: " + tmp_port);
-      System.out.println("Using default port for sirius: " + tmp_cmdcenterport);
     }
     final int port=tmp_port;
     final int cmdcenterport=tmp_cmdcenterport;
     handler=new QAServiceHandler();
-    processor=new QAService.Processor<QAServiceHandler>(handler);
+    processor=new LucidaService.Processor<QAServiceHandler>(handler);
     Runnable simple=new Runnable(){
       public void run(){
         simple(processor,port,cmdcenterport);

@@ -1,0 +1,6 @@
+{
+  if (!user_to_database.containsKey(LUCID)) {
+    throw new IllegalArgumentException();
+  }
+  return user_to_database.get(LUCID);
+}

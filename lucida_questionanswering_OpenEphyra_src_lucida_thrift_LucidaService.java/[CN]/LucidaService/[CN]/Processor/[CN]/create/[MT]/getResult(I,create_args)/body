@@ -1,10 +1,5 @@
 {
   create_result result=new create_result();
-  try {
-    iface.create(args.LUCID,args.spec);
-  }
- catch (  RuntimeException e) {
-    result.e=e;
-  }
+  iface.create(args.LUCID,args.spec);
   return result;
 }

@@ -1,6 +1,6 @@
 {
   ArrayList<String[]> indices=new ArrayList<String[]>();
-  String index=System.getenv("INDRI_INDEX");
+  String index=System.getProperty("INDRI_INDEX");
   if (index != null && index.length() > 0)   indices.add(index.split(";"));
   for (int i=2; ; i++) {
     index=System.getenv("INDRI_INDEX" + i);

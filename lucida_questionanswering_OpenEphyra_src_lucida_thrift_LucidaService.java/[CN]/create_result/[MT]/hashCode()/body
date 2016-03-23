@@ -1,7 +1,4 @@
 {
   List<Object> list=new ArrayList<Object>();
-  boolean present_e=true && (isSetE());
-  list.add(present_e);
-  if (present_e)   list.add(e);
   return list.hashCode();
 }

@@ -1,8 +1,5 @@
 {
   create_result result=new create_result();
   receiveBase(result,"create");
-  if (result.e != null) {
-    throw result.e;
-  }
   return;
 }

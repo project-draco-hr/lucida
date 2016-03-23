@@ -1,0 +1,18 @@
+{
+  for (int i=0; i < texts.size(); ++i) {
+    try {
+      String file_path=Indri_repo + "/text_" + i+ ".txt";
+      File file=new File(file_path);
+      FileWriter fileWriter=new FileWriter(file);
+      fileWriter.write(texts.get(i));
+      fileWriter.flush();
+      fileWriter.close();
+      env.addFile(file_path);
+      file.delete();
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+  }
+  texts.clear();
+}

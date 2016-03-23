@@ -1,11 +1,6 @@
 {
   struct.validate();
   oprot.writeStructBegin(STRUCT_DESC);
-  if (struct.e != null) {
-    oprot.writeFieldBegin(E_FIELD_DESC);
-    struct.e.write(oprot);
-    oprot.writeFieldEnd();
-  }
   oprot.writeFieldStop();
   oprot.writeStructEnd();
 }
