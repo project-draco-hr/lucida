@@ -1,0 +1,9 @@
+{
+switch (field) {
+case LUCID:
+    return getLUCID();
+case SPEC:
+  return getSpec();
+}
+throw new IllegalStateException();
+}

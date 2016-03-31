@@ -1,0 +1,13 @@
+{
+  TTupleProtocol iprot=(TTupleProtocol)prot;
+  BitSet incoming=iprot.readBitSet(2);
+  if (incoming.get(0)) {
+    struct.LUCID=iprot.readString();
+    struct.setLUCIDIsSet(true);
+  }
+  if (incoming.get(1)) {
+    struct.knowledge=new QuerySpec();
+    struct.knowledge.read(iprot);
+    struct.setKnowledgeIsSet(true);
+  }
+}

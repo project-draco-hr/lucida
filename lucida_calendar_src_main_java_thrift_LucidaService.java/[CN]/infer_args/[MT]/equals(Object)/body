@@ -1,0 +1,5 @@
+{
+  if (that == null)   return false;
+  if (that instanceof infer_args)   return this.equals((infer_args)that);
+  return false;
+}

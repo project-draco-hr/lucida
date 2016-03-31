@@ -1,0 +1,10 @@
+{
+  if (query.content.isEmpty() || !query.content.get(0).type.toLowerCase().equals("calendar")) {
+    throw new IllegalArgumentException();
+  }
+  String rtn="";
+  for (  String s : getEvents()) {
+    rtn+=s + "\n";
+  }
+  return rtn;
+}

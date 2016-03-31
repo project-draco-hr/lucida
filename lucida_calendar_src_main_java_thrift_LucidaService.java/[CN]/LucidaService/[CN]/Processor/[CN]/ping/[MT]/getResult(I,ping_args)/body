@@ -1,0 +1,5 @@
+{
+  ping_result result=new ping_result();
+  iface.ping();
+  return result;
+}

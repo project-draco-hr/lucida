@@ -1,0 +1,8 @@
+{
+  prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("infer",org.apache.thrift.protocol.TMessageType.CALL,0));
+  infer_args args=new infer_args();
+  args.setLUCID(LUCID);
+  args.setQuery(query);
+  args.write(prot);
+  prot.writeMessageEnd();
+}

@@ -1,0 +1,4 @@
+{
+  send_infer(LUCID,query);
+  return recv_infer();
+}

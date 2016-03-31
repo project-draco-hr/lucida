@@ -1,0 +1,10 @@
+{
+  List<Object> list=new ArrayList<Object>();
+  boolean present_LUCID=true && (isSetLUCID());
+  list.add(present_LUCID);
+  if (present_LUCID)   list.add(LUCID);
+  boolean present_knowledge=true && (isSetKnowledge());
+  list.add(present_knowledge);
+  if (present_knowledge)   list.add(knowledge);
+  return list.hashCode();
+}
