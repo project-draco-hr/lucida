@@ -1,6 +1,0 @@
-{
-  float[] scores=new float[this.extraScores.size()];
-  int i=0;
-  for (Iterator<Float> iter=this.extraScores.values().iterator(); iter.hasNext(); i++)   scores[i]=iter.next().floatValue();
-  return scores;
-}

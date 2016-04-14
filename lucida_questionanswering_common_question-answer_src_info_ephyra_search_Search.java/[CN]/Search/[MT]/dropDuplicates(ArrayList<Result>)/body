@@ -1,8 +1,0 @@
-{
-  Result[] sorted=results.toArray(new Result[results.size()]);
-  sorted=(new HitPositionSorterFilter()).apply(sorted);
-  Set<Result> noDups=new HashSet<Result>();
-  ArrayList<Result> remaining=new ArrayList<Result>();
-  for (  Result result : sorted)   if (result.getScore() != Float.NEGATIVE_INFINITY || noDups.add(result))   remaining.add(result);
-  return remaining;
-}

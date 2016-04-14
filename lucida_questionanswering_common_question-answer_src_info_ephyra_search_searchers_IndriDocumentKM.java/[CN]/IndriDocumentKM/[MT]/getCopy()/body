@@ -1,4 +1,0 @@
-{
-  if (indriDirs != null)   return new IndriDocumentKM(indriDirs,false);
- else   return new IndriDocumentKM(indriUrls,true);
-}

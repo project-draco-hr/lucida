@@ -1,6 +1,0 @@
-{
-  this.target=target;
-  this.context=context;
-  this.property=property;
-  calculateLength();
-}

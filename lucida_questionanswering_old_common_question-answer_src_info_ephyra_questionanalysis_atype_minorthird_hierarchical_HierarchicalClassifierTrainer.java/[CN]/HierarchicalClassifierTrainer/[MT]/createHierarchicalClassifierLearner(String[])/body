@@ -1,7 +1,0 @@
-{
-  ClassifierLearner[] prototypes=new ClassifierLearner[learners.length];
-  for (int i=0; i < prototypes.length; i++) {
-    prototypes[i]=createLearnerByName(learners[i]);
-  }
-  return new HierarchicalClassifierLearner(prototypes);
-}

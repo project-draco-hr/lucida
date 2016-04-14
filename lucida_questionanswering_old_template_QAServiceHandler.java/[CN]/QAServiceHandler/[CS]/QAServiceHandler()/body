@@ -1,7 +1,0 @@
-{
-  String dir="";
-  MsgPrinter.enableStatusMsgs(true);
-  MsgPrinter.enableErrorMsgs(true);
-  oe=new OpenEphyra(dir);
-  defaultAnswer="Sorry. I'm not at liberty to disclose this information.";
-}

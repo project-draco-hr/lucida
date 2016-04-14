@@ -1,8 +1,0 @@
-{
-  overlapAnalysis=analyses.get(id);
-  if (overlapAnalysis == null) {
-    overlapAnalysis=new Hashtable<String,Integer>();
-    analyses.put(id,overlapAnalysis);
-  }
-  this.printing=printing;
-}

@@ -1,9 +1,0 @@
-{
-  reverseMap=new Hashtable<String,String>();
-  sentence=replaceTarget(sentence,to,nes);
-  if (sentence == null)   return null;
-  sentence=replaceContext(sentence,cos,nes);
-  sentence=replaceNes(sentence,nes);
-  sentence="# " + sentence + " #";
-  return sentence;
-}

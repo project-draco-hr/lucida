@@ -1,6 +1,0 @@
-{
-  for (  String elem : inf)   if (matches(verb,elem))   return "INF";
-  for (  String elem : sp)   if (matches(verb,elem))   return "SP";
-  for (  String elem : pp)   if (matches(verb,elem))   return "PP";
-  return null;
-}

@@ -1,5 +1,0 @@
-{
-  int index=getIndex(verb);
-  if (index == -1)   return null;
- else   return pp.get(index).split("/");
-}

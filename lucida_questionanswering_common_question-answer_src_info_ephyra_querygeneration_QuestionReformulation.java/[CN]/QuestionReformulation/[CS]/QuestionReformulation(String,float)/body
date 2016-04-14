@@ -1,4 +1,0 @@
-{
-  this.expr=expr;
-  this.score=score;
-}

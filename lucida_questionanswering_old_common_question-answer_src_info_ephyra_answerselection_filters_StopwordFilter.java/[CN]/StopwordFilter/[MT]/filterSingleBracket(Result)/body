@@ -1,9 +1,0 @@
-{
-  if (result == null)   return null;
-  String answer=result.getAnswer();
-  if (answer.matches("[^\"]*?\"[^\"]*+"))   return null;
-  if (answer.matches("[^\\(]*?\\).*+") || answer.matches(".*?\\([^\\)]*+"))   return null;
-  if (answer.matches("[^\\{]*?\\}.*+") || answer.matches(".*?\\{[^\\}]*+"))   return null;
-  if (answer.matches("[^\\[]*?\\].*+") || answer.matches(".*?\\[[^\\]]*+"))   return null;
-  return result;
-}

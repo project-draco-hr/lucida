@@ -1,5 +1,0 @@
-{
-  if ((o == null) || !(o instanceof TRECNugget))   return false;
-  TRECNugget nug=((TRECNugget)o);
-  return (this.targetID.equals(nug.targetID) && this.nuggetID.equals(nug.nuggetID));
-}

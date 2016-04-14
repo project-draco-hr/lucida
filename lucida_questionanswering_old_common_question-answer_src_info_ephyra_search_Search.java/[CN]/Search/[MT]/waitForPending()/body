@@ -1,9 +1,0 @@
-{
-synchronized (results) {
-    while (pending >= MAX_PENDING)     try {
-      results.wait();
-    }
- catch (    InterruptedException e) {
-    }
-  }
-}

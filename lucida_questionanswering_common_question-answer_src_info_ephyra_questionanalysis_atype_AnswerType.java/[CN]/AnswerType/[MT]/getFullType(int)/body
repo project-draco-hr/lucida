@@ -1,9 +1,0 @@
-{
-  if (classLevels == -1)   classLevels=subtypes.size() + 1;
-  String fullType=this.type;
-  for (int i=0; i < subtypes.size() && i < classLevels - 1; i++) {
-    AnswerType subtype=subtypes.get(i);
-    fullType+="." + subtype.getType();
-  }
-  return fullType;
-}

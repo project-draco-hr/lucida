@@ -1,5 +1,0 @@
-{
-  String extractor=result.getExtractionTechniques()[0];
-  Feature feature=new Feature(extractor);
-  instance.addBinary(feature);
-}

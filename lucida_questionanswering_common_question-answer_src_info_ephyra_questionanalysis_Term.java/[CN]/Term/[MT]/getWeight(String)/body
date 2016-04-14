@@ -1,6 +1,0 @@
-{
-  if (lemma.equals(this.lemma))   return 1;
-  if (expansionLemmas == null)   return 0;
-  Double weight=expansionLemmas.get(lemma);
-  return (weight != null) ? weight : 0;
-}

@@ -1,6 +1,0 @@
-{
-  verb=verb.toLowerCase();
-  String[] sp=IrregularVerbs.getPastParticiple(verb);
-  if (sp == null)   sp=infinitiveToSimplePastReg(verb);
-  return sp;
-}

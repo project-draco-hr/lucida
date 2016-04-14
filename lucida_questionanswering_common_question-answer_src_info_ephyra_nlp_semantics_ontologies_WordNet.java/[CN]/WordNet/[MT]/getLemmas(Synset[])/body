@@ -1,8 +1,0 @@
-{
-  HashSet<String> lemmaSet=new HashSet<String>();
-  for (  Synset synset : synsets) {
-    String[] lemmas=getLemmas(synset);
-    for (    String lemma : lemmas)     lemmaSet.add(lemma);
-  }
-  return lemmaSet.toArray(new String[lemmaSet.size()]);
-}

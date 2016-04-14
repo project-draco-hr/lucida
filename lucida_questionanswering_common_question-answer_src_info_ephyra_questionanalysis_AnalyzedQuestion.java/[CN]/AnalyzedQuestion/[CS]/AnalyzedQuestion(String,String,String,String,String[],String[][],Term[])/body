@@ -1,9 +1,0 @@
-{
-  this(question);
-  setNormalized(qn);
-  setStemmed(stemmed);
-  setVerbMod(verbMod);
-  setKeywords(kws);
-  setNes(nes);
-  setTerms(terms);
-}

@@ -1,3 +1,0 @@
-{
-  return dicts.toArray(new Dictionary[dicts.size()]);
-}

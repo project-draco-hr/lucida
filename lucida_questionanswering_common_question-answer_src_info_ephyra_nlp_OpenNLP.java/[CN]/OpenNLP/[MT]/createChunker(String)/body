@@ -1,9 +1,0 @@
-{
-  try {
-    chunker=new TreebankChunker(model);
-  }
- catch (  IOException e) {
-    return false;
-  }
-  return true;
-}

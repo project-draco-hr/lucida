@@ -1,6 +1,0 @@
-{
-  float compProb=1;
-  for (  float score : scores)   compProb*=1 - score;
-  float combined=1 - compProb;
-  return combined;
-}

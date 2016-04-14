@@ -1,8 +1,0 @@
-{
-  if (isInitialized())   return;
-  super.initialize();
-  FocusFinder.initialize();
-  WordNetAnswerTypeMapping.initialize();
-  StanfordParser.initialize();
-  setInitialized(true);
-}

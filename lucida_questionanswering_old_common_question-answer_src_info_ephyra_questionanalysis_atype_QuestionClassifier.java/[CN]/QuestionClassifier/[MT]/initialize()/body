@@ -1,4 +1,0 @@
-{
-  if (languagePair == null)   throw new Exception("languagePair must be set before calling the parent initialize");
-  extractor=FeatureExtractorFactory.getInstance(languagePair.getFirst());
-}

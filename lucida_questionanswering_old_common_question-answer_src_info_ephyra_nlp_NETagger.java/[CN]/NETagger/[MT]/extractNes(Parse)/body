@@ -1,8 +1,0 @@
-{
-  ArrayList[] nes=new ArrayList[finders.length];
-  for (int i=0; i < nes.length; i++)   nes[i]=new ArrayList();
-  extractNesRec(parse,nes);
-  String[][] results=new String[finders.length][];
-  for (int i=0; i < nes.length; i++)   results[i]=(String[])nes[i].toArray(new String[nes[i].size()]);
-  return results;
-}

@@ -1,7 +1,0 @@
-{
-  int firstResult=1;
-  while (firstResult <= getMaxResultsTotal()) {
-    getCopy().start(query,firstResult);
-    firstResult+=getMaxResultsPerQuery();
-  }
-}

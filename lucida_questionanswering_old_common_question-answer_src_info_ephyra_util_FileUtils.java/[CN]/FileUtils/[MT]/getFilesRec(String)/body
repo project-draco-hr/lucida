@@ -1,5 +1,0 @@
-{
-  ArrayList<File> files=new ArrayList<File>();
-  getFilesRec(new File(dir),files);
-  return files.toArray(new File[files.size()]);
-}

@@ -1,4 +1,0 @@
-{
-  String[] props=targetTypeProperties.get(targetType);
-  return (props == null) ? new String[0] : props;
-}

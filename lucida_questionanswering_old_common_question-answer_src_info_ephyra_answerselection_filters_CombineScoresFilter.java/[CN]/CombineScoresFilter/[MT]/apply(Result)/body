@@ -1,7 +1,0 @@
-{
-  float score=result.getScore();
-  float[] scores=result.getExtraScores();
-  for (  float s : scores)   score+=s;
-  result.setScore(score);
-  return result;
-}

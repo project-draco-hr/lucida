@@ -1,5 +1,0 @@
-{
-  String question=questionTemplates.get(prop);
-  if (question == null)   return null;
-  return question.replace("<TO>",to);
-}

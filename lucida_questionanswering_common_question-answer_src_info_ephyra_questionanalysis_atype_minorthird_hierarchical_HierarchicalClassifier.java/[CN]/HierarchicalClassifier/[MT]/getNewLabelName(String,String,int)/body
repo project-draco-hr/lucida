@@ -1,8 +1,0 @@
-{
-  if (level == 0) {
-    return sublabel;
-  }
- else {
-    return currentClass + "." + sublabel;
-  }
-}

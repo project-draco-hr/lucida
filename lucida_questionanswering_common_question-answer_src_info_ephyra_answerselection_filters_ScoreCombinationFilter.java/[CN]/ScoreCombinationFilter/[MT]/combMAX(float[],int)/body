@@ -1,5 +1,0 @@
-{
-  float max=0;
-  for (  float score : scores)   max=Math.max(max,score);
-  return max;
-}

@@ -1,7 +1,0 @@
-String question
-String qn
-String stemmed
-String verbMod
-String[] kws
-String[][] nes
-Term[] terms

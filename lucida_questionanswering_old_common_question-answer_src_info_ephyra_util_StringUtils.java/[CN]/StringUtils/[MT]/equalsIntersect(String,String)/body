@@ -1,9 +1,0 @@
-{
-  String[] tokens1=s1.split(" ");
-  String[] tokens2=s2.split(" ");
-  int commonTokens=0;
-  int totalTokens=tokens2.length;
-  for (  String token1 : tokens1)   for (  String token2 : tokens2)   if (token1.equals(token2))   commonTokens++;
- else   totalTokens++;
-  return ((float)commonTokens) / totalTokens >= INTERSECT_THRESH;
-}

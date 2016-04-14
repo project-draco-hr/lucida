@@ -1,6 +1,0 @@
-{
-  FileOutputStream fos=new FileOutputStream(output);
-  ObjectOutputStream oos=new ObjectOutputStream(fos);
-  oos.writeObject(o);
-  oos.close();
-}

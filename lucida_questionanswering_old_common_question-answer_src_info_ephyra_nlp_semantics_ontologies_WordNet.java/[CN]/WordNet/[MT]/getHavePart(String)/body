@@ -1,7 +1,0 @@
-{
-  Synset synset=getCommonSynset(noun,NOUN);
-  if (synset == null)   return null;
-  Synset[] havePart=getHasPartSynsets(synset);
-  if (havePart == null)   return null;
-  return getLemmas(havePart);
-}

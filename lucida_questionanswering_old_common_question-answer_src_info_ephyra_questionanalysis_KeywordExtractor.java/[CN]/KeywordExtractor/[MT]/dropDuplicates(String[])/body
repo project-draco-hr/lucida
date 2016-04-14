@@ -1,9 +1,0 @@
-{
-  HashSet<String> normSet=new HashSet<String>();
-  ArrayList<String> wordList=new ArrayList<String>();
-  for (  String word : words) {
-    String norm=StringUtils.normalize(word);
-    if (normSet.add(norm))     wordList.add(word);
-  }
-  return wordList.toArray(new String[wordList.size()]);
-}

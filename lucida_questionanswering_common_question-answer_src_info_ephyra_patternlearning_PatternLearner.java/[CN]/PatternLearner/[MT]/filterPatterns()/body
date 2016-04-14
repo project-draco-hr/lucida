@@ -1,4 +1,0 @@
-{
-  AnswerPatternFilter.dropLowSupport(SUPPORT_THRESH);
-  AnswerPatternFilter.dropLowConfidence(CONFIDENCE_THRESH);
-}

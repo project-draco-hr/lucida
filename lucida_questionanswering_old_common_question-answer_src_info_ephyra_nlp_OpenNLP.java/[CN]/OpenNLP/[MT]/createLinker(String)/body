@@ -1,9 +1,0 @@
-{
-  try {
-    linker=new TreebankLinker(dir,LinkerMode.TEST);
-  }
- catch (  IOException e) {
-    return false;
-  }
-  return true;
-}

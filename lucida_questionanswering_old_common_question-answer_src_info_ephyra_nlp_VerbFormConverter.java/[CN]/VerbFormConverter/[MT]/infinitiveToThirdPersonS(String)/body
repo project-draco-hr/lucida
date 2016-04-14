@@ -1,7 +1,0 @@
-{
-  verb=verb.toLowerCase();
-  if (verb.equals("have"))   return "has";
- else   if (verb.matches(".*(ch|sh|s|x|z|o)"))   return verb + "es";
- else   if (verb.matches(".*[bcdfghjklmnpqrstvwxyz]y"))   return verb.substring(0,verb.length() - 1) + "ies";
- else   return verb + "s";
-}

@@ -1,6 +1,0 @@
-{
-  if (result == null)   return null;
-  String answer=result.getAnswer();
-  if (answer.matches("(?i).*?ly") && WordNet.isAdverb(answer))   return null;
-  return result;
-}

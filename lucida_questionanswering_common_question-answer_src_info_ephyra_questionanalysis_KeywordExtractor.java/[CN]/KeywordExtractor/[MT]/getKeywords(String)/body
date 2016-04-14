@@ -1,8 +1,0 @@
-{
-  String[] words=tokenize(verbMod);
-  words=dropSingleChars(words);
-  words=dropBadKeywords(words);
-  words=dropFunctionWords(words);
-  words=dropDuplicates(words);
-  return words;
-}

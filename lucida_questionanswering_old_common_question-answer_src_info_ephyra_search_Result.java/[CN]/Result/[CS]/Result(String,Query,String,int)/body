@@ -1,4 +1,0 @@
-{
-  this(answer,query,docID);
-  this.hitPos=hitPos;
-}

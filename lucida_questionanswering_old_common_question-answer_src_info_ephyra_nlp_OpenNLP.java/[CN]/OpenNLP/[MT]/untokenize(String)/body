@@ -1,9 +1,0 @@
-{
-  Matcher m=ABUNDANT_BLANKS.matcher(text);
-  while (m.find()) {
-    String noBlank="";
-    for (    String token : m.group(0).split(" "))     noBlank+=token;
-    text=text.replace(m.group(0),noBlank);
-  }
-  return text;
-}

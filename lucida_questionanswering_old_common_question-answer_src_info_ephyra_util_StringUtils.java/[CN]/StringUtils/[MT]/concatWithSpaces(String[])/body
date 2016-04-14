@@ -1,6 +1,0 @@
-{
-  String s="";
-  if (ss.length > 0)   s+=ss[0];
-  for (int i=1; i < ss.length; i++)   s+=" " + ss[i];
-  return s;
-}

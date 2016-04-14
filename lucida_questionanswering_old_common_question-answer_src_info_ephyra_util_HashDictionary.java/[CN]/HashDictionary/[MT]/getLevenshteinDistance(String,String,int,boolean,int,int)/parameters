@@ -1,6 +1,0 @@
-String string1
-String string2
-int threshold
-boolean caseSensitive
-int insertCost
-int deleteCost

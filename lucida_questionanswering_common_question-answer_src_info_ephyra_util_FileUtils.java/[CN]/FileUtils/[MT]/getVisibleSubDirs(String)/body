@@ -1,6 +1,0 @@
-{
-  String[] subDirs=getSubDirs(dir);
-  ArrayList<String> visible=new ArrayList<String>();
-  for (  String subDir : subDirs)   if (!subDir.startsWith("."))   visible.add(subDir);
-  return visible.toArray(new String[visible.size()]);
-}

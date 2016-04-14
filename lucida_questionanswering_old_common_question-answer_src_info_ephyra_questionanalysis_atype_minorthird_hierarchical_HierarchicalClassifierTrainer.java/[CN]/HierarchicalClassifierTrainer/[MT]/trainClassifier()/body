@@ -1,6 +1,0 @@
-{
-  runTime=System.currentTimeMillis();
-  ClassifierLearner learner=createHierarchicalClassifierLearner(learnerNames);
-  classifier=new DatasetClassifierTeacher(trainingSet).train(learner);
-  runTime=System.currentTimeMillis() - runTime;
-}

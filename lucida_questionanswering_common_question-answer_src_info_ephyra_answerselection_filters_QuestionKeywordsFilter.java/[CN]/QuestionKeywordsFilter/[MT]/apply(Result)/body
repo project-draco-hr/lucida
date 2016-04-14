@@ -1,6 +1,0 @@
-{
-  String[] tokens=KeywordExtractor.tokenize(result.getAnswer());
-  String[] kws=result.getQuery().getAnalyzedQuestion().getKeywords();
-  for (  String token : tokens)   for (  String kw : kws)   if (token.equalsIgnoreCase(kw))   return null;
-  return result;
-}

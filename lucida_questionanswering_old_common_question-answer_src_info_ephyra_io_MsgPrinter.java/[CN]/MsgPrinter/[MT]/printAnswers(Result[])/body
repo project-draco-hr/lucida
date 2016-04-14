@@ -1,8 +1,0 @@
-{
-  printMessage("\nAnswer:");
-  for (int i=0; i < results.length; i++) {
-    printMessage("[" + (i + 1) + "]\t"+ results[i].getAnswer());
-    printMessage("\tScore: " + results[i].getScore());
-    if (results[i].getDocID() != null)     printMessage("\tDocument: " + results[i].getDocID());
-  }
-}

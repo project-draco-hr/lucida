@@ -1,4 +1,0 @@
-{
-  this(answer,query);
-  this.docID=docID;
-}

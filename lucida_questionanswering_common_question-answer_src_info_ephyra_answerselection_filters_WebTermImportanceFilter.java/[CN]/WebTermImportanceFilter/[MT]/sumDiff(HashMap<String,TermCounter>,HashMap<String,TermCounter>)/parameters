@@ -1,2 +1,0 @@
-HashMap<String,TermCounter> counters
-HashMap<String,TermCounter> compare

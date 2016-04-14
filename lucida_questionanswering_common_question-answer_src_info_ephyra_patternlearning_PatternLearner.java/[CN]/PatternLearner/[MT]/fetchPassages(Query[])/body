@@ -1,3 +1,0 @@
-{
-  return Search.doSearch(queries);
-}

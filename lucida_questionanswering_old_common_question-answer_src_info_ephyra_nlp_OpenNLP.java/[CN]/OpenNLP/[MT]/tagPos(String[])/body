@@ -1,3 +1,0 @@
-{
-  return (tagger != null) ? tagger.tag(sentence) : null;
-}

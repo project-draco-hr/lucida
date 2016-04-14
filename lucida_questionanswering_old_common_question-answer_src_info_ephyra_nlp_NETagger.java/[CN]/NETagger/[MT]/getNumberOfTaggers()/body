@@ -1,3 +1,0 @@
-{
-  return finderNames.length + allPatternNames.length + listNames.length+ stanfordNames.length;
-}

@@ -1,4 +1,0 @@
-{
-  token=SnowballStemmer.stem(token.trim().toLowerCase());
-  return tokens.contains(token);
-}

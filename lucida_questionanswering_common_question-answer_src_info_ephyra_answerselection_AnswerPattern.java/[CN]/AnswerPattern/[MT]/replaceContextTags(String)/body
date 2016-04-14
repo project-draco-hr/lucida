@@ -1,3 +1,0 @@
-{
-  return expr.replace("<CO>","<CO_\\d*+>");
-}

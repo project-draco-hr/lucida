@@ -1,3 +1,0 @@
-{
-  return equalsSubset(normalize(s1),normalize(s2));
-}

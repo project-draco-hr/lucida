@@ -1,7 +1,0 @@
-{
-  Synset synset=getCommonSynset(word,pos);
-  if (synset == null)   return null;
-  Synset[] hypernyms=getHypernymSynsets(synset);
-  if (hypernyms == null)   return null;
-  return getLemmas(hypernyms);
-}

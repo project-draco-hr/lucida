@@ -1,4 +1,0 @@
-{
-  MsgPrinter.printStatusMsg("Overlap analysis:");
-  for (  String key : overlapAnalysis.keySet())   MsgPrinter.printStatusMsg(key + ": " + overlapAnalysis.get(key));
-}

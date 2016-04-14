@@ -1,6 +1,0 @@
-{
-  MsgPrinter.printLoadingTRECData();
-  loadTRECData(qFile,aFile,pFile);
-  MsgPrinter.printInterpretingQuestions();
-  return interpretQuestions("res/patternlearning/interpretations");
-}

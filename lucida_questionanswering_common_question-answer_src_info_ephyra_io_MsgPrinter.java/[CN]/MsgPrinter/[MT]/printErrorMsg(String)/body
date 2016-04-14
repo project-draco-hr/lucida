@@ -1,3 +1,0 @@
-{
-  if (errorMsgs)   System.err.println(error);
-}

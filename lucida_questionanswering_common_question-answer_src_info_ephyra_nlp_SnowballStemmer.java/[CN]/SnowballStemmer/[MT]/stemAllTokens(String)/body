@@ -1,7 +1,0 @@
-{
-  String[] tokenArray=tokens.split(" ");
-  String stemmed="";
-  if (tokenArray.length > 0)   stemmed+=stem(tokenArray[0]);
-  for (int i=1; i < tokenArray.length; i++)   stemmed+=" " + stem(tokenArray[i]);
-  return stemmed;
-}

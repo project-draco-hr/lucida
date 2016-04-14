@@ -1,6 +1,0 @@
-{
-  if (errorMsgs) {
-    System.err.println("\nHTTP error:");
-    System.err.println(error);
-  }
-}

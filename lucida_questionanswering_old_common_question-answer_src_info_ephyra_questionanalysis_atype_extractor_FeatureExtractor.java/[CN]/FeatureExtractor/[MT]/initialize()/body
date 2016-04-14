@@ -1,9 +1,0 @@
-{
-  Properties properties=Properties.loadFromClassName(FeatureExtractor.class.getName());
-  String classLevelsProp=properties.getProperty("classLevels");
-  if (classLevelsProp == null)   throw new RuntimeException("Required parameter classLevels is undefined");
-  classLevels=Integer.parseInt(classLevelsProp);
-  String useClassLevelsProp=properties.getProperty("useClassLevels");
-  if (useClassLevelsProp == null)   throw new RuntimeException("Required parameter useClassLevels is undefined");
-  useClassLevels=Boolean.parseBoolean(useClassLevelsProp);
-}

@@ -1,8 +1,0 @@
-{
-  ArrayList<Result> filtered=new ArrayList<Result>();
-  for (  Result result : results) {
-    if (result.getScore() > Float.NEGATIVE_INFINITY && result.getScore() < Float.POSITIVE_INFINITY)     result=apply(result);
-    if (result != null)     filtered.add(result);
-  }
-  return filtered.toArray(new Result[filtered.size()]);
-}

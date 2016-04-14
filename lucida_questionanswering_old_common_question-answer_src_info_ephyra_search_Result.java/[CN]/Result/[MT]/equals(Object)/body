@@ -1,5 +1,0 @@
-{
-  if (!(o instanceof Result))   return false;
-  Result result=(Result)o;
-  return answer.equals(result.answer);
-}

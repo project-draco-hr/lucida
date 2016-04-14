@@ -1,9 +1,0 @@
-{
-synchronized (docs) {
-    while (pending >= MAX_PENDING)     try {
-      docs.wait();
-    }
- catch (    InterruptedException e) {
-    }
-  }
-}

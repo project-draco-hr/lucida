@@ -1,9 +1,0 @@
-{
-  try {
-    dictionary=new HashDictionary(filename);
-  }
- catch (  IOException e) {
-    return false;
-  }
-  return true;
-}

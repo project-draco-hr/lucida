@@ -1,4 +1,0 @@
-{
-  if (isRunning || (startTime == 0) || (stopTime == 0))   return 0;
-  return (stopTime - startTime);
-}

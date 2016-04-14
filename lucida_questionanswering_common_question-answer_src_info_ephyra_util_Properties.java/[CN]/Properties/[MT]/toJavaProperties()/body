@@ -1,5 +1,0 @@
-{
-  java.util.Properties properties=new java.util.Properties();
-  properties.putAll(this);
-  return properties;
-}

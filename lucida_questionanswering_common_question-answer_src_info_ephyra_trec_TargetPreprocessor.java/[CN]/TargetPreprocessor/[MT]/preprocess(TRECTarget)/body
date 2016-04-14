@@ -1,4 +1,0 @@
-{
-  normalize(target);
-  determineTypes(target);
-}

@@ -1,7 +1,0 @@
-{
-  Synset synset=getCommonSynset(verb,VERB);
-  if (synset == null)   return null;
-  Synset[] causing=getCausingSynsets(synset);
-  if (causing == null)   return null;
-  return getLemmas(causing);
-}

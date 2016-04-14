@@ -1,8 +1,0 @@
-{
-  String[] atypes=getAtypes(args[0]);
-  System.out.println(args[0]);
-  for (  String atype : atypes) {
-    System.out.println(atype);
-  }
-  System.out.println("Done!");
-}

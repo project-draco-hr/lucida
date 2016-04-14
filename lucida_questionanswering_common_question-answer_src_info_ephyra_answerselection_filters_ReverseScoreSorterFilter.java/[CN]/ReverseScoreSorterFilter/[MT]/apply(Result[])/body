@@ -1,4 +1,0 @@
-{
-  Arrays.sort(results);
-  return results;
-}

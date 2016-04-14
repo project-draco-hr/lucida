@@ -1,5 +1,0 @@
-{
-  int max=0;
-  for (Iterator<String> keys=counters.keySet().iterator(); keys.hasNext(); )   max=Math.max(max,counters.get(keys.next()).getValue());
-  return max;
-}

@@ -1,6 +1,0 @@
-{
-  s=s.toLowerCase();
-  String tokens[]=NETagger.tokenize(s);
-  for (int i=0; i < tokens.length; i++)   tokens[i]=SnowballStemmer.stem(tokens[i]);
-  return concatWithSpaces(tokens);
-}

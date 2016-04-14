@@ -1,5 +1,0 @@
-{
-  this.normalizationMode=normalizationMode;
-  this.tfNormalizationMode=tfNormalizationMode;
-  this.isCombined=isCombined;
-}

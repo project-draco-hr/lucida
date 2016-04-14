@@ -1,5 +1,0 @@
-{
-  float sum=combSUM(scores,totalExtractors);
-  float mnz=sum * scores.length;
-  return mnz;
-}

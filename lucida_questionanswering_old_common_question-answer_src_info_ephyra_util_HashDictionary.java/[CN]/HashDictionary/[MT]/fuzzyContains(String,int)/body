@@ -1,9 +1,0 @@
-{
-  word=NETagger.tokenizeWithSpaces(word.trim().toLowerCase());
-  word=SnowballStemmer.stemAllTokens(word);
-  if (maxDistance == 0)   return this.words.contains(word);
- else   if (this.words.contains(word))   return true;
-  Iterator<String> wordIter=this.words.iterator();
-  while (wordIter.hasNext())   if (getLevenshteinDistance(word,wordIter.next(),maxDistance,true,1,1) <= maxDistance)   return true;
-  return false;
-}

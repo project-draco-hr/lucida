@@ -1,3 +1,0 @@
-{
-  return ((float)correct) / (correct + wrong);
-}

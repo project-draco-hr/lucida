@@ -1,5 +1,0 @@
-{
-  ArrayList<Object[]> subsets=new ArrayList<Object[]>();
-  getAllSubsetsRec(subsets,new ArrayList<Object>(),objects,0);
-  return subsets.toArray(new Object[subsets.size()][]);
-}

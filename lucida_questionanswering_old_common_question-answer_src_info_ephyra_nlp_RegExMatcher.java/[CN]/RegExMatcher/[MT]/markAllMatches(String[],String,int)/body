@@ -1,3 +1,0 @@
-{
-  return markAllMatches(tokens,Pattern.compile(regEx),maxTokens);
-}

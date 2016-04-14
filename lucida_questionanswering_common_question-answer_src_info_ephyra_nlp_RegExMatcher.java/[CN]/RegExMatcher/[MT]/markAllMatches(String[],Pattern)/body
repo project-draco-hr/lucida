@@ -1,3 +1,0 @@
-{
-  return markAllMatches(tokens,pattern,MAX_TOKENS);
-}

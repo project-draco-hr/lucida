@@ -1,5 +1,0 @@
-{
-  this.target=target;
-  this.targetType=targetType;
-  this.propertyNames=getPropertiesForTargetType(this.targetType);
-}

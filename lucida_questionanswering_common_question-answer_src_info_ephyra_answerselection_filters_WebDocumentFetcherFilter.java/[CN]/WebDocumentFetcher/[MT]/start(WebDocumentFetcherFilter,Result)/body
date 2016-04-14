@@ -1,7 +1,0 @@
-{
-  this.filter=filter;
-  this.snippet=snippet;
-  filter.waitForPending();
-  start();
-  filter.incPending();
-}

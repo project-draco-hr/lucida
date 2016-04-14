@@ -1,3 +1,0 @@
-{
-  return get(name) != null ? get(name).trim() : null;
-}

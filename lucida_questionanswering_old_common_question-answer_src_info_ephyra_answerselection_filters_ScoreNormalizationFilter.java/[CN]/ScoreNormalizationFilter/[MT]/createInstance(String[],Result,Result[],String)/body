@@ -1,5 +1,0 @@
-{
-  MutableInstance instance=new MutableInstance(result,qid);
-  addSelectedFeatures(instance,features,result,results);
-  return instance;
-}

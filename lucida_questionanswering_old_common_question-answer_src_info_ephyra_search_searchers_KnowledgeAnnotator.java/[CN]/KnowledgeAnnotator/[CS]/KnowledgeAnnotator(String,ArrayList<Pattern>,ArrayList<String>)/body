@@ -1,5 +1,0 @@
-{
-  this.name=name;
-  this.qPatterns=qPatterns;
-  this.qContents=qContents;
-}

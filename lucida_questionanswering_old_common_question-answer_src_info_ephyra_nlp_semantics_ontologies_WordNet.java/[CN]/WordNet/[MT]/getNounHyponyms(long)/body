@@ -1,3 +1,0 @@
-{
-  return getHyponyms(POS.NOUN,offset);
-}

@@ -1,4 +1,0 @@
-{
-  text=tokenizeWithSpaces(text);
-  return text.split(" ");
-}

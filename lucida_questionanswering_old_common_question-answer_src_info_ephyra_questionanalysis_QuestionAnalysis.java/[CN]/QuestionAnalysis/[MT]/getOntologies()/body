@@ -1,3 +1,0 @@
-{
-  return ontologies.toArray(new Ontology[ontologies.size()]);
-}

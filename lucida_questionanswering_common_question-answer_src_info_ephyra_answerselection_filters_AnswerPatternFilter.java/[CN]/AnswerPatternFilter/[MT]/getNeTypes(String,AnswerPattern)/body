@@ -1,7 +1,0 @@
-{
-  ArrayList<String> neTypes=new ArrayList<String>();
-  String[] propertyTypes=pattern.getPropertyTypes();
-  if (propertyTypes == null)   return null;
-  for (  String propertyType : propertyTypes)   if (pos.contains(propertyType))   neTypes.add(propertyType);
-  return neTypes.toArray(new String[neTypes.size()]);
-}

@@ -1,3 +1,0 @@
-{
-  if (statusMsgs)   printMessage("\n+++++ Filtering patterns (" + getTimestamp() + ") +++++");
-}

@@ -1,6 +1,0 @@
-{
-  if (!(o1 instanceof Result) || !(o2 instanceof Result))   throw new ClassCastException();
-  Result r1=(Result)o1;
-  Result r2=(Result)o2;
-  return r1.getAnswer().length() - r2.getAnswer().length();
-}

@@ -1,6 +1,0 @@
-{
-  total=0;
-  distinct=0;
-  index=new Hashtable<String,Integer>(10000);
-  return updateIndexFromFile(filename);
-}

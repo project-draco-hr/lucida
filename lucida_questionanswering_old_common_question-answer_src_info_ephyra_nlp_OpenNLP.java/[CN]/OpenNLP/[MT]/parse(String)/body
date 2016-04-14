@@ -1,3 +1,0 @@
-{
-  return (parser != null && sentence.length() > 0) ? TreebankParser.parseLine(sentence,parser,1)[0] : null;
-}

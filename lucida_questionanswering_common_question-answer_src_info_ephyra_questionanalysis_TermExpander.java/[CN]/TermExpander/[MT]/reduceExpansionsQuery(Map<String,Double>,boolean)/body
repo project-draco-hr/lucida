@@ -1,6 +1,0 @@
-{
-  HashMap<String,Double> map=new HashMap<String,Double>();
-  for (  String expansion : expansions.keySet())   map.put(expansion,expansions.get(expansion));
-  cutOffExpansions(map,MAX_EXPANSIONS_QUERY,MIN_EXPANSION_WEIGHT_QUERY,strict);
-  return map;
-}

@@ -1,7 +1,0 @@
-{
-  Synset synset=getCommonSynset(verb,VERB);
-  if (synset == null)   return null;
-  Synset[] entailing=getEntailingSynsets(synset);
-  if (entailing == null)   return null;
-  return getLemmas(entailing);
-}

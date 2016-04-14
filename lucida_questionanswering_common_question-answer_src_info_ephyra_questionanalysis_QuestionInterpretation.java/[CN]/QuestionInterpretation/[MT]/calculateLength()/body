@@ -1,4 +1,0 @@
-{
-  length=target.length();
-  for (  String c : context)   length+=c.length();
-}
