@@ -1,0 +1,5 @@
+{
+  this.imgB64Encoding=imgB64Encoding;
+  setImgB64EncodingIsSet(true);
+  return this;
+}

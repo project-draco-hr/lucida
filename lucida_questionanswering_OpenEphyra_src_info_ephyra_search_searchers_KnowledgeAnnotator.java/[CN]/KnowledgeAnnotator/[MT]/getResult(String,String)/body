@@ -1,0 +1,6 @@
+{
+  Result[] results=new Result[1];
+  results[0]=new Result(answer,query,docID);
+  results[0].setScore(Float.POSITIVE_INFINITY);
+  return results;
+}

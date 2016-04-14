@@ -1,0 +1,4 @@
+{
+  String[][] nes=getNes(sentence);
+  return getTerms(sentence,nes,dicts);
+}

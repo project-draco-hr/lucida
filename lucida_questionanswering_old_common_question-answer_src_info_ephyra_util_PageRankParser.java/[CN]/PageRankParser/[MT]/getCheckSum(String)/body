@@ -1,0 +1,8 @@
+{
+  if (!validUrl(url)) {
+    return 0;
+  }
+ else {
+    return generateCheckSum(strord("info:" + url));
+  }
+}

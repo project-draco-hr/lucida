@@ -1,0 +1,8 @@
+{
+  if (parser != null)   return;
+  Properties properties=Properties.loadFromClassName(StanfordParser.class.getName());
+  tlp=new PennTreebankLanguagePack();
+  String modelFile=properties.getProperty("modelFile");
+  if (modelFile == null)   throw new Exception("Required property '" + "modelFile' is undefined");
+  parser=new LexicalizedParser(modelFile);
+}

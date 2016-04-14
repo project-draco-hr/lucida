@@ -1,0 +1,15 @@
+{
+  IndexEnvironment env=new IndexEnvironment();
+  try {
+    env.setStemmer("krovetz");
+    env.open(Indri_repo);
+    commitTexts(env);
+    commitFiles(env);
+    commitUrls(env);
+    env.close();
+    MsgPrinter.printStatusMsg(env.documentsIndexed() + " documents indexed.");
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

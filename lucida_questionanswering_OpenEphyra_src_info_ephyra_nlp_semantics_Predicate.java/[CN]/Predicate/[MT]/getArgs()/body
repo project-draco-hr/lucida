@@ -1,0 +1,16 @@
+{
+  ArrayList<String> argsList=new ArrayList<String>();
+  for (  String arg : args)   if (arg != null)   argsList.add(arg);
+  if (argLOC != null)   argsList.add(argLOC);
+  if (argCAU != null)   argsList.add(argCAU);
+  if (argEXT != null)   argsList.add(argEXT);
+  if (argTMP != null)   argsList.add(argTMP);
+  if (argDIS != null)   argsList.add(argDIS);
+  if (argPNC != null)   argsList.add(argPNC);
+  if (argADV != null)   argsList.add(argADV);
+  if (argMNR != null)   argsList.add(argMNR);
+  if (argNEG != null)   argsList.add(argNEG);
+  if (argDIR != null)   argsList.add(argDIR);
+  if (argMOD != null)   argsList.add(argMOD);
+  return argsList.toArray(new String[argsList.size()]);
+}

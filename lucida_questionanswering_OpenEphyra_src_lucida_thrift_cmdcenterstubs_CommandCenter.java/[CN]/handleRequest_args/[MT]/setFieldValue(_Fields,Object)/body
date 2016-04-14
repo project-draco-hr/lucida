@@ -1,0 +1,12 @@
+{
+switch (field) {
+case DATA:
+    if (value == null) {
+      unsetData();
+    }
+ else {
+      setData((QueryData)value);
+    }
+  break;
+}
+}

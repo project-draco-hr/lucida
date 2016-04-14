@@ -1,0 +1,3 @@
+QAService.Processor processor
+int port
+int cmdcenterport

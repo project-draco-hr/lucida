@@ -1,0 +1,7 @@
+{
+switch (field) {
+case DATA:
+    return getData();
+}
+throw new IllegalStateException();
+}

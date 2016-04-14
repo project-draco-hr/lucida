@@ -1,0 +1,6 @@
+{
+  ArrayList<File> files=new ArrayList<File>();
+  File[] filesOrDirs=new File(dir).listFiles();
+  for (  File fileOrDir : filesOrDirs)   if (fileOrDir.isFile())   files.add(fileOrDir);
+  return files.toArray(new File[files.size()]);
+}

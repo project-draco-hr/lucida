@@ -1,0 +1,12 @@
+{
+  NamedNodeMap ruleAttributes=ruleElement.getAttributes();
+  this.atype=ruleAttributes.getNamedItem("atype").getNodeValue().toString();
+  this.confidence=Double.parseDouble(ruleAttributes.getNamedItem("conf").getNodeValue().toString());
+  this.elements=new ArrayList<RuleElement>();
+  NodeList ruleElementList=ruleElement.getChildNodes();
+  for (int j=0; j < ruleElementList.getLength(); j++) {
+    Node ruleElementElement=ruleElementList.item(j);
+    if (!ruleElementElement.getNodeName().equals("RULE_ELEMENT"))     continue;
+    elements.add(new RuleElement((Element)ruleElementElement));
+  }
+}

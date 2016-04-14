@@ -1,0 +1,37 @@
+{
+  struct.validate();
+  oprot.writeStructBegin(STRUCT_DESC);
+  if (struct.audioData != null) {
+    oprot.writeFieldBegin(AUDIO_DATA_FIELD_DESC);
+    oprot.writeString(struct.audioData);
+    oprot.writeFieldEnd();
+  }
+  if (struct.audioFormat != null) {
+    oprot.writeFieldBegin(AUDIO_FORMAT_FIELD_DESC);
+    oprot.writeString(struct.audioFormat);
+    oprot.writeFieldEnd();
+  }
+  oprot.writeFieldBegin(AUDIO_B64_ENCODING_FIELD_DESC);
+  oprot.writeBool(struct.audioB64Encoding);
+  oprot.writeFieldEnd();
+  if (struct.imgData != null) {
+    oprot.writeFieldBegin(IMG_DATA_FIELD_DESC);
+    oprot.writeString(struct.imgData);
+    oprot.writeFieldEnd();
+  }
+  if (struct.imgFormat != null) {
+    oprot.writeFieldBegin(IMG_FORMAT_FIELD_DESC);
+    oprot.writeString(struct.imgFormat);
+    oprot.writeFieldEnd();
+  }
+  oprot.writeFieldBegin(IMG_B64_ENCODING_FIELD_DESC);
+  oprot.writeBool(struct.imgB64Encoding);
+  oprot.writeFieldEnd();
+  if (struct.textData != null) {
+    oprot.writeFieldBegin(TEXT_DATA_FIELD_DESC);
+    oprot.writeString(struct.textData);
+    oprot.writeFieldEnd();
+  }
+  oprot.writeFieldStop();
+  oprot.writeStructEnd();
+}

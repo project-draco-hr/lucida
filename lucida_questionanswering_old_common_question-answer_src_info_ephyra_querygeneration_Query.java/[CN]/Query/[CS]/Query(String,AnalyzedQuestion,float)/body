@@ -1,0 +1,5 @@
+{
+  this(queryString);
+  this.analyzedQuestion=analyzedQuestion;
+  this.score=score;
+}

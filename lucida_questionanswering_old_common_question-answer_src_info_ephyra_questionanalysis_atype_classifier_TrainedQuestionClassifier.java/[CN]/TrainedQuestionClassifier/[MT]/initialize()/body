@@ -1,0 +1,11 @@
+{
+  if (isInitialized())   return;
+  if (languagePair == null)   throw new Exception("languagePair must be set before calling initialize");
+  super.initialize();
+  Properties properties=Properties.loadFromClassName(this.getClass().getName());
+  properties=properties.mapProperties().get(languagePair.getFirst() + "_" + languagePair.getSecond());
+  String classifierFileName=properties.get("classifierFile");
+  if (classifierFileName == null)   throw new RuntimeException("Required property classifierFile is undefined'");
+  classifier=(Classifier)IOUtil.loadSerialized(new File(classifierFileName));
+  setInitialized(true);
+}

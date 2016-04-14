@@ -1,0 +1,18 @@
+{
+  if (elements == null)   throw new IllegalStateException("Must compile rule before using it");
+  String retAtype=atype;
+  AnswerType res=null;
+  for (  RuleElement element : elements) {
+    String result=element.matches(instance);
+    if (result == null) {
+      return null;
+    }
+ else     if (element.getFeature().equals("FOCUS_TYPE")) {
+      result=result.toUpperCase();
+      if (!result.equals(atype) && result != "")       retAtype=atype + "." + result;
+    }
+  }
+  res=AnswerType.constructFromString(retAtype);
+  res.setConfidence(confidence);
+  return res;
+}

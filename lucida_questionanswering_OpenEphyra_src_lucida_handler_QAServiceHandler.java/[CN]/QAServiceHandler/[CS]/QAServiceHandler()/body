@@ -1,0 +1,7 @@
+{
+  String dir="";
+  MsgPrinter.enableStatusMsgs(true);
+  MsgPrinter.enableErrorMsgs(true);
+  oe=new OpenEphyra(dir);
+  defaultAnswer="Factoid not found in knowledge base.";
+}

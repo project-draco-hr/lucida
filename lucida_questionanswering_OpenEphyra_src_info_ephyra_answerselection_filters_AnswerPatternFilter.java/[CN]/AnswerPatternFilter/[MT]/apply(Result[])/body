@@ -1,0 +1,30 @@
+{
+  Hashtable<String,Result> factoids=new Hashtable<String,Result>();
+  for (  Result result : results) {
+    Query query=result.getQuery();
+    QuestionInterpretation qi=query.getInterpretation();
+    if (!query.extractWith(ID) || qi == null || result.getScore() > Float.NEGATIVE_INFINITY)     continue;
+    extractPos(result);
+    for (int i=0; i < extr.size(); i++) {
+      String po=extr.get(i);
+      String[] neTypes=types.get(i);
+      String norm=StringUtils.normalize(po);
+      String sentence=sents.get(i);
+      float conf=aps.get(i).getConfidence();
+      Result factoid=factoids.get(norm);
+      if (factoid == null) {
+        factoid=new Result(po,result.getQuery(),result.getDocID());
+        factoid.setSentence(sentence);
+        factoid.addExtractionTechnique(ID);
+        factoids.put(norm,factoid);
+      }
+      if (neTypes != null)       for (      String neType : neTypes)       factoid.addNeType(neType);
+      factoid.incScore(conf);
+    }
+  }
+  Result[] newResults=factoids.values().toArray(new Result[factoids.size()]);
+  Result[] allResults=new Result[results.length + newResults.length];
+  for (int i=0; i < results.length; i++)   allResults[i]=results[i];
+  for (int i=0; i < newResults.length; i++)   allResults[results.length + i]=newResults[i];
+  return allResults;
+}

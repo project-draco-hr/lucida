@@ -1,0 +1,11 @@
+{
+  try {
+    TServerTransport serverTransport=new TServerSocket(port);
+    TServer server=new TSimpleServer(new Args(serverTransport).processor(processor));
+    System.out.println("Starting the question-answer server at port " + port + "...");
+    server.serve();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

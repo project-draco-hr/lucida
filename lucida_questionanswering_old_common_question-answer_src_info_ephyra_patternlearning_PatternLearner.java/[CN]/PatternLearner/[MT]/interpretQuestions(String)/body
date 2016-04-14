@@ -1,0 +1,13 @@
+{
+  boolean success=true;
+  for (int i=0; i < qss.length; i++) {
+    MsgPrinter.printQuestionString(qss[i]);
+    String qn=QuestionNormalizer.normalize(qss[i]);
+    String stemmed=QuestionNormalizer.stemVerbsAndNouns(qn);
+    MsgPrinter.printNormalization(stemmed);
+    QuestionInterpretation[] qis=QuestionInterpreter.interpret(qn,stemmed);
+    MsgPrinter.printInterpretations(qis);
+    for (    QuestionInterpretation qi : qis)     if (!saveInterpretation(dir,qi,ass.get(qss[i]),regexs.get(qss[i])))     success=false;
+  }
+  return success;
+}

@@ -1,0 +1,4 @@
+{
+  for (  Result r : results)   r.setScore(0f);
+  return results;
+}

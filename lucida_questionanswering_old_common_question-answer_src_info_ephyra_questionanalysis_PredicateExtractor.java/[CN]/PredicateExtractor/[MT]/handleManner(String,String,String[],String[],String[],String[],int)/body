@@ -1,0 +1,30 @@
+{
+  if (i + 1 == tokens.length || !(pos[i + 1].matches("JJ") || pos[i + 1].matches("RB"))) {
+    verbMod=verbMod.replaceFirst(MANNER_P,"") + " " + MANNER_R;
+  }
+ else {
+    String phrase=tokens[i];
+    int j;
+    for (j=i + 1; j < tokens.length; j++)     if (!pos[j].startsWith("VB") && !chunks[j].endsWith("-VP") && !(j == tokens.length - 1 && pos[j].equals(".")))     phrase+=" " + tokens[j];
+ else     break;
+    phrase=phraseToRegex(phrase);
+    boolean replaced=false;
+    for (    String at : ats)     if (at.startsWith("NEduration")) {
+      verbMod=verbMod.replaceFirst(phrase,"") + " " + DURATION_R;
+      replaced=true;
+      break;
+    }
+    if (!replaced) {
+      Matcher m=Pattern.compile(phrase).matcher(qn);
+      if (m.find()) {
+        String replacement=m.group(0).replaceFirst(MANNER_P,QUANTIFICATION_R);
+        boolean auxiliary=(j + 1 < tokens.length && !verbMod.matches(".*?" + phraseToRegex(tokens[j] + " " + tokens[j + 1]) + ".*+")) ? true : false;
+        if (auxiliary) {
+          verbMod=verbMod.replaceFirst(phrase,"") + " " + replacement;
+        }
+ else         verbMod=verbMod.replaceFirst(phrase,replacement);
+      }
+    }
+  }
+  return verbMod;
+}

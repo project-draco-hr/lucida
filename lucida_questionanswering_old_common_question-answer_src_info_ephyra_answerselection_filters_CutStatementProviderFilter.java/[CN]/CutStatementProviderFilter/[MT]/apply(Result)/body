@@ -1,0 +1,6 @@
+{
+  String text=result.getAnswer();
+  Matcher matcher=PROVIDER_AT_START.matcher(text);
+  if (matcher.matches())   result.setAnswer(text.substring(matcher.group(1).length()).trim());
+  return result;
+}

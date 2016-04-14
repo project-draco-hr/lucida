@@ -1,0 +1,17 @@
+{
+  if (!enabled || logfile == null)   return false;
+  DecimalFormat df=new DecimalFormat();
+  df.setMaximumFractionDigits(3);
+  df.setMinimumFractionDigits(3);
+  try {
+    PrintWriter out=new PrintWriter(new FileOutputStream(logfile,true));
+    out.println("<factoidscore abs_thresh=\"" + absThresh + "\">");
+    out.println("\t" + df.format(score));
+    out.println("</factoidscore>");
+    out.close();
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

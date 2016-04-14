@@ -1,0 +1,42 @@
+{
+  extr=new ArrayList<String>();
+  types=new ArrayList<String[]>();
+  sents=new ArrayList<String>();
+  aps=new ArrayList<AnswerPattern>();
+  QuestionInterpretation qi=result.getQuery().getInterpretation();
+  String to=qi.getTarget();
+  String[] cos=new String[0];
+  String prop=qi.getProperty();
+  String answer=result.getAnswer();
+  HashSet<AnswerPattern> patterns=props.get(prop);
+  if (patterns == null)   return;
+  to=NETagger.tokenizeWithSpaces(to);
+  for (int i=0; i < cos.length; i++)   cos[i]=NETagger.tokenizeWithSpaces(cos[i]);
+  String[] originalSentences=OpenNLP.sentDetect(answer);
+  String[][] tokens=new String[originalSentences.length][];
+  String[] sentences=new String[originalSentences.length];
+  for (int i=0; i < originalSentences.length; i++) {
+    tokens[i]=NETagger.tokenize(originalSentences[i]);
+    sentences[i]=StringUtils.concatWithSpaces(tokens[i]);
+  }
+  String[][][] nes=NETagger.extractNes(tokens);
+  for (int i=0; i < sentences.length; i++) {
+    sentences[i]=prepSentence(sentences[i],to,cos,nes[i]);
+    if (sentences[i] == null)     continue;
+    for (    AnswerPattern pattern : patterns) {
+      String[] pos=pattern.apply(sentences[i]);
+      String[][] neTypes=new String[pos.length][];
+      for (int j=0; j < pos.length; j++)       neTypes[j]=getNeTypes(pos[j],pattern);
+      for (int j=0; j < pos.length; j++) {
+        pos[j]=replaceTags(pos[j]);
+        pos[j]=OpenNLP.untokenize(pos[j],originalSentences[i]);
+      }
+      for (int j=0; j < pos.length; j++) {
+        extr.add(pos[j]);
+        types.add(neTypes[j]);
+        sents.add(originalSentences[i]);
+        aps.add(pattern);
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  Matcher matcher=pattern.matcher(text);
+  ArrayList<String> matches=new ArrayList<String>();
+  while (matcher.find()) {
+    String match=matcher.group(0);
+    matches.add(match);
+  }
+  return matches.toArray(new String[matches.size()]);
+}

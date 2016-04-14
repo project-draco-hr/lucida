@@ -1,0 +1,8 @@
+{
+  prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("registerService",org.apache.thrift.protocol.TMessageType.CALL,0));
+  registerService_args args=new registerService_args();
+  args.setServiceType(serviceType);
+  args.setMDataObj(mDataObj);
+  args.write(prot);
+  prot.writeMessageEnd();
+}

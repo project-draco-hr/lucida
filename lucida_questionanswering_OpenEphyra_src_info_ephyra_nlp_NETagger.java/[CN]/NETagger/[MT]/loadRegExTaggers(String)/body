@@ -1,0 +1,91 @@
+{
+  if (patterns.length > 0)   return;
+  MsgPrinter.printStatusMsg("  ...loading patterns");
+  ArrayList<String> patternNameList=new ArrayList<String>();
+  ArrayList<Pattern> patternList=new ArrayList<Pattern>();
+  ArrayList<Integer> patternMaxTokensList=new ArrayList<Integer>();
+  ArrayList<String> quantityPatternNameList=new ArrayList<String>();
+  ArrayList<Pattern> quantityPatternList=new ArrayList<Pattern>();
+  ArrayList<Integer> quantityPatternMaxTokensList=new ArrayList<Integer>();
+  ArrayList<String> quantityUnitPatternNameList=new ArrayList<String>();
+  ArrayList<Pattern> quantityUnitPatternList=new ArrayList<Pattern>();
+  ArrayList<Integer> quantityUnitPatternMaxTokensList=new ArrayList<Integer>();
+  try {
+    BufferedReader br=new BufferedReader(new FileReader(regExListFileName));
+    String line;
+    while ((line=br.readLine()) != null) {
+      String neName="NE" + line;
+      String patternFieldNamePrefix="";
+      for (int c=0; c < line.length(); c++) {
+        char ch=line.charAt(c);
+        if (Character.isUpperCase(ch))         patternFieldNamePrefix+="_" + ch;
+ else         patternFieldNamePrefix+=Character.toUpperCase(ch);
+      }
+      String regExFieldName=patternFieldNamePrefix;
+      String patternFieldName=patternFieldNamePrefix + "_PATTERN";
+      String maxTokensFieldName=patternFieldNamePrefix + "_MAX_TOKENS";
+      try {
+        Field regExField=RegExMatcher.class.getField(regExFieldName);
+        Field patternField=RegExMatcher.class.getField(patternFieldName);
+        Field maxTokensField=RegExMatcher.class.getField(maxTokensFieldName);
+        String regEx=regExField.get(null).toString();
+        Pattern pattern=((Pattern)patternField.get(null));
+        int maxTokens=maxTokensField.getInt(null);
+        boolean isQuantity=((regEx.indexOf(RegExMatcher.NUMBER) != -1) && !regEx.equals(RegExMatcher.NUMBER));
+        if (isQuantity) {
+          try {
+            String unitPatternFieldName=patternFieldNamePrefix + "_UNIT_PATTERN";
+            String unitMaxTokensFieldName=patternFieldNamePrefix + "_UNIT_MAX_TOKENS";
+            Field unitPatternField=RegExMatcher.class.getField(unitPatternFieldName);
+            Field unitMaxTokensField=RegExMatcher.class.getField(unitMaxTokensFieldName);
+            Pattern unitPattern=((Pattern)unitPatternField.get(null));
+            int unitMaxTokens=unitMaxTokensField.getInt(null);
+            quantityPatternNameList.add(neName);
+            quantityPatternList.add(pattern);
+            quantityPatternMaxTokensList.add(new Integer(maxTokens));
+            quantityUnitPatternNameList.add(neName);
+            quantityUnitPatternList.add(unitPattern);
+            quantityUnitPatternMaxTokensList.add(new Integer(unitMaxTokens));
+          }
+ catch (          Exception e) {
+            isQuantity=false;
+          }
+        }
+        if (!isQuantity) {
+          patternNameList.add(neName);
+          patternList.add(pattern);
+          patternMaxTokensList.add(new Integer(maxTokens));
+        }
+        MsgPrinter.printStatusMsg("    ...for " + neName);
+      }
+ catch (      Exception e) {
+        MsgPrinter.printErrorMsg("    ...could not add " + neName);
+      }
+    }
+    patternNames=new String[patternNameList.size()];
+    patterns=new Pattern[patternList.size()];
+    patternMaxTokens=new int[patternMaxTokensList.size()];
+    for (int p=0; p < patternNameList.size(); p++) {
+      patternNames[p]=patternNameList.get(p);
+      patterns[p]=patternList.get(p);
+      patternMaxTokens[p]=patternMaxTokensList.get(p).intValue();
+    }
+    quantityPatternNames=new String[quantityPatternNameList.size()];
+    quantityPatterns=new Pattern[quantityPatternList.size()];
+    quantityUnitPatterns=new Pattern[quantityUnitPatternList.size()];
+    quantityUnitPatternMaxTokens=new int[quantityUnitPatternMaxTokensList.size()];
+    for (int p=0; p < quantityPatternNameList.size(); p++) {
+      quantityPatternNames[p]=quantityPatternNameList.get(p);
+      quantityPatterns[p]=quantityPatternList.get(p);
+      quantityUnitPatterns[p]=quantityUnitPatternList.get(p);
+      quantityUnitPatternMaxTokens[p]=quantityUnitPatternMaxTokensList.get(p);
+    }
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+  allPatternNames=new String[patterns.length + 1 + quantityUnitPatterns.length];
+  for (int i=0; i < patternNames.length; i++)   allPatternNames[i]=patternNames[i];
+  allPatternNames[patternNames.length]="NEnumber";
+  for (int i=0; i < quantityPatternNames.length; i++)   allPatternNames[patternNames.length + i + 1]=quantityPatternNames[i];
+}

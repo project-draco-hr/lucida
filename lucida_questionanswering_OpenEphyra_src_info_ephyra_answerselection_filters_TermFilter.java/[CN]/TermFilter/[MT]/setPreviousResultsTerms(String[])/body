@@ -1,0 +1,4 @@
+{
+  previousResultTerms.clear();
+  if (results != null)   for (  String r : results)   previousResultTerms.add(r);
+}

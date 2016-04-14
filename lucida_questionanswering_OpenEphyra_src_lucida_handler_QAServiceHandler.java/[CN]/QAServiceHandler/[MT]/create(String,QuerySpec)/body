@@ -1,0 +1,4 @@
+{
+  MsgPrinter.printStatusMsg("@@@@@ Create; User: " + LUCID);
+  User.addUser(LUCID);
+}

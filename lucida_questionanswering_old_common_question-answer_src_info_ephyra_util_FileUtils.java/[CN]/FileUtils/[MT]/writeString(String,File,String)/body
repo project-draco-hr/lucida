@@ -1,0 +1,8 @@
+{
+  BufferedReader buffer=new BufferedReader(new StringReader(s));
+  FileOutputStream fos=new FileOutputStream(output);
+  PrintWriter writer=new PrintWriter(new OutputStreamWriter(fos,encoding));
+  for (String nextLine; (nextLine=buffer.readLine()) != null; )   writer.println(nextLine);
+  writer.close();
+  buffer.close();
+}

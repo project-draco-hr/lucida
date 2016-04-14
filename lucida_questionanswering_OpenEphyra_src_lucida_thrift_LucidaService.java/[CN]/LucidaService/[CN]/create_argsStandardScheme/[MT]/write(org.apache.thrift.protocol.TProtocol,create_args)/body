@@ -1,0 +1,16 @@
+{
+  struct.validate();
+  oprot.writeStructBegin(STRUCT_DESC);
+  if (struct.LUCID != null) {
+    oprot.writeFieldBegin(LUCID_FIELD_DESC);
+    oprot.writeString(struct.LUCID);
+    oprot.writeFieldEnd();
+  }
+  if (struct.spec != null) {
+    oprot.writeFieldBegin(SPEC_FIELD_DESC);
+    struct.spec.write(oprot);
+    oprot.writeFieldEnd();
+  }
+  oprot.writeFieldStop();
+  oprot.writeStructEnd();
+}

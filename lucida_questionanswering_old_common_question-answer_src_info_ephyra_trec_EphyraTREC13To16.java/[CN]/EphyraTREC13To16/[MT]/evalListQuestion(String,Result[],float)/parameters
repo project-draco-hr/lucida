@@ -1,0 +1,3 @@
+String qid
+Result[] results
+float relThresh

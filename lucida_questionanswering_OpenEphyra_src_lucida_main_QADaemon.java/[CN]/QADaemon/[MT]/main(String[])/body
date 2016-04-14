@@ -1,0 +1,31 @@
+{
+  try {
+    int tmp_port=9091;
+    int tmp_cmdcenterport=8081;
+    if (args.length == 2) {
+      tmp_port=Integer.parseInt(args[0].trim());
+      tmp_cmdcenterport=Integer.parseInt(args[1].trim());
+    }
+ else     if (args.length == 1) {
+      tmp_port=Integer.parseInt(args[0].trim());
+      System.out.println("Using default port for sirius: " + tmp_cmdcenterport);
+    }
+ else {
+      System.out.println("Using default port for qa: " + tmp_port);
+    }
+    final int port=tmp_port;
+    final int cmdcenterport=tmp_cmdcenterport;
+    handler=new QAServiceHandler();
+    processor=new LucidaService.Processor<QAServiceHandler>(handler);
+    Runnable simple=new Runnable(){
+      public void run(){
+        simple(processor,port,cmdcenterport);
+      }
+    }
+;
+    new Thread(simple).start();
+  }
+ catch (  Exception x) {
+    x.printStackTrace();
+  }
+}

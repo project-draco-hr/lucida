@@ -1,0 +1,106 @@
+{
+  if (results.length == 0)   return results;
+  String target=results[0].getQuery().getOriginalQueryString();
+  System.out.println("WebTermImportanceFilter:\n processing target '" + target + "'");
+  HashMap<String,TermCounter> rawTermCounters=this.cacheLookup(target);
+  if (TEST_TARGET_GENERATION) {
+    String[] targets=this.getTargets(target);
+    System.out.println(" generated web serach Strings:");
+    for (    String t : targets)     System.out.println(" - " + t);
+    return results;
+  }
+ else   if (rawTermCounters == null) {
+    String[] targets=this.getTargets(target);
+    System.out.println(" web serach Strings are");
+    for (    String t : targets)     System.out.println(" - " + t);
+    rawTermCounters=this.getTermCounters(targets);
+    this.cache(target,rawTermCounters);
+  }
+  HashSet<String> rawTargetTerms=new HashSet<String>();
+  String[] targetTokens=OpenNLP.tokenize(target);
+  for (  String tt : targetTokens)   if (Character.isLetterOrDigit(tt.charAt(0)))   rawTargetTerms.add(tt);
+  HashMap<String,TermCounter> termCounters=new HashMap<String,TermCounter>();
+  HashSet<String> targetTerms=new HashSet<String>();
+  ArrayList<String> rawTerms=new ArrayList<String>(rawTermCounters.keySet());
+  for (  String rawTerm : rawTerms) {
+    String stemmedTerm=SnowballStemmer.stem(rawTerm.toLowerCase());
+    if (!termCounters.containsKey(stemmedTerm))     termCounters.put(stemmedTerm,new TermCounter());
+    termCounters.get(stemmedTerm).increment(rawTermCounters.get(rawTerm).getValue());
+    if (rawTargetTerms.contains(rawTerm))     targetTerms.add(stemmedTerm);
+  }
+  int termCount=this.getCountSum(termCounters);
+  int termCountLog=((termCount > 100) ? ((int)Math.log10(termCount)) : 2);
+  System.out.println("WebTermImportanceFilter: termCountLog is " + termCountLog);
+  ArrayList<Result> resultList=new ArrayList<Result>();
+  boolean goOn;
+  do {
+    goOn=false;
+    ArrayList<Result> rawResults=new ArrayList<Result>();
+    for (    Result r : results) {
+      if (r.getScore() != Float.NEGATIVE_INFINITY) {
+        String[] sentence=NETagger.tokenize(r.getAnswer());
+        float importance=0;
+        for (int i=0; i < sentence.length; i++) {
+          String term=sentence[i];
+          if ((term.length() > 1)) {
+            term=SnowballStemmer.stem(term.toLowerCase());
+            TermCounter count=termCounters.get(term);
+            if (count != null) {
+              double tf;
+              if (this.tfNormalizationMode == NO_NORMALIZATION)               tf=1;
+ else               if (this.tfNormalizationMode == LOG_LENGTH_NORMALIZATION) {
+                tf=WordFrequencies.lookup(sentence[i].toLowerCase());
+                if (tf > Math.E)                 tf=Math.log(tf);
+ else                 tf=1;
+              }
+ else               if (this.tfNormalizationMode == LOG_LENGTH_NORMALIZATION) {
+                tf=WordFrequencies.lookup(sentence[i].toLowerCase());
+                if (tf > 10)                 tf=Math.log10(tf);
+ else                 tf=1;
+              }
+ else               tf=1;
+              importance+=(count.getValue() / tf);
+            }
+          }
+        }
+        if (this.isCombined || (importance > 0)) {
+          if (this.normalizationMode == NO_NORMALIZATION)           r.setScore(importance);
+ else           if (this.normalizationMode == LINEAR_LENGTH_NORMALIZATION)           r.setScore(importance / sentence.length);
+ else           if (this.normalizationMode == SQUARE_ROOT_LENGTH_NORMALIZATION)           r.setScore(importance / ((float)Math.sqrt(sentence.length)));
+ else           if (this.normalizationMode == LOG_LENGTH_NORMALIZATION)           r.setScore(importance / (1 + ((float)Math.log(sentence.length))));
+ else           if (this.normalizationMode == LOG_10_LENGTH_NORMALIZATION)           r.setScore(importance / (1 + ((float)Math.log10(sentence.length))));
+          rawResults.add(r);
+        }
+      }
+    }
+    if (rawResults.size() != 0) {
+      Collections.sort(rawResults);
+      Collections.reverse(rawResults);
+      Result top=rawResults.remove(0);
+      resultList.add(top);
+      String[] sentence=NETagger.tokenize(top.getAnswer());
+      for (int i=0; i < sentence.length; i++) {
+        String term=SnowballStemmer.stem(sentence[i].toLowerCase());
+        TermCounter count=termCounters.get(term);
+        if (count != null) {
+          if (targetTerms.contains(term))           count.divideValue(2);
+ else           count.divideValue(termCountLog);
+          if (count.getValue() == 0)           termCounters.remove(term);
+        }
+      }
+      results=rawResults.toArray(new Result[rawResults.size()]);
+      goOn=true;
+    }
+  }
+ while (goOn);
+  Collections.sort(resultList);
+  Collections.reverse(resultList);
+  if (this.isCombined) {
+    float eScore=100;
+    for (    Result r : resultList) {
+      r.addExtraScore((this.getClass().getName() + this.normalizationMode),eScore);
+      eScore*=0.9f;
+    }
+  }
+  return resultList.toArray(new Result[resultList.size()]);
+}

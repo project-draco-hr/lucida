@@ -1,0 +1,11 @@
+{
+  Pattern p=Pattern.compile("(?i)(how|what|which|when|where|who|why)'" + "(s|re)");
+  Matcher m=p.matcher(question);
+  if (m.find()) {
+    String original=m.group();
+    String replaced=original.replace("'s"," is");
+    replaced=replaced.replace("'re"," are");
+    return question.replace(original,replaced);
+  }
+  return question;
+}

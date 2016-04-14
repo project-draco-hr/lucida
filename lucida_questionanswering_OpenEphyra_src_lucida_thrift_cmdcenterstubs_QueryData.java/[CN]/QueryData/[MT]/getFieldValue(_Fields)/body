@@ -1,0 +1,19 @@
+{
+switch (field) {
+case AUDIO_DATA:
+    return getAudioData();
+case AUDIO_FORMAT:
+  return getAudioFormat();
+case AUDIO_B64_ENCODING:
+return Boolean.valueOf(isAudioB64Encoding());
+case IMG_DATA:
+return getImgData();
+case IMG_FORMAT:
+return getImgFormat();
+case IMG_B64_ENCODING:
+return Boolean.valueOf(isImgB64Encoding());
+case TEXT_DATA:
+return getTextData();
+}
+throw new IllegalStateException();
+}

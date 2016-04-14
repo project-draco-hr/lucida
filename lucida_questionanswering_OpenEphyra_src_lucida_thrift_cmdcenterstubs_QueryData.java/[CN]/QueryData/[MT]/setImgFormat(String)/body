@@ -1,0 +1,4 @@
+{
+  this.imgFormat=imgFormat;
+  return this;
+}

@@ -1,0 +1,4 @@
+{
+  this.serviceType=null;
+  this.mDataObj=null;
+}

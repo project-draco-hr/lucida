@@ -1,0 +1,9 @@
+{
+  try {
+    parser=TreebankParser.getParser(dir);
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

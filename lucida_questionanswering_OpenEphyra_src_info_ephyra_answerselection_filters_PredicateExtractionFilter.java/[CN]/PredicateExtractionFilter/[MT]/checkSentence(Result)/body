@@ -1,0 +1,42 @@
+{
+  AnalyzedQuestion aq=sentence.getQuery().getAnalyzedQuestion();
+  String s=sentence.getAnswer();
+  if (s.length() > MAX_SENT_LENGTH_CHARS)   return false;
+  String[] tokens=NETagger.tokenize(s);
+  if (tokens.length > MAX_SENT_LENGTH_TOKENS)   return false;
+  String[] answerTypes=aq.getAnswerTypes();
+  if (answerTypes.length != 0) {
+    boolean newNE=false;
+    Map<String,String[]> extracted=extractNes(s,answerTypes);
+    String questionNorm=StringUtils.normalize(aq.getQuestion());
+    for (    String ne : extracted.keySet()) {
+      String neNorm=StringUtils.normalize(ne);
+      if (!StringUtils.isSubsetKeywords(neNorm,questionNorm)) {
+        newNE=true;
+        break;
+      }
+    }
+    if (!newNE)     return false;
+    sentence.setNes(extracted);
+  }
+  boolean match=false;
+  Term[] singleTerms=TermExtractor.getSingleTokenTerms(s);
+  Predicate[] questionPs=aq.getPredicates();
+  for (  Term singleTerm : singleTerms) {
+    for (    Predicate questionP : questionPs) {
+      if (!questionP.hasMissingArgs())       continue;
+      Term[] predicateTerms=questionP.getArgTerms();
+      for (      Term predicateTerm : predicateTerms)       if (predicateTerm.simScore(singleTerm.getLemma()) > 0) {
+        match=true;
+        break;
+      }
+      if (match)       break;
+    }
+    if (match)     break;
+  }
+  if (!match)   return false;
+  Dictionary[] dicts=QuestionAnalysis.getDictionaries();
+  Term[] multiTerms=TermExtractor.getTerms(s,dicts);
+  sentence.setTerms(multiTerms);
+  return true;
+}

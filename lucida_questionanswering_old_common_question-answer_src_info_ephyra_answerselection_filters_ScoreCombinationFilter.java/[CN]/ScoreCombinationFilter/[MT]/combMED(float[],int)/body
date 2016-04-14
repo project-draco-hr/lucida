@@ -1,0 +1,15 @@
+{
+  Arrays.sort(scores);
+  int zeroAnswers=totalExtractors - scores.length;
+  int m=totalExtractors / 2 - zeroAnswers;
+  float med;
+  if (totalExtractors % 2 == 1) {
+    med=(m >= 0 ? scores[m] : 0);
+  }
+ else {
+    med=(m >= 0 ? scores[m] : 0);
+    med+=(m - 1 >= 0 ? scores[m - 1] : 0);
+    med/=2;
+  }
+  return med;
+}

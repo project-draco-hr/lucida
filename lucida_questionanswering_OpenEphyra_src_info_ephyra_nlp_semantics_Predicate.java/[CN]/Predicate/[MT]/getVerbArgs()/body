@@ -1,0 +1,7 @@
+{
+  String[] args=getArgs();
+  String[] verbArgs=new String[args.length + 1];
+  verbArgs[0]=verb;
+  for (int i=0; i < args.length; i++)   verbArgs[i + 1]=args[i];
+  return verbArgs;
+}

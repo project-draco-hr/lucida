@@ -1,0 +1,17 @@
+{
+  if (dict == null)   return false;
+  if (word.matches(".*?[^\\w\\s\\.].*+"))   return false;
+  IndexWord indexWord=null;
+  try {
+    indexWord=dict.lookupIndexWord(POS.NOUN,word);
+  }
+ catch (  JWNLException e) {
+  }
+  if (indexWord == null)   return false;
+  int wordTokens=word.split("\\s",-1).length;
+  int wordDots=word.split("\\.",-1).length;
+  String lemma=indexWord.getLemma();
+  int lemmaTokens=lemma.split("\\s",-1).length;
+  int lemmaDots=lemma.split("\\.",-1).length;
+  return wordTokens == lemmaTokens && wordDots == lemmaDots;
+}

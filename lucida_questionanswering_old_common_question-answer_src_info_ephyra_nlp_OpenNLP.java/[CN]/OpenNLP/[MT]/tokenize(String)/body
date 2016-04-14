@@ -1,0 +1,3 @@
+{
+  return (tokenizer != null) ? tokenizer.tokenize(text) : null;
+}

@@ -1,0 +1,6 @@
+{
+  registerService_args args=new registerService_args();
+  args.setServiceType(serviceType);
+  args.setMDataObj(mDataObj);
+  sendBase("registerService",args);
+}

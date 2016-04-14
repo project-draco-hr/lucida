@@ -1,0 +1,38 @@
+{
+  File[] files=FileUtils.getFiles(dir);
+  try {
+    BufferedReader in;
+    String prop, line;
+    for (    File file : files) {
+      prop=file.getName();
+      in=new BufferedReader(new FileReader(file));
+      while (in.ready()) {
+        line=in.readLine().trim();
+        if (line.length() == 0 || line.startsWith("//"))         continue;
+        if (line.startsWith("QUESTION_TEMPLATE")) {
+          String[] tokens=line.split("\\s+",2);
+          if (tokens.length > 1)           questionTemplates.put(prop,tokens[1]);
+        }
+ else         if (line.startsWith("ANSWER_TEMPLATE")) {
+          String[] tokens=line.split("\\s+",2);
+          if (tokens.length > 1)           answerTemplates.put(prop,tokens[1]);
+        }
+ else {
+          try {
+            questionPatterns.add(new QuestionPattern(line,prop));
+            addKeywords(line,prop);
+          }
+ catch (          PatternSyntaxException pse) {
+            MsgPrinter.printErrorMsg("Problem loading pattern:\n" + prop + " "+ line);
+            MsgPrinter.printErrorMsg(pse.getMessage());
+          }
+        }
+      }
+      in.close();
+    }
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

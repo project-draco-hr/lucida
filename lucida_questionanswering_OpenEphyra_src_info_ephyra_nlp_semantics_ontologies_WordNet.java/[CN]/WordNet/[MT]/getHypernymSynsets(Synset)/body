@@ -1,0 +1,10 @@
+{
+  PointerTargetNodeList hypernyms=null;
+  try {
+    hypernyms=PointerUtils.getInstance().getDirectHypernyms(synset);
+  }
+ catch (  JWNLException e) {
+  }
+  if (hypernyms == null)   return null;
+  return getSynsets(hypernyms);
+}

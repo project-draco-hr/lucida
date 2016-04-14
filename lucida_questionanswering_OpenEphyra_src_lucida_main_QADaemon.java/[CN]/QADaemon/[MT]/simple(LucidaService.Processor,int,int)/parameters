@@ -1,0 +1,3 @@
+LucidaService.Processor processor
+int port
+int cmdcenterport

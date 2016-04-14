@@ -1,0 +1,9 @@
+{
+  Word[] words=synset.getWords();
+  String[] lemmas=new String[words.length];
+  for (int i=0; i < words.length; i++) {
+    lemmas[i]=words[i].getLemma();
+    lemmas[i]=lemmas[i].replace("_"," ");
+  }
+  return lemmas;
+}

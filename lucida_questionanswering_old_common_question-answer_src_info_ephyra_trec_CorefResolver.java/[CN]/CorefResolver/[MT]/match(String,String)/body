@@ -1,0 +1,20 @@
+{
+  String q=unparse(npq).replace("'s","").replace("'","");
+  String t=unparse(npt).replace("'s","").replace("'","");
+  boolean exists;
+  for (  String token1 : q.split(" ")) {
+    token1=SnowballStemmer.stem(token1);
+    exists=false;
+    for (    String token2 : t.split(" ")) {
+      token2=SnowballStemmer.stem(token2);
+      if (token1.equalsIgnoreCase(token2)) {
+        exists=true;
+        break;
+      }
+    }
+    if (!exists) {
+      return false;
+    }
+  }
+  return true;
+}

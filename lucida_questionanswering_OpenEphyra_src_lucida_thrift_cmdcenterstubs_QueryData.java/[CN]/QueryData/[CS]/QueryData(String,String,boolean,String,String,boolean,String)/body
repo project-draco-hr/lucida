@@ -1,0 +1,12 @@
+{
+  this();
+  this.audioData=audioData;
+  this.audioFormat=audioFormat;
+  this.audioB64Encoding=audioB64Encoding;
+  setAudioB64EncodingIsSet(true);
+  this.imgData=imgData;
+  this.imgFormat=imgFormat;
+  this.imgB64Encoding=imgB64Encoding;
+  setImgB64EncodingIsSet(true);
+  this.textData=textData;
+}

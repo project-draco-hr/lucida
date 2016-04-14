@@ -1,0 +1,31 @@
+{
+  File file=new File(filename);
+  try {
+    BufferedReader in=new BufferedReader(new FileReader(file));
+    String id="";
+    String type="";
+    String line, questionString;
+    TRECQuestion question;
+    ArrayList<TRECQuestion> questions=new ArrayList<TRECQuestion>();
+    while (in.ready()) {
+      line=in.readLine();
+      if (line.matches("<num>.*")) {
+        id=line.split(": ")[1].trim();
+        type=QTYPE;
+      }
+ else       if (line.matches("<type>.*")) {
+        type=line.split(": ")[1].trim().toUpperCase();
+      }
+ else       if (line.matches("<desc>.*")) {
+        questionString=in.readLine().trim();
+        question=new TRECQuestion(id,type,questionString);
+        questions.add(question);
+      }
+    }
+    in.close();
+    return questions.toArray(new TRECQuestion[questions.size()]);
+  }
+ catch (  IOException e) {
+    return null;
+  }
+}

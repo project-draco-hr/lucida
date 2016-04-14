@@ -1,0 +1,8 @@
+{
+  token=SnowballStemmer.stem(token.trim().toLowerCase());
+  if (maxDistance == 0)   return this.tokens.contains(token);
+ else   if (this.tokens.contains(token))   return true;
+  Iterator<String> tokenIter=this.tokens.iterator();
+  while (tokenIter.hasNext())   if (getLevenshteinDistance(token,tokenIter.next(),maxDistance,true,1,1) <= maxDistance)   return true;
+  return false;
+}

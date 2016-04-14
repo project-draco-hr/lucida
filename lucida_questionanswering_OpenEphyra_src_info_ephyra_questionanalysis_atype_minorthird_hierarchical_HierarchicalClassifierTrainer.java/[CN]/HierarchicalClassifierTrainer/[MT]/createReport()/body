@@ -1,0 +1,57 @@
+{
+  DecimalFormat format=new DecimalFormat("#0.00");
+  StringBuffer b=new StringBuffer();
+  b.append("Question Answer Type Classification Report\n");
+  b.append((new Date()) + "\n");
+  b.append("\n");
+  b.append("Training Data File: " + trainingFile + "\n");
+  if (crossValidationFolds < 0) {
+    b.append("Testing Data File: " + testingFile + "\n");
+  }
+ else {
+    b.append("Testing using " + crossValidationFolds + "-fold cross validation"+ "\n");
+  }
+  b.append("\n");
+  b.append("Valid Class Labels:");
+  for (Iterator it=classLabels.iterator(); it.hasNext(); b.append(" " + (String)it.next()))   ;
+  b.append("\n");
+  b.append("\n");
+  if (useClassLevels) {
+    b.append("Using Hierarchical Classifier Learners:\n");
+    for (int i=0; i < learnerNames.length; i++) {
+      b.append("\t" + learnerNames[i] + "\n");
+    }
+  }
+ else {
+    b.append("Using Simple Classifier Learner: " + learnerNames[0] + "\n");
+  }
+  b.append("\n");
+  b.append("Feature Selection:\n");
+  for (Iterator it=featureTypes.iterator(); it.hasNext(); b.append("\t" + (String)it.next() + "\n"))   ;
+  b.append("\n");
+  b.append("Experiment Results:\n");
+  b.append("\n");
+  b.append("\tAccuracy: " + format.format((1.0 - evaluation.errorRate()) * 100) + "% ["+ evaluation.numExamples()+ " example(s)]\n");
+  b.append("\n");
+  b.append("\tAccuracy by Class:\n");
+  b.append("\n");
+  String[] classNames=evaluation.getClasses();
+  double[] numExamples=evaluation.numberOfExamplesByClass();
+  double[] errorRates=evaluation.errorRateByClass();
+  double total=0;
+  for (int i=0; i < classNames.length; i++) {
+    double accuracy=(1.0 - errorRates[i]) * 100;
+    b.append("\t\t" + classNames[i] + " "+ format.format(accuracy)+ "% ["+ (int)numExamples[i]+ " example(s)]\n");
+    total+=accuracy;
+  }
+  b.append("\n");
+  b.append("\tAverage Class Accuracy: " + format.format(total / classNames.length) + "%\n");
+  b.append("\n");
+  b.append("Run Time: " + runTime + " ms\n");
+  b.append("\n");
+  b.append("Confusion Matrix:\n");
+  b.append("\n");
+  b.append(prettyPrintCM(evaluation.confusionMatrix(),evaluation.getClasses()));
+  b.append("\n");
+  return b.toString();
+}

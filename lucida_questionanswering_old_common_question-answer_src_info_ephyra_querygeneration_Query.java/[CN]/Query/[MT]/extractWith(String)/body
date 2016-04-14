@@ -1,0 +1,5 @@
+{
+  if (extractionTechniques == null)   return false;
+  for (  String extractionTechnique : extractionTechniques)   if (technique.equals(extractionTechnique))   return true;
+  return false;
+}

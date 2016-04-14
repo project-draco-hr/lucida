@@ -1,0 +1,31 @@
+{
+  Hashtable<String,ArrayList<Result>> allExtracted=new Hashtable<String,ArrayList<Result>>();
+  for (  Result result : results) {
+    if (result.getScore() <= 0 || result.getScore() == Float.POSITIVE_INFINITY || result.getExtractionTechniques() == null || result.getExtractionTechniques().length != 1)     continue;
+    String extractor=result.getExtractionTechniques()[0];
+    ArrayList<Result> extracted=allExtracted.get(extractor);
+    if (extracted == null) {
+      extracted=new ArrayList<Result>();
+      allExtracted.put(extractor,extracted);
+    }
+    extracted.add(result);
+  }
+  for (  List<Result> extracted : allExtracted.values()) {
+    float maxScore=0;
+    float maxNormScore=0;
+    for (    Result factoid : extracted) {
+      float score=factoid.getScore();
+      float normScore=factoid.getNormScore();
+      if (score > maxScore) {
+        maxScore=score;
+        maxNormScore=normScore;
+      }
+    }
+    double topNormFactor=maxNormScore / maxScore;
+    for (    Result factoid : extracted) {
+      float norm=(float)(factoid.getScore() * topNormFactor);
+      factoid.setNormScore(norm);
+    }
+  }
+  return results;
+}

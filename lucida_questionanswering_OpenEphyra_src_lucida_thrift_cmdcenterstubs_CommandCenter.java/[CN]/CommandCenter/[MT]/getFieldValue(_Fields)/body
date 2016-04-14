@@ -1,0 +1,9 @@
+{
+switch (field) {
+case SERVICE_TYPE:
+    return getServiceType();
+case M_DATA_OBJ:
+  return getMDataObj();
+}
+throw new IllegalStateException();
+}

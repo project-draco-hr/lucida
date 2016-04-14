@@ -1,0 +1,6 @@
+{
+  ClassifierLearner[] learners=toValueArray(classifierLearners);
+  for (int i=0; i < learners.length; i++) {
+    learners[i].reset();
+  }
+}

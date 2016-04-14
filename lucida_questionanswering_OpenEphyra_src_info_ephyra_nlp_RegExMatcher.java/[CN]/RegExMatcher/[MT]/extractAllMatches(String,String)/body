@@ -1,0 +1,3 @@
+{
+  return extractAllMatches(text,Pattern.compile(regEx));
+}

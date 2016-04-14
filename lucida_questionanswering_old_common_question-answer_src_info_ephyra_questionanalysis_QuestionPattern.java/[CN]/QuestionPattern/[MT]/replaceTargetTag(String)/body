@@ -1,0 +1,6 @@
+{
+  String s=expr.split("<TO>")[0];
+  targetID=s.split("(\\(|<CO>)",-1).length - s.split("\\\\\\(",-1).length - s.split("\\(\\?\\:").length + s.split("\\\\\\(\\?\\:").length + 1;
+  expr=expr.replace("<TO>","(.*?)");
+  return expr;
+}

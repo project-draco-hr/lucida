@@ -1,0 +1,4 @@
+{
+  if (tokenizerFactory == null)   tokenizerFactory=new IndoEuropeanTokenizerFactory();
+  if (sentenceModel == null)   sentenceModel=new MedlineSentenceModel();
+}

@@ -1,0 +1,20 @@
+{
+  __isset_bitfield=other.__isset_bitfield;
+  if (other.isSetAudioData()) {
+    this.audioData=other.audioData;
+  }
+  if (other.isSetAudioFormat()) {
+    this.audioFormat=other.audioFormat;
+  }
+  this.audioB64Encoding=other.audioB64Encoding;
+  if (other.isSetImgData()) {
+    this.imgData=other.imgData;
+  }
+  if (other.isSetImgFormat()) {
+    this.imgFormat=other.imgFormat;
+  }
+  this.imgB64Encoding=other.imgB64Encoding;
+  if (other.isSetTextData()) {
+    this.textData=other.textData;
+  }
+}

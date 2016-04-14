@@ -1,0 +1,3 @@
+{
+  return timestampFormatter.format(System.currentTimeMillis());
+}

@@ -1,0 +1,6 @@
+{
+  checkReady();
+  registerService_call method_call=new registerService_call(serviceType,mDataObj,resultHandler,this,___protocolFactory,___transport);
+  this.___currentMethod=method_call;
+  ___manager.call(method_call);
+}

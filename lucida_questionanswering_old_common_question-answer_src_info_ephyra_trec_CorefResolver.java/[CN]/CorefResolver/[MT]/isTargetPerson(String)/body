@@ -1,0 +1,32 @@
+{
+  Matcher tgt=verifyTargetPattern.matcher(currentTarget);
+  if (!tgt.matches()) {
+    return null;
+  }
+  if (isAllUpper(currentTarget)) {
+    return null;
+  }
+  String[] split=currentTarget.split("\\s+");
+  int jc=0;
+  boolean flagUpper=true;
+  for (  String s : split) {
+    char c=s.charAt(0);
+    if (Character.isLowerCase(c)) {
+      if (!flagUpper) {
+        return null;
+      }
+      jc++;
+    }
+ else {
+      flagUpper=false;
+    }
+  }
+  if (flagUpper || jc > 1) {
+    return null;
+  }
+  String temp="";
+  for (int i=jc; i < split.length; i++) {
+    temp+=" " + split[i];
+  }
+  return temp.substring(1);
+}

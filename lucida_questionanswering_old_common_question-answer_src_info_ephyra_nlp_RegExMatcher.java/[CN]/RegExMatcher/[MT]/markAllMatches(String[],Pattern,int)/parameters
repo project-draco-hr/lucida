@@ -1,0 +1,3 @@
+String[] tokens
+Pattern pattern
+int maxTokens

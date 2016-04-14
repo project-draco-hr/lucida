@@ -1,0 +1,29 @@
+{
+  String test="<RULE atype=\"TEST_TYPE\">" + "<RULE_ELEMENT feature_name=\"TEST_FEATURE1\">" + "<FEATURE_VALUE>value1</FEATURE_VALUE>"+ "<FEATURE_VALUE>value2</FEATURE_VALUE>"+ "<FEATURE_VALUE>value3</FEATURE_VALUE>"+ "</RULE_ELEMENT>"+ "<RULE_ELEMENT feature_name=\"FOCUS_TYPE\">"+ "<FEATURE_VALUE>value3=</FEATURE_VALUE>"+ "<FEATURE_VALUE>value4=new</FEATURE_VALUE>"+ "</RULE_ELEMENT>"+ "</RULE>";
+  Document ruleDocument;
+  try {
+    DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
+    factory.setValidating(false);
+    factory.setIgnoringComments(true);
+    factory.setIgnoringElementContentWhitespace(true);
+    factory.setNamespaceAware(true);
+    DocumentBuilder db=factory.newDocumentBuilder();
+    ruleDocument=db.parse(new InputSource(new StringReader(test)));
+    Rule r=new Rule(ruleDocument.getDocumentElement());
+    System.out.println("Test input: " + test);
+    System.out.println(r.toString());
+    MutableInstance testInstance=new MutableInstance(test);
+    testInstance.addBinary(new Feature("TEST_FEATURE1.value1"));
+    testInstance.addBinary(new Feature("FOCUS_TYPE.value4"));
+    System.out.println("Test instance: " + testInstance);
+    System.out.println("matches test rule?: " + r.matches(testInstance));
+    testInstance=new MutableInstance(test);
+    testInstance.addBinary(new Feature("TEST_FEATURE1.value1"));
+    testInstance.addBinary(new Feature("FOCUS_TYPE.value3"));
+    System.out.println("Test instance: " + testInstance);
+    System.out.println("matches test rule?: " + r.matches(testInstance));
+  }
+ catch (  Exception e) {
+    throw new RuntimeException("Failed to parse XML string",e);
+  }
+}

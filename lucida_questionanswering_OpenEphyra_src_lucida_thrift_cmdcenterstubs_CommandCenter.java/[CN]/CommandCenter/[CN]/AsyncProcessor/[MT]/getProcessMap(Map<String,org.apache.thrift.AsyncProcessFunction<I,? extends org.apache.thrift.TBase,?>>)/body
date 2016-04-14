@@ -1,0 +1,6 @@
+{
+  processMap.put("registerService",new registerService());
+  processMap.put("handleRequest",new handleRequest());
+  processMap.put("ping",new ping());
+  return processMap;
+}

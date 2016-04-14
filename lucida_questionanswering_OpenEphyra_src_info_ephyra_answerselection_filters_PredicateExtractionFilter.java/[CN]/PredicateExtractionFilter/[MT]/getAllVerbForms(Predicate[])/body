@@ -1,0 +1,21 @@
+{
+  Hashtable<String[],Double> allVerbForms=new Hashtable<String[],Double>();
+  for (  Predicate p : ps) {
+    if (!p.hasMissingArgs())     continue;
+    Term verbTerm=p.getVerbTerm();
+    String verb=verbTerm.getText();
+    Map<String,Double> expansionsMap=verbTerm.getExpansions();
+    Set<String> expansions=expansionsMap.keySet();
+    String infinitive=WordNet.getLemma(verb,WordNet.VERB);
+    if (infinitive == null)     infinitive=verb;
+    String[] verbForms=VerbFormConverter.getAllForms(infinitive);
+    allVerbForms.put(verbForms,1d);
+    for (    String expansion : expansions) {
+      infinitive=WordNet.getLemma(expansion,WordNet.VERB);
+      if (infinitive == null)       infinitive=expansion;
+      verbForms=VerbFormConverter.getAllForms(infinitive);
+      allVerbForms.put(verbForms,expansionsMap.get(expansion));
+    }
+  }
+  return allVerbForms;
+}

@@ -1,0 +1,24 @@
+{
+  if (isInitialized())   return;
+  if (languagePair == null)   throw new Exception("languagePair must be set before calling initialize");
+  super.initialize();
+  Properties properties=Properties.loadFromClassName(this.getClass().getName());
+  properties=properties.mapProperties().get(languagePair.getFirst() + "_" + languagePair.getSecond());
+  String classifierClassNames=properties.get("classifierTypes").trim();
+  if (classifierClassNames == null)   throw new RuntimeException("Required property classifierTypes is undefined");
+  String[] classNames=classifierClassNames.split(",");
+  classifiers=new ArrayList<QuestionClassifier>();
+  for (  String className : classNames) {
+    QuestionClassifier classifier=(QuestionClassifier)Class.forName(className).newInstance();
+    classifier.setLanguagePair(languagePair);
+    classifier.initialize();
+    classifiers.add(classifier);
+  }
+  String mergeResultsStr=properties.get("mergeResults").trim();
+  if (mergeResultsStr == null)   throw new RuntimeException("Required property mergeResults is undefined");
+  mergeResults=Boolean.parseBoolean(mergeResultsStr);
+  String confidenceThresholdStr=properties.get("confidenceThreshold").trim();
+  if (mergeResultsStr == null)   throw new RuntimeException("Required property confidenceThreshold is undefined");
+  confidenceThreshold=Double.parseDouble(confidenceThresholdStr);
+  setInitialized(true);
+}

@@ -1,0 +1,6 @@
+{
+  if (user_to_database.containsKey(LUCID)) {
+    throw new IllegalArgumentException();
+  }
+  user_to_database.put(LUCID,new KnowledgeBase(LUCID));
+}

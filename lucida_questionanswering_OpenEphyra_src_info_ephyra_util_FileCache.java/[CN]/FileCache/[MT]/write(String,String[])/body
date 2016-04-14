@@ -1,0 +1,14 @@
+{
+  String checksum=getMD5(key);
+  if (checksum == null)   return false;
+  File file=new File(cacheDir,new String(checksum));
+  try {
+    PrintWriter out=new PrintWriter(file);
+    for (    String entry : entries)     out.println(entry);
+    out.close();
+    return true;
+  }
+ catch (  IOException e) {
+    return false;
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return AnswerPatternFilter.savePatterns(dir);
+}

@@ -1,0 +1,26 @@
+{
+  if (!enabled || logfile == null)   return false;
+  try {
+    PrintWriter out=new PrintWriter(new FileOutputStream(logfile,true));
+    for (    QuestionInterpretation qi : qis) {
+      out.println("\t<interpretation>");
+      out.println("\t\t<property>");
+      out.println("\t\t\t" + qi.getProperty());
+      out.println("\t\t</property>");
+      out.println("\t\t<target>");
+      out.println("\t\t\t" + qi.getTarget());
+      out.println("\t\t</target>");
+      for (      String context : qi.getContext()) {
+        out.println("\t\t<context>");
+        out.println("\t\t\t" + context);
+        out.println("\t\t</context>");
+      }
+      out.println("\t</interpretation>");
+    }
+    out.close();
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

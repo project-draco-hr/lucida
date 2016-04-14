@@ -1,0 +1,28 @@
+{
+  QuestionInterpretation qi=result.getQuery().getInterpretation();
+  String to=qi.getTarget();
+  String[] cos=new String[0];
+  String prop=qi.getProperty();
+  String answer=result.getAnswer();
+  to=NETagger.tokenizeWithSpaces(to).toLowerCase();
+  for (int i=0; i < cos.length; i++)   cos[i]=NETagger.tokenizeWithSpaces(cos[i]).toLowerCase();
+  as=NETagger.tokenizeWithSpaces(as).toLowerCase();
+  String[] sentences=OpenNLP.sentDetect(answer);
+  String[][] tokens=new String[sentences.length][];
+  for (int i=0; i < sentences.length; i++) {
+    tokens[i]=NETagger.tokenize(sentences[i]);
+    sentences[i]=StringUtils.concatWithSpaces(tokens[i]);
+  }
+  String[][][] nes=NETagger.extractNes(tokens);
+  for (int i=0; i < nes.length; i++) {
+    sentences[i]=sentences[i].toLowerCase();
+    for (int j=0; j < nes[i].length; j++)     for (int k=0; k < nes[i][j].length; k++)     nes[i][j][k]=nes[i][j][k].toLowerCase();
+  }
+  for (int i=0; i < sentences.length; i++) {
+    sentences[i]=prepSentence(sentences[i],to,cos,as,nes[i]);
+    if (sentences[i] == null)     continue;
+    String[] patterns=extractPatterns(sentences[i]);
+    patterns=generalizePatterns(patterns,prop);
+    for (    String pattern : patterns)     AnswerPatternFilter.addPattern(pattern,prop);
+  }
+}

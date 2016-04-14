@@ -1,0 +1,6 @@
+String qn
+String verbMod
+String[] tokens
+String[] pos
+String[] chunks
+int i

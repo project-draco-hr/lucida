@@ -1,0 +1,4 @@
+{
+  result.incScore(scale * result.getHitPos());
+  return result;
+}

@@ -1,0 +1,4 @@
+Map<String,Double> expansions
+int maxExpansions
+double minExpansionWeight
+boolean strict

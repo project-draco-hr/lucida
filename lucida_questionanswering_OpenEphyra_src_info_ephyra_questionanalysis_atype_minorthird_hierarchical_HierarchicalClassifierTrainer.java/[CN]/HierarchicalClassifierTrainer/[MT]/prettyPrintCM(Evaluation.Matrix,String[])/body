@@ -1,0 +1,26 @@
+{
+  double[][] values=matrix.values;
+  String[] classAbb=new String[classes.length];
+  StringBuilder res=new StringBuilder();
+  Formatter formatter=new Formatter(res,Locale.US);
+  int max=0;
+  for (int i=0; i < classes.length; i++) {
+    classAbb[i]=classes[i].replaceAll("\\B(.{1,2}).*?(.)\\b","$1$2");
+    if (classAbb[i].length() > max)     max=classAbb[i].length();
+  }
+  max++;
+  String formatStr="%-" + max + "s";
+  formatter.format(formatStr,"");
+  for (int i=0; i < classes.length; i++) {
+    formatter.format(formatStr,classAbb[i]);
+  }
+  res.append("\n\n");
+  for (int i=0; i < classes.length; i++) {
+    formatter.format(formatStr,classAbb[i]);
+    for (int j=0; j < classes.length; j++) {
+      formatter.format(formatStr,Double.toString(values[i][j]));
+    }
+    res.append("\n\n");
+  }
+  return res.toString();
+}

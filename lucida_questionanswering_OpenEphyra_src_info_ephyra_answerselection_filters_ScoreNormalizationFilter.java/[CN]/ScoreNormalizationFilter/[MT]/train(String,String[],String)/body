@@ -1,0 +1,6 @@
+{
+  Dataset trainingSet=createDataset(features,serializedDir);
+  ClassifierLearner learner=createLearner(model);
+  Classifier classifier=new DatasetClassifierTeacher(trainingSet).train(learner);
+  return classifier;
+}

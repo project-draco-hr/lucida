@@ -1,0 +1,13 @@
+{
+synchronized (docs) {
+    if (doc != null) {
+      docs.add(doc);
+      if (CACHING && !cached) {
+        FileCache cache=new FileCache(CACHE_DIR);
+        cache.write(doc.getDocID(),new String[]{doc.getAnswer()});
+      }
+    }
+    pending--;
+    docs.notify();
+  }
+}

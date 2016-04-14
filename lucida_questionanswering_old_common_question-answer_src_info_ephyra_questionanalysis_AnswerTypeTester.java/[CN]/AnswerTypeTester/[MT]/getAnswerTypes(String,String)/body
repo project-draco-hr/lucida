@@ -1,0 +1,35 @@
+{
+  ArrayList<String> nouns=new ArrayList<String>();
+  String[] tokens=OpenNLP.tokenize(qn);
+  String[] pos=OpenNLP.tagPos(tokens);
+  for (int i=0; i < tokens.length; i++)   if (pos[i].startsWith("NN"))   nouns.add(PlingStemmer.stem(tokens[i]));
+  ArrayList<String> expected=new ArrayList<String>();
+  ArrayList<Integer> nounIndices=new ArrayList<Integer>();
+  ArrayList<Integer> matchStarts=new ArrayList<Integer>();
+  ArrayList<Integer> patternLengths=new ArrayList<Integer>();
+  for (int i=0; i < answerTypes.size(); i++) {
+    Matcher m=patterns.get(i).matcher(stemmed);
+    if (m.find()) {
+      expected.add(answerTypes.get(i));
+      int lastNoun=Integer.MAX_VALUE;
+      for (int n=0; n < nouns.size(); n++)       if (m.group(0).contains(nouns.get(n)))       lastNoun=n;
+      nounIndices.add(lastNoun);
+      matchStarts.add(m.start());
+      patternLengths.add(patterns.get(i).pattern().length());
+    }
+  }
+  boolean[] best=new boolean[expected.size()];
+  Arrays.fill(best,true);
+  int minNounIndex=Integer.MAX_VALUE;
+  for (int i=0; i < expected.size(); i++)   minNounIndex=Math.min(minNounIndex,nounIndices.get(i));
+  for (int i=0; i < expected.size(); i++)   if (nounIndices.get(i) > minNounIndex)   best[i]=false;
+  int minMatchStart=Integer.MAX_VALUE;
+  for (int i=0; i < expected.size(); i++)   if (best[i] == true)   minMatchStart=Math.min(minMatchStart,matchStarts.get(i));
+  for (int i=0; i < expected.size(); i++)   if (best[i] == true)   if (matchStarts.get(i) > minMatchStart)   best[i]=false;
+  int maxLength=Integer.MIN_VALUE;
+  for (int i=0; i < expected.size(); i++)   if (best[i] == true)   maxLength=Math.max(maxLength,patternLengths.get(i));
+  for (int i=0; i < expected.size(); i++)   if (best[i] == true)   if (patternLengths.get(i) < maxLength)   best[i]=false;
+  ArrayList<String> results=new ArrayList<String>();
+  for (int i=0; i < expected.size(); i++)   if (best[i])   results.add(expected.get(i));
+  return results.toArray(new String[results.size()]);
+}

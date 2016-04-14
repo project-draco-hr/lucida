@@ -1,0 +1,9 @@
+{
+  MsgPrinter.enableStatusMsgs(true);
+  MsgPrinter.enableErrorMsgs(true);
+  MsgPrinter.printStatusMsg("Arg:" + args[0]);
+  if (args.length != 1)   return;
+  Logger.setLogfile("log/OpenEphyra");
+  Logger.enableLogging(true);
+  (new OpenEphyra()).commandLine(args[0].trim());
+}

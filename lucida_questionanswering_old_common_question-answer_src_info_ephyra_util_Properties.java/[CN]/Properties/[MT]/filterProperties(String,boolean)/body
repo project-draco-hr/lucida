@@ -1,0 +1,11 @@
+{
+  Properties properties=new Properties();
+  for (  Map.Entry<String,String> property : entrySet()) {
+    String key=property.getKey();
+    if (key.startsWith(prefix)) {
+      if (remove_prefix)       key=key.substring(prefix.length());
+      properties.put(key,property.getValue());
+    }
+  }
+  return properties;
+}

@@ -1,0 +1,5 @@
+{
+  registerService_result result=new registerService_result();
+  receiveBase(result,"registerService");
+  return;
+}

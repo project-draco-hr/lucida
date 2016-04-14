@@ -1,0 +1,10 @@
+{
+  if (s1 == null)   return true;
+  if (s2 == null)   return false;
+  String[] tokens1=s1.split(" ");
+  String[] tokens2=s2.split(" ");
+  ArrayList<String> tks1=new ArrayList<String>();
+  for (  String token1 : tokens1)   if (token1.length() > 1 && !FunctionWords.lookup(token1))   tks1.add(token1);
+  tokens1=tks1.toArray(new String[tks1.size()]);
+  return isSubset(tokens1,tokens2);
+}

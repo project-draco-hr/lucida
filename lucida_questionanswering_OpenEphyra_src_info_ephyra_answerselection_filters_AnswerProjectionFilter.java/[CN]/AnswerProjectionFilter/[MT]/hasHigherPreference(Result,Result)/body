@@ -1,0 +1,7 @@
+{
+  for (  String extractionTechnique : EXTRACTION_TECHNIQUES) {
+    if (result2.extractedWith(extractionTechnique))     return false;
+    if (result1.extractedWith(extractionTechnique))     return true;
+  }
+  return false;
+}

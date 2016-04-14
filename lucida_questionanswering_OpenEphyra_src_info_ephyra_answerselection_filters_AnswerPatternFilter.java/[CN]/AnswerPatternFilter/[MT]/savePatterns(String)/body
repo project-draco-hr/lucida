@@ -1,0 +1,25 @@
+{
+  File file;
+  PrintWriter out;
+  try {
+    for (    String prop : props.keySet()) {
+      HashSet<AnswerPattern> ps=props.get(prop);
+      AnswerPattern[] patterns=ps.toArray(new AnswerPattern[ps.size()]);
+      Arrays.sort(patterns);
+      file=new File(dir + "/" + prop);
+      out=new PrintWriter(file,"UTF-8");
+      out.println("#passages: " + nOfPassages.get(prop));
+      for (int i=patterns.length - 1; i >= 0; i--) {
+        out.println();
+        out.println(patterns[i].getDesc());
+        out.println("#correct: " + patterns[i].getCorrect());
+        out.println("#incorrect: " + patterns[i].getWrong());
+      }
+      out.close();
+    }
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

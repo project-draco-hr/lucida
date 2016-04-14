@@ -1,0 +1,9 @@
+{
+  MsgPrinter.printStatusMsg("askFactoidThrift(): Arg = " + question);
+  Result result=oe.askFactoid(question);
+  String answer=defaultAnswer;
+  if (result != null) {
+    answer=result.getAnswer();
+  }
+  return answer;
+}

@@ -1,0 +1,4 @@
+{
+  this.words=new HashSet<String>();
+  this.tokens=new HashSet<String>();
+}

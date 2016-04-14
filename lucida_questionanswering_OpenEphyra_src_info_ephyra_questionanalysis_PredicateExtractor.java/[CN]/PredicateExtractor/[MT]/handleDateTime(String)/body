@@ -1,0 +1,4 @@
+{
+  verbMod=verbMod.replaceFirst(DATE_TIME_P,"") + " " + DATE_TIME_R;
+  return verbMod;
+}

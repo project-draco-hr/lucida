@@ -1,0 +1,21 @@
+{
+  File file=new File(filename);
+  try {
+    BufferedReader in=new BufferedReader(new FileReader(file));
+    total=Integer.parseInt(in.readLine());
+    distinct=Integer.parseInt(in.readLine());
+    index=new Hashtable<String,Integer>(2 * distinct);
+    String word;
+    int frequency;
+    for (int i=0; i < distinct; i++) {
+      word=in.readLine();
+      frequency=Integer.parseInt(in.readLine());
+      index.put(word,new Integer(frequency));
+    }
+    in.close();
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

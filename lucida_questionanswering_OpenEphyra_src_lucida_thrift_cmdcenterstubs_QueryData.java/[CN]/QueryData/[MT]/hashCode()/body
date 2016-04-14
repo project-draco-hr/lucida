@@ -1,0 +1,25 @@
+{
+  List<Object> list=new ArrayList<Object>();
+  boolean present_audioData=true && (isSetAudioData());
+  list.add(present_audioData);
+  if (present_audioData)   list.add(audioData);
+  boolean present_audioFormat=true && (isSetAudioFormat());
+  list.add(present_audioFormat);
+  if (present_audioFormat)   list.add(audioFormat);
+  boolean present_audioB64Encoding=true;
+  list.add(present_audioB64Encoding);
+  if (present_audioB64Encoding)   list.add(audioB64Encoding);
+  boolean present_imgData=true && (isSetImgData());
+  list.add(present_imgData);
+  if (present_imgData)   list.add(imgData);
+  boolean present_imgFormat=true && (isSetImgFormat());
+  list.add(present_imgFormat);
+  if (present_imgFormat)   list.add(imgFormat);
+  boolean present_imgB64Encoding=true;
+  list.add(present_imgB64Encoding);
+  if (present_imgB64Encoding)   list.add(imgB64Encoding);
+  boolean present_textData=true && (isSetTextData());
+  list.add(present_textData);
+  if (present_textData)   list.add(textData);
+  return list.hashCode();
+}

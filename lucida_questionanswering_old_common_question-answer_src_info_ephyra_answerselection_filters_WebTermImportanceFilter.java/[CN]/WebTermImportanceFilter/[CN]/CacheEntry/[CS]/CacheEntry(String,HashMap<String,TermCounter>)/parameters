@@ -1,0 +1,2 @@
+String target
+HashMap<String,TermCounter> termCounters

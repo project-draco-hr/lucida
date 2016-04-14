@@ -1,0 +1,24 @@
+{
+  try {
+    int tmp_port=8081;
+    if (args.length == 1) {
+      tmp_port=Integer.parseInt(args[0].trim());
+    }
+ else {
+      System.out.println("Using default port for Calendar: " + tmp_port);
+    }
+    final int port=tmp_port;
+    handler=new CalendarServiceHandler();
+    processor=new LucidaService.Processor<CalendarServiceHandler>(handler);
+    Runnable simple=new Runnable(){
+      public void run(){
+        simple(processor,port);
+      }
+    }
+;
+    new Thread(simple).start();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

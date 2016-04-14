@@ -1,0 +1,38 @@
+{
+  int port=8081;
+  if (args.length == 1) {
+    port=Integer.parseInt(args[0]);
+  }
+ else {
+    System.out.println("Using default port for Calendar Client: " + port);
+  }
+  String LUCID="QLL";
+  final QueryInput query_input=new QueryInput("query",new ArrayList<String>(){
+{
+      add("");
+    }
+  }
+);
+  query_input.type="calendar";
+  QuerySpec query_spec=new QuerySpec(new ArrayList<QueryInput>(){
+{
+      add(query_input);
+    }
+  }
+);
+  TTransport transport=new TSocket("localhost",port);
+  TProtocol protocol=new TBinaryProtocol(new TFramedTransport(transport));
+  LucidaService.Client client=new LucidaService.Client(protocol);
+  try {
+    transport.open();
+    System.out.println("///// Connecting to Calendar... /////");
+    String results=client.infer(LUCID,query_spec);
+    System.out.println("///// Results: /////");
+    System.out.println(results);
+    transport.close();
+  }
+ catch (  TException e) {
+    e.printStackTrace();
+  }
+  return;
+}

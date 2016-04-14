@@ -1,0 +1,8 @@
+{
+  try {
+    return new java.io.BufferedReader(new java.io.InputStreamReader(System.in)).readLine();
+  }
+ catch (  java.io.IOException e) {
+    return new String("");
+  }
+}

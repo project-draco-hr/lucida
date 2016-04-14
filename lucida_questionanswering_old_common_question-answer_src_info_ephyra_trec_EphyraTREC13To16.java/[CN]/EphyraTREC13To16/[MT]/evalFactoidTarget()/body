@@ -1,0 +1,10 @@
+{
+  float sum=0;
+  for (  Float score : factoidQuestionScores)   sum+=score;
+  int num=factoidQuestionScores.size();
+  if (num == 0)   return -1;
+  float score=sum / num;
+  factoidQuestionScores=new ArrayList<Float>();
+  factoidTargetScores.add(score);
+  return score;
+}

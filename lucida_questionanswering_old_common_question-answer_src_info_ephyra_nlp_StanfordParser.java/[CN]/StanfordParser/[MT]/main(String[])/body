@@ -1,0 +1,20 @@
+{
+  if (args.length != 1) {
+    System.out.println("USAGE: StanfordParser <inputSentencesFile>");
+    System.out.println("Output stored in: <inputSentencesFile>.parses");
+    System.exit(0);
+  }
+  StanfordParser.initialize();
+  List<String> sentences=new ArrayList<String>();
+  BufferedReader in=new BufferedReader(new FileReader(args[0]));
+  BufferedWriter out=new BufferedWriter(new FileWriter(args[0] + ".parses"));
+  String sentence;
+  while ((sentence=in.readLine()) != null) {
+    sentences.add(sentence);
+  }
+  for (  String s : sentences) {
+    out.append(StanfordParser.parse(s) + "\n");
+  }
+  out.close();
+  in.close();
+}

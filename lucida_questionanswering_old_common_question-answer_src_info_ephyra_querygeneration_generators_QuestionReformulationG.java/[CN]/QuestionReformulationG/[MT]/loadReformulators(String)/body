@@ -1,0 +1,11 @@
+{
+  File[] files=FileUtils.getFiles(dir);
+  reformulators=new QuestionReformulator[files.length];
+  try {
+    for (int i=0; i < files.length; i++)     reformulators[i]=new QuestionReformulator(files[i].getPath());
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}
