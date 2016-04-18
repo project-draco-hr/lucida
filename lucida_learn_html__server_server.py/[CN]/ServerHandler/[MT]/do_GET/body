@@ -1,0 +1,4 @@
+def do_GET(self):
+    logging.warning('======= GET STARTED =======')
+    logging.warning(self.headers)
+    SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
