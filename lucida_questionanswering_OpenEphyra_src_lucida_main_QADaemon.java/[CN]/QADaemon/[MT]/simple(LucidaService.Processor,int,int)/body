@@ -3,16 +3,8 @@
     TNonblockingServerTransport transport=new TNonblockingServerSocket(port);
     TNonblockingServer.Args args=new TNonblockingServer.Args(transport).processor(processor).protocolFactory(new TBinaryProtocol.Factory()).transportFactory(new TFramedTransport.Factory());
     final TNonblockingServer server=new TNonblockingServer(args);
+    System.out.println("Start listening to requests at port " + port + "...");
     server.serve();
-    Thread t1=new Thread(new Runnable(){
-      public void run(){
-        System.out.println("Starting qa at port " + port + "...");
-        server.serve();
-      }
-    }
-);
-    t1.start();
-    t1.join();
   }
  catch (  Exception e) {
     e.printStackTrace();
