@@ -1,5 +1,0 @@
-{
-  this();
-  this.serviceType=serviceType;
-  this.mDataObj=mDataObj;
-}

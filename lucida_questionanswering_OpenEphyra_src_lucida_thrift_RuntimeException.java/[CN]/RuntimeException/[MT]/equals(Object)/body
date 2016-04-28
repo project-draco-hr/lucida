@@ -1,5 +1,0 @@
-{
-  if (that == null)   return false;
-  if (that instanceof RuntimeException)   return this.equals((RuntimeException)that);
-  return false;
-}

@@ -1,3 +1,0 @@
-{
-  iface.handleRequest(args.data,resultHandler);
-}

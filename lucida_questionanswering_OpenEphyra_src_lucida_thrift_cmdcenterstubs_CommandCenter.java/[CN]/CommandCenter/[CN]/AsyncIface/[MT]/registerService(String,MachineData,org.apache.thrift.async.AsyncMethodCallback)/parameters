@@ -1,3 +1,0 @@
-String serviceType
-MachineData mDataObj
-org.apache.thrift.async.AsyncMethodCallback resultHandler

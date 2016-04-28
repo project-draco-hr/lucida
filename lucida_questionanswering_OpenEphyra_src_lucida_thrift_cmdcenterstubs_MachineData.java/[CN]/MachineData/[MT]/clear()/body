@@ -1,5 +1,0 @@
-{
-  this.name=null;
-  setPortIsSet(false);
-  this.port=0;
-}

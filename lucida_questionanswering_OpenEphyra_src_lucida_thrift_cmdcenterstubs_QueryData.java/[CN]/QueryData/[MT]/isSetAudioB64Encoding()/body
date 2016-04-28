@@ -1,3 +1,0 @@
-{
-  return EncodingUtils.testBit(__isset_bitfield,__AUDIOB64ENCODING_ISSET_ID);
-}

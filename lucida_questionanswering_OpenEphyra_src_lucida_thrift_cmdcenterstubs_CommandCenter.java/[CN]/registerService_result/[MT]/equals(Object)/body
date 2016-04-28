@@ -1,5 +1,0 @@
-{
-  if (that == null)   return false;
-  if (that instanceof registerService_result)   return this.equals((registerService_result)that);
-  return false;
-}

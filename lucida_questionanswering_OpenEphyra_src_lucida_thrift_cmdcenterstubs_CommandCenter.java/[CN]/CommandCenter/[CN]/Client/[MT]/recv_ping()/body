@@ -1,5 +1,0 @@
-{
-  ping_result result=new ping_result();
-  receiveBase(result,"ping");
-  return;
-}

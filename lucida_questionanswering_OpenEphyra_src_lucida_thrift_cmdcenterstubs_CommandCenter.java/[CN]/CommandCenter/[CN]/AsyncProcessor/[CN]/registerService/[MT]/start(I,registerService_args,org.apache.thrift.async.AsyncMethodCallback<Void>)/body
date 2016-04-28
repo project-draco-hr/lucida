@@ -1,3 +1,0 @@
-{
-  iface.registerService(args.serviceType,args.mDataObj,resultHandler);
-}

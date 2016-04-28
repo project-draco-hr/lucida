@@ -1,7 +1,0 @@
-String audioData
-String audioFormat
-boolean audioB64Encoding
-String imgData
-String imgFormat
-boolean imgB64Encoding
-String textData

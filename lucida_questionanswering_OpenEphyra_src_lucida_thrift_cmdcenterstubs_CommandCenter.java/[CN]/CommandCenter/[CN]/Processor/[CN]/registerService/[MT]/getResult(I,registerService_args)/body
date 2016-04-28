@@ -1,5 +1,0 @@
-{
-  registerService_result result=new registerService_result();
-  iface.registerService(args.serviceType,args.mDataObj);
-  return result;
-}

@@ -1,7 +1,0 @@
-{
-  prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("handleRequest",org.apache.thrift.protocol.TMessageType.CALL,0));
-  handleRequest_args args=new handleRequest_args();
-  args.setData(data);
-  args.write(prot);
-  prot.writeMessageEnd();
-}

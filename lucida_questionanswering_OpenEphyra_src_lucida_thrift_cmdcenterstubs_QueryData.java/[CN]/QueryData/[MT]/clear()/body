@@ -1,9 +1,0 @@
-{
-  this.audioData="";
-  this.audioFormat="";
-  this.audioB64Encoding=false;
-  this.imgData="";
-  this.imgFormat="";
-  this.imgB64Encoding=false;
-  this.textData="";
-}

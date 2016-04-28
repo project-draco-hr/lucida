@@ -1,7 +1,0 @@
-{
-  processMap.put("create",new create());
-  processMap.put("learn",new learn());
-  processMap.put("infer",new infer());
-  processMap.put("ping",new ping());
-  return processMap;
-}

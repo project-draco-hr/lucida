@@ -1,4 +1,0 @@
-{
-  send_handleRequest(data);
-  return recv_handleRequest();
-}

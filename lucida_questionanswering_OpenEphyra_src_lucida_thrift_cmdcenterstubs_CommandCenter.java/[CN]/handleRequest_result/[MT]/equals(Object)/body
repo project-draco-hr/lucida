@@ -1,5 +1,0 @@
-{
-  if (that == null)   return false;
-  if (that instanceof handleRequest_result)   return this.equals((handleRequest_result)that);
-  return false;
-}

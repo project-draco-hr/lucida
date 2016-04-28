@@ -1,5 +1,0 @@
-{
-  if (that == null)   return false;
-  if (that instanceof learn_args)   return this.equals((learn_args)that);
-  return false;
-}

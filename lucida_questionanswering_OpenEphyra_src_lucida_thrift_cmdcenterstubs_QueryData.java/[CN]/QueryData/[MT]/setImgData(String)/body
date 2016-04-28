@@ -1,4 +1,0 @@
-{
-  this.imgData=imgData;
-  return this;
-}

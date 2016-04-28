@@ -1,4 +1,0 @@
-{
-  send_ping();
-  recv_ping();
-}

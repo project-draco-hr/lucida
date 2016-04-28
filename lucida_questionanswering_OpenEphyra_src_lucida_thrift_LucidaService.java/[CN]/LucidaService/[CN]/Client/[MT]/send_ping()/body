@@ -1,4 +1,0 @@
-{
-  ping_args args=new ping_args();
-  sendBase("ping",args);
-}

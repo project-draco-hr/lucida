@@ -1,9 +1,0 @@
-{
-switch (field) {
-case NAME:
-    return getName();
-case PORT:
-  return Integer.valueOf(getPort());
-}
-throw new IllegalStateException();
-}

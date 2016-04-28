@@ -1,5 +1,0 @@
-{
-  handleRequest_args args=new handleRequest_args();
-  args.setData(data);
-  sendBase("handleRequest",args);
-}

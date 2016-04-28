@@ -1,6 +1,0 @@
-{
-  infer_args args=new infer_args();
-  args.setLUCID(LUCID);
-  args.setQuery(query);
-  sendBase("infer",args);
-}

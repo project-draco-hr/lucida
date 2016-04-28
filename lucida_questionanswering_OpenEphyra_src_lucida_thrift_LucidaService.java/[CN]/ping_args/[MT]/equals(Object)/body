@@ -1,5 +1,0 @@
-{
-  if (that == null)   return false;
-  if (that instanceof ping_args)   return this.equals((ping_args)that);
-  return false;
-}

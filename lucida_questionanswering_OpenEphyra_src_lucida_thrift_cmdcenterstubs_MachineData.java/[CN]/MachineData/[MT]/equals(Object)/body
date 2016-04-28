@@ -1,5 +1,0 @@
-{
-  if (that == null)   return false;
-  if (that instanceof MachineData)   return this.equals((MachineData)that);
-  return false;
-}
