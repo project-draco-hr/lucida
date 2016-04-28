@@ -1,0 +1,3 @@
+String Indri_path
+List<String> urls
+List<String> files
