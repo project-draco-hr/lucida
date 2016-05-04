@@ -11,6 +11,7 @@
       MsgPrinter.printErrorMsg("Directories of Indri indices or " + "URLs of Indri servers required.");
       System.exit(1);
     }
+    System.out.println("@@@@@@@@@@" + transformQueryString(query.getQueryString()));
     ScoredExtentResult[] results=env.runQuery(transformQueryString(query.getQueryString()),MAX_RESULTS_PERQUERY);
     String[] passages=new String[results.length];
     for (int i=0; i < results.length; i+=MAX_DOCS) {
