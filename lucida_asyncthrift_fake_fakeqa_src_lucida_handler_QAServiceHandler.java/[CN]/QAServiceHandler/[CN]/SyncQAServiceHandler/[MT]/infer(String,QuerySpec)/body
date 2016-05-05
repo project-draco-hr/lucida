@@ -1,0 +1,4 @@
+{
+  System.out.println("Sync Infer");
+  return "QA Result: I love XXX";
+}

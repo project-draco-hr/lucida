@@ -1,0 +1,8 @@
+{
+  TProcessor proc=new LucidaService.AsyncProcessor(new QAServiceHandler.AsyncQAServiceHandler());
+  TNonblockingServerTransport transport=new TNonblockingServerSocket(8083);
+  TNonblockingServer.Args arguments=new TNonblockingServer.Args(transport).processor(proc).protocolFactory(new TBinaryProtocol.Factory()).transportFactory(new TFramedTransport.Factory());
+  final TNonblockingServer server=new TNonblockingServer(arguments);
+  System.out.println("Start listening to requests at port 8083 ...");
+  server.serve();
+}

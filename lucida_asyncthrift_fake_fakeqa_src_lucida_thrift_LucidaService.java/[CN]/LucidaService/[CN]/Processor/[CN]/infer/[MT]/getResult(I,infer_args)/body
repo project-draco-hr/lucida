@@ -1,0 +1,5 @@
+{
+  infer_result result=new infer_result();
+  result.success=iface.infer(args.LUCID,args.query);
+  return result;
+}

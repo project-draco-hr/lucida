@@ -1,0 +1,10 @@
+{
+switch (fieldId) {
+case 1:
+    return LUCID;
+case 2:
+  return SPEC;
+default :
+return null;
+}
+}
