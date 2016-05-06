@@ -1,4 +1,8 @@
 {
   System.out.println("Sync Infer");
-  return "QA Result: I love XXX";
+  List<Integer> li=new ArrayList<Integer>();
+  for (int i=0; i < 5; ++i) {
+    li.add(i);
+  }
+  return li.get(count++) + " QA says I love XXX";
 }
