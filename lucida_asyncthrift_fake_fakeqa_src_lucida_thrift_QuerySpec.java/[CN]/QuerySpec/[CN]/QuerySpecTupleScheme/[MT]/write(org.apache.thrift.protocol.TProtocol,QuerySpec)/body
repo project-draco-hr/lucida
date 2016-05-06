@@ -1,0 +1,22 @@
+{
+  TTupleProtocol oprot=(TTupleProtocol)prot;
+  BitSet optionals=new BitSet();
+  if (struct.isSetName()) {
+    optionals.set(0);
+  }
+  if (struct.isSetContent()) {
+    optionals.set(1);
+  }
+  oprot.writeBitSet(optionals,2);
+  if (struct.isSetName()) {
+    oprot.writeString(struct.name);
+  }
+  if (struct.isSetContent()) {
+{
+      oprot.writeI32(struct.content.size());
+      for (      QueryInput _iter20 : struct.content) {
+        _iter20.write(oprot);
+      }
+    }
+  }
+}

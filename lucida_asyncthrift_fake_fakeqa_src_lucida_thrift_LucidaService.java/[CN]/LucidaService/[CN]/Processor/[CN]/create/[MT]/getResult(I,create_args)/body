@@ -1,0 +1,5 @@
+{
+  create_result result=new create_result();
+  iface.create(args.LUCID,args.spec);
+  return result;
+}

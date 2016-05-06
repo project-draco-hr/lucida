@@ -1,0 +1,4 @@
+{
+  this.LUCID=LUCID;
+  return this;
+}

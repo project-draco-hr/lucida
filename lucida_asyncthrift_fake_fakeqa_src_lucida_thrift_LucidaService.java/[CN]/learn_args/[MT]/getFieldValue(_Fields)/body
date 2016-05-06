@@ -1,0 +1,9 @@
+{
+switch (field) {
+case LUCID:
+    return getLUCID();
+case KNOWLEDGE:
+  return getKnowledge();
+}
+throw new IllegalStateException();
+}
