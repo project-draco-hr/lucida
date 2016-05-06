@@ -1,0 +1,14 @@
+{
+  if (field == null) {
+    throw new IllegalArgumentException();
+  }
+switch (field) {
+case TYPE:
+    return isSetType();
+case DATA:
+  return isSetData();
+case TAGS:
+return isSetTags();
+}
+throw new IllegalStateException();
+}

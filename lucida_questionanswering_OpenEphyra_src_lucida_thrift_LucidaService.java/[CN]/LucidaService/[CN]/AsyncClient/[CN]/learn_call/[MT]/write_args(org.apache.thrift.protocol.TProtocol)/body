@@ -1,0 +1,8 @@
+{
+  prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("learn",org.apache.thrift.protocol.TMessageType.CALL,0));
+  learn_args args=new learn_args();
+  args.setLUCID(LUCID);
+  args.setKnowledge(knowledge);
+  args.write(prot);
+  prot.writeMessageEnd();
+}
