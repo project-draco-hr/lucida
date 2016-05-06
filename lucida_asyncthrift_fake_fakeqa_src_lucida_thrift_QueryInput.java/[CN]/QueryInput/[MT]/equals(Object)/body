@@ -1,5 +1,0 @@
-{
-  if (that == null)   return false;
-  if (that instanceof QueryInput)   return this.equals((QueryInput)that);
-  return false;
-}
