@@ -1,8 +1,8 @@
 {
-  System.out.println("Sync Infer");
-  List<Integer> li=new ArrayList<Integer>();
-  for (int i=0; i < 5; ++i) {
-    li.add(i);
+  print("Sync Infer");
+  int rtn=0;
+synchronized (count) {
+    rtn=count++;
   }
-  return li.get(count++) + " QA says I love XXX";
+  return rtn + " QA says I love XXX";
 }

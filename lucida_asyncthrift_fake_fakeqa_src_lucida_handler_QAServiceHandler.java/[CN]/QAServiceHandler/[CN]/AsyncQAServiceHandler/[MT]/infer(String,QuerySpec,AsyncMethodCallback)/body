@@ -1,7 +1,7 @@
 {
-  System.out.println("Async Infer");
+  print("Async Infer");
   try {
-    System.out.println("Sleeping for 3 seconds");
+    print("Sleeping for 3 seconds");
     Thread.sleep(3000);
   }
  catch (  InterruptedException e) {

@@ -1,0 +1,7 @@
+@inlineCallbacks
+def main(client):
+    try:
+        result = yield client.infer('Johann', QuerySpec())
+        print result
+    except Exception as e:
+        print e
