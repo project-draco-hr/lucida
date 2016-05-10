@@ -1,0 +1,3 @@
+@main.route('/', methods=['GET'])
+def main_route():
+    return render_template('index.html')

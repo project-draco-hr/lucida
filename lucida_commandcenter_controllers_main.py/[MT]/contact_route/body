@@ -1,0 +1,3 @@
+@main.route('/contact', methods=['GET'])
+def contact_route():
+    return render_template('contact.html')

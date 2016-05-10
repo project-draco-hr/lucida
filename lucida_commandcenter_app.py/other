@@ -1,0 +1,21 @@
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import unicode_literals
+import sys, glob
+sys.path.insert(0, glob.glob(u'/home/yba/Documents/clarity/fbthrift/thrift/lib/py/build/lib*')[0])
+from lucidatypes.ttypes import *
+from lucidaservice import *
+import controllers
+from zope.interface import implements
+from thrift.transport import TSocket
+from thrift.transport import TTransport
+from thrift.protocol import TBinaryProtocol
+from thrift.server import TNonblockingServer
+from flask import *
+from threading import Thread
+app = Flask(__name__, template_folder=u'templates')
+app.register_blueprint(controllers.main)
+if (__name__ == u'__main__'):
+    thread = Thread(target=threaded_function)
+    thread.start()
+    app.run(host=u'0.0.0.0', port=3000, debug=True, use_reloader=False)
