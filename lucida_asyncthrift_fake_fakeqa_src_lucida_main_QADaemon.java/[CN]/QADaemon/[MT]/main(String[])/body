@@ -1,4 +1,5 @@
 {
+  connectToCMD();
   TProcessor proc=new LucidaService.AsyncProcessor(new QAServiceHandler.AsyncQAServiceHandler());
   TNonblockingServerTransport transport=new TNonblockingServerSocket(8083);
   TNonblockingServer.Args arguments=new TNonblockingServer.Args(transport).processor(proc).protocolFactory(new TBinaryProtocol.Factory()).transportFactory(new TFramedTransport.Factory());

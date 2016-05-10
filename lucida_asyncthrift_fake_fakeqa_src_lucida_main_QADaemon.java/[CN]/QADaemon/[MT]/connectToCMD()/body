@@ -1,0 +1,46 @@
+{
+  String LUCID="Falk";
+  QuerySpec spec=new QuerySpec();
+  final QueryInput knowledge_text=new QueryInput("text",new ArrayList<String>(){
+{
+      add("YodaQA is being developed by Fauk.");
+    }
+  }
+);
+  QuerySpec knowledge=new QuerySpec(new ArrayList<QueryInput>(){
+{
+      add(knowledge_text);
+    }
+  }
+);
+  final QueryInput query_input=new QueryInput("query",new ArrayList<String>(){
+{
+      add("What is Falk developing?");
+    }
+  }
+);
+  QuerySpec query=new QuerySpec(new ArrayList<QueryInput>(){
+{
+      add(query_input);
+    }
+  }
+);
+  TTransport transport=new TSocket("localhost",8080);
+  TProtocol protocol=new TBinaryProtocol(new TFramedTransport(transport));
+  LucidaService.Client client=new LucidaService.Client(protocol);
+  try {
+    transport.open();
+    System.out.println("///// Connecting to CMD at port " + 8080 + " ... /////");
+    client.create(LUCID,spec);
+    client.learn(LUCID,knowledge);
+    System.out.println("///// Query input: /////");
+    System.out.println(query_input);
+    String answer=client.infer(LUCID,query);
+    System.out.println("///// Answer: /////");
+    System.out.println(answer);
+    transport.close();
+  }
+ catch (  TException x) {
+    x.printStackTrace();
+  }
+}
