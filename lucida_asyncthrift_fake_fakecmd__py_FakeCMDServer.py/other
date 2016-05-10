@@ -1,6 +1,5 @@
 from __future__ import absolute_import
 from __future__ import division
-from __future__ import print_function
 from __future__ import unicode_literals
 import sys, glob
 sys.path.insert(0, glob.glob(u'/home/yba/Documents/clarity/fbthrift/thrift/lib/py/build/lib*')[0])
@@ -9,11 +8,8 @@ from lucidaservice import LucidaService
 from zope.interface import implements
 from thrift.transport import TSocket
 from thrift.transport import TTransport
-from thrift.transport import TTwisted
 from thrift.protocol import TBinaryProtocol
 from thrift.server import TNonblockingServer
-from thrift.server import TServer
-from twisted.internet import reactor
 if (__name__ == u'__main__'):
     handler = LucidaServiceHandler()
     processor = LucidaService.Processor(handler)
@@ -21,5 +17,5 @@ if (__name__ == u'__main__'):
     tfactory = TTransport.TBufferedTransportFactory()
     pfactory = TBinaryProtocol.TBinaryProtocolFactory()
     server = TNonblockingServer.TNonblockingServer(processor, transport, pfactory, pfactory)
-    print((u'CMD at ' + str(8080)))
+    print u'CMD at', str(8080)
     server.serve()

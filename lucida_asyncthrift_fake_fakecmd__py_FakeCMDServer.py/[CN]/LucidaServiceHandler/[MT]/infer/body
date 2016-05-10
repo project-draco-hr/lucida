@@ -1,3 +1,3 @@
 def infer(self, LUCID, query):
-    print((LUCID + u' Infer'))
+    print LUCID, u'Infer'
     return u'Lucida!!!!!!!'
