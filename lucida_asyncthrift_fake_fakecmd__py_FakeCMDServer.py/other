@@ -10,7 +10,12 @@ from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 from thrift.server import TNonblockingServer
+from thrift.server import TServer
+from flask import *
+from threading import Thread
+app = Flask(__name__, template_folder=u'templates')
 if (__name__ == u'__main__'):
+    app.run(host=u'0.0.0.0', port=3000, debug=True)
     handler = LucidaServiceHandler()
     processor = LucidaService.Processor(handler)
     transport = TSocket.TServerSocket(port=8080)
