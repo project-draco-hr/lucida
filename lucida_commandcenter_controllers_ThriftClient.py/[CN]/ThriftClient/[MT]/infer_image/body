@@ -1,0 +1,10 @@
+@staticmethod
+def infer_image(LUCID, data):
+    query_input = QueryInput()
+    query_input.data = []
+    query_input.data.append(str(data))
+    query = QuerySpec()
+    query.content = []
+    query.content.append(query_input)
+    result = ioloop.IOLoop.current().run_sync((lambda : ThriftClient.infer_image_callback(LUCID, query)))
+    return result

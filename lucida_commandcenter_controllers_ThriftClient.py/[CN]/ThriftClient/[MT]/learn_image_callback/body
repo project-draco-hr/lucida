@@ -1,7 +1,6 @@
 @staticmethod
 @gen.coroutine
-def learn_image_callback2(LUCID, knowledge):
-    log('$$$$$$$$$$')
+def learn_image_callback(LUCID, knowledge):
     transport = TTornado.TTornadoStreamTransport('localhost', 8082)
     pfactory = TBinaryProtocol.TBinaryProtocolFactory()
     client = LucidaService.Client(transport, pfactory)
@@ -10,7 +9,7 @@ def learn_image_callback2(LUCID, knowledge):
     except TTransport.TTransportException as ex:
         log(ex)
         raise gen.Return()
+    log('Sending learn_image request to IMM')
     yield client.learn(str(LUCID), knowledge)
-    client._transport.close()
     client._transport.close()
     raise gen.Return()

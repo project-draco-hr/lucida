@@ -1,0 +1,15 @@
+@staticmethod
+@gen.coroutine
+def infer_image_callback(LUCID, query):
+    transport = TTornado.TTornadoStreamTransport('localhost', 8082)
+    pfactory = TBinaryProtocol.TBinaryProtocolFactory()
+    client = LucidaService.Client(transport, pfactory)
+    try:
+        yield transport.open()
+    except TTransport.TTransportException as ex:
+        log(ex)
+        raise gen.Return()
+    log('Sending infer_image request to IMM')
+    result = yield client.infer(str(LUCID), query)
+    client._transport.close()
+    raise gen.Return(result)

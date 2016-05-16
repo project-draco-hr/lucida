@@ -10,7 +10,10 @@ def learn_route():
                 abort(404)
             if (not (('label' in request.form) and request.form['label'])):
                 abort(404)
-            Database.add_picture(session['username'], request.form['label'], upload_file.read())
+            image_data = upload_file.read()
+            upload_file.close()
+            Database.add_picture(session['username'], request.form['label'], image_data)
+            ThriftClient.learn_image(session['username'], request.form['label'], image_data)
         else:
             abort(404)
     options = {'pictures': Database.get_pictures(session['username']), }

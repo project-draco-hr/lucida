@@ -1,4 +1,5 @@
 from flask import *
 from Database import Database
 from AccessManagement import login_required
+from ThriftClient import ThriftClient
 learn = Blueprint('learn', __name__, template_folder='templates')
