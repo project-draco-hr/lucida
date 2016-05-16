@@ -1,2 +1,2 @@
 def infer(self, LUCID, query):
-    return 'CMD'
+    return 'CMD can only infer'

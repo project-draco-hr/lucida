@@ -8,7 +8,7 @@ def infer_route():
         elif (request.form['op'] == 'add_image'):
             upload_file = request.files['file']
             if (not (upload_file and file_extension_allowed(upload_file.filename))):
-                abort(404)
+                return 'Invalid file'
             image_data = upload_file.read()
             upload_file.close()
             result = ThriftClient.infer_image(session['username'], image_data)

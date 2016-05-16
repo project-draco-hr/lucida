@@ -7,5 +7,5 @@ def add_service(name, host, port):
         ThriftClient.services[name] = [(host, int(port))]
     else:
         ThriftClient.services[name].append((host, int(port)))
-    services_lock.release()
     log(('Registered services ' + str(ThriftClient.services)))
+    services_lock.release()

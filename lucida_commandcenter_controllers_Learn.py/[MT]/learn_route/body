@@ -7,9 +7,9 @@ def learn_route():
         elif (request.form['op'] == 'add_image'):
             upload_file = request.files['file']
             if (not (upload_file and file_extension_allowed(upload_file.filename))):
-                abort(404)
+                return 'Invalid file'
             if (not (('label' in request.form) and request.form['label'])):
-                abort(404)
+                return 'Please enter a label for your image'
             image_data = upload_file.read()
             upload_file.close()
             Database.add_picture(session['username'], request.form['label'], image_data)

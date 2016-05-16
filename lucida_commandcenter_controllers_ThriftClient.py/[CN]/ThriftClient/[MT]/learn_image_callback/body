@@ -1,7 +1,8 @@
 @staticmethod
 @gen.coroutine
 def learn_image_callback(LUCID, knowledge):
-    transport = TTornado.TTornadoStreamTransport('localhost', 8082)
+    (host, port) = ThriftClient.get_service(ThriftClient.IMM)
+    transport = TTornado.TTornadoStreamTransport(host, port)
     pfactory = TBinaryProtocol.TBinaryProtocolFactory()
     client = LucidaService.Client(transport, pfactory)
     try:

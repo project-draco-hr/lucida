@@ -1,7 +1,8 @@
 @staticmethod
 @gen.coroutine
 def infer_image_callback(LUCID, query):
-    transport = TTornado.TTornadoStreamTransport('localhost', 8082)
+    (host, port) = ThriftClient.get_service(ThriftClient.IMM)
+    transport = TTornado.TTornadoStreamTransport(host, port)
     pfactory = TBinaryProtocol.TBinaryProtocolFactory()
     client = LucidaService.Client(transport, pfactory)
     try:

@@ -1,5 +1,4 @@
 @staticmethod
 def get_pictures(username):
-    images_db = ('images_' + username)
-    log(('Retrieving images from ' + images_db))
-    return [image for image in Database.images.find()]
+    log(('Retrieving images from images_' + username))
+    return [image for image in Database.get_image_collection(username).find()]
