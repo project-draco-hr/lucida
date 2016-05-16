@@ -1,0 +1,12 @@
+import glob
+import sys
+sys.path.append('lucidaservice')
+sys.path.append('lucidatypes')
+sys.path.insert(0, glob.glob('/home/yba/Documents/clarity/thrift-0.9.3/lib/py/build/lib*')[0])
+from lucidatypes.ttypes import *
+from lucidaservice import *
+from thrift import TTornado
+from thrift.protocol import TBinaryProtocol
+from tornado import ioloop
+if (__name__ == '__main__'):
+    main()

@@ -1,18 +1,13 @@
 @staticmethod
-@gen.engine
-def learn_image_callback2(callback, LUCID, knowledge):
+@gen.coroutine
+def learn_image_callback2():
+    log('$$$$$$$$$$')
     transport = TTornado.TTornadoStreamTransport('localhost', 8082)
     pfactory = TBinaryProtocol.TBinaryProtocolFactory()
     client = LucidaService.Client(transport, pfactory)
-    try:
-        yield gen.Task(transport.open)
-    except TTransport.TTransportException as ex:
-        log(ex)
-        if callback:
-            callback()
-        return
-    xxx = {'LUCID': 'yba2', 'knowledge': QuerySpec(), }
-    (args, kwargs) = yield gen.Task(client.learn, 'yba2', QuerySpec())
+    yield transport.open()
+    log('Transport is opened')
+    yield gen.Task(client.learn, 'yba2', QuerySpec())
     client._transport.close()
-    if callback:
-        callback()
+    client._transport.close()
+    raise gen.Return()

@@ -1,0 +1,26 @@
+@gen.coroutine
+def communicate():
+    transport = TTornado.TTornadoStreamTransport('localhost', 8084)
+    try:
+        yield transport.open()
+        print 'Transport is opened'
+    except TTransport.TTransportException as ex:
+        logging.error(ex)
+        raise gen.Return()
+    pfactory = TBinaryProtocol.TBinaryProtocolFactory()
+    client = LucidaService.Client(transport, pfactory)
+    LUCID = 'yba2'
+    label = 'island'
+    data = 'xxxxx'
+    knowledge_input = QueryInput()
+    knowledge_input.tags = []
+    knowledge_input.tags.append(label)
+    knowledge_input.data = []
+    knowledge_input.data.append(data)
+    knowledge = QuerySpec()
+    knowledge.content = []
+    knowledge.content.append(knowledge_input)
+    yield gen.Task(client.learn, LUCID, knowledge_input)
+    print 'Learn'
+    client._transport.close()
+    raise gen.Return()
