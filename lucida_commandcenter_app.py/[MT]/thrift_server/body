@@ -1,0 +1,8 @@
+def thrift_server():
+    handler = ThriftServer.LucidaServiceHandler()
+    processor = ThriftServer.LucidaService.Processor(handler)
+    transport = ThriftServer.TSocket.TServerSocket(port=8080)
+    pfactory = ThriftServer.TBinaryProtocol.TBinaryProtocolFactory()
+    server = ThriftServer.TNonblockingServer.TNonblockingServer(processor, transport, pfactory, pfactory)
+    print (u'CMD at ' + str(8080))
+    server.serve()

@@ -1,0 +1,2 @@
+def too_short_error_msg(field, min_length):
+    return (((field + ' must be at least ') + str(min_length)) + ' characters long')

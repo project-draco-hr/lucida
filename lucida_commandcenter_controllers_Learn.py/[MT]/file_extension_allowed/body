@@ -1,0 +1,3 @@
+def file_extension_allowed(filename):
+    allowed_extensions = set(['png', 'PNG', 'jpg', 'JPG', 'bmp', 'BMP', 'gif', 'GIF'])
+    return (('.' in filename) and (filename.rsplit('.', 1)[1] in allowed_extensions))

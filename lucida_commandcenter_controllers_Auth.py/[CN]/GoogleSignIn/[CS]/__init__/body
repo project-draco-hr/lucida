@@ -1,0 +1,5 @@
+def __init__(self):
+    super(GoogleSignIn, self).__init__('google')
+    googleinfo = urllib2.urlopen('https://accounts.google.com/.well-known/openid-configuration')
+    google_params = json.load(googleinfo)
+    self.service = OAuth2Service(name='google', client_id=self.consumer_id, client_secret=self.consumer_secret, authorize_url=google_params.get('authorization_endpoint'), base_url=google_params.get('userinfo_endpoint'), access_token_url=google_params.get('token_endpoint'))

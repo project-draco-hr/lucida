@@ -1,0 +1,11 @@
+@staticmethod
+def add_service(name, host, port):
+    if (not name.isupper()):
+        raise ValueError('Service name must be in upper case')
+    services_lock.acquire()
+    if (not (name in ThriftClient.services)):
+        ThriftClient.services[name] = [(host, int(port))]
+    else:
+        ThriftClient.services[name].append((host, int(port)))
+    services_lock.release()
+    log(('Registered services ' + str(ThriftClient.services)))

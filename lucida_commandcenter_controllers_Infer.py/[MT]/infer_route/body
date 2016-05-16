@@ -1,0 +1,3 @@
+@infer.route('/infer', methods=['GET', 'POST'])
+def infer_route():
+    return render_template('infer.html')

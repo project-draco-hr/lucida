@@ -1,0 +1,4 @@
+import requests, json
+from flask import *
+main = Blueprint('main', __name__, template_folder='templates')
+from flask.ext.login import login_user, logout_user, current_user, login_required

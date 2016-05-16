@@ -1,0 +1,3 @@
+import requests, json
+from flask import *
+infer = Blueprint('infer', __name__, template_folder='templates')

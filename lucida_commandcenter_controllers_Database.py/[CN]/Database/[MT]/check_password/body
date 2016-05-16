@@ -1,0 +1,6 @@
+@staticmethod
+def check_password(username, input_password):
+    correct_password_in_db = Database.users.find_one({'username': username, })['password']
+    salt = correct_password_in_db.split('$')[1]
+    generated_password = Database.hash_password(Database.ENCRYPT_ALGORITHM, salt, input_password)
+    return (correct_password_in_db == generated_password)

@@ -1,0 +1,14 @@
+@staticmethod
+def get_service(name):
+    services_lock.acquire()
+    if (not (name in ThriftClient.services)):
+        services_lock.release()
+        raise KeyError((name + ' has not been registered yet'))
+    if (not ThriftClient.services[name]):
+        services_lock.release()
+        raise KeyError((name + ' has been registered but no working server'))
+    rtn = ThriftClient.services[name][0]
+    ThriftClient.services[name].pop(0)
+    ThriftClient.services[name].append(rtn)
+    services_lock.release()
+    return rtn

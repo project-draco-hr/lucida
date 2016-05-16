@@ -1,0 +1,17 @@
+@learn.route('/learn', methods=['GET', 'POST'])
+@login_required
+def learn_route():
+    if (request.method == 'POST'):
+        if (not ('op' in request.form)):
+            abort(404)
+        elif (request.form['op'] == 'add_image'):
+            upload_file = request.files['file']
+            if (not (upload_file and file_extension_allowed(upload_file.filename))):
+                abort(404)
+            if (not (('label' in request.form) and request.form['label'])):
+                abort(404)
+            Database.add_picture(session['username'], request.form['label'], upload_file.read())
+        else:
+            abort(404)
+    options = {'pictures': Database.get_pictures(session['username']), }
+    return render_template('learn.html', **options)

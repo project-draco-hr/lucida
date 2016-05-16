@@ -1,0 +1,5 @@
+@staticmethod
+def get_pictures(username):
+    images_db = ('images_' + username)
+    print images_db
+    return [image for image in Database.images.find()]

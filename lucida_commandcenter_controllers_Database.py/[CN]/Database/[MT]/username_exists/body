@@ -1,0 +1,3 @@
+@staticmethod
+def username_exists(username):
+    return (not (Database.users.find_one({'username': username, }) is None))

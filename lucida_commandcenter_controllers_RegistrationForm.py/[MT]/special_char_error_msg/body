@@ -1,0 +1,2 @@
+def special_char_error_msg(field):
+    return (field + ' may only contain letters, digits, and underscores')

@@ -1,0 +1,4 @@
+@staticmethod
+def add_picture(username, label, upload_file):
+    Database.images.insert_one({'label': label, 'data': b64encode(upload_file), })
+    ThriftClient.learn_image(username, label, upload_file)

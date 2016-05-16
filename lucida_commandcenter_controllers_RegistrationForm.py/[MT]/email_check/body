@@ -1,0 +1,3 @@
+def email_check(form, field):
+    if (not re.match('[^@]+@[^@]+\\.[^@]+', form.email.data)):
+        raise ValidationError('Email address must be valid')

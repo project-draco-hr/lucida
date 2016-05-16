@@ -1,3 +1,0 @@
-def learn(self, LUCID, knowledge):
-    print LUCID, u'Learn'
-    return

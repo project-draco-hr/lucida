@@ -1,0 +1,8 @@
+@staticmethod
+def hash_password(algorithm, salt, password):
+    m = hashlib.new(algorithm)
+    password = password.encode('utf-8')
+    s = (salt + password)
+    m.update(s)
+    password_hash = m.hexdigest()
+    return '$'.join([algorithm, salt, password_hash])

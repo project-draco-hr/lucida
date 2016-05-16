@@ -1,9 +1,0 @@
-def threaded_function():
-    handler = LucidaServiceHandler()
-    processor = LucidaService.Processor(handler)
-    transport = TSocket.TServerSocket(port=8080)
-    tfactory = TTransport.TBufferedTransportFactory()
-    pfactory = TBinaryProtocol.TBinaryProtocolFactory()
-    server = TNonblockingServer.TNonblockingServer(processor, transport, pfactory, pfactory)
-    print u'CMD at', str(8080)
-    server.serve()

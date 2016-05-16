@@ -2,20 +2,18 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import unicode_literals
 import sys, glob
-sys.path.insert(0, glob.glob(u'/home/yba/Documents/clarity/fbthrift/thrift/lib/py/build/lib*')[0])
-from lucidatypes.ttypes import *
-from lucidaservice import *
-import controllers
-from zope.interface import implements
-from thrift.transport import TSocket
-from thrift.transport import TTransport
-from thrift.protocol import TBinaryProtocol
-from thrift.server import TNonblockingServer
+sys.path.insert(0, glob.glob(u'/home/yba/Documents/clarity/thrift-0.9.3/lib/py/build/lib*')[0])
+from controllers import *
 from flask import *
 from threading import Thread
+import config
 app = Flask(__name__, template_folder=u'templates')
-app.register_blueprint(controllers.main)
+app.config.from_object(u'config')
+app.register_blueprint(Main.main)
+app.register_blueprint(Create.create)
+app.register_blueprint(Learn.learn)
+app.register_blueprint(Infer.infer)
+app.secret_key = u'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 if (__name__ == u'__main__'):
-    thread = Thread(target=threaded_function)
-    thread.start()
-    app.run(host=u'0.0.0.0', port=3000, debug=True, use_reloader=False)
+    Thread(target=thrift_server).start()
+    Thread(target=flask_server).start()

@@ -1,3 +1,0 @@
-def create(self, LUCID, spec):
-    print LUCID, u'Create: port', spec.name
-    return

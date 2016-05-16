@@ -1,0 +1,19 @@
+@main.route('/callback/<provider>')
+def oauth_callback(provider):
+    if (not current_user.is_anonymous()):
+        return redirect(url_for('index'))
+    oauth = OAuthSignIn.get_provider(provider)
+    (username, email) = oauth.callback()
+    if (email is None):
+        flash('Authentication failed.')
+        return redirect(url_for('index'))
+    user = User.query.filter_by(email=email).first()
+    if (not user):
+        nickname = username
+        if ((nickname is None) or (nickname == '')):
+            nickname = email.split('@')[0]
+        user = User(nickname=nickname, email=email)
+        db.session.add(user)
+        db.session.commit()
+    login_user(user, remember=True)
+    return redirect(url_for('index'))
