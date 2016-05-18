@@ -1,0 +1,7 @@
+def __init__(self):
+    settings = dict(cookie_secret='43oETzKXQAGaYdkL5gEmGeJJFuYh7EQnp2XdTP1o/Vo=', template_path=os.path.join(os.path.dirname(os.path.dirname(__file__)), 'templates'), static_path=os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static'), xsrf_cookies=False, autoescape=None)
+    handlers = [('/', MainHandler), ('/client/ws/speech', DecoderSocketHandler), ('/client/ws/status', StatusSocketHandler), ('/client/dynamic/reference', ReferenceHandler), ('/client/dynamic/recognize', HttpChunkedRecognizeHandler), ('/worker/ws/speech', WorkerSocketHandler), ('/client/static/(.*)', tornado.web.StaticFileHandler, {'path': settings['static_path'], })]
+    tornado.web.Application.__init__(self, handlers, **settings)
+    self.available_workers = set()
+    self.status_listeners = set()
+    self.num_requests_processed = 0

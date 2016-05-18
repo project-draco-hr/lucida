@@ -1,0 +1,2 @@
+def set_client_socket(self, client_socket):
+    self.client_socket = client_socket

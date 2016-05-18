@@ -1,0 +1,32 @@
+'\nReads speech data via websocket requests, sends it to Redis, waits for results from Redis and\nforwards to client via websocket\n'
+import sys
+import logging
+import json
+import codecs
+import os.path
+import uuid
+import time
+import threading
+import functools
+from Queue import Queue
+import tornado.ioloop
+import tornado.options
+import tornado.web
+import tornado.websocket
+import tornado.gen
+import tornado.concurrent
+from tornado.options import define
+define('port', default=8888, help='run on the given port', type=int)
+STATUS_EOS = (-1)
+STATUS_SUCCESS = 0
+STATUS_NO_SPEECH = 1
+STATUS_ABORTED = 2
+STATUS_AUDIO_CAPTURE = 3
+STATUS_NETWORK = 4
+STATUS_NOT_ALLOWED = 5
+STATUS_SERVICE_NOT_ALLOWED = 6
+STATUS_BAD_GRAMMAR = 7
+STATUS_LANGUAGE_NOT_SUPPORTED = 8
+STATUS_NOT_AVAILABLE = 9
+if (__name__ == '__main__'):
+    main()

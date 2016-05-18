@@ -1,0 +1,8 @@
+def main():
+    logging.basicConfig(level=logging.DEBUG, format='%(levelname)8s %(asctime)s %(message)s ')
+    logging.debug('Starting up server')
+    from tornado.options import options
+    tornado.options.parse_command_line()
+    app = Application()
+    app.listen(3000)
+    tornado.ioloop.IOLoop.instance().start()

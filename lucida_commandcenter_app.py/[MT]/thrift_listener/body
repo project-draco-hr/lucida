@@ -1,4 +1,4 @@
-def thrift_server():
+def thrift_listener():
     handler = ThriftServer.LucidaServiceHandler()
     processor = ThriftServer.LucidaService.Processor(handler)
     transport = ThriftServer.TSocket.TServerSocket(port=8080)

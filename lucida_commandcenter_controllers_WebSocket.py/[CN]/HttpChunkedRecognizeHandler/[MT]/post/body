@@ -1,0 +1,2 @@
+def post(self, *args, **kwargs):
+    self.end_request(args, kwargs)

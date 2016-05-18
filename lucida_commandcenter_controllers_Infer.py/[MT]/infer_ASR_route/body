@@ -1,4 +1,0 @@
-@infer.route('/infer_ASR', methods=['GET', 'POST'])
-@login_required
-def infer_ASR_route():
-    return render_template('infer_ASR.html')

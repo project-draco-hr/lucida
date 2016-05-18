@@ -1,0 +1,22 @@
+@tornado.web.asynchronous
+@tornado.gen.coroutine
+def end_request(self, *args, **kwargs):
+    logging.info(('%s: Handling the end of chunked recognize request' % self.id))
+    assert (self.worker is not None)
+    self.worker.write_message('EOS', binary=True)
+    logging.info(('%s: yielding...' % self.id))
+    hyp = yield tornado.gen.Task(self.get_final_hyp)
+    if (self.error_status == 0):
+        logging.info(('%s: Final hyp: %s' % (self.id, hyp)))
+        response = {'status': 0, 'id': self.id, 'hypotheses': [{'utterance': hyp, }], }
+        self.write(response)
+    else:
+        logging.info(('%s: Error (status=%d) processing HTTP request: %s' % (self.id, self.error_status, self.error_message)))
+        response = {'status': self.error_status, 'id': self.id, 'message': self.error_message, }
+        self.write(response)
+    self.application.num_requests_processed += 1
+    self.application.send_status_update()
+    self.worker.set_client_socket(None)
+    self.worker.close()
+    self.finish()
+    logging.info('Everything done')

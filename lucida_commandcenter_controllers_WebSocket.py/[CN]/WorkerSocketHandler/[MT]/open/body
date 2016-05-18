@@ -1,0 +1,5 @@
+def open(self):
+    self.client_socket = None
+    self.application.available_workers.add(self)
+    logging.info(('New worker available ' + self.__str__()))
+    self.application.send_status_update()

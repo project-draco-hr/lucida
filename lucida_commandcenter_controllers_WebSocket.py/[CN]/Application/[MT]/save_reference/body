@@ -1,0 +1,10 @@
+def save_reference(self, content_id, content):
+    refs = {}
+    try:
+        with open('reference-content.json') as f:
+            refs = json.load(f)
+    except:
+        pass
+    refs[content_id] = content
+    with open('reference-content.json', 'w') as f:
+        json.dump(refs, f, indent=2)

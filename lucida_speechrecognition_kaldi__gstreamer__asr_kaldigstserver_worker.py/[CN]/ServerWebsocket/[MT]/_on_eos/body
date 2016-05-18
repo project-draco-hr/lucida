@@ -1,5 +1,4 @@
 def _on_eos(self, data=None):
     self.last_decoder_message = time.time()
     self.state = self.STATE_FINISHED
-    self.send_adaptation_state()
     self.close()

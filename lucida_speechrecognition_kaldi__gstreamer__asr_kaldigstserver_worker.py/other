@@ -46,6 +46,7 @@ if (not (lucida_service == None)):
 else:
 
     def call_commandcenter(transcript):
+        print '@@@@@@@@@@@@@@@', transcript
         return unknown_response
 logger = logging.getLogger(__name__)
 CONNECT_TIMEOUT = 5

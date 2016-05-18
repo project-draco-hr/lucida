@@ -1,0 +1,3 @@
+def send_status_update_single(self, ws):
+    status = dict(num_workers_available=len(self.available_workers), num_requests_processed=self.num_requests_processed)
+    ws.write_message(json.dumps(status))

@@ -1,0 +1,3 @@
+def on_close(self):
+    logging.info('Status listener left')
+    self.application.status_listeners.remove(self)

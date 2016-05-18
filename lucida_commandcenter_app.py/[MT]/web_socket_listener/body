@@ -1,0 +1,6 @@
+def web_socket_listener():
+    logging.basicConfig(level=logging.DEBUG, format=u'%(levelname)8s %(asctime)s %(message)s ')
+    logging.debug(u'Starting up server')
+    WebSocket.tornado.options.parse_command_line()
+    WebSocket.Application().listen(8888)
+    WebSocket.tornado.ioloop.IOLoop.instance().start()
