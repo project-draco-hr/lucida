@@ -1,0 +1,23 @@
+def _on_full_result(self, full_result_json):
+    self.last_decoder_message = time.time()
+    full_result = json.loads(full_result_json)
+    if (full_result.get('status', (-1)) == common.STATUS_SUCCESS):
+        logger.debug(('%s: Before postprocessing: %s' % (self.request_id, full_result)))
+        full_result = self.post_process_full(full_result)
+        logger.info(('%s: Postprocessing done.' % self.request_id))
+        logger.debug(('%s: After postprocessing: %s' % (self.request_id, full_result)))
+        try:
+            self.send(json.dumps(full_result))
+        except:
+            e = sys.exc_info()[1]
+            logger.warning(('Failed to send event to master: %s' % e))
+        if full_result.get('result', {}).get('final', True):
+            self.num_segments += 1
+            self.last_partial_result = ''
+    else:
+        logger.info(('%s: Result status is %d, forwarding the result to the server anyway' % (self.request_id, full_result.get('status', (-1)))))
+        try:
+            self.send(json.dumps(full_result))
+        except:
+            e = sys.exc_info()[1]
+            logger.warning(('Failed to send event to master: %s' % e))

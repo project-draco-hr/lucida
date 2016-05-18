@@ -1,0 +1,2 @@
+def set_error_handler(self, handler):
+    self.error_handler = handler

@@ -1,0 +1,3 @@
+def send_status_update(self):
+    for ws in self.status_listeners:
+        self.send_status_update_single(ws)

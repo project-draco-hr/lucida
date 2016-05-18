@@ -1,0 +1,7 @@
+def on_message(self, message):
+    assert (self.worker is not None)
+    logging.info(('%s: Forwarding client message (%s) of length %d to worker' % (self.id, type(message), len(message))))
+    if isinstance(message, unicode):
+        self.worker.write_message(message, binary=False)
+    else:
+        self.worker.write_message(message, binary=True)

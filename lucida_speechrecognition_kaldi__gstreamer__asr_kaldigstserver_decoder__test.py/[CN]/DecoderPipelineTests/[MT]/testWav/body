@@ -1,0 +1,10 @@
+def testWav(self):
+    self.decoder_pipeline.init_request('testWav', '')
+    f = open('test/data/lause2.wav', 'rb')
+    for block in iter((lambda : f.read((((16000 * 2) * 2) / 4))), ''):
+        time.sleep(0.25)
+        self.decoder_pipeline.process_data(block)
+    self.decoder_pipeline.end_request()
+    while (not self.finished):
+        time.sleep(1)
+    self.assertEqual('see on teine lause <#s>'.split(), self.words)

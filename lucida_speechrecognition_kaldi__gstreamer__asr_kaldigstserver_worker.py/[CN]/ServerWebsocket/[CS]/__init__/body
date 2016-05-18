@@ -1,0 +1,23 @@
+def __init__(self, uri, decoder_pipeline, post_processor, full_post_processor=None):
+    self.coachtranscript = empty_response
+    self.uri = uri
+    self.decoder_pipeline = decoder_pipeline
+    self.post_processor = post_processor
+    self.full_post_processor = full_post_processor
+    WebSocketClient.__init__(self, url=uri, heartbeat_freq=10)
+    self.pipeline_initialized = False
+    self.partial_transcript = ''
+    if USE_NNET2:
+        self.decoder_pipeline.set_result_handler(self._on_result)
+        self.decoder_pipeline.set_full_result_handler(self._on_full_result)
+        self.decoder_pipeline.set_error_handler(self._on_error)
+    else:
+        self.decoder_pipeline.set_word_handler(self._on_word)
+        self.decoder_pipeline.set_error_handler(self._on_error)
+    self.decoder_pipeline.set_eos_handler(self._on_eos)
+    self.state = self.STATE_CREATED
+    self.last_decoder_message = time.time()
+    self.request_id = '<undefined>'
+    self.timeout_decoder = 5
+    self.num_segments = 0
+    self.last_partial_result = ''

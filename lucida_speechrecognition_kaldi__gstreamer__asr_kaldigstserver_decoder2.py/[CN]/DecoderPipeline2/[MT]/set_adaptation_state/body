@@ -1,0 +1,3 @@
+def set_adaptation_state(self, adaptation_state):
+    'Sets the adaptation state to a certian value, previously retrieved using get_adaptation_state()\n\n        Should be called after init_request(..)\n        '
+    return self.asr.set_property('adaptation-state', adaptation_state)

@@ -1,0 +1,25 @@
+'\nSample script that shows how to postprocess full results from the kaldi-gstreamer-worker, encoded as JSON.\n\nIt adds a sentence confidence score to the 1-best hypothesis, deletes all other hypotheses and\nadds a dot (.) to the end of the 1-best hypothesis. It assumes that the results contain at least two hypotheses,\nThe confidence scores are now normalized\n'
+import sys
+import json
+import logging
+from math import exp
+if (__name__ == '__main__'):
+    logging.basicConfig(level=logging.DEBUG, format='%(levelname)8s %(asctime)s %(message)s ')
+    lines = []
+    while True:
+        l = sys.stdin.readline()
+        if (not l):
+            break
+        if (l.strip() == ''):
+            if (len(lines) > 0):
+                result_json = post_process_json(''.join(lines))
+                print result_json
+                print 
+                sys.stdout.flush()
+                lines = []
+        else:
+            lines.append(l)
+    if (len(lines) > 0):
+        result_json = post_process_json(''.join(lines))
+        print result_json
+        lines = []

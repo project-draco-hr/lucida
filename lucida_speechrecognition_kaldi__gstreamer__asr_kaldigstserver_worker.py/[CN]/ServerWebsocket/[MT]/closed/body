@@ -1,0 +1,4 @@
+def closed(self, code, reason=None):
+    logger.debug(('%s: Websocket closed() called' % self.request_id))
+    self.finish_request()
+    logger.debug(('%s: Websocket closed() finished' % self.request_id))

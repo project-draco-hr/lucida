@@ -1,0 +1,3 @@
+def end_request(self):
+    logger.info(('%s: Pushing EOS to pipeline' % self.request_id))
+    self.appsrc.emit('end-of-stream')

@@ -1,0 +1,6 @@
+def testDisconnect(self):
+    self.decoder_pipeline.init_request('testDisconnect', 'audio/x-raw, layout=(string)interleaved, rate=(int)8000, format=(string)S16LE, channels=(int)1')
+    self.decoder_pipeline.end_request()
+    while (not self.finished):
+        time.sleep(1)
+    self.assertEqual([], self.final_hyps)

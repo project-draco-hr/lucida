@@ -1,0 +1,4 @@
+def open(self):
+    logging.info('New status listener')
+    self.application.status_listeners.add(self)
+    self.application.send_status_update_single(self)

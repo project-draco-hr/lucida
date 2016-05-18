@@ -1,0 +1,22 @@
+def received_message(self, m):
+    response = json.loads(str(m))
+    if (response['status'] == 0):
+        if ('result' in response):
+            trans = response['result']['hypotheses'][0]['transcript']
+            if response['result']['final']:
+                self.final_hyps.append(trans)
+                print  >> sys.stderr, ('\r%s' % trans.replace('\n', '\\n'))
+            else:
+                print_trans = trans.replace('\n', '\\n')
+                if (len(print_trans) > 80):
+                    print_trans = ('... %s' % print_trans[(-76):])
+                print  >> sys.stderr, ('\r%s' % print_trans),
+        if ('adaptation_state' in response):
+            if self.save_adaptation_state_filename:
+                print  >> sys.stderr, ('Saving adaptation state to %s' % self.save_adaptation_state_filename)
+                with open(self.save_adaptation_state_filename, 'w') as f:
+                    f.write(json.dumps(response['adaptation_state']))
+    else:
+        print  >> sys.stderr, ('Received error from server (status %d)' % response['status'])
+        if ('message' in response):
+            print  >> sys.stderr, 'Error message:', response['message']

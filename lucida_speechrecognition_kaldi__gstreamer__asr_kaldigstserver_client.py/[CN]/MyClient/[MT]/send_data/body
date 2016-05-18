@@ -1,0 +1,3 @@
+@rate_limited(4)
+def send_data(self, data):
+    self.send(data, binary=True)

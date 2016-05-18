@@ -1,0 +1,9 @@
+def _on_error(self, error):
+    self.state = self.STATE_FINISHED
+    event = dict(status=common.STATUS_NOT_ALLOWED, message=error)
+    try:
+        self.send(json.dumps(event))
+    except:
+        e = sys.exc_info()[1]
+        logger.warning(('Failed to send event to master: %s' % e))
+    self.close()

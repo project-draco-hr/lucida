@@ -1,0 +1,6 @@
+def on_close(self):
+    logging.info((('Worker ' + self.__str__()) + ' leaving'))
+    self.application.available_workers.discard(self)
+    if self.client_socket:
+        self.client_socket.close()
+    self.application.send_status_update()

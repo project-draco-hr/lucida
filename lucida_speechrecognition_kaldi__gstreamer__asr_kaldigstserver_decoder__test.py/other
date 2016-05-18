@@ -1,0 +1,9 @@
+'\nCreated on Jun 27, 2013\n\n@author: tanel\n'
+import unittest
+from gi.repository import GObject, Gst
+import thread
+import logging
+from decoder import DecoderPipeline
+import time
+if (__name__ == '__main__'):
+    main()

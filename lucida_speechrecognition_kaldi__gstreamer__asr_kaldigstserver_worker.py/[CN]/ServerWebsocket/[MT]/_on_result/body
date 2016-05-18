@@ -1,0 +1,22 @@
+def _on_result(self, result, final):
+    if final:
+        transcript = result.decode('utf8')
+        self.coachtranscript += (' ' + transcript)
+        return
+    self.last_decoder_message = time.time()
+    if (self.last_partial_result == result):
+        return
+    self.last_partial_result = result
+    logger.info(('%s: Postprocessing (final=%s) result..' % (self.request_id, final)))
+    if final:
+        logger.info(('%s: Before postprocessing: %s' % (self.request_id, result)))
+    processed_transcript = self.post_process(result)
+    logger.info(('%s: Postprocessing done.' % self.request_id))
+    if final:
+        logger.info(('%s: After postprocessing: %s' % (self.request_id, processed_transcript)))
+    event = dict(status=common.STATUS_SUCCESS, segment=self.num_segments, result=dict(hypotheses=[dict(transcript=processed_transcript)], final=final))
+    try:
+        self.send(json.dumps(event))
+    except:
+        e = sys.exc_info()[1]
+        logger.warning(('Failed to send event to master: %s' % e))

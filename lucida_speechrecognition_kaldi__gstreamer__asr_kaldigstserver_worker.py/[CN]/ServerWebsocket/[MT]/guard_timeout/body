@@ -1,0 +1,15 @@
+def guard_timeout(self):
+    global SILENCE_TIMEOUT
+    while (self.state in [self.STATE_CONNECTED, self.STATE_INITIALIZED, self.STATE_PROCESSING]):
+        if ((time.time() - self.last_decoder_message) > SILENCE_TIMEOUT):
+            logger.warning(('%s: More than %d seconds from last decoder hypothesis update, cancelling' % (self.request_id, SILENCE_TIMEOUT)))
+            self.finish_request()
+            event = dict(status=common.STATUS_NO_SPEECH)
+            try:
+                self.send(json.dumps(event))
+            except:
+                logger.warning(('%s: Failed to send error event to master' % self.request_id))
+            self.close()
+            return
+        logger.debug(("%s: Checking that decoder hasn't been silent for more than %d seconds" % (self.request_id, SILENCE_TIMEOUT)))
+        time.sleep(1)

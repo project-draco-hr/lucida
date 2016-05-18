@@ -1,0 +1,2 @@
+def set_word_handler(self, handler):
+    self.word_handler = handler

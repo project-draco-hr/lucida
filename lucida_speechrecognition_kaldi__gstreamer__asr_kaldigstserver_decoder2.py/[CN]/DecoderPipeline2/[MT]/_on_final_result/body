@@ -1,0 +1,4 @@
+def _on_final_result(self, asr, hyp):
+    logger.info(('%s: Got final result: %s' % (self.request_id, hyp.decode('utf8'))))
+    if self.result_handler:
+        self.result_handler(hyp, True)

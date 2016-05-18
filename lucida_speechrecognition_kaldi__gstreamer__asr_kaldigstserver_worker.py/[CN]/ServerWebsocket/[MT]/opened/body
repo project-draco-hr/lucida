@@ -1,0 +1,4 @@
+def opened(self):
+    logger.info('Opened websocket connection to server')
+    self.state = self.STATE_CONNECTED
+    self.last_partial_result = ''

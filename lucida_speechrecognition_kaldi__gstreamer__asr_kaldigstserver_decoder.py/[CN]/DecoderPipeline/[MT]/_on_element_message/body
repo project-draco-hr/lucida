@@ -1,0 +1,8 @@
+def _on_element_message(self, bus, message):
+    if message.has_name('cutter'):
+        if message.get_structure().get_value('above'):
+            logger.info('LEVEL ABOVE')
+            self.asr.set_property('silent', False)
+        else:
+            logger.info('LEVEL BELOW')
+            self.asr.set_property('silent', True)

@@ -1,0 +1,10 @@
+def testOgg(self):
+    self.decoder_pipeline.init_request('testOgg', '')
+    f = open('test/data/test_2lauset.ogg', 'rb')
+    for block in iter((lambda : f.read((((86 * 1024) / 8) / 4))), ''):
+        time.sleep(0.25)
+        self.decoder_pipeline.process_data(block)
+    self.decoder_pipeline.end_request()
+    while (not self.finished):
+        time.sleep(1)
+    self.assertEqual('see on esimene lause <#s> see on teine lause <#s>'.split(), self.words)

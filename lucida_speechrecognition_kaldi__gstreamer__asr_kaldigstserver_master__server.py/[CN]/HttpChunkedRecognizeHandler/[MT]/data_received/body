@@ -1,0 +1,4 @@
+def data_received(self, chunk):
+    assert (self.worker is not None)
+    logging.debug(('%s: Forwarding client message of length %d to worker' % (self.id, len(chunk))))
+    self.worker.write_message(chunk, binary=True)

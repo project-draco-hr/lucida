@@ -1,0 +1,4 @@
+@run_async
+def get_final_hyp(self, callback=None):
+    logging.info(('%s: Waiting for final result...' % self.id))
+    callback(self.final_result_queue.get(block=True))

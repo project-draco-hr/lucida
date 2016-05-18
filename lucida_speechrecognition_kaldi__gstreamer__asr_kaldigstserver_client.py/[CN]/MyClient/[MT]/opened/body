@@ -1,0 +1,18 @@
+def opened(self):
+
+    def send_data_to_ws():
+        f = open(self.fn, 'rb')
+        if (self.send_adaptation_state_filename is not None):
+            print  >> sys.stderr, ('Sending adaptation state from %s' % self.send_adaptation_state_filename)
+            try:
+                adaptation_state_props = json.load(open(self.send_adaptation_state_filename, 'r'))
+                self.send(json.dumps(dict(adaptation_state=adaptation_state_props)))
+            except:
+                e = sys.exc_info()[0]
+                print  >> sys.stderr, 'Failed to send adaptation state: ', e
+        for block in iter((lambda : f.read((self.byterate / 4))), ''):
+            self.send_data(block)
+        print  >> sys.stderr, 'Audio sent, now sending EOS'
+        self.send('EOS')
+    t = threading.Thread(target=send_data_to_ws)
+    t.start()

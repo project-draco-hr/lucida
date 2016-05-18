@@ -1,0 +1,10 @@
+@classmethod
+def setUpClass(cls):
+    decoder_conf = {'model': 'test/models/estonian/tri2b_mmi_pruned/final.mdl', 'lda-mat': 'test/models/estonian/tri2b_mmi_pruned/final.mat', 'word-syms': 'test/models/estonian/tri2b_mmi_pruned/words.txt', 'fst': 'test/models/estonian/tri2b_mmi_pruned/HCLG.fst', 'silence-phones': '6', }
+    cls.decoder_pipeline = DecoderPipeline({'decoder': decoder_conf, })
+    cls.words = []
+    cls.finished = False
+    cls.decoder_pipeline.set_word_handler(cls.word_getter)
+    cls.decoder_pipeline.set_eos_handler(cls.set_finished, cls.finished)
+    loop = GObject.MainLoop()
+    thread.start_new_thread(loop.run, ())

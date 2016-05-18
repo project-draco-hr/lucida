@@ -1,0 +1,2 @@
+def get_full_hyp(self, timeout=60):
+    return self.final_hyp_queue.get(timeout)

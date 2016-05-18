@@ -1,0 +1,18 @@
+def init_request(self, id, caps_str):
+    self.request_id = id
+    logger.info(('%s: Initializing request' % self.request_id))
+    if (caps_str and (len(caps_str) > 0)):
+        logger.info(('%s: Setting caps to %s' % (self.request_id, caps_str)))
+        caps = Gst.caps_from_string(caps_str)
+        self.appsrc.set_property('caps', caps)
+    else:
+        self.appsrc.set_property('caps', None)
+        pass
+    if self.outdir:
+        self.pipeline.set_state(Gst.State.PAUSED)
+        self.filesink.set_state(Gst.State.NULL)
+        self.filesink.set_property('location', ('%s/%s.raw' % (self.outdir, id)))
+        self.filesink.set_state(Gst.State.PLAYING)
+    self.pipeline.set_state(Gst.State.PLAYING)
+    self.filesink.set_state(Gst.State.PLAYING)
+    self.set_adaptation_state('')

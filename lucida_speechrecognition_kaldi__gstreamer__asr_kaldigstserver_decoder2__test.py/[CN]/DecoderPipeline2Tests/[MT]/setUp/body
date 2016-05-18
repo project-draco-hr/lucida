@@ -1,0 +1,3 @@
+def setUp(self):
+    self.__class__.final_hyps = []
+    self.__class__.finished = False

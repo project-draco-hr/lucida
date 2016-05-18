@@ -1,0 +1,2 @@
+def closed(self, code, reason=None):
+    self.final_hyp_queue.put(' '.join(self.final_hyps))

@@ -1,0 +1,4 @@
+@classmethod
+def result_getter(cls, hyp, final):
+    if final:
+        cls.final_hyps.append(hyp)

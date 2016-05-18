@@ -1,0 +1,8 @@
+def __init__(self, filename, url, protocols=None, extensions=None, heartbeat_freq=None, byterate=32000, save_adaptation_state_filename=None, send_adaptation_state_filename=None):
+    super(MyClient, self).__init__(url, protocols, extensions, heartbeat_freq)
+    self.final_hyps = []
+    self.fn = filename
+    self.byterate = byterate
+    self.final_hyp_queue = Queue.Queue()
+    self.save_adaptation_state_filename = save_adaptation_state_filename
+    self.send_adaptation_state_filename = send_adaptation_state_filename

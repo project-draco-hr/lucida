@@ -1,0 +1,10 @@
+def testWav(self):
+    self.decoder_pipeline.init_request('testWav', '')
+    f = open('test/data/test_with_silence.wav', 'rb')
+    for block in iter((lambda : f.read((((48000 * 2) * 2) / 4))), ''):
+        time.sleep(0.25)
+        self.decoder_pipeline.process_data(block)
+    self.decoder_pipeline.end_request()
+    while (not self.finished):
+        time.sleep(1)
+    self.assertEqual(['see on esimene lause p\xc3\xa4rast mida tuleb vaikus', 'n\xc3\xbc\xc3\xbcd tuleb teine lause'], self.final_hyps)

@@ -1,0 +1,3 @@
+def __init__(self, *args, **kwargs):
+    super(DecoderPipelineTests, self).__init__(*args, **kwargs)
+    logging.basicConfig(level=logging.INFO)

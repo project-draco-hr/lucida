@@ -1,0 +1,4 @@
+def cancel(self):
+    logger.info(('%s: Sending EOS to pipeline in order to cancel processing' % self.request_id))
+    self.appsrc.emit('end-of-stream')
+    logger.info(('%s: Cancelled pipeline' % self.request_id))

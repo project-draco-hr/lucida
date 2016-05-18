@@ -1,0 +1,6 @@
+def _on_error(self, bus, msg):
+    self.error = msg.parse_error()
+    logger.error(self.error)
+    self.finish_request()
+    if self.error_handler:
+        self.error_handler(self.error[0].message)

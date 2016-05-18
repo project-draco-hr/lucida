@@ -1,0 +1,24 @@
+def finish_request(self):
+    if (self.state == self.STATE_CONNECTED):
+        self.decoder_pipeline.finish_request()
+        self.state = self.STATE_FINISHED
+        return
+    if (self.state == self.STATE_INITIALIZED):
+        self.decoder_pipeline.finish_request()
+        self.state = self.STATE_FINISHED
+        return
+    if (self.state != self.STATE_FINISHED):
+        logger.info(('%s: Master disconnected before decoder reached EOS?' % self.request_id))
+        self.state = self.STATE_CANCELLING
+        self.decoder_pipeline.cancel()
+        counter = 0
+        while (self.state == self.STATE_CANCELLING):
+            counter += 1
+            if (counter > 30):
+                logger.info(('%s: Giving up waiting after %d tries' % (self.request_id, counter)))
+                self.state = self.STATE_FINISHED
+            else:
+                logger.info(('%s: Waiting for EOS from decoder' % self.request_id))
+                time.sleep(1)
+        self.decoder_pipeline.finish_request()
+        logger.info(('%s: Finished waiting for EOS' % self.request_id))

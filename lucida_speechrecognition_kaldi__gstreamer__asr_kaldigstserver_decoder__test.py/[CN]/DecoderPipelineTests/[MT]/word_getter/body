@@ -1,0 +1,3 @@
+@classmethod
+def word_getter(cls, word):
+    cls.words.append(word)

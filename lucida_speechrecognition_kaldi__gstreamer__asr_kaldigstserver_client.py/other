@@ -1,0 +1,13 @@
+__author__ = 'tanel'
+import argparse
+from ws4py.client.threadedclient import WebSocketClient
+import time
+import threading
+import sys
+import urllib
+import Queue
+import json
+import time
+import os
+if (__name__ == '__main__'):
+    main()

@@ -1,0 +1,4 @@
+def cancel(self):
+    logger.info(('%s: Cancelling pipeline' % self.request_id))
+    self.pipeline.send_event(Gst.Event.new_eos())
+    logger.info(('%s: Cancelled pipeline' % self.request_id))

@@ -1,0 +1,2 @@
+def set_full_result_handler(self, handler):
+    self.full_result_handler = handler

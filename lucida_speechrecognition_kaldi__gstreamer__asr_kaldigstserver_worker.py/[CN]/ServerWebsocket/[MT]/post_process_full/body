@@ -1,0 +1,18 @@
+def post_process_full(self, full_result):
+    if self.full_post_processor:
+        self.full_post_processor.stdin.write(('%s\n\n' % json.dumps(full_result)))
+        self.post_processor.stdin.flush()
+        lines = []
+        while True:
+            l = self.full_post_processor.stdout.readline()
+            if (not l):
+                break
+            if (l.strip() == ''):
+                break
+            lines.append(l)
+        full_result = json.loads(''.join(lines))
+    elif self.post_processor:
+        for hyp in full_result.get('result', {}).get('hypotheses', []):
+            hyp['original-transcript'] = hyp['transcript']
+            hyp['transcript'] = self.post_process(hyp['transcript'])
+    return full_result

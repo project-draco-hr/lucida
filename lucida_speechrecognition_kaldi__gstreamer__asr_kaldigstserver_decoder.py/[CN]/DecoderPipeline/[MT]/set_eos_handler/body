@@ -1,0 +1,2 @@
+def set_eos_handler(self, handler, user_data=None):
+    self.eos_handler = (handler, user_data)

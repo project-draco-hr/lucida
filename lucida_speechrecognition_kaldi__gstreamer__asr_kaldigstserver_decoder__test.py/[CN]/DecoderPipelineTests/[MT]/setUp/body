@@ -1,0 +1,3 @@
+def setUp(self):
+    self.__class__.words = []
+    self.__class__.finished = False

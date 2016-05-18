@@ -1,0 +1,2 @@
+def set_result_handler(self, handler):
+    self.result_handler = handler

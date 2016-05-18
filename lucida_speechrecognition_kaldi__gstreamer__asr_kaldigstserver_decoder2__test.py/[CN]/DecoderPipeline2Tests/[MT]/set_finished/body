@@ -1,0 +1,3 @@
+@classmethod
+def set_finished(cls, finished):
+    cls.finished = True

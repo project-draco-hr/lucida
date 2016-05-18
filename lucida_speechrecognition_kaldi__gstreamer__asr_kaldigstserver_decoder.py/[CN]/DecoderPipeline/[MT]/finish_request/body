@@ -1,0 +1,8 @@
+def finish_request(self):
+    logger.info(('%s: Finishing request' % self.request_id))
+    if self.outdir:
+        self.filesink.set_state(Gst.State.NULL)
+        self.filesink.set_property('location', '/dev/null')
+        self.filesink.set_state(Gst.State.PLAYING)
+    self.pipeline.set_state(Gst.State.NULL)
+    self.request_id = '<undefined>'

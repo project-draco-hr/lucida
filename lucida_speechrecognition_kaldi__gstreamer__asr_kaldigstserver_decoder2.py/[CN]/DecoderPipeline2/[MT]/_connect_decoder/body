@@ -1,0 +1,4 @@
+def _connect_decoder(self, element, pad):
+    logger.info(('%s: Connecting audio decoder' % self.request_id))
+    pad.link(self.audioconvert.get_static_pad('sink'))
+    logger.info(('%s: Connected audio decoder' % self.request_id))

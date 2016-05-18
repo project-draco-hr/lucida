@@ -1,0 +1,2 @@
+def get_adaptation_state(self):
+    return self.asr.get_property('adaptation-state')

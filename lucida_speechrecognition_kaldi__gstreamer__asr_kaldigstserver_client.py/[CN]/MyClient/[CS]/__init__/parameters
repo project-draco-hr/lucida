@@ -1,0 +1,9 @@
+self
+filename
+url
+protocols
+extensions
+heartbeat_freq
+byterate
+save_adaptation_state_filename
+send_adaptation_state_filename

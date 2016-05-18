@@ -1,0 +1,5 @@
+def _on_eos(self, bus, msg):
+    logger.info(('%s: Pipeline received eos signal' % self.request_id))
+    self.finish_request()
+    if self.eos_handler:
+        self.eos_handler[0](self.eos_handler[1])
