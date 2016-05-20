@@ -1,2 +1,0 @@
-def main():
-    ioloop.IOLoop.current().run_sync(communicate)
