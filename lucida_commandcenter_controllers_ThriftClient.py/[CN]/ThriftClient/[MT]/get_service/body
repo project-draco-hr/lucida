@@ -3,7 +3,7 @@ def get_service(name):
     services_lock.acquire()
     if (not ((name in ThriftClient.services) and ThriftClient.services[name])):
         services_lock.release()
-        raise RuntimeError((name + ' has not been registered yet'))
+        raise RuntimeError((name + ' service has not been registered yet'))
     (host, port) = ThriftClient.services[name][0]
     ThriftClient.services[name].pop(0)
     ThriftClient.services[name].append((host, port))
