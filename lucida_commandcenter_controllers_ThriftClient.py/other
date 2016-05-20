@@ -1,8 +1,6 @@
 from lucidatypes.ttypes import QueryInput, QuerySpec
 from lucidaservice import LucidaService
-from thrift import TTornado
+from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
-from tornado import gen
-from tornado import ioloop
 from ConcurrencyManagement import services_lock, log

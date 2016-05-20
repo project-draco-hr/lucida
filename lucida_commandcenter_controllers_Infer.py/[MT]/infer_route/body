@@ -1,18 +1,23 @@
 @infer.route('/infer', methods=['GET', 'POST'])
 @login_required
 def infer_route():
-    options = {'uploaded_picture': None, 'result_pictures': [], }
+    options = {}
     if (request.method == 'POST'):
         if (not ('op' in request.form)):
             abort(404)
-        elif (request.form['op'] == 'add_image'):
+        elif (request.form['op'] == 'infer'):
             upload_file = request.files['file']
-            if (not (upload_file and file_extension_allowed(upload_file.filename))):
-                return 'Invalid file'
+            if (not (upload_file and image_allowed(upload_file))):
+                return render_template('infer.html', errors='Invalid file')
             image_data = upload_file.read()
             upload_file.close()
-            result = ThriftClient.infer_image(session['username'], image_data)
-            options['uploaded_picture'] = b64encode(image_data)
+            try:
+                result = ThriftClient.infer_image(session['username'], image_data)
+            except Exception as e:
+                log(e)
+                options['errors'] = [e]
+                return render_template('infer.html', errors=e)
+            options['result_pictures'] = []
             for image in Database.get_pictures(session['username']):
                 if (image['label'] == result):
                     options['result_pictures'].append(image)

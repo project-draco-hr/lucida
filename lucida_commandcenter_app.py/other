@@ -10,6 +10,7 @@ import config
 import logging
 app = Flask(__name__, template_folder=u'templates')
 app.config.from_object(u'config')
+app.config[u'MAX_CONTENT_LENGTH'] = ((16 * 1024) * 1024)
 app.register_blueprint(Main.main)
 app.register_blueprint(Create.create)
 app.register_blueprint(Learn.learn)

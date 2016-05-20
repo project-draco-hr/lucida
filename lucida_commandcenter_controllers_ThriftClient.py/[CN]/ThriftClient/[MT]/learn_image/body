@@ -8,4 +8,7 @@ def learn_image(LUCID, label, data):
     knowledge = QuerySpec()
     knowledge.content = []
     knowledge.content.append(knowledge_input)
-    ioloop.IOLoop.current().run_sync((lambda : ThriftClient.learn_image_callback(LUCID, knowledge)))
+    (client, transport) = ThriftClient.get_client_transport(ThriftClient.IMM)
+    log('Sending learn_image request to IMM')
+    client.learn(str(LUCID), knowledge)
+    transport.close()

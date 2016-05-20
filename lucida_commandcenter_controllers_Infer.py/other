@@ -1,7 +1,7 @@
 from flask import *
 from Database import Database
+from ConcurrencyManagement import log
 from AccessManagement import login_required
-from Learn import file_extension_allowed
+from Learn import image_allowed
 from ThriftClient import ThriftClient
-from base64 import b64encode
 infer = Blueprint('infer', __name__, template_folder='templates')

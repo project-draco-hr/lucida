@@ -6,15 +6,24 @@ def learn_route():
             abort(404)
         elif (request.form['op'] == 'add_image'):
             upload_file = request.files['file']
-            if (not (upload_file and file_extension_allowed(upload_file.filename))):
-                return 'Invalid file'
+            if (not (upload_file and image_allowed(upload_file))):
+                return render_template('learn.html', errors='Invalid file')
             if (not (('label' in request.form) and request.form['label'])):
-                return 'Please enter a label for your image'
+                return render_template('learn.html', errors='Please enter a label for your image')
             image_data = upload_file.read()
             upload_file.close()
-            Database.add_picture(session['username'], request.form['label'], image_data)
-            ThriftClient.learn_image(session['username'], request.form['label'], image_data)
+            try:
+                Database.add_picture(session['username'], request.form['label'], image_data)
+            except Exception as e:
+                log(e)
+                return render_template('learn.html', errors=e)
+            try:
+                ThriftClient.learn_image(session['username'], request.form['label'], image_data)
+            except Exception as e:
+                log(e)
+                options['errors'] = [e]
+                Database.delete_picture(session['username'], request.form['label'])
+                return render_template('learn.html', errors=e)
         else:
             abort(404)
-    options = {'pictures': Database.get_pictures(session['username']), }
-    return render_template('learn.html', **options)
+    return render_template('learn.html', pictures=Database.get_pictures(session['username']))

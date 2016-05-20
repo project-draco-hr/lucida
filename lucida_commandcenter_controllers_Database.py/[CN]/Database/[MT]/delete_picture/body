@@ -1,0 +1,3 @@
+@staticmethod
+def delete_picture(username, label):
+    Database.get_image_collection(username).remove({'label': label, })

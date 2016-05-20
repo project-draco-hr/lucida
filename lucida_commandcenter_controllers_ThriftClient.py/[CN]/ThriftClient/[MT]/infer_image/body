@@ -6,5 +6,8 @@ def infer_image(LUCID, data):
     query = QuerySpec()
     query.content = []
     query.content.append(query_input)
-    result = ioloop.IOLoop.current().run_sync((lambda : ThriftClient.infer_image_callback(LUCID, query)))
+    (client, transport) = ThriftClient.get_client_transport(ThriftClient.IMM)
+    log('Sending infer_image request to IMM')
+    result = client.infer(str(LUCID), query)
+    transport.close()
     return result

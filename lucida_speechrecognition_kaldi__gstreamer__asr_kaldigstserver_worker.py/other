@@ -21,33 +21,6 @@ from decoder2 import DecoderPipeline2
 import common
 import os
 empty_response = ''
-unknown_response = 'UNKNOWN'
-lucida_service = os.environ.get('LUCIDA_SERVICE')
-if (not (lucida_service == None)):
-    sys.path.append((os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)) + '/kaldigstserver/gen-py'))
-    from thrift.transport import TTransport
-    from thrift.transport import TSocket
-    from thrift.transport import TSSLSocket
-    from thrift.transport import THttpClient
-    from thrift.protocol import TBinaryProtocol
-    from commandcenter import CommandCenter
-    from commandcenter.ttypes import *
-    lucida_toks = lucida_service.split(':')
-    assert (len(lucida_toks) == 2)
-    socket = TSocket.TSocket(lucida_toks[0], int(lucida_toks[1]))
-    transport = TTransport.TBufferedTransport(socket)
-    protocol = TBinaryProtocol.TBinaryProtocol(transport)
-    client = CommandCenter.Client(protocol)
-    transport.open()
-
-    def call_commandcenter(transcript):
-        qd = QueryData(textData=transcript)
-        return client.handleRequest(qd)
-else:
-
-    def call_commandcenter(transcript):
-        print '@@@@@@@@@@@@@@@', transcript
-        return unknown_response
 logger = logging.getLogger(__name__)
 CONNECT_TIMEOUT = 5
 SILENCE_TIMEOUT = 5

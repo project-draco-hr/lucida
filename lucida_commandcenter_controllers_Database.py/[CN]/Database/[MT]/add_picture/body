@@ -1,3 +1,5 @@
 @staticmethod
 def add_picture(username, label, upload_file):
+    if (not (Database.get_image_collection(username).find_one({'label': label, }) is None)):
+        raise RuntimeError((('Image ' + label) + ' already exists'))
     Database.get_image_collection(username).insert_one({'label': label, 'data': b64encode(upload_file), })
