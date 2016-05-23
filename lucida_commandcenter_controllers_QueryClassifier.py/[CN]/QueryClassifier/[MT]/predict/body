@@ -1,0 +1,12 @@
+@staticmethod
+def predict(speech_query, image_query):
+    if speech_query:
+        if image_query:
+            return ['IMM', 'QA']
+        else:
+            assert (('speech' in QueryClassifier.classifiers) and QueryClassifier.classifiers['speech'])
+            return QueryClassifier.classifiers['speech'].predict([speech_query])
+    elif image_query:
+        return ['IMM']
+    else:
+        raise RuntimeError('Speech and image cannot be both empty')

@@ -1,0 +1,5 @@
+{
+  print("Async Learn");
+  handler.learn(LUCID,knowledge);
+  resultHandler.onComplete(null);
+}

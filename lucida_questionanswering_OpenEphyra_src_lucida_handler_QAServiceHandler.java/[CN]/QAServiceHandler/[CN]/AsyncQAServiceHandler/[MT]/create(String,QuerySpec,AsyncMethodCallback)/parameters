@@ -1,0 +1,3 @@
+String LUCID
+QuerySpec spec
+AsyncMethodCallback resultHandler

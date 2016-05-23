@@ -1,0 +1,40 @@
+@staticmethod
+def train(input_type, query_classes):
+    if (len(query_classes) <= 1):
+        return None
+    data = DataFrame({'text': [], 'class': [], })
+    for class_name in [query_class[0] for query_class in query_classes]:
+        path = (('data/' + class_name) + '.txt')
+        log(('Opening ' + path))
+        lines = [line.rstrip('\n') for line in open(path)]
+        rows = []
+        index = []
+        for text in lines:
+            if (text in index):
+                log(((('duplicate in ' + path) + ': ') + text))
+                exit(1)
+            rows.append({'text': text, 'class': class_name, })
+            index.append(text)
+        data = data.append(DataFrame(rows, index))
+    pipeline = Pipeline([('count_vectorizer', CountVectorizer(ngram_range=(1, 2))), ('classifier', LinearSVC())])
+    data = data.reindex(numpy.random.permutation(data.index))
+    k_fold = KFold(n=len(data), n_folds=6)
+    scores = []
+    for (train_indices, test_indices) in k_fold:
+        train_text = data.iloc[train_indices]['text'].values
+        train_y = data.iloc[train_indices]['class'].values.astype(str)
+        test_text = data.iloc[test_indices]['text'].values
+        test_y = data.iloc[test_indices]['class'].values.astype(str)
+        pipeline.fit(train_text, train_y)
+        predictions = pipeline.predict(test_text)
+        score = f1_score(test_y, predictions, pos_label=(None if (len(query_classes) == 2) else 1), average='weighted')
+        scores.append(score)
+    log((('************************* ' + input_type) + ' *************************'))
+    log(('Total documents classified:' + str(len(data))))
+    log(('Score:' + str((sum(scores) / len(scores)))))
+    if (not os.path.exists('models')):
+        os.makedirs('models')
+    with open((('models/dumped_classifier_' + input_type) + '.pkl'), 'wb') as fid:
+        print 'Saving model for', input_type
+        cPickle.dump(pipeline, fid)
+    return pipeline

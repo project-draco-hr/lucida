@@ -1,0 +1,21 @@
+@staticmethod
+def init(TRAIN_OR_LOAD, CLASSIFIER_PIPELINES):
+    for input_type in CLASSIFIER_PIPELINES:
+        query_classes = CLASSIFIER_PIPELINES[input_type]
+        if (TRAIN_OR_LOAD == 'train'):
+            QueryClassifier.classifiers[input_type] = (None if (len(query_classes) <= 1) else QueryClassifier.train(input_type, CLASSIFIER_PIPELINES[input_type]))
+        elif (TRAIN_OR_LOAD == 'load'):
+            if (len(query_classes) <= 1):
+                QueryClassifier.classifiers[input_type] = None
+            else:
+                try:
+                    with open((('models/dumped_classifier_' + input_type) + '.pkl'), 'rb') as fid:
+                        print 'Loading model for', input_type
+                        QueryClassifier.classifiers[input_type] = cPickle.load(fid)
+                except IOError as e:
+                    print e
+                    exit(1)
+        else:
+            raise RuntimeError('app.config["TRAIN_OR_LOAD"] must be either "train" or "load"')
+    print '@@@@@ Summary of classifiers:'
+    print QueryClassifier.classifiers

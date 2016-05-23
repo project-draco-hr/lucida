@@ -3,11 +3,11 @@
   if (args.length >= 1) {
     port=Integer.parseInt(args[0]);
   }
-  String LUCID="Falk";
+  String LUCID="Clinc";
   QuerySpec spec=new QuerySpec();
   final QueryInput knowledge_text=new QueryInput("text",new ArrayList<String>(){
 {
-      add("YodaQA is being developed by Fauk.");
+      add("Clinc is created by Jason and Lingjia.");
     }
   }
 );
@@ -19,7 +19,7 @@
 );
   final QueryInput query_input=new QueryInput("query",new ArrayList<String>(){
 {
-      add("What is Falk developing?");
+      add("Who created Clinc?");
     }
   }
 );

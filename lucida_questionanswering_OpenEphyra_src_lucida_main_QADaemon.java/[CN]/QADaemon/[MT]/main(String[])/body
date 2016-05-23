@@ -1,27 +1,9 @@
 {
-  try {
-    int tmp_port=8083;
-    int tmp_cmdcenterport=8081;
-    if (args.length == 2) {
-      tmp_port=Integer.parseInt(args[0].trim());
-      tmp_cmdcenterport=Integer.parseInt(args[1].trim());
-    }
- else     if (args.length == 1) {
-      tmp_port=Integer.parseInt(args[0].trim());
-    }
-    final int port=tmp_port;
-    final int cmdcenterport=tmp_cmdcenterport;
-    handler=new QAServiceHandler();
-    processor=new LucidaService.Processor<QAServiceHandler>(handler);
-    Runnable simple=new Runnable(){
-      public void run(){
-        simple(processor,port,cmdcenterport);
-      }
-    }
-;
-    new Thread(simple).start();
-  }
- catch (  Exception x) {
-    x.printStackTrace();
-  }
+  connectToCMD();
+  TProcessor proc=new LucidaService.AsyncProcessor(new QAServiceHandler.AsyncQAServiceHandler());
+  TNonblockingServerTransport transport=new TNonblockingServerSocket(8083);
+  TThreadedSelectorServer.Args arguments=new TThreadedSelectorServer.Args(transport).processor(proc).protocolFactory(new TBinaryProtocol.Factory()).transportFactory(new TFramedTransport.Factory());
+  final TThreadedSelectorServer server=new TThreadedSelectorServer(arguments);
+  System.out.println("QA at port 8083");
+  server.serve();
 }
