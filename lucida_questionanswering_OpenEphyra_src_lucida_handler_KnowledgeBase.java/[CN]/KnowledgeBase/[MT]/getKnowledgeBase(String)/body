@@ -1,0 +1,11 @@
+{
+  KnowledgeBase kb=null;
+  if (KnowledgeBase.active_kbs.containsKey(LUCID)) {
+    kb=KnowledgeBase.active_kbs.get(LUCID);
+  }
+ else {
+    kb=new KnowledgeBase(LUCID);
+    KnowledgeBase.active_kbs.put(LUCID,kb);
+  }
+  return kb;
+}

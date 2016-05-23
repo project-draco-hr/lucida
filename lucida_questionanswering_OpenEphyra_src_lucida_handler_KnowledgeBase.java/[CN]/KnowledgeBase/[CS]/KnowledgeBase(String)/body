@@ -1,5 +1,5 @@
 {
-  Indri_repo=System.getenv("LUCIDAROOT") + "/questionanswering/OpenEphyra/db/" + LUCID+ " "+ new Date();
+  Indri_repo=System.getenv("LUCIDAROOT") + "/questionanswering/OpenEphyra/db/" + LUCID;
   new File(Indri_repo).mkdirs();
   IndexEnvironment env=new IndexEnvironment();
   try {
