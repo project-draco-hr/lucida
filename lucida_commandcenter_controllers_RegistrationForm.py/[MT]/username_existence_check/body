@@ -1,3 +1,3 @@
 def username_existence_check(form, field):
-    if Database.username_exists(form.username.data):
+    if database.username_exists(form.username.data):
         raise ValidationError('This username is taken')

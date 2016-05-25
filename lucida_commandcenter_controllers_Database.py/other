@@ -1,4 +1,6 @@
-import os, time, hashlib, uuid
+import hashlib, uuid, glob
 from pymongo import MongoClient
 from base64 import b64encode
-from ConcurrencyManagement import *
+from ConcurrencyManagement import log
+from ThriftClient import thrift_client
+database = Database()

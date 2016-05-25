@@ -6,17 +6,13 @@ sys.path.insert(0, glob.glob(u'/home/yba/Documents/clarity/thrift-0.9.3/lib/py/b
 from controllers import *
 from flask import *
 from threading import Thread
-import config
 import logging
 app = Flask(__name__, template_folder=u'templates')
-app.config.from_object(u'config')
 app.config[u'MAX_CONTENT_LENGTH'] = ((16 * 1024) * 1024)
 app.register_blueprint(Main.main)
 app.register_blueprint(Create.create)
 app.register_blueprint(Learn.learn)
 app.register_blueprint(Infer.infer)
-app.config.from_object(u'config')
-QueryClassifier.QueryClassifier.init(app.config[u'TRAIN_OR_LOAD'], app.config[u'CLASSIFIER_PIPELINES'])
 app.secret_key = u'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 if (__name__ == u'__main__'):
     Thread(target=thrift_listener).start()

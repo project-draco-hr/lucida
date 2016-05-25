@@ -4,3 +4,5 @@ from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 from ConcurrencyManagement import services_lock, log
+import Config
+thrift_client = ThriftClient(Config.SERVICE_LIST, Config.LEARNERS)

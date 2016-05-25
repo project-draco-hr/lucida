@@ -1,0 +1,3 @@
+def get_images(self, username):
+    log(('Retrieving images from images_' + username))
+    return [image for image in self.get_image_collection(username).find()]

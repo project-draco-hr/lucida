@@ -1,5 +1,4 @@
-@staticmethod
-def add_user(username, firstname, lastname, password, email):
+def add_user(self, username, firstname, lastname, password, email):
     salt = uuid.uuid4().hex
-    hashed_password = Database.hash_password(Database.ENCRYPT_ALGORITHM, salt, password)
-    Database.users.insert_one({'username': username, 'firstname': firstname, 'lastname': lastname, 'password': hashed_password, 'email': email, })
+    hashed_password = self.hash_password(self.ENCRYPT_ALGORITHM, salt, password)
+    self.users.insert_one({'username': username, 'firstname': firstname, 'lastname': lastname, 'password': hashed_password, 'email': email, })

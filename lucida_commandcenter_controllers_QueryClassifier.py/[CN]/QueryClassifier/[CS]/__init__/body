@@ -1,0 +1,12 @@
+def __init__(self, TRAIN_OR_LOAD, CLASSIFIER_DESCRIPTIONS_IN):
+    self.CLASSIFIER_DESCRIPTIONS = CLASSIFIER_DESCRIPTIONS_IN
+    self.classifiers = {}
+    for input_type in self.CLASSIFIER_DESCRIPTIONS:
+        if (TRAIN_OR_LOAD == 'train'):
+            self.classifiers[input_type] = self.train(input_type, self.CLASSIFIER_DESCRIPTIONS[input_type])
+        elif (TRAIN_OR_LOAD == 'load'):
+            self.classifiers[input_type] = self.load(input_type, self.CLASSIFIER_DESCRIPTIONS[input_type])
+        else:
+            raise RuntimeError('TRAIN_OR_LOAD must be either "train" or "load"')
+    log('@@@@@ Summary of classifiers:')
+    log(str(self.classifiers))

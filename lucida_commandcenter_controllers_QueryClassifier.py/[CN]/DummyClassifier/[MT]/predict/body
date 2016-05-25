@@ -1,0 +1,2 @@
+def predict(self, speech_input):
+    return [self.query_class_name]

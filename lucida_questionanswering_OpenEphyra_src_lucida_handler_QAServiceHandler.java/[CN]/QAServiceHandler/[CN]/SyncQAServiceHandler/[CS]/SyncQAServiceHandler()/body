@@ -4,4 +4,7 @@
   MsgPrinter.enableErrorMsgs(true);
   oe=new OpenEphyra(dir);
   defaultAnswer="Factoid not found in knowledge base.";
+  if (!new File("db").exists()) {
+    new File("db").mkdir();
+  }
 }

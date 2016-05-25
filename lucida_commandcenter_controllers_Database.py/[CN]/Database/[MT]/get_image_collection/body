@@ -1,4 +1,3 @@
-@staticmethod
-def get_image_collection(username):
+def get_image_collection(self, username):
     images_collection = ('images_' + username)
-    return Database.db[images_collection]
+    return self.db[images_collection]

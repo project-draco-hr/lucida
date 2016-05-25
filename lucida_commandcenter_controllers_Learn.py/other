@@ -1,7 +1,8 @@
 from flask import *
-from Database import Database
+import Database, ThriftClient
 from ConcurrencyManagement import log
 from AccessManagement import login_required
-from ThriftClient import ThriftClient
 from werkzeug import secure_filename
+from Database import database
+from ThriftClient import thrift_client
 learn = Blueprint('learn', __name__, template_folder='templates')

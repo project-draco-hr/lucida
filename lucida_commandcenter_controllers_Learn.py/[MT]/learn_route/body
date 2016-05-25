@@ -1,28 +1,30 @@
 @learn.route('/learn', methods=['GET', 'POST'])
 @login_required
 def learn_route():
-    if (request.method == 'POST'):
-        if (not ('op' in request.form)):
-            abort(404)
-        elif (request.form['op'] == 'add_image'):
-            upload_file = request.files['file']
-            if (not (upload_file and image_allowed(upload_file))):
-                return render_template('learn.html', errors='Invalid file')
-            if (not (('label' in request.form) and request.form['label'])):
-                return render_template('learn.html', errors='Please enter a label for your image')
-            image_data = upload_file.read()
-            upload_file.close()
-            try:
-                Database.add_picture(session['username'], request.form['label'], image_data)
-            except Exception as e:
-                log(e)
-                return render_template('learn.html', errors=e)
-            try:
-                ThriftClient.learn_image(session['username'], request.form['label'], image_data)
-            except Exception as e:
-                log(e)
-                Database.delete_picture(session['username'], request.form['label'])
-                return render_template('learn.html', errors=e)
-        else:
-            abort(404)
-    return render_template('learn.html', pictures=Database.get_pictures(session['username']))
+    try:
+        if (request.method == 'POST'):
+            if (not ('op' in request.form)):
+                abort(404)
+            elif (request.form['op'] == 'add_image'):
+                upload_file = request.files['file']
+                if (not (upload_file and image_allowed(upload_file))):
+                    raise RuntimeError('Invalid file')
+                if (not (('label' in request.form) and request.form['label'])):
+                    raise RuntimeError('Please enter a label for your image')
+                image_data = upload_file.read()
+                upload_file.close()
+                thrift_client.learn_image(session['username'], request.form['label'], image_data)
+                database.add_image(session['username'], request.form['label'], image_data)
+            elif (request.form['op'] == 'add_text'):
+                if (not (('text_knowledge' in request.form) and request.form['text_knowledge'])):
+                    raise RuntimeError('Please enter a piece of text as knowledge')
+                thrift_client.learn_text(session['username'], request.form['text_knowledge'])
+                database.add_text(session['username'], request.form['text_knowledge'])
+            elif (request.form['op'] == 'secret'):
+                database.secret()
+            else:
+                abort(404)
+    except Exception as e:
+        log(e)
+        return render_template('learn.html', error=e)
+    return render_template('learn.html', pictures=database.get_images(session['username']), text=database.get_text(session['username']))

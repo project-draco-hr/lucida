@@ -1,2 +1,2 @@
 def infer(self, LUCID, query):
-    return 'CMD can only infer'
+    return 'Only create should be invoked'

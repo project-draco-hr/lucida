@@ -1,11 +1,11 @@
-@staticmethod
-def get_service(name):
+def get_service(self, name):
     services_lock.acquire()
-    if (not ((name in ThriftClient.services) and ThriftClient.services[name])):
+    try:
+        (host, port) = self.services[name][0]
+        self.services[name].pop(0)
+        self.services[name].append((host, port))
         services_lock.release()
-        raise RuntimeError((name + ' service has not been registered yet'))
-    (host, port) = ThriftClient.services[name][0]
-    ThriftClient.services[name].pop(0)
-    ThriftClient.services[name].append((host, port))
-    services_lock.release()
-    return (host, port)
+        return (host, port)
+    except Exception:
+        services_lock.release()
+        raise RuntimeError(('Cannot access service ' + name))

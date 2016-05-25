@@ -1,0 +1,17 @@
+TRAIN_OR_LOAD = 'train'
+SERVICE_LIST = {'ASR': 'audio', 'IMM': 'image', 'QA': 'text', 'CA': 'text', }
+LEARNERS = {'audio': [], 'image': ['IMM'], 'text': ['QA'], }
+CLASSIFIER_DESCRIPTIONS = {'text': {'class_QA': ['QA'], 'class_CA': ['CA'], }, 'image': {'class_IMM': ['IMM'], }, 'text_image': {'class_IMM_QA': ['IMM', 'QA'], }, }
+for (input_type, services) in LEARNERS.iteritems():
+    for service in services:
+        if (not (service in SERVICE_LIST)):
+            print 'LEARNERS:', service, 'is not in SERVICE_LIST'
+for input_type in CLASSIFIER_DESCRIPTIONS:
+    print (((('@@@@@ When query type is ' + input_type) + ', there are ') + str(len(CLASSIFIER_DESCRIPTIONS[input_type]))) + ' possible query classes:')
+    i = 0
+    for (query_class_name, services) in CLASSIFIER_DESCRIPTIONS[input_type].iteritems():
+        print ((((str(i) + '. ') + query_class_name) + ' -- needs to invoke ') + str(services))
+        for service in services:
+            if (not (service in SERVICE_LIST)):
+                print 'CLASSIFIER_DESCRIPTIONS', service, 'is not in SERVICE_LIST'
+        i += 1

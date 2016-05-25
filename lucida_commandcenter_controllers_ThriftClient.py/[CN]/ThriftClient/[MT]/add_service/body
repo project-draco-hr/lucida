@@ -1,11 +1,10 @@
-@staticmethod
-def add_service(name, host, port):
-    if (not name.isupper()):
-        raise RuntimeError('Service name must be in upper case')
+def add_service(self, name, host, port):
+    if (not (name in self.SERVICE_LIST)):
+        raise RuntimeError((('Unrecognized service. Cannot find ' + name) + ' in config.py'))
     services_lock.acquire()
-    if (not (name in ThriftClient.services)):
-        ThriftClient.services[name] = [(host, int(port))]
-    else:
-        ThriftClient.services[name].append((host, int(port)))
-    log(('Registered services ' + str(ThriftClient.services)))
+    if (not (name in self.services)):
+        self.services[name] = [(host, int(port))]
+    elif (not ((host, int(port)) in self.services[name])):
+        self.services[name].append((host, int(port)))
+    log(('Registered services ' + str(self.services)))
     services_lock.release()

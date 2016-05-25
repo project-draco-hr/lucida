@@ -13,12 +13,8 @@ from sklearn.neighbors import NearestCentroid
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.cross_validation import KFold
-from sklearn.metrics import confusion_matrix, f1_score
+from sklearn.metrics import f1_score
 import os, cPickle
-from flask import *
-if (__name__ == '__main__'):
-    log('************************* Scikit Learn *************************')
-    app = Flask(__name__)
-    app.config.from_object('config')
-    QueryClassifier.init(app.config['TRAIN_OR_LOAD'], app.config['CLASSIFIER_PIPELINES'])
-    print '@@@@@ Result:', QueryClassifier.predict('What is the weight of this computer?', None)
+from ConcurrencyManagement import log
+import Config
+query_classifier = QueryClassifier(Config.TRAIN_OR_LOAD, Config.CLASSIFIER_DESCRIPTIONS)

@@ -4,10 +4,10 @@ def login_route():
     options = {'error': [], }
     if (request.method == 'POST'):
         if form.validate():
-            if (not Database.username_exists(form.username.data)):
+            if (not database.username_exists(form.username.data)):
                 options['error'] = ['Username does not exist']
                 return render_template('login.html', form=form, **options)
-            password_is_correct = Database.check_password(form.username.data, form.password.data)
+            password_is_correct = database.check_password(form.username.data, form.password.data)
             if (not password_is_correct):
                 options['error'] = ['Password is incorrect for the specified username']
                 return render_template('login.html', form=form, **options)

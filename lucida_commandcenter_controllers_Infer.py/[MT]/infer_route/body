@@ -1,26 +1,18 @@
 @infer.route('/infer', methods=['GET', 'POST'])
 @login_required
 def infer_route():
-    options = {}
-    if (request.method == 'POST'):
-        if (not ('op' in request.form)):
-            abort(404)
-        elif (request.form['op'] == 'infer'):
-            upload_file = request.files['file']
-            if (not (upload_file and image_allowed(upload_file))):
-                return render_template('infer.html', errors='Invalid file')
-            image_data = upload_file.read()
-            upload_file.close()
-            try:
-                result = ThriftClient.infer_image(session['username'], image_data)
-            except Exception as e:
-                log(e)
-                options['errors'] = [e]
-                return render_template('infer.html', errors=e)
-            options['result_pictures'] = []
-            for image in Database.get_pictures(session['username']):
-                if (image['label'] == result):
-                    options['result_pictures'].append(image)
-        else:
-            abort(404)
-    return render_template('infer.html', **options)
+    result = None
+    try:
+        if (request.method == 'POST'):
+            if (not ('op' in request.form)):
+                abort(404)
+            elif (request.form['op'] == 'infer'):
+                services_needed = query_classifier.predict(request.form['speech_input'], request.files['file'])
+                result = thrift_client.infer(session['username'], services_needed, request.form['speech_input'], request.files['file'].read())
+                log(('Result ' + result))
+            else:
+                abort(404)
+    except Exception as e:
+        log(e)
+        return render_template('infer.html', error=e)
+    return render_template('infer.html', result=result)

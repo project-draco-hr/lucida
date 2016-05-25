@@ -1,14 +1,7 @@
-@staticmethod
-def learn_image(LUCID, label, data):
-    knowledge_input = QueryInput()
-    knowledge_input.tags = []
-    knowledge_input.tags.append(str(label))
-    knowledge_input.data = []
-    knowledge_input.data.append(str(data))
-    knowledge = QuerySpec()
-    knowledge.content = []
-    knowledge.content.append(knowledge_input)
-    (client, transport) = ThriftClient.get_client_transport(ThriftClient.IMM)
-    log('Sending learn_image request to IMM')
-    client.learn(str(LUCID), knowledge)
-    transport.close()
+def learn_image(self, LUCID, label, image_data):
+    for service_name in self.LEARNERS['image']:
+        knowledge_input = self.create_query_input('image', image_data, label)
+        (client, transport) = self.get_client_transport(service_name)
+        log('Sending learn_image request to IMM')
+        client.learn(str(LUCID), self.create_query_spec('knowledge', [knowledge_input]))
+        transport.close()

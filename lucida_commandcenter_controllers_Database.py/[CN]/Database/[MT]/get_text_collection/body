@@ -1,0 +1,3 @@
+def get_text_collection(self, username):
+    text_collection = ('text_' + username)
+    return self.db[text_collection]

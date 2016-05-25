@@ -1,0 +1,24 @@
+def infer(self, LUCID, services_needed, text_data, image_data):
+    query_input_list = []
+    i = 0
+    for service_name in services_needed:
+        input_type = self.SERVICE_LIST[service_name]
+        data_in = ''
+        tag_in = ''
+        if (input_type == 'text'):
+            data_in = text_data
+        elif (input_type == 'image'):
+            data_in = image_data
+        else:
+            raise RuntimeError('Can only process text and image data')
+        if (i != (len(services_needed) - 1)):
+            (host, port) = self.get_service(services_needed[(i + 1)])
+            tag_in = ((host + ', ') + str(port))
+        query_input_list.append(self.create_query_input(input_type, data_in, tag_in))
+        i += 1
+        print '@@@', tag_in
+    (client, transport) = self.get_client_transport(services_needed[0])
+    log(('Sending infer request to ' + services_needed[0]))
+    result = client.infer(str(LUCID), self.create_query_spec('query', query_input_list))
+    transport.close()
+    return result

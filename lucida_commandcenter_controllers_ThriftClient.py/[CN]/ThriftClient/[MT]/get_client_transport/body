@@ -1,7 +1,6 @@
-@staticmethod
-def get_client_transport(service_name):
-    (host, port) = ThriftClient.get_service(service_name)
-    transport = TTransport.TBufferedTransport(TSocket.TSocket(host, port))
+def get_client_transport(self, service_name):
+    (host, port) = self.get_service(service_name)
+    transport = TTransport.TFramedTransport(TSocket.TSocket(host, port))
     protocol = TBinaryProtocol.TBinaryProtocol(transport)
     transport.open()
     return (LucidaService.Client(protocol), transport)

@@ -1,0 +1,2 @@
+def __init__(self, query_class_name_in):
+    self.query_class_name = query_class_name_in

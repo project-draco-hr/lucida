@@ -1,3 +1,2 @@
-@staticmethod
-def username_exists(username):
-    return (not (Database.users.find_one({'username': username, }) is None))
+def username_exists(self, username):
+    return (not (self.users.find_one({'username': username, }) is None))

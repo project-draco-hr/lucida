@@ -1,0 +1,2 @@
+def delete_image(self, username, label):
+    self.get_image_collection(username).remove({'label': label, })

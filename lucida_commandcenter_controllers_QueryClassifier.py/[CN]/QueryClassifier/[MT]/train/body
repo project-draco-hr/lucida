@@ -1,10 +1,9 @@
-@staticmethod
-def train(input_type, query_classes):
+def train(self, input_type, query_classes):
     if (len(query_classes) <= 1):
-        return None
+        return DummyClassifier(query_classes.keys()[0])
     data = DataFrame({'text': [], 'class': [], })
-    for class_name in [query_class[0] for query_class in query_classes]:
-        path = (('data/' + class_name) + '.txt')
+    for query_class_name in query_classes:
+        path = (('data/' + query_class_name) + '.txt')
         log(('Opening ' + path))
         lines = [line.rstrip('\n') for line in open(path)]
         rows = []
@@ -13,7 +12,7 @@ def train(input_type, query_classes):
             if (text in index):
                 log(((('duplicate in ' + path) + ': ') + text))
                 exit(1)
-            rows.append({'text': text, 'class': class_name, })
+            rows.append({'text': text, 'class': query_class_name, })
             index.append(text)
         data = data.append(DataFrame(rows, index))
     pipeline = Pipeline([('count_vectorizer', CountVectorizer(ngram_range=(1, 2))), ('classifier', LinearSVC())])
@@ -29,12 +28,12 @@ def train(input_type, query_classes):
         predictions = pipeline.predict(test_text)
         score = f1_score(test_y, predictions, pos_label=(None if (len(query_classes) == 2) else 1), average='weighted')
         scores.append(score)
-    log((('************************* ' + input_type) + ' *************************'))
+    log((('********************** ' + input_type) + ' **********************'))
     log(('Total documents classified:' + str(len(data))))
     log(('Score:' + str((sum(scores) / len(scores)))))
     if (not os.path.exists('models')):
         os.makedirs('models')
     with open((('models/dumped_classifier_' + input_type) + '.pkl'), 'wb') as fid:
-        print 'Saving model for', input_type
+        log(('Saving model for ' + input_type))
         cPickle.dump(pipeline, fid)
     return pipeline

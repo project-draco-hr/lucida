@@ -1,4 +1,0 @@
-@staticmethod
-def get_pictures(username):
-    log(('Retrieving images from images_' + username))
-    return [image for image in Database.get_image_collection(username).find()]
