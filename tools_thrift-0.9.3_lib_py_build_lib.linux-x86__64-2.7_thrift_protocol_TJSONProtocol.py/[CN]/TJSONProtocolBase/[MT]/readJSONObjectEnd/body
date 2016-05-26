@@ -1,0 +1,3 @@
+def readJSONObjectEnd(self):
+    self.readJSONSyntaxChar(RBRACE)
+    self.popContext()

@@ -1,0 +1,9 @@
+@defer.inlineCallbacks
+def setUp(self):
+    self.handler = TestHandler()
+    self.processor = ThriftTest.Processor(self.handler)
+    self.pfactory = TBinaryProtocol.TBinaryProtocolFactory()
+    self.server = reactor.listenTCP(0, TTwisted.ThriftServerFactory(self.processor, self.pfactory), interface='127.0.0.1')
+    self.portNo = self.server.getHost().port
+    self.txclient = yield ClientCreator(reactor, TTwisted.ThriftClientProtocol, ThriftTest.Client, self.pfactory).connectTCP('127.0.0.1', self.portNo)
+    self.client = self.txclient.client

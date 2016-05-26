@@ -1,0 +1,7 @@
+def __initArgs__(self, processor, serverTransport, inputTransportFactory, outputTransportFactory, inputProtocolFactory, outputProtocolFactory):
+    self.processor = processor
+    self.serverTransport = serverTransport
+    self.inputTransportFactory = inputTransportFactory
+    self.outputTransportFactory = outputTransportFactory
+    self.inputProtocolFactory = inputProtocolFactory
+    self.outputProtocolFactory = outputProtocolFactory

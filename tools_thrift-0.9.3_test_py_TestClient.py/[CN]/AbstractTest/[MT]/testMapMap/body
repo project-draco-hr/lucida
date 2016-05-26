@@ -1,0 +1,5 @@
+def testMapMap(self):
+    try:
+        y = self.client.testMapMap()
+    except:
+        pass

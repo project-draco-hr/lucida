@@ -1,0 +1,5 @@
+def deserialize(base, buf, protocol_factory=TBinaryProtocol.TBinaryProtocolFactory()):
+    transport = TTransport.TMemoryBuffer(buf)
+    protocol = protocol_factory.getProtocol(transport)
+    base.read(protocol)
+    return base

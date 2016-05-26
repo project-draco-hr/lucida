@@ -1,0 +1,4 @@
+{
+  this.serverTransport=serverTransport;
+  serverTransport.registerSelector(selector);
+}

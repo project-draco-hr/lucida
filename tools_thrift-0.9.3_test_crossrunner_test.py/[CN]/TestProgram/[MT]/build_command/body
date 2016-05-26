@@ -1,0 +1,17 @@
+def build_command(self, port):
+    cmd = copy.copy(self._base_command)
+    args = []
+    args.append(('--protocol=' + self.protocol))
+    args.append(('--transport=' + self.transport))
+    socket_arg = self._socket_arg(self.socket, port)
+    if socket_arg:
+        args.append(socket_arg)
+    args.append(('--port=%d' % port))
+    if self._join_args:
+        cmd.append(('%s' % ' '.join(args)))
+    else:
+        cmd.extend(args)
+    if self._extra_args:
+        cmd.extend(self._extra_args)
+    self.command = cmd
+    return self.command

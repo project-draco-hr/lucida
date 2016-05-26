@@ -1,0 +1,4 @@
+{
+  super(Sasl.createSaslClient(new String[]{mechanism},authorizationId,protocol,serverName,props,cbh),transport);
+  this.mechanism=mechanism;
+}

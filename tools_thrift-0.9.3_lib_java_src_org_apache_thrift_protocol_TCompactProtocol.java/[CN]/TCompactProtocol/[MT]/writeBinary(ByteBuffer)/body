@@ -1,0 +1,4 @@
+{
+  int length=bin.limit() - bin.position();
+  writeBinary(bin.array(),bin.position() + bin.arrayOffset(),length);
+}

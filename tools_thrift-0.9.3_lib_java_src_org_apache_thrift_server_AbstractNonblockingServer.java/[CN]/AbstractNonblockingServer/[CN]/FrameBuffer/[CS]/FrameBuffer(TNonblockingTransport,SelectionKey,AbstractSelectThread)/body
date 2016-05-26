@@ -1,0 +1,18 @@
+{
+  trans_=trans;
+  selectionKey_=selectionKey;
+  selectThread_=selectThread;
+  buffer_=ByteBuffer.allocate(4);
+  frameTrans_=new TMemoryInputTransport();
+  response_=new TByteArrayOutputStream();
+  inTrans_=inputTransportFactory_.getTransport(frameTrans_);
+  outTrans_=outputTransportFactory_.getTransport(new TIOStreamTransport(response_));
+  inProt_=inputProtocolFactory_.getProtocol(inTrans_);
+  outProt_=outputProtocolFactory_.getProtocol(outTrans_);
+  if (eventHandler_ != null) {
+    context_=eventHandler_.createContext(inProt_,outProt_);
+  }
+ else {
+    context_=null;
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return processorFactory_.isAsyncProcessor() ? new AsyncFrameBuffer(trans,selectionKey,selectThread) : new FrameBuffer(trans,selectionKey,selectThread);
+}

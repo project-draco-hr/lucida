@@ -7,5 +7,18 @@
     kb=new KnowledgeBase(LUCID);
     KnowledgeBase.active_kbs.put(LUCID,kb);
   }
+  if (!new File(kb.Indri_repo).exists()) {
+    QAServiceHandler.print("Creating directory " + kb.Indri_repo);
+    new File(kb.Indri_repo).mkdirs();
+    IndexEnvironment env=new IndexEnvironment();
+    try {
+      env.setStemmer("krovetz");
+      env.create(kb.Indri_repo);
+      env.close();
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+  }
   return kb;
 }

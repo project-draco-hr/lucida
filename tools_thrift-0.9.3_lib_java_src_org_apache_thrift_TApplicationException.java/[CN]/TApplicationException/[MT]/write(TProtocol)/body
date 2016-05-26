@@ -1,0 +1,13 @@
+{
+  oprot.writeStructBegin(TAPPLICATION_EXCEPTION_STRUCT);
+  if (getMessage() != null) {
+    oprot.writeFieldBegin(MESSAGE_FIELD);
+    oprot.writeString(getMessage());
+    oprot.writeFieldEnd();
+  }
+  oprot.writeFieldBegin(TYPE_FIELD);
+  oprot.writeI32(type_);
+  oprot.writeFieldEnd();
+  oprot.writeFieldStop();
+  oprot.writeStructEnd();
+}

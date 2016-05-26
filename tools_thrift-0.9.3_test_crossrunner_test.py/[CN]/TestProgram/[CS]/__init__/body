@@ -1,0 +1,16 @@
+def __init__(self, kind, name, protocol, transport, socket, workdir, command, env=None, extra_args=[], join_args=False, **kwargs):
+    self.kind = kind
+    self.name = name
+    self.protocol = protocol
+    self.transport = transport
+    self.socket = socket
+    self.workdir = workdir
+    self.command = None
+    self._base_command = self._fix_cmd_path(command)
+    if env:
+        self.env = copy.copy(os.environ)
+        self.env.update(env)
+    else:
+        self.env = os.environ
+    self._extra_args = extra_args
+    self._join_args = join_args

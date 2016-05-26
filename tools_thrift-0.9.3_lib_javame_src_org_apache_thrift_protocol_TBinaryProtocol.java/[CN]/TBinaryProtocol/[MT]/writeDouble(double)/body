@@ -1,0 +1,3 @@
+{
+  writeI64(Double.doubleToLongBits(dub));
+}

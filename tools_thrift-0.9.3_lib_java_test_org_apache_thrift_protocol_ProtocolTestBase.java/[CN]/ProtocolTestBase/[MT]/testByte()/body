@@ -1,0 +1,9 @@
+{
+  if (canBeUsedNaked()) {
+    internalTestNakedByte();
+  }
+  for (int i=0; i < 128; i++) {
+    internalTestByteField((byte)i);
+    internalTestByteField((byte)-i);
+  }
+}

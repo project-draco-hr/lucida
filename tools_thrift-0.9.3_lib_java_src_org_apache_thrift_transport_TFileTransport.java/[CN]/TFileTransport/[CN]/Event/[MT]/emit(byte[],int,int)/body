@@ -1,0 +1,7 @@
+{
+  if ((ndesired == 0) || (ndesired > getRemaining()))   ndesired=getRemaining();
+  if (ndesired <= 0)   return (ndesired);
+  System.arraycopy(buf_,nread_,buf,offset,ndesired);
+  nread_+=ndesired;
+  return (ndesired);
+}

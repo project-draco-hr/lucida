@@ -1,0 +1,17 @@
+{
+  context_.write();
+  trans_.write(QUOTE);
+  int len=length;
+  int off=offset;
+  while (len >= 3) {
+    TBase64Utils.encode(b,off,3,tmpbuf_,0);
+    trans_.write(tmpbuf_,0,4);
+    off+=3;
+    len-=3;
+  }
+  if (len > 0) {
+    TBase64Utils.encode(b,off,len,tmpbuf_,0);
+    trans_.write(tmpbuf_,0,len + 1);
+  }
+  trans_.write(QUOTE);
+}

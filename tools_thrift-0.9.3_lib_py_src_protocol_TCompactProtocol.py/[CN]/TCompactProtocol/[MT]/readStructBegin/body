@@ -1,0 +1,5 @@
+def readStructBegin(self):
+    assert (self.state in (CLEAR, CONTAINER_READ, VALUE_READ)), self.state
+    self.__structs.append((self.state, self.__last_fid))
+    self.state = FIELD_READ
+    self.__last_fid = 0

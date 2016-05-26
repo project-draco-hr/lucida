@@ -1,0 +1,2 @@
+def testVoid(self):
+    pass

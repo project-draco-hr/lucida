@@ -1,0 +1,4 @@
+{
+  this.stopTimeoutVal=stopTimeoutVal;
+  return this;
+}

@@ -1,0 +1,2 @@
+def readBinary(self):
+    return self.readJSONBase64()

@@ -1,0 +1,11 @@
+{
+  if (outputStream_ == null) {
+    throw new TTransportException(TTransportException.NOT_OPEN,"Cannot flush null outputStream");
+  }
+  try {
+    outputStream_.flush();
+  }
+ catch (  IOException iox) {
+    throw new TTransportException(TTransportException.UNKNOWN,iox);
+  }
+}

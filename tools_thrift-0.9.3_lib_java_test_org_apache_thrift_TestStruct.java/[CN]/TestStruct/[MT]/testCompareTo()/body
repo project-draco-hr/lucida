@@ -1,0 +1,17 @@
+{
+  Bonk bonk1=new Bonk();
+  Bonk bonk2=new Bonk();
+  assertEquals(0,bonk1.compareTo(bonk2));
+  bonk1.setMessage("m");
+  assertTrue(bonk1.compareTo(bonk2) > 0);
+  assertTrue(bonk2.compareTo(bonk1) < 0);
+  bonk2.setMessage("z");
+  assertTrue(bonk1.compareTo(bonk2) < 0);
+  assertTrue(bonk2.compareTo(bonk1) > 0);
+  bonk1.setType(123);
+  assertTrue(bonk1.compareTo(bonk2) > 0);
+  assertTrue(bonk2.compareTo(bonk1) < 0);
+  bonk2.setType(123);
+  bonk2.setMessage("m");
+  assertEquals(0,bonk1.compareTo(bonk2));
+}

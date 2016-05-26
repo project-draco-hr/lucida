@@ -1,0 +1,3 @@
+{
+  concreteProtocol.writeI32(i);
+}

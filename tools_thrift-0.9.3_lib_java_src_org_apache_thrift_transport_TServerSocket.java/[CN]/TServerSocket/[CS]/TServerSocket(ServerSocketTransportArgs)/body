@@ -1,0 +1,16 @@
+{
+  clientTimeout_=args.clientTimeout;
+  if (args.serverSocket != null) {
+    this.serverSocket_=args.serverSocket;
+    return;
+  }
+  try {
+    serverSocket_=new ServerSocket();
+    serverSocket_.setReuseAddress(true);
+    serverSocket_.bind(args.bindAddr,args.backlog);
+  }
+ catch (  IOException ioe) {
+    close();
+    throw new TTransportException("Could not create ServerSocket on address " + args.bindAddr.toString() + ".",ioe);
+  }
+}

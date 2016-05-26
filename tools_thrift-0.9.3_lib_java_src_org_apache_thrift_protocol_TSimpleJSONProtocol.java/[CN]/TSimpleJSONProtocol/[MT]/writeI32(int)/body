@@ -1,0 +1,9 @@
+{
+  if (writeContext_.isMapKey()) {
+    writeString(Integer.toString(i32));
+  }
+ else {
+    writeContext_.write();
+    _writeStringData(Integer.toString(i32));
+  }
+}

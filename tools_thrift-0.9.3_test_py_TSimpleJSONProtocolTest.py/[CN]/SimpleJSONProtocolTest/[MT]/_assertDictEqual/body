@@ -1,0 +1,8 @@
+def _assertDictEqual(self, a, b, msg=None):
+    if hasattr(self, 'assertDictEqual'):
+        self.assertDictEqual(a, b, msg)
+        return
+    self.assertEquals(len(a), len(b), msg)
+    for (k, v) in a.iteritems():
+        self.assertTrue((k in b), msg)
+        self.assertEquals(b.get(k), v, msg)

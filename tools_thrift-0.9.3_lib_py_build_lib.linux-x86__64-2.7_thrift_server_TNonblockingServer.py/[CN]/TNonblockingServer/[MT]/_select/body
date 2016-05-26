@@ -1,0 +1,12 @@
+def _select(self):
+    'Does select on open connections.'
+    readable = [self.socket.handle.fileno(), self._read.fileno()]
+    writable = []
+    for (i, connection) in self.clients.items():
+        if connection.is_readable():
+            readable.append(connection.fileno())
+        if connection.is_writeable():
+            writable.append(connection.fileno())
+        if connection.is_closed():
+            del self.clients[i]
+    return select.select(readable, writable, readable)

@@ -1,0 +1,11 @@
+def checkWrite(o):
+    trans_fast = TTransport.TMemoryBuffer()
+    trans_slow = TTransport.TMemoryBuffer()
+    prot_fast = TBinaryProtocol.TBinaryProtocolAccelerated(trans_fast)
+    prot_slow = TBinaryProtocol.TBinaryProtocol(trans_slow)
+    o.write(prot_fast)
+    o.write(prot_slow)
+    ORIG = trans_slow.getvalue()
+    MINE = trans_fast.getvalue()
+    if (ORIG != MINE):
+        print ('mine: %s\norig: %s' % (repr(MINE), repr(ORIG)))

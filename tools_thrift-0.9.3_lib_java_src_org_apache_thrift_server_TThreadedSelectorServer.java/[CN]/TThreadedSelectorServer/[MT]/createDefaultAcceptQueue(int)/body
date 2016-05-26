@@ -1,0 +1,6 @@
+{
+  if (queueSize == 0) {
+    return new LinkedBlockingQueue<TNonblockingTransport>();
+  }
+  return new ArrayBlockingQueue<TNonblockingTransport>(queueSize);
+}

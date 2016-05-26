@@ -1,0 +1,10 @@
+{
+  try {
+    serverTransport_.listen();
+    return true;
+  }
+ catch (  TTransportException ttx) {
+    LOGGER.error("Failed to start listening on server socket!",ttx);
+    return false;
+  }
+}

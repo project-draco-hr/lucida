@@ -1,0 +1,3 @@
+{
+  testSaslOpen(WRAPPED_MECHANISM,WRAPPED_PROPS);
+}

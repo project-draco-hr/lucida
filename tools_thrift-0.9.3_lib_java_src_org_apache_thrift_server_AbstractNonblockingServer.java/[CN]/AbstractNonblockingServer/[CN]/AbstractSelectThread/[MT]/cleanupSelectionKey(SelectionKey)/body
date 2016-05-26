@@ -1,0 +1,7 @@
+{
+  FrameBuffer buffer=(FrameBuffer)key.attachment();
+  if (buffer != null) {
+    buffer.close();
+  }
+  key.cancel();
+}

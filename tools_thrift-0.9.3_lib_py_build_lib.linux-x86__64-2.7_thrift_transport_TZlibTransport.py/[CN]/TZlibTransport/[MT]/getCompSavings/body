@@ -1,0 +1,5 @@
+def getCompSavings(self):
+    'Get the current count of saved bytes due to data\n    compression.\n\n    Returns a tuple of:\n    (inbound_saved_bytes, outbound_saved_bytes)\n\n    Note: if compression is actually expanding your\n    data (only likely with very tiny thrift objects), then\n    the values returned will be negative.\n    '
+    r_saved = (self.bytes_in - self.bytes_in_comp)
+    w_saved = (self.bytes_out - self.bytes_out_comp)
+    return (r_saved, w_saved)

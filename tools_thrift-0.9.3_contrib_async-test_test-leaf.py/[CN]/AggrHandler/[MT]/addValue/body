@@ -1,0 +1,2 @@
+def addValue(self, value):
+    self.values.append(value)

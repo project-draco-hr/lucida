@@ -1,0 +1,3 @@
+{
+  assertEquals(309858235082523L,testClient.testTypedef(309858235082523L));
+}

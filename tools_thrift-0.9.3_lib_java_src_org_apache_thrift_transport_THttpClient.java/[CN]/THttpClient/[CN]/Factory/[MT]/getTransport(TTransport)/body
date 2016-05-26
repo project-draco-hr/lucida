@@ -1,0 +1,13 @@
+{
+  try {
+    if (null != client) {
+      return new THttpClient(url,client);
+    }
+ else {
+      return new THttpClient(url);
+    }
+  }
+ catch (  TTransportException tte) {
+    return null;
+  }
+}

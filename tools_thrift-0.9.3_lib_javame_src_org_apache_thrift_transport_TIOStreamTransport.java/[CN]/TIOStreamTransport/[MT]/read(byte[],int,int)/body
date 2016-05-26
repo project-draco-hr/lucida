@@ -1,0 +1,11 @@
+{
+  if (inputStream_ == null) {
+    throw new TTransportException(TTransportException.NOT_OPEN,"Cannot read from null inputStream");
+  }
+  try {
+    return inputStream_.read(buf,off,len);
+  }
+ catch (  IOException iox) {
+    throw new TTransportException(TTransportException.UNKNOWN,iox);
+  }
+}

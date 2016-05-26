@@ -1,0 +1,4 @@
+def testBackwards(self):
+    obj = self._deserialize(VersioningTestV1, self._serialize(self.v2obj))
+    self.assertEquals(obj.begin_in_both, self.v2obj.begin_in_both)
+    self.assertEquals(obj.end_in_both, self.v2obj.end_in_both)

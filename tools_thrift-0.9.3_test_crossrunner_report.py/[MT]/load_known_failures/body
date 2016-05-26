@@ -1,0 +1,6 @@
+def load_known_failures(testdir):
+    try:
+        with open(os.path.join(testdir, (FAIL_JSON % platform.system())), 'r') as fp:
+            return json.load(fp)
+    except IOError:
+        return []

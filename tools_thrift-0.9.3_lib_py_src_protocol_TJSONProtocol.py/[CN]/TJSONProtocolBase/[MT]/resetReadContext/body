@@ -1,0 +1,3 @@
+def resetReadContext(self):
+    self.resetWriteContext()
+    self.reader = LookaheadReader(self)

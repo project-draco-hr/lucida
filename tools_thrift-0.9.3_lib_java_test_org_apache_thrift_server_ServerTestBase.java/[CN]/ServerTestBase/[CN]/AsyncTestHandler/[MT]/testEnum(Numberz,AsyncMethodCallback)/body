@@ -1,0 +1,3 @@
+{
+  resultHandler.onComplete(handler.testEnum(thing));
+}

@@ -1,0 +1,9 @@
+{
+  if (size <= 14) {
+    writeByteDirect(size << 4 | getCompactType(elemType));
+  }
+ else {
+    writeByteDirect(0xf0 | getCompactType(elemType));
+    writeVarint32(size);
+  }
+}

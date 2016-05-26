@@ -1,0 +1,9 @@
+{
+  byte[] src=arr_.get();
+  int amtToRead=(len > arr_.len() - pos_ ? arr_.len() - pos_ : len);
+  if (amtToRead > 0) {
+    System.arraycopy(src,pos_,buf,off,amtToRead);
+    pos_+=amtToRead;
+  }
+  return amtToRead;
+}

@@ -1,0 +1,4 @@
+{
+  writeContextStack_.push(writeContext_);
+  writeContext_=c;
+}

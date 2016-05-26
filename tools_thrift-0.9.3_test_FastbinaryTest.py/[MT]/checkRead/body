@@ -1,0 +1,20 @@
+def checkRead(o):
+    prot = TBinaryProtocol.TBinaryProtocol(TTransport.TMemoryBuffer())
+    o.write(prot)
+    slow_version_binary = prot.trans.getvalue()
+    prot = TBinaryProtocol.TBinaryProtocolAccelerated(TTransport.TMemoryBuffer(slow_version_binary))
+    c = o.__class__()
+    c.read(prot)
+    if (c != o):
+        print 'copy: '
+        pprint(eval(repr(c)))
+        print 'orig: '
+        pprint(eval(repr(o)))
+    prot = TBinaryProtocol.TBinaryProtocolAccelerated(TTransport.TBufferedTransport(TTransport.TMemoryBuffer(slow_version_binary)))
+    c = o.__class__()
+    c.read(prot)
+    if (c != o):
+        print 'copy: '
+        pprint(eval(repr(c)))
+        print 'orig: '
+        pprint(eval(repr(o)))

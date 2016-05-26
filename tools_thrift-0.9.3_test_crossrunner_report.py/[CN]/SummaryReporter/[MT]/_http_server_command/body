@@ -1,0 +1,5 @@
+def _http_server_command(self, port):
+    if (sys.version_info[0] < 3):
+        return ('python -m SimpleHTTPServer %d' % port)
+    else:
+        return ('python -m http.server %d' % port)

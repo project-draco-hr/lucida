@@ -1,0 +1,11 @@
+{
+  try {
+    acceptedQueue.put(accepted);
+  }
+ catch (  InterruptedException e) {
+    LOGGER.warn("Interrupted while adding accepted connection!",e);
+    return false;
+  }
+  selector.wakeup();
+  return true;
+}

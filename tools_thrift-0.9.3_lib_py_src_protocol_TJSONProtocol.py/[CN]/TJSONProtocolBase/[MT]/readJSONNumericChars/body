@@ -1,0 +1,8 @@
+def readJSONNumericChars(self):
+    numeric = []
+    while True:
+        character = self.reader.peek()
+        if (self.isJSONNumeric(character) is False):
+            break
+        numeric.append(self.reader.read())
+    return ''.join(numeric)

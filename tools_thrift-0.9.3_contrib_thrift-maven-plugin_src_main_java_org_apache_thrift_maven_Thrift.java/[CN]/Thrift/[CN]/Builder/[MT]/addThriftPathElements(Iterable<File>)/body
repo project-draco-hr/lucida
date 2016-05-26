@@ -1,0 +1,6 @@
+{
+  for (  File thriftPathElement : thriftPathElements) {
+    addThriftPathElement(thriftPathElement);
+  }
+  return this;
+}

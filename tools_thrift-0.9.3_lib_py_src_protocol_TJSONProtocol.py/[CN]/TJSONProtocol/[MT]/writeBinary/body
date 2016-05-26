@@ -1,0 +1,2 @@
+def writeBinary(self, binary):
+    self.writeJSONBase64(binary)

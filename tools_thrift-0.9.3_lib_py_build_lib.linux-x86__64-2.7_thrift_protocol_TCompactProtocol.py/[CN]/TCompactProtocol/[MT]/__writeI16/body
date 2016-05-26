@@ -1,0 +1,2 @@
+def __writeI16(self, i16):
+    self.__writeVarint(makeZigZag(i16, 16))

@@ -1,0 +1,3 @@
+def writeJSONObjectEnd(self):
+    self.popContext()
+    self.trans.write(RBRACE)

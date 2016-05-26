@@ -1,0 +1,4 @@
+def testMulti(self, arg0, arg1, arg2, arg3, arg4, arg5):
+    if (options.verbose > 1):
+        print ('testMulti(%s)' % [arg0, arg1, arg2, arg3, arg4, arg5])
+    return Xtruct(string_thing='Hello2', byte_thing=arg0, i32_thing=arg1, i64_thing=arg2)

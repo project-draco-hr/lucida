@@ -1,0 +1,10 @@
+import sys, os
+from optparse import OptionParser
+from thrift.Thrift import *
+from thrift.transport import TSocket
+from thrift.transport import TTransport
+from thrift.protocol import TBinaryProtocol
+from fb303 import *
+from fb303.ttypes import *
+if (__name__ == '__main__'):
+    main()

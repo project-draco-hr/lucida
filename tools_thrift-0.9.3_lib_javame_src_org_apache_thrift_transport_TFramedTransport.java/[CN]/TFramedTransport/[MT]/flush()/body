@@ -1,0 +1,13 @@
+{
+  byte[] buf=writeBuffer_.get();
+  int len=writeBuffer_.len();
+  writeBuffer_.reset();
+  byte[] i32out=new byte[4];
+  i32out[0]=(byte)(0xff & (len >> 24));
+  i32out[1]=(byte)(0xff & (len >> 16));
+  i32out[2]=(byte)(0xff & (len >> 8));
+  i32out[3]=(byte)(0xff & (len));
+  transport_.write(i32out,0,4);
+  transport_.write(buf,0,len);
+  transport_.flush();
+}

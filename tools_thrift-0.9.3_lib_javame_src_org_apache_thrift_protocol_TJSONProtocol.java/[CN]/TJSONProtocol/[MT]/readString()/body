@@ -1,0 +1,8 @@
+{
+  try {
+    return readJSONString(false).toString("UTF-8");
+  }
+ catch (  UnsupportedEncodingException ex) {
+    throw new TException("JVM DOES NOT SUPPORT UTF-8");
+  }
+}

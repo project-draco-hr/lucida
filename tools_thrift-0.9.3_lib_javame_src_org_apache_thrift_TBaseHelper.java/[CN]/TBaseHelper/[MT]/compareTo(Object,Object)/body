@@ -1,0 +1,11 @@
+{
+  if (a instanceof Vector) {
+    return compareTo((Vector)a,(Vector)b);
+  }
+  if (a instanceof Hashtable) {
+    return compareTo((Hashtable)a,(Hashtable)b);
+  }
+ else {
+    return ((TBase)a).compareTo(b);
+  }
+}

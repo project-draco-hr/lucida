@@ -1,0 +1,5 @@
+{
+  super(trans);
+  strictRead_=strictRead;
+  strictWrite_=strictWrite;
+}

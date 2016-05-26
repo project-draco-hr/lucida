@@ -1,0 +1,3 @@
+{
+  return (options.workerThreads > 0) ? Executors.newFixedThreadPool(options.workerThreads) : null;
+}

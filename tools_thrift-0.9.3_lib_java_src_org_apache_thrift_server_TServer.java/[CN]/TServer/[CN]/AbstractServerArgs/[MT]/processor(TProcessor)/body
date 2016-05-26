@@ -1,0 +1,4 @@
+{
+  this.processorFactory=new TProcessorFactory(processor);
+  return (T)this;
+}

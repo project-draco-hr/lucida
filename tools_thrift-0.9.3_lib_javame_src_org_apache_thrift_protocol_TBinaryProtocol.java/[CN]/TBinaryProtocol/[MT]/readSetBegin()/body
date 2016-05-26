@@ -1,0 +1,6 @@
+{
+  TSet set=new TSet();
+  set.elemType=readByte();
+  set.size=readI32();
+  return set;
+}

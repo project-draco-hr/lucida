@@ -1,0 +1,3 @@
+def write(self, buf):
+    'Write some bytes, putting them into the internal write\n    buffer for eventual compression.\n    '
+    self.__wbuf.write(buf)

@@ -1,0 +1,5 @@
+{
+  ___transport.close();
+  ___currentMethod=null;
+  ___error=exception;
+}

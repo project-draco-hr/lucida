@@ -1,0 +1,5 @@
+{
+  byte[] longBits=new byte[8];
+  trans_.readAll(longBits,0,8);
+  return Double.longBitsToDouble(bytesToLong(longBits));
+}

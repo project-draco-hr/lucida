@@ -1,0 +1,9 @@
+{
+  int length=(int)Math.ceil(i / 8.0);
+  byte[] bytes=new byte[length];
+  for (int j=0; j < length; j++) {
+    bytes[j]=readByte();
+  }
+  BitSet bs=fromByteArray(bytes);
+  return bs;
+}

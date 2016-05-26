@@ -1,0 +1,5 @@
+{
+  context_.read();
+  readJSONSyntaxChar(LBRACKET);
+  pushContext(new JSONListContext());
+}

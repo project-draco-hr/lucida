@@ -1,0 +1,51 @@
+def run_test(testdir, test_dict, async=True, max_retry=3):
+    try:
+        logger = multiprocessing.get_logger()
+        retry_count = 0
+        test = TestEntry(testdir, **test_dict)
+        while True:
+            if stop.is_set():
+                logger.debug('Skipping because shutting down')
+                return None
+            logger.debug('Start')
+            with PortAllocator.alloc_port_scoped(ports, test.socket) as port:
+                logger.debug(('Start with port %d' % port))
+                sv = exec_context(port, testdir, test, test.server)
+                cl = exec_context(port, testdir, test, test.client)
+                logger.debug('Starting server')
+                with sv.start():
+                    if (test.delay > 0):
+                        logger.debug(('Delaying client for %.2f seconds' % test.delay))
+                        time.sleep(test.delay)
+                    cl_retry_count = 0
+                    cl_max_retry = 10
+                    cl_retry_wait = 0.5
+                    while True:
+                        logger.debug('Starting client')
+                        cl.start(test.timeout)
+                        logger.debug('Waiting client')
+                        cl.wait()
+                        if ((not cl.report.maybe_false_positive()) or (cl_retry_count >= cl_max_retry)):
+                            if ((cl_retry_count > 0) and (cl_retry_count < cl_max_retry)):
+                                logger.warn(('[%s]: Connected after %d retry (%.2f sec each)' % (test.server.name, cl_retry_count, cl_retry_wait)))
+                            break
+                        logger.debug(('Server may not be ready, waiting %.2f second...' % cl_retry_wait))
+                        time.sleep(cl_retry_wait)
+                        cl_retry_count += 1
+            if ((not sv.report.maybe_false_positive()) or (retry_count >= max_retry)):
+                logger.debug('Finish')
+                return (RESULT_TIMEOUT if cl.expired else cl.proc.returncode)
+            logger.warn(('[%s]: Detected socket bind failure, retrying...' % test.server.name))
+            retry_count += 1
+    except (KeyboardInterrupt, SystemExit):
+        logger.info('Interrupted execution')
+        if (not async):
+            raise
+        stop.set()
+        return None
+    except Exception as ex:
+        logger.warn(('Error while executing test : %s' % str(ex)))
+        if (not async):
+            raise
+        logger.info(traceback.print_exc())
+        return RESULT_ERROR

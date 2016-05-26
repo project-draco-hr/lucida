@@ -1,0 +1,11 @@
+{
+  if (!isOpen())   throw new TTransportException(TTransportException.NOT_OPEN,"Must open before getNumChunks");
+  try {
+    long len=inputFile_.length();
+    if (len == 0)     return 0;
+ else     return (((int)(len / cs.getChunkSize())) + 1);
+  }
+ catch (  IOException iox) {
+    throw new TTransportException(iox.getMessage(),iox);
+  }
+}

@@ -1,0 +1,7 @@
+{
+  Map copy=new HashMap();
+  for (  Map.Entry<Object,Object> entry : map.entrySet()) {
+    copy.put(deepCopyObject(entry.getKey()),deepCopyObject(entry.getValue()));
+  }
+  return copy;
+}

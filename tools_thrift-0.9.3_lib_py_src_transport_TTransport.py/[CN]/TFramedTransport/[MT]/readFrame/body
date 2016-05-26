@@ -1,0 +1,4 @@
+def readFrame(self):
+    buff = self.__trans.readAll(4)
+    (sz,) = unpack('!i', buff)
+    self.__rbuf = StringIO(self.__trans.readAll(sz))

@@ -1,0 +1,2 @@
+def _dispatch_async(self, test, cont):
+    return self._pool.apply_async(func=run_test, args=(self.testdir, test), callback=cont)

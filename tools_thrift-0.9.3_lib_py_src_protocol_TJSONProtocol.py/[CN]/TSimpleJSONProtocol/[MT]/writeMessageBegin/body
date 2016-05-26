@@ -1,0 +1,2 @@
+def writeMessageBegin(self, name, request_type, seqid):
+    self.resetWriteContext()

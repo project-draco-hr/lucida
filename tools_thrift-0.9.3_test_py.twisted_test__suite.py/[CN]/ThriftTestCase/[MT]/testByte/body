@@ -1,0 +1,3 @@
+@defer.inlineCallbacks
+def testByte(self):
+    self.assertEquals(yield self.client.testByte(63), 63)

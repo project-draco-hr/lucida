@@ -1,0 +1,11 @@
+{
+  if (requestBuf == null) {
+    return null;
+  }
+ else {
+    if (requestBufDuplication == null) {
+      requestBufDuplication=requestBuf.duplicate();
+    }
+    return requestBufDuplication;
+  }
+}

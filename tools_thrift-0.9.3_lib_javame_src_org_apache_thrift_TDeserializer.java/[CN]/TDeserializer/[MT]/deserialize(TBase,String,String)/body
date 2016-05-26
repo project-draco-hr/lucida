@@ -1,0 +1,8 @@
+{
+  try {
+    deserialize(base,data.getBytes(charset));
+  }
+ catch (  UnsupportedEncodingException uex) {
+    throw new TException("JVM DOES NOT SUPPORT ENCODING: " + charset);
+  }
+}

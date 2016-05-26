@@ -1,0 +1,6 @@
+{
+  writeByteDirect(PROTOCOL_ID);
+  writeByteDirect((VERSION & VERSION_MASK) | ((message.type << TYPE_SHIFT_AMOUNT) & TYPE_MASK));
+  writeVarint32(message.seqid);
+  writeString(message.name);
+}

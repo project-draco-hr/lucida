@@ -1,0 +1,7 @@
+{
+  final Args args=new Args(socket).processor(processor).protocolFactory(protoFactory);
+  if (factory != null) {
+    args.transportFactory(factory);
+  }
+  return new TNonblockingServer(args);
+}

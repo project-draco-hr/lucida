@@ -1,0 +1,7 @@
+self
+processor
+serverTransport
+inputTransportFactory
+outputTransportFactory
+inputProtocolFactory
+outputProtocolFactory

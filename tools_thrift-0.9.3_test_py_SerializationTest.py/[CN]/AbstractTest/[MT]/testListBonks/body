@@ -1,0 +1,5 @@
+def testListBonks(self):
+    obj = self._deserialize(ListBonks, self._serialize(self.list_bonks))
+    self.assertEquals(obj, self.list_bonks)
+    rep = repr(self.list_bonks)
+    self.assertTrue((len(rep) > 0))

@@ -1,0 +1,4 @@
+def readByte(self):
+    buff = self.trans.readAll(1)
+    (val,) = unpack('!b', buff)
+    return val

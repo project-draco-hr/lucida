@@ -1,0 +1,11 @@
+self
+kind
+name
+protocol
+transport
+socket
+workdir
+command
+env
+extra_args
+join_args

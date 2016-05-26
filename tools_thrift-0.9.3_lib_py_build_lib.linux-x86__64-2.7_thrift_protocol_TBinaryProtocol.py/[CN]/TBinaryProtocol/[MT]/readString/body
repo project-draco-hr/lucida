@@ -1,0 +1,4 @@
+def readString(self):
+    len = self.readI32()
+    str = self.trans.readAll(len)
+    return str

@@ -1,0 +1,4 @@
+{
+  List<Artifact> compileArtifacts=project.getCompileArtifacts();
+  return compileArtifacts;
+}

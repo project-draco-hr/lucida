@@ -1,0 +1,11 @@
+{
+  if (entity == null) {
+    return;
+  }
+  if (entity.isStreaming()) {
+    InputStream instream=entity.getContent();
+    if (instream != null) {
+      instream.close();
+    }
+  }
+}

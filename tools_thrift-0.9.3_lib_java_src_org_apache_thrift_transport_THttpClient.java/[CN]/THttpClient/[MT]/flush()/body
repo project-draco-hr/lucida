@@ -1,0 +1,37 @@
+{
+  if (null != this.client) {
+    flushUsingHttpClient();
+    return;
+  }
+  byte[] data=requestBuffer_.toByteArray();
+  requestBuffer_.reset();
+  try {
+    HttpURLConnection connection=(HttpURLConnection)url_.openConnection();
+    if (connectTimeout_ > 0) {
+      connection.setConnectTimeout(connectTimeout_);
+    }
+    if (readTimeout_ > 0) {
+      connection.setReadTimeout(readTimeout_);
+    }
+    connection.setRequestMethod("POST");
+    connection.setRequestProperty("Content-Type","application/x-thrift");
+    connection.setRequestProperty("Accept","application/x-thrift");
+    connection.setRequestProperty("User-Agent","Java/THttpClient");
+    if (customHeaders_ != null) {
+      for (      Map.Entry<String,String> header : customHeaders_.entrySet()) {
+        connection.setRequestProperty(header.getKey(),header.getValue());
+      }
+    }
+    connection.setDoOutput(true);
+    connection.connect();
+    connection.getOutputStream().write(data);
+    int responseCode=connection.getResponseCode();
+    if (responseCode != HttpURLConnection.HTTP_OK) {
+      throw new TTransportException("HTTP Response code: " + responseCode);
+    }
+    inputStream_=connection.getInputStream();
+  }
+ catch (  IOException iox) {
+    throw new TTransportException(iox);
+  }
+}

@@ -1,0 +1,17 @@
+{
+  if (serverSocket_ == null) {
+    throw new TTransportException(TTransportException.NOT_OPEN,"No underlying server socket.");
+  }
+  try {
+    SocketChannel socketChannel=serverSocketChannel.accept();
+    if (socketChannel == null) {
+      return null;
+    }
+    TNonblockingSocket tsocket=new TNonblockingSocket(socketChannel);
+    tsocket.setTimeout(clientTimeout_);
+    return tsocket;
+  }
+ catch (  IOException iox) {
+    throw new TTransportException(iox);
+  }
+}

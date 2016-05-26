@@ -1,0 +1,33 @@
+{
+  for (  TProtocolFactory protoFactory : getProtocols()) {
+    TProcessor processor=useAsyncProcessor() ? new ThriftTest.AsyncProcessor(new AsyncTestHandler()) : new ThriftTest.Processor(new TestHandler());
+    startServer(processor,protoFactory);
+    TSocket socket=new TSocket(HOST,PORT);
+    socket.setTimeout(SOCKET_TIMEOUT);
+    TTransport transport=getClientTransport(socket);
+    TProtocol protocol=protoFactory.getProtocol(transport);
+    ThriftTest.Client testClient=new ThriftTest.Client(protocol);
+    open(transport);
+    testVoid(testClient);
+    testString(testClient);
+    testBool(testClient);
+    testByte(testClient);
+    testI32(testClient);
+    testI64(testClient);
+    testDouble(testClient);
+    testStruct(testClient);
+    testNestedStruct(testClient);
+    testMap(testClient);
+    testStringMap(testClient);
+    testSet(testClient);
+    testList(testClient);
+    testEnum(testClient);
+    testTypedef(testClient);
+    testNestedMap(testClient);
+    testInsanity(testClient);
+    testOneway(testClient);
+    testException(testClient);
+    transport.close();
+    stopServer();
+  }
+}

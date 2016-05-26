@@ -1,0 +1,18 @@
+{
+  for (  TProtocolFactory protoFactory : getProtocols()) {
+    TestHandler handler=new TestHandler();
+    ThriftTest.Processor processor=new ThriftTest.Processor(handler);
+    final CallCountingTransportFactory factory=new CallCountingTransportFactory(new TFramedTransport.Factory());
+    startServer(processor,protoFactory,factory);
+    assertEquals(0,factory.count);
+    TSocket socket=new TSocket(HOST,PORT);
+    socket.setTimeout(SOCKET_TIMEOUT);
+    TTransport transport=getClientTransport(socket);
+    open(transport);
+    TProtocol protocol=protoFactory.getProtocol(transport);
+    ThriftTest.Client testClient=new ThriftTest.Client(protocol);
+    assertEquals(0,testClient.testByte((byte)0));
+    assertEquals(2,factory.count);
+    stopServer();
+  }
+}

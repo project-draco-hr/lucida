@@ -1,0 +1,4 @@
+{
+  this.containerLengthLimit_=containerLengthLimit;
+  this.stringLengthLimit_=stringLengthLimit;
+}

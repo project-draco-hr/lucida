@@ -1,0 +1,6 @@
+{
+  if (socket_ == null) {
+    return false;
+  }
+  return socket_.isConnected();
+}

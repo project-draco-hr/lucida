@@ -1,0 +1,9 @@
+def make_helper(v_from, container):
+
+    def helper(func):
+
+        def nested(self, *args, **kwargs):
+            assert (self.state in (v_from, container)), (self.state, v_from, container)
+            return func(self, *args, **kwargs)
+        return nested
+    return helper

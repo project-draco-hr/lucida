@@ -1,0 +1,13 @@
+{
+  int sizeCompare=compareTo(a.length,b.length);
+  if (sizeCompare != 0) {
+    return sizeCompare;
+  }
+  for (int i=0; i < a.length; i++) {
+    int byteCompare=compareTo(a,b);
+    if (byteCompare != 0) {
+      return byteCompare;
+    }
+  }
+  return 0;
+}

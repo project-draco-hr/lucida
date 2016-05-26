@@ -1,0 +1,7 @@
+{
+  if (params == null || !(params.isKeyStoreSet || params.isTrustStoreSet)) {
+    throw new TTransportException("Either one of the KeyStore or TrustStore must be set for SSLTransportParameters");
+  }
+  SSLContext ctx=createSSLContext(params);
+  return createServer(ctx.getServerSocketFactory(),port,clientTimeout,params.clientAuth,ifAddress,params);
+}

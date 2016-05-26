@@ -1,0 +1,4 @@
+{
+  super(transport);
+  transportFactory(new TFramedTransport.Factory());
+}

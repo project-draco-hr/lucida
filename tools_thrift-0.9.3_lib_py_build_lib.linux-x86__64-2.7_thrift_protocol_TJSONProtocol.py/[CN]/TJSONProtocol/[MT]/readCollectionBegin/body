@@ -1,0 +1,5 @@
+def readCollectionBegin(self):
+    self.readJSONArrayStart()
+    elemType = JTYPES[self.readJSONString(False)]
+    size = self.readJSONInteger()
+    return (elemType, size)

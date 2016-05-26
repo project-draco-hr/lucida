@@ -1,0 +1,3 @@
+TProcessor processor
+TProtocolFactory protoFactory
+TTransportFactory factory

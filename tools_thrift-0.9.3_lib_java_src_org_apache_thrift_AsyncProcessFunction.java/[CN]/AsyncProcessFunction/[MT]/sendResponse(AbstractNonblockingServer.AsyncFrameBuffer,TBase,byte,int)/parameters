@@ -1,0 +1,4 @@
+AbstractNonblockingServer.AsyncFrameBuffer fb
+TBase result
+byte type
+int seqid

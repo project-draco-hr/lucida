@@ -1,0 +1,3 @@
+{
+  return ((int)(offset_ / chunk_size_));
+}

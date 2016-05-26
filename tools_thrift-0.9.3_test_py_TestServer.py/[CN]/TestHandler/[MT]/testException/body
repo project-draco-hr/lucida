@@ -1,0 +1,6 @@
+def testException(self, arg):
+    print ('testException(%s)' % arg)
+    if (arg == 'Xception'):
+        raise Xception(errorCode=1001, message=arg)
+    elif (arg == 'TException'):
+        raise TException(message='This is a TException')

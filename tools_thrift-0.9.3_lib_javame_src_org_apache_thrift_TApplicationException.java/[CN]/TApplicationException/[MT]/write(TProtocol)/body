@@ -1,0 +1,21 @@
+{
+  TStruct struct=new TStruct("TApplicationException");
+  TField field=new TField();
+  oprot.writeStructBegin(struct);
+  if (getMessage() != null) {
+    field.name="message";
+    field.type=TType.STRING;
+    field.id=1;
+    oprot.writeFieldBegin(field);
+    oprot.writeString(getMessage());
+    oprot.writeFieldEnd();
+  }
+  field.name="type";
+  field.type=TType.I32;
+  field.id=2;
+  oprot.writeFieldBegin(field);
+  oprot.writeI32(type_);
+  oprot.writeFieldEnd();
+  oprot.writeFieldStop();
+  oprot.writeStructEnd();
+}

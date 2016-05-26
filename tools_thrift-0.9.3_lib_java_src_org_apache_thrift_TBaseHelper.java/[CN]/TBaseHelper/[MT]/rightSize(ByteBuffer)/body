@@ -1,0 +1,9 @@
+{
+  if (in == null) {
+    return null;
+  }
+  if (wrapsFullArray(in)) {
+    return in;
+  }
+  return ByteBuffer.wrap(byteBufferToByteArray(in));
+}

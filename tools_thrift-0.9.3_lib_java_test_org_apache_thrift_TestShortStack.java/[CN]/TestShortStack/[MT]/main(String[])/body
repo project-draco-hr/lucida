@@ -1,0 +1,48 @@
+{
+  for (int trial=0; trial < NUM_TRIALS; trial++) {
+    long start=System.currentTimeMillis();
+    ShortStack s=new ShortStack(10);
+    for (int rep=0; rep < NUM_REPS; rep++) {
+      s.push((short)1);
+      s.push((short)11);
+      s.push((short)111);
+      s.pop();
+      s.pop();
+      s.push((short)12);
+      s.push((short)121);
+      s.push((short)1211);
+      s.push((short)12111);
+      s.pop();
+      s.pop();
+      s.pop();
+      s.pop();
+      s.push((short)5);
+      s.pop();
+      s.pop();
+    }
+    long end=System.currentTimeMillis();
+    System.out.println("ShortStack: " + (end - start));
+    start=System.currentTimeMillis();
+    Stack<Short> stdStack=new Stack<Short>();
+    for (int rep=0; rep < NUM_REPS; rep++) {
+      stdStack.push((short)1);
+      stdStack.push((short)11);
+      stdStack.push((short)111);
+      stdStack.pop();
+      stdStack.pop();
+      stdStack.push((short)12);
+      stdStack.push((short)121);
+      stdStack.push((short)1211);
+      stdStack.push((short)12111);
+      stdStack.pop();
+      stdStack.pop();
+      stdStack.pop();
+      stdStack.pop();
+      stdStack.push((short)5);
+      stdStack.pop();
+      stdStack.pop();
+    }
+    end=System.currentTimeMillis();
+    System.out.println("Built-in stack: " + (end - start));
+  }
+}

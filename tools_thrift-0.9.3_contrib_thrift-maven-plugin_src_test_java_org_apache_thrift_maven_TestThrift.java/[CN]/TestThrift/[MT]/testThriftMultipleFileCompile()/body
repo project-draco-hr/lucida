@@ -1,0 +1,14 @@
+{
+  final File sharedThrift=new File(idlDir,"shared.thrift");
+  final File tutorialThrift=new File(idlDir,"tutorial.thrift");
+  builder.addThriftFile(sharedThrift);
+  builder.addThriftFile(tutorialThrift);
+  final Thrift thrift=builder.build();
+  assertTrue("File not found: shared.thrift",sharedThrift.exists());
+  assertFalse("gen-java directory should not exist",genJavaDir.exists());
+  final int result=thrift.compile();
+  assertEquals(0,result);
+  assertFalse("gen-java directory was not removed",genJavaDir.exists());
+  assertTrue("generated java code doesn't exist",new File(testRootDir,"shared/SharedService.java").exists());
+  assertTrue("generated java code doesn't exist",new File(testRootDir,"tutorial/InvalidOperation.java").exists());
+}

@@ -1,0 +1,20 @@
+def collect_testlibs(config, server_match, client_match):
+    'Collects server/client configurations from library configurations'
+
+    def expand_libs(config):
+        for lib in config:
+            sv = lib.pop('server', None)
+            cl = lib.pop('client', None)
+            yield (lib, sv, cl)
+
+    def yield_testlibs(base_configs, configs, match):
+        for (base, conf) in zip(base_configs, configs):
+            if conf:
+                if ((not match) or (base['name'] in match)):
+                    platforms = (conf.get('platforms') or base.get('platforms'))
+                    if ((not platforms) or (platform.system() in platforms)):
+                        yield merge_dict(base, conf)
+    (libs, svs, cls) = zip(*expand_libs(config))
+    servers = list(yield_testlibs(libs, svs, server_match))
+    clients = list(yield_testlibs(libs, cls, client_match))
+    return (servers, clients)

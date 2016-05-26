@@ -1,0 +1,6 @@
+{
+  for (  File thriftFile : thriftFiles) {
+    addThriftFile(thriftFile);
+  }
+  return this;
+}

@@ -1,0 +1,3 @@
+def writeFieldBegin(self, name, type, id):
+    self.writeByte(type)
+    self.writeI16(id)

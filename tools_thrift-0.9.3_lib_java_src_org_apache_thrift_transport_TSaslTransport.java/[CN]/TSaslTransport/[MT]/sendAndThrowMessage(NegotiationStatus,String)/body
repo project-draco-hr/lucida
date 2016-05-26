@@ -1,0 +1,10 @@
+{
+  try {
+    sendSaslMessage(status,message.getBytes());
+  }
+ catch (  Exception e) {
+    LOGGER.warn("Could not send failure response",e);
+    message+="\nAlso, could not send response: " + e.toString();
+  }
+  throw new TTransportException(message);
+}

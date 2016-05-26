@@ -1,0 +1,3 @@
+{
+  return (a.booleanValue() == b.booleanValue()) ? 0 : (a.booleanValue() ? 1 : -1);
+}

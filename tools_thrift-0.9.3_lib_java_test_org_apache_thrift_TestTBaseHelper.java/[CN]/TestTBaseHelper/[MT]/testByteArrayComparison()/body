@@ -1,0 +1,3 @@
+{
+  assertTrue(TBaseHelper.compareTo(new byte[]{'a','b'},new byte[]{'a','c'}) < 0);
+}

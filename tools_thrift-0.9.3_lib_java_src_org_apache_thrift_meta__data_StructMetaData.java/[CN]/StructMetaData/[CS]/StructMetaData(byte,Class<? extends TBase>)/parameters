@@ -1,0 +1,2 @@
+byte type
+Class<? extends TBase> sClass

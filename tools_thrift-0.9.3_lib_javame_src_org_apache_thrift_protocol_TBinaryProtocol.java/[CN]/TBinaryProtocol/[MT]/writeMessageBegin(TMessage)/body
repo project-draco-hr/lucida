@@ -1,0 +1,13 @@
+{
+  if (strictWrite_) {
+    int version=VERSION_1 | message.type;
+    writeI32(version);
+    writeString(message.name);
+    writeI32(message.seqid);
+  }
+ else {
+    writeString(message.name);
+    writeByte(message.type);
+    writeI32(message.seqid);
+  }
+}

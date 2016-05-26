@@ -1,0 +1,3 @@
+def setNumThreads(self, num):
+    'Set the number of worker threads that should be created'
+    self.threads = num

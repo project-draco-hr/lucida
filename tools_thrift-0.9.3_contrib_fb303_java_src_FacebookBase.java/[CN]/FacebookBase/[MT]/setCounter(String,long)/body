@@ -1,0 +1,4 @@
+{
+  counters_.put(key,value);
+  return value;
+}

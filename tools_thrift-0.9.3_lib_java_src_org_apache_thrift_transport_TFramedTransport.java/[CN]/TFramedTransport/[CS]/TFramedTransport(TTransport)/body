@@ -1,0 +1,4 @@
+{
+  transport_=transport;
+  maxLength_=TFramedTransport.DEFAULT_MAX_LENGTH;
+}

@@ -1,0 +1,3 @@
+{
+  return (Boolean)partialDeserializeField(TType.BOOL,bytes,fieldIdPathFirst,fieldIdPathRest);
+}

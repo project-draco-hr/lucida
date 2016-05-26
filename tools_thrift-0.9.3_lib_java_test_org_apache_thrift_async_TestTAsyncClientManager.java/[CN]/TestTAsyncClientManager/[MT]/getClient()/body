@@ -1,0 +1,4 @@
+{
+  TNonblockingSocket clientSocket=new TNonblockingSocket(ServerTestBase.HOST,ServerTestBase.PORT);
+  return new Srv.AsyncClient(new TBinaryProtocol.Factory(),clientManager_,clientSocket);
+}

@@ -1,0 +1,10 @@
+def render_POST(self, request):
+    request.content.seek(0, 0)
+    data = request.content.read()
+    tmi = TTransport.TMemoryBuffer(data)
+    tmo = TTransport.TMemoryBuffer()
+    iprot = self.inputProtocolFactory.getProtocol(tmi)
+    oprot = self.outputProtocolFactory.getProtocol(tmo)
+    d = self.processor.process(iprot, oprot)
+    d.addCallback(self._cbProcess, request, tmo)
+    return server.NOT_DONE_YET

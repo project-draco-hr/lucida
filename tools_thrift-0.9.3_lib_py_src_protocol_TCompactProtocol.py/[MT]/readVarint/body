@@ -1,0 +1,10 @@
+def readVarint(trans):
+    result = 0
+    shift = 0
+    while True:
+        x = trans.readAll(1)
+        byte = ord(x)
+        result |= ((byte & 127) << shift)
+        if ((byte >> 7) == 0):
+            return result
+        shift += 7

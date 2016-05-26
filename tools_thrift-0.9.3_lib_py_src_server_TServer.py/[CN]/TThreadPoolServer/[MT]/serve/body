@@ -1,0 +1,18 @@
+def serve(self):
+    'Start a fixed number of worker threads and put client into a queue'
+    for i in range(self.threads):
+        try:
+            t = threading.Thread(target=self.serveThread)
+            t.setDaemon(self.daemon)
+            t.start()
+        except Exception as x:
+            logger.exception(x)
+    self.serverTransport.listen()
+    while True:
+        try:
+            client = self.serverTransport.accept()
+            if (not client):
+                continue
+            self.clients.put(client)
+        except Exception as x:
+            logger.exception(x)

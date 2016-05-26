@@ -1,0 +1,7 @@
+def __init__(self, processor, iprot_factory, oprot_factory=None):
+    self.processor = processor
+    self.iprot_factory = iprot_factory
+    if (oprot_factory is None):
+        self.oprot_factory = iprot_factory
+    else:
+        self.oprot_factory = oprot_factory

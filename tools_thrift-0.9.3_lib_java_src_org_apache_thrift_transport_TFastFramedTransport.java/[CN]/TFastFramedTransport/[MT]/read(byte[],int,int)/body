@@ -1,0 +1,8 @@
+{
+  int got=readBuffer.read(buf,off,len);
+  if (got > 0) {
+    return got;
+  }
+  readFrame();
+  return readBuffer.read(buf,off,len);
+}

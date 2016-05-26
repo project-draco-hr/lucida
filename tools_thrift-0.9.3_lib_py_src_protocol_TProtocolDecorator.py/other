@@ -1,0 +1,2 @@
+from thrift.protocol.TProtocol import TProtocolBase
+from types import *

@@ -1,0 +1,7 @@
+{
+  this.mechanism=mechanism;
+  this.protocol=protocol;
+  this.serverName=serverName;
+  this.props=props;
+  this.cbh=cbh;
+}

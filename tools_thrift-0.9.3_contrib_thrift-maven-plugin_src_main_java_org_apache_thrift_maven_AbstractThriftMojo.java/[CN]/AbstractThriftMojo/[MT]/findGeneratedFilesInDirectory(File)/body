@@ -1,0 +1,5 @@
+{
+  if (directory == null || !directory.isDirectory())   return ImmutableSet.of();
+  List<File> javaFilesInDirectory=getFiles(directory,"**/*.java",null);
+  return ImmutableSet.copyOf(javaFilesInDirectory);
+}

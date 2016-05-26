@@ -1,0 +1,5 @@
+@defer.inlineCallbacks
+def testOneway(self):
+    yield self.client.testOneway(1)
+    (start, end, seconds) = yield self.handler.onewaysQueue.get()
+    self.assertAlmostEquals(seconds, (end - start), places=1)

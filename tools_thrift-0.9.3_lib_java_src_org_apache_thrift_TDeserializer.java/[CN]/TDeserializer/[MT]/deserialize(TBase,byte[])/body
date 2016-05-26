@@ -1,0 +1,3 @@
+{
+  deserialize(base,bytes,0,bytes.length);
+}

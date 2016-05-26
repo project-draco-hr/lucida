@@ -1,0 +1,17 @@
+{
+  int lastComparison=compareTo(a.size(),b.size());
+  if (lastComparison != 0) {
+    return lastComparison;
+  }
+  Enumeration enumA=a.keys();
+  Enumeration enumB=b.keys();
+  while (lastComparison == 0 && enumA.hasMoreElements()) {
+    Object keyA=enumA.nextElement();
+    Object keyB=enumB.nextElement();
+    lastComparison=compareTo(keyA,keyB);
+    if (lastComparison == 0) {
+      lastComparison=compareTo(a.get(keyA),b.get(keyB));
+    }
+  }
+  return lastComparison;
+}

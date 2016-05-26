@@ -1,0 +1,5 @@
+@property
+def name(self):
+    if (not self._name):
+        self._name = self.get_name(self.server.name, self.client.name, self.protocol, self.transport, self.socket)
+    return self._name

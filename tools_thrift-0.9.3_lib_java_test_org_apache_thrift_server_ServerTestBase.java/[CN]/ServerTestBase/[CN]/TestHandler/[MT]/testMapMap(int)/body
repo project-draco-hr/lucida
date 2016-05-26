@@ -1,0 +1,13 @@
+{
+  System.out.print("testMapMap(" + hello + ")\n");
+  Map<Integer,Map<Integer,Integer>> mapmap=new HashMap<Integer,Map<Integer,Integer>>();
+  HashMap<Integer,Integer> pos=new HashMap<Integer,Integer>();
+  HashMap<Integer,Integer> neg=new HashMap<Integer,Integer>();
+  for (int i=1; i < 5; i++) {
+    pos.put(i,i);
+    neg.put(-i,-i);
+  }
+  mapmap.put(4,pos);
+  mapmap.put(-4,neg);
+  return mapmap;
+}

@@ -1,0 +1,4 @@
+def readI64(self):
+    buff = self.trans.readAll(8)
+    (val,) = unpack('!q', buff)
+    return val

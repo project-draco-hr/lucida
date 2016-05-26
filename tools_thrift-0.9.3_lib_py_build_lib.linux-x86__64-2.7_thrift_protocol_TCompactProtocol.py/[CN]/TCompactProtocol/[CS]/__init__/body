@@ -1,0 +1,8 @@
+def __init__(self, trans):
+    TProtocolBase.__init__(self, trans)
+    self.state = CLEAR
+    self.__last_fid = 0
+    self.__bool_fid = None
+    self.__bool_value = None
+    self.__structs = []
+    self.__containers = []

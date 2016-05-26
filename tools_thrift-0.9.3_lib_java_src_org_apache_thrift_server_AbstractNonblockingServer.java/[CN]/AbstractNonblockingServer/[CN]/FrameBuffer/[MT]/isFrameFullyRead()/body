@@ -1,0 +1,3 @@
+{
+  return state_ == FrameBufferState.READ_FRAME_COMPLETE;
+}

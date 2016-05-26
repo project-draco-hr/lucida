@@ -1,0 +1,5 @@
+def __init__(self, processor, ctx, endpoint, sock_type):
+    thrift.server.TServer.TServer.__init__(self, processor, None)
+    self.zmq_type = sock_type
+    self.socket = ctx.socket(sock_type)
+    self.socket.bind(endpoint)

@@ -1,0 +1,4 @@
+def writeFieldBegin(self, name, ttype, id):
+    self.writeJSONNumber(id)
+    self.writeJSONObjectStart()
+    self.writeJSONString(CTYPES[ttype])

@@ -1,0 +1,3 @@
+def testVoid(self):
+    print 'testVoid'
+    self.client.testVoid()

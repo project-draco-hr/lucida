@@ -1,0 +1,3 @@
+def writeString(self, str):
+    self.writeI32(len(str))
+    self.trans.write(str)

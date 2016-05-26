@@ -1,0 +1,4 @@
+{
+  frameBuffer.invoke();
+  return true;
+}

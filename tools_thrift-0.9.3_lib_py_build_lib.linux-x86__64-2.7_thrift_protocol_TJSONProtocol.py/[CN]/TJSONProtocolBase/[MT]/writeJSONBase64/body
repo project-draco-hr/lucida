@@ -1,0 +1,5 @@
+def writeJSONBase64(self, binary):
+    self.context.write()
+    self.trans.write(QUOTE)
+    self.trans.write(base64.b64encode(binary))
+    self.trans.write(QUOTE)

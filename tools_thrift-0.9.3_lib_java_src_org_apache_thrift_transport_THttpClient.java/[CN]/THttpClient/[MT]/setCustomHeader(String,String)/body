@@ -1,0 +1,6 @@
+{
+  if (customHeaders_ == null) {
+    customHeaders_=new HashMap<String,String>();
+  }
+  customHeaders_.put(key,value);
+}

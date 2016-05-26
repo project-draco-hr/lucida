@@ -1,0 +1,6 @@
+def cstringio_refill(self, prefix, reqlen):
+    while (len(prefix) < reqlen):
+        self.readFrame()
+        prefix += self.__rbuf.getvalue()
+    self.__rbuf = StringIO(prefix)
+    return self.__rbuf

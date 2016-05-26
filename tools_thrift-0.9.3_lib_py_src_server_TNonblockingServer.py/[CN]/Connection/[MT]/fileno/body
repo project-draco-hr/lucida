@@ -1,0 +1,3 @@
+def fileno(self):
+    'Returns the file descriptor of the associated socket.'
+    return self.socket.fileno()

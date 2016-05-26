@@ -1,0 +1,5 @@
+def build_extension(self, ext):
+    try:
+        build_ext.build_extension(self, ext)
+    except ext_errors as x:
+        raise BuildFailed()

@@ -1,0 +1,42 @@
+{
+  checkParameters();
+  final File thriftSourceRoot=getThriftSourceRoot();
+  if (thriftSourceRoot.exists()) {
+    try {
+      ImmutableSet<File> thriftFiles=findThriftFilesInDirectory(thriftSourceRoot);
+      final File outputDirectory=getOutputDirectory();
+      ImmutableSet<File> outputFiles=findGeneratedFilesInDirectory(getOutputDirectory());
+      if (thriftFiles.isEmpty()) {
+        getLog().info("No thrift files to compile.");
+      }
+ else       if (checkStaleness && ((lastModified(thriftFiles) + staleMillis) < lastModified(outputFiles))) {
+        getLog().info("Skipping compilation because target directory newer than sources.");
+        attachFiles();
+      }
+ else {
+        ImmutableSet<File> derivedThriftPathElements=makeThriftPathFromJars(temporaryThriftFileDirectory,getDependencyArtifactFiles());
+        outputDirectory.mkdirs();
+        Thrift thrift=new Thrift.Builder(thriftExecutable,outputDirectory).setGenerator(generator).addThriftPathElement(thriftSourceRoot).addThriftPathElements(derivedThriftPathElements).addThriftPathElements(asList(additionalThriftPathElements)).addThriftFiles(thriftFiles).build();
+        final int exitStatus=thrift.compile();
+        if (exitStatus != 0) {
+          getLog().error("thrift failed output: " + thrift.getOutput());
+          getLog().error("thrift failed error: " + thrift.getError());
+          throw new MojoFailureException("thrift did not exit cleanly. Review output for more information.");
+        }
+        attachFiles();
+      }
+    }
+ catch (    IOException e) {
+      throw new MojoExecutionException("An IO error occurred",e);
+    }
+catch (    IllegalArgumentException e) {
+      throw new MojoFailureException("thrift failed to execute because: " + e.getMessage(),e);
+    }
+catch (    CommandLineException e) {
+      throw new MojoExecutionException("An error occurred while invoking thrift.",e);
+    }
+  }
+ else {
+    getLog().info(format("%s does not exist. Review the configuration or consider disabling the plugin.",thriftSourceRoot));
+  }
+}

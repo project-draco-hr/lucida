@@ -1,0 +1,3 @@
+{
+  assertEquals(XSTRUCT,testClient.testStruct(XSTRUCT));
+}

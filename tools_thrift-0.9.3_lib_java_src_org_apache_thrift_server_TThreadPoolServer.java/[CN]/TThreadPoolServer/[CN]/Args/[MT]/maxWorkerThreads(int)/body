@@ -1,0 +1,4 @@
+{
+  maxWorkerThreads=n;
+  return this;
+}

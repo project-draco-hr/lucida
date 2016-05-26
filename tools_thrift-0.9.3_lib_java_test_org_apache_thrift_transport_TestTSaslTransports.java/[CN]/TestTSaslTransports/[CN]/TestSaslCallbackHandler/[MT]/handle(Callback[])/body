@@ -1,0 +1,19 @@
+{
+  for (  Callback c : callbacks) {
+    if (c instanceof NameCallback) {
+      ((NameCallback)c).setName(PRINCIPAL);
+    }
+ else     if (c instanceof PasswordCallback) {
+      ((PasswordCallback)c).setPassword(password.toCharArray());
+    }
+ else     if (c instanceof AuthorizeCallback) {
+      ((AuthorizeCallback)c).setAuthorized(true);
+    }
+ else     if (c instanceof RealmCallback) {
+      ((RealmCallback)c).setText(REALM);
+    }
+ else {
+      throw new UnsupportedCallbackException(c);
+    }
+  }
+}

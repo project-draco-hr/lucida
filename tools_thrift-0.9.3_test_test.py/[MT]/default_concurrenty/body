@@ -1,0 +1,5 @@
+def default_concurrenty():
+    try:
+        return int(os.environ.get('THRIFT_CROSSTEST_CONCURRENCY'))
+    except (TypeError, ValueError):
+        return (int((multiprocessing.cpu_count() * 1.25)) + 1)

@@ -1,0 +1,8 @@
+def _print_footer(self, returncode=None):
+    self._print_bar()
+    if (returncode is not None):
+        self.out.write(('Return code: %d\n' % returncode))
+    else:
+        self.out.write('Process is killed.\n')
+    self._print_exec_time()
+    self._print_date()

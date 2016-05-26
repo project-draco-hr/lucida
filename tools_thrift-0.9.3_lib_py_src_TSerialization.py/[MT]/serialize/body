@@ -1,0 +1,5 @@
+def serialize(thrift_object, protocol_factory=TBinaryProtocol.TBinaryProtocolFactory()):
+    transport = TTransport.TMemoryBuffer()
+    protocol = protocol_factory.getProtocol(transport)
+    thrift_object.write(protocol)
+    return transport.getvalue()

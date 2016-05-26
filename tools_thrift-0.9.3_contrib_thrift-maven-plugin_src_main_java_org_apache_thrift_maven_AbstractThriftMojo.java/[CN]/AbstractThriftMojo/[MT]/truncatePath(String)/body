@@ -1,0 +1,24 @@
+{
+  if (hashDependentPaths) {
+    try {
+      return toHexString(MessageDigest.getInstance("MD5").digest(jarPath.getBytes()));
+    }
+ catch (    NoSuchAlgorithmException e) {
+      throw new MojoExecutionException("Failed to expand dependent jar",e);
+    }
+  }
+  String repository=localRepository.getBasedir().replace('\\','/');
+  if (!repository.endsWith("/")) {
+    repository+="/";
+  }
+  String path=jarPath.replace('\\','/');
+  int repositoryIndex=path.indexOf(repository);
+  if (repositoryIndex != -1) {
+    path=path.substring(repositoryIndex + repository.length());
+  }
+  int colonIndex=path.indexOf(':');
+  if (colonIndex != -1) {
+    path=path.substring(colonIndex + 2);
+  }
+  return path;
+}

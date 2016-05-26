@@ -1,0 +1,22 @@
+def maybe_false_positive(self):
+    'Searches through log file for socket bind error.\n    Returns True if suspicious expression is found, otherwise False'
+
+    def match(line):
+        for expr in exprs:
+            if expr.search(line):
+                return True
+    try:
+        if (self.out and (not self.out.closed)):
+            self.out.flush()
+        exprs = list(map(re.compile, self._init_failure_exprs[self._prog.kind]))
+        server_logfile = self.logpath
+        kwargs = ({} if (sys.version_info[0] < 3) else {'errors': 'replace', })
+        with open(server_logfile, 'r', **kwargs) as fp:
+            if any(map(match, fp)):
+                return True
+    except (KeyboardInterrupt, SystemExit):
+        raise
+    except Exception as ex:
+        self._log.warn(('[%s]: Error while detecting false positive: %s' % (self._test.name, str(ex))))
+        self._log.info(traceback.print_exc())
+    return False

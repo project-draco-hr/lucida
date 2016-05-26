@@ -1,0 +1,17 @@
+{
+  String name=null;
+  Option<String> option=Option.fromNullable(name);
+  assertTrue(option instanceof Option.None);
+  assertFalse(option.isDefined());
+  assertEquals("None",option.toString());
+  assertEquals(option.or("default value"),"default value");
+  try {
+    Object value=option.get();
+    fail("Expected IllegalStateException, got no exception");
+  }
+ catch (  IllegalStateException ex) {
+  }
+catch (  Exception ex) {
+    fail("Expected IllegalStateException, got some other exception: " + ex.toString());
+  }
+}

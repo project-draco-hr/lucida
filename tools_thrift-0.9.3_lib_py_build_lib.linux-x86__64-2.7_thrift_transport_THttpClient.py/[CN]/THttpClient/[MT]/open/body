@@ -1,0 +1,5 @@
+def open(self):
+    if (self.scheme == 'http'):
+        self.__http = httplib.HTTP(self.host, self.port)
+    else:
+        self.__http = httplib.HTTPS(self.host, self.port)

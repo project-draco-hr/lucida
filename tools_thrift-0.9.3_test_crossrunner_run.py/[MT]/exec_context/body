@@ -1,0 +1,4 @@
+def exec_context(port, testdir, test, prog):
+    report = ExecReporter(testdir, test, prog)
+    prog.build_command(port)
+    return ExecutionContext(prog.command, prog.workdir, prog.env, report)

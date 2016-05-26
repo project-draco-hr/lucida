@@ -1,0 +1,4 @@
+{
+  SynchronousQueue<Runnable> executorQueue=new SynchronousQueue<Runnable>();
+  return new ThreadPoolExecutor(args.minWorkerThreads,args.maxWorkerThreads,args.stopTimeoutVal,TimeUnit.SECONDS,executorQueue);
+}

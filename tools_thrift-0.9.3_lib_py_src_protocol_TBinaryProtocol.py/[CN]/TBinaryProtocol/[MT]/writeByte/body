@@ -1,0 +1,3 @@
+def writeByte(self, byte):
+    buff = pack('!b', byte)
+    self.trans.write(buff)

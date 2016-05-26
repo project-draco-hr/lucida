@@ -1,0 +1,17 @@
+{
+  try {
+    TField field=locateField(bytes,fieldIdPathFirst,fieldIdPathRest);
+    if (field != null) {
+      protocol_.readStructBegin();
+      return protocol_.readFieldBegin().id;
+    }
+    return null;
+  }
+ catch (  Exception e) {
+    throw new TException(e);
+  }
+ finally {
+    trans_.clear();
+    protocol_.reset();
+  }
+}

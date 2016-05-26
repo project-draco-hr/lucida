@@ -1,0 +1,10 @@
+def readAll(self, sz):
+    buff = ''
+    have = 0
+    while (have < sz):
+        chunk = self.read((sz - have))
+        have += len(chunk)
+        buff += chunk
+        if (len(chunk) == 0):
+            raise EOFError()
+    return buff

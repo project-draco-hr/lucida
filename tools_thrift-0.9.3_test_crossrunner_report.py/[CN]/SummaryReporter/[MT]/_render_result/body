@@ -1,0 +1,2 @@
+def _render_result(self, test):
+    return [test.server.name, test.client.name, test.protocol, test.transport, test.socket, test.success, test.as_expected, test.returncode, {'server': self.test_logfile(test.name, test.server.kind), 'client': self.test_logfile(test.name, test.client.kind), }]

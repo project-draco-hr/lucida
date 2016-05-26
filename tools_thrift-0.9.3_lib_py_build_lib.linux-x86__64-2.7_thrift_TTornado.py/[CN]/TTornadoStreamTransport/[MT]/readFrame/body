@@ -1,0 +1,10 @@
+@gen.coroutine
+def readFrame(self):
+    with yield self._read_lock.acquire():
+        with self.io_exception_context():
+            frame_header = yield self.stream.read_bytes(4)
+            if (len(frame_header) == 0):
+                raise iostream.StreamClosedError('Read zero bytes from stream')
+            (frame_length,) = struct.unpack('!i', frame_header)
+            frame = yield self.stream.read_bytes(frame_length)
+            raise gen.Return(frame)

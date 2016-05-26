@@ -1,0 +1,11 @@
+def add_test(self, test_dict):
+    test = TestEntry(self.testdir, **test_dict)
+    self._lock.acquire()
+    try:
+        if (not self.concurrent):
+            self.out.write(self._format_test(test, False))
+            self.out.flush()
+        self._tests.append(test)
+        return (len(self._tests) - 1)
+    finally:
+        self._lock.release()

@@ -1,0 +1,10 @@
+{
+  try {
+    trans_.reset(bytes,offset,length);
+    base.read(protocol_);
+  }
+  finally {
+    trans_.clear();
+    protocol_.reset();
+  }
+}

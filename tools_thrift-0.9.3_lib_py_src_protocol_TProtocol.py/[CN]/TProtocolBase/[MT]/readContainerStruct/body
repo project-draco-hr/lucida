@@ -1,0 +1,5 @@
+def readContainerStruct(self, spec):
+    (obj_class, obj_spec) = spec
+    obj = obj_class()
+    obj.read(self)
+    return obj

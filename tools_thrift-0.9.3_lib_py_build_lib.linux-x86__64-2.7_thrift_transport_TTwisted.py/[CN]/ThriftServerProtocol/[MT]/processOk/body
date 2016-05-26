@@ -1,0 +1,4 @@
+def processOk(self, _, tmo):
+    msg = tmo.getvalue()
+    if (len(msg) > 0):
+        self.dispatch(msg)

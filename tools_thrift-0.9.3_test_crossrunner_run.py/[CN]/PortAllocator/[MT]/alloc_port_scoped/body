@@ -1,0 +1,6 @@
+@staticmethod
+@contextlib.contextmanager
+def alloc_port_scoped(allocator, socket_type):
+    port = allocator.alloc_port(socket_type)
+    yield port
+    allocator.free_port(socket_type, port)

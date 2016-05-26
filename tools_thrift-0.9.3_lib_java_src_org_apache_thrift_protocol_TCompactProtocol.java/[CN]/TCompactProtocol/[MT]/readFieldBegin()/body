@@ -1,0 +1,20 @@
+{
+  byte type=readByte();
+  if (type == TType.STOP) {
+    return TSTOP;
+  }
+  short fieldId;
+  short modifier=(short)((type & 0xf0) >> 4);
+  if (modifier == 0) {
+    fieldId=readI16();
+  }
+ else {
+    fieldId=(short)(lastFieldId_ + modifier);
+  }
+  TField field=new TField("",getTType((byte)(type & 0x0f)),fieldId);
+  if (isBoolType(type)) {
+    boolValue_=(byte)(type & 0x0f) == Types.BOOLEAN_TRUE ? Boolean.TRUE : Boolean.FALSE;
+  }
+  lastFieldId_=field.id;
+  return field;
+}

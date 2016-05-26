@@ -1,0 +1,4 @@
+{
+  int compareTo=insanity1.compareTo(insanity2);
+  assertEquals(insanity1 + " should be equal to " + insanity2+ ", but is: "+ compareTo,0,compareTo);
+}

@@ -1,0 +1,19 @@
+{
+  if (state_ == FrameBufferState.WRITING) {
+    try {
+      if (trans_.write(buffer_) < 0) {
+        return false;
+      }
+    }
+ catch (    IOException e) {
+      LOGGER.warn("Got an IOException during write!",e);
+      return false;
+    }
+    if (buffer_.remaining() == 0) {
+      prepareRead();
+    }
+    return true;
+  }
+  LOGGER.error("Write was called, but state is invalid (" + state_ + ")");
+  return false;
+}

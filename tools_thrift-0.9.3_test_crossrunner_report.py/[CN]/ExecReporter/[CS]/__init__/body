@@ -1,0 +1,6 @@
+def __init__(self, testdir, test, prog):
+    super(ExecReporter, self).__init__()
+    self._test = test
+    self._prog = prog
+    self.logpath = self.test_logfile(test.name, prog.kind, testdir)
+    self.out = None

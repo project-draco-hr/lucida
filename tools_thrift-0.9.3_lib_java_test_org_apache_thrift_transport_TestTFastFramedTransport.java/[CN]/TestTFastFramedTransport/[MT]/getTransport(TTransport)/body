@@ -1,0 +1,3 @@
+{
+  return new TFastFramedTransport(underlying,50,10 * 1024 * 1024);
+}

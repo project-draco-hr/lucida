@@ -1,0 +1,8 @@
+{
+  underlyingTransport.close();
+  try {
+    sasl.dispose();
+  }
+ catch (  SaslException e) {
+  }
+}

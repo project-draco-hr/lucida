@@ -1,0 +1,10 @@
+{
+  Opt64 x=new Opt64();
+  assertEquals(false,x.isSetDef1());
+  x.setDef1(3);
+  assertEquals(true,x.isSetDef1());
+  assertEquals(false,x.isSetDef2());
+  x.setDef64(22);
+  assertEquals(true,x.isSetDef64());
+  assertEquals(false,x.isSetDef63());
+}

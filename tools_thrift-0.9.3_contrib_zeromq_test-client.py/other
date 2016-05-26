@@ -1,0 +1,9 @@
+import sys
+import time
+import zmq
+import TZmqClient
+import thrift.protocol.TBinaryProtocol
+import storage.ttypes
+import storage.Storage
+if (__name__ == '__main__'):
+    main(sys.argv)

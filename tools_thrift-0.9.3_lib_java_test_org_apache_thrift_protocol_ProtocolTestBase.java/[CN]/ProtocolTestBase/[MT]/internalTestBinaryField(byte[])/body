@@ -1,0 +1,11 @@
+{
+  internalTestStructField(new StructFieldTestCase(TType.STRING,(short)15){
+    public void writeMethod(    TProtocol proto) throws TException {
+      proto.writeBinary(ByteBuffer.wrap(data));
+    }
+    public void readMethod(    TProtocol proto) throws TException {
+      assertEquals(ByteBuffer.wrap(data),proto.readBinary());
+    }
+  }
+);
+}

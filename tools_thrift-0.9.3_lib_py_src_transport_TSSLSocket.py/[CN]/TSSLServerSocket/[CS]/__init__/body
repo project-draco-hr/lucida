@@ -1,0 +1,5 @@
+def __init__(self, host=None, port=9090, certfile='cert.pem', unix_socket=None, ciphers=None):
+    "Initialize a TSSLServerSocket\n\n    @param certfile: filename of the server certificate, defaults to cert.pem\n    @type certfile: str\n    @param host: The hostname or IP to bind the listen socket to,\n                 i.e. 'localhost' for only allowing local network connections.\n                 Pass None to bind to all interfaces.\n    @type host: str\n    @param port: The port to listen on for inbound connections.\n    @type port: int\n    @param ciphers: The cipher suites to allow. This is passed to\n                    the ssl_wrap function as the 'ciphers' parameter.\n    @type ciphers: str\n\n    "
+    self.setCertfile(certfile)
+    TSocket.TServerSocket.__init__(self, host, port)
+    self.ciphers = ciphers

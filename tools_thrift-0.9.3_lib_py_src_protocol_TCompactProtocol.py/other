@@ -1,0 +1,21 @@
+from TProtocol import *
+from struct import pack, unpack
+__all__ = ['TCompactProtocol', 'TCompactProtocolFactory']
+CLEAR = 0
+FIELD_WRITE = 1
+VALUE_WRITE = 2
+CONTAINER_WRITE = 3
+BOOL_WRITE = 4
+FIELD_READ = 5
+CONTAINER_READ = 6
+VALUE_READ = 7
+BOOL_READ = 8
+writer = make_helper(VALUE_WRITE, CONTAINER_WRITE)
+reader = make_helper(VALUE_READ, CONTAINER_READ)
+CTYPES = {TType.STOP: CompactType.STOP, TType.BOOL: CompactType.TRUE, TType.BYTE: CompactType.BYTE, TType.I16: CompactType.I16, TType.I32: CompactType.I32, TType.I64: CompactType.I64, TType.DOUBLE: CompactType.DOUBLE, TType.STRING: CompactType.BINARY, TType.STRUCT: CompactType.STRUCT, TType.LIST: CompactType.LIST, TType.SET: CompactType.SET, TType.MAP: CompactType.MAP, }
+TTYPES = {}
+for (k, v) in CTYPES.items():
+    TTYPES[v] = k
+TTYPES[CompactType.FALSE] = TType.BOOL
+del k
+del v

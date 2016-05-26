@@ -1,0 +1,3 @@
+def readMessageEnd(self):
+    assert (self.state == CLEAR)
+    assert (len(self.__structs) == 0)

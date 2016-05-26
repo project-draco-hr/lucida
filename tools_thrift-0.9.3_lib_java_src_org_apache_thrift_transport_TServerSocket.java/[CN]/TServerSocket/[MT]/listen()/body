@@ -1,0 +1,10 @@
+{
+  if (serverSocket_ != null) {
+    try {
+      serverSocket_.setSoTimeout(0);
+    }
+ catch (    SocketException sx) {
+      LOGGER.error("Could not set socket timeout.",sx);
+    }
+  }
+}

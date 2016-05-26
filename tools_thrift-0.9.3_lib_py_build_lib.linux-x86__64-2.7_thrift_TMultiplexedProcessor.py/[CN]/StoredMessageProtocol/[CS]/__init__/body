@@ -1,0 +1,3 @@
+def __init__(self, protocol, messageBegin):
+    TProtocolDecorator.TProtocolDecorator.__init__(self, protocol)
+    self.messageBegin = messageBegin

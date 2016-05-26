@@ -1,0 +1,32 @@
+{
+  Map<TProtocolFactory,List<Long>> timesByFactory=new HashMap<TProtocolFactory,List<Long>>();
+  for (int trial=0; trial < NUM_TRIALS; trial++) {
+    for (int i=0; i < 16; i++) {
+      System.gc();
+    }
+    for (    TProtocolFactory factory : FACTORIES) {
+      if (timesByFactory.get(factory) == null) {
+        timesByFactory.put(factory,new ArrayList<Long>());
+      }
+      long start=System.currentTimeMillis();
+      for (int rep=0; rep < NUM_REPS; rep++) {
+        TProtocol proto=factory.getProtocol(new TMemoryBuffer(128 * 1024));
+        Fixtures.compactProtoTestStruct.write(proto);
+        Fixtures.nesting.write(proto);
+      }
+      long end=System.currentTimeMillis();
+      timesByFactory.get(factory).add(end - start);
+    }
+  }
+  for (  TProtocolFactory factory : FACTORIES) {
+    List<Long> times=timesByFactory.get(factory);
+    times.remove(Collections.max(times));
+    long total=0;
+    for (    long t : times) {
+      total+=t;
+    }
+    Collections.sort(times);
+    System.out.println(factory.getClass().getName() + " average time: " + (total / times.size())+ "ms");
+    System.out.println("raw times: " + times);
+  }
+}

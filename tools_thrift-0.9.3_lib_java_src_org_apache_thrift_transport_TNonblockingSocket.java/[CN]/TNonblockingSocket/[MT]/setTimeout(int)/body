@@ -1,0 +1,8 @@
+{
+  try {
+    socketChannel_.socket().setSoTimeout(timeout);
+  }
+ catch (  SocketException sx) {
+    LOGGER.warn("Could not set socket timeout.",sx);
+  }
+}

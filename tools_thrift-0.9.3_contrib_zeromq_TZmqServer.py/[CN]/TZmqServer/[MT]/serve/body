@@ -1,0 +1,3 @@
+def serve(self):
+    while True:
+        self.serveOne()

@@ -1,0 +1,7 @@
+{
+  if (threads.isEmpty()) {
+    throw new IllegalArgumentException("At least one selector thread is required");
+  }
+  this.threads=Collections.unmodifiableList(new ArrayList<T>(threads));
+  nextThreadIterator=this.threads.iterator();
+}

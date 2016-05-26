@@ -1,0 +1,3 @@
+def writeI32(self, i32):
+    buff = pack('!i', i32)
+    self.trans.write(buff)

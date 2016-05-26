@@ -1,0 +1,11 @@
+{
+  this.serversocket=new ServerSocket(port);
+  this.params=new BasicHttpParams();
+  this.params.setIntParameter(CoreConnectionPNames.SO_TIMEOUT,1000).setIntParameter(CoreConnectionPNames.SOCKET_BUFFER_SIZE,8 * 1024).setBooleanParameter(CoreConnectionPNames.STALE_CONNECTION_CHECK,false).setBooleanParameter(CoreConnectionPNames.TCP_NODELAY,true).setParameter(CoreProtocolPNames.ORIGIN_SERVER,"HttpComponents/1.1");
+  HttpProcessor httpproc=new BasicHttpProcessor();
+  HttpRequestHandlerRegistry reqistry=new HttpRequestHandlerRegistry();
+  reqistry.register("*",new HttpFileHandler(docroot));
+  this.httpService=new HttpService(httpproc,new NoConnectionReuseStrategy(),new DefaultHttpResponseFactory());
+  this.httpService.setParams(this.params);
+  this.httpService.setHandlerResolver(reqistry);
+}

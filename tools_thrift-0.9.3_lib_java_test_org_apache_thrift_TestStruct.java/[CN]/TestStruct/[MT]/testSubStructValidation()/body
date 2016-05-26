@@ -1,0 +1,27 @@
+{
+  StructA valid=new StructA("valid");
+  StructA invalid=new StructA();
+  StructB b=new StructB();
+  try {
+    b.validate();
+    fail();
+  }
+ catch (  TException e) {
+  }
+  b=new StructB().setAb(valid);
+  b.validate();
+  b=new StructB().setAb(invalid);
+  try {
+    b.validate();
+    fail();
+  }
+ catch (  TException e) {
+  }
+  b=new StructB().setAb(valid).setAa(invalid);
+  try {
+    b.validate();
+    fail();
+  }
+ catch (  TException e) {
+  }
+}

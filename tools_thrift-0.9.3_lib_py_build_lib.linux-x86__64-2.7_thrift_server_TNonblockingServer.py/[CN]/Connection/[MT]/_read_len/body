@@ -1,0 +1,20 @@
+def _read_len(self):
+    "Reads length of request.\n\n        It's a safer alternative to self.socket.recv(4)\n        "
+    read = self.socket.recv((4 - len(self.message)))
+    if (len(read) == 0):
+        if (len(self.message) != 0):
+            logger.error("can't read frame size from socket")
+        self.close()
+        return
+    self.message += read
+    if (len(self.message) == 4):
+        (self.len,) = struct.unpack('!i', self.message)
+        if (self.len < 0):
+            logger.error("negative frame size, it seems client doesn't use FramedTransport")
+            self.close()
+        elif (self.len == 0):
+            logger.error("empty frame, it's really strange")
+            self.close()
+        else:
+            self.message = ''
+            self.status = WAIT_MESSAGE

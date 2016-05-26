@@ -1,0 +1,28 @@
+{
+  int num_chunks=10;
+  if ((args.length < 1) || args[0].equals("--help") || args[0].equals("-h")|| args[0].equals("-?")) {
+    printUsage();
+  }
+  if (args.length > 1) {
+    try {
+      num_chunks=Integer.parseInt(args[1]);
+    }
+ catch (    Exception e) {
+      System.err.println("Cannot parse " + args[1]);
+      printUsage();
+    }
+  }
+  TFileTransport t=new TFileTransport(args[0],true);
+  t.open();
+  System.out.println("NumChunks=" + t.getNumChunks());
+  Random r=new Random();
+  for (int j=0; j < num_chunks; j++) {
+    byte[] buf=new byte[4096];
+    int cnum=r.nextInt(t.getNumChunks() - 1);
+    System.out.println("Reading chunk " + cnum);
+    t.seekToChunk(cnum);
+    for (int i=0; i < 4096; i++) {
+      t.read(buf,0,4096);
+    }
+  }
+}

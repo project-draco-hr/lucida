@@ -1,0 +1,14 @@
+{
+  if (!structMap.containsKey(sClass)) {
+    try {
+      sClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new RuntimeException("InstantiationException for TBase class: " + sClass.getName() + ", message: "+ e.getMessage());
+    }
+catch (    IllegalAccessException e) {
+      throw new RuntimeException("IllegalAccessException for TBase class: " + sClass.getName() + ", message: "+ e.getMessage());
+    }
+  }
+  return structMap.get(sClass);
+}

@@ -1,0 +1,4 @@
+def testEnum(self):
+    x = Numberz.FIVE
+    y = self.client.testEnum(x)
+    self.assertEqual(y, x)

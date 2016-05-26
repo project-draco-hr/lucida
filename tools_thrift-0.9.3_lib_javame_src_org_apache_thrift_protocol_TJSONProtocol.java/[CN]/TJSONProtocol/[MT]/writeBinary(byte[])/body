@@ -1,0 +1,3 @@
+{
+  writeJSONBase64(bin,0,bin.length);
+}

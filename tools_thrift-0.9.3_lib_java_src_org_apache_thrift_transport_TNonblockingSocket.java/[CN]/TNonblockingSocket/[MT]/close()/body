@@ -1,0 +1,8 @@
+{
+  try {
+    socketChannel_.close();
+  }
+ catch (  IOException iox) {
+    LOGGER.warn("Could not close socket.",iox);
+  }
+}

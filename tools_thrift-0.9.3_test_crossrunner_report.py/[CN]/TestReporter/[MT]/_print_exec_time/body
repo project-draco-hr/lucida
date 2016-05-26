@@ -1,0 +1,2 @@
+def _print_exec_time(self):
+    self.out.write('Test execution took {:.1f} seconds.\n'.format(self._elapsed))

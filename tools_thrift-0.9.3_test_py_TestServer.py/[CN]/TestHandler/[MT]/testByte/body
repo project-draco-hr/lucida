@@ -1,0 +1,4 @@
+def testByte(self, byte):
+    if (options.verbose > 1):
+        print ('testByte(%d)' % byte)
+    return byte

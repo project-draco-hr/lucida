@@ -1,0 +1,4 @@
+def stop(self):
+    'Stop the server.\n\n        This method causes the serve() method to return.  stop() may be invoked\n        from within your handler, or from another thread.\n\n        After stop() is called, serve() will return but the server will still\n        be listening on the socket.  serve() may then be called again to resume\n        processing requests.  Alternatively, close() may be called after\n        serve() returns to close the server socket and shutdown all worker\n        threads.\n        '
+    self._stop = True
+    self.wake_up()

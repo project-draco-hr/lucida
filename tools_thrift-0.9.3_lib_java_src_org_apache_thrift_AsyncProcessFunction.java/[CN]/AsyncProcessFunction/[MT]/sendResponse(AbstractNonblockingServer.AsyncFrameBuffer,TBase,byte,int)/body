@@ -1,0 +1,8 @@
+{
+  TProtocol oprot=fb.getOutputProtocol();
+  oprot.writeMessageBegin(new TMessage(getMethodName(),type,seqid));
+  result.write(oprot);
+  oprot.writeMessageEnd();
+  oprot.getTransport().flush();
+  fb.responseReady();
+}

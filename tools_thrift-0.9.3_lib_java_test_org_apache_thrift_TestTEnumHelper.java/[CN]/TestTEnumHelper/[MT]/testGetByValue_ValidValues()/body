@@ -1,0 +1,6 @@
+{
+  for (  Numberz n : Numberz.values()) {
+    int value=n.getValue();
+    assertEquals(n,TEnumHelper.getByValue(Numberz.class,value));
+  }
+}

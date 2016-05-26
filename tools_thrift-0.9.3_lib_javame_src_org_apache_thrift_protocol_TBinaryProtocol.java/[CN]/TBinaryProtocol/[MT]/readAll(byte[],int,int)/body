@@ -1,0 +1,3 @@
+{
+  return trans_.readAll(buf,off,len);
+}

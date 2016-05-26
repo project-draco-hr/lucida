@@ -1,0 +1,9 @@
+{
+  super(args);
+  stopTimeoutUnit=args.stopTimeoutUnit;
+  stopTimeoutVal=args.stopTimeoutVal;
+  requestTimeoutUnit=args.requestTimeoutUnit;
+  requestTimeout=args.requestTimeout;
+  beBackoffSlotInMillis=args.beBackoffSlotLengthUnit.toMillis(args.beBackoffSlotLength);
+  executorService_=args.executorService != null ? args.executorService : createDefaultExecutorService(args);
+}

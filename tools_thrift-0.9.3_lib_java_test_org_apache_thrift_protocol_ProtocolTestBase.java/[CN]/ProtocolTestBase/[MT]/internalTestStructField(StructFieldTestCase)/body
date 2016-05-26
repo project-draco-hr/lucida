@@ -1,0 +1,16 @@
+{
+  TMemoryBuffer buf=new TMemoryBuffer(0);
+  TProtocol proto=getFactory().getProtocol(buf);
+  TField field=new TField("test_field",testCase.type_,testCase.id_);
+  proto.writeStructBegin(new TStruct("test_struct"));
+  proto.writeFieldBegin(field);
+  testCase.writeMethod(proto);
+  proto.writeFieldEnd();
+  proto.writeStructEnd();
+  proto.readStructBegin();
+  TField readField=proto.readFieldBegin();
+  assertEquals(testCase.id_,readField.id);
+  assertEquals(testCase.type_,readField.type);
+  testCase.readMethod(proto);
+  proto.readStructEnd();
+}

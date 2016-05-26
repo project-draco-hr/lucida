@@ -1,0 +1,11 @@
+{
+  byte typeToWrite=typeOverride == -1 ? getCompactType(field.type) : typeOverride;
+  if (field.id > lastFieldId_ && field.id - lastFieldId_ <= 15) {
+    writeByteDirect((field.id - lastFieldId_) << 4 | typeToWrite);
+  }
+ else {
+    writeByteDirect(typeToWrite);
+    writeI16(field.id);
+  }
+  lastFieldId_=field.id;
+}

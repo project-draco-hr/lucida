@@ -1,0 +1,5 @@
+{
+  byte[] data=new byte[]{0,0,0,0,0,0,0,0};
+  fixedLongToBytes(Double.doubleToLongBits(dub),data,0);
+  trans_.write(data);
+}

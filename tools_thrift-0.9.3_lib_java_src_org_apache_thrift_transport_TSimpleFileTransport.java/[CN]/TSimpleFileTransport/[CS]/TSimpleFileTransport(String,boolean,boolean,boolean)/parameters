@@ -1,0 +1,4 @@
+String path
+boolean read
+boolean write
+boolean openFile

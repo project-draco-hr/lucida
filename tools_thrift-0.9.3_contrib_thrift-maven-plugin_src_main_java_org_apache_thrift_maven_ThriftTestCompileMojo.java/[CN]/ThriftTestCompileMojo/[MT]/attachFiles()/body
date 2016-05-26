@@ -1,0 +1,4 @@
+{
+  project.addTestCompileSourceRoot(outputDirectory.getAbsolutePath());
+  projectHelper.addTestResource(project,thriftTestSourceRoot.getAbsolutePath(),ImmutableList.of("**/*.thrift"),null);
+}

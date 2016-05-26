@@ -1,0 +1,4 @@
+@gen_test
+def test_byte(self):
+    v = yield self.client.testByte(63)
+    self.assertEqual(v, 63)

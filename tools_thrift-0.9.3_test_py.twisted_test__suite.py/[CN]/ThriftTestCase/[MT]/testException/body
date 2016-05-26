@@ -1,0 +1,14 @@
+@defer.inlineCallbacks
+def testException(self):
+    yield self.client.testException('Safe')
+    try:
+        yield self.client.testException('Xception')
+        self.fail('should have gotten exception')
+    except Xception as x:
+        self.assertEquals(x.errorCode, 1001)
+        self.assertEquals(x.message, 'Xception')
+    try:
+        yield self.client.testException('throw_undeclared')
+        self.fail('should have thrown exception')
+    except Exception:
+        pass

@@ -1,0 +1,2 @@
+def __init__(self, trans):
+    self.trans = trans

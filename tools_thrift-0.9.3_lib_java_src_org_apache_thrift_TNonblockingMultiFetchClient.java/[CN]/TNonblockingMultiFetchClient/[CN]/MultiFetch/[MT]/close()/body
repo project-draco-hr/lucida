@@ -1,0 +1,16 @@
+{
+  try {
+    if (selector.isOpen()) {
+      Iterator<SelectionKey> it=selector.keys().iterator();
+      while (it.hasNext()) {
+        SelectionKey selKey=it.next();
+        SocketChannel sChannel=(SocketChannel)selKey.channel();
+        sChannel.close();
+      }
+      selector.close();
+    }
+  }
+ catch (  IOException e) {
+    LOGGER.error("free resource error: " + e.toString());
+  }
+}

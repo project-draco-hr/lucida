@@ -1,0 +1,4 @@
+@property
+def cstringio_buf(self):
+    'A cStringIO buffer that contains the current chunk we are reading.'
+    pass

@@ -1,0 +1,4 @@
+def readJSONArrayStart(self):
+    self.context.read()
+    self.readJSONSyntaxChar(LBRACKET)
+    self.pushContext(JSONListContext(self))

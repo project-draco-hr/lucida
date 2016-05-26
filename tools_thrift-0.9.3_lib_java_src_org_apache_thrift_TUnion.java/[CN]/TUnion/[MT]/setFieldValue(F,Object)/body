@@ -1,0 +1,5 @@
+{
+  checkType(fieldId,value);
+  setField_=fieldId;
+  value_=value;
+}

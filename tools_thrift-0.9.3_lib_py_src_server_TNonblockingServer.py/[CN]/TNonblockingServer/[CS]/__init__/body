@@ -1,0 +1,11 @@
+def __init__(self, processor, lsocket, inputProtocolFactory=None, outputProtocolFactory=None, threads=10):
+    self.processor = processor
+    self.socket = lsocket
+    self.in_protocol = (inputProtocolFactory or TBinaryProtocolFactory())
+    self.out_protocol = (outputProtocolFactory or self.in_protocol)
+    self.threads = int(threads)
+    self.clients = {}
+    self.tasks = Queue.Queue()
+    (self._read, self._write) = socket.socketpair()
+    self.prepared = False
+    self._stop = False

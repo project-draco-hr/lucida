@@ -1,0 +1,16 @@
+{
+  AutoExpandingBufferWriteTransport t=new AutoExpandingBufferWriteTransport(1,1.5);
+  assertEquals(1,t.getBuf().array().length);
+  byte[] b1=new byte[]{1,2,3};
+  t.write(b1);
+  assertEquals(3,t.getPos());
+  assertTrue(t.getBuf().array().length >= 3);
+  assertEquals(ByteBuffer.wrap(b1),ByteBuffer.wrap(t.getBuf().array(),0,3));
+  t.reset();
+  assertTrue(t.getBuf().array().length >= 3);
+  assertEquals(0,t.getPos());
+  byte[] b2=new byte[]{4,5};
+  t.write(b2);
+  assertEquals(2,t.getPos());
+  assertEquals(ByteBuffer.wrap(b2),ByteBuffer.wrap(t.getBuf().array(),0,2));
+}

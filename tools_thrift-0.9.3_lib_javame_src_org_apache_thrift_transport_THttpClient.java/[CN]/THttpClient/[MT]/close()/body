@@ -1,0 +1,18 @@
+{
+  if (null != inputStream_) {
+    try {
+      inputStream_.close();
+    }
+ catch (    IOException ioe) {
+    }
+    inputStream_=null;
+  }
+  if (connection != null) {
+    try {
+      connection.close();
+    }
+ catch (    IOException ioe) {
+    }
+    connection=null;
+  }
+}

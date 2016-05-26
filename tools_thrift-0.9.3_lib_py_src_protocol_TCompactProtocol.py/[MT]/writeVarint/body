@@ -1,0 +1,10 @@
+def writeVarint(trans, n):
+    out = []
+    while True:
+        if ((n & (~ 127)) == 0):
+            out.append(n)
+            break
+        else:
+            out.append(((n & 255) | 128))
+            n = (n >> 7)
+    trans.write(''.join(map(chr, out)))

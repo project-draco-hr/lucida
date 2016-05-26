@@ -1,0 +1,17 @@
+def main(argv):
+    parser = optparse.OptionParser(usage='%prog [options] [<file>]')
+    parser.add_option('--no-functions', help="Don't print function names", dest='printFunctions', action='store_false', default=True)
+    parser.add_option('--no-demangle', help="Don't demangle C++ symbol names", dest='cxxfilt', action='store_false', default=True)
+    (options, args) = parser.parse_args(argv[1:])
+    num_args = len(args)
+    if (num_args == 0):
+        in_file = sys.stdin
+    elif (num_args == 1):
+        in_file = open(argv[1], 'r')
+    else:
+        parser.print_usage(sys.stderr)
+        print  >> sys.stderr, ('trailing arguments: %s' % ' '.join(args[1:]))
+        return 1
+    if options.cxxfilt:
+        start_cppfilt()
+    process_file(in_file, sys.stdout, options)

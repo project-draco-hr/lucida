@@ -1,0 +1,15 @@
+{
+  SaslResponse message=receiveSaslMessage();
+  LOGGER.debug("Received start message with status {}",message.status);
+  if (message.status != NegotiationStatus.START) {
+    throw sendAndThrowMessage(NegotiationStatus.ERROR,"Expecting START status, received " + message.status);
+  }
+  String mechanismName=new String(message.payload);
+  TSaslServerDefinition serverDefinition=serverDefinitionMap.get(mechanismName);
+  LOGGER.debug("Received mechanism name '{}'",mechanismName);
+  if (serverDefinition == null) {
+    throw sendAndThrowMessage(NegotiationStatus.BAD,"Unsupported mechanism type " + mechanismName);
+  }
+  SaslServer saslServer=Sasl.createSaslServer(serverDefinition.mechanism,serverDefinition.protocol,serverDefinition.serverName,serverDefinition.props,serverDefinition.cbh);
+  setSaslServer(saslServer);
+}

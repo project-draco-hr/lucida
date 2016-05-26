@@ -1,0 +1,5 @@
+TProcessor processor
+TProtocolFactory inputProtocolFactory
+TProtocolFactory outputProtocolFactory
+TFileTransport inputTransport
+TTransport outputTransport

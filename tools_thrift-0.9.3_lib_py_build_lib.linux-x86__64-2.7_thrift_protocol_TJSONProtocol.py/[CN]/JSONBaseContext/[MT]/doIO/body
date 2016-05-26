@@ -1,0 +1,2 @@
+def doIO(self, function):
+    pass

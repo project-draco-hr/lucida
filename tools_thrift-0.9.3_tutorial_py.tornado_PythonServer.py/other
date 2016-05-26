@@ -1,0 +1,15 @@
+import sys
+import glob
+sys.path.append('gen-py.tornado')
+sys.path.insert(0, glob.glob('../../lib/py/build/lib.*')[0])
+from tutorial import Calculator
+from tutorial.ttypes import Operation, InvalidOperation
+from shared.ttypes import SharedStruct
+from thrift import TTornado
+from thrift.transport import TSocket
+from thrift.transport import TTransport
+from thrift.protocol import TBinaryProtocol
+from thrift.server import TServer
+from tornado import ioloop
+if (__name__ == '__main__'):
+    main()

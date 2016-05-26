@@ -1,0 +1,5 @@
+{
+  TestServerContext ctx=new TestServerContext(nextConnectionId++);
+  System.out.println("TServerEventHandler.createContext - connection #" + ctx.getConnectionId() + " established");
+  return ctx;
+}

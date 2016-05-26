@@ -1,0 +1,11 @@
+{
+  internalTestStructField(new StructFieldTestCase(TType.I16,(short)15){
+    public void writeMethod(    TProtocol proto) throws TException {
+      proto.writeI16(n);
+    }
+    public void readMethod(    TProtocol proto) throws TException {
+      assertEquals(n,proto.readI16());
+    }
+  }
+);
+}

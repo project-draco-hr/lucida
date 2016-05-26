@@ -1,0 +1,6 @@
+{
+  byte[] buf=new byte[3];
+  buf[1]=0x7e;
+  TProtocolFactory factory=TProtocolUtil.guessProtocolFactory(buf,new TSimpleJSONProtocol.Factory());
+  assertTrue(factory instanceof TSimpleJSONProtocol.Factory);
+}

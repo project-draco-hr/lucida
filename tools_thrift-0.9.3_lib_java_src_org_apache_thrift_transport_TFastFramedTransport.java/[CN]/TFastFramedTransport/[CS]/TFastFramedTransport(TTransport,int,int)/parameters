@@ -1,0 +1,3 @@
+TTransport underlying
+int initialBufferCapacity
+int maxLength

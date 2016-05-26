@@ -1,0 +1,2 @@
+def isOpen(self):
+    return (not self._buffer.closed)

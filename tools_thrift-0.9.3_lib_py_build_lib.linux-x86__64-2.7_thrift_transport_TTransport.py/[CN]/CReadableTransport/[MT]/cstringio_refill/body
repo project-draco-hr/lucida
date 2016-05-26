@@ -1,0 +1,3 @@
+def cstringio_refill(self, partialread, reqlen):
+    "Refills cstringio_buf.\n\n    Returns the currently used buffer (which can but need not be the same as\n    the old cstringio_buf). partialread is what the C code has read from the\n    buffer, and should be inserted into the buffer before any more reads.  The\n    return value must be a new, not borrowed reference.  Something along the\n    lines of self._buf should be fine.\n\n    If reqlen bytes can't be read, throw EOFError.\n    "
+    pass

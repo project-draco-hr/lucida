@@ -1,0 +1,7 @@
+def writeMessageBegin(self, name, request_type, seqid):
+    self.resetWriteContext()
+    self.writeJSONArrayStart()
+    self.writeJSONNumber(VERSION)
+    self.writeJSONString(name)
+    self.writeJSONNumber(request_type)
+    self.writeJSONNumber(seqid)

@@ -1,0 +1,3 @@
+def getStruct(self, key, callback):
+    print 'getStruct({})'.format(key)
+    callback(self.log[key])

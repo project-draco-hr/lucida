@@ -1,0 +1,9 @@
+{
+  if (args.length < 1) {
+    System.err.println("Please specify document root directory");
+    System.exit(1);
+  }
+  Thread t=new RequestListenerThread(8088,args[0]);
+  t.setDaemon(false);
+  t.start();
+}

@@ -1,0 +1,30 @@
+{
+  context_.write();
+  String str=Double.toString(num);
+  boolean special=false;
+switch (str.charAt(0)) {
+case 'N':
+case 'I':
+    special=true;
+  break;
+case '-':
+if (str.charAt(1) == 'I') {
+  special=true;
+}
+break;
+}
+boolean escapeNum=special || context_.escapeNum();
+if (escapeNum) {
+trans_.write(QUOTE);
+}
+try {
+byte[] b=str.getBytes("UTF-8");
+trans_.write(b,0,b.length);
+}
+ catch (UnsupportedEncodingException uex) {
+throw new TException("JVM DOES NOT SUPPORT UTF-8");
+}
+if (escapeNum) {
+trans_.write(QUOTE);
+}
+}

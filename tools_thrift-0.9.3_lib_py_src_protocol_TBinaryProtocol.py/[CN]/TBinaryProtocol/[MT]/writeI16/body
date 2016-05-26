@@ -1,0 +1,3 @@
+def writeI16(self, i16):
+    buff = pack('!h', i16)
+    self.trans.write(buff)

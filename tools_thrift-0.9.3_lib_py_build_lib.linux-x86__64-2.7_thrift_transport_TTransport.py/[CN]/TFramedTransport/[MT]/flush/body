@@ -1,0 +1,7 @@
+def flush(self):
+    wout = self.__wbuf.getvalue()
+    wsz = len(wout)
+    self.__wbuf = StringIO()
+    buf = (pack('!i', wsz) + wout)
+    self.__trans.write(buf)
+    self.__trans.flush()

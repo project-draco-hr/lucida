@@ -1,0 +1,23 @@
+{
+  final TNonblockingTransport client=doAccept();
+  if (client != null) {
+    final SelectorThread targetThread=threadChooser.nextThread();
+    if (args.acceptPolicy == Args.AcceptPolicy.FAST_ACCEPT || invoker == null) {
+      doAddAccept(targetThread,client);
+    }
+ else {
+      try {
+        invoker.submit(new Runnable(){
+          public void run(){
+            doAddAccept(targetThread,client);
+          }
+        }
+);
+      }
+ catch (      RejectedExecutionException rx) {
+        LOGGER.warn("ExecutorService rejected accept registration!",rx);
+        client.close();
+      }
+    }
+  }
+}

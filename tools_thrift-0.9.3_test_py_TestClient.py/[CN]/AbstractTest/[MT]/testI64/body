@@ -1,0 +1,4 @@
+def testI64(self):
+    print 'testI64'
+    self.assertEqual(self.client.testI64(1), 1)
+    self.assertEqual(self.client.testI64((-34359738368)), (-34359738368))

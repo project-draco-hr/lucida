@@ -1,0 +1,6 @@
+def flush(self):
+    frame = self.__wbuf.getvalue()
+    frame_length = struct.pack('!i', len(frame))
+    self.__wbuf = BytesIO()
+    with self.io_exception_context():
+        return self.stream.write((frame_length + frame))

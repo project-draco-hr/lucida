@@ -1,0 +1,16 @@
+@locked
+def ready(self, all_ok, message):
+    'Callback function for switching state and waking up main thread.\n\n        This function is the only function witch can be called asynchronous.\n\n        The ready can switch Connection to three states:\n            WAIT_LEN if request was oneway.\n            SEND_ANSWER if request was processed in normal way.\n            CLOSED if request throws unexpected exception.\n\n        The one wakes up main thread.\n        '
+    assert (self.status == WAIT_PROCESS)
+    if (not all_ok):
+        self.close()
+        self.wake_up()
+        return
+    self.len = ''
+    if (len(message) == 0):
+        self.message = ''
+        self.status = WAIT_LEN
+    else:
+        self.message = (struct.pack('!i', len(message)) + message)
+        self.status = SEND_ANSWER
+    self.wake_up()

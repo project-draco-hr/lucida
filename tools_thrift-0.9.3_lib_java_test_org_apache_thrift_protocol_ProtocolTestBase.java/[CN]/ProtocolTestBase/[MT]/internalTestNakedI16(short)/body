@@ -1,0 +1,6 @@
+{
+  TMemoryBuffer buf=new TMemoryBuffer(0);
+  TProtocol proto=getFactory().getProtocol(buf);
+  proto.writeI16(n);
+  assertEquals(n,proto.readI16());
+}

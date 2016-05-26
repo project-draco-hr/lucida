@@ -1,0 +1,7 @@
+{
+  Long val=counters_.get(key);
+  if (val == null) {
+    return 0;
+  }
+  return val.longValue();
+}

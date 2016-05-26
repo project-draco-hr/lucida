@@ -1,0 +1,4 @@
+{
+  Option<String> some=Option.some("wee");
+  assertTrue(some instanceof Option.Some);
+}

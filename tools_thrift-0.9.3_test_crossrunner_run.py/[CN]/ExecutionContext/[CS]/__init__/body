@@ -1,0 +1,8 @@
+def __init__(self, cmd, cwd, env, report):
+    self._log = multiprocessing.get_logger()
+    self.report = report
+    self.cmd = cmd
+    self.cwd = cwd
+    self.env = env
+    self.timer = None
+    self.expired = False

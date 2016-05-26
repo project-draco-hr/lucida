@@ -1,0 +1,5 @@
+{
+  client.onError(e);
+  callback.onError(e);
+  state=State.ERROR;
+}

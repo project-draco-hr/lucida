@@ -1,0 +1,7 @@
+{
+  List copy=new ArrayList(list.size());
+  for (  Object o : list) {
+    copy.add(deepCopyObject(o));
+  }
+  return copy;
+}

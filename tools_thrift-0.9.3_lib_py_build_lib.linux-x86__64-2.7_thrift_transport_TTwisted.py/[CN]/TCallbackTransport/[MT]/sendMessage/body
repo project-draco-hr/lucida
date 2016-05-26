@@ -1,0 +1,2 @@
+def sendMessage(self, message):
+    return self.func(message)

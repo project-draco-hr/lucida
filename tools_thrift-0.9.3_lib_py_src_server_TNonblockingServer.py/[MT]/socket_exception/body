@@ -1,0 +1,9 @@
+def socket_exception(func):
+    'Decorator close object on socket.error.'
+
+    def read(self, *args, **kwargs):
+        try:
+            return func(self, *args, **kwargs)
+        except socket.error:
+            self.close()
+    return read

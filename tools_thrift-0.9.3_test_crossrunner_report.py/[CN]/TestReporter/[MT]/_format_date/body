@@ -1,0 +1,3 @@
+@classmethod
+def _format_date(cls):
+    return ('%s' % datetime.datetime.now().strftime(cls.DATETIME_FORMAT))

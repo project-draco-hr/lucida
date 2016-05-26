@@ -1,0 +1,4 @@
+def testTypedef(self):
+    x = 72057594037927935
+    y = self.client.testTypedef(x)
+    self.assertEqual(y, x)

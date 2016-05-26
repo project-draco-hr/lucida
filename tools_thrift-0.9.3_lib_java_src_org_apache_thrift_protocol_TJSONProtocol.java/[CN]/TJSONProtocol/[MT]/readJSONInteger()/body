@@ -1,0 +1,16 @@
+{
+  context_.read();
+  if (context_.escapeNum()) {
+    readJSONSyntaxChar(QUOTE);
+  }
+  String str=readJSONNumericChars();
+  if (context_.escapeNum()) {
+    readJSONSyntaxChar(QUOTE);
+  }
+  try {
+    return Long.valueOf(str);
+  }
+ catch (  NumberFormatException ex) {
+    throw new TProtocolException(TProtocolException.INVALID_DATA,"Bad data encounted in numeric data");
+  }
+}

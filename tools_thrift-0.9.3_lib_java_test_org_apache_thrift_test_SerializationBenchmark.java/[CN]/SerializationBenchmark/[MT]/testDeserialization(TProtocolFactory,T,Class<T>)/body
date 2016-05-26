@@ -1,0 +1,13 @@
+{
+  TMemoryBuffer buf=new TMemoryBuffer(0);
+  object.write(factory.getProtocol(buf));
+  byte[] serialized=new byte[100 * 1024];
+  buf.read(serialized,0,100 * 1024);
+  long startTime=System.currentTimeMillis();
+  for (int i=0; i < HOW_MANY; i++) {
+    T o2=klass.newInstance();
+    o2.read(factory.getProtocol(new TMemoryInputTransport(serialized)));
+  }
+  long endTime=System.currentTimeMillis();
+  System.out.println("Deserialization test time: " + (endTime - startTime) + " ms");
+}

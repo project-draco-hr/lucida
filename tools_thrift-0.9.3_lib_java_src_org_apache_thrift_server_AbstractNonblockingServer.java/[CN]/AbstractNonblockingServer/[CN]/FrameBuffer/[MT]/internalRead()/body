@@ -1,0 +1,12 @@
+{
+  try {
+    if (trans_.read(buffer_) < 0) {
+      return false;
+    }
+    return true;
+  }
+ catch (  IOException e) {
+    LOGGER.warn("Got an IOException in internalRead!",e);
+    return false;
+  }
+}

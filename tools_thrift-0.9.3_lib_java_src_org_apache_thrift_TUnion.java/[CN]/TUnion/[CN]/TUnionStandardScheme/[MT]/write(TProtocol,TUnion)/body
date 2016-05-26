@@ -1,0 +1,11 @@
+{
+  if (struct.getSetField() == null || struct.getFieldValue() == null) {
+    throw new TProtocolException("Cannot write a TUnion with no set value!");
+  }
+  oprot.writeStructBegin(struct.getStructDesc());
+  oprot.writeFieldBegin(struct.getFieldDesc(struct.setField_));
+  struct.standardSchemeWriteValue(oprot);
+  oprot.writeFieldEnd();
+  oprot.writeFieldStop();
+  oprot.writeStructEnd();
+}

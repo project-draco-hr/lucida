@@ -1,0 +1,2 @@
+def writeString(self, str_val):
+    pass

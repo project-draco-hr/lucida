@@ -1,0 +1,14 @@
+def serve(self):
+    self.serverTransport.listen()
+    while True:
+        try:
+            client = self.serverTransport.accept()
+            if (not client):
+                continue
+            t = threading.Thread(target=self.handle, args=(client,))
+            t.setDaemon(self.daemon)
+            t.start()
+        except KeyboardInterrupt:
+            raise
+        except Exception as x:
+            logger.exception(x)

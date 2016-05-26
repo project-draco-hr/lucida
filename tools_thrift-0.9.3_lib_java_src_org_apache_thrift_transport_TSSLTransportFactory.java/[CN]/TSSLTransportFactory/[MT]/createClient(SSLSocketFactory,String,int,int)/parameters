@@ -1,0 +1,4 @@
+SSLSocketFactory factory
+String host
+int port
+int timeout

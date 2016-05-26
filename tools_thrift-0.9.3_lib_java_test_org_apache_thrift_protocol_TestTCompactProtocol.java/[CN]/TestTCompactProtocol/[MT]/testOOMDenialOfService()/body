@@ -1,0 +1,10 @@
+{
+  byte[] bytes={24,-1,-1,-1,-17,49};
+  TDeserializer deser=new TDeserializer(new TCompactProtocol.Factory(1000));
+  Bonk bonk=new Bonk();
+  try {
+    deser.deserialize(bonk,bytes);
+  }
+ catch (  TException e) {
+  }
+}

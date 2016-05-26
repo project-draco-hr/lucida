@@ -1,0 +1,2 @@
+def testList(self, thing):
+    return thing

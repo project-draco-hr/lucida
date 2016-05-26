@@ -1,0 +1,36 @@
+{
+  byte[] ebytes=new byte[4];
+  int esize;
+  int nread;
+  int nrequested;
+  retry:   do {
+    nrequested=cs.getRemaining();
+    if (nrequested < 4) {
+      nread=tailRead(inputStream_,ebytes,0,nrequested,currentPolicy_);
+      if (nread != nrequested) {
+        return (false);
+      }
+    }
+    nread=tailRead(inputStream_,ebytes,0,4,currentPolicy_);
+    if (nread != 4) {
+      return (false);
+    }
+    esize=0;
+    for (int i=3; i >= 0; i--) {
+      int val=(0x000000ff & (int)ebytes[i]);
+      esize|=(val << (i * 8));
+    }
+    if (esize > cs.getRemaining()) {
+      throw new TTransportException("FileTransport error: bad event size");
+    }
+  }
+ while (esize == 0);
+  if (currentEvent_.getSize() < esize)   currentEvent_=new Event(new byte[esize]);
+  byte[] buf=currentEvent_.getBuf();
+  nread=tailRead(inputStream_,buf,0,esize,currentPolicy_);
+  if (nread != esize) {
+    return (false);
+  }
+  currentEvent_.setAvailable(esize);
+  return (true);
+}

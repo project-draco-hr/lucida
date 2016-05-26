@@ -1,0 +1,4 @@
+def close(self):
+    'Closes connection'
+    self.status = CLOSED
+    self.socket.close()

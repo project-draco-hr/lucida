@@ -1,0 +1,5 @@
+TTransport trans
+long stringLengthLimit
+long containerLengthLimit
+boolean strictRead
+boolean strictWrite

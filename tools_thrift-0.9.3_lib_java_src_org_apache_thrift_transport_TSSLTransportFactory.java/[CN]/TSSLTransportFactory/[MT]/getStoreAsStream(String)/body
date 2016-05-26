@@ -1,0 +1,23 @@
+{
+  try {
+    return new FileInputStream(store);
+  }
+ catch (  FileNotFoundException e) {
+  }
+  InputStream storeStream=null;
+  try {
+    storeStream=new URL(store).openStream();
+    if (storeStream != null) {
+      return storeStream;
+    }
+  }
+ catch (  MalformedURLException e) {
+  }
+  storeStream=Thread.currentThread().getContextClassLoader().getResourceAsStream(store);
+  if (storeStream != null) {
+    return storeStream;
+  }
+ else {
+    throw new IOException("Could not load file: " + store);
+  }
+}

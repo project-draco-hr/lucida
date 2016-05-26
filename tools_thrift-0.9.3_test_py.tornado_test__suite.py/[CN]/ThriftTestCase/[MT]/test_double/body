@@ -1,0 +1,4 @@
+@gen_test
+def test_double(self):
+    v = yield self.client.testDouble((-5.235098235))
+    self.assertEqual(v, (-5.235098235))

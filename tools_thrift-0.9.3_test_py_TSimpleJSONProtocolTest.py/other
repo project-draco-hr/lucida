@@ -1,0 +1,16 @@
+import sys
+import glob
+from optparse import OptionParser
+parser = OptionParser()
+parser.add_option('--genpydir', type='string', dest='genpydir', default='gen-py')
+(options, args) = parser.parse_args()
+del sys.argv[1:]
+sys.path.insert(0, options.genpydir)
+sys.path.insert(0, glob.glob('../../lib/py/build/lib.*')[0])
+from ThriftTest.ttypes import *
+from thrift.protocol import TJSONProtocol
+from thrift.transport import TTransport
+import json
+import unittest
+if (__name__ == '__main__'):
+    unittest.main()

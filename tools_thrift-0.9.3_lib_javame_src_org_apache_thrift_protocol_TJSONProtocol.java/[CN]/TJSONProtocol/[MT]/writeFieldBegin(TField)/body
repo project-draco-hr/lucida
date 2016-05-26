@@ -1,0 +1,5 @@
+{
+  writeJSONInteger(field.id);
+  writeJSONObjectStart();
+  writeJSONString(getTypeNameForTypeID(field.type));
+}

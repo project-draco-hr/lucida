@@ -1,0 +1,21 @@
+{
+  socket_=socket;
+  try {
+    socket_.setSoLinger(false,0);
+    socket_.setTcpNoDelay(true);
+    socket_.setKeepAlive(true);
+  }
+ catch (  SocketException sx) {
+    LOGGER.warn("Could not configure socket.",sx);
+  }
+  if (isOpen()) {
+    try {
+      inputStream_=new BufferedInputStream(socket_.getInputStream(),1024);
+      outputStream_=new BufferedOutputStream(socket_.getOutputStream(),1024);
+    }
+ catch (    IOException iox) {
+      close();
+      throw new TTransportException(TTransportException.NOT_OPEN,iox);
+    }
+  }
+}

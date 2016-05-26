@@ -1,0 +1,9 @@
+{
+  try {
+    byte[] b=s.getBytes("UTF-8");
+    trans_.write(b);
+  }
+ catch (  UnsupportedEncodingException uex) {
+    throw new TException("JVM DOES NOT SUPPORT UTF-8");
+  }
+}

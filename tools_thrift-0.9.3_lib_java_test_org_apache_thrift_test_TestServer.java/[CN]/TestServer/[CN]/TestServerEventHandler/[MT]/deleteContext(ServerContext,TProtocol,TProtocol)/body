@@ -1,0 +1,4 @@
+{
+  TestServerContext ctx=(TestServerContext)serverContext;
+  System.out.println("TServerEventHandler.deleteContext - connection #" + ctx.getConnectionId() + " terminated");
+}

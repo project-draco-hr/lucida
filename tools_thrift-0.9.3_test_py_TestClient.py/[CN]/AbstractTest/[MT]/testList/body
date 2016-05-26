@@ -1,0 +1,5 @@
+def testList(self):
+    print 'testList'
+    x = [1, 4, 9, (-42)]
+    y = self.client.testList(x)
+    self.assertEqual(y, x)

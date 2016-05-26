@@ -1,0 +1,10 @@
+def start(self, timeout=0):
+    self._log.debug('COMMAND: %s', ' '.join(self.cmd))
+    self._log.debug('WORKDIR: %s', self.cwd)
+    self._log.debug('LOGFILE: %s', self.report.logpath)
+    self.report.begin()
+    self.proc = subprocess.Popen(self.cmd, **self._popen_args())
+    if (timeout > 0):
+        self.timer = threading.Timer(timeout, self._expire)
+        self.timer.start()
+    return self._scoped()

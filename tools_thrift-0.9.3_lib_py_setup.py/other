@@ -1,0 +1,25 @@
+import sys
+try:
+    from setuptools import setup, Extension
+except:
+    from distutils.core import setup, Extension, Command
+from distutils.command.build_ext import build_ext
+from distutils.errors import CCompilerError, DistutilsExecError, DistutilsPlatformError
+import os
+del os.link
+include_dirs = []
+if (sys.platform == 'win32'):
+    include_dirs.append('compat/win32')
+    ext_errors = (CCompilerError, DistutilsExecError, DistutilsPlatformError, IOError)
+else:
+    ext_errors = (CCompilerError, DistutilsExecError, DistutilsPlatformError)
+try:
+    run_setup(True)
+except BuildFailed:
+    print ()
+    print ('*' * 80)
+    print 'An error occurred while trying to compile with the C extension enabled'
+    print 'Attempting to build without the extension now'
+    print ('*' * 80)
+    print ()
+    run_setup(False)

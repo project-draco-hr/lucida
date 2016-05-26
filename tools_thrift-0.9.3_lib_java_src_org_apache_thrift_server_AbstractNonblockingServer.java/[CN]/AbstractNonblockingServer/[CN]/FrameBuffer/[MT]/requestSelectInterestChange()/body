@@ -1,0 +1,8 @@
+{
+  if (Thread.currentThread() == this.selectThread_) {
+    changeSelectInterests();
+  }
+ else {
+    this.selectThread_.requestSelectInterestChange(this);
+  }
+}

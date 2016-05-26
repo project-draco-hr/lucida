@@ -1,0 +1,11 @@
+{
+  ByteArrayOutputStream baos=new ByteArrayOutputStream();
+  ObjectOutputStream oos=new ObjectOutputStream(baos);
+  OneOfEach ooe=Fixtures.oneOfEach;
+  oos.writeObject(ooe);
+  byte[] serialized=baos.toByteArray();
+  ByteArrayInputStream bais=new ByteArrayInputStream(serialized);
+  ObjectInputStream ois=new ObjectInputStream(bais);
+  OneOfEach ooe2=(OneOfEach)ois.readObject();
+  assertEquals(ooe,ooe2);
+}

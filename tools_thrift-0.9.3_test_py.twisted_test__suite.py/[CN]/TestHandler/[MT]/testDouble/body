@@ -1,0 +1,2 @@
+def testDouble(self, dub):
+    return dub

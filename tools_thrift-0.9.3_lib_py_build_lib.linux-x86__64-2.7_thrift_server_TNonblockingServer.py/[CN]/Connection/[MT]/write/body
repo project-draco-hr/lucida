@@ -1,0 +1,11 @@
+@socket_exception
+def write(self):
+    'Writes data from socket and switch state.'
+    assert (self.status == SEND_ANSWER)
+    sent = self.socket.send(self.message)
+    if (sent == len(self.message)):
+        self.status = WAIT_LEN
+        self.message = ''
+        self.len = 0
+    else:
+        self.message = self.message[sent:]

@@ -1,0 +1,4 @@
+{
+  if (!isOpen())   throw new TTransportException("SASL authentication not complete");
+  writeBuffer.write(buf,off,len);
+}

@@ -1,0 +1,2 @@
+def readBool(self):
+    return (False if (self.readJSONInteger() == 0) else True)

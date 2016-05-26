@@ -1,0 +1,2 @@
+def readNumber(self):
+    return self.readJSONInteger()

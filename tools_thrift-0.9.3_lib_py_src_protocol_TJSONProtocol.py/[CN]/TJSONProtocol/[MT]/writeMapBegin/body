@@ -1,0 +1,6 @@
+def writeMapBegin(self, ktype, vtype, size):
+    self.writeJSONArrayStart()
+    self.writeJSONString(CTYPES[ktype])
+    self.writeJSONString(CTYPES[vtype])
+    self.writeJSONNumber(size)
+    self.writeJSONObjectStart()

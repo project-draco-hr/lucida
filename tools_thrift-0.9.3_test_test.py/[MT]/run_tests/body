@@ -1,0 +1,20 @@
+def run_tests(server_match, client_match, jobs, skip_known_failures):
+    logger = multiprocessing.get_logger()
+    logger.debug('Collecting tests')
+    with open(CONFIG_PATH, 'r') as fp:
+        j = json.load(fp)
+    tests = list(crossrunner.collect_tests(j, server_match, client_match))
+    if skip_known_failures:
+        known = crossrunner.load_known_failures(TEST_DIR)
+        tests = list(filter((lambda t: (crossrunner.test_name(**t) not in known)), tests))
+    dispatcher = crossrunner.TestDispatcher(TEST_DIR, jobs)
+    logger.debug(('Executing %d tests' % len(tests)))
+    try:
+        for r in [dispatcher.dispatch(test) for test in tests]:
+            r.wait()
+        logger.debug('Waiting for completion')
+        return dispatcher.wait()
+    except (KeyboardInterrupt, SystemExit):
+        logger.debug('Interrupted, shutting down')
+        dispatcher.terminate()
+        return False

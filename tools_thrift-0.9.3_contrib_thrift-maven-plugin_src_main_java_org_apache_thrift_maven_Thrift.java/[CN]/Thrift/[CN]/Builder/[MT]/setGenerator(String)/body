@@ -1,0 +1,5 @@
+{
+  checkNotNull(generator);
+  this.generator=generator;
+  return this;
+}

@@ -1,0 +1,11 @@
+{
+  if (outputStream_ == null) {
+    throw new TTransportException(TTransportException.NOT_OPEN,"Cannot write to null outputStream");
+  }
+  try {
+    outputStream_.write(buf,off,len);
+  }
+ catch (  IOException iox) {
+    throw new TTransportException(TTransportException.UNKNOWN,iox);
+  }
+}

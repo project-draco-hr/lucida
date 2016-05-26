@@ -1,0 +1,4 @@
+def writeJSONObjectStart(self):
+    self.context.write()
+    self.trans.write(LBRACE)
+    self.pushContext(JSONPairContext(self))

@@ -1,0 +1,4 @@
+def testTypedef(self, thing):
+    if (options.verbose > 1):
+        print ('testTypedef(%s)' % thing)
+    return thing

@@ -1,0 +1,11 @@
+def readFieldByTType(self, ttype, spec):
+    try:
+        (r_handler, w_handler, is_container) = self._TTYPE_HANDLERS[ttype]
+    except IndexError:
+        raise TProtocolException(type=TProtocolException.INVALID_DATA, message=('Invalid field type %d' % ttype))
+    if (r_handler is None):
+        raise TProtocolException(type=TProtocolException.INVALID_DATA, message=('Invalid field type %d' % ttype))
+    reader = getattr(self, r_handler)
+    if (not is_container):
+        return reader()
+    return reader(spec)

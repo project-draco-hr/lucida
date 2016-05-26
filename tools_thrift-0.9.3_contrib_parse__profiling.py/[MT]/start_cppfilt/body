@@ -1,0 +1,14 @@
+def start_cppfilt():
+    (read_pipe, write_pipe) = os.pipe()
+    pid = os.fork()
+    if (pid == 0):
+        os.dup2(write_pipe, sys.stdout.fileno())
+        os.close(read_pipe)
+        os.close(write_pipe)
+        return
+    else:
+        os.dup2(read_pipe, sys.stdin.fileno())
+        os.close(read_pipe)
+        os.close(write_pipe)
+        cmd = ['c++filt']
+        os.execvp(cmd[0], cmd)

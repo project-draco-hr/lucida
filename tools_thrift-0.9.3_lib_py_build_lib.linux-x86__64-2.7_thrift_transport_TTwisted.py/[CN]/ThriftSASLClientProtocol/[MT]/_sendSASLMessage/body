@@ -1,0 +1,5 @@
+def _sendSASLMessage(self, status, body):
+    if (body is None):
+        body = ''
+    header = struct.pack('>BI', status, len(body))
+    self.transport.write((header + body))

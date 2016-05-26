@@ -1,0 +1,3 @@
+{
+  return "<TMessage name:'" + name + "' type: "+ type+ " seqid:"+ seqid+ ">";
+}

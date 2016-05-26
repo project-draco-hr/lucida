@@ -1,0 +1,5 @@
+def __init__(self, trans, rbuf_size=DEFAULT_BUFFER):
+    self.__trans = trans
+    self.__wbuf = StringIO()
+    self.__rbuf = StringIO('')
+    self.__rbuf_size = rbuf_size

@@ -1,0 +1,5 @@
+def __readSize(self):
+    result = self.__readVarint()
+    if (result < 0):
+        raise TException('Length < 0')
+    return result

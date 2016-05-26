@@ -1,0 +1,57 @@
+def runServiceTest(genpydir, server_class, proto, port, use_zlib, use_ssl):
+    server_args = [sys.executable, relfile('TestServer.py')]
+    cli_args = [sys.executable, relfile('TestClient.py')]
+    for which in (server_args, cli_args):
+        which.append(('--genpydir=%s' % genpydir))
+        which.append(('--protocol=%s' % proto))
+        which.append(('--port=%d' % port))
+        if use_zlib:
+            which.append('--zlib')
+        if use_ssl:
+            which.append('--ssl')
+        if (options.verbose == 0):
+            which.append('-q')
+        if (options.verbose == 2):
+            which.append('-v')
+    server_args.append(server_class)
+    if (server_class in FRAMED):
+        cli_args.append('--transport=framed')
+    else:
+        cli_args.append('--transport=buffered')
+    if (server_class == 'THttpServer'):
+        cli_args.append('--http=/')
+    if (options.verbose > 0):
+        print ('Testing server %s: %s' % (server_class, ' '.join(server_args)))
+    serverproc = subprocess.Popen(server_args)
+
+    def ensureServerAlive():
+        if (serverproc.poll() is not None):
+            print ('FAIL: Server process (%s) failed with retcode %d' % (' '.join(server_args), serverproc.returncode))
+            raise Exception(('Server subprocess %s died, args: %s' % (server_class, ' '.join(server_args))))
+    sock = socket.socket()
+    sleep_time = 0.1
+    max_attempts = 100
+    try:
+        attempt = 0
+        while (sock.connect_ex(('127.0.0.1', port)) != 0):
+            attempt += 1
+            if (attempt >= max_attempts):
+                raise Exception(('TestServer not ready on port %d after %.2f seconds' % (port, (sleep_time * attempt))))
+            ensureServerAlive()
+            time.sleep(sleep_time)
+    finally:
+        sock.close()
+    try:
+        if (options.verbose > 0):
+            print ('Testing client: %s' % ' '.join(cli_args))
+        ret = subprocess.call(cli_args)
+        if (ret != 0):
+            raise Exception(('Client subprocess failed, retcode=%d, args: %s' % (ret, ' '.join(cli_args))))
+    finally:
+        ensureServerAlive()
+        extra_sleep = EXTRA_DELAY.get(server_class, 0)
+        if ((extra_sleep > 0) and (options.verbose > 0)):
+            print ('Giving %s (proto=%s,zlib=%s,ssl=%s) an extra %d seconds for childprocesses to terminate via alarm' % (server_class, proto, use_zlib, use_ssl, extra_sleep))
+            time.sleep(extra_sleep)
+        os.kill(serverproc.pid, signal.SIGKILL)
+        serverproc.wait()

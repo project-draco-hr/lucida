@@ -1,0 +1,9 @@
+def writeMessageBegin(self, name, type, seqid):
+    if self.strictWrite:
+        self.writeI32((TBinaryProtocol.VERSION_1 | type))
+        self.writeString(name)
+        self.writeI32(seqid)
+    else:
+        self.writeString(name)
+        self.writeByte(type)
+        self.writeI32(seqid)

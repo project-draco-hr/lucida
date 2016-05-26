@@ -1,0 +1,6 @@
+{
+  if (vector.length == top + 1) {
+    grow();
+  }
+  vector[++top]=pushed;
+}

@@ -1,0 +1,8 @@
+def recv_sasl_msg(self):
+    header = self.transport.readAll(5)
+    (status, length) = unpack('>BI', header)
+    if (length > 0):
+        payload = self.transport.readAll(length)
+    else:
+        payload = ''
+    return (status, payload)

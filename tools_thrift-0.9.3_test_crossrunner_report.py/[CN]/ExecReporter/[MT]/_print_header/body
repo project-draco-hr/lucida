@@ -1,0 +1,8 @@
+def _print_header(self):
+    self._print_date()
+    self.out.write(('Executing: %s\n' % ' '.join(self._prog.command)))
+    self.out.write(('Directory: %s\n' % self._prog.workdir))
+    self.out.write(('config:delay: %s\n' % self._test.delay))
+    self.out.write(('config:timeout: %s\n' % self._test.timeout))
+    self._print_bar()
+    self.out.flush()

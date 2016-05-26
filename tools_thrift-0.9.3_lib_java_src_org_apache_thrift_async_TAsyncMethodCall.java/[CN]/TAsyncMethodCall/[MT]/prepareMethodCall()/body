@@ -1,0 +1,9 @@
+{
+  TMemoryBuffer memoryBuffer=new TMemoryBuffer(INITIAL_MEMORY_BUFFER_SIZE);
+  TProtocol protocol=protocolFactory.getProtocol(memoryBuffer);
+  write_args(protocol);
+  int length=memoryBuffer.length();
+  frameBuffer=ByteBuffer.wrap(memoryBuffer.getArray(),0,length);
+  TFramedTransport.encodeFrameSize(length,sizeBufferArray);
+  sizeBuffer=ByteBuffer.wrap(sizeBufferArray);
+}

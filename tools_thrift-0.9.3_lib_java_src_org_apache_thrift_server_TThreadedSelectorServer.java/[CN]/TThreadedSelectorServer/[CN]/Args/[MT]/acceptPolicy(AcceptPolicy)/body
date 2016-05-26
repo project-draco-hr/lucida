@@ -1,0 +1,4 @@
+{
+  this.acceptPolicy=acceptPolicy;
+  return this;
+}

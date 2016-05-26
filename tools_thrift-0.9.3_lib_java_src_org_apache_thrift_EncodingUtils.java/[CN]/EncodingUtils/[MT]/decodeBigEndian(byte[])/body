@@ -1,0 +1,3 @@
+{
+  return decodeBigEndian(buf,0);
+}

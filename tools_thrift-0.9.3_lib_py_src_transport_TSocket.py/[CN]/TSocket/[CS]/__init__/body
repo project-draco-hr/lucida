@@ -1,0 +1,8 @@
+def __init__(self, host='localhost', port=9090, unix_socket=None, socket_family=socket.AF_UNSPEC):
+    'Initialize a TSocket\n\n    @param host(str)  The host to connect to.\n    @param port(int)  The (TCP) port to connect to.\n    @param unix_socket(str)  The filename of a unix socket to connect to.\n                             (host and port will be ignored.)\n    @param socket_family(int)  The socket family to use with this socket.\n    '
+    self.host = host
+    self.port = port
+    self.handle = None
+    self._unix_socket = unix_socket
+    self._timeout = None
+    self._socket_family = socket_family

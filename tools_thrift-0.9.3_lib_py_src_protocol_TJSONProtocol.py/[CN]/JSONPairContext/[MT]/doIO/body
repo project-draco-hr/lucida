@@ -1,0 +1,7 @@
+def doIO(self, function):
+    if self.first:
+        self.first = False
+        self.colon = True
+    else:
+        function((COLON if self.colon else COMMA))
+        self.colon = (not self.colon)

@@ -1,0 +1,6 @@
+{
+  byte[] bytes=toByteArray(bs,vectorWidth);
+  for (  byte b : bytes) {
+    writeByte(b);
+  }
+}

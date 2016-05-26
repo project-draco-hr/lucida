@@ -1,0 +1,8 @@
+{
+  for (  String s : Arrays.asList("","short","borderlinetiny","a bit longer than the smallest possible")) {
+    if (canBeUsedNaked()) {
+      internalTestNakedString(s);
+    }
+    internalTestStringField(s);
+  }
+}

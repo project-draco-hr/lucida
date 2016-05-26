@@ -1,0 +1,14 @@
+{
+  if (serverSocket_ == null) {
+    throw new TTransportException(TTransportException.NOT_OPEN,"No underlying server socket.");
+  }
+  try {
+    Socket result=serverSocket_.accept();
+    TSocket result2=new TSocket(result);
+    result2.setTimeout(clientTimeout_);
+    return result2;
+  }
+ catch (  IOException iox) {
+    throw new TTransportException(iox);
+  }
+}

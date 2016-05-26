@@ -1,0 +1,8 @@
+def _pool_init(self, address):
+    global stop
+    global m
+    global ports
+    stop = self._stop
+    m = multiprocessing.managers.BaseManager(address)
+    m.connect()
+    ports = m.ports()

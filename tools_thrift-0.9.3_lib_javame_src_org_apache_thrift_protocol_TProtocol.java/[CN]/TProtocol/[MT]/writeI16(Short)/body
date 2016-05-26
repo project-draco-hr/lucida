@@ -1,0 +1,3 @@
+{
+  writeI16(i16.shortValue());
+}

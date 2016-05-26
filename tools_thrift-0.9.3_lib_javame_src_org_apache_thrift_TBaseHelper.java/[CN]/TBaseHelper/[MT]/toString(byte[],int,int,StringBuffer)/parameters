@@ -1,0 +1,4 @@
+byte[] buf
+int arrayOffset
+int origLimit
+StringBuffer sb

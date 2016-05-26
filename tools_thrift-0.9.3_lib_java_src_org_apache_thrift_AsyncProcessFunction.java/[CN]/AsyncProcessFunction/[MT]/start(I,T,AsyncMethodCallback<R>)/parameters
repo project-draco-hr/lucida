@@ -1,0 +1,3 @@
+I iface
+T args
+AsyncMethodCallback<R> resultHandler

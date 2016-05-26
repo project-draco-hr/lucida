@@ -1,0 +1,14 @@
+{
+  if (!isOpen())   throw new TTransportException("SASL authentication not complete");
+  int got=readBuffer.read(buf,off,len);
+  if (got > 0) {
+    return got;
+  }
+  try {
+    readFrame();
+  }
+ catch (  SaslException e) {
+    throw new TTransportException(e);
+  }
+  return readBuffer.read(buf,off,len);
+}

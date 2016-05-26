@@ -1,0 +1,4 @@
+def readDouble(self):
+    buff = self.trans.readAll(8)
+    (val,) = unpack('!d', buff)
+    return val

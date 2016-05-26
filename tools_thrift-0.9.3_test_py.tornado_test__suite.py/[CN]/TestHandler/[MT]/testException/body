@@ -1,0 +1,8 @@
+def testException(self, s):
+    if (s == 'Xception'):
+        x = Xception()
+        x.errorCode = 1001
+        x.message = s
+        raise x
+    elif (s == 'throw_undeclared'):
+        raise ValueError('foo')

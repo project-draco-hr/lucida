@@ -1,0 +1,4 @@
+{
+  String stats=String.format("numTotalServers=%d, " + "numReadCompletedServers=%d, numConnectErrorServers=%d, " + "numUnresponsiveServers=%d, totalRecvBufBytes=%fM, "+ "maxResponseBytes=%d, numOverflowedRecvBuf=%d, "+ "numInvalidFrameSize=%d, readTime=%dms",numTotalServers,numReadCompletedServers,numConnectErrorServers,(numTotalServers - numReadCompletedServers - numConnectErrorServers),totalRecvBufBytes / 1024.0 / 1024,maxResponseBytes,numOverflowedRecvBuf,numInvalidFrameSize,readTime);
+  return stats;
+}

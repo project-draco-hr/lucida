@@ -1,0 +1,7 @@
+{
+  if (!other.getClass().equals(this.getClass())) {
+    throw new ClassCastException();
+  }
+  setField_=other.setField_;
+  value_=deepCopyObject(other.value_);
+}

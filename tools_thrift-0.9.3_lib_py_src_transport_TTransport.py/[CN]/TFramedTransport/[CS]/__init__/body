@@ -1,0 +1,4 @@
+def __init__(self, trans):
+    self.__trans = trans
+    self.__rbuf = StringIO()
+    self.__wbuf = StringIO()

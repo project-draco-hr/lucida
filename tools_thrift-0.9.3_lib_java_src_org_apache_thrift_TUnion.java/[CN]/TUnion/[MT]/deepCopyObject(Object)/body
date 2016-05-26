@@ -1,0 +1,20 @@
+{
+  if (o instanceof TBase) {
+    return ((TBase)o).deepCopy();
+  }
+ else   if (o instanceof ByteBuffer) {
+    return TBaseHelper.copyBinary((ByteBuffer)o);
+  }
+ else   if (o instanceof List) {
+    return deepCopyList((List)o);
+  }
+ else   if (o instanceof Set) {
+    return deepCopySet((Set)o);
+  }
+ else   if (o instanceof Map) {
+    return deepCopyMap((Map)o);
+  }
+ else {
+    return o;
+  }
+}

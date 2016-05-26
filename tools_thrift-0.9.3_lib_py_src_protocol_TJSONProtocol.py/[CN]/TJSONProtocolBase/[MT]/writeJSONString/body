@@ -1,0 +1,3 @@
+def writeJSONString(self, string):
+    self.context.write()
+    self.trans.write(json.dumps(string))

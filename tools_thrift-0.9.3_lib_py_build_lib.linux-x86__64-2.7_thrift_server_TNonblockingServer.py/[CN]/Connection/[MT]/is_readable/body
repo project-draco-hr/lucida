@@ -1,0 +1,4 @@
+@locked
+def is_readable(self):
+    'Return True if connection should be added to read list of select'
+    return (self.status in (WAIT_LEN, WAIT_MESSAGE))

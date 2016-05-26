@@ -1,0 +1,6 @@
+def flush(self):
+    data = self.__wbuf.getvalue()
+    encoded = self.sasl.wrap(data)
+    self.transport.write(''.join((pack('!i', len(encoded)), encoded)))
+    self.transport.flush()
+    self.__wbuf = StringIO()

@@ -1,0 +1,2 @@
+Class<? extends TBase> sClass
+Map<? extends TFieldIdEnum,FieldMetaData> map

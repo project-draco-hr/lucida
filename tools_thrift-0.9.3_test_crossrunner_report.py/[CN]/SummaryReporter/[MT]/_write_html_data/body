@@ -1,0 +1,5 @@
+def _write_html_data(self):
+    'Writes JSON data to be read by result html'
+    results = [self._render_result(r) for r in self._tests]
+    with open(self.out_path, 'w+') as fp:
+        fp.write(json.dumps({'date': self._format_date(), 'revision': str(self._revision), 'platform': self._platform, 'duration': '{:.1f}'.format(self._elapsed), 'results': results, }, indent=2))

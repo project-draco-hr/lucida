@@ -1,0 +1,16 @@
+{
+  TAsyncMethodCall methodCall;
+  while ((methodCall=pendingCalls.poll()) != null) {
+    try {
+      methodCall.start(selector);
+      TAsyncClient client=methodCall.getClient();
+      if (client.hasTimeout() && !client.hasError()) {
+        timeoutWatchSet.add(methodCall);
+      }
+    }
+ catch (    Exception exception) {
+      LOGGER.warn("Caught exception in TAsyncClientManager!",exception);
+      methodCall.onError(exception);
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@contextmanager
+def io_exception_context(self):
+    try:
+        yield
+    except (socket.error, IOError) as e:
+        raise TTransportException(type=TTransportException.END_OF_FILE, message=str(e))
+    except iostream.StreamBufferFullError as e:
+        raise TTransportException(type=TTransportException.UNKNOWN, message=str(e))

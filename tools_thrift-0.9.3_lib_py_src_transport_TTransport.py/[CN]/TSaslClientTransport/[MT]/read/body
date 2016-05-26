@@ -1,0 +1,6 @@
+def read(self, sz):
+    ret = self.__rbuf.read(sz)
+    if (len(ret) != 0):
+        return ret
+    self._read_frame()
+    return self.__rbuf.read(sz)

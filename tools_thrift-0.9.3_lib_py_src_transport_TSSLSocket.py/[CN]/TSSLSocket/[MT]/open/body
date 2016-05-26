@@ -1,0 +1,25 @@
+def open(self):
+    try:
+        res0 = self._resolveAddr()
+        for res in res0:
+            (sock_family, sock_type) = res[0:2]
+            ip_port = res[4]
+            plain_sock = socket.socket(sock_family, sock_type)
+            self.handle = ssl.wrap_socket(plain_sock, ssl_version=self.SSL_VERSION, do_handshake_on_connect=True, ca_certs=self.ca_certs, keyfile=self.keyfile, certfile=self.certfile, cert_reqs=self.cert_reqs, ciphers=self.ciphers)
+            self.handle.settimeout(self._timeout)
+            try:
+                self.handle.connect(ip_port)
+            except socket.error as e:
+                if (res is not res0[(-1)]):
+                    continue
+                else:
+                    raise e
+            break
+    except socket.error as e:
+        if self._unix_socket:
+            message = ('Could not connect to secure socket %s: %s' % (self._unix_socket, e))
+        else:
+            message = ('Could not connect to %s:%d: %s' % (self.host, self.port, e))
+        raise TTransportException(type=TTransportException.NOT_OPEN, message=message)
+    if self.validate:
+        self._validate_cert()

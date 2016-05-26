@@ -1,0 +1,2 @@
+def writeFieldStop(self):
+    self.__writeByte(0)

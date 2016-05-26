@@ -1,0 +1,8 @@
+def runScriptTest(genpydir, script):
+    script_args = [sys.executable, relfile(script)]
+    script_args.append(('--genpydir=%s' % genpydir))
+    serverproc = subprocess.Popen(script_args)
+    print ('\nTesting script: %s\n----' % ' '.join(script_args))
+    ret = subprocess.call(script_args)
+    if (ret != 0):
+        raise Exception(('Script subprocess failed, retcode=%d, args: %s' % (ret, ' '.join(script_args))))

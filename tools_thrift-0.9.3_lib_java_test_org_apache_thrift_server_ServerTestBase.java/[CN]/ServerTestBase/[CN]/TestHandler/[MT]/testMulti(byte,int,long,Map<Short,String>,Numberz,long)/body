@@ -1,0 +1,10 @@
+{
+  System.out.print("testMulti()\n");
+  Xtruct hello=new Xtruct();
+  ;
+  hello.string_thing="Hello2";
+  hello.byte_thing=arg0;
+  hello.i32_thing=arg1;
+  hello.i64_thing=arg2;
+  return hello;
+}

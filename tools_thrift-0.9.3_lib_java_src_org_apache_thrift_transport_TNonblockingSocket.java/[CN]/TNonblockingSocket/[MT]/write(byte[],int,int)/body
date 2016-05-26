@@ -1,0 +1,11 @@
+{
+  if ((socketChannel_.validOps() & SelectionKey.OP_WRITE) != SelectionKey.OP_WRITE) {
+    throw new TTransportException(TTransportException.NOT_OPEN,"Cannot write to write-only socket channel");
+  }
+  try {
+    socketChannel_.write(ByteBuffer.wrap(buf,off,len));
+  }
+ catch (  IOException iox) {
+    throw new TTransportException(TTransportException.UNKNOWN,iox);
+  }
+}

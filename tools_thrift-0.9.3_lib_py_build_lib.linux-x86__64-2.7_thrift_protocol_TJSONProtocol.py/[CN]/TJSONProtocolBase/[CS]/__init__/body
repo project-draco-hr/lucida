@@ -1,0 +1,4 @@
+def __init__(self, trans):
+    TProtocolBase.__init__(self, trans)
+    self.resetWriteContext()
+    self.resetReadContext()

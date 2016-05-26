@@ -1,0 +1,21 @@
+def testSerializeThenDeserialize(self):
+    obj = Xtruct2(i32_thing=1, struct_thing=Xtruct(string_thing='foo'))
+    s1 = serialize(obj)
+    for i in range(10):
+        self.assertEquals(s1, serialize(obj))
+        objcopy = Xtruct2()
+        deserialize(objcopy, serialize(obj))
+        self.assertEquals(obj, objcopy)
+    obj = Xtruct(string_thing='bar')
+    objcopy = Xtruct()
+    deserialize(objcopy, serialize(obj))
+    self.assertEquals(obj, objcopy)
+    obj = Bools(im_true=True, im_false=False)
+    objcopy = Bools()
+    deserialize(objcopy, serialize(obj))
+    self.assertEquals(obj, objcopy)
+    for (num, name) in Numberz._VALUES_TO_NAMES.iteritems():
+        obj = Bonk(message=('enum Numberz value %d is string %s' % (num, name)), type=num)
+        objcopy = Bonk()
+        deserialize(objcopy, serialize(obj))
+        self.assertEquals(obj, objcopy)

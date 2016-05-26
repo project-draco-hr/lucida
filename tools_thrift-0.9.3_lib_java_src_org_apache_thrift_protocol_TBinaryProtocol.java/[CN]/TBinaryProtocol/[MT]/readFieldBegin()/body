@@ -1,0 +1,5 @@
+{
+  byte type=readByte();
+  short id=type == TType.STOP ? 0 : readI16();
+  return new TField("",type,id);
+}

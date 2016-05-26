@@ -1,0 +1,4 @@
+def testMapMap(self, thing):
+    if (options.verbose > 1):
+        print ('testMapMap(%s)' % thing)
+    return {(-4): {(-4): (-4), (-3): (-3), (-2): (-2), (-1): (-1), }, 4: {4: 4, 3: 3, 2: 2, 1: 1, }, }

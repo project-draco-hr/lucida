@@ -1,0 +1,15 @@
+{
+  byte protocolId=readByte();
+  if (protocolId != PROTOCOL_ID) {
+    throw new TProtocolException("Expected protocol id " + Integer.toHexString(PROTOCOL_ID) + " but got "+ Integer.toHexString(protocolId));
+  }
+  byte versionAndType=readByte();
+  byte version=(byte)(versionAndType & VERSION_MASK);
+  if (version != VERSION) {
+    throw new TProtocolException("Expected version " + VERSION + " but got "+ version);
+  }
+  byte type=(byte)((versionAndType >> TYPE_SHIFT_AMOUNT) & TYPE_BITS);
+  int seqid=readVarint32();
+  String messageName=readString();
+  return new TMessage(messageName,type,seqid);
+}

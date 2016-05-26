@@ -1,0 +1,4 @@
+def testI32(self):
+    print 'testI32'
+    self.assertEqual(self.client.testI32((-1)), (-1))
+    self.assertEqual(self.client.testI32(0), 0)

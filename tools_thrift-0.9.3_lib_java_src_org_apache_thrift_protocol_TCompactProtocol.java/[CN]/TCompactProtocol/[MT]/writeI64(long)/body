@@ -1,0 +1,3 @@
+{
+  writeVarint64(longToZigzag(i64));
+}

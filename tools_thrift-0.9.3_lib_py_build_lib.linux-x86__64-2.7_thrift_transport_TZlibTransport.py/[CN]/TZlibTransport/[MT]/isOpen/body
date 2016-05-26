@@ -1,0 +1,3 @@
+def isOpen(self):
+    "Return the underlying transport's open status"
+    return self.__trans.isOpen()

@@ -1,0 +1,8 @@
+{
+  try {
+    Fixtures.compactProtoTestStruct.write(proto);
+    fail("this should throw a CollectionMapKeyException");
+  }
+ catch (  TSimpleJSONProtocol.CollectionMapKeyException e) {
+  }
+}

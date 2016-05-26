@@ -1,0 +1,4 @@
+def buildProtocol(self, addr):
+    p = self.protocol(self.client_class, self.iprot_factory, self.oprot_factory)
+    p.factory = self
+    return p

@@ -1,0 +1,22 @@
+def serve(self):
+    'Start workers and put into queue'
+    self.isRunning.value = True
+    self.serverTransport.listen()
+    for i in range(self.numWorkers):
+        try:
+            w = Process(target=self.workerProcess)
+            w.daemon = True
+            w.start()
+            self.workers.append(w)
+        except Exception as x:
+            logger.exception(x)
+    while True:
+        self.stopCondition.acquire()
+        try:
+            self.stopCondition.wait()
+            break
+        except (SystemExit, KeyboardInterrupt):
+            break
+        except Exception as x:
+            logger.exception(x)
+    self.isRunning.value = False

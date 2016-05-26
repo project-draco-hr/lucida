@@ -1,0 +1,3 @@
+def writeI16(self, i16):
+    checkIntegerLimits(i16, 16)
+    self.writeJSONNumber(i16)

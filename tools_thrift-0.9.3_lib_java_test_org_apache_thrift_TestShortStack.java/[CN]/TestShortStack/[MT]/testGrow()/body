@@ -1,0 +1,8 @@
+{
+  ShortStack s=new ShortStack(1);
+  s.push((short)1);
+  s.push((short)1);
+  s.push((short)1);
+  s.push((short)1);
+  s.push((short)1);
+}

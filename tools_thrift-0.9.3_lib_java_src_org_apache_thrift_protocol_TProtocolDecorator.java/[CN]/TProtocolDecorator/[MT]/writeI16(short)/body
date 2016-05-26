@@ -1,0 +1,3 @@
+{
+  concreteProtocol.writeI16(i);
+}

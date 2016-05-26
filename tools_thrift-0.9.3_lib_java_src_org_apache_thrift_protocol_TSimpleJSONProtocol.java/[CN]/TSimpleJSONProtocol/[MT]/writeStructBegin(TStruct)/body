@@ -1,0 +1,5 @@
+{
+  writeContext_.write();
+  trans_.write(LBRACE);
+  pushWriteContext(new StructContext());
+}

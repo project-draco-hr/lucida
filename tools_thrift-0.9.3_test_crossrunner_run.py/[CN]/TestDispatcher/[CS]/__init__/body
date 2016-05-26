@@ -1,0 +1,18 @@
+def __init__(self, testdir, concurrency):
+    self._log = multiprocessing.get_logger()
+    self.testdir = testdir
+    self._stop = multiprocessing.Event()
+    self._async = (concurrency > 1)
+    if (not self._async):
+        self._pool = None
+        global stop
+        global ports
+        stop = self._stop
+        ports = PortAllocator()
+    else:
+        self._m = multiprocessing.managers.BaseManager()
+        self._m.register('ports', PortAllocator)
+        self._m.start()
+        self._pool = multiprocessing.Pool(concurrency, self._pool_init, (self._m.address,))
+    self._report = SummaryReporter(testdir, (concurrency > 1))
+    self._log.debug(('TestDispatcher started with %d concurrent jobs' % concurrency))

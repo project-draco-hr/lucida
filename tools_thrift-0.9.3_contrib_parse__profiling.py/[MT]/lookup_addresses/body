@@ -1,0 +1,5 @@
+def lookup_addresses(options):
+    '\n    Look up source file information for all of the addresses currently stored\n    in the global list of AddressInfo objects.\n    '
+    global g_addrs_by_filename
+    for (file, addresses) in g_addrs_by_filename.items():
+        translate_file_addresses(file, addresses.values(), options)

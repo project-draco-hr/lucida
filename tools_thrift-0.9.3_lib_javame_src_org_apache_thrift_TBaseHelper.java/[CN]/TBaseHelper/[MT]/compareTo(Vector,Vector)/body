@@ -1,0 +1,15 @@
+{
+  int lastComparison=compareTo(a.size(),b.size());
+  if (lastComparison != 0) {
+    return lastComparison;
+  }
+  for (int i=0; i < a.size(); i++) {
+    Object oA=a.elementAt(i);
+    Object oB=b.elementAt(i);
+    lastComparison=compareTo(oA,oB);
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+  }
+  return 0;
+}

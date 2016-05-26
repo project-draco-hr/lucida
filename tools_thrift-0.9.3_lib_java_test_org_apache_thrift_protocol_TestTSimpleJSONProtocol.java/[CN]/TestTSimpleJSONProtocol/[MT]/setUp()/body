@@ -1,0 +1,4 @@
+{
+  buf=new TMemoryBuffer(1000);
+  proto=new TSimpleJSONProtocol(buf);
+}

@@ -1,0 +1,4 @@
+{
+  readJSONSyntaxChar(RBRACE);
+  popContext();
+}

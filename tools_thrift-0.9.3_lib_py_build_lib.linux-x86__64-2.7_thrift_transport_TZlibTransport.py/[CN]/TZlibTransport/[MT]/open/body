@@ -1,0 +1,4 @@
+def open(self):
+    'Open the underlying transport'
+    self._init_stats()
+    return self.__trans.open()

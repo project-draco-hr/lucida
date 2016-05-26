@@ -1,0 +1,2 @@
+def isOpen(self):
+    return self.__trans.isOpen()

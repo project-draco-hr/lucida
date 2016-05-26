@@ -1,0 +1,11 @@
+{
+  this.keyStore=keyStore;
+  this.keyPass=keyPass;
+  if (keyManagerType != null) {
+    this.keyManagerType=keyManagerType;
+  }
+  if (keyStoreType != null) {
+    this.keyStoreType=keyStoreType;
+  }
+  isKeyStoreSet=true;
+}

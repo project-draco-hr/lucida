@@ -1,0 +1,4 @@
+def flush(self):
+    msg = self._wbuf.getvalue()
+    self._wbuf = StringIO()
+    self._sock.send(msg)

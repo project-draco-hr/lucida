@@ -1,0 +1,13 @@
+{
+  byte[] buf=i16rd;
+  int off=0;
+  if (trans_.getBytesRemainingInBuffer() >= 2) {
+    buf=trans_.getBuffer();
+    off=trans_.getBufferPosition();
+    trans_.consumeBuffer(2);
+  }
+ else {
+    readAll(i16rd,0,2);
+  }
+  return (short)(((buf[off] & 0xff) << 8) | ((buf[off + 1] & 0xff)));
+}

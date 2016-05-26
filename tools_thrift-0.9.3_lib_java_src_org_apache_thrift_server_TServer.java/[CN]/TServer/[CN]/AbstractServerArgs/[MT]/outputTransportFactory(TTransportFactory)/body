@@ -1,0 +1,4 @@
+{
+  this.outputTransportFactory=factory;
+  return (T)this;
+}

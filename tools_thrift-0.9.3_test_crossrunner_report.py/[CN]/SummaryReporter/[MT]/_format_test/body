@@ -1,0 +1,9 @@
+def _format_test(self, test, with_result=True):
+    name = ('%s-%s' % (test.server.name, test.client.name))
+    trans = ('%s-%s' % (test.transport, test.socket))
+    if (not with_result):
+        return '{:19s}{:13s}{:25s}'.format(name[:18], test.protocol[:12], trans[:24])
+    else:
+        result = ('success' if test.success else ('timeout' if test.expired else 'failure'))
+        result_string = ('%s(%d)' % (result, test.returncode))
+        return '{:19s}{:13s}{:25s}{:s}\n'.format(name[:18], test.protocol[:12], trans[:24], result_string)

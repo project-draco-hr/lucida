@@ -1,0 +1,7 @@
+def writeMessageBegin(self, name, type, seqid):
+    assert (self.state == CLEAR)
+    self.__writeUByte(self.PROTOCOL_ID)
+    self.__writeUByte((self.VERSION | (type << self.TYPE_SHIFT_AMOUNT)))
+    self.__writeVarint(seqid)
+    self.__writeString(name)
+    self.state = VALUE_WRITE

@@ -1,0 +1,4 @@
+def readI16(self):
+    buff = self.trans.readAll(2)
+    (val,) = unpack('!h', buff)
+    return val

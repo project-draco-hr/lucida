@@ -1,0 +1,2 @@
+def writeBool(self, bool_val):
+    pass

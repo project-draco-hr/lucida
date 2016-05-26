@@ -1,0 +1,10 @@
+def prepare(self):
+    'Prepares server for serve requests.'
+    if self.prepared:
+        return
+    self.socket.listen()
+    for _ in xrange(self.threads):
+        thread = Worker(self.tasks)
+        thread.setDaemon(True)
+        thread.start()
+    self.prepared = True

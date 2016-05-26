@@ -1,0 +1,9 @@
+{
+  if (transport.read(sizeBuffer) < 0) {
+    throw new IOException("Read call frame size failed");
+  }
+  if (sizeBuffer.remaining() == 0) {
+    state=State.READING_RESPONSE_BODY;
+    frameBuffer=ByteBuffer.allocate(TFramedTransport.decodeFrameSize(sizeBufferArray));
+  }
+}

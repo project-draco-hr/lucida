@@ -1,0 +1,9 @@
+def writeCollectionBegin(self, etype, size):
+    assert (self.state in (VALUE_WRITE, CONTAINER_WRITE)), self.state
+    if (size <= 14):
+        self.__writeUByte(((size << 4) | CTYPES[etype]))
+    else:
+        self.__writeUByte((240 | CTYPES[etype]))
+        self.__writeSize(size)
+    self.__containers.append(self.state)
+    self.state = CONTAINER_WRITE

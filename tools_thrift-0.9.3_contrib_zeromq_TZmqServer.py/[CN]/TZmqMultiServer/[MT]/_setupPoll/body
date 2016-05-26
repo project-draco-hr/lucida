@@ -1,0 +1,7 @@
+def _setupPoll(self):
+    server_map = {}
+    poller = zmq.Poller()
+    for server in self.servers:
+        server_map[server.socket] = server
+        poller.register(server.socket, zmq.POLLIN)
+    return (server_map, poller)

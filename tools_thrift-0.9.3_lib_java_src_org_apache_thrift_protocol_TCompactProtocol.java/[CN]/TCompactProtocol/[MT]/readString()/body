@@ -1,0 +1,20 @@
+{
+  int length=readVarint32();
+  checkStringReadLength(length);
+  if (length == 0) {
+    return "";
+  }
+  try {
+    if (trans_.getBytesRemainingInBuffer() >= length) {
+      String str=new String(trans_.getBuffer(),trans_.getBufferPosition(),length,"UTF-8");
+      trans_.consumeBuffer(length);
+      return str;
+    }
+ else {
+      return new String(readBinary(length),"UTF-8");
+    }
+  }
+ catch (  UnsupportedEncodingException e) {
+    throw new TException("UTF-8 not supported!");
+  }
+}

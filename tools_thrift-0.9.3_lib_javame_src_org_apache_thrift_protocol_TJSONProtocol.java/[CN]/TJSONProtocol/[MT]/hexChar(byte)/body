@@ -1,0 +1,9 @@
+{
+  val&=0x0F;
+  if (val < 10) {
+    return (byte)((char)val + '0');
+  }
+ else {
+    return (byte)((char)(val - 10) + 'a');
+  }
+}

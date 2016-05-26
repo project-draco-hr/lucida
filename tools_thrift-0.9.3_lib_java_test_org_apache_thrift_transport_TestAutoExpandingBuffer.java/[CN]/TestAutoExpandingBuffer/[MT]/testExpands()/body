@@ -1,0 +1,8 @@
+{
+  AutoExpandingBuffer b=new AutoExpandingBuffer(10,1.5);
+  assertEquals(10,b.array().length);
+  b.resizeIfNecessary(8);
+  assertEquals(10,b.array().length);
+  b.resizeIfNecessary(100);
+  assertTrue(b.array().length >= 100);
+}

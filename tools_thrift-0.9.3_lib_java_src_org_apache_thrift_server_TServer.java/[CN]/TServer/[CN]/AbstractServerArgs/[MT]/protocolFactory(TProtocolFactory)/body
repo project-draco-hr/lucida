@@ -1,0 +1,5 @@
+{
+  this.inputProtocolFactory=factory;
+  this.outputProtocolFactory=factory;
+  return (T)this;
+}

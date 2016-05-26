@@ -1,0 +1,5 @@
+def _serialize(self, obj):
+    trans = TTransport.TMemoryBuffer()
+    prot = self.protocol_factory.getProtocol(trans)
+    obj.write(prot)
+    return trans.getvalue()

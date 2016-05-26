@@ -1,0 +1,8 @@
+{
+  if (___currentMethod != null) {
+    throw new IllegalStateException("Client is currently executing another method: " + ___currentMethod.getClass().getName());
+  }
+  if (___error != null) {
+    throw new IllegalStateException("Client has an error!",___error);
+  }
+}

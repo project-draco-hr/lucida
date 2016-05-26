@@ -1,0 +1,2 @@
+def testByte(self, b):
+    return b

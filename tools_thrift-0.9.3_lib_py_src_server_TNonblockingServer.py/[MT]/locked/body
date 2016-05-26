@@ -1,0 +1,10 @@
+def locked(func):
+    'Decorator which locks self.lock.'
+
+    def nested(self, *args, **kwargs):
+        self.lock.acquire()
+        try:
+            return func(self, *args, **kwargs)
+        finally:
+            self.lock.release()
+    return nested

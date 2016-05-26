@@ -1,0 +1,3 @@
+{
+  writeBuffer.write(buf,off,len);
+}

@@ -1,0 +1,3 @@
+from thrift.Thrift import TMessageType
+from thrift.protocol import TProtocolDecorator
+SEPARATOR = ':'

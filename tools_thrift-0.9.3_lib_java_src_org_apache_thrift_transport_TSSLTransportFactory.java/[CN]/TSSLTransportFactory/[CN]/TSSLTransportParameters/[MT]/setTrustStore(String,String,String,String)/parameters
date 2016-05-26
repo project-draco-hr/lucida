@@ -1,0 +1,4 @@
+String trustStore
+String trustPass
+String trustManagerType
+String trustStoreType

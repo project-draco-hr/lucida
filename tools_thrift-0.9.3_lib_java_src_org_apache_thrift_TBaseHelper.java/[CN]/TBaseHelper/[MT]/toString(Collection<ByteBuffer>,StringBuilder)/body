@@ -1,0 +1,20 @@
+{
+  Iterator<ByteBuffer> it=bbs.iterator();
+  if (!it.hasNext()) {
+    sb.append("[]");
+  }
+ else {
+    sb.append("[");
+    while (true) {
+      ByteBuffer bb=it.next();
+      org.apache.thrift.TBaseHelper.toString(bb,sb);
+      if (!it.hasNext()) {
+        sb.append("]");
+        return;
+      }
+ else {
+        sb.append(", ");
+      }
+    }
+  }
+}

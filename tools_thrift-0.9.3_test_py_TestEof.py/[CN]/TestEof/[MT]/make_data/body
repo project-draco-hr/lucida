@@ -1,0 +1,15 @@
+def make_data(self, pfactory=None):
+    trans = TTransport.TMemoryBuffer()
+    if pfactory:
+        prot = pfactory.getProtocol(trans)
+    else:
+        prot = TBinaryProtocol.TBinaryProtocol(trans)
+    x = Xtruct()
+    x.string_thing = 'Zero'
+    x.byte_thing = 0
+    x.write(prot)
+    x = Xtruct()
+    x.string_thing = 'One'
+    x.byte_thing = 1
+    x.write(prot)
+    return trans.getvalue()

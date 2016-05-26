@@ -1,0 +1,10 @@
+{
+  final File thriftFile=new File(testRootDir,"missing.thrift");
+  assertTrue(thriftFile.createNewFile());
+  try {
+    builder.addThriftFile(thriftFile);
+    fail("Expected IllegalStateException");
+  }
+ catch (  IllegalStateException e) {
+  }
+}

@@ -1,0 +1,4 @@
+{
+  popContext();
+  trans_.write(RBRACKET);
+}

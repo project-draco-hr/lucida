@@ -1,0 +1,5 @@
+def flush(self):
+    out = self.__wbuf.getvalue()
+    self.__wbuf = StringIO()
+    self.__trans.write(out)
+    self.__trans.flush()

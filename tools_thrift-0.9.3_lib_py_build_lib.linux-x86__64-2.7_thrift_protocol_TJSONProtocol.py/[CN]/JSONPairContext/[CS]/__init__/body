@@ -1,0 +1,3 @@
+def __init__(self, protocol):
+    super(JSONPairContext, self).__init__(protocol)
+    self.colon = True

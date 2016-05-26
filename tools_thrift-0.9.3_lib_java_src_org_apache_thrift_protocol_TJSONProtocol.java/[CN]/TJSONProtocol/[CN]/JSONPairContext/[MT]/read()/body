@@ -1,0 +1,10 @@
+{
+  if (first_) {
+    first_=false;
+    colon_=true;
+  }
+ else {
+    readJSONSyntaxChar(colon_ ? COLON : COMMA);
+    colon_=!colon_;
+  }
+}

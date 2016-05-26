@@ -1,0 +1,4 @@
+def setNumThreads(self, num):
+    'Set the number of worker threads that should be created.'
+    assert (not self.prepared), "Can't change number of threads after start"
+    self.threads = num

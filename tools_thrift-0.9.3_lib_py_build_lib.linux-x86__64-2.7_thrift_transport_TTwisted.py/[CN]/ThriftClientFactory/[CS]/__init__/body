@@ -1,0 +1,7 @@
+def __init__(self, client_class, iprot_factory, oprot_factory=None):
+    self.client_class = client_class
+    self.iprot_factory = iprot_factory
+    if (oprot_factory is None):
+        self.oprot_factory = iprot_factory
+    else:
+        self.oprot_factory = oprot_factory

@@ -1,0 +1,5 @@
+def _read_frame(self):
+    header = self.transport.readAll(4)
+    (length,) = unpack('!i', header)
+    encoded = self.transport.readAll(length)
+    self.__rbuf = StringIO(self.sasl.unwrap(encoded))

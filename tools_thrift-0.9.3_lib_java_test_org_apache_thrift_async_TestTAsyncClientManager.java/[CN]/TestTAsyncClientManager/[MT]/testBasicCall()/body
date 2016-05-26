@@ -1,0 +1,4 @@
+{
+  Srv.AsyncClient client=getClient();
+  basicCall(client);
+}

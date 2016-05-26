@@ -1,0 +1,4 @@
+{
+  contextStack_.push(context_);
+  context_=c;
+}

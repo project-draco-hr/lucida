@@ -1,0 +1,2 @@
+def successful(self):
+    return (self._value == 0)

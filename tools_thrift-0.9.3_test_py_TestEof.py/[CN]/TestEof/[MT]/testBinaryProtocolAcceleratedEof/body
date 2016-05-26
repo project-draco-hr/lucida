@@ -1,0 +1,4 @@
+def testBinaryProtocolAcceleratedEof(self):
+    'Test that TBinaryProtocolAccelerated throws an EOFError when it reaches the end of the stream'
+    self.eofTestHelper(TBinaryProtocol.TBinaryProtocolAcceleratedFactory())
+    self.eofTestHelperStress(TBinaryProtocol.TBinaryProtocolAcceleratedFactory())

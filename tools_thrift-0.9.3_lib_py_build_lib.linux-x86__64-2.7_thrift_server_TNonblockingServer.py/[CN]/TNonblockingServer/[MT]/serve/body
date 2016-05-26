@@ -1,0 +1,6 @@
+def serve(self):
+    'Serve requests.\n\n        Serve requests forever, or until stop() is called.\n        '
+    self._stop = False
+    self.prepare()
+    while (not self._stop):
+        self.handle()

@@ -1,5 +1,0 @@
-{
-  if (that == null)   return false;
-  if (that instanceof create_args)   return this.equals((create_args)that);
-  return false;
-}

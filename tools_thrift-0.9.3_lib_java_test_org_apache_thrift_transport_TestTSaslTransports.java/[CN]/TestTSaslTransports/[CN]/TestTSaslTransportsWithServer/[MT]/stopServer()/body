@@ -1,0 +1,8 @@
+{
+  server.stop();
+  try {
+    serverThread.join();
+  }
+ catch (  InterruptedException e) {
+  }
+}

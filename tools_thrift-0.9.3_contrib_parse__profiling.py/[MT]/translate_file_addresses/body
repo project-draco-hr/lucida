@@ -1,0 +1,33 @@
+def translate_file_addresses(filename, addresses, options):
+    '\n    Use addr2line to look up information for the specified addresses.\n    All of the addresses must belong to the same object file.\n    '
+    if (not os.path.isfile(filename)):
+        return
+    args = ['addr2line']
+    if options.printFunctions:
+        args.append('-f')
+    args.extend(['-e', filename])
+    proc = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    for address in addresses:
+        assert (address.objectFile == filename)
+        proc.stdin.write((address.address + '\n'))
+        if options.printFunctions:
+            function = proc.stdout.readline()
+            function = function.strip()
+            if (not function):
+                raise Exception('unexpected EOF from addr2line')
+            address.function = function
+        file_and_line = proc.stdout.readline()
+        file_and_line = file_and_line.strip()
+        if (not file_and_line):
+            raise Exception('unexpected EOF from addr2line')
+        idx = file_and_line.rfind(':')
+        if (idx < 0):
+            msg = ('expected file and line number from addr2line; got %r' % (file_and_line,))
+            msg += ('\nfile=%r, address=%r' % (filename, address.address))
+            raise Exception(msg)
+        address.sourceFile = file_and_line[:idx]
+        address.sourceLine = file_and_line[(idx + 1):]
+    (remaining_out, cmd_err) = proc.communicate()
+    retcode = proc.wait()
+    if (retcode != 0):
+        raise subprocess.CalledProcessError(retcode, args)

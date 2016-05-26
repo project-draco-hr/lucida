@@ -1,0 +1,12 @@
+{
+  stopped_=true;
+  stopListening();
+  if (acceptThread != null) {
+    acceptThread.wakeupSelector();
+  }
+  if (selectorThreads != null) {
+    for (    SelectorThread thread : selectorThreads) {
+      if (thread != null)       thread.wakeupSelector();
+    }
+  }
+}

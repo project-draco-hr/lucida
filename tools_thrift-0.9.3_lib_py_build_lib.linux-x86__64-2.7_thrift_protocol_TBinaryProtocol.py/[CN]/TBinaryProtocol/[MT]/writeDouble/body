@@ -1,0 +1,3 @@
+def writeDouble(self, dub):
+    buff = pack('!d', dub)
+    self.trans.write(buff)

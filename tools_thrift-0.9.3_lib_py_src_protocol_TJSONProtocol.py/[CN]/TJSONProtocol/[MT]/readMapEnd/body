@@ -1,0 +1,3 @@
+def readMapEnd(self):
+    self.readJSONObjectEnd()
+    self.readJSONArrayEnd()

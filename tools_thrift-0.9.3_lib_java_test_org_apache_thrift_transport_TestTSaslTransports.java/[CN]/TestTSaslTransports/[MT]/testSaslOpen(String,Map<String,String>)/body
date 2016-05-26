@@ -1,0 +1,43 @@
+{
+  ServerThread serverThread=new ServerThread(mechanism,props);
+  serverThread.start();
+  try {
+    Thread.sleep(1000);
+  }
+ catch (  InterruptedException e) {
+  }
+  try {
+    TSocket clientSocket=new TSocket(HOST,ServerTestBase.PORT);
+    TTransport saslClientTransport=new TSaslClientTransport(mechanism,PRINCIPAL,SERVICE,HOST,props,new TestSaslCallbackHandler(PASSWORD),clientSocket);
+    saslClientTransport.open();
+    LOGGER.debug("client writing: {}",testMessage1);
+    saslClientTransport.write(testMessage1.getBytes());
+    saslClientTransport.flush();
+    byte[] inBuf=new byte[testMessage2.getBytes().length];
+    saslClientTransport.readAll(inBuf,0,inBuf.length);
+    LOGGER.debug("client got: {}",new String(inBuf));
+    assertEquals(new String(inBuf),testMessage2);
+    TTransportException expectedException=null;
+    try {
+      saslClientTransport.open();
+    }
+ catch (    TTransportException e) {
+      expectedException=e;
+    }
+    assertNotNull(expectedException);
+    saslClientTransport.close();
+  }
+ catch (  Exception e) {
+    LOGGER.warn("Exception caught",e);
+    throw e;
+  }
+ finally {
+    serverThread.interrupt();
+    try {
+      serverThread.join();
+    }
+ catch (    InterruptedException e) {
+    }
+    assertNull(serverThread.thrown);
+  }
+}

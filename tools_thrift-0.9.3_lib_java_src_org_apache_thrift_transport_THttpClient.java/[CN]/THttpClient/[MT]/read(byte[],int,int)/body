@@ -1,0 +1,15 @@
+{
+  if (inputStream_ == null) {
+    throw new TTransportException("Response buffer is empty, no request.");
+  }
+  try {
+    int ret=inputStream_.read(buf,off,len);
+    if (ret == -1) {
+      throw new TTransportException("No more data available.");
+    }
+    return ret;
+  }
+ catch (  IOException iox) {
+    throw new TTransportException(iox);
+  }
+}

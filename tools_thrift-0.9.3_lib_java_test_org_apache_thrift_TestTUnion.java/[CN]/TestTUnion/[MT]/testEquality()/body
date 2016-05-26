@@ -1,0 +1,9 @@
+{
+  TestUnion union=new TestUnion(TestUnion._Fields.I32_FIELD,25);
+  TestUnion otherUnion=new TestUnion(TestUnion._Fields.STRING_FIELD,"blah!!!");
+  assertFalse(union.equals(otherUnion));
+  otherUnion=new TestUnion(TestUnion._Fields.I32_FIELD,400);
+  assertFalse(union.equals(otherUnion));
+  otherUnion=new TestUnion(TestUnion._Fields.OTHER_I32_FIELD,25);
+  assertFalse(union.equals(otherUnion));
+}

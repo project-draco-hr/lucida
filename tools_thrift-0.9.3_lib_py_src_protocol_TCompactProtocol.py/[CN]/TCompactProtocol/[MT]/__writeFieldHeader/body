@@ -1,0 +1,8 @@
+def __writeFieldHeader(self, type, fid):
+    delta = (fid - self.__last_fid)
+    if (0 < delta <= 15):
+        self.__writeUByte(((delta << 4) | type))
+    else:
+        self.__writeByte(type)
+        self.__writeI16(fid)
+    self.__last_fid = fid

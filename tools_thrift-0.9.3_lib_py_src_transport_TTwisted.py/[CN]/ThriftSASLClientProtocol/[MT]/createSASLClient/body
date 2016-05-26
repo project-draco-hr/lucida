@@ -1,0 +1,2 @@
+def createSASLClient(self, host, service, mechanism, **kwargs):
+    self.sasl = self.SASLClient(host, service, mechanism, **kwargs)

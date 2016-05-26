@@ -1,0 +1,3 @@
+def testOnewayThenNormal(self):
+    self.client.testOneway(1)
+    self.assertEqual(self.client.testString('Python'), 'Python')

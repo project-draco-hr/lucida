@@ -1,0 +1,10 @@
+'\nThis script can be used to make the output from\napache::thrift::profile_print_info() more human-readable.\n\nIt translates each executable file name and address into the corresponding\nsource file name, line number, and function name.  By default, it also\ndemangles C++ symbol names.\n'
+import optparse
+import os
+import re
+import subprocess
+import sys
+g_addrs_by_filename = {}
+if (__name__ == '__main__'):
+    rc = main(sys.argv)
+    sys.exit(rc)

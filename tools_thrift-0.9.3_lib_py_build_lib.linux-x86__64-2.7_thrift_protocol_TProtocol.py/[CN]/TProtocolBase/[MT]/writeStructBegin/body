@@ -1,0 +1,2 @@
+def writeStructBegin(self, name):
+    pass

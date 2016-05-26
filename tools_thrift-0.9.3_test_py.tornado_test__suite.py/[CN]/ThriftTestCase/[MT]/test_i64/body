@@ -1,0 +1,4 @@
+@gen_test
+def test_i64(self):
+    v = yield self.client.testI64((-34359738368))
+    self.assertEqual(v, (-34359738368))

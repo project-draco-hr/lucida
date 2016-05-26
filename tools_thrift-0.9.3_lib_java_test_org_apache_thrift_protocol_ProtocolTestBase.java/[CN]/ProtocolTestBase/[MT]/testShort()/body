@@ -1,0 +1,8 @@
+{
+  for (  int s : Arrays.asList(0,1,7,150,15000,0x7fff,-1,-7,-150,-15000,-0x7fff)) {
+    if (canBeUsedNaked()) {
+      internalTestNakedI16((short)s);
+    }
+    internalTestI16Field((short)s);
+  }
+}

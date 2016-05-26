@@ -1,0 +1,4 @@
+def testNest(self, thing):
+    if (options.verbose > 1):
+        print ('testNest(%s)' % thing)
+    return thing

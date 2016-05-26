@@ -1,0 +1,25 @@
+def __str__(self):
+    if self.message:
+        return self.message
+    elif (self.type == self.UNKNOWN_METHOD):
+        return 'Unknown method'
+    elif (self.type == self.INVALID_MESSAGE_TYPE):
+        return 'Invalid message type'
+    elif (self.type == self.WRONG_METHOD_NAME):
+        return 'Wrong method name'
+    elif (self.type == self.BAD_SEQUENCE_ID):
+        return 'Bad sequence ID'
+    elif (self.type == self.MISSING_RESULT):
+        return 'Missing result'
+    elif (self.type == self.INTERNAL_ERROR):
+        return 'Internal error'
+    elif (self.type == self.PROTOCOL_ERROR):
+        return 'Protocol error'
+    elif (self.type == self.INVALID_TRANSFORM):
+        return 'Invalid transform'
+    elif (self.type == self.INVALID_PROTOCOL):
+        return 'Invalid protocol'
+    elif (self.type == self.UNSUPPORTED_CLIENT_TYPE):
+        return 'Unsupported client type'
+    else:
+        return 'Default (unknown) TApplicationException'

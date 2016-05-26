@@ -1,0 +1,2 @@
+def __writeVarint(self, n):
+    writeVarint(self.trans, n)

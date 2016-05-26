@@ -1,0 +1,24 @@
+{
+  ByteArrayOutputStream baos=new ByteArrayOutputStream();
+  WriteCountingTransport countingTrans=new WriteCountingTransport(new TIOStreamTransport(new BufferedOutputStream(baos)));
+  TTransport trans=getTransport(countingTrans);
+  trans.write(byteSequence(0,100));
+  assertEquals(0,countingTrans.writeCount);
+  trans.write(byteSequence(101,200));
+  trans.write(byteSequence(201,255));
+  assertEquals(0,countingTrans.writeCount);
+  trans.flush();
+  assertEquals(2,countingTrans.writeCount);
+  trans.write(byteSequence(0,245));
+  trans.flush();
+  assertEquals(4,countingTrans.writeCount);
+  DataInputStream din=new DataInputStream(new ByteArrayInputStream(baos.toByteArray()));
+  assertEquals(256,din.readInt());
+  byte[] buf=new byte[256];
+  din.read(buf,0,256);
+  assertTrue(Arrays.equals(byteSequence(0,255),buf));
+  assertEquals(246,din.readInt());
+  buf=new byte[246];
+  din.read(buf,0,246);
+  assertTrue(Arrays.equals(byteSequence(0,245),buf));
+}

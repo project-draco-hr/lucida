@@ -1,0 +1,5 @@
+{
+  writeByte(map.keyType);
+  writeByte(map.valueType);
+  writeI32(map.size);
+}

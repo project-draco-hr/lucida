@@ -1,0 +1,4 @@
+def readSetBegin(self):
+    etype = self.readByte()
+    size = self.readI32()
+    return (etype, size)

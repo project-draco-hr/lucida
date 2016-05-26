@@ -1,0 +1,4 @@
+def testString(self):
+    print 'testString'
+    self.assertEqual(self.client.testString(('Python' * 20)), ('Python' * 20))
+    self.assertEqual(self.client.testString(''), '')

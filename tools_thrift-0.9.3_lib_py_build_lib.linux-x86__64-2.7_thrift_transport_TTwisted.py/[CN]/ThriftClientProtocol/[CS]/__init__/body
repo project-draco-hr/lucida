@@ -1,0 +1,9 @@
+def __init__(self, client_class, iprot_factory, oprot_factory=None):
+    self._client_class = client_class
+    self._iprot_factory = iprot_factory
+    if (oprot_factory is None):
+        self._oprot_factory = iprot_factory
+    else:
+        self._oprot_factory = oprot_factory
+    self.recv_map = {}
+    self.started = defer.Deferred()

@@ -1,0 +1,4 @@
+{
+  name_=name;
+  alive_=System.currentTimeMillis() / 1000;
+}

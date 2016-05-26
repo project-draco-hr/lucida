@@ -1,0 +1,5 @@
+{
+  i16out[0]=(byte)(0xff & (i16 >> 8));
+  i16out[1]=(byte)(0xff & (i16));
+  trans_.write(i16out,0,2);
+}

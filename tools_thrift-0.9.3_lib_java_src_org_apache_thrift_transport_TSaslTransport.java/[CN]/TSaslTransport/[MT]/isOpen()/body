@@ -1,0 +1,3 @@
+{
+  return underlyingTransport.isOpen() && sasl != null && sasl.isComplete();
+}

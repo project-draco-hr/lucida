@@ -1,0 +1,8 @@
+{
+  int length=writeBuffer.getPos();
+  TFramedTransport.encodeFrameSize(length,i32buf);
+  underlying.write(i32buf,0,4);
+  underlying.write(writeBuffer.getBuf().array(),0,length);
+  writeBuffer.reset();
+  underlying.flush();
+}

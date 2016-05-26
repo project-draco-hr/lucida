@@ -1,0 +1,11 @@
+{
+  if (null != inputStream_) {
+    try {
+      inputStream_.close();
+    }
+ catch (    IOException ioe) {
+      ;
+    }
+    inputStream_=null;
+  }
+}

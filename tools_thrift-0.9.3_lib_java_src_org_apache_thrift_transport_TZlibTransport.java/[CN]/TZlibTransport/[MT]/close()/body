@@ -1,0 +1,5 @@
+{
+  if (transport_.isOpen()) {
+    transport_.close();
+  }
+}

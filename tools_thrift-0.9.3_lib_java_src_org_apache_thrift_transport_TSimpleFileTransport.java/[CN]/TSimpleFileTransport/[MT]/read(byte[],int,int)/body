@@ -1,0 +1,14 @@
+{
+  if (!readable) {
+    throw new TTransportException("Read operation on write only file");
+  }
+  int iBytesRead=0;
+  try {
+    iBytesRead=file.read(buf,off,len);
+  }
+ catch (  IOException ioe) {
+    file=null;
+    throw new TTransportException(ioe.getMessage());
+  }
+  return iBytesRead;
+}

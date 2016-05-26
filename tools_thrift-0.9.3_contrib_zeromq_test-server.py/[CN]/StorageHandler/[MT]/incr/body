@@ -1,0 +1,2 @@
+def incr(self, amount):
+    self.value += amount

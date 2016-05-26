@@ -1,0 +1,4 @@
+{
+  readCount++;
+  return trans.read(buf,off,len);
+}

@@ -1,0 +1,4 @@
+def __init__(self, trans, strictRead=False, strictWrite=True):
+    TProtocolBase.__init__(self, trans)
+    self.strictRead = strictRead
+    self.strictWrite = strictWrite

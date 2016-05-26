@@ -1,0 +1,19 @@
+def readContainerMap(self, spec):
+    results = dict()
+    (key_ttype, key_spec) = (spec[0], spec[1])
+    (val_ttype, val_spec) = (spec[2], spec[3])
+    (map_ktype, map_vtype, map_len) = self.readMapBegin()
+    key_reader = getattr(self, self._TTYPE_HANDLERS[key_ttype][0])
+    val_reader = getattr(self, self._TTYPE_HANDLERS[val_ttype][0])
+    for idx in xrange(map_len):
+        if (key_spec is None):
+            k_val = key_reader()
+        else:
+            k_val = self.readFieldByTType(key_ttype, key_spec)
+        if (val_spec is None):
+            v_val = val_reader()
+        else:
+            v_val = self.readFieldByTType(val_ttype, val_spec)
+        results[k_val] = v_val
+    self.readMapEnd()
+    return results

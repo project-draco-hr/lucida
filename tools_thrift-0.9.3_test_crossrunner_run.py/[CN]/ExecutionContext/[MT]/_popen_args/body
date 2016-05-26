@@ -1,0 +1,8 @@
+def _popen_args(self):
+    args = {'cwd': self.cwd, 'env': self.env, 'stdout': self.report.out, 'stderr': subprocess.STDOUT, }
+    if (platform.system() == 'Windows'):
+        DETACHED_PROCESS = 8
+        args.update(creationflags=(DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP))
+    else:
+        args.update(preexec_fn=os.setsid)
+    return args

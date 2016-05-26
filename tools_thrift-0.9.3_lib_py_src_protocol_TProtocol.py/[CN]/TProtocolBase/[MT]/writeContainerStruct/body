@@ -1,0 +1,2 @@
+def writeContainerStruct(self, val, spec):
+    val.write(self)

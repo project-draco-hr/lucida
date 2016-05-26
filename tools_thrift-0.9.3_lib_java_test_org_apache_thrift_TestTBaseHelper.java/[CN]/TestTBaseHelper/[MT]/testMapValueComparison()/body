@@ -1,0 +1,7 @@
+{
+  Map<String,String> a=new HashMap<String,String>();
+  Map<String,String> b=new HashMap<String,String>();
+  a.put("a","b");
+  b.put("a","a");
+  assertTrue(TBaseHelper.compareTo(a,b) > 0);
+}

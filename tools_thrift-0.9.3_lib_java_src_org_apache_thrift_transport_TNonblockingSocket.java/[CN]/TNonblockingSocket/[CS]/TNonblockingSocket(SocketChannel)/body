@@ -1,0 +1,4 @@
+{
+  this(socketChannel,0,null);
+  if (!socketChannel.isConnected())   throw new IOException("Socket must already be connected");
+}

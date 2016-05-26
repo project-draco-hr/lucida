@@ -1,0 +1,13 @@
+def fb_status_string(status_enum):
+    if (status_enum == fb_status.DEAD):
+        return 'DEAD'
+    if (status_enum == fb_status.STARTING):
+        return 'STARTING'
+    if (status_enum == fb_status.ALIVE):
+        return 'ALIVE'
+    if (status_enum == fb_status.STOPPING):
+        return 'STOPPING'
+    if (status_enum == fb_status.STOPPED):
+        return 'STOPPED'
+    if (status_enum == fb_status.WARNING):
+        return 'WARNING'

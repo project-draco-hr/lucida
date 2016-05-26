@@ -1,0 +1,6 @@
+{
+  boolean t=testClient.testBool(true);
+  assertEquals(true,t);
+  boolean f=testClient.testBool(false);
+  assertEquals(false,f);
+}

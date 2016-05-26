@@ -1,0 +1,2 @@
+def getCounters(self):
+    return self.counters

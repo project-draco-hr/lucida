@@ -1,0 +1,11 @@
+{
+  if (selectorThreads <= 0) {
+    throw new IllegalArgumentException("selectorThreads must be positive.");
+  }
+  if (workerThreads < 0) {
+    throw new IllegalArgumentException("workerThreads must be non-negative.");
+  }
+  if (acceptQueueSizePerThread <= 0) {
+    throw new IllegalArgumentException("acceptQueueSizePerThread must be positive.");
+  }
+}

@@ -1,0 +1,4 @@
+def connectionMade(self):
+    tmo = TCallbackTransport(self.dispatch)
+    self.client = self._client_class(tmo, self._oprot_factory)
+    self.started.callback(self.client)

@@ -1,0 +1,16 @@
+{
+  if (state_ == FrameBufferState.AWAITING_REGISTER_WRITE) {
+    selectionKey_.interestOps(SelectionKey.OP_WRITE);
+    state_=FrameBufferState.WRITING;
+  }
+ else   if (state_ == FrameBufferState.AWAITING_REGISTER_READ) {
+    prepareRead();
+  }
+ else   if (state_ == FrameBufferState.AWAITING_CLOSE) {
+    close();
+    selectionKey_.cancel();
+  }
+ else {
+    LOGGER.error("changeSelectInterest was called, but state is invalid (" + state_ + ")");
+  }
+}

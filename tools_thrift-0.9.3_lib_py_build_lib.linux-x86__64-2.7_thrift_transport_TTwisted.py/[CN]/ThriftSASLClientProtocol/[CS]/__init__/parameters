@@ -1,0 +1,7 @@
+self
+client_class
+iprot_factory
+oprot_factory
+host
+service
+mechanism

@@ -1,0 +1,11 @@
+def end(self, returncode):
+    self._lock.acquire()
+    try:
+        if (self.out and (not self.out.closed)):
+            self._print_footer(returncode)
+            self._close()
+            self.out = None
+        else:
+            self._log.debug('Output stream is not available.')
+    finally:
+        self._lock.release()

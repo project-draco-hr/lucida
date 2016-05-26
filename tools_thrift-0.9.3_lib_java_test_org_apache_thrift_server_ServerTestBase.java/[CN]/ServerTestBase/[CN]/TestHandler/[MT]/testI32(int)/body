@@ -1,0 +1,4 @@
+{
+  System.out.print("testI32(" + thing + ")\n");
+  return thing;
+}

@@ -1,0 +1,53 @@
+'\nthrift --gen py DebugProtoTest.thrift\n./FastbinaryTest.py\n'
+import sys
+sys.path.append('./gen-py')
+import math
+from DebugProtoTest import Srv
+from DebugProtoTest.ttypes import *
+from thrift.transport import TTransport
+from thrift.protocol import TBinaryProtocol
+import timeit
+from cStringIO import StringIO
+from copy import deepcopy
+from pprint import pprint
+ooe1 = OneOfEach()
+ooe1.im_true = True
+ooe1.im_false = False
+ooe1.a_bite = 214
+ooe1.integer16 = 27000
+ooe1.integer32 = (1 << 24)
+ooe1.integer64 = ((6000 * 1000) * 1000)
+ooe1.double_precision = math.pi
+ooe1.some_characters = 'Debug THIS!'
+ooe1.zomg_unicode = '\xd7\n\x07\t'
+ooe2 = OneOfEach()
+ooe2.integer16 = 16
+ooe2.integer32 = 32
+ooe2.integer64 = 64
+ooe2.double_precision = ((math.sqrt(5) + 1) / 2)
+ooe2.some_characters = ':R (me going "rrrr")'
+ooe2.zomg_unicode = '\xd3\x80\xe2\x85\xae\xce\x9d \xd0\x9d\xce\xbf\xe2\x85\xbf\xd0\xbe\xc9\xa1\xd0\xb3\xd0\xb0\xcf\x81\xe2\x84\x8e \xce\x91tt\xce\xb1\xe2\x85\xbd\xce\xba\xc7\x83\xe2\x80\xbc'
+hm = HolyMoley({'big': [], 'contain': set(), 'bonks': {}, })
+hm.big.append(ooe1)
+hm.big.append(ooe2)
+hm.big[0].a_bite = 34
+hm.big[1].a_bite = 34
+hm.contain.add(('and a one', 'and a two'))
+hm.contain.add(('then a one, two', 'three!', 'FOUR!'))
+hm.contain.add(())
+hm.bonks['nothing'] = []
+hm.bonks['something'] = [Bonk({'type': 1, 'message': 'Wait.', }), Bonk({'type': 2, 'message': 'What?', })]
+hm.bonks['poe'] = [Bonk({'type': 3, 'message': 'quoth', }), Bonk({'type': 4, 'message': 'the raven', }), Bonk({'type': 5, 'message': 'nevermore', })]
+rs = RandomStuff()
+rs.a = 1
+rs.b = 2
+rs.c = 3
+rs.myintlist = range(20)
+rs.maps = {1: Wrapper({'foo': Empty(), }), 2: Wrapper({'foo': Empty(), }), }
+rs.bigint = 124523452435L
+rs.triple = 3.14
+rshuge = RandomStuff()
+rshuge.myintlist = range(10000)
+my_zero = Srv.Janky_result({'arg': 5, })
+doTest()
+doBenchmark()

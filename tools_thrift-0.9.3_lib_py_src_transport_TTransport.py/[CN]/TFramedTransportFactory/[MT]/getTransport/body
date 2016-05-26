@@ -1,0 +1,3 @@
+def getTransport(self, trans):
+    framed = TFramedTransport(trans)
+    return framed

@@ -1,0 +1,2 @@
+def resetCounter(self, key):
+    self.counters[key] = 0

@@ -1,0 +1,39 @@
+@gen.engine
+def communicate(callback=None):
+    transport = TTornado.TTornadoStreamTransport('localhost', 9090)
+    pfactory = TBinaryProtocol.TBinaryProtocolFactory()
+    client = Calculator.Client(transport, pfactory)
+    try:
+        yield gen.Task(transport.open)
+    except TTransport.TTransportException as ex:
+        logging.error(ex)
+        if callback:
+            callback()
+        return
+    yield gen.Task(client.ping)
+    print 'ping()'
+    sum_ = yield gen.Task(client.add, 1, 1)
+    print '1 + 1 = {}'.format(sum_)
+    client.zip()
+    print 'zip() without callback'
+    yield gen.Task(client.zip)
+    print 'zip() with callback'
+    work = Work()
+    work.op = Operation.DIVIDE
+    work.num1 = 1
+    work.num2 = 0
+    try:
+        quotient = yield gen.Task(client.calculate, 1, work)
+        print 'Whoa? You know how to divide by zero?'
+    except InvalidOperation as io:
+        print 'InvalidOperation: {}'.format(io)
+    work.op = Operation.SUBTRACT
+    work.num1 = 15
+    work.num2 = 10
+    diff = yield gen.Task(client.calculate, 1, work)
+    print '15 - 10 = {}'.format(diff)
+    log = yield gen.Task(client.getStruct, 1)
+    print 'Check log: {}'.format(log.value)
+    client._transport.close()
+    if callback:
+        callback()

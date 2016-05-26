@@ -1,0 +1,2 @@
+def domain_socket_path(port):
+    return ('/tmp/ThriftTest.thrift.%d' % port)

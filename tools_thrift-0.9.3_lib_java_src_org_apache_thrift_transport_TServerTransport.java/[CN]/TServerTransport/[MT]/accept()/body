@@ -1,0 +1,7 @@
+{
+  TTransport transport=acceptImpl();
+  if (transport == null) {
+    throw new TTransportException("accept() may not return NULL");
+  }
+  return transport;
+}

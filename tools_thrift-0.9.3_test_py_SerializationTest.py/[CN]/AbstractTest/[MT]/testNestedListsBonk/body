@@ -1,0 +1,5 @@
+def testNestedListsBonk(self):
+    obj = self._deserialize(NestedListsBonk, self._serialize(self.nested_lists_bonk))
+    self.assertEquals(obj, self.nested_lists_bonk)
+    rep = repr(self.nested_lists_bonk)
+    self.assertTrue((len(rep) > 0))

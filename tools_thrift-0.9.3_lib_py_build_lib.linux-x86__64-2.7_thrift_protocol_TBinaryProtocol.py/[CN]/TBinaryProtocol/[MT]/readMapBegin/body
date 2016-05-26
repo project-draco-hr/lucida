@@ -1,0 +1,5 @@
+def readMapBegin(self):
+    ktype = self.readByte()
+    vtype = self.readByte()
+    size = self.readI32()
+    return (ktype, vtype, size)

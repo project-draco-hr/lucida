@@ -1,0 +1,10 @@
+{
+  if (file != null) {
+    try {
+      file.close();
+    }
+ catch (    Exception e) {
+    }
+    file=null;
+  }
+}

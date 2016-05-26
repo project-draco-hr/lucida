@@ -1,0 +1,2 @@
+def getStatus(self):
+    return fb_status.ALIVE

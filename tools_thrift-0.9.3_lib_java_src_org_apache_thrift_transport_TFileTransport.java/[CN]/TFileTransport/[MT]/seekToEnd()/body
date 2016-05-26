@@ -1,0 +1,4 @@
+{
+  if (!isOpen())   throw new TTransportException(TTransportException.NOT_OPEN,"Must open before seeking");
+  seekToChunk(getNumChunks());
+}

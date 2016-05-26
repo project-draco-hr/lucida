@@ -1,0 +1,6 @@
+@gen_test
+def test_map(self):
+    '\n        TestHandler.testMap is a coroutine, this test checks if gen.Return() from a coroutine works.\n        '
+    expected = {1: 1, }
+    res = yield self.client.testMap(expected)
+    self.assertEqual(res, expected)

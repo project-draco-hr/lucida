@@ -1,0 +1,4 @@
+def testMulti(self):
+    xpected = Xtruct(string_thing='Hello2', byte_thing=74, i32_thing=16711935, i64_thing=281474976698576)
+    y = self.client.testMulti(xpected.byte_thing, xpected.i32_thing, xpected.i64_thing, {0: 'abc', }, Numberz.FIVE, 15790320)
+    self.assertEqual(y, xpected)

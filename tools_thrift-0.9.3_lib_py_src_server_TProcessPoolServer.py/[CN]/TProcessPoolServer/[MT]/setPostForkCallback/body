@@ -1,0 +1,4 @@
+def setPostForkCallback(self, callback):
+    if (not callable(callback)):
+        raise TypeError('This is not a callback!')
+    self.postForkCallback = callback

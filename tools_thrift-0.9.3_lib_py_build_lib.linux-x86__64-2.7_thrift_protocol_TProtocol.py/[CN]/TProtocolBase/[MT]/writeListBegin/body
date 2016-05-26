@@ -1,0 +1,2 @@
+def writeListBegin(self, etype, size):
+    pass

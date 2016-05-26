@@ -1,0 +1,3 @@
+def readJSONQuotes(self):
+    if self.context.escapeNum():
+        self.readJSONSyntaxChar(QUOTE)

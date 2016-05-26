@@ -1,0 +1,12 @@
+{
+  Opt4 x=new Opt4();
+  assertEquals(false,x.isSetDef1());
+  x.setDef1(3);
+  assertEquals(true,x.isSetDef1());
+  assertEquals(false,x.isSetDef2());
+  Opt4 copy=new Opt4(x);
+  assertEquals(true,copy.isSetDef1());
+  copy.unsetDef1();
+  assertEquals(false,copy.isSetDef1());
+  assertEquals(true,x.isSetDef1());
+}

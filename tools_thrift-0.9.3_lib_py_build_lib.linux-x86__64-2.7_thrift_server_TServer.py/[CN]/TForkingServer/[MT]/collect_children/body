@@ -1,0 +1,10 @@
+def collect_children(self):
+    while self.children:
+        try:
+            (pid, status) = os.waitpid(0, os.WNOHANG)
+        except os.error:
+            pid = None
+        if pid:
+            self.children.remove(pid)
+        else:
+            break

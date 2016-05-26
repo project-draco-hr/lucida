@@ -1,0 +1,2 @@
+def __init__(self, test_instance):
+    self.test_instance = test_instance

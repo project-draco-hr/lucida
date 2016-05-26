@@ -1,0 +1,27 @@
+{
+  ShortStack s=new ShortStack(10);
+  s.push((short)10);
+  s.push((short)11);
+  s.push((short)12);
+  assertEquals((short)12,s.peek());
+  assertEquals((short)12,s.peek());
+  assertEquals((short)12,s.pop());
+  assertEquals((short)11,s.pop());
+  s.push((short)40);
+  assertEquals((short)40,s.peek());
+  assertEquals((short)40,s.pop());
+  assertEquals((short)10,s.peek());
+  assertEquals((short)10,s.pop());
+  try {
+    s.peek();
+    fail("should have thrown an exception!");
+  }
+ catch (  Exception e) {
+  }
+  try {
+    s.pop();
+    fail("should have thrown an exception!");
+  }
+ catch (  Exception e) {
+  }
+}

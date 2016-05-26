@@ -1,0 +1,33 @@
+{
+  context_.write();
+  trans_.write(QUOTE);
+  int len=b.length;
+  for (int i=0; i < len; i++) {
+    if ((b[i] & 0x00FF) >= 0x30) {
+      if (b[i] == BACKSLASH[0]) {
+        trans_.write(BACKSLASH);
+        trans_.write(BACKSLASH);
+      }
+ else {
+        trans_.write(b,i,1);
+      }
+    }
+ else {
+      tmpbuf_[0]=JSON_CHAR_TABLE[b[i]];
+      if (tmpbuf_[0] == 1) {
+        trans_.write(b,i,1);
+      }
+ else       if (tmpbuf_[0] > 1) {
+        trans_.write(BACKSLASH);
+        trans_.write(tmpbuf_,0,1);
+      }
+ else {
+        trans_.write(ESCSEQ);
+        tmpbuf_[0]=hexChar((byte)(b[i] >> 4));
+        tmpbuf_[1]=hexChar(b[i]);
+        trans_.write(tmpbuf_,0,2);
+      }
+    }
+  }
+  trans_.write(QUOTE);
+}

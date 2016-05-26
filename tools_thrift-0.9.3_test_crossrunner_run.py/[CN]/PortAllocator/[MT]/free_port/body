@@ -1,0 +1,16 @@
+def free_port(self, socket_type, port):
+    self._log.debug('free_port')
+    self._lock.acquire()
+    try:
+        try:
+            if (socket_type == 'domain'):
+                self._dom_ports.remove(port)
+                path = domain_socket_path(port)
+                if os.path.exists(path):
+                    os.remove(path)
+            else:
+                self._ports.remove(port)
+        except IOError as err:
+            self._log.info(('Error while freeing port : %s' % str(err)))
+    finally:
+        self._lock.release()

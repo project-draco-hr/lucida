@@ -1,0 +1,5 @@
+def testDouble(self):
+    print 'testDouble'
+    self.assertEqual(self.client.testDouble((-5.235098235)), (-5.235098235))
+    self.assertEqual(self.client.testDouble(0), 0)
+    self.assertEqual(self.client.testDouble((-1)), (-1))

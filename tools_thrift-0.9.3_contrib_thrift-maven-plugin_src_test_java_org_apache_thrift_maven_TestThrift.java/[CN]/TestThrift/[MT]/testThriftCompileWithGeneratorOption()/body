@@ -1,0 +1,4 @@
+{
+  builder.setGenerator("java:private-members,hashcode");
+  executeThriftCompile();
+}

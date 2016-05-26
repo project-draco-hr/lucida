@@ -1,0 +1,15 @@
+{
+  SelectionKey key;
+  if (transport.isOpen()) {
+    state=State.WRITING_REQUEST_SIZE;
+    key=transport.registerSelector(sel,SelectionKey.OP_WRITE);
+  }
+ else {
+    state=State.CONNECTING;
+    key=transport.registerSelector(sel,SelectionKey.OP_CONNECT);
+    if (transport.startConnect()) {
+      registerForFirstWrite(key);
+    }
+  }
+  key.attach(this);
+}

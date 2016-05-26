@@ -1,0 +1,11 @@
+def readFieldBegin(self):
+    character = self.reader.peek()
+    ttype = 0
+    id = 0
+    if (character == RBRACE):
+        ttype = TType.STOP
+    else:
+        id = self.readJSONInteger()
+        self.readJSONObjectStart()
+        ttype = JTYPES[self.readJSONString(False)]
+    return (None, ttype, id)

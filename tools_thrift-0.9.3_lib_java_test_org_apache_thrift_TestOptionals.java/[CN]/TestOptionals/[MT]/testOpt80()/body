@@ -1,0 +1,11 @@
+{
+  Opt80 x=new Opt80();
+  assertEquals(false,x.isSetDef1());
+  x.setDef1(3);
+  assertEquals(true,x.isSetDef1());
+  assertEquals(false,x.isSetDef2());
+  Opt80 copy=new Opt80(x);
+  copy.unsetDef1();
+  assertEquals(false,copy.isSetDef1());
+  assertEquals(true,x.isSetDef1());
+}

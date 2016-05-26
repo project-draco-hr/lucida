@@ -1,0 +1,3 @@
+{
+  this(initialCapacity,DEFAULT_MAX_LENGTH);
+}

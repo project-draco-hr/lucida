@@ -1,0 +1,7 @@
+{
+  if (!hasData_) {
+    trans_.readAll(data_,0,1);
+  }
+  hasData_=true;
+  return data_[0];
+}

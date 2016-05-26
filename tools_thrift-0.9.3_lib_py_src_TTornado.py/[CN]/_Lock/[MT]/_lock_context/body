@@ -1,0 +1,6 @@
+@contextmanager
+def _lock_context(self):
+    try:
+        yield
+    finally:
+        self.release()

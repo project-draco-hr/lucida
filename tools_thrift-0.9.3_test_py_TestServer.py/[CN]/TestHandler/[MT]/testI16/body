@@ -1,0 +1,4 @@
+def testI16(self, i16):
+    if (options.verbose > 1):
+        print ('testI16(%d)' % i16)
+    return i16

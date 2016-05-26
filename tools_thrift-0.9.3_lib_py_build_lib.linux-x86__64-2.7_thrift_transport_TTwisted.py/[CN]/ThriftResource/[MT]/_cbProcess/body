@@ -1,0 +1,6 @@
+def _cbProcess(self, _, request, tmo):
+    msg = tmo.getvalue()
+    request.setResponseCode(http.OK)
+    request.setHeader('content-type', 'application/x-thrift')
+    request.write(msg)
+    request.finish()

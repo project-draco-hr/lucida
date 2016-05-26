@@ -1,0 +1,9 @@
+def testBools(self):
+    self.assertNotEquals(self.bools, self.bools_flipped)
+    self.assertNotEquals(self.bools, self.v1obj)
+    obj = self._deserialize(Bools, self._serialize(self.bools))
+    self.assertEquals(obj, self.bools)
+    obj = self._deserialize(Bools, self._serialize(self.bools_flipped))
+    self.assertEquals(obj, self.bools_flipped)
+    rep = repr(self.bools)
+    self.assertTrue((len(rep) > 0))

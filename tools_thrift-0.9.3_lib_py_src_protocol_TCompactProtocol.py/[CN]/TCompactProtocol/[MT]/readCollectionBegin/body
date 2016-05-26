@@ -1,0 +1,10 @@
+def readCollectionBegin(self):
+    assert (self.state in (VALUE_READ, CONTAINER_READ)), self.state
+    size_type = self.__readUByte()
+    size = (size_type >> 4)
+    type = self.__getTType(size_type)
+    if (size == 15):
+        size = self.__readSize()
+    self.__containers.append(self.state)
+    self.state = CONTAINER_READ
+    return (type, size)

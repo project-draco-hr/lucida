@@ -1,0 +1,5 @@
+def writeBool(self, bool):
+    if bool:
+        self.writeByte(1)
+    else:
+        self.writeByte(0)

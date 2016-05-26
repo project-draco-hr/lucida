@@ -1,0 +1,5 @@
+def readBool(self):
+    byte = self.readByte()
+    if (byte == 0):
+        return False
+    return True

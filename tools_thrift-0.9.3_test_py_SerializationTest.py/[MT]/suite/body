@@ -1,0 +1,10 @@
+def suite():
+    suite = unittest.TestSuite()
+    loader = unittest.TestLoader()
+    suite.addTest(loader.loadTestsFromTestCase(NormalBinaryTest))
+    suite.addTest(loader.loadTestsFromTestCase(AcceleratedBinaryTest))
+    suite.addTest(loader.loadTestsFromTestCase(CompactProtocolTest))
+    suite.addTest(loader.loadTestsFromTestCase(JSONProtocolTest))
+    suite.addTest(loader.loadTestsFromTestCase(AcceleratedFramedTest))
+    suite.addTest(loader.loadTestsFromTestCase(SerializersTest))
+    return suite

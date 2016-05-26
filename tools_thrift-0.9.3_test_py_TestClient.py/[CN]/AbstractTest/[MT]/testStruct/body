@@ -1,0 +1,9 @@
+def testStruct(self):
+    print 'testStruct'
+    x = Xtruct()
+    x.string_thing = 'Zero'
+    x.byte_thing = 1
+    x.i32_thing = (-3)
+    x.i64_thing = (-5)
+    y = self.client.testStruct(x)
+    self.assertEqual(y, x)

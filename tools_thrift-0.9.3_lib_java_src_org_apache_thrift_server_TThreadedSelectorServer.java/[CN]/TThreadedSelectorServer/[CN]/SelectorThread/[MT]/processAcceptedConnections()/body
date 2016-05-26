@@ -1,0 +1,9 @@
+{
+  while (!stopped_) {
+    TNonblockingTransport accepted=acceptedQueue.poll();
+    if (accepted == null) {
+      break;
+    }
+    registerAccepted(accepted);
+  }
+}

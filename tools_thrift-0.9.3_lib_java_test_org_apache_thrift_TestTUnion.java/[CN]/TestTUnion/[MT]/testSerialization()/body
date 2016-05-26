@@ -1,0 +1,22 @@
+{
+  TestUnion union=new TestUnion(TestUnion._Fields.I32_FIELD,25);
+  union.setI32_set(Collections.singleton(42));
+  TMemoryBuffer buf=new TMemoryBuffer(0);
+  TProtocol proto=new TBinaryProtocol(buf);
+  union.write(proto);
+  TestUnion u2=new TestUnion();
+  u2.read(proto);
+  assertEquals(u2,union);
+  StructWithAUnion swau=new StructWithAUnion(u2);
+  buf=new TMemoryBuffer(0);
+  proto=new TBinaryProtocol(buf);
+  swau.write(proto);
+  StructWithAUnion swau2=new StructWithAUnion();
+  assertFalse(swau2.equals(swau));
+  swau2.read(proto);
+  assertEquals(swau2,swau);
+  buf=new TMemoryBuffer(0);
+  proto=new TBinaryProtocol(buf);
+  swau.write(proto);
+  new Empty().read(proto);
+}

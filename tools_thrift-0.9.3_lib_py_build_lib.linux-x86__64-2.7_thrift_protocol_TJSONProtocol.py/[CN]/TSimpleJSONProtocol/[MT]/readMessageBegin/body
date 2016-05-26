@@ -1,0 +1,2 @@
+def readMessageBegin(self):
+    raise NotImplementedError()

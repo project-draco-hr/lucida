@@ -1,0 +1,7 @@
+def begin(self):
+    self._start()
+    self._open()
+    if (self.out and (not self.out.closed)):
+        self._print_header()
+    else:
+        self._log.debug('Output stream is not available.')

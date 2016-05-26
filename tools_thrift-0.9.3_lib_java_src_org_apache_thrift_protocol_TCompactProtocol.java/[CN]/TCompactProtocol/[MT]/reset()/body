@@ -1,0 +1,4 @@
+{
+  lastField_.clear();
+  lastFieldId_=0;
+}

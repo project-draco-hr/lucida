@@ -1,0 +1,8 @@
+def __init__(self, new_socket, wake_up):
+    self.socket = new_socket
+    self.socket.setblocking(False)
+    self.status = WAIT_LEN
+    self.len = 0
+    self.message = ''
+    self.lock = threading.Lock()
+    self.wake_up = wake_up

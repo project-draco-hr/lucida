@@ -1,0 +1,4 @@
+{
+  long i64=testClient.testI64(-34359738368L);
+  assertEquals(i64,-34359738368L);
+}

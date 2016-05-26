@@ -1,0 +1,10 @@
+{
+  try {
+    byte[] buf=new byte[1];
+    transport.read(buf,0,1);
+    return buf[0];
+  }
+ catch (  TTransportException e) {
+    throw new IOException(e);
+  }
+}

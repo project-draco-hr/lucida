@@ -1,0 +1,3 @@
+{
+  return socketChannel_.isOpen() && socketChannel_.isConnected();
+}

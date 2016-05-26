@@ -1,0 +1,21 @@
+{
+  final File tmpDir=new File(System.getProperty("java.io.tmpdir"));
+  testRootDir=new File(tmpDir,"thrift-test");
+  if (testRootDir.exists()) {
+    FileUtils.cleanDirectory(testRootDir);
+  }
+ else {
+    assertTrue("Failed to create output directory for test: " + testRootDir.getPath(),testRootDir.mkdir());
+  }
+  File testResourceDir=new File("src/test/resources");
+  assertTrue("Unable to find test resources",testRootDir.exists());
+  String thriftExecutable=System.getProperty("thriftExecutable","thrift");
+  if (!(new File(thriftExecutable).exists())) {
+    thriftExecutable="thrift";
+  }
+  System.out.println("Thrift compiler: " + thriftExecutable);
+  idlDir=new File(testResourceDir,"idl");
+  genJavaDir=new File(testRootDir,Thrift.GENERATED_JAVA);
+  builder=new Thrift.Builder(thriftExecutable,testRootDir);
+  builder.setGenerator("java").addThriftPathElement(idlDir);
+}

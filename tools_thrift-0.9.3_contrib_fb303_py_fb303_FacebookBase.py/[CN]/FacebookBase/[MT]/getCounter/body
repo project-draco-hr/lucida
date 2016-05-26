@@ -1,0 +1,4 @@
+def getCounter(self, key):
+    if self.counters.has_key(key):
+        return self.counters[key]
+    return 0

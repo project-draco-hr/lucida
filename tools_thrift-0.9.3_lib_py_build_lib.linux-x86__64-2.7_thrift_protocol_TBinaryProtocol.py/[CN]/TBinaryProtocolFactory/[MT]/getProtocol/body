@@ -1,0 +1,3 @@
+def getProtocol(self, trans):
+    prot = TBinaryProtocol(trans, self.strictRead, self.strictWrite)
+    return prot

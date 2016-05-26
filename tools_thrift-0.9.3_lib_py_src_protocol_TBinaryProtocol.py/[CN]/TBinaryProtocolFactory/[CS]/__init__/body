@@ -1,0 +1,3 @@
+def __init__(self, strictRead=False, strictWrite=True):
+    self.strictRead = strictRead
+    self.strictWrite = strictWrite

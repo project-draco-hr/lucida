@@ -1,0 +1,6 @@
+{
+  TMemoryBuffer buf=new TMemoryBuffer(0);
+  TProtocol proto=getFactory().getProtocol(buf);
+  proto.writeString(str);
+  assertEquals(str,proto.readString());
+}

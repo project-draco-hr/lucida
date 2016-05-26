@@ -1,0 +1,5 @@
+{
+  lastField_.push(lastFieldId_);
+  lastFieldId_=0;
+  return ANONYMOUS_STRUCT;
+}

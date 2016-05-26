@@ -1,0 +1,4 @@
+{
+  writeVarint32(length);
+  trans_.write(buf,offset,length);
+}

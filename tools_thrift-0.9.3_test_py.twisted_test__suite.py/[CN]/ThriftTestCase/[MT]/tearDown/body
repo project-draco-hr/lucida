@@ -1,0 +1,4 @@
+@defer.inlineCallbacks
+def tearDown(self):
+    yield self.server.stopListening()
+    self.txclient.transport.loseConnection()

@@ -1,0 +1,6 @@
+{
+  if (fieldId != setField_) {
+    throw new IllegalArgumentException("Cannot get the value of field " + fieldId + " because union's set field is "+ setField_);
+  }
+  return getFieldValue();
+}

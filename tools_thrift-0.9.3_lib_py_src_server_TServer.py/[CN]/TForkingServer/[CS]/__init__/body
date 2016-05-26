@@ -1,0 +1,3 @@
+def __init__(self, *args):
+    TServer.__init__(self, *args)
+    self.children = []

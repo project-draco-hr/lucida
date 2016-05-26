@@ -1,0 +1,4 @@
+{
+  if (saslClient != null)   return saslClient.unwrap(buf,off,len);
+ else   return saslServer.unwrap(buf,off,len);
+}

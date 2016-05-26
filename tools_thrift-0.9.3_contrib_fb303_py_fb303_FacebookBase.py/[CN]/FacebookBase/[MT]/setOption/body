@@ -1,0 +1,2 @@
+def setOption(self, key, value):
+    pass

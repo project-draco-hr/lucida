@@ -1,0 +1,15 @@
+{
+  System.out.print("testList({");
+  boolean first=true;
+  for (  int elem : thing) {
+    if (first) {
+      first=false;
+    }
+ else {
+      System.out.print(", ");
+    }
+    System.out.print(elem);
+  }
+  System.out.print("})\n");
+  return thing;
+}

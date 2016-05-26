@@ -1,0 +1,2 @@
+def _close(self):
+    self.out.close()

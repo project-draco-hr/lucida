@@ -1,0 +1,4 @@
+{
+  readJSONObjectStart();
+  return ANONYMOUS_STRUCT;
+}

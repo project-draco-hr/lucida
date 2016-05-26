@@ -1,0 +1,5 @@
+def testNestedListsI32x2(self):
+    obj = self._deserialize(NestedListsI32x2, self._serialize(self.nested_lists_i32x2))
+    self.assertEquals(obj, self.nested_lists_i32x2)
+    rep = repr(self.nested_lists_i32x2)
+    self.assertTrue((len(rep) > 0))

@@ -1,0 +1,16 @@
+def open(self):
+    if (not self.transport.isOpen()):
+        self.transport.open()
+    self.send_sasl_msg(self.START, self.sasl.mechanism)
+    self.send_sasl_msg(self.OK, self.sasl.process())
+    while True:
+        (status, challenge) = self.recv_sasl_msg()
+        if (status == self.OK):
+            self.send_sasl_msg(self.OK, self.sasl.process(challenge))
+        elif (status == self.COMPLETE):
+            if (not self.sasl.complete):
+                raise TTransportException('The server erroneously indicated that SASL negotiation was complete')
+            else:
+                break
+        else:
+            raise TTransportException(('Bad SASL negotiation status: %d (%s)' % (status, challenge)))

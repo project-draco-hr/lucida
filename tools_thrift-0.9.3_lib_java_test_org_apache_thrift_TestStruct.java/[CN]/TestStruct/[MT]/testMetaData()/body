@@ -1,0 +1,36 @@
+{
+  Map<CrazyNesting._Fields,FieldMetaData> mdMap=CrazyNesting.metaDataMap;
+  assertEquals(4,mdMap.size());
+  assertTrue(mdMap.containsKey(CrazyNesting._Fields.SET_FIELD));
+  assertTrue(mdMap.containsKey(CrazyNesting._Fields.LIST_FIELD));
+  assertTrue(mdMap.containsKey(CrazyNesting._Fields.STRING_FIELD));
+  assertTrue(mdMap.containsKey(CrazyNesting._Fields.BINARY_FIELD));
+  assertEquals("string_field",mdMap.get(CrazyNesting._Fields.STRING_FIELD).fieldName);
+  assertEquals("list_field",mdMap.get(CrazyNesting._Fields.LIST_FIELD).fieldName);
+  assertEquals("set_field",mdMap.get(CrazyNesting._Fields.SET_FIELD).fieldName);
+  assertEquals("binary_field",mdMap.get(CrazyNesting._Fields.BINARY_FIELD).fieldName);
+  assertEquals(TFieldRequirementType.DEFAULT,mdMap.get(CrazyNesting._Fields.STRING_FIELD).requirementType);
+  assertEquals(TFieldRequirementType.REQUIRED,mdMap.get(CrazyNesting._Fields.LIST_FIELD).requirementType);
+  assertEquals(TFieldRequirementType.OPTIONAL,mdMap.get(CrazyNesting._Fields.SET_FIELD).requirementType);
+  assertEquals(TType.STRING,mdMap.get(CrazyNesting._Fields.STRING_FIELD).valueMetaData.type);
+  assertFalse(mdMap.get(CrazyNesting._Fields.STRING_FIELD).valueMetaData.isBinary());
+  assertEquals(TType.LIST,mdMap.get(CrazyNesting._Fields.LIST_FIELD).valueMetaData.type);
+  assertEquals(TType.SET,mdMap.get(CrazyNesting._Fields.SET_FIELD).valueMetaData.type);
+  assertEquals(TType.STRING,mdMap.get(CrazyNesting._Fields.BINARY_FIELD).valueMetaData.type);
+  assertTrue(mdMap.get(CrazyNesting._Fields.BINARY_FIELD).valueMetaData.isBinary());
+  assertTrue(mdMap.get(CrazyNesting._Fields.LIST_FIELD).valueMetaData.isContainer());
+  assertFalse(mdMap.get(CrazyNesting._Fields.LIST_FIELD).valueMetaData.isStruct());
+  assertEquals(TType.STRUCT,((MapMetaData)((ListMetaData)((SetMetaData)((MapMetaData)((MapMetaData)((ListMetaData)mdMap.get(CrazyNesting._Fields.LIST_FIELD).valueMetaData).elemMetaData).valueMetaData).valueMetaData).elemMetaData).elemMetaData).keyMetaData.type);
+  assertEquals(Insanity.class,((StructMetaData)((MapMetaData)((ListMetaData)((SetMetaData)((MapMetaData)((MapMetaData)((ListMetaData)mdMap.get(CrazyNesting._Fields.LIST_FIELD).valueMetaData).elemMetaData).valueMetaData).valueMetaData).elemMetaData).elemMetaData).keyMetaData).structClass);
+  assertNotNull(FieldMetaData.getStructMetaDataMap(CrazyNesting.class));
+  assertNotNull(FieldMetaData.getStructMetaDataMap(Insanity.class));
+  assertNotNull(FieldMetaData.getStructMetaDataMap(Xtruct.class));
+  assertEquals(CrazyNesting.metaDataMap,FieldMetaData.getStructMetaDataMap(CrazyNesting.class));
+  assertEquals(Insanity.metaDataMap,FieldMetaData.getStructMetaDataMap(Insanity.class));
+  for (  Map.Entry<? extends TFieldIdEnum,FieldMetaData> mdEntry : mdMap.entrySet()) {
+    assertEquals(mdEntry.getKey(),CrazyNesting._Fields.findByName(mdEntry.getValue().fieldName));
+  }
+  MapMetaData vmd=(MapMetaData)Insanity.metaDataMap.get(Insanity._Fields.USER_MAP).valueMetaData;
+  assertTrue(vmd.valueMetaData.isTypedef());
+  assertFalse(vmd.keyMetaData.isTypedef());
+}

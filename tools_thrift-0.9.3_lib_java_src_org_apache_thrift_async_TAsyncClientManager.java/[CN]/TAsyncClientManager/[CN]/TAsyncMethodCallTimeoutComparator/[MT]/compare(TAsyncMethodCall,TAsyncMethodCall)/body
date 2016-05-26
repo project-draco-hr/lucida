@@ -1,0 +1,8 @@
+{
+  if (left.getTimeoutTimestamp() == right.getTimeoutTimestamp()) {
+    return (int)(left.getSequenceId() - right.getSequenceId());
+  }
+ else {
+    return (int)(left.getTimeoutTimestamp() - right.getTimeoutTimestamp());
+  }
+}

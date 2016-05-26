@@ -1,0 +1,3 @@
+@defer.inlineCallbacks
+def testString(self):
+    self.assertEquals(yield self.client.testString('Python'), 'Python')

@@ -1,0 +1,4 @@
+{
+  handler.testOneway(secondsToSleep);
+  resultHandler.onComplete(null);
+}

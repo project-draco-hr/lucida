@@ -1,0 +1,3 @@
+@defer.inlineCallbacks
+def testVoid(self):
+    self.assertEquals(yield self.client.testVoid(), None)

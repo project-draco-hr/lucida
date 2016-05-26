@@ -1,0 +1,4 @@
+def _dispatch_sync(self, test, cont):
+    r = run_test(self.testdir, test, False)
+    cont(r)
+    return NonAsyncResult(r)

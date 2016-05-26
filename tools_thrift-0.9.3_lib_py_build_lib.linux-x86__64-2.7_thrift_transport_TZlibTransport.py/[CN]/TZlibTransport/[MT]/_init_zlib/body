@@ -1,0 +1,4 @@
+def _init_zlib(self):
+    'Internal method for setting up the zlib compression and\n    decompression objects.\n    '
+    self._zcomp_read = zlib.decompressobj()
+    self._zcomp_write = zlib.compressobj(self.compresslevel)

@@ -1,0 +1,4 @@
+{
+  System.out.print("testString(\"" + thing + "\")\n");
+  return thing;
+}

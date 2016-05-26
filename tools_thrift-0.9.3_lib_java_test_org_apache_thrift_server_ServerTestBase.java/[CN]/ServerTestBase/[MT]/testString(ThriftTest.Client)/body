@@ -1,0 +1,4 @@
+{
+  String s=testClient.testString("Test");
+  assertEquals("Test",s);
+}

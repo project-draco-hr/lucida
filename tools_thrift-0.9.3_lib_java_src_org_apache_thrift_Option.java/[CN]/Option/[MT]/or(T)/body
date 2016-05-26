@@ -1,0 +1,8 @@
+{
+  if (isDefined()) {
+    return get();
+  }
+ else {
+    return other;
+  }
+}

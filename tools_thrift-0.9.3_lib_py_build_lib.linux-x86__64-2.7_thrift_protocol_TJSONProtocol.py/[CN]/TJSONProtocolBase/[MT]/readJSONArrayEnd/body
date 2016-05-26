@@ -1,0 +1,3 @@
+def readJSONArrayEnd(self):
+    self.readJSONSyntaxChar(RBRACKET)
+    self.popContext()

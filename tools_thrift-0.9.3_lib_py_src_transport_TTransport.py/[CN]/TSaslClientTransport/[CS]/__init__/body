@@ -1,0 +1,7 @@
+def __init__(self, transport, host, service, mechanism='GSSAPI', **sasl_kwargs):
+    "\n    transport: an underlying transport to use, typically just a TSocket\n    host: the name of the server, from a SASL perspective\n    service: the name of the server's service, from a SASL perspective\n    mechanism: the name of the preferred mechanism to use\n\n    All other kwargs will be passed to the puresasl.client.SASLClient\n    constructor.\n    "
+    from puresasl.client import SASLClient
+    self.transport = transport
+    self.sasl = SASLClient(host, service, mechanism, **sasl_kwargs)
+    self.__wbuf = StringIO()
+    self.__rbuf = StringIO()

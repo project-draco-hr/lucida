@@ -1,0 +1,3 @@
+def writeI64(self, i64):
+    checkIntegerLimits(i64, 64)
+    self.writeJSONNumber(i64)

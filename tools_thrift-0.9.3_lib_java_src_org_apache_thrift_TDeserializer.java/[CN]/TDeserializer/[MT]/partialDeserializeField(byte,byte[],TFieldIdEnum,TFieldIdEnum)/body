@@ -1,0 +1,57 @@
+{
+  try {
+    TField field=locateField(bytes,fieldIdPathFirst,fieldIdPathRest);
+    if (field != null) {
+switch (ttype) {
+case TType.BOOL:
+        if (field.type == TType.BOOL) {
+          return protocol_.readBool();
+        }
+      break;
+case TType.BYTE:
+    if (field.type == TType.BYTE) {
+      return protocol_.readByte();
+    }
+  break;
+case TType.DOUBLE:
+if (field.type == TType.DOUBLE) {
+  return protocol_.readDouble();
+}
+break;
+case TType.I16:
+if (field.type == TType.I16) {
+return protocol_.readI16();
+}
+break;
+case TType.I32:
+if (field.type == TType.I32) {
+return protocol_.readI32();
+}
+break;
+case TType.I64:
+if (field.type == TType.I64) {
+return protocol_.readI64();
+}
+break;
+case TType.STRING:
+if (field.type == TType.STRING) {
+return protocol_.readString();
+}
+break;
+case 100:
+if (field.type == TType.STRING) {
+return protocol_.readBinary();
+}
+break;
+}
+}
+return null;
+}
+ catch (Exception e) {
+throw new TException(e);
+}
+ finally {
+trans_.clear();
+protocol_.reset();
+}
+}

@@ -1,0 +1,4 @@
+def writeMapBegin(self, ktype, vtype, size):
+    self.writeByte(ktype)
+    self.writeByte(vtype)
+    self.writeI32(size)

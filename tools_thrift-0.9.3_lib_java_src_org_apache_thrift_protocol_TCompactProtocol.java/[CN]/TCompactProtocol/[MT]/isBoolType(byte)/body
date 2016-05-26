@@ -1,0 +1,4 @@
+{
+  int lowerNibble=b & 0x0f;
+  return lowerNibble == Types.BOOLEAN_TRUE || lowerNibble == Types.BOOLEAN_FALSE;
+}

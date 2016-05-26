@@ -1,0 +1,6 @@
+{
+  connectTimeout_=timeout;
+  if (null != this.client) {
+    client.getParams().setParameter(CoreConnectionPNames.CONNECTION_TIMEOUT,connectTimeout_);
+  }
+}

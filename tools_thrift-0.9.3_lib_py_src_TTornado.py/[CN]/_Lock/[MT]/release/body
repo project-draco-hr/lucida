@@ -1,0 +1,4 @@
+def release(self):
+    assert self.acquired(), 'Lock not aquired'
+    future = self._waiters.popleft()
+    future.set_result(None)

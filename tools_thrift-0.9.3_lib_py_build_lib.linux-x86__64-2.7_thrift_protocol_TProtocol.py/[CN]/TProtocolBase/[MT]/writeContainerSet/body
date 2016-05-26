@@ -1,0 +1,11 @@
+def writeContainerSet(self, val, spec):
+    self.writeSetBegin(spec[0], len(val))
+    (r_handler, w_handler, is_container) = self._TTYPE_HANDLERS[spec[0]]
+    e_writer = getattr(self, w_handler)
+    if (not is_container):
+        for elem in val:
+            e_writer(elem)
+    else:
+        for elem in val:
+            e_writer(elem, spec[1])
+    self.writeSetEnd()

@@ -1,0 +1,12 @@
+def kill(self):
+    self._log.debug(('Killing process : %d' % self.proc.pid))
+    if (platform.system() != 'Windows'):
+        try:
+            os.killpg(self.proc.pid, signal.SIGKILL)
+        except Exception as err:
+            self._log.info(('Failed to kill process group : %s' % str(err)))
+    try:
+        self.proc.kill()
+    except Exception as err:
+        self._log.info(('Failed to kill process : %s' % str(err)))
+    self.report.killed()

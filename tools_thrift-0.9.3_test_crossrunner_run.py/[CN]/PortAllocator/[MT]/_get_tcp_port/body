@@ -1,0 +1,14 @@
+def _get_tcp_port(self):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.bind(('127.0.0.1', 0))
+    port = sock.getsockname()[1]
+    self._lock.acquire()
+    try:
+        ok = (port not in self._ports)
+        if ok:
+            self._ports.add(port)
+            self._last_alloc = time.time()
+    finally:
+        self._lock.release()
+        sock.close()
+    return (port if ok else self._get_tcp_port())

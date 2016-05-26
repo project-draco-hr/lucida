@@ -1,0 +1,7 @@
+{
+  TMap map=new TMap();
+  map.keyType=readByte();
+  map.valueType=readByte();
+  map.size=readI32();
+  return map;
+}

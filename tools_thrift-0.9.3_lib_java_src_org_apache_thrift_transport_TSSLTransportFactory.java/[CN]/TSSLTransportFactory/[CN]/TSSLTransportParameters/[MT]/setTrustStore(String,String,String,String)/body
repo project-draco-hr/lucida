@@ -1,0 +1,11 @@
+{
+  this.trustStore=trustStore;
+  this.trustPass=trustPass;
+  if (trustManagerType != null) {
+    this.trustManagerType=trustManagerType;
+  }
+  if (trustStoreType != null) {
+    this.trustStoreType=trustStoreType;
+  }
+  isTrustStoreSet=true;
+}

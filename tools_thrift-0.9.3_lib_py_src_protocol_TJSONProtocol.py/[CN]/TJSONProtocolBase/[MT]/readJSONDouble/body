@@ -1,0 +1,18 @@
+def readJSONDouble(self):
+    self.context.read()
+    if (self.reader.peek() == QUOTE):
+        string = self.readJSONString(True)
+        try:
+            double = float(string)
+            if ((self.context.escapeNum is False) and (not math.isinf(double)) and (not math.isnan(double))):
+                raise TProtocolException(TProtocolException.INVALID_DATA, 'Numeric data unexpectedly quoted')
+            return double
+        except ValueError:
+            raise TProtocolException(TProtocolException.INVALID_DATA, 'Bad data encounted in numeric data')
+    else:
+        if (self.context.escapeNum() is True):
+            self.readJSONSyntaxChar(QUOTE)
+        try:
+            return float(self.readJSONNumericChars())
+        except ValueError:
+            raise TProtocolException(TProtocolException.INVALID_DATA, 'Bad data encounted in numeric data')

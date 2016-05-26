@@ -1,0 +1,8 @@
+{
+  readJSONArrayStart();
+  byte keyType=getTypeIDForTypeName(readJSONString(false).get());
+  byte valueType=getTypeIDForTypeName(readJSONString(false).get());
+  int size=(int)readJSONInteger();
+  readJSONObjectStart();
+  return new TMap(keyType,valueType,size);
+}

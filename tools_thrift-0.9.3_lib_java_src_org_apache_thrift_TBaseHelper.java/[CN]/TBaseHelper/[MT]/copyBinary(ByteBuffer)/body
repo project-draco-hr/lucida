@@ -1,0 +1,13 @@
+{
+  if (orig == null) {
+    return null;
+  }
+  ByteBuffer copy=ByteBuffer.wrap(new byte[orig.remaining()]);
+  if (orig.hasArray()) {
+    System.arraycopy(orig.array(),orig.arrayOffset() + orig.position(),copy.array(),0,orig.remaining());
+  }
+ else {
+    orig.slice().get(copy.array());
+  }
+  return copy;
+}

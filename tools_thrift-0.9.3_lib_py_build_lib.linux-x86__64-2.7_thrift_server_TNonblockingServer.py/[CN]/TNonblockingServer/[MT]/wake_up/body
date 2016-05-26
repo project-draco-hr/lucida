@@ -1,0 +1,3 @@
+def wake_up(self):
+    'Wake up main thread.\n\n        The server usually waits in select call in we should terminate one.\n        The simplest way is using socketpair.\n\n        Select always wait to read from the first socket of socketpair.\n\n        In this case, we can just write anything to the second socket from\n        socketpair.\n        '
+    self._write.send('1')

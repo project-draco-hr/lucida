@@ -1,0 +1,5 @@
+{
+  context_.write();
+  trans_.write(LBRACKET);
+  pushContext(new JSONListContext());
+}

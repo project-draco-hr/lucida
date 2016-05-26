@@ -1,0 +1,9 @@
+{
+  byte[] buf=writeBuffer_.get();
+  int len=writeBuffer_.len();
+  writeBuffer_.reset();
+  encodeFrameSize(len,i32buf);
+  transport_.write(i32buf,0,4);
+  transport_.write(buf,0,len);
+  transport_.flush();
+}

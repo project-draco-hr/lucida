@@ -1,0 +1,3 @@
+def readCollectionEnd(self):
+    assert (self.state == CONTAINER_READ), self.state
+    self.state = self.__containers.pop()

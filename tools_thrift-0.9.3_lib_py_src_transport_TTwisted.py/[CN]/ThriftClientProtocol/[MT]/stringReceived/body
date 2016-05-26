@@ -1,0 +1,10 @@
+def stringReceived(self, frame):
+    tr = TTransport.TMemoryBuffer(frame)
+    iprot = self._iprot_factory.getProtocol(tr)
+    (fname, mtype, rseqid) = iprot.readMessageBegin()
+    try:
+        method = self.recv_map[fname]
+    except KeyError:
+        method = getattr(self.client, ('recv_' + fname))
+        self.recv_map[fname] = method
+    method(iprot, mtype, rseqid)

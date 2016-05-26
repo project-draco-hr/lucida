@@ -1,0 +1,6 @@
+import platform
+from itertools import product
+from crossrunner.util import merge_dict
+VALID_JSON_KEYS = ['name', 'workdir', 'command', 'extra_args', 'join_args', 'env']
+DEFAULT_DELAY = 1
+DEFAULT_TIMEOUT = 5

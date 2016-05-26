@@ -1,0 +1,31 @@
+{
+  TByteArrayOutputStream arr=new TByteArrayOutputStream(DEF_STRING_SIZE);
+  if (!skipContext) {
+    context_.read();
+  }
+  readJSONSyntaxChar(QUOTE);
+  while (true) {
+    byte ch=reader_.read();
+    if (ch == QUOTE[0]) {
+      break;
+    }
+    if (ch == ESCSEQ[0]) {
+      ch=reader_.read();
+      if (ch == ESCSEQ[1]) {
+        readJSONSyntaxChar(ZERO);
+        readJSONSyntaxChar(ZERO);
+        trans_.readAll(tmpbuf_,0,2);
+        ch=(byte)((hexVal((byte)tmpbuf_[0]) << 4) + hexVal(tmpbuf_[1]));
+      }
+ else {
+        int off=ESCAPE_CHARS.indexOf(ch);
+        if (off == -1) {
+          throw new TProtocolException(TProtocolException.INVALID_DATA,"Expected control char");
+        }
+        ch=ESCAPE_CHAR_VALS[off];
+      }
+    }
+    arr.write(ch);
+  }
+  return arr;
+}

@@ -1,0 +1,5 @@
+{
+  contextStack_.clear();
+  context_=new JSONBaseContext();
+  reader_=new LookaheadReader();
+}

@@ -1,0 +1,6 @@
+self
+processor
+lsocket
+inputProtocolFactory
+outputProtocolFactory
+threads

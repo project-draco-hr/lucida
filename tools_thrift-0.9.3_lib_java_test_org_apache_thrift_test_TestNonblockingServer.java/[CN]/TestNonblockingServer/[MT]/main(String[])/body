@@ -1,0 +1,30 @@
+{
+  try {
+    int port=9090;
+    boolean hsha=false;
+    for (int i=0; i < args.length; i++) {
+      if (args[i].equals("-p")) {
+        port=Integer.valueOf(args[i++]);
+      }
+ else       if (args[i].equals("-hsha")) {
+        hsha=true;
+      }
+    }
+    TestHandler testHandler=new TestHandler();
+    ThriftTest.Processor testProcessor=new ThriftTest.Processor(testHandler);
+    TNonblockingServerSocket tServerSocket=new TNonblockingServerSocket(new TNonblockingServerSocket.NonblockingAbstractServerSocketArgs().port(port));
+    TServer serverEngine;
+    if (hsha) {
+      serverEngine=new THsHaServer(new Args(tServerSocket).processor(testProcessor));
+    }
+ else {
+      serverEngine=new TNonblockingServer(new Args(tServerSocket).processor(testProcessor));
+    }
+    System.out.println("Starting the server on port " + port + "...");
+    serverEngine.serve();
+  }
+ catch (  Exception x) {
+    x.printStackTrace();
+  }
+  System.out.println("done.");
+}

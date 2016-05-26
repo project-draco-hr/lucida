@@ -1,0 +1,10 @@
+{
+  if (fieldNamesAsString_) {
+    writeString(field.name);
+  }
+ else {
+    writeJSONInteger(field.id);
+  }
+  writeJSONObjectStart();
+  writeJSONString(getTypeNameForTypeID(field.type));
+}

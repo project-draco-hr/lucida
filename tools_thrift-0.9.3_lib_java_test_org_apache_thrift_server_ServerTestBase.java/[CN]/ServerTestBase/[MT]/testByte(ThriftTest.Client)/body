@@ -1,0 +1,4 @@
+{
+  byte i8=testClient.testByte((byte)1);
+  assertEquals(1,i8);
+}

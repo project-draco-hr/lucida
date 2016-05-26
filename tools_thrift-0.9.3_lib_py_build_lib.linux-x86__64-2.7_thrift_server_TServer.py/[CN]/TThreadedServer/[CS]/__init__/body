@@ -1,0 +1,3 @@
+def __init__(self, *args, **kwargs):
+    TServer.__init__(self, *args)
+    self.daemon = kwargs.get('daemon', False)

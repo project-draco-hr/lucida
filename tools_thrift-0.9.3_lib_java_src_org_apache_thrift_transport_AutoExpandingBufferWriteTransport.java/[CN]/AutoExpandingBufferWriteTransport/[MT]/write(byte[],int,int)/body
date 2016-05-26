@@ -1,0 +1,5 @@
+{
+  buf.resizeIfNecessary(pos + len);
+  System.arraycopy(toWrite,off,buf.array(),pos,len);
+  pos+=len;
+}

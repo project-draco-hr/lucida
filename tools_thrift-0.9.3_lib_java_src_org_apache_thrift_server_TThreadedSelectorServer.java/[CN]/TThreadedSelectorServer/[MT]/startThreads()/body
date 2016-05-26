@@ -1,0 +1,17 @@
+{
+  try {
+    for (int i=0; i < args.selectorThreads; ++i) {
+      selectorThreads.add(new SelectorThread(args.acceptQueueSizePerThread));
+    }
+    acceptThread=new AcceptThread((TNonblockingServerTransport)serverTransport_,createSelectorThreadLoadBalancer(selectorThreads));
+    for (    SelectorThread thread : selectorThreads) {
+      thread.start();
+    }
+    acceptThread.start();
+    return true;
+  }
+ catch (  IOException e) {
+    LOGGER.error("Failed to start threads!",e);
+    return false;
+  }
+}

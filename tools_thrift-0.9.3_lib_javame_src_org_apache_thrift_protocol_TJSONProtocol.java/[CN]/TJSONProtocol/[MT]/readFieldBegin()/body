@@ -1,0 +1,14 @@
+{
+  byte ch=reader_.peek();
+  byte type;
+  short id=0;
+  if (ch == RBRACE[0]) {
+    type=TType.STOP;
+  }
+ else {
+    id=(short)readJSONInteger();
+    readJSONObjectStart();
+    type=getTypeIDForTypeName(readJSONString(false).get());
+  }
+  return new TField("",type,id);
+}

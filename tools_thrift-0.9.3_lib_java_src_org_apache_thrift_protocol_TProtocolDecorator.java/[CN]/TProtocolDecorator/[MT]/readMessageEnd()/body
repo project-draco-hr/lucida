@@ -1,0 +1,3 @@
+{
+  concreteProtocol.readMessageEnd();
+}

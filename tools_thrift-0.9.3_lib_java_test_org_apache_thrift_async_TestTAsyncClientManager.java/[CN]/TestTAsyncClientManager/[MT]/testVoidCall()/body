@@ -1,0 +1,22 @@
+{
+  final CountDownLatch latch=new CountDownLatch(1);
+  final AtomicBoolean returned=new AtomicBoolean(false);
+  Srv.AsyncClient client=getClient();
+  client.voidMethod(new FailureLessCallback<Srv.AsyncClient.voidMethod_call>(){
+    @Override public void onComplete(    voidMethod_call response){
+      try {
+        response.getResult();
+        returned.set(true);
+      }
+ catch (      TException e) {
+        fail(e);
+      }
+ finally {
+        latch.countDown();
+      }
+    }
+  }
+);
+  latch.await(1,TimeUnit.SECONDS);
+  assertTrue(returned.get());
+}

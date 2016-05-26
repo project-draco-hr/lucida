@@ -1,0 +1,4 @@
+{
+  if (saslClient != null)   return saslClient.isComplete();
+ else   return saslServer.isComplete();
+}

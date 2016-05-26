@@ -1,0 +1,4 @@
+{
+  stopTimeoutVal=n;
+  return this;
+}

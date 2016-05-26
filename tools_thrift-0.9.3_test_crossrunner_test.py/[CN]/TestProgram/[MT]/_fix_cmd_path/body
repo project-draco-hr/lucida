@@ -1,0 +1,10 @@
+def _fix_cmd_path(self, cmd):
+
+    def abs_if_exists(arg):
+        p = os.path.join(self.workdir, arg)
+        return (p if os.path.exists(p) else arg)
+    if (cmd[0] == 'python'):
+        cmd[0] = sys.executable
+    else:
+        cmd[0] = abs_if_exists(cmd[0])
+    return cmd

@@ -1,0 +1,23 @@
+import datetime
+import glob
+import sys
+import os
+import time
+import unittest
+basepath = os.path.abspath(os.path.dirname(__file__))
+sys.path.insert(0, (basepath + '/gen-py.tornado'))
+sys.path.insert(0, glob.glob(os.path.join(basepath, '../../lib/py/build/lib.*'))[0])
+try:
+    __import__('tornado')
+except ImportError:
+    print 'module `tornado` not found, skipping test'
+    sys.exit(0)
+from tornado import gen
+from tornado.testing import AsyncTestCase, get_unused_port, gen_test
+from thrift import TTornado
+from thrift.protocol import TBinaryProtocol
+from thrift.transport.TTransport import TTransportException
+from ThriftTest import ThriftTest
+from ThriftTest.ttypes import *
+if (__name__ == '__main__'):
+    unittest.TestProgram(defaultTest='suite', testRunner=unittest.TextTestRunner(verbosity=1))

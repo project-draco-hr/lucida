@@ -1,0 +1,2 @@
+def _print_date(self):
+    self.out.write(('%s\n' % self._format_date()))

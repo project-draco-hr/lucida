@@ -1,0 +1,21 @@
+def setUp(self):
+    if options.http_path:
+        self.transport = THttpClient.THttpClient(options.host, port=options.port, path=options.http_path)
+    else:
+        if options.ssl:
+            from thrift.transport import TSSLSocket
+            socket = TSSLSocket.TSSLSocket(options.host, options.port, validate=False)
+        else:
+            socket = TSocket.TSocket(options.host, options.port)
+        self.transport = TTransport.TBufferedTransport(socket)
+        if (options.trans == 'framed'):
+            self.transport = TTransport.TFramedTransport(socket)
+        elif (options.trans == 'buffered'):
+            self.transport = TTransport.TBufferedTransport(socket)
+        elif (options.trans == ''):
+            raise AssertionError(('Unknown --transport option: %s' % options.trans))
+        if options.zlib:
+            self.transport = TZlibTransport.TZlibTransport(self.transport, 9)
+    self.transport.open()
+    protocol = self.protocol_factory.getProtocol(self.transport)
+    self.client = ThriftTest.Client(protocol)

@@ -1,0 +1,18 @@
+{
+  TProtocol ip=inputProtocolFactory_.getProtocol(inputTransport_);
+  TProtocol op=outputProtocolFactory_.getProtocol(outputTransport_);
+  int curChunk=inputTransport_.getCurChunk();
+  try {
+    while (lastChunk >= curChunk) {
+      processor_.process(ip,op);
+      int newChunk=inputTransport_.getCurChunk();
+      curChunk=newChunk;
+    }
+  }
+ catch (  TTransportException e) {
+    if (e.getType() != TTransportException.END_OF_FILE)     throw e;
+ else {
+      return;
+    }
+  }
+}

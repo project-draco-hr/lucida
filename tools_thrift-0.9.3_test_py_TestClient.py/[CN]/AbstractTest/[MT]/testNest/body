@@ -1,0 +1,6 @@
+def testNest(self):
+    print 'testNest'
+    inner = Xtruct(string_thing='Zero', byte_thing=1, i32_thing=(-3), i64_thing=(-5))
+    x = Xtruct2(struct_thing=inner, byte_thing=0, i32_thing=0)
+    y = self.client.testNest(x)
+    self.assertEqual(y, x)

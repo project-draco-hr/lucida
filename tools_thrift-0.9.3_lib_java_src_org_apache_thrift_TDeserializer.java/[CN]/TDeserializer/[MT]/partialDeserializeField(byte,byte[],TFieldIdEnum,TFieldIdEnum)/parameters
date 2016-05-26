@@ -1,0 +1,4 @@
+byte ttype
+byte[] bytes
+TFieldIdEnum fieldIdPathFirst
+TFieldIdEnum fieldIdPathRest

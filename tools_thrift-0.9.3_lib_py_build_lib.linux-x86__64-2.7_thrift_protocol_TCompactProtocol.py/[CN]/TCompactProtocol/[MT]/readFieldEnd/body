@@ -1,0 +1,3 @@
+def readFieldEnd(self):
+    assert (self.state in (VALUE_READ, BOOL_READ)), self.state
+    self.state = FIELD_READ

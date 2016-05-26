@@ -1,0 +1,6 @@
+{
+  TMemoryBuffer buf=new TMemoryBuffer(0);
+  TProtocol proto=getFactory().getProtocol(buf);
+  proto.writeBinary(ByteBuffer.wrap(data));
+  assertEquals(ByteBuffer.wrap(data),proto.readBinary());
+}

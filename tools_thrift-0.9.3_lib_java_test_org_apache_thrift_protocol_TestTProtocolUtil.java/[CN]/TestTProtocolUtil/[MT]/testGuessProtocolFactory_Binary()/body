@@ -1,0 +1,11 @@
+{
+  byte[] buf=new byte[1];
+  for (int i=1; i < 256; i++) {
+    buf[0]=(byte)i;
+    TProtocolFactory factory=TProtocolUtil.guessProtocolFactory(buf,new TCompactProtocol.Factory());
+    assertTrue(factory instanceof TBinaryProtocol.Factory);
+  }
+  buf=new byte[2];
+  TProtocolFactory factory=TProtocolUtil.guessProtocolFactory(buf,new TCompactProtocol.Factory());
+  assertTrue(factory instanceof TBinaryProtocol.Factory);
+}

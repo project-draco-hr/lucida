@@ -1,0 +1,5 @@
+'TZlibTransport provides a compressed transport and transport factory\nclass, using the python standard library zlib module to implement\ndata compression.\n'
+from __future__ import division
+import zlib
+from cStringIO import StringIO
+from TTransport import TTransportBase, CReadableTransport

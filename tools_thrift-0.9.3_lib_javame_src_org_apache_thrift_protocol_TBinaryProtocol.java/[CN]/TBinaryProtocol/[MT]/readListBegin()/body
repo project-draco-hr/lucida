@@ -1,0 +1,6 @@
+{
+  TList list=new TList();
+  list.elemType=readByte();
+  list.size=readI32();
+  return list;
+}

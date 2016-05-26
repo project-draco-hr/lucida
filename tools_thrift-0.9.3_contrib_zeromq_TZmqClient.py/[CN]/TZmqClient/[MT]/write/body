@@ -1,0 +1,2 @@
+def write(self, buf):
+    self._wbuf.write(buf)

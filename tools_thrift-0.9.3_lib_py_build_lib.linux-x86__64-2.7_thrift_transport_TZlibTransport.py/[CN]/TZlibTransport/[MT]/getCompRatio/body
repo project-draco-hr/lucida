@@ -1,0 +1,8 @@
+def getCompRatio(self):
+    'Get the current measured compression ratios (in,out) from\n    this transport.\n\n    Returns a tuple of:\n    (inbound_compression_ratio, outbound_compression_ratio)\n\n    The compression ratios are computed as:\n        compressed / uncompressed\n\n    E.g., data that compresses by 10x will have a ratio of: 0.10\n    and data that compresses to half of ts original size will\n    have a ratio of 0.5\n\n    None is returned if no bytes have yet been processed in\n    a particular direction.\n    '
+    (r_percent, w_percent) = (None, None)
+    if (self.bytes_in > 0):
+        r_percent = (self.bytes_in_comp / self.bytes_in)
+    if (self.bytes_out > 0):
+        w_percent = (self.bytes_out_comp / self.bytes_out)
+    return (r_percent, w_percent)

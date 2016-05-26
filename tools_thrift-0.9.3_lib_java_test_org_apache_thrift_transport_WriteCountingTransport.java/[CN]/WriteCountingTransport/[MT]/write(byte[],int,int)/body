@@ -1,0 +1,4 @@
+{
+  writeCount++;
+  trans.write(buf,off,len);
+}

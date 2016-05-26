@@ -1,0 +1,4 @@
+{
+  int compareTo=insanity1.compareTo(insanity2);
+  assertTrue(insanity1 + " should be less than " + insanity2+ ", but is: "+ compareTo,compareTo < 0);
+}

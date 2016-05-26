@@ -1,0 +1,10 @@
+{
+  Set<byte[]> a=new HashSet<byte[]>();
+  Set<byte[]> b=new HashSet<byte[]>();
+  if (TBaseHelper.compareTo(a,b) != 0)   throw new RuntimeException("Set compare failed:" + a + " vs. "+ b);
+  a.add(new byte[]{'a','b'});
+  b.add(new byte[]{'a','b'});
+  a.add(new byte[]{'a','b','d'});
+  b.add(new byte[]{'a','b','a'});
+  assertTrue(TBaseHelper.compareTo(a,b) > 0);
+}

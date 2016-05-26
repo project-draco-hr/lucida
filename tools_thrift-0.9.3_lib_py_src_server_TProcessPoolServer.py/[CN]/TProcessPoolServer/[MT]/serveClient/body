@@ -1,0 +1,15 @@
+def serveClient(self, client):
+    'Process input/output from a client for as long as possible'
+    itrans = self.inputTransportFactory.getTransport(client)
+    otrans = self.outputTransportFactory.getTransport(client)
+    iprot = self.inputProtocolFactory.getProtocol(itrans)
+    oprot = self.outputProtocolFactory.getProtocol(otrans)
+    try:
+        while True:
+            self.processor.process(iprot, oprot)
+    except TTransportException as tx:
+        pass
+    except Exception as x:
+        logger.exception(x)
+    itrans.close()
+    otrans.close()

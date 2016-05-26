@@ -1,0 +1,8 @@
+{
+  if (wrapsFullArray(byteBuffer)) {
+    return byteBuffer.array();
+  }
+  byte[] target=new byte[byteBuffer.remaining()];
+  byteBufferToByteArray(byteBuffer,target,0);
+  return target;
+}

@@ -1,0 +1,59 @@
+{
+  if (null == this.client) {
+    throw new TTransportException("Null HttpClient, aborting.");
+  }
+  byte[] data=requestBuffer_.toByteArray();
+  requestBuffer_.reset();
+  HttpPost post=null;
+  InputStream is=null;
+  try {
+    post=new HttpPost(this.url_.getFile());
+    post.setHeader("Content-Type","application/x-thrift");
+    post.setHeader("Accept","application/x-thrift");
+    post.setHeader("User-Agent","Java/THttpClient/HC");
+    if (null != customHeaders_) {
+      for (      Map.Entry<String,String> header : customHeaders_.entrySet()) {
+        post.setHeader(header.getKey(),header.getValue());
+      }
+    }
+    post.setEntity(new ByteArrayEntity(data));
+    HttpResponse response=this.client.execute(this.host,post);
+    int responseCode=response.getStatusLine().getStatusCode();
+    is=response.getEntity().getContent();
+    if (responseCode != HttpStatus.SC_OK) {
+      throw new TTransportException("HTTP Response code: " + responseCode);
+    }
+    byte[] buf=new byte[1024];
+    ByteArrayOutputStream baos=new ByteArrayOutputStream();
+    int len=0;
+    do {
+      len=is.read(buf);
+      if (len > 0) {
+        baos.write(buf,0,len);
+      }
+    }
+ while (-1 != len);
+    try {
+      consume(response.getEntity());
+    }
+ catch (    IOException ioe) {
+    }
+    inputStream_=new ByteArrayInputStream(baos.toByteArray());
+  }
+ catch (  IOException ioe) {
+    if (null != post) {
+      post.abort();
+    }
+    throw new TTransportException(ioe);
+  }
+ finally {
+    if (null != is) {
+      try {
+        is.close();
+      }
+ catch (      IOException ioe) {
+        throw new TTransportException(ioe);
+      }
+    }
+  }
+}

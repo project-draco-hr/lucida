@@ -1,0 +1,3 @@
+{
+  new TestTCompactProtocol().benchmark();
+}

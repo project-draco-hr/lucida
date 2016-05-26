@@ -1,0 +1,4 @@
+@property
+def cstringio_buf(self):
+    'Implement the CReadableTransport interface'
+    return self.__rbuf

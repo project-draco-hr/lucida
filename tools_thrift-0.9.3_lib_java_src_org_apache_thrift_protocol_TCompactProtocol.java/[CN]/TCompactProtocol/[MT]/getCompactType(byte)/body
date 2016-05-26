@@ -1,0 +1,3 @@
+{
+  return ttypeToCompactType[ttype];
+}

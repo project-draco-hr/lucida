@@ -1,0 +1,13 @@
+{
+  struct.setField_=null;
+  struct.value_=null;
+  iprot.readStructBegin();
+  TField field=iprot.readFieldBegin();
+  struct.value_=struct.standardSchemeReadValue(iprot,field);
+  if (struct.value_ != null) {
+    struct.setField_=struct.enumForId(field.id);
+  }
+  iprot.readFieldEnd();
+  iprot.readFieldBegin();
+  iprot.readStructEnd();
+}

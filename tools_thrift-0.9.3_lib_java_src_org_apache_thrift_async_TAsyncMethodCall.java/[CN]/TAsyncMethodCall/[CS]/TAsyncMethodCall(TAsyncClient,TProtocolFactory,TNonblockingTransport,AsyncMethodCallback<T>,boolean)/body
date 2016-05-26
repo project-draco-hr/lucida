@@ -1,0 +1,9 @@
+{
+  this.transport=transport;
+  this.callback=callback;
+  this.protocolFactory=protocolFactory;
+  this.client=client;
+  this.isOneway=isOneway;
+  this.sequenceId=TAsyncMethodCall.sequenceIdCounter.getAndIncrement();
+  this.timeout=client.getTimeout();
+}

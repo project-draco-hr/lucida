@@ -1,0 +1,4 @@
+@defer.inlineCallbacks
+def testI32(self):
+    self.assertEquals(yield self.client.testI32((-1)), (-1))
+    self.assertEquals(yield self.client.testI32(0), 0)

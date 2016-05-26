@@ -1,0 +1,6 @@
+{
+  System.out.print("testStringMap({");
+  System.out.print(thing);
+  System.out.print("})\n");
+  return thing;
+}

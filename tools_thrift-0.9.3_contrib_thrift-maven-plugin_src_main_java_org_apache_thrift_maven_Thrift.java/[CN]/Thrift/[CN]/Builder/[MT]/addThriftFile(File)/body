@@ -1,0 +1,8 @@
+{
+  checkNotNull(thriftFile);
+  checkArgument(thriftFile.isFile());
+  checkArgument(thriftFile.getName().endsWith(".thrift"));
+  checkThriftFileIsInThriftPath(thriftFile);
+  thriftFiles.add(thriftFile);
+  return this;
+}

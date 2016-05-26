@@ -1,0 +1,3 @@
+{
+  return readBuffer.read(buf,off,len);
+}

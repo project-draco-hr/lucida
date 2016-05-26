@@ -1,0 +1,22 @@
+{
+  System.out.println("Listening on port " + this.serversocket.getLocalPort());
+  System.out.println("Point your browser to http://localhost:8088/test/test.html");
+  while (!Thread.interrupted()) {
+    try {
+      Socket socket=this.serversocket.accept();
+      DefaultHttpServerConnection conn=new DefaultHttpServerConnection();
+      System.out.println("Incoming connection from " + socket.getInetAddress());
+      conn.bind(socket,this.params);
+      Thread t=new WorkerThread(this.httpService,conn);
+      t.setDaemon(true);
+      t.start();
+    }
+ catch (    InterruptedIOException ex) {
+      break;
+    }
+catch (    IOException e) {
+      System.err.println("I/O error initialising connection thread: " + e.getMessage());
+      break;
+    }
+  }
+}

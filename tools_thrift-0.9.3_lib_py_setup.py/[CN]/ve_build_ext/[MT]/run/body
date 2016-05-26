@@ -1,0 +1,5 @@
+def run(self):
+    try:
+        build_ext.run(self)
+    except DistutilsPlatformError as x:
+        raise BuildFailed()

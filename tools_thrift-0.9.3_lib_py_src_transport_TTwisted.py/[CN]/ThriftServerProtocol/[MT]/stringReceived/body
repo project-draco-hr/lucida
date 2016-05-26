@@ -1,0 +1,7 @@
+def stringReceived(self, frame):
+    tmi = TTransport.TMemoryBuffer(frame)
+    tmo = TTransport.TMemoryBuffer()
+    iprot = self.factory.iprot_factory.getProtocol(tmi)
+    oprot = self.factory.oprot_factory.getProtocol(tmo)
+    d = self.factory.processor.process(iprot, oprot)
+    d.addCallbacks(self.processOk, self.processError, callbackArgs=(tmo,))

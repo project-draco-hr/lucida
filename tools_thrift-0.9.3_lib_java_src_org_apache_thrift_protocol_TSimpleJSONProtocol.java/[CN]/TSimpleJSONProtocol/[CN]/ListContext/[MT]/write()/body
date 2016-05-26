@@ -1,0 +1,8 @@
+{
+  if (first_) {
+    first_=false;
+  }
+ else {
+    trans_.write(COMMA);
+  }
+}

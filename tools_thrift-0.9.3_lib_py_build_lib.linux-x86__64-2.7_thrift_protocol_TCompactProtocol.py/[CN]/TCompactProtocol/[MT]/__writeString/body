@@ -1,0 +1,3 @@
+def __writeString(self, s):
+    self.__writeSize(len(s))
+    self.trans.write(s)

@@ -1,0 +1,11 @@
+{
+  try {
+    selectAcceptThread_=new SelectAcceptThread((TNonblockingServerTransport)serverTransport_);
+    selectAcceptThread_.start();
+    return true;
+  }
+ catch (  IOException e) {
+    LOGGER.error("Failed to start selector thread!",e);
+    return false;
+  }
+}

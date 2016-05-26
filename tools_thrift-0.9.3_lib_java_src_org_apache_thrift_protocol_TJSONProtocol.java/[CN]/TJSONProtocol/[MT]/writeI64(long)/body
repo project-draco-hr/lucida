@@ -1,0 +1,3 @@
+{
+  writeJSONInteger(i64);
+}

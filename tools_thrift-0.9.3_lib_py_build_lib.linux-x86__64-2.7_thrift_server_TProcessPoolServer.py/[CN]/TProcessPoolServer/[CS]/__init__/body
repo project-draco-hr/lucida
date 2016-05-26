@@ -1,0 +1,7 @@
+def __init__(self, *args):
+    TServer.__init__(self, *args)
+    self.numWorkers = 10
+    self.workers = []
+    self.isRunning = Value('b', False)
+    self.stopCondition = Condition()
+    self.postForkCallback = None

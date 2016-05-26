@@ -1,0 +1,6 @@
+def popContext(self):
+    self.contextStack.pop()
+    if self.contextStack:
+        self.context = self.contextStack[(-1)]
+    else:
+        self.context = JSONBaseContext(self)

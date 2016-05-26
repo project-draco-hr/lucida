@@ -1,0 +1,9 @@
+{
+  if (booleanField_ != null) {
+    writeFieldBeginInternal(booleanField_,b ? Types.BOOLEAN_TRUE : Types.BOOLEAN_FALSE);
+    booleanField_=null;
+  }
+ else {
+    writeByteDirect(b ? Types.BOOLEAN_TRUE : Types.BOOLEAN_FALSE);
+  }
+}

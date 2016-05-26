@@ -1,0 +1,13 @@
+{
+  try {
+    TSSLTransportParameters params=new TSSLTransportParameters();
+    params.setKeyStore("../../lib/java/test/.keystore","thrift",null,null);
+    TServerTransport serverTransport=TSSLTransportFactory.getServerSocket(9091,0,null,params);
+    TServer server=new TSimpleServer(new Args(serverTransport).processor(processor));
+    System.out.println("Starting the secure server...");
+    server.serve();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}
