@@ -1,4 +1,2 @@
 def add_text(self, username, text_knowledge):
-    if text_knowledge.isspace():
-        raise RuntimeError('Empty knowledge is not allowed')
     self.get_text_collection(username).insert_one({'text_knowledge': text_knowledge, })
