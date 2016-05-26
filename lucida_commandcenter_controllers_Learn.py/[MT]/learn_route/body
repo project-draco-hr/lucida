@@ -4,26 +4,26 @@ def learn_route():
     try:
         if (request.method == 'POST'):
             if (not ('op' in request.form)):
-                abort(404)
+                raise RuntimeError('Did you click the Add button?')
             elif (request.form['op'] == 'add_image'):
                 upload_file = request.files['file']
                 if (not (upload_file and image_allowed(upload_file))):
                     raise RuntimeError('Invalid file')
-                if (not (('label' in request.form) and request.form['label'])):
+                if ((not ('label' in request.form)) or request.form['label'].isspace()):
                     raise RuntimeError('Please enter a label for your image')
                 image_data = upload_file.read()
                 upload_file.close()
                 thrift_client.learn_image(session['username'], request.form['label'], image_data)
                 database.add_image(session['username'], request.form['label'], image_data)
             elif (request.form['op'] == 'add_text'):
-                if (not (('text_knowledge' in request.form) and request.form['text_knowledge'])):
+                if ((not ('text_knowledge' in request.form)) or request.form['text_knowledge'].isspace()):
                     raise RuntimeError('Please enter a piece of text as knowledge')
                 thrift_client.learn_text(session['username'], request.form['text_knowledge'])
                 database.add_text(session['username'], request.form['text_knowledge'])
             elif (request.form['op'] == 'secret'):
-                database.secret()
+                database.secret(session['username'])
             else:
-                abort(404)
+                raise RuntimeError('Did you click the Add button?')
     except Exception as e:
         log(e)
         return render_template('learn.html', error=e)
