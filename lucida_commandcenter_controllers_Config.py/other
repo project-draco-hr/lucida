@@ -1,7 +1,7 @@
 TRAIN_OR_LOAD = 'train'
 SERVICE_LIST = {'ASR': 'audio', 'IMM': 'image', 'QA': 'text', 'CA': 'text', }
 LEARNERS = {'audio': [], 'image': ['IMM'], 'text': ['QA'], }
-CLASSIFIER_DESCRIPTIONS = {'text': {'class_QA': ['QA'], 'class_CA': ['CA'], }, 'image': {'class_IMM': ['IMM'], }, 'text_image': {'class_IMM_QA': ['IMM', 'QA'], }, }
+CLASSIFIER_DESCRIPTIONS = {'text': {'class_QA': ['QA'], 'class_CA': ['CA'], }, 'image': {'class_IMM': ['IMM'], }, 'text_image': {'class_IMM': ['IMM'], 'class_IMM_QA': ['IMM', 'QA'], }, }
 for (input_type, services) in LEARNERS.iteritems():
     for service in services:
         if (not (service in SERVICE_LIST)):

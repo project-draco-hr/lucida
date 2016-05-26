@@ -4,14 +4,15 @@ def infer_route():
     result = None
     try:
         if (request.method == 'POST'):
-            if (not ('op' in request.form)):
-                abort(404)
-            elif (request.form['op'] == 'infer'):
-                services_needed = query_classifier.predict(request.form['speech_input'], request.files['file'])
-                result = thrift_client.infer(session['username'], services_needed, request.form['speech_input'], request.files['file'].read())
+            form = request.form
+            if (not ('op' in form)):
+                raise RuntimeError('Did you click the Ask button?')
+            elif (form['op'] == 'infer'):
+                services_needed = query_classifier.predict(form['speech_input'], request.files['file'])
+                result = thrift_client.infer(session['username'], services_needed, form['speech_input'], request.files['file'].read())
                 log(('Result ' + result))
             else:
-                abort(404)
+                raise RuntimeError('Did you click the Ask button?')
     except Exception as e:
         log(e)
         return render_template('infer.html', error=e)
