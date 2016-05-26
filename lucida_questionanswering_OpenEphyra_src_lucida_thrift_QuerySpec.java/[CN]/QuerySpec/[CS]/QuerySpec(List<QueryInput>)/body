@@ -1,4 +1,0 @@
-{
-  this();
-  this.content=content;
-}

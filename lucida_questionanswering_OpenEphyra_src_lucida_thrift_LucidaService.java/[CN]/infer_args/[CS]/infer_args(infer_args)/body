@@ -1,8 +1,0 @@
-{
-  if (other.isSetLUCID()) {
-    this.LUCID=other.LUCID;
-  }
-  if (other.isSetQuery()) {
-    this.query=new QuerySpec(other.query);
-  }
-}
