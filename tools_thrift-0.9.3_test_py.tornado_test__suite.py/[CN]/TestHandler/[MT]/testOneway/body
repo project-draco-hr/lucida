@@ -1,7 +1,0 @@
-def testOneway(self, seconds):
-    start = time.time()
-
-    def fire_oneway():
-        end = time.time()
-        self.test_instance.stop((start, end, seconds))
-    self.test_instance.io_loop.add_timeout(datetime.timedelta(seconds=seconds), fire_oneway)

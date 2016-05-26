@@ -1,3 +1,0 @@
-def accept(self):
-    'Accept connections on the underlying transport'
-    return self.__trans.accept()

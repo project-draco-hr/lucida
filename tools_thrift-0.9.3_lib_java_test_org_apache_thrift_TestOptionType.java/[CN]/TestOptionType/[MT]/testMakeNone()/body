@@ -1,4 +1,0 @@
-{
-  Option<Integer> none=Option.none();
-  assertTrue(none instanceof Option.None);
-}

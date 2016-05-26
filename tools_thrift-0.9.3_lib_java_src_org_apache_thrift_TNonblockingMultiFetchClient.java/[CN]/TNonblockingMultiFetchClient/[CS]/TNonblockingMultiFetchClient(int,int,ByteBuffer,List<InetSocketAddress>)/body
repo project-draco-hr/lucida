@@ -1,8 +1,0 @@
-{
-  this.maxRecvBufBytesPerServer=maxRecvBufBytesPerServer;
-  this.fetchTimeoutSeconds=fetchTimeoutSeconds;
-  this.requestBuf=requestBuf;
-  this.servers=servers;
-  stats=new TNonblockingMultiFetchStats();
-  recvBuf=null;
-}

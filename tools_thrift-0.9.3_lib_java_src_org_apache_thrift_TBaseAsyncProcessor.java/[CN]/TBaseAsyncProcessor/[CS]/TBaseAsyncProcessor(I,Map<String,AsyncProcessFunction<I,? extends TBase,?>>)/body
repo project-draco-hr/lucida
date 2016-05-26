@@ -1,4 +1,0 @@
-{
-  this.iface=iface;
-  this.processMap=processMap;
-}

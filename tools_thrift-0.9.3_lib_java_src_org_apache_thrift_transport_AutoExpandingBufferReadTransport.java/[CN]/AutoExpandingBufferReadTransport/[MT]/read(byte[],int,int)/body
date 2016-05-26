@@ -1,6 +1,0 @@
-{
-  int amtToRead=Math.min(len,getBytesRemainingInBuffer());
-  System.arraycopy(buf.array(),pos,target,off,amtToRead);
-  consumeBuffer(amtToRead);
-  return amtToRead;
-}

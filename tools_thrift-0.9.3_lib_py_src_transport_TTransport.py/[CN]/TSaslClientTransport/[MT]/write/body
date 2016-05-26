@@ -1,2 +1,0 @@
-def write(self, data):
-    self.__wbuf.write(data)

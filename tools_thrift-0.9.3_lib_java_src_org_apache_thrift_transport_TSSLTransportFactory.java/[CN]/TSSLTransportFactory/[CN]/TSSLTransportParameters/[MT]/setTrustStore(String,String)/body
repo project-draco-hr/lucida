@@ -1,3 +1,0 @@
-{
-  setTrustStore(trustStore,trustPass,null,null);
-}

@@ -1,8 +1,0 @@
-{
-  TSerializer ser=new TSerializer(getFactory());
-  byte[] bytes=ser.serialize(Fixtures.compactProtoTestStruct);
-  TDeserializer deser=new TDeserializer(getFactory());
-  CompactProtoTestStruct cpts=new CompactProtoTestStruct();
-  deser.deserialize(cpts,bytes);
-  assertEquals(Fixtures.compactProtoTestStruct,cpts);
-}

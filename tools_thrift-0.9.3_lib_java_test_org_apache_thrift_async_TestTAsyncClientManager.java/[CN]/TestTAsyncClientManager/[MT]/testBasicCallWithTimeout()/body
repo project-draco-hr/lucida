@@ -1,5 +1,0 @@
-{
-  Srv.AsyncClient client=getClient();
-  client.setTimeout(5000);
-  basicCall(client);
-}

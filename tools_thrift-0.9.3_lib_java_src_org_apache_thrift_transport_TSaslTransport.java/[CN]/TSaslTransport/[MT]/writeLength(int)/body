@@ -1,5 +1,0 @@
-{
-  byte[] lenBuf=new byte[4];
-  TFramedTransport.encodeFrameSize(length,lenBuf);
-  underlyingTransport.write(lenBuf);
-}

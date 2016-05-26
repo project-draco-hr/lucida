@@ -1,8 +1,0 @@
-{
-synchronized (selectInterestChanges) {
-    for (    FrameBuffer fb : selectInterestChanges) {
-      fb.changeSelectInterests();
-    }
-    selectInterestChanges.clear();
-  }
-}

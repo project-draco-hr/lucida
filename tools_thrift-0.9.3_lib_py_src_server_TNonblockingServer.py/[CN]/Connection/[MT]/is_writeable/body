@@ -1,4 +1,0 @@
-@locked
-def is_writeable(self):
-    'Return True if connection should be added to write list of select'
-    return (self.status == SEND_ANSWER)

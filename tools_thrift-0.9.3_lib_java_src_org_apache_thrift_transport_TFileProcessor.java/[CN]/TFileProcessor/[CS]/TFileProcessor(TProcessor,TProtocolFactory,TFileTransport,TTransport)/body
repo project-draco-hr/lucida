@@ -1,6 +1,0 @@
-{
-  processor_=processor;
-  inputProtocolFactory_=outputProtocolFactory_=protocolFactory;
-  inputTransport_=inputTransport;
-  outputTransport_=outputTransport;
-}

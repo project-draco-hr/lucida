@@ -1,3 +1,0 @@
-{
-  log=new HashMap<Integer,SharedStruct>();
-}

@@ -1,3 +1,0 @@
-def set_close_callback(self, callback):
-    '\n        Should be called only after open() returns\n        '
-    self.stream.set_close_callback(callback)

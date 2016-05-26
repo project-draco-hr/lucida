@@ -1,3 +1,0 @@
-{
-  return (byte)clearBit((int)v,position);
-}

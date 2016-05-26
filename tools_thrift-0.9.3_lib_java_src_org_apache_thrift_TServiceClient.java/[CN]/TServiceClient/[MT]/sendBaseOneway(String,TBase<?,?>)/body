@@ -1,3 +1,0 @@
-{
-  sendBase(methodName,args,TMessageType.ONEWAY);
-}

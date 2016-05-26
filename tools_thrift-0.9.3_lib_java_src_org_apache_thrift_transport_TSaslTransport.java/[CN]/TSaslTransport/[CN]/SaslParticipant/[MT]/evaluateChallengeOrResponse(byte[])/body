@@ -1,8 +1,0 @@
-{
-  if (saslClient != null) {
-    return saslClient.evaluateChallenge(challengeOrResponse);
-  }
- else {
-    return saslServer.evaluateResponse(challengeOrResponse);
-  }
-}

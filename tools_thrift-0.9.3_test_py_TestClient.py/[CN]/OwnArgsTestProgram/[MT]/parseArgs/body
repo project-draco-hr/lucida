@@ -1,6 +1,0 @@
-def parseArgs(self, argv):
-    if args:
-        self.testNames = args
-    else:
-        self.testNames = (self.defaultTest,)
-    self.createTests()

@@ -1,8 +1,0 @@
-{
-  List<Integer> listout=new ArrayList<Integer>();
-  for (int i=-2; i < 3; ++i) {
-    listout.add(i);
-  }
-  List<Integer> listin=testClient.testList(listout);
-  assertEquals(listout,listin);
-}

@@ -1,8 +1,0 @@
-{
-  processorFactory_=args.processorFactory;
-  serverTransport_=args.serverTransport;
-  inputTransportFactory_=args.inputTransportFactory;
-  outputTransportFactory_=args.outputTransportFactory;
-  inputProtocolFactory_=args.inputProtocolFactory;
-  outputProtocolFactory_=args.outputProtocolFactory;
-}

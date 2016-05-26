@@ -1,2 +1,0 @@
-def writeByte(self, byte):
-    pass

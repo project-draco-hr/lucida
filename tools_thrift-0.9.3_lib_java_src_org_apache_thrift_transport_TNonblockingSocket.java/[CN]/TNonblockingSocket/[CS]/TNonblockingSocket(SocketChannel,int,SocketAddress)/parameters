@@ -1,3 +1,0 @@
-SocketChannel socketChannel
-int timeout
-SocketAddress socketAddress

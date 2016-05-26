@@ -1,6 +1,0 @@
-{
-  if (servers == null) {
-    return null;
-  }
-  return Collections.unmodifiableList(servers);
-}

@@ -1,2 +1,0 @@
-def isJSONNumeric(self, character):
-    return (True if (NUMERIC_CHAR.find(character) != (-1)) else False)

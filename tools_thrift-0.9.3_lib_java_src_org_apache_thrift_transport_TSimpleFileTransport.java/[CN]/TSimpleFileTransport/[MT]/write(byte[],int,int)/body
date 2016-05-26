@@ -1,9 +1,0 @@
-{
-  try {
-    file.write(buf,off,len);
-  }
- catch (  IOException ioe) {
-    file=null;
-    throw new TTransportException(ioe.getMessage());
-  }
-}

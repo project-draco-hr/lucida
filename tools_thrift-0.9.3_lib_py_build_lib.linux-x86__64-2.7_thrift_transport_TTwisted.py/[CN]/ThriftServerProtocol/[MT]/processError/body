@@ -1,2 +1,0 @@
-def processError(self, error):
-    self.transport.loseConnection()

@@ -1,4 +1,0 @@
-{
-  super(trans);
-  fieldNamesAsString_=fieldNamesAsString;
-}

@@ -1,2 +1,0 @@
-def testBinary(self, thing):
-    return thing

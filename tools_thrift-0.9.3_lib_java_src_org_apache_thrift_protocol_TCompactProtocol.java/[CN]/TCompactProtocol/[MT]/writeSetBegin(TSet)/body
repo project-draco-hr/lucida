@@ -1,3 +1,0 @@
-{
-  writeCollectionBegin(set.elemType,set.size);
-}

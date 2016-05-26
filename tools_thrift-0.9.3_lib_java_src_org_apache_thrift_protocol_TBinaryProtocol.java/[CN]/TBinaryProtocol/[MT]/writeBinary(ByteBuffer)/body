@@ -1,5 +1,0 @@
-{
-  int length=bin.limit() - bin.position();
-  writeI32(length);
-  trans_.write(bin.array(),bin.position() + bin.arrayOffset(),length);
-}

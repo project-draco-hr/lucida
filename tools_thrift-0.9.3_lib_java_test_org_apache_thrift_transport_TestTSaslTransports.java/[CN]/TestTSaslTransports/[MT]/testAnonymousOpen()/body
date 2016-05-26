@@ -1,3 +1,0 @@
-{
-  testSaslOpen("ANONYMOUS",null);
-}

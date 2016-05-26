@@ -1,3 +1,0 @@
-{
-  this(stringLengthLimit,NO_LENGTH_LIMIT);
-}

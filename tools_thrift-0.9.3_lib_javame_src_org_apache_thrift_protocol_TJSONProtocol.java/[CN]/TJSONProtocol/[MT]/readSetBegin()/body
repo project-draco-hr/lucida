@@ -1,6 +1,0 @@
-{
-  readJSONArrayStart();
-  byte elemType=getTypeIDForTypeName(readJSONString(false).get());
-  int size=(int)readJSONInteger();
-  return new TSet(elemType,size);
-}

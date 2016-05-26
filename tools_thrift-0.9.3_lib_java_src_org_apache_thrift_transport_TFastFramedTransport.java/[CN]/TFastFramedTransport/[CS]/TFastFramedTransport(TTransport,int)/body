@@ -1,3 +1,0 @@
-{
-  this(underlying,initialBufferCapacity,DEFAULT_MAX_LENGTH);
-}

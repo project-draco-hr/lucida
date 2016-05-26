@@ -1,3 +1,0 @@
-{
-  this(SocketChannel.open(),timeout,new InetSocketAddress(host,port));
-}

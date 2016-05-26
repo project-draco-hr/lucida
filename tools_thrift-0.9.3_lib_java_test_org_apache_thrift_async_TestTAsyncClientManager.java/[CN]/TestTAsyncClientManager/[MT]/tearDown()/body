@@ -1,5 +1,0 @@
-{
-  server_.stop();
-  clientManager_.stop();
-  serverThread_.join();
-}

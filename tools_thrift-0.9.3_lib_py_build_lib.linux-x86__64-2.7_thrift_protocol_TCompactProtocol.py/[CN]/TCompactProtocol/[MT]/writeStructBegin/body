@@ -1,5 +1,0 @@
-def writeStructBegin(self, name):
-    assert (self.state in (CLEAR, CONTAINER_WRITE, VALUE_WRITE)), self.state
-    self.__structs.append((self.state, self.__last_fid))
-    self.state = FIELD_WRITE
-    self.__last_fid = 0

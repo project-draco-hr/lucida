@@ -1,3 +1,0 @@
-def writeByte(self, byte):
-    checkIntegerLimits(byte, 8)
-    self.writeJSONNumber(byte)

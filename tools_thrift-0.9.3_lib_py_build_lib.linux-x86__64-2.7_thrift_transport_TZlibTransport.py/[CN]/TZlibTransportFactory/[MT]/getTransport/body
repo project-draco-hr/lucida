@@ -1,8 +1,0 @@
-def getTransport(self, trans, compresslevel=9):
-    'Wrap a transport, trans, with the TZlibTransport\n    compressed transport class, returning a new\n    transport to the caller.\n\n    @param compresslevel: The zlib compression level, ranging\n    from 0 (no compression) to 9 (best compression).  Defaults to 9.\n    @type compresslevel: int\n\n    This method returns a TZlibTransport which wraps the\n    passed C{trans} TTransport derived instance.\n    '
-    if (trans == self._last_trans):
-        return self._last_z
-    ztrans = TZlibTransport(trans, compresslevel)
-    self._last_trans = trans
-    self._last_z = ztrans
-    return ztrans

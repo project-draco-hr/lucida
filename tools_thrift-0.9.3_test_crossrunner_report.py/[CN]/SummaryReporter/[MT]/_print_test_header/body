@@ -1,3 +1,0 @@
-def _print_test_header(self):
-    self._print_bar()
-    self.out.write('{:19s}{:13s}{:25s}{:s}\n'.format('server-client:', 'protocol:', 'transport:', 'result:'))

@@ -1,6 +1,0 @@
-{
-  checkNotNull(thriftPathElement);
-  checkArgument(thriftPathElement.isDirectory());
-  thriftPathElements.add(thriftPathElement);
-  return this;
-}

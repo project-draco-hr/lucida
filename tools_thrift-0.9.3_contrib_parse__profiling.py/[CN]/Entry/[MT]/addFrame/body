@@ -1,6 +1,0 @@
-def addFrame(self, filename, address):
-    idx = filename.rfind('(')
-    if (idx >= 0):
-        filename = filename[:idx]
-    addr = get_address(filename, address)
-    self.bt.append(addr)

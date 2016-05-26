@@ -1,9 +1,0 @@
-{
-  int numChunks=getNumChunks();
-  int curChunk=cs.getChunkNum();
-  if (curChunk >= (numChunks - 1)) {
-    return false;
-  }
-  seekToChunk(curChunk + 1);
-  return true;
-}

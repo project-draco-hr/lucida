@@ -1,4 +1,0 @@
-{
-  if (saslClient != null)   saslClient.dispose();
- else   saslServer.dispose();
-}

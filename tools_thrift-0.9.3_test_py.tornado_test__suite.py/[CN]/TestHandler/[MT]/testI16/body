@@ -1,2 +1,0 @@
-def testI16(self, i16):
-    return i16

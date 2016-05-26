@@ -1,3 +1,0 @@
-def writeI64(self, i64):
-    buff = pack('!q', i64)
-    self.trans.write(buff)

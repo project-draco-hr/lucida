@@ -1,9 +1,0 @@
-{
-  if (writeContext_.isMapKey()) {
-    writeString(Double.toString(dub));
-  }
- else {
-    writeContext_.write();
-    _writeStringData(Double.toString(dub));
-  }
-}

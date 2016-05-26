@@ -1,7 +1,0 @@
-{
-  state=State.RESPONSE_READ;
-  key.interestOps(0);
-  key.attach(null);
-  client.onComplete();
-  callback.onComplete((T)this);
-}

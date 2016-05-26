@@ -1,4 +1,0 @@
-def testBinary(self, thing):
-    if (options.verbose > 1):
-        print 'testBinary()'
-    return thing

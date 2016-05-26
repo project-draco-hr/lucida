@@ -1,6 +1,0 @@
-{
-  this.selector=SelectorProvider.provider().openSelector();
-  this.running=true;
-  this.setName("TAsyncClientManager#SelectorThread " + this.getId());
-  setDaemon(true);
-}

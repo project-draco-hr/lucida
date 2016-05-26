@@ -1,5 +1,0 @@
-{
-  long val=getCounter(key) + 1;
-  counters_.put(key,val);
-  return val;
-}

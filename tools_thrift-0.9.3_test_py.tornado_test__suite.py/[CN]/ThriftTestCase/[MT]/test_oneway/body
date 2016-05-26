@@ -1,4 +1,0 @@
-def test_oneway(self):
-    self.client.testOneway(0.5)
-    (start, end, seconds) = self.wait(timeout=1)
-    self.assertAlmostEquals(seconds, (end - start), places=3)

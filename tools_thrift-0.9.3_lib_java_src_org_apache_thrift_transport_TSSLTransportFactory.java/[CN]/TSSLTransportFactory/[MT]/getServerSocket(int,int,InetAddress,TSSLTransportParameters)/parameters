@@ -1,4 +1,0 @@
-int port
-int clientTimeout
-InetAddress ifAddress
-TSSLTransportParameters params

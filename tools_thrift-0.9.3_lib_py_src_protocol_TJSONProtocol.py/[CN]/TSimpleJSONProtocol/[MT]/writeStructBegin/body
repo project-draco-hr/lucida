@@ -1,2 +1,0 @@
-def writeStructBegin(self, name):
-    self.writeJSONObjectStart()

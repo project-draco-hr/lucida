@@ -1,9 +1,0 @@
-def _print_unexpected_failure(self):
-    if (len(self._unexpected_failure) > 0):
-        self.out.writelines([('*** Following %d failures were unexpected ***:\n' % len(self._unexpected_failure)), 'If it is introduced by you, please fix it before submitting the code.\n'])
-        self._print_test_header()
-        for i in self._unexpected_failure:
-            self.out.write(self._format_test(self._tests[i]))
-        self._print_bar()
-    else:
-        self.out.write('No unexpected failures.\n')

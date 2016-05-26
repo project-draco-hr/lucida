@@ -1,4 +1,0 @@
-{
-  System.out.print("testBool(" + thing + ")\n");
-  return thing;
-}

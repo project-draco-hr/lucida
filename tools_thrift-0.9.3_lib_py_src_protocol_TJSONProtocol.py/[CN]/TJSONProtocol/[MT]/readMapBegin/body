@@ -1,7 +1,0 @@
-def readMapBegin(self):
-    self.readJSONArrayStart()
-    keyType = JTYPES[self.readJSONString(False)]
-    valueType = JTYPES[self.readJSONString(False)]
-    size = self.readJSONInteger()
-    self.readJSONObjectStart()
-    return (keyType, valueType, size)

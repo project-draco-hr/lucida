@@ -1,3 +1,0 @@
-{
-  testSaslOpen(UNWRAPPED_MECHANISM,UNWRAPPED_PROPS);
-}

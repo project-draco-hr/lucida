@@ -1,2 +1,0 @@
-def writeString(self, string):
-    self.writeJSONString(string)

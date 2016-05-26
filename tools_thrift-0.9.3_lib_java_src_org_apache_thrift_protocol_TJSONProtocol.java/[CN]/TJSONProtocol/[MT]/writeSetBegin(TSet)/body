@@ -1,5 +1,0 @@
-{
-  writeJSONArrayStart();
-  writeJSONString(getTypeNameForTypeID(set.elemType));
-  writeJSONInteger(set.size);
-}

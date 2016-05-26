@@ -1,2 +1,0 @@
-I iface
-Map<String,ProcessFunction<I,? extends TBase>> processFunctionMap

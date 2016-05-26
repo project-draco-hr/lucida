@@ -1,3 +1,0 @@
-TProcessor processor
-TNonblockingServerSocket socket
-TProtocolFactory protoFactory

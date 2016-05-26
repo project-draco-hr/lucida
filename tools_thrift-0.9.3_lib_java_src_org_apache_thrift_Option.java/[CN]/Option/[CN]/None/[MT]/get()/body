@@ -1,3 +1,0 @@
-{
-  throw new IllegalStateException("Cannot call get() on None");
-}

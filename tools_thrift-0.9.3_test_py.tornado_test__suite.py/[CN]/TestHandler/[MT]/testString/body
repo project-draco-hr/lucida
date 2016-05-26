@@ -1,2 +1,0 @@
-def testString(self, s):
-    return s

@@ -1,3 +1,0 @@
-{
-  toString(bytes,0,bytes.length,sb);
-}

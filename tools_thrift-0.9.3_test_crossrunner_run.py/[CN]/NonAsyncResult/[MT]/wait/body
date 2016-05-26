@@ -1,2 +1,0 @@
-def wait(self, timeout=None):
-    pass

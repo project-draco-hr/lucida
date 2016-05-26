@@ -1,9 +1,0 @@
-{
-  byte[] record=serialize(input,protocolFactory);
-  TDeserializer deserializer=new TDeserializer(protocolFactory);
-  for (int i=0; i < 2; i++) {
-    TBase outputCopy=output.deepCopy();
-    deserializer.partialDeserialize(outputCopy,record,fieldIdPathFirst,fieldIdPathRest);
-    assertEquals("on attempt " + i + ", with "+ protocolFactory.toString()+ ", expected "+ expected+ " but got "+ outputCopy,expected,outputCopy);
-  }
-}

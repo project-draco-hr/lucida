@@ -1,5 +1,0 @@
-{
-  context_.read();
-  readJSONSyntaxChar(LBRACE);
-  pushContext(new JSONPairContext());
-}

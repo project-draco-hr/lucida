@@ -1,4 +1,0 @@
-boolean strictRead
-boolean strictWrite
-long stringLengthLimit
-long containerLengthLimit

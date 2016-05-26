@@ -1,7 +1,0 @@
-def __init__(self, host, port, stream=None, io_loop=None):
-    self.host = host
-    self.port = port
-    self.io_loop = (io_loop or ioloop.IOLoop.current())
-    self.__wbuf = BytesIO()
-    self._read_lock = _Lock()
-    self.stream = stream

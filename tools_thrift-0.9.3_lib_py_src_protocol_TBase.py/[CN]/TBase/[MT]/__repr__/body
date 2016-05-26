@@ -1,3 +1,0 @@
-def __repr__(self):
-    L = [('%s=%r' % (key, getattr(self, key))) for key in self.__slots__]
-    return ('%s(%s)' % (self.__class__.__name__, ', '.join(L)))

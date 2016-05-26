@@ -1,9 +1,0 @@
-{
-  try {
-    joinThreads();
-  }
- catch (  InterruptedException e) {
-    LOGGER.error("Interrupted while joining threads!",e);
-  }
-  gracefullyShutdownInvokerPool();
-}

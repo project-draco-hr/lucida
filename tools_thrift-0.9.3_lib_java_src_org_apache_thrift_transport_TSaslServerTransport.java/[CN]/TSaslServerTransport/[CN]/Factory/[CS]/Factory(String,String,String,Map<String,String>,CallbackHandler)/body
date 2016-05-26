@@ -1,4 +1,0 @@
-{
-  super();
-  addServerDefinition(mechanism,protocol,serverName,props,cbh);
-}

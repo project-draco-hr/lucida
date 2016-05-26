@@ -1,3 +1,0 @@
-{
-  this(new ServerSocketTransportArgs().serverSocket(serverSocket).clientTimeout(clientTimeout));
-}

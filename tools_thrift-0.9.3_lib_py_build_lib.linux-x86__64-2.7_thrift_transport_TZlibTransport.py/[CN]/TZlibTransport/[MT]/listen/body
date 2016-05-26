@@ -1,3 +1,0 @@
-def listen(self):
-    "Invoke the underlying transport's listen() method"
-    self.__trans.listen()

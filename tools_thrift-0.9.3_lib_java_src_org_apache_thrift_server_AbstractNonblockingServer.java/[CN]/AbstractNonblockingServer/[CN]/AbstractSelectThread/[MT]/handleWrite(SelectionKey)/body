@@ -1,6 +1,0 @@
-{
-  FrameBuffer buffer=(FrameBuffer)key.attachment();
-  if (!buffer.write()) {
-    cleanupSelectionKey(key);
-  }
-}

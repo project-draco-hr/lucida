@@ -1,3 +1,0 @@
-ServerContext serverContext
-TTransport inputTransport
-TTransport outputTransport

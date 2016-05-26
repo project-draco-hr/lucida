@@ -1,2 +1,0 @@
-def __readVarint(self):
-    return readVarint(self.trans)

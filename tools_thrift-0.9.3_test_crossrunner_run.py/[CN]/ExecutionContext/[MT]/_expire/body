@@ -1,4 +1,0 @@
-def _expire(self):
-    self._log.info('Timeout')
-    self.expired = True
-    self.kill()

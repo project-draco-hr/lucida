@@ -1,3 +1,0 @@
-def connectionLost(self, reason=connectionDone):
-    if self.client:
-        ThriftClientProtocol.connectionLost(self, reason)

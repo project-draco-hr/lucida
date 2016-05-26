@@ -1,3 +1,0 @@
-def getValues(self):
-    time.sleep(1)
-    return self.values

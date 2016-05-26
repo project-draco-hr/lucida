@@ -1,6 +1,0 @@
-{
-  checkNotNull(directory);
-  checkArgument(directory.isDirectory(),"%s is not a directory",directory);
-  List<File> thriftFilesInDirectory=getFiles(directory,Joiner.on(",").join(includes),Joiner.on(",").join(excludes));
-  return ImmutableSet.copyOf(thriftFilesInDirectory);
-}

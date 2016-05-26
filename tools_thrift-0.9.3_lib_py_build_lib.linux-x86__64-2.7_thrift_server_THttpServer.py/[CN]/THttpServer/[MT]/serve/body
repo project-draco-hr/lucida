@@ -1,2 +1,0 @@
-def serve(self):
-    self.httpd.serve_forever()

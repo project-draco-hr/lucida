@@ -1,3 +1,0 @@
-@defer.inlineCallbacks
-def testDouble(self):
-    self.assertEquals(yield self.client.testDouble((-5.235098235)), (-5.235098235))

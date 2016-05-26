@@ -1,6 +1,0 @@
-{
-  int size=readI32();
-  byte[] buf=new byte[size];
-  trans_.readAll(buf,0,size);
-  return buf;
-}

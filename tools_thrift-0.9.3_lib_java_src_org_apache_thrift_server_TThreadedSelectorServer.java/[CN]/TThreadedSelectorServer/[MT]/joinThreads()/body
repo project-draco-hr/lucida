@@ -1,6 +1,0 @@
-{
-  acceptThread.join();
-  for (  SelectorThread thread : selectorThreads) {
-    thread.join();
-  }
-}

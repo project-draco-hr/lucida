@@ -1,5 +1,0 @@
-def accept(self):
-    (client, addr) = self.handle.accept()
-    result = TSocket()
-    result.setHandle(client)
-    return result

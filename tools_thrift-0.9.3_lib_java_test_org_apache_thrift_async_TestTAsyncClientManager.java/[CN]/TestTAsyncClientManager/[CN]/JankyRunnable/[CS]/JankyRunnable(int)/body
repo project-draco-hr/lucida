@@ -1,5 +1,0 @@
-{
-  numCalls_=numCalls;
-  client_=getClient();
-  client_.setTimeout(20000);
-}

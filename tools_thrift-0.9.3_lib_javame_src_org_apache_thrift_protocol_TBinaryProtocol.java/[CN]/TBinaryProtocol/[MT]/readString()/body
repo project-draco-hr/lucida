@@ -1,4 +1,0 @@
-{
-  int size=readI32();
-  return readStringBody(size);
-}

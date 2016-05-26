@@ -1,3 +1,0 @@
-{
-  writeJSONBase64(bin.array(),bin.position() + bin.arrayOffset(),bin.limit() - bin.position() - bin.arrayOffset());
-}

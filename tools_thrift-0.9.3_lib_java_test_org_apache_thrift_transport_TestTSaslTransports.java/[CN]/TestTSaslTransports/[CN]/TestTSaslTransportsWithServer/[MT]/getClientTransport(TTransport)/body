@@ -1,3 +1,0 @@
-{
-  return new TSaslClientTransport(WRAPPED_MECHANISM,PRINCIPAL,SERVICE,HOST,WRAPPED_PROPS,new TestSaslCallbackHandler(PASSWORD),underlyingTransport);
-}

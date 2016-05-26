@@ -1,3 +1,0 @@
-def close(self):
-    self.__http.close()
-    self.__http = None

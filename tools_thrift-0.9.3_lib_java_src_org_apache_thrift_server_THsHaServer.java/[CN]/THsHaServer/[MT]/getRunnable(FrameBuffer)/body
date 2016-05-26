@@ -1,3 +1,0 @@
-{
-  return new Invocation(frameBuffer);
-}

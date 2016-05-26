@@ -1,2 +1,0 @@
-def testI64(self, i64):
-    return i64

@@ -1,4 +1,0 @@
-{
-  writeByte(field.type);
-  writeI16(field.id);
-}

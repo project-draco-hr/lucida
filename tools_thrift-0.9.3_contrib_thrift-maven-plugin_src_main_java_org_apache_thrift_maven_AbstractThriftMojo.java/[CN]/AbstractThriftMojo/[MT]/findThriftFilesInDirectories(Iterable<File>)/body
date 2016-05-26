@@ -1,8 +1,0 @@
-{
-  checkNotNull(directories);
-  Set<File> thriftFiles=newHashSet();
-  for (  File directory : directories) {
-    thriftFiles.addAll(findThriftFilesInDirectory(directory));
-  }
-  return ImmutableSet.copyOf(thriftFiles);
-}

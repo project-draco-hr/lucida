@@ -1,3 +1,0 @@
-def _read_message(self):
-    msg = self._sock.recv()
-    self._rbuf = StringIO(msg)

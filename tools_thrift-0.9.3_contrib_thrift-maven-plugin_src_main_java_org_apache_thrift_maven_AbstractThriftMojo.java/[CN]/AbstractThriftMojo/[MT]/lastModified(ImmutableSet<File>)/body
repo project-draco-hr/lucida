@@ -1,7 +1,0 @@
-{
-  long result=0;
-  for (  File file : files) {
-    if (file.lastModified() > result)     result=file.lastModified();
-  }
-  return result;
-}

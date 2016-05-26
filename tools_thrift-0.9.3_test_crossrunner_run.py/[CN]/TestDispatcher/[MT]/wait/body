@@ -1,6 +1,0 @@
-def wait(self):
-    if self._async:
-        self._pool.close()
-        self._pool.join()
-        self._m.shutdown()
-    return self._report.end()

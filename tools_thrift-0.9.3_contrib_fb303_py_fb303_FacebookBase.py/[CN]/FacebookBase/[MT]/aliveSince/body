@@ -1,2 +1,0 @@
-def aliveSince(self):
-    return self.alive

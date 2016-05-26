@@ -1,4 +1,0 @@
-String host
-int port
-int socketTimeout
-int connectTimeout

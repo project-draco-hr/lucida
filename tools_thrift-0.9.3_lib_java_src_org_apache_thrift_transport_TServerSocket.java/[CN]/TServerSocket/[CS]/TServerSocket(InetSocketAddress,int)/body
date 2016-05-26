@@ -1,3 +1,0 @@
-{
-  this(new ServerSocketTransportArgs().bindAddr(bindAddr).clientTimeout(clientTimeout));
-}

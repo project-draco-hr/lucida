@@ -1,8 +1,0 @@
-{
-  if (field.type == TType.BOOL) {
-    booleanField_=field;
-  }
- else {
-    writeFieldBeginInternal(field,(byte)-1);
-  }
-}

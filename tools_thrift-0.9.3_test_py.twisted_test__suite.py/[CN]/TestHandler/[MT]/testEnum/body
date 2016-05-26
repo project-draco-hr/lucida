@@ -1,2 +1,0 @@
-def testEnum(self, thing):
-    return thing

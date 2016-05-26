@@ -1,4 +1,0 @@
-def dispatch(self, msg):
-    encoded = self.sasl.wrap(msg)
-    len_and_encoded = ''.join((struct.pack('!i', len(encoded)), encoded))
-    ThriftClientProtocol.dispatch(self, len_and_encoded)

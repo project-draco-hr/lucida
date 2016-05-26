@@ -1,3 +1,0 @@
-TProcessor processor
-TProtocolFactory inProtocolFactory
-TProtocolFactory outProtocolFactory

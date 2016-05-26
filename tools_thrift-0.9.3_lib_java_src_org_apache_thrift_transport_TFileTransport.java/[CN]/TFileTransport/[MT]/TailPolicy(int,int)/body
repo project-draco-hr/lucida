@@ -1,4 +1,0 @@
-{
-  timeout_=timeout;
-  retries_=retries;
-}

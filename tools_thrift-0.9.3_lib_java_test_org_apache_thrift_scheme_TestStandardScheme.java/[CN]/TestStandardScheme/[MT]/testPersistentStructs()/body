@@ -1,5 +1,0 @@
-{
-  readAndCompare(new OneOfEach(),Fixtures.oneOfEach,Fixtures.persistentBytesOneOfEach);
-  readAndCompare(new HolyMoley(),Fixtures.holyMoley,Fixtures.persistentBytesHolyMoley);
-  readAndCompare(new Nesting(),Fixtures.nesting,Fixtures.persistentBytesNesting);
-}

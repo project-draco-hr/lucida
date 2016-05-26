@@ -1,3 +1,0 @@
-{
-  writeByte(b ? (byte)1 : (byte)0);
-}

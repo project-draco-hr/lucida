@@ -1,4 +1,0 @@
-{
-  sasl=new SaslParticipant(saslClient);
-  this.underlyingTransport=underlyingTransport;
-}

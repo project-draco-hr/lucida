@@ -1,2 +1,0 @@
-def _start(self):
-    self._start_time = time.time()

@@ -1,3 +1,0 @@
-def getTransport(self, trans):
-    buffered = TBufferedTransport(trans)
-    return buffered

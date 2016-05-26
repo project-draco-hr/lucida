@@ -1,4 +1,0 @@
-def _get_revision(self):
-    p = subprocess.Popen(['git', 'rev-parse', '--short', 'HEAD'], cwd=self.testdir, stdout=subprocess.PIPE)
-    (out, _) = p.communicate()
-    return out.strip()

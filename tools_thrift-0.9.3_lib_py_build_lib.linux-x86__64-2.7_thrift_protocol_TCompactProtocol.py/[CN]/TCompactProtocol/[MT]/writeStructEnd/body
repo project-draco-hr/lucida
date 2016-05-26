@@ -1,3 +1,0 @@
-def writeStructEnd(self):
-    assert (self.state == FIELD_WRITE)
-    (self.state, self.__last_fid) = self.__structs.pop()

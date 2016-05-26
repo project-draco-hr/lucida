@@ -1,3 +1,0 @@
-{
-  writeByteDirect((byte)n);
-}

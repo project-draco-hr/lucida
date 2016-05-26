@@ -1,8 +1,0 @@
-def __init__(self, trans, compresslevel=9):
-    'Create a new TZlibTransport, wrapping C{trans}, another\n    TTransport derived object.\n\n    @param trans: A thrift transport object, i.e. a TSocket() object.\n    @type trans: TTransport\n    @param compresslevel: The zlib compression level, ranging\n    from 0 (no compression) to 9 (best compression).  Default is 9.\n    @type compresslevel: int\n    '
-    self.__trans = trans
-    self.compresslevel = compresslevel
-    self.__rbuf = StringIO()
-    self.__wbuf = StringIO()
-    self._init_zlib()
-    self._init_stats()

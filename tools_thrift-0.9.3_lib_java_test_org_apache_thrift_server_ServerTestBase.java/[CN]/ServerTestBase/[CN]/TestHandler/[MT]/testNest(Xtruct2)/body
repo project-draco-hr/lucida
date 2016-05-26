@@ -1,5 +1,0 @@
-{
-  Xtruct thing=nest.struct_thing;
-  System.out.print("testNest({" + nest.byte_thing + ", {"+ "\""+ thing.string_thing+ "\", "+ thing.byte_thing+ ", "+ thing.i32_thing+ ", "+ thing.i64_thing+ "}, "+ nest.i32_thing+ "})\n");
-  return nest;
-}

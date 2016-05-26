@@ -1,5 +1,0 @@
-def testSimpleMessage(self):
-    v1obj = VersioningTestV1(begin_in_both=12345, old_string='aaa', end_in_both=54321)
-    expected = dict(begin_in_both=v1obj.begin_in_both, old_string=v1obj.old_string, end_in_both=v1obj.end_in_both)
-    actual = json.loads(self._serialize(v1obj))
-    self._assertDictEqual(expected, actual)

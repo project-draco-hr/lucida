@@ -1,6 +1,0 @@
-{
-synchronized (selectInterestChanges) {
-    selectInterestChanges.add(frameBuffer);
-  }
-  selector.wakeup();
-}

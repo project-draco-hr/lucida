@@ -1,3 +1,0 @@
-def getStruct(self, key):
-    print ('getStruct(%d)' % key)
-    return self.log[key]

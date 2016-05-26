@@ -1,3 +1,0 @@
-def pushContext(self, ctx):
-    self.contextStack.append(ctx)
-    self.context = ctx

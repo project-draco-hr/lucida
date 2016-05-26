@@ -1,3 +1,0 @@
-{
-  return new TBinaryProtocol(trans,stringLengthLimit_,containerLengthLimit_,strictRead_,strictWrite_);
-}

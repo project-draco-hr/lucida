@@ -1,5 +1,0 @@
-def alloc_port(self, socket_type):
-    if (socket_type == 'domain'):
-        return self._get_domain_port()
-    else:
-        return self._get_tcp_port()

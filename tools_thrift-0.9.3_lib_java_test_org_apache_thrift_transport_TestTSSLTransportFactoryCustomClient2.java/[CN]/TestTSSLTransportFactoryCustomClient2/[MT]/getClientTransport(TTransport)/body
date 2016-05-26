@@ -1,5 +1,0 @@
-{
-  TSSLTransportFactory.TSSLTransportParameters params=new TSSLTransportFactory.TSSLTransportParameters();
-  params.setTrustStore(System.getProperty("javax.net.ssl.trustStore"),null);
-  return TSSLTransportFactory.getClientSocket(HOST,PORT,0,params);
-}

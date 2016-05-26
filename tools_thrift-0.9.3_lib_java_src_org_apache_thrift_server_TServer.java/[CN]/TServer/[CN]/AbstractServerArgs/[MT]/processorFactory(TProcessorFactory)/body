@@ -1,4 +1,0 @@
-{
-  this.processorFactory=factory;
-  return (T)this;
-}

@@ -1,7 +1,0 @@
-def setTimeout(self, ms):
-    if (ms is None):
-        self._timeout = None
-    else:
-        self._timeout = (ms / 1000.0)
-    if (self.handle is not None):
-        self.handle.settimeout(self._timeout)

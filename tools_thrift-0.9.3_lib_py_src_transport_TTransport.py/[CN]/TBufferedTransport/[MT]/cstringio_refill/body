@@ -1,8 +1,0 @@
-def cstringio_refill(self, partialread, reqlen):
-    retstring = partialread
-    if (reqlen < self.__rbuf_size):
-        retstring += self.__trans.read(self.__rbuf_size)
-    if (len(retstring) < reqlen):
-        retstring += self.__trans.readAll((reqlen - len(retstring)))
-    self.__rbuf = StringIO(retstring)
-    return self.__rbuf

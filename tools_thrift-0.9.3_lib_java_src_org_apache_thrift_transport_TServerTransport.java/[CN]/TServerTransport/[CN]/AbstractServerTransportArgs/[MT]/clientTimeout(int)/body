@@ -1,4 +1,0 @@
-{
-  this.clientTimeout=clientTimeout;
-  return (T)this;
-}

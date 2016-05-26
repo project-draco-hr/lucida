@@ -1,3 +1,0 @@
-def testSerializeV1(self):
-    obj = self._deserialize(VersioningTestV1, self._serialize(self.v1obj))
-    self.assertEquals(obj, self.v1obj)

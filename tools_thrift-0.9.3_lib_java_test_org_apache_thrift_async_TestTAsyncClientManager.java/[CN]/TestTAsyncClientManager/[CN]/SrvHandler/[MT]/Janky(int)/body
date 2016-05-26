@@ -1,4 +1,0 @@
-{
-  assertEquals(1,arg);
-  return 3;
-}

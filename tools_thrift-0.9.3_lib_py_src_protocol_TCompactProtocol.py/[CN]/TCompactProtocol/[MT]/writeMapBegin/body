@@ -1,9 +1,0 @@
-def writeMapBegin(self, ktype, vtype, size):
-    assert (self.state in (VALUE_WRITE, CONTAINER_WRITE)), self.state
-    if (size == 0):
-        self.__writeByte(0)
-    else:
-        self.__writeSize(size)
-        self.__writeUByte(((CTYPES[ktype] << 4) | CTYPES[vtype]))
-    self.__containers.append(self.state)
-    self.state = CONTAINER_WRITE

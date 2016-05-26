@@ -1,2 +1,0 @@
-def writeMessageBegin(self, name, ttype, seqid):
-    pass

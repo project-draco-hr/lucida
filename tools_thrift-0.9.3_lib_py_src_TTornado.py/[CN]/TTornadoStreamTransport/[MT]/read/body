@@ -1,2 +1,0 @@
-def read(self, _):
-    assert False, "you're doing it wrong"

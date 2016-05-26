@@ -1,5 +1,0 @@
-def _deserialize(self, objtype, data):
-    prot = self.protocol_factory.getProtocol(TTransport.TMemoryBuffer(data))
-    ret = objtype()
-    ret.read(prot)
-    return ret

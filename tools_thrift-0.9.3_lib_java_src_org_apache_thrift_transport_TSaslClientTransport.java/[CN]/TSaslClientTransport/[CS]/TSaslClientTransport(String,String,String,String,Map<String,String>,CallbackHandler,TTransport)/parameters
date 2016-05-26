@@ -1,7 +1,0 @@
-String mechanism
-String authorizationId
-String protocol
-String serverName
-Map<String,String> props
-CallbackHandler cbh
-TTransport transport

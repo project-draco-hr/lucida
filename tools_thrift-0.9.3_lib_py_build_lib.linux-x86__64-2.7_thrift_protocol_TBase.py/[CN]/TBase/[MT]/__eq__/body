@@ -1,9 +1,0 @@
-def __eq__(self, other):
-    if (not isinstance(other, self.__class__)):
-        return False
-    for attr in self.__slots__:
-        my_val = getattr(self, attr)
-        other_val = getattr(other, attr)
-        if (my_val != other_val):
-            return False
-    return True

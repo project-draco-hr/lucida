@@ -1,2 +1,0 @@
-def readMessageBegin(self):
-    return self.messageBegin

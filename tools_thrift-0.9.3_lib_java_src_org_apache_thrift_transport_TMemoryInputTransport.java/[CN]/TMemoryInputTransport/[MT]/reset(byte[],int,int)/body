@@ -1,5 +1,0 @@
-{
-  buf_=buf;
-  pos_=offset;
-  endPos_=offset + length;
-}

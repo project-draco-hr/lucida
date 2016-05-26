@@ -1,2 +1,0 @@
-def __readZigZag(self):
-    return fromZigZag(self.__readVarint())

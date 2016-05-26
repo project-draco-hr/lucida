@@ -1,6 +1,0 @@
-{
-  if (!nextThreadIterator.hasNext()) {
-    nextThreadIterator=threads.iterator();
-  }
-  return nextThreadIterator.next();
-}

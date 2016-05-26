@@ -1,3 +1,0 @@
-def __readByte(self):
-    (result,) = unpack('!b', self.trans.readAll(1))
-    return result

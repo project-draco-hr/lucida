@@ -1,3 +1,0 @@
-@writer
-def writeI64(self, i64):
-    self.__writeVarint(makeZigZag(i64, 64))

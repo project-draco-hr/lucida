@@ -1,3 +1,0 @@
-{
-  return "<TField name:'" + name + "' type:"+ type+ " field-id:"+ id+ ">";
-}

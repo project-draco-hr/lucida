@@ -1,2 +1,0 @@
-def acquired(self):
-    return (len(self._waiters) > 0)

@@ -1,3 +1,0 @@
-{
-  return new Some<T>(value);
-}

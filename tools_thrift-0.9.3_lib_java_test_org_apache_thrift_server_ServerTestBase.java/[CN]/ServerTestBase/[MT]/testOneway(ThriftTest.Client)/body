@@ -1,3 +1,0 @@
-{
-  testClient.testOneway(3);
-}

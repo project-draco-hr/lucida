@@ -1,4 +1,0 @@
-{
-  this.customHeaders.clear();
-  this.customHeaders.addAll(headers);
-}

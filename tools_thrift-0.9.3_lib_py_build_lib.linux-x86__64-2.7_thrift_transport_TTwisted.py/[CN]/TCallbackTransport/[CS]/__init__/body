@@ -1,3 +1,0 @@
-def __init__(self, func):
-    TMessageSenderTransport.__init__(self)
-    self.func = func

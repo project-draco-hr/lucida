@@ -1,5 +1,0 @@
-def testLargeDeltas(self):
-    obj = self._deserialize(LargeDeltas, self._serialize(self.large_deltas))
-    self.assertEquals(obj, self.large_deltas)
-    rep = repr(self.large_deltas)
-    self.assertTrue((len(rep) > 0))

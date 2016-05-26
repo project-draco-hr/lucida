@@ -1,4 +1,0 @@
-{
-  writeByte(list.elemType);
-  writeI32(list.size);
-}

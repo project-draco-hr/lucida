@@ -1,9 +1,0 @@
-{
-  try {
-    byte[] b=str.getBytes("UTF-8");
-    writeJSONString(b);
-  }
- catch (  UnsupportedEncodingException uex) {
-    throw new TException("JVM DOES NOT SUPPORT UTF-8");
-  }
-}

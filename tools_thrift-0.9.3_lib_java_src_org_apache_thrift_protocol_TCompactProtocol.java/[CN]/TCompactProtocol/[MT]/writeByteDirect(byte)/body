@@ -1,4 +1,0 @@
-{
-  byteDirectBuffer[0]=b;
-  trans_.write(byteDirectBuffer);
-}

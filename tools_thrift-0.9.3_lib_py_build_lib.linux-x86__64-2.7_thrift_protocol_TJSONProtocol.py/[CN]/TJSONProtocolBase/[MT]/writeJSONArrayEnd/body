@@ -1,3 +1,0 @@
-def writeJSONArrayEnd(self):
-    self.popContext()
-    self.trans.write(RBRACKET)

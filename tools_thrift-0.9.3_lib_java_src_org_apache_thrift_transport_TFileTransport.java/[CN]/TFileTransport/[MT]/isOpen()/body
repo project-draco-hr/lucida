@@ -1,3 +1,0 @@
-{
-  return ((inputStream_ != null) && (readOnly_ || (outputStream_ != null)));
-}

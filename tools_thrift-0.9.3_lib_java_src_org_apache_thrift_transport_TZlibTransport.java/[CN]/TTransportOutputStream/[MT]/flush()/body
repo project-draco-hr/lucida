@@ -1,8 +1,0 @@
-{
-  try {
-    transport.flush();
-  }
- catch (  TTransportException e) {
-    throw new IOException(e);
-  }
-}

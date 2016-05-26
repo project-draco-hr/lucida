@@ -1,4 +1,0 @@
-{
-  if (saslClient != null)   return saslClient.getNegotiatedProperty(propName);
- else   return saslServer.getNegotiatedProperty(propName);
-}

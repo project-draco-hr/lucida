@@ -1,6 +1,0 @@
-{
-  if (socket_ == null) {
-    initSocket();
-  }
-  return socket_;
-}

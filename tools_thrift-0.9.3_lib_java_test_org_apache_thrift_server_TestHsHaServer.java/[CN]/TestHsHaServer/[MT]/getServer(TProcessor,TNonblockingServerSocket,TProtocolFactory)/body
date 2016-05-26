@@ -1,3 +1,0 @@
-{
-  return new THsHaServer(new Args(socket).processor(processor).protocolFactory(protoFactory));
-}

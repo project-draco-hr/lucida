@@ -1,3 +1,0 @@
-def makeZigZag(n, bits):
-    checkIntegerLimits(n, bits)
-    return ((n << 1) ^ (n >> (bits - 1)))

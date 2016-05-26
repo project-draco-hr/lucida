@@ -1,5 +1,0 @@
-{
-  System.err.println("Usage: TFileTransport <filename> [num_chunks]");
-  System.err.println("       (Opens and reads num_chunks chunks from file randomly)");
-  System.exit(1);
-}

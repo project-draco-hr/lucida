@@ -1,3 +1,0 @@
-{
-  assertEquals(null,TEnumHelper.getByValue(Numberz.class,0));
-}

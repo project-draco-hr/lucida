@@ -1,5 +1,0 @@
-{
-  baos_.reset();
-  base.write(protocol_);
-  return baos_.toByteArray();
-}

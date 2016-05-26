@@ -1,3 +1,0 @@
-def readJSONBase64(self):
-    string = self.readJSONString(False)
-    return base64.b64decode(string)

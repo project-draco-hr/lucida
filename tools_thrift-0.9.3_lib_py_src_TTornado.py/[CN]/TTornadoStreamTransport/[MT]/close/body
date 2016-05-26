@@ -1,3 +1,0 @@
-def close(self):
-    self.stream.set_close_callback(None)
-    self.stream.close()

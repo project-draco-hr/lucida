@@ -1,4 +1,0 @@
-{
-  SSLSocketFactory factory=(SSLSocketFactory)SSLSocketFactory.getDefault();
-  return createClient(factory,host,port,timeout);
-}

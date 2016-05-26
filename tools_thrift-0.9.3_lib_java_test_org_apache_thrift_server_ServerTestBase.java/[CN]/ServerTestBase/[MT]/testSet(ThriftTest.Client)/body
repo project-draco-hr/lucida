@@ -1,8 +1,0 @@
-{
-  Set<Integer> setout=new HashSet<Integer>();
-  for (int i=-2; i < 3; ++i) {
-    setout.add(i);
-  }
-  Set<Integer> setin=testClient.testSet(setout);
-  assertEquals(setout,setin);
-}

@@ -1,9 +1,0 @@
-{
-  TServerSocket serverSocket=new TServerSocket(new TServerSocket.ServerSocketTransportArgs().port(ServerTestBase.PORT));
-  try {
-    acceptAndWrite(serverSocket);
-  }
-  finally {
-    serverSocket.close();
-  }
-}

@@ -1,8 +1,0 @@
-@gen.coroutine
-def acquire(self):
-    blocker = (self._waiters[(-1)] if self.acquired() else None)
-    future = concurrent.Future()
-    self._waiters.append(future)
-    if blocker:
-        yield blocker
-    raise gen.Return(self._lock_context())

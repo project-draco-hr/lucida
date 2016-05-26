@@ -1,3 +1,0 @@
-{
-  encodeBigEndian(integer,buf,0);
-}

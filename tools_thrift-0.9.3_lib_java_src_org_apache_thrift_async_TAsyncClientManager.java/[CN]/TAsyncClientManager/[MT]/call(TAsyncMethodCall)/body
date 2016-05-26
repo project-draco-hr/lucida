@@ -1,8 +1,0 @@
-{
-  if (!isRunning()) {
-    throw new TException("SelectThread is not running");
-  }
-  method.prepareMethodCall();
-  pendingCalls.add(method);
-  selectThread.getSelector().wakeup();
-}

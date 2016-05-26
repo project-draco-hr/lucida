@@ -1,5 +1,0 @@
-{
-  TSet set=new TSet(readByte(),readI32());
-  checkContainerReadLength(set.size);
-  return set;
-}

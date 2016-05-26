@@ -1,3 +1,0 @@
-def resetWriteContext(self):
-    self.context = JSONBaseContext(self)
-    self.contextStack = [self.context]

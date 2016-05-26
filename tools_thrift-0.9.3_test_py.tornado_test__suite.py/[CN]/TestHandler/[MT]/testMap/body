@@ -1,4 +1,0 @@
-@gen.coroutine
-def testMap(self, thing):
-    yield gen.moment
-    raise gen.Return(thing)

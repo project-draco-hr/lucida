@@ -1,3 +1,0 @@
-{
-  return new TBinaryProtocol(trans,strictRead_,strictWrite_);
-}

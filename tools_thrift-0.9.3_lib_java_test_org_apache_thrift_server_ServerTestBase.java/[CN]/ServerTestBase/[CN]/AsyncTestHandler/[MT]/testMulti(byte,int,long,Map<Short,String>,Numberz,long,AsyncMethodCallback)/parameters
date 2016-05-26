@@ -1,7 +1,0 @@
-byte arg0
-int arg1
-long arg2
-Map<Short,String> arg3
-Numberz arg4
-long arg5
-AsyncMethodCallback resultHandler

@@ -1,3 +1,0 @@
-def hello_func(self):
-    print 'Hello Called'
-    return 'hello from Python'

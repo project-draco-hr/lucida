@@ -1,5 +1,0 @@
-def testOneway(self, seconds):
-
-    def fireOneway(t):
-        self.onewaysQueue.put((t, time.time(), seconds))
-    reactor.callLater(seconds, fireOneway, time.time())

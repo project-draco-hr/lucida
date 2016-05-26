@@ -1,2 +1,0 @@
-def test_name(server, client, protocol, transport, socket, **kwargs):
-    return TestEntry.get_name(server['name'], client['name'], protocol, transport, socket)

@@ -1,6 +1,0 @@
-{
-  super.reset();
-  if (buf.length > initialSize) {
-    buf=new byte[initialSize];
-  }
-}

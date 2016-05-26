@@ -1,2 +1,0 @@
-def writeSetEnd(self):
-    self.writeJSONArrayEnd()

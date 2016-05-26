@@ -1,4 +1,0 @@
-{
-  System.out.print("testTypedef(" + thing + ")\n");
-  return thing;
-}

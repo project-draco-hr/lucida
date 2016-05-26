@@ -1,4 +1,0 @@
-{
-  project.addCompileSourceRoot(outputDirectory.getAbsolutePath());
-  projectHelper.addResource(project,thriftSourceRoot.getAbsolutePath(),ImmutableList.of("**/*.thrift"),null);
-}

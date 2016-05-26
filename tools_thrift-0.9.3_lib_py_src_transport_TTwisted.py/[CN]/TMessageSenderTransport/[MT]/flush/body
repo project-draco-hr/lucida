@@ -1,4 +1,0 @@
-def flush(self):
-    msg = self.__wbuf.getvalue()
-    self.__wbuf = StringIO()
-    return self.sendMessage(msg)

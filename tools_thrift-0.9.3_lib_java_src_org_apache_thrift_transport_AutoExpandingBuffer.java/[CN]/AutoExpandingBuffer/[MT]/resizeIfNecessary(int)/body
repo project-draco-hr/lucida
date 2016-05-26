@@ -1,7 +1,0 @@
-{
-  if (array.length < size) {
-    byte[] newBuf=new byte[(int)(size * growthCoefficient)];
-    System.arraycopy(array,0,newBuf,0,array.length);
-    array=newBuf;
-  }
-}

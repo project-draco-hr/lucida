@@ -1,2 +1,0 @@
-def setCustomHeaders(self, headers):
-    self.__custom_headers = headers

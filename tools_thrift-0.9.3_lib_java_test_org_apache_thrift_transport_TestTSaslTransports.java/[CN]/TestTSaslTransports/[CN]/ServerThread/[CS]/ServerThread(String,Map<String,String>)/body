@@ -1,4 +1,0 @@
-{
-  this.mechanism=mechanism;
-  this.props=props;
-}

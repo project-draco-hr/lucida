@@ -1,2 +1,0 @@
-def open(self):
-    return self.__trans.open()

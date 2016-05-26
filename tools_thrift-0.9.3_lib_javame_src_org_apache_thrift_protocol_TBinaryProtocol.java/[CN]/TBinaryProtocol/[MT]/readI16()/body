@@ -1,4 +1,0 @@
-{
-  readAll(i16rd,0,2);
-  return (short)(((i16rd[0] & 0xff) << 8) | ((i16rd[1] & 0xff)));
-}

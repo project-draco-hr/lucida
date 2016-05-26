@@ -1,3 +1,0 @@
-{
-  readBuffer_.consumeBuffer(len);
-}

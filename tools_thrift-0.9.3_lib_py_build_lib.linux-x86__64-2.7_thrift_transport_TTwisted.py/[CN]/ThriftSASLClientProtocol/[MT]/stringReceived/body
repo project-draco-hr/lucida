@@ -1,7 +1,0 @@
-def stringReceived(self, frame):
-    if self._sasl_negotiation_deferred:
-        response = (self._sasl_negotiation_status, frame)
-        self._sasl_negotiation_deferred.callback(response)
-    else:
-        decoded_frame = self.sasl.unwrap(frame[4:])
-        ThriftClientProtocol.stringReceived(self, decoded_frame)

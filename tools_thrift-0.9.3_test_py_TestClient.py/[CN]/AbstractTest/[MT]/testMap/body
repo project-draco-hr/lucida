@@ -1,5 +1,0 @@
-def testMap(self):
-    print 'testMap'
-    x = {0: 1, 1: 2, 2: 3, 3: 4, (-1): (-2), }
-    y = self.client.testMap(x)
-    self.assertEqual(y, x)

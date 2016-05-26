@@ -1,8 +1,0 @@
-{
-  TField field=new TField();
-  field.type=readByte();
-  if (field.type != TType.STOP) {
-    field.id=readI16();
-  }
-  return field;
-}

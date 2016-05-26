@@ -1,8 +1,0 @@
-{
-  TestUnion tu=TestUnion.string_field("string");
-  byte[] tuSerialized=new TSerializer().serialize(tu);
-  TestUnionMinusStringField tums=new TestUnionMinusStringField();
-  new TDeserializer().deserialize(tums,tuSerialized);
-  assertNull(tums.getSetField());
-  assertNull(tums.getFieldValue());
-}

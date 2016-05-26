@@ -1,2 +1,0 @@
-def testNest(self, thing):
-    return thing

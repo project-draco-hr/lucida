@@ -1,4 +1,0 @@
-def testInsanity(self, argument):
-    if (options.verbose > 1):
-        print ('testInsanity(%s)' % argument)
-    return {1: {2: argument, 3: argument, }, 2: {6: Insanity(), }, }

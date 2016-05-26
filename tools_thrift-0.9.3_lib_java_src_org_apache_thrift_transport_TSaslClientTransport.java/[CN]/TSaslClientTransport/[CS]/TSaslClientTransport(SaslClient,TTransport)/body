@@ -1,4 +1,0 @@
-{
-  super(saslClient,transport);
-  mechanism=saslClient.getMechanismName();
-}

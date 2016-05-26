@@ -1,6 +1,0 @@
-{
-  stopped_=true;
-  if (selectAcceptThread_ != null) {
-    selectAcceptThread_.wakeupSelector();
-  }
-}

@@ -1,4 +1,0 @@
-{
-  super(args);
-  MAX_READ_BUFFER_BYTES=args.maxReadBufferBytes;
-}

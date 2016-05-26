@@ -1,4 +1,0 @@
-def readJSONSyntaxChar(self, character):
-    current = self.reader.read()
-    if (character != current):
-        raise TProtocolException(TProtocolException.INVALID_DATA, ('Unexpected character: %s' % current))

@@ -1,9 +1,0 @@
-{
-  try {
-    byte[] bytes=str.getBytes("UTF-8");
-    writeBinary(bytes,0,bytes.length);
-  }
- catch (  UnsupportedEncodingException e) {
-    throw new TException("UTF-8 not supported!");
-  }
-}

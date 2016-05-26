@@ -1,4 +1,0 @@
-int seqid
-TProtocol iprot
-TProtocol oprot
-I iface

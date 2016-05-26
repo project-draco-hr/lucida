@@ -1,4 +1,0 @@
-{
-  super(transport);
-  addServerDefinition(mechanism,protocol,serverName,props,cbh);
-}

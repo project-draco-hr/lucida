@@ -1,3 +1,0 @@
-{
-  return type == TType.LIST || type == TType.MAP || type == TType.SET;
-}

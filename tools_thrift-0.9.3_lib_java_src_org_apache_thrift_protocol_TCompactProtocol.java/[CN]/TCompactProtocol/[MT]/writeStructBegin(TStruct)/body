@@ -1,4 +1,0 @@
-{
-  lastField_.push(lastFieldId_);
-  lastFieldId_=0;
-}

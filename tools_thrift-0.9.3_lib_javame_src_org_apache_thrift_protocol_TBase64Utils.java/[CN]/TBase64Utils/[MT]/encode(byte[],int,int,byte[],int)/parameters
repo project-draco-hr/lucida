@@ -1,5 +1,0 @@
-byte[] src
-int srcOff
-int len
-byte[] dst
-int dstOff

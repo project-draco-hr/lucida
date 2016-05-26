@@ -1,7 +1,0 @@
-{
-  assertEquals(Numberz.ONE,testClient.testEnum(Numberz.ONE));
-  assertEquals(Numberz.TWO,testClient.testEnum(Numberz.TWO));
-  assertEquals(Numberz.THREE,testClient.testEnum(Numberz.THREE));
-  assertEquals(Numberz.FIVE,testClient.testEnum(Numberz.FIVE));
-  assertEquals(Numberz.EIGHT,testClient.testEnum(Numberz.EIGHT));
-}

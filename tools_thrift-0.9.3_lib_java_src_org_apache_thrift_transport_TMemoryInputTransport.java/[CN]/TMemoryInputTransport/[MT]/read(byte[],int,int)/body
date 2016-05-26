@@ -1,9 +1,0 @@
-{
-  int bytesRemaining=getBytesRemainingInBuffer();
-  int amtToRead=(len > bytesRemaining ? bytesRemaining : len);
-  if (amtToRead > 0) {
-    System.arraycopy(buf_,pos_,buf,off,amtToRead);
-    consumeBuffer(amtToRead);
-  }
-  return amtToRead;
-}

@@ -1,6 +1,0 @@
-import zmq
-import TZmqServer
-import storage.ttypes
-import storage.Storage
-if (__name__ == '__main__'):
-    main()

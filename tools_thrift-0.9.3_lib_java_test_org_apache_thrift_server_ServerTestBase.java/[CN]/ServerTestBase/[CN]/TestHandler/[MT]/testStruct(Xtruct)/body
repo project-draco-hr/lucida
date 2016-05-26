@@ -1,4 +1,0 @@
-{
-  System.out.print("testStruct({" + "\"" + thing.string_thing + "\", "+ thing.byte_thing+ ", "+ thing.i32_thing+ ", "+ thing.i64_thing+ "})\n");
-  return thing;
-}

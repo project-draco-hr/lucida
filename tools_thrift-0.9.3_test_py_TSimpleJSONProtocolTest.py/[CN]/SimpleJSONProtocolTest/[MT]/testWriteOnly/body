@@ -1,2 +1,0 @@
-def testWriteOnly(self):
-    self.assertRaises(NotImplementedError, self._deserialize, VersioningTestV1, '{}')

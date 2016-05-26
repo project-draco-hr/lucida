@@ -1,4 +1,0 @@
-{
-  this.initialCapacity=initialCapacity;
-  this.maxLength=maxLength;
-}

@@ -1,6 +1,0 @@
-{
-  this.___protocolFactory=protocolFactory;
-  this.___manager=manager;
-  this.___transport=transport;
-  this.___timeout=timeout;
-}

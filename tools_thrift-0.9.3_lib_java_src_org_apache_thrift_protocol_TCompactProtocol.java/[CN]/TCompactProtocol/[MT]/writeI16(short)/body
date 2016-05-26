@@ -1,3 +1,0 @@
-{
-  writeVarint32(intToZigZag(i16));
-}

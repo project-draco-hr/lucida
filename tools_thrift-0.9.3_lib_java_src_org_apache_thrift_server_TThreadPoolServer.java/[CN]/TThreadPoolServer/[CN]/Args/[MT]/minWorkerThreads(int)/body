@@ -1,4 +1,0 @@
-{
-  minWorkerThreads=n;
-  return this;
-}

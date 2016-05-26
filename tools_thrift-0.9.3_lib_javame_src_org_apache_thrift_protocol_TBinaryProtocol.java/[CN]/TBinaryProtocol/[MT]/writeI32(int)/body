@@ -1,7 +1,0 @@
-{
-  i32out[0]=(byte)(0xff & (i32 >> 24));
-  i32out[1]=(byte)(0xff & (i32 >> 16));
-  i32out[2]=(byte)(0xff & (i32 >> 8));
-  i32out[3]=(byte)(0xff & (i32));
-  trans_.write(i32out,0,4);
-}

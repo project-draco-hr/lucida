@@ -1,2 +1,0 @@
-def testMap(self, thing):
-    return thing

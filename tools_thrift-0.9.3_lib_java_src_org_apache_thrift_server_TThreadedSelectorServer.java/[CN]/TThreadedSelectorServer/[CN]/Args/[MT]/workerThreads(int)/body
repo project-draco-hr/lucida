@@ -1,4 +1,0 @@
-{
-  workerThreads=i;
-  return this;
-}

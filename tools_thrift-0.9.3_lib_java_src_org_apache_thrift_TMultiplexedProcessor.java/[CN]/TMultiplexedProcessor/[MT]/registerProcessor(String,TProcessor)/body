@@ -1,3 +1,0 @@
-{
-  SERVICE_PROCESSOR_MAP.put(serviceName,processor);
-}

@@ -1,5 +1,0 @@
-def testSet(self):
-    print 'testSet'
-    x = set([8, 1, 42])
-    y = self.client.testSet(x)
-    self.assertEqual(y, x)

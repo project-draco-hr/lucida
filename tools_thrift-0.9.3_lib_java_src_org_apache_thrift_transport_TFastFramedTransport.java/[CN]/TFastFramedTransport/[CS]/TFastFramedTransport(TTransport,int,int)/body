@@ -1,6 +1,0 @@
-{
-  this.underlying=underlying;
-  this.maxLength=maxLength;
-  writeBuffer=new AutoExpandingBufferWriteTransport(initialBufferCapacity,1.5);
-  readBuffer=new AutoExpandingBufferReadTransport(initialBufferCapacity,1.5);
-}

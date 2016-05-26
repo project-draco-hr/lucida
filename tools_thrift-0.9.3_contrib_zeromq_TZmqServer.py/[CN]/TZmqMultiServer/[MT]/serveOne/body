@@ -1,2 +1,0 @@
-def serveOne(self, timeout=(-1)):
-    self._serveActive(self._setupPoll(), timeout)

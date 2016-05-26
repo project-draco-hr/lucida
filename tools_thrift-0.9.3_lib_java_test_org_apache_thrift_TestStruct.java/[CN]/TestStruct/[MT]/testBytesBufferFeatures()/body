@@ -1,7 +1,0 @@
-{
-  JavaTestHelper o=new JavaTestHelper();
-  o.setReq_bin((ByteBuffer)null);
-  assertNull(o.getReq_bin());
-  o.setReq_bin((byte[])null);
-  assertNull(o.getReq_bin());
-}

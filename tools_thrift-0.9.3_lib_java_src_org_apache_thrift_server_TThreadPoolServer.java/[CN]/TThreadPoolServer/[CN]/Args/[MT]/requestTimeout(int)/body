@@ -1,4 +1,0 @@
-{
-  requestTimeout=n;
-  return this;
-}

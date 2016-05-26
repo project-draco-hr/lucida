@@ -1,5 +1,0 @@
-def testOneway(self):
-    start = time.time()
-    self.client.testOneway(1)
-    end = time.time()
-    self.assertTrue(((end - start) < 3), ('oneway sleep took %f sec' % (end - start)))

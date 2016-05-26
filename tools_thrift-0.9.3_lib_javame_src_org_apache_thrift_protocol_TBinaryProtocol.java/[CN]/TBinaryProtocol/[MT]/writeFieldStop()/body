@@ -1,3 +1,0 @@
-{
-  writeByte(TType.STOP);
-}

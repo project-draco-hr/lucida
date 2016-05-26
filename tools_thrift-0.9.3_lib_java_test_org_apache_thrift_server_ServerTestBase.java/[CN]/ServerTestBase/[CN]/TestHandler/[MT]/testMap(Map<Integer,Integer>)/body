@@ -1,6 +1,0 @@
-{
-  System.out.print("testMap({");
-  System.out.print(thing);
-  System.out.print("})\n");
-  return thing;
-}

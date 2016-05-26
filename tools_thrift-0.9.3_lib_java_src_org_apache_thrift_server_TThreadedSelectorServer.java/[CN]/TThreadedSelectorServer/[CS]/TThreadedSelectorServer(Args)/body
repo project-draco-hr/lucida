@@ -1,6 +1,0 @@
-{
-  super(args);
-  args.validate();
-  invoker=args.executorService == null ? createDefaultExecutor(args) : args.executorService;
-  this.args=args;
-}

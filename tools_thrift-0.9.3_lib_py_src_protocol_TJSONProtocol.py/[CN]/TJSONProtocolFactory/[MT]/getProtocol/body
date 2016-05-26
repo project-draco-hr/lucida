@@ -1,2 +1,0 @@
-def getProtocol(self, trans):
-    return TJSONProtocol(trans)

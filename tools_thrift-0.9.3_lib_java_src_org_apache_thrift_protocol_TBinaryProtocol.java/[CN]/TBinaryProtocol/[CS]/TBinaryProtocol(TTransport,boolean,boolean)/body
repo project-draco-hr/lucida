@@ -1,3 +1,0 @@
-{
-  this(trans,NO_LENGTH_LIMIT,NO_LENGTH_LIMIT,strictRead,strictWrite);
-}

@@ -1,4 +1,0 @@
-{
-  @SuppressWarnings("unchecked") List<Artifact> testArtifacts=project.getTestArtifacts();
-  return testArtifacts;
-}

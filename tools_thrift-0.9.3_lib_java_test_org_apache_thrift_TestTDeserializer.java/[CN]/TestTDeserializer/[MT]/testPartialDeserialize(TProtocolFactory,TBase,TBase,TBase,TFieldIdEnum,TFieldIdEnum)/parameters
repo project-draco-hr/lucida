@@ -1,6 +1,0 @@
-TProtocolFactory protocolFactory
-TBase input
-TBase output
-TBase expected
-TFieldIdEnum fieldIdPathFirst
-TFieldIdEnum fieldIdPathRest

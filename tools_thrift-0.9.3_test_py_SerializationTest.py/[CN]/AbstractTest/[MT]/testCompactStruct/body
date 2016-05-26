@@ -1,5 +1,0 @@
-def testCompactStruct(self):
-    obj = self._deserialize(CompactProtoTestStruct, self._serialize(self.compact_struct))
-    self.assertEquals(obj, self.compact_struct)
-    rep = repr(self.compact_struct)
-    self.assertTrue((len(rep) > 0))

@@ -1,2 +1,0 @@
-def __writeUByte(self, byte):
-    self.trans.write(pack('!B', byte))

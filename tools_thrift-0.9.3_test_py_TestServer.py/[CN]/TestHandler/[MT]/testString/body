@@ -1,4 +1,0 @@
-def testString(self, str):
-    if (options.verbose > 1):
-        print ('testString(%s)' % str)
-    return str

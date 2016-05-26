@@ -1,9 +1,0 @@
-{
-  if (writeContext_.isMapKey()) {
-    writeString(Long.toString(i64));
-  }
- else {
-    writeContext_.write();
-    _writeStringData(Long.toString(i64));
-  }
-}

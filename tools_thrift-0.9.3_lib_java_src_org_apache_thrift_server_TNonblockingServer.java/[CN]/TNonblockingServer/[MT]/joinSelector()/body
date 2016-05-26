@@ -1,7 +1,0 @@
-{
-  try {
-    selectAcceptThread_.join();
-  }
- catch (  InterruptedException e) {
-  }
-}

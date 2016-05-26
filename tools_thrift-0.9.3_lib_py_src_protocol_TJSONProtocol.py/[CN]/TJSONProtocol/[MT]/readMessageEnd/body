@@ -1,2 +1,0 @@
-def readMessageEnd(self):
-    self.readJSONArrayEnd()

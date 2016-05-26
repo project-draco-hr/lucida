@@ -1,3 +1,0 @@
-@defer.inlineCallbacks
-def testI64(self):
-    self.assertEquals(yield self.client.testI64((-34359738368)), (-34359738368))

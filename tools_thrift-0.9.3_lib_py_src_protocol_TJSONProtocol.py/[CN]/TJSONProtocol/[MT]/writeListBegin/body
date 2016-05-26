@@ -1,4 +1,0 @@
-def writeListBegin(self, etype, size):
-    self.writeJSONArrayStart()
-    self.writeJSONString(CTYPES[etype])
-    self.writeJSONNumber(size)

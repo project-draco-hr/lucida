@@ -1,9 +1,0 @@
-{
-  int minWorkerThreads=options.minWorkerThreads;
-  int maxWorkerThreads=options.maxWorkerThreads;
-  int stopTimeoutVal=options.stopTimeoutVal;
-  TimeUnit stopTimeoutUnit=options.stopTimeoutUnit;
-  LinkedBlockingQueue<Runnable> queue=new LinkedBlockingQueue<Runnable>();
-  ExecutorService invoker=new ThreadPoolExecutor(minWorkerThreads,maxWorkerThreads,stopTimeoutVal,stopTimeoutUnit,queue);
-  return invoker;
-}

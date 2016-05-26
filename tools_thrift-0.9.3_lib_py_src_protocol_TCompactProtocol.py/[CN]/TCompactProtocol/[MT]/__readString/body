@@ -1,3 +1,0 @@
-def __readString(self):
-    len = self.__readSize()
-    return self.trans.readAll(len)

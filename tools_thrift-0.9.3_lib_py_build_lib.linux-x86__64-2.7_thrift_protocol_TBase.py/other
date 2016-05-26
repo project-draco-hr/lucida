@@ -1,7 +1,0 @@
-from thrift.Thrift import *
-from thrift.protocol import TBinaryProtocol
-from thrift.transport import TTransport
-try:
-    from thrift.protocol import fastbinary
-except:
-    fastbinary = None

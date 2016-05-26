@@ -1,6 +1,0 @@
-def readFieldBegin(self):
-    type = self.readByte()
-    if (type == TType.STOP):
-        return (None, type, 0)
-    id = self.readI16()
-    return (None, type, id)

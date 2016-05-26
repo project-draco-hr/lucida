@@ -1,4 +1,0 @@
-{
-  super(protocol.getTransport());
-  concreteProtocol=protocol;
-}

@@ -1,4 +1,0 @@
-{
-  System.out.print("testByte(" + thing + ")\n");
-  return thing;
-}

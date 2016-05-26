@@ -1,5 +1,0 @@
-@contextlib.contextmanager
-def _scoped(self):
-    yield self
-    self._log.debug('Killing scoped process')
-    self.kill()

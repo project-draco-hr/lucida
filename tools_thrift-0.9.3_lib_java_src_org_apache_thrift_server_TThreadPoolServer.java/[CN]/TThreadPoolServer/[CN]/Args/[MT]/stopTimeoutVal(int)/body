@@ -1,4 +1,0 @@
-{
-  stopTimeoutVal=n;
-  return this;
-}

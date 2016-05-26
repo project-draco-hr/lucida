@@ -1,6 +1,0 @@
-def read(self):
-    if (self.hasData is True):
-        self.hasData = False
-    else:
-        self.data = self.protocol.trans.read(1)
-    return self.data

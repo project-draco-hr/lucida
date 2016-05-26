@@ -1,2 +1,0 @@
-def getvalue(self):
-    return self._buffer.getvalue()

@@ -1,3 +1,0 @@
-def writeCollectionEnd(self):
-    assert (self.state == CONTAINER_WRITE), self.state
-    self.state = self.__containers.pop()

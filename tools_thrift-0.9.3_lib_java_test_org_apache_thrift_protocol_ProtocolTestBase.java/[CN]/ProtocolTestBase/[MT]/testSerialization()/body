@@ -1,6 +1,0 @@
-{
-  internalTestSerialization(OneOfEach.class,Fixtures.oneOfEach);
-  internalTestSerialization(Nesting.class,Fixtures.nesting);
-  internalTestSerialization(HolyMoley.class,Fixtures.holyMoley);
-  internalTestSerialization(CompactProtoTestStruct.class,Fixtures.compactProtoTestStruct);
-}

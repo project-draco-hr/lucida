@@ -1,6 +1,0 @@
-@gen_test
-def test_i32(self):
-    v = yield self.client.testI32((-1))
-    self.assertEqual(v, (-1))
-    v = yield self.client.testI32(0)
-    self.assertEqual(v, 0)

@@ -1,3 +1,0 @@
-{
-  return (navailable_ - nread_);
-}

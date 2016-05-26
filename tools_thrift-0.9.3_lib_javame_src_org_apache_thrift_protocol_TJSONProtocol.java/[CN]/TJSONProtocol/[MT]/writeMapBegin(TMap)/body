@@ -1,7 +1,0 @@
-{
-  writeJSONArrayStart();
-  writeJSONString(getTypeNameForTypeID(map.keyType));
-  writeJSONString(getTypeNameForTypeID(map.valueType));
-  writeJSONInteger(map.size);
-  writeJSONObjectStart();
-}

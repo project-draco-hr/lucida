@@ -1,3 +1,0 @@
-{
-  return (short)setBit((int)v,position,value);
-}

@@ -1,4 +1,0 @@
-{
-  super(transport);
-  this.serverDefinitionMap.putAll(serverDefinitionMap);
-}

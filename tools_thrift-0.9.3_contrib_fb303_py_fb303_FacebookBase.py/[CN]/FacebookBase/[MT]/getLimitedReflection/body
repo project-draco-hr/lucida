@@ -1,2 +1,0 @@
-def getLimitedReflection(self):
-    return thrift.reflection.limited.Service()

@@ -1,5 +1,0 @@
-def testNestedMixedx2(self):
-    obj = self._deserialize(NestedMixedx2, self._serialize(self.nested_mixedx2))
-    self.assertEquals(obj, self.nested_mixedx2)
-    rep = repr(self.nested_mixedx2)
-    self.assertTrue((len(rep) > 0))

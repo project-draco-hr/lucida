@@ -1,8 +1,0 @@
-{
-  if (boolValue_ != null) {
-    boolean result=boolValue_.booleanValue();
-    boolValue_=null;
-    return result;
-  }
-  return readByte() == Types.BOOLEAN_TRUE;
-}

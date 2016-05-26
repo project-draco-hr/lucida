@@ -1,4 +1,0 @@
-def _receiveSASLMessage(self):
-    self._sasl_negotiation_deferred = defer.Deferred()
-    self._sasl_negotiation_status = None
-    return self._sasl_negotiation_deferred

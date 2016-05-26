@@ -1,4 +1,0 @@
-@gen_test
-def test_string(self):
-    v = yield self.client.testString('Python')
-    self.assertEqual(v, 'Python')

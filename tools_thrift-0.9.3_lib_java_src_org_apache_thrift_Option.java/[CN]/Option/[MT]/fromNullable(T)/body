@@ -1,8 +1,0 @@
-{
-  if (value != null) {
-    return new Some<T>(value);
-  }
- else {
-    return new None<T>();
-  }
-}

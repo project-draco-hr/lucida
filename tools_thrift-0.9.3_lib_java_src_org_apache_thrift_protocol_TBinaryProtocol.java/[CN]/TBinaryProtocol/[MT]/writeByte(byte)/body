@@ -1,4 +1,0 @@
-{
-  bout[0]=b;
-  trans_.write(bout,0,1);
-}

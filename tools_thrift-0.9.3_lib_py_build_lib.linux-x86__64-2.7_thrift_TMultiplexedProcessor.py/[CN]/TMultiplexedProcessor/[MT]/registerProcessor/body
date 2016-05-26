@@ -1,2 +1,0 @@
-def registerProcessor(self, serviceName, processor):
-    self.services[serviceName] = processor

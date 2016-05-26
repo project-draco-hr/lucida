@@ -1,3 +1,0 @@
-{
-  System.out.println("TServerEventHandler.preServe - called only once before server starts accepting connections");
-}

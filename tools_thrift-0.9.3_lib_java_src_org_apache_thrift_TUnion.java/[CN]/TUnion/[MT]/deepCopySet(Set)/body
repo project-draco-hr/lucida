@@ -1,7 +1,0 @@
-{
-  Set copy=new HashSet();
-  for (  Object o : set) {
-    copy.add(deepCopyObject(o));
-  }
-  return copy;
-}

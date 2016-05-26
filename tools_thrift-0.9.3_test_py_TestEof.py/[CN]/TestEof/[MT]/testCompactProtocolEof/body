@@ -1,4 +1,0 @@
-def testCompactProtocolEof(self):
-    'Test that TCompactProtocol throws an EOFError when it reaches the end of the stream'
-    self.eofTestHelper(TCompactProtocol.TCompactProtocolFactory())
-    self.eofTestHelperStress(TCompactProtocol.TCompactProtocolFactory())

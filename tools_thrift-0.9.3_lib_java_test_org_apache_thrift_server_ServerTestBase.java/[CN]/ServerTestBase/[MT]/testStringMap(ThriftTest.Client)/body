@@ -1,9 +1,0 @@
-{
-  Map<String,String> mapout=new HashMap<String,String>();
-  mapout.put("a","123");
-  mapout.put(" x y "," with spaces ");
-  mapout.put("same","same");
-  mapout.put("0","numeric key");
-  Map<String,String> mapin=testClient.testStringMap(mapout);
-  assertEquals(mapout,mapin);
-}

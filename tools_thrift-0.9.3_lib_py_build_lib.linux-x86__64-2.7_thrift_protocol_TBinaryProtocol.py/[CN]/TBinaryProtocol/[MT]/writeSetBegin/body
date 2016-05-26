@@ -1,3 +1,0 @@
-def writeSetBegin(self, etype, size):
-    self.writeByte(etype)
-    self.writeI32(size)

@@ -1,3 +1,0 @@
-def ping(self, callback):
-    print 'ping()'
-    callback()

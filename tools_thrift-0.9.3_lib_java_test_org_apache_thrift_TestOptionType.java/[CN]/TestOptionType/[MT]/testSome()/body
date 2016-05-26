@@ -1,9 +1,0 @@
-{
-  String name="Chuck Norris";
-  Option<String> option=Option.fromNullable(name);
-  assertTrue(option instanceof Option.Some);
-  assertTrue(option.isDefined());
-  assertEquals("Some(Chuck Norris)",option.toString());
-  assertEquals(option.or("default value"),"Chuck Norris");
-  assertEquals(option.get(),"Chuck Norris");
-}

@@ -1,3 +1,0 @@
-{
-  this(underlying,DEFAULT_BUF_CAPACITY,DEFAULT_MAX_LENGTH);
-}

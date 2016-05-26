@@ -1,9 +1,0 @@
-{
-  try {
-    return (TNonblockingTransport)serverTransport.accept();
-  }
- catch (  TTransportException tte) {
-    LOGGER.warn("Exception trying to accept!",tte);
-    return null;
-  }
-}

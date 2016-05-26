@@ -1,8 +1,0 @@
-{
-  if (transport.read(frameBuffer) < 0) {
-    throw new IOException("Read call frame failed");
-  }
-  if (frameBuffer.remaining() == 0) {
-    cleanUpAndFireCallback(key);
-  }
-}

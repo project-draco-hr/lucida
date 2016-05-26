@@ -1,4 +1,0 @@
-{
-  double dub=testClient.testDouble(5.325098235);
-  assertEquals(5.325098235,dub);
-}

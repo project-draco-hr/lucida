@@ -1,3 +1,0 @@
-{
-  return (byte)setBit((int)v,position,value);
-}

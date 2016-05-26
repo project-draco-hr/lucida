@@ -1,3 +1,0 @@
-@writer
-def writeDouble(self, dub):
-    self.trans.write(pack('<d', dub))

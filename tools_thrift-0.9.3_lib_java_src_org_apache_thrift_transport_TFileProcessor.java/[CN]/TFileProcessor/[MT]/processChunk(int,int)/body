@@ -1,8 +1,0 @@
-{
-  int numChunks=inputTransport_.getNumChunks();
-  if (endChunkNum < 0)   endChunkNum+=numChunks;
-  if (startChunkNum < 0)   startChunkNum+=numChunks;
-  if (endChunkNum < startChunkNum)   throw new TException("endChunkNum " + endChunkNum + " is less than "+ startChunkNum);
-  inputTransport_.seekToChunk(startChunkNum);
-  processUntil(endChunkNum);
-}

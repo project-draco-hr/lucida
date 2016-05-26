@@ -1,2 +1,0 @@
-def writeSetBegin(self, etype, size):
-    pass

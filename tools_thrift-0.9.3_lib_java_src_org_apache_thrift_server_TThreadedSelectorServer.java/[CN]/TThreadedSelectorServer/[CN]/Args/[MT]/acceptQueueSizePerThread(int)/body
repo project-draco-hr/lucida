@@ -1,4 +1,0 @@
-{
-  this.acceptQueueSizePerThread=acceptQueueSizePerThread;
-  return this;
-}

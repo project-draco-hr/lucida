@@ -1,4 +1,0 @@
-@gen_test
-def test_void(self):
-    v = yield self.client.testVoid()
-    self.assertEqual(v, None)

@@ -1,3 +1,0 @@
-{
-  arr_=new TByteArrayOutputStream(size);
-}

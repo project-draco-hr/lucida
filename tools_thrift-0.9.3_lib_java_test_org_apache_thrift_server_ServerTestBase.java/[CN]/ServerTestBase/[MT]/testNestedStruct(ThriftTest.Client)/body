@@ -1,4 +1,0 @@
-{
-  Xtruct2 in2=testClient.testNest(XSTRUCT2);
-  assertEquals(XSTRUCT2,in2);
-}

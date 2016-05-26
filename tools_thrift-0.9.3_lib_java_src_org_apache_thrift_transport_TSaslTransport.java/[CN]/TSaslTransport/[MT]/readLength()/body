@@ -1,5 +1,0 @@
-{
-  byte[] lenBuf=new byte[4];
-  underlyingTransport.readAll(lenBuf,0,lenBuf.length);
-  return EncodingUtils.decodeBigEndian(lenBuf);
-}

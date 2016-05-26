@@ -1,5 +1,0 @@
-{
-  short[] newVector=new short[vector.length * 2];
-  System.arraycopy(vector,0,newVector,0,vector.length);
-  vector=newVector;
-}

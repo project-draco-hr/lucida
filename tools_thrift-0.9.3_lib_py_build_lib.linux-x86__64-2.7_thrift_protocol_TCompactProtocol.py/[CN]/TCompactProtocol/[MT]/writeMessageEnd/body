@@ -1,3 +1,0 @@
-def writeMessageEnd(self):
-    assert (self.state == VALUE_WRITE)
-    self.state = CLEAR

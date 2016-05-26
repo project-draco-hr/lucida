@@ -1,6 +1,0 @@
-SSLServerSocketFactory factory
-int port
-int timeout
-boolean clientAuth
-InetAddress ifAddress
-TSSLTransportParameters params

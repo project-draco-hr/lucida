@@ -1,4 +1,0 @@
-{
-  buf_=buf;
-  nread_=navailable_=0;
-}

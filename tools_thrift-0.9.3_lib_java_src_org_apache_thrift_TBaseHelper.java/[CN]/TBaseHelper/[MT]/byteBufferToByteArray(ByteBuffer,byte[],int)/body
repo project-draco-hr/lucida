@@ -1,5 +1,0 @@
-{
-  int remaining=byteBuffer.remaining();
-  System.arraycopy(byteBuffer.array(),byteBuffer.arrayOffset() + byteBuffer.position(),target,offset,remaining);
-  return remaining;
-}

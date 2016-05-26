@@ -1,7 +1,0 @@
-def main():
-    io_loop = ioloop.IOLoop.instance()
-
-    def this_joint():
-        communicate(callback=io_loop.stop)
-    io_loop.add_callback(this_joint)
-    io_loop.start()

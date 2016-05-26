@@ -1,3 +1,0 @@
-def setNumWorkers(self, num):
-    'Set the number of worker threads that should be created'
-    self.numWorkers = num

@@ -1,9 +1,0 @@
-{
-  Set<List<String>> a=new HashSet<List<String>>();
-  Set<List<String>> b=new HashSet<List<String>>();
-  a.add(Arrays.asList(new String[]{"a","b"}));
-  b.add(Arrays.asList(new String[]{"a","b","c"}));
-  a.add(Arrays.asList(new String[]{"a","b"}));
-  b.add(Arrays.asList(new String[]{"a","b","c"}));
-  assertTrue(TBaseHelper.compareTo(a,b) < 0);
-}

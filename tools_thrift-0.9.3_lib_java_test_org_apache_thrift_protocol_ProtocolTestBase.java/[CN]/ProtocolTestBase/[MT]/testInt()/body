@@ -1,8 +1,0 @@
-{
-  for (  int i : Arrays.asList(0,1,7,150,15000,31337,0xffff,0xffffff,-1,-7,-150,-15000,-0xffff,-0xffffff)) {
-    if (canBeUsedNaked()) {
-      internalTestNakedI32(i);
-    }
-    internalTestI32Field(i);
-  }
-}

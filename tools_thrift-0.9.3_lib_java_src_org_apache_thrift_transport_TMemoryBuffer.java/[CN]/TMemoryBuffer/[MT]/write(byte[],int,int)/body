@@ -1,3 +1,0 @@
-{
-  arr_.write(buf,off,len);
-}

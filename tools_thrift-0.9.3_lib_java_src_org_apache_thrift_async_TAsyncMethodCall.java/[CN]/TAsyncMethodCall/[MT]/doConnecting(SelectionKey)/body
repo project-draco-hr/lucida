@@ -1,6 +1,0 @@
-{
-  if (!key.isConnectable() || !transport.finishConnect()) {
-    throw new IOException("not connectable or finishConnect returned false after we got an OP_CONNECT");
-  }
-  registerForFirstWrite(key);
-}

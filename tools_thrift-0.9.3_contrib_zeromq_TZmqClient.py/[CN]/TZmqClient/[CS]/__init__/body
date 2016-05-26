@@ -1,5 +1,0 @@
-def __init__(self, ctx, endpoint, sock_type):
-    self._sock = ctx.socket(sock_type)
-    self._endpoint = endpoint
-    self._wbuf = StringIO()
-    self._rbuf = StringIO()

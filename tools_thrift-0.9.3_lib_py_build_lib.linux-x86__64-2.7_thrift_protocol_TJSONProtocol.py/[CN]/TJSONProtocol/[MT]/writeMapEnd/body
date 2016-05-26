@@ -1,3 +1,0 @@
-def writeMapEnd(self):
-    self.writeJSONObjectEnd()
-    self.writeJSONArrayEnd()

@@ -1,5 +1,0 @@
-{
-  selectionKey_.interestOps(SelectionKey.OP_READ);
-  buffer_=ByteBuffer.allocate(4);
-  state_=FrameBufferState.READING_FRAME_SIZE;
-}

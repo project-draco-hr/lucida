@@ -1,7 +1,0 @@
-{
-  super();
-  this.processor=processor;
-  this.inProtocolFactory=inProtocolFactory;
-  this.outProtocolFactory=outProtocolFactory;
-  this.customHeaders=new ArrayList<Map.Entry<String,String>>();
-}

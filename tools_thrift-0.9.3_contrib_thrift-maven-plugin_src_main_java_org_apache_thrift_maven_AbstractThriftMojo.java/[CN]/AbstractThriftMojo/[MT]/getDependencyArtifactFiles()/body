@@ -1,7 +1,0 @@
-{
-  Set<File> dependencyArtifactFiles=newHashSet();
-  for (  Artifact artifact : getDependencyArtifacts()) {
-    dependencyArtifactFiles.add(artifact.getFile());
-  }
-  return ImmutableSet.copyOf(dependencyArtifactFiles);
-}

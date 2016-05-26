@@ -1,9 +1,0 @@
-def testTransportReadAll(self):
-    'Test that readAll on any type of transport throws an EOFError'
-    trans = TTransport.TMemoryBuffer(self.make_data())
-    trans.readAll(1)
-    try:
-        trans.readAll(10000)
-    except EOFError:
-        return
-    self.fail('Should have gotten EOFError')

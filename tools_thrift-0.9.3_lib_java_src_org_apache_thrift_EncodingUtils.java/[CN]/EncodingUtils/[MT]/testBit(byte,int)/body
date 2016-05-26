@@ -1,3 +1,0 @@
-{
-  return testBit((int)v,position);
-}

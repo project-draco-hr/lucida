@@ -1,3 +1,0 @@
-{
-  setFieldValue(enumForId((short)fieldId),value);
-}

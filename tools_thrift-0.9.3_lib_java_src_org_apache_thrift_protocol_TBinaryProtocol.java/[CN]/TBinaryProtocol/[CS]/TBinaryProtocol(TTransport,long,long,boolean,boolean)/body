@@ -1,7 +1,0 @@
-{
-  super(trans);
-  stringLengthLimit_=stringLengthLimit;
-  containerLengthLimit_=containerLengthLimit;
-  strictRead_=strictRead;
-  strictWrite_=strictWrite;
-}

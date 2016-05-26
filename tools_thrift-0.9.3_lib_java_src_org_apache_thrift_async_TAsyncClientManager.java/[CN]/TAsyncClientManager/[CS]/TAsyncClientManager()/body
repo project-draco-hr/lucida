@@ -1,4 +1,0 @@
-{
-  this.selectThread=new SelectThread();
-  selectThread.start();
-}

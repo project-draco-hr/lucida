@@ -1,3 +1,0 @@
-{
-  new TestTSaslTransportsWithServer().testIt();
-}

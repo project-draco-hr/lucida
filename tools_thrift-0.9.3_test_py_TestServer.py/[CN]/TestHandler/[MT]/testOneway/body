@@ -1,6 +1,0 @@
-def testOneway(self, seconds):
-    if (options.verbose > 1):
-        print ('testOneway(%d) => sleeping...' % seconds)
-    time.sleep((seconds / 3))
-    if (options.verbose > 1):
-        print 'done sleeping'

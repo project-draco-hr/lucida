@@ -1,5 +1,0 @@
-{
-  transport_=transport;
-  inputStream_=new InflaterInputStream(new TTransportInputStream(transport_),new Inflater());
-  outputStream_=new DeflaterOutputStream(new TTransportOutputStream(transport_),new Deflater(compressionLevel,false),true);
-}

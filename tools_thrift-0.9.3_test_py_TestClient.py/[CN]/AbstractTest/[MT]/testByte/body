@@ -1,4 +1,0 @@
-def testByte(self):
-    print 'testByte'
-    self.assertEqual(self.client.testByte(63), 63)
-    self.assertEqual(self.client.testByte((-127)), (-127))

@@ -1,5 +1,0 @@
-{
-  TailPolicy old=currentPolicy_;
-  currentPolicy_=policy;
-  return (old);
-}

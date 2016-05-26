@@ -1,4 +1,0 @@
-{
-  writeI32(bin.length);
-  trans_.write(bin,0,bin.length);
-}

@@ -1,6 +1,0 @@
-def _init_stats(self):
-    'Internal method to reset the internal statistics counters\n    for compression ratios and bandwidth savings.\n    '
-    self.bytes_in = 0
-    self.bytes_out = 0
-    self.bytes_in_comp = 0
-    self.bytes_out_comp = 0

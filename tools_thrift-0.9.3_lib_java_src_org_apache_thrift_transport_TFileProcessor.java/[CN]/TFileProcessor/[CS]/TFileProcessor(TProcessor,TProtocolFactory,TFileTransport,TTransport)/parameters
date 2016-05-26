@@ -1,4 +1,0 @@
-TProcessor processor
-TProtocolFactory protocolFactory
-TFileTransport inputTransport
-TTransport outputTransport

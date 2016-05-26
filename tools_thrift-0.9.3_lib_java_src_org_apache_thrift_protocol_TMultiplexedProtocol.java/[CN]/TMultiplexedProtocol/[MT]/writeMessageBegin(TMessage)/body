@@ -1,8 +1,0 @@
-{
-  if (tMessage.type == TMessageType.CALL || tMessage.type == TMessageType.ONEWAY) {
-    super.writeMessageBegin(new TMessage(SERVICE_NAME + SEPARATOR + tMessage.name,tMessage.type,tMessage.seqid));
-  }
- else {
-    super.writeMessageBegin(tMessage);
-  }
-}

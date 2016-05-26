@@ -1,5 +1,0 @@
-def stop(self):
-    self.isRunning.value = False
-    self.stopCondition.acquire()
-    self.stopCondition.notify()
-    self.stopCondition.release()

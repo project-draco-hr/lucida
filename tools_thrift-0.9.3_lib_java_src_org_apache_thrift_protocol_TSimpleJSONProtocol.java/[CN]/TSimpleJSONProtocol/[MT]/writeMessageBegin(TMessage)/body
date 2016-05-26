@@ -1,7 +1,0 @@
-{
-  trans_.write(LBRACKET);
-  pushWriteContext(new ListContext());
-  writeString(message.name);
-  writeByte(message.type);
-  writeI32(message.seqid);
-}

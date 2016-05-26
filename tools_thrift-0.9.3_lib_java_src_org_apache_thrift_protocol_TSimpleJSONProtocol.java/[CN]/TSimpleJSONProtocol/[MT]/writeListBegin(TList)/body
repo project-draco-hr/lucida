@@ -1,6 +1,0 @@
-{
-  assertContextIsNotMapKey(LIST);
-  writeContext_.write();
-  trans_.write(LBRACKET);
-  pushWriteContext(new ListContext());
-}

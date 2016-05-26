@@ -1,6 +1,0 @@
-{
-  if (customHeaders_ == null) {
-    customHeaders_=new Hashtable();
-  }
-  customHeaders_.put(key,value);
-}

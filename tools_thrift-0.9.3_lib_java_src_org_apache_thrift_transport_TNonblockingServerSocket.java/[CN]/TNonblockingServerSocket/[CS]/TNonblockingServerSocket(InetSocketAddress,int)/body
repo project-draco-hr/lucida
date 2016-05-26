@@ -1,3 +1,0 @@
-{
-  this(new NonblockingAbstractServerSocketArgs().bindAddr(bindAddr).clientTimeout(clientTimeout));
-}

@@ -1,7 +1,0 @@
-def writeFieldByTType(self, ttype, val, spec):
-    (r_handler, w_handler, is_container) = self._TTYPE_HANDLERS[ttype]
-    writer = getattr(self, w_handler)
-    if is_container:
-        writer(val, spec)
-    else:
-        writer(val)

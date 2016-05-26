@@ -1,3 +1,0 @@
-{
-  return (chunk_size_ - ((int)(offset_ % chunk_size_)));
-}

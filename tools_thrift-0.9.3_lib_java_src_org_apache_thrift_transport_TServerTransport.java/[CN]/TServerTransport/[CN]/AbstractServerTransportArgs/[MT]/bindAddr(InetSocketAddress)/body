@@ -1,4 +1,0 @@
-{
-  this.bindAddr=bindAddr;
-  return (T)this;
-}

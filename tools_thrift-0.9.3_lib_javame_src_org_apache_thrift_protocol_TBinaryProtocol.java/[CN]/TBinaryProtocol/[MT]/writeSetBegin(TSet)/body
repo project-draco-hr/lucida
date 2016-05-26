@@ -1,4 +1,0 @@
-{
-  writeByte(set.elemType);
-  writeI32(set.size);
-}

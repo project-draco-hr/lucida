@@ -1,4 +1,0 @@
-{
-  selectorThreads=i;
-  return this;
-}

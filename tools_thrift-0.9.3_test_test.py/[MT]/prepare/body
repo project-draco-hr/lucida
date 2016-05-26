@@ -1,4 +1,0 @@
-def prepare(server_match, client_match):
-    with open(CONFIG_PATH, 'r') as fp:
-        j = json.load(fp)
-    return crossrunner.prepare(j, TEST_DIR, server_match, client_match)

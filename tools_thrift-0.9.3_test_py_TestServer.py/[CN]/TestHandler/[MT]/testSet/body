@@ -1,4 +1,0 @@
-def testSet(self, thing):
-    if (options.verbose > 1):
-        print ('testSet(%s)' % thing)
-    return thing

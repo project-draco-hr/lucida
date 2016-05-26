@@ -1,3 +1,0 @@
-def testVoid(self):
-    if (options.verbose > 1):
-        print 'testVoid()'

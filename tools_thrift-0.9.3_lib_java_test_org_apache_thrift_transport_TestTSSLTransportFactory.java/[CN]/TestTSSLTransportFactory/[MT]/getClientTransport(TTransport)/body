@@ -1,3 +1,0 @@
-{
-  return TSSLTransportFactory.getClientSocket(HOST,PORT);
-}

@@ -1,7 +1,0 @@
-{
-  TTransport trans=new TMemoryBuffer(0);
-  trans.write(inputBytes,0,inputBytes.length);
-  TProtocol iprot=new TBinaryProtocol(trans);
-  struct.read(iprot);
-  assertEquals(fixture,struct);
-}

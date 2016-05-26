@@ -1,8 +1,0 @@
-{
-  String buf="";
-  byte[] bytes=arr_.toByteArray();
-  for (int i=0; i < bytes.length; i++) {
-    buf+=(pos_ == i ? "==>" : "") + Integer.toHexString(bytes[i] & 0xff) + " ";
-  }
-  return buf;
-}

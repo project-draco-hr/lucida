@@ -1,5 +1,0 @@
-def writeMessageBegin(self, name, type, seqid):
-    if ((type == TMessageType.CALL) or (type == TMessageType.ONEWAY)):
-        self.protocol.writeMessageBegin(((self.serviceName + SEPARATOR) + name), type, seqid)
-    else:
-        self.protocol.writeMessageBegin(name, type, seqid)

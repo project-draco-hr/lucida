@@ -1,8 +1,0 @@
-{
-  if (first_) {
-    first_=false;
-  }
- else {
-    readJSONSyntaxChar(COMMA);
-  }
-}

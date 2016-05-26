@@ -1,7 +1,0 @@
-{
-  try {
-    serverSocketChannel.register(selector,SelectionKey.OP_ACCEPT);
-  }
- catch (  ClosedChannelException e) {
-  }
-}

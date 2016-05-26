@@ -1,5 +1,0 @@
-{
-  TMap map=new TMap(readByte(),readByte(),readI32());
-  checkContainerReadLength(map.size);
-  return map;
-}

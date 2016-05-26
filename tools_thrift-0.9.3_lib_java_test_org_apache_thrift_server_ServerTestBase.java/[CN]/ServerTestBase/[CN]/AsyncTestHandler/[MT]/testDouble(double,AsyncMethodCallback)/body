@@ -1,3 +1,0 @@
-{
-  resultHandler.onComplete(handler.testDouble(thing));
-}

@@ -1,4 +1,0 @@
-def writeJSONArrayStart(self):
-    self.context.write()
-    self.trans.write(LBRACKET)
-    self.pushContext(JSONListContext(self))

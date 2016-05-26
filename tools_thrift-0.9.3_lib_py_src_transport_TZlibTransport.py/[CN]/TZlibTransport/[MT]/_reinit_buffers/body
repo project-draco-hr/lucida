@@ -1,4 +1,0 @@
-def _reinit_buffers(self):
-    'Internal method to initialize/reset the internal StringIO objects\n    for read and write buffers.\n    '
-    self.__rbuf = StringIO()
-    self.__wbuf = StringIO()

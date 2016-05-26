@@ -1,5 +1,0 @@
-def doIO(self, function):
-    if (self.first is True):
-        self.first = False
-    else:
-        function(COMMA)

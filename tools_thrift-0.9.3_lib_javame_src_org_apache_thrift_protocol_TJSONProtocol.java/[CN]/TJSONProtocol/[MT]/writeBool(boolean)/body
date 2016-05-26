@@ -1,3 +1,0 @@
-{
-  writeJSONInteger(b ? (long)1 : (long)0);
-}

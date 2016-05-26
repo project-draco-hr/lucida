@@ -1,5 +1,0 @@
-{
-  TList list=new TList(readByte(),readI32());
-  checkContainerReadLength(list.size);
-  return list;
-}

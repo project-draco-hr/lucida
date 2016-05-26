@@ -1,3 +1,0 @@
-{
-  counters_.put(key,0L);
-}

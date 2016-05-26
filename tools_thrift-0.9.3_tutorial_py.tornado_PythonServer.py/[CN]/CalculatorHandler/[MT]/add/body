@@ -1,3 +1,0 @@
-def add(self, n1, n2, callback):
-    print 'add({}, {})'.format(n1, n2)
-    callback((n1 + n2))

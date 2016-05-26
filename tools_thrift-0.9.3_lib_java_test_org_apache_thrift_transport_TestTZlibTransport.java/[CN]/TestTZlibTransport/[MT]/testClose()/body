@@ -1,8 +1,0 @@
-{
-  ByteArrayOutputStream baos=new ByteArrayOutputStream();
-  WriteCountingTransport countingTrans=new WriteCountingTransport(new TIOStreamTransport(new BufferedOutputStream(baos)));
-  TTransport trans=getTransport(countingTrans);
-  trans.write(byteSequence(0,245));
-  countingTrans.close();
-  trans.close();
-}

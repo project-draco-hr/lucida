@@ -1,5 +1,0 @@
-import os
-import socket
-import ssl
-from thrift.transport import TSocket
-from thrift.transport.TTransport import TTransportException

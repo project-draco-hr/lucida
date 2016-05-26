@@ -1,2 +1,0 @@
-def readDouble(self):
-    return self.readJSONDouble()

@@ -1,6 +1,0 @@
-def write(self, buf):
-    try:
-        self.__wbuf.write(buf)
-    except Exception as e:
-        self.__wbuf = StringIO()
-        raise e

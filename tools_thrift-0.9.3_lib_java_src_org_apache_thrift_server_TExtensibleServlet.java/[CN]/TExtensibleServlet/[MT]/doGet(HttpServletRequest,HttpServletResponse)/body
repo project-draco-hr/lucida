@@ -1,3 +1,0 @@
-{
-  doPost(req,resp);
-}

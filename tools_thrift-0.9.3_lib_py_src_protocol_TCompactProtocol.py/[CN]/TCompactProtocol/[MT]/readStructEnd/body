@@ -1,3 +1,0 @@
-def readStructEnd(self):
-    assert (self.state == FIELD_READ)
-    (self.state, self.__last_fid) = self.__structs.pop()

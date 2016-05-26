@@ -1,8 +1,0 @@
-{
-  byte[] i32rd=new byte[4];
-  transport_.readAll(i32rd,0,4);
-  int size=((i32rd[0] & 0xff) << 24) | ((i32rd[1] & 0xff) << 16) | ((i32rd[2] & 0xff) << 8)| ((i32rd[3] & 0xff));
-  byte[] buff=new byte[size];
-  transport_.readAll(buff,0,size);
-  readBuffer_=new ByteArrayInputStream(buff);
-}

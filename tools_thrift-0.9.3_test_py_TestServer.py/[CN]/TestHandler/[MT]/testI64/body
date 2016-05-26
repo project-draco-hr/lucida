@@ -1,4 +1,0 @@
-def testI64(self, i64):
-    if (options.verbose > 1):
-        print ('testI64(%d)' % i64)
-    return i64

@@ -1,3 +1,0 @@
-{
-  return new TThreadedSelectorServer(new Args(socket).processor(processor).protocolFactory(protoFactory));
-}

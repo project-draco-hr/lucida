@@ -1,8 +1,0 @@
-def __init__(self, processor, inputProtocolFactory, outputProtocolFactory=None):
-    resource.Resource.__init__(self)
-    self.inputProtocolFactory = inputProtocolFactory
-    if (outputProtocolFactory is None):
-        self.outputProtocolFactory = inputProtocolFactory
-    else:
-        self.outputProtocolFactory = outputProtocolFactory
-    self.processor = processor

@@ -1,4 +1,0 @@
-int maxRecvBufBytesPerServer
-int fetchTimeoutSeconds
-ByteBuffer requestBuf
-List<InetSocketAddress> servers

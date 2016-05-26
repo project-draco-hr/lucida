@@ -1,5 +1,0 @@
-def suite():
-    suite = unittest.TestSuite()
-    loader = unittest.TestLoader()
-    suite.addTest(loader.loadTestsFromTestCase(ThriftTestCase))
-    return suite

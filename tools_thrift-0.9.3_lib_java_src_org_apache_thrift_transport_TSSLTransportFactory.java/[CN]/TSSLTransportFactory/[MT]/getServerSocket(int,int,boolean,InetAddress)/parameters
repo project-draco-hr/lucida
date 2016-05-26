@@ -1,4 +1,0 @@
-int port
-int clientTimeout
-boolean clientAuth
-InetAddress ifAddress

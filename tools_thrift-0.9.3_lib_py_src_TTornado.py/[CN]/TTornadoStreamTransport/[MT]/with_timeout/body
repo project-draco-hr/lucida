@@ -1,2 +1,0 @@
-def with_timeout(self, timeout, future):
-    return gen.with_timeout(timeout, future, self.io_loop)

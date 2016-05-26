@@ -1,4 +1,0 @@
-{
-  stopped_=true;
-  serverTransport_.interrupt();
-}

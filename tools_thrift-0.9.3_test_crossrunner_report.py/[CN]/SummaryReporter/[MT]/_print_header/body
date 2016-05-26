@@ -1,5 +1,0 @@
-def _print_header(self):
-    self._start()
-    self.out.writelines(['Apache Thrift - Integration Test Suite\n'])
-    self._print_date()
-    self._print_test_header()

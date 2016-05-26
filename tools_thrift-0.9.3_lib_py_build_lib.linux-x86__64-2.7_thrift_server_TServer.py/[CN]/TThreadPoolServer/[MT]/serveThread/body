@@ -1,8 +1,0 @@
-def serveThread(self):
-    'Loop around getting clients from the shared queue and process them.'
-    while True:
-        try:
-            client = self.clients.get()
-            self.serveClient(client)
-        except Exception as x:
-            logger.exception(x)

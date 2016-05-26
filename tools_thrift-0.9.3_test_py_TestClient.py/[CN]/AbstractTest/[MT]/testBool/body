@@ -1,4 +1,0 @@
-def testBool(self):
-    print 'testBool'
-    self.assertEqual(self.client.testBool(True), True)
-    self.assertEqual(self.client.testBool(False), False)

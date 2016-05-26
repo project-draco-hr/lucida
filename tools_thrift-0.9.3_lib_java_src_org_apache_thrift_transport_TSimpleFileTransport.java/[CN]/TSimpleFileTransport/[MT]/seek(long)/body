@@ -1,8 +1,0 @@
-{
-  try {
-    file.seek(offset);
-  }
- catch (  IOException ex) {
-    throw new TTransportException(ex.getMessage());
-  }
-}

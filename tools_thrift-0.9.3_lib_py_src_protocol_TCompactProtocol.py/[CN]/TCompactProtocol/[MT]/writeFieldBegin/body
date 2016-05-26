@@ -1,8 +1,0 @@
-def writeFieldBegin(self, name, type, fid):
-    assert (self.state == FIELD_WRITE), self.state
-    if (type == TType.BOOL):
-        self.state = BOOL_WRITE
-        self.__bool_fid = fid
-    else:
-        self.state = VALUE_WRITE
-        self.__writeFieldHeader(CTYPES[type], fid)

@@ -1,4 +1,0 @@
-{
-  readAll(bin,0,1);
-  return bin[0];
-}

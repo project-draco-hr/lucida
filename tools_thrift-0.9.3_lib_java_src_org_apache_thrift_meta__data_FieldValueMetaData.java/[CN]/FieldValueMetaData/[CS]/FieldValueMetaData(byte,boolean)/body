@@ -1,6 +1,0 @@
-{
-  this.type=type;
-  this.isTypedefType=false;
-  this.typedefName=null;
-  this.isBinary=binary;
-}

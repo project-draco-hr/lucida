@@ -1,7 +1,0 @@
-{
-  host_=host;
-  port_=port;
-  socketTimeout_=socketTimeout;
-  connectTimeout_=connectTimeout;
-  initSocket();
-}

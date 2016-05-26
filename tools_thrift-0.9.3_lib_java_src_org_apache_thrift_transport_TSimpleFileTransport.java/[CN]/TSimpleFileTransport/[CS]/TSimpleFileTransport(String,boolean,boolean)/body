@@ -1,3 +1,0 @@
-{
-  this(path,read,write,true);
-}

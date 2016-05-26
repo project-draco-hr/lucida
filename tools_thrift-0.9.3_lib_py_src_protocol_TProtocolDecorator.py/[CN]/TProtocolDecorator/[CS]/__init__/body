@@ -1,3 +1,0 @@
-def __init__(self, protocol):
-    TProtocolBase(protocol)
-    self.protocol = protocol

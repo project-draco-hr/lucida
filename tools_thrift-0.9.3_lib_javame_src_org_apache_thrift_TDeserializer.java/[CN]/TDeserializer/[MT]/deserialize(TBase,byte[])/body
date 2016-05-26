@@ -1,3 +1,0 @@
-{
-  base.read(protocolFactory_.getProtocol(new TIOStreamTransport(new ByteArrayInputStream(bytes))));
-}

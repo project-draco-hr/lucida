@@ -1,3 +1,0 @@
-def end(self):
-    self._print_footer()
-    return (len(self._unexpected_failure) == 0)

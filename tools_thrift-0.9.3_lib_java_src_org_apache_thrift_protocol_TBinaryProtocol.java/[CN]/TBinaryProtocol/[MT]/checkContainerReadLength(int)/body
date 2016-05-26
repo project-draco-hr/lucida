@@ -1,8 +1,0 @@
-{
-  if (length < 0) {
-    throw new TProtocolException(TProtocolException.NEGATIVE_SIZE,"Negative length: " + length);
-  }
-  if (containerLengthLimit_ != NO_LENGTH_LIMIT && length > containerLengthLimit_) {
-    throw new TProtocolException(TProtocolException.SIZE_LIMIT,"Length exceeded max allowed: " + length);
-  }
-}

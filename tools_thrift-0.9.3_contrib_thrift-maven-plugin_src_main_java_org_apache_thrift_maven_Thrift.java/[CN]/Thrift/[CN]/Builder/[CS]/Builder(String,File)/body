@@ -1,7 +1,0 @@
-{
-  this.executable=checkNotNull(executable,"executable");
-  this.javaOutputDirectory=checkNotNull(javaOutputDirectory);
-  checkArgument(javaOutputDirectory.isDirectory());
-  this.thriftFiles=newHashSet();
-  this.thriftPathElements=newHashSet();
-}

@@ -1,3 +1,0 @@
-{
-  writeCollectionBegin(list.elemType,list.size);
-}

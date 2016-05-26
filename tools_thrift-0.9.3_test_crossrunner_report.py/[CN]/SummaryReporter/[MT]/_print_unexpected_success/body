@@ -1,7 +1,0 @@
-def _print_unexpected_success(self):
-    if (len(self._unexpected_success) > 0):
-        self.out.write(("Following %d tests were known to fail but succeeded (it's normal):\n" % len(self._unexpected_success)))
-        self._print_test_header()
-        for i in self._unexpected_success:
-            self.out.write(self._format_test(self._tests[i]))
-        self._print_bar()

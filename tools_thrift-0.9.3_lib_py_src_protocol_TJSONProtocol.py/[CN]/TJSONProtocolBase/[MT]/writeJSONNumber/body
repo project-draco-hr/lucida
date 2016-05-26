@@ -1,6 +1,0 @@
-def writeJSONNumber(self, number):
-    self.context.write()
-    jsNumber = str(number)
-    if self.context.escapeNum():
-        jsNumber = ('%s%s%s' % (QUOTE, jsNumber, QUOTE))
-    self.trans.write(jsNumber)

@@ -1,5 +1,0 @@
-{
-  StringWriter sink=new StringWriter();
-  exception.printStackTrace(new PrintWriter(sink,true));
-  fail("unexpected error " + sink.toString());
-}

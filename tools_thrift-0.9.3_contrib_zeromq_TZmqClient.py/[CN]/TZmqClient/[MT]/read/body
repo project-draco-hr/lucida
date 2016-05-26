@@ -1,6 +1,0 @@
-def read(self, size):
-    ret = self._rbuf.read(size)
-    if (len(ret) != 0):
-        return ret
-    self._read_message()
-    return self._rbuf.read(size)

@@ -1,3 +1,0 @@
-{
-  deserialize(base,data.getBytes());
-}

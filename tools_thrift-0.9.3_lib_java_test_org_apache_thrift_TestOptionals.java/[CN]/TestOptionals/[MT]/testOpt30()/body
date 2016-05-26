@@ -1,7 +1,0 @@
-{
-  Opt30 x=new Opt30();
-  assertEquals(false,x.isSetDef1());
-  x.setDef1(3);
-  assertEquals(true,x.isSetDef1());
-  assertEquals(false,x.isSetDef2());
-}

@@ -1,5 +1,0 @@
-{
-  this.fieldName=name;
-  this.requirementType=req;
-  this.valueMetaData=vMetaData;
-}

@@ -1,4 +1,0 @@
-{
-  popContext();
-  trans_.write(RBRACE);
-}

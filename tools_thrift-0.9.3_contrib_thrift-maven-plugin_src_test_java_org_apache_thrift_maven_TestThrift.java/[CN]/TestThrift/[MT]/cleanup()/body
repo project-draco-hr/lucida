@@ -1,6 +1,0 @@
-{
-  if (testRootDir.exists()) {
-    FileUtils.cleanDirectory(testRootDir);
-    assertTrue("Failed to delete output directory for test: " + testRootDir.getPath(),testRootDir.delete());
-  }
-}

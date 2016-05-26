@@ -1,3 +1,0 @@
-{
-  processChunk(inputTransport_.getCurChunk());
-}

@@ -1,2 +1,0 @@
-def __writeSize(self, i32):
-    self.__writeVarint(i32)

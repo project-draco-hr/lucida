@@ -1,7 +1,0 @@
-{
-  if (protocol != null) {
-    this.protocol=protocol;
-  }
-  this.cipherSuites=Arrays.copyOf(cipherSuites,cipherSuites.length);
-  this.clientAuth=clientAuth;
-}

@@ -1,4 +1,0 @@
-@locked
-def is_closed(self):
-    'Returns True if connection is closed.'
-    return (self.status == CLOSED)

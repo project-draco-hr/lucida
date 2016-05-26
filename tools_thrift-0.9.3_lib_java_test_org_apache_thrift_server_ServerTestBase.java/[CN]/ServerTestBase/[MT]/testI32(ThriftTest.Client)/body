@@ -1,4 +1,0 @@
-{
-  int i32=testClient.testI32(-1);
-  assertEquals(i32,-1);
-}

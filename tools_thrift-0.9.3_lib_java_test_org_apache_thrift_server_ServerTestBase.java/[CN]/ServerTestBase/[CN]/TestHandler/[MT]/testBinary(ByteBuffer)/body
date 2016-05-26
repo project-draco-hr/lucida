@@ -1,5 +1,0 @@
-{
-  String hexstr="TODO: toHexString(thing)";
-  System.out.print("testBinary(" + hexstr + ")\n");
-  return thing;
-}

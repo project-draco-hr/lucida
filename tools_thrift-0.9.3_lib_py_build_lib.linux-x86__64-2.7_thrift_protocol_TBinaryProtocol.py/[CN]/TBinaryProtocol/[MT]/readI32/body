@@ -1,4 +1,0 @@
-def readI32(self):
-    buff = self.trans.readAll(4)
-    (val,) = unpack('!i', buff)
-    return val

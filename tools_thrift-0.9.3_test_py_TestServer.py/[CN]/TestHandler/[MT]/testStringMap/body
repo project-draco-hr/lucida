@@ -1,4 +1,0 @@
-def testStringMap(self, thing):
-    if (options.verbose > 1):
-        print ('testStringMap(%s)' % thing)
-    return thing

@@ -1,3 +1,0 @@
-{
-  return (ByteBuffer)partialDeserializeField((byte)100,bytes,fieldIdPathFirst,fieldIdPathRest);
-}

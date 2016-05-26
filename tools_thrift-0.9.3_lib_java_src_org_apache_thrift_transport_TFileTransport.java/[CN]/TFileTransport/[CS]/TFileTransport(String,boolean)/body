@@ -1,4 +1,0 @@
-{
-  inputFile_=new TStandardFile(path);
-  readOnly_=readOnly;
-}

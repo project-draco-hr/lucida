@@ -1,2 +1,0 @@
-def writeDouble(self, dbl):
-    self.writeJSONNumber(dbl)

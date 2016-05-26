@@ -1,4 +1,0 @@
-def serveForever(self):
-    poll_info = self._setupPoll()
-    while True:
-        self._serveActive(poll_info, (-1))

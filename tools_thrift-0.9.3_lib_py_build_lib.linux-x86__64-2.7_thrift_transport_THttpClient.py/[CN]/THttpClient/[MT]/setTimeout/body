@@ -1,7 +1,0 @@
-def setTimeout(self, ms):
-    if (not hasattr(socket, 'getdefaulttimeout')):
-        raise NotImplementedError
-    if (ms is None):
-        self.__timeout = None
-    else:
-        self.__timeout = (ms / 1000.0)

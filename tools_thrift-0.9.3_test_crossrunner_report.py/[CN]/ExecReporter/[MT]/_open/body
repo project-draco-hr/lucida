@@ -1,2 +1,0 @@
-def _open(self):
-    self.out = open(self.logpath, 'w+')

@@ -1,9 +1,0 @@
-{
-  if (payload == null)   payload=new byte[0];
-  messageHeader[0]=status.getValue();
-  EncodingUtils.encodeBigEndian(payload.length,messageHeader,STATUS_BYTES);
-  if (LOGGER.isDebugEnabled())   LOGGER.debug(getRole() + ": Writing message with status {} and payload length {}",status,payload.length);
-  underlyingTransport.write(messageHeader);
-  underlyingTransport.write(payload);
-  underlyingTransport.flush();
-}

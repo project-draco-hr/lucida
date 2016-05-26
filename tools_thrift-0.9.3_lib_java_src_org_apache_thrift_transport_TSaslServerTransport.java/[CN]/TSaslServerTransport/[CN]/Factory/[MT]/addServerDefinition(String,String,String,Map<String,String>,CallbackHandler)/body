@@ -1,3 +1,0 @@
-{
-  serverDefinitionMap.put(mechanism,new TSaslServerDefinition(mechanism,protocol,serverName,props,cbh));
-}

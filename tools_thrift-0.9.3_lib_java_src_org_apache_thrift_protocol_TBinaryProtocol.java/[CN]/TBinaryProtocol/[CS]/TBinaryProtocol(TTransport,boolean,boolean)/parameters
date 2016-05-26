@@ -1,3 +1,0 @@
-TTransport trans
-boolean strictRead
-boolean strictWrite

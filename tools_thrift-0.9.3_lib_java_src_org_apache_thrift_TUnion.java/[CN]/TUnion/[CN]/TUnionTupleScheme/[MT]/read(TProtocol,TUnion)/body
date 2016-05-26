@@ -1,9 +1,0 @@
-{
-  struct.setField_=null;
-  struct.value_=null;
-  short fieldID=iprot.readI16();
-  struct.value_=struct.tupleSchemeReadValue(iprot,fieldID);
-  if (struct.value_ != null) {
-    struct.setField_=struct.enumForId(fieldID);
-  }
-}

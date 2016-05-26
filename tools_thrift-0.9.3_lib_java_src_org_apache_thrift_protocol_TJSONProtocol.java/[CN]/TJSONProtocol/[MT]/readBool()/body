@@ -1,3 +1,0 @@
-{
-  return (readJSONInteger() == 0 ? false : true);
-}

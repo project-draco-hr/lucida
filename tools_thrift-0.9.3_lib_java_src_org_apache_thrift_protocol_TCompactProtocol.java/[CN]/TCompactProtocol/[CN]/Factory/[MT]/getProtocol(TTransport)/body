@@ -1,3 +1,0 @@
-{
-  return new TCompactProtocol(trans,stringLengthLimit_,containerLengthLimit_);
-}

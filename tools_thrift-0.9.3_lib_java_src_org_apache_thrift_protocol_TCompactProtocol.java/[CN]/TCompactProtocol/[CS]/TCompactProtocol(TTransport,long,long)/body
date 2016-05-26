@@ -1,5 +1,0 @@
-{
-  super(transport);
-  this.stringLengthLimit_=stringLengthLimit;
-  this.containerLengthLimit_=containerLengthLimit;
-}

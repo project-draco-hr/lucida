@@ -1,2 +1,0 @@
-def __getTType(self, byte):
-    return TTYPES[(byte & 15)]

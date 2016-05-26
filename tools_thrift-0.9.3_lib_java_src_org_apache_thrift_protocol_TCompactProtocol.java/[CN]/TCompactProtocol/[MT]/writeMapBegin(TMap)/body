@@ -1,9 +1,0 @@
-{
-  if (map.size == 0) {
-    writeByteDirect(0);
-  }
- else {
-    writeVarint32(map.size);
-    writeByteDirect(getCompactType(map.keyType) << 4 | getCompactType(map.valueType));
-  }
-}

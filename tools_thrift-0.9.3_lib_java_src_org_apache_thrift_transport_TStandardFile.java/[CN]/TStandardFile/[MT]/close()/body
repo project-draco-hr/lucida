@@ -1,5 +1,0 @@
-{
-  if (inputFile_ != null) {
-    inputFile_.close();
-  }
-}

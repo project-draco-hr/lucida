@@ -1,4 +1,0 @@
-TProtocolFactory protocolFactory
-TAsyncClientManager manager
-TNonblockingTransport transport
-long timeout

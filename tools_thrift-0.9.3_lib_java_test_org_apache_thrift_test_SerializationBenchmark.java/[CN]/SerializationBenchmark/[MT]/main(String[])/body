@@ -1,5 +1,0 @@
-{
-  TProtocolFactory factory=new TBinaryProtocol.Factory();
-  testSerialization(factory,Fixtures.oneOfEach);
-  testDeserialization(factory,Fixtures.oneOfEach,OneOfEach.class);
-}

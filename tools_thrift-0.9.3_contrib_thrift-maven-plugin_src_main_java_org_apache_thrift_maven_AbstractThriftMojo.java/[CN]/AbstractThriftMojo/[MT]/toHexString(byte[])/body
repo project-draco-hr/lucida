@@ -1,7 +1,0 @@
-{
-  final StringBuilder hexString=new StringBuilder(2 * byteArray.length);
-  for (  final byte b : byteArray) {
-    hexString.append(HEX_CHARS[(b & 0xF0) >> 4]).append(HEX_CHARS[b & 0x0F]);
-  }
-  return hexString.toString();
-}

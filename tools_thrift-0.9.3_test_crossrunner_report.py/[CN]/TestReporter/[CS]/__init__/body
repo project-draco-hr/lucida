@@ -1,3 +1,0 @@
-def __init__(self):
-    self._log = multiprocessing.get_logger()
-    self._lock = multiprocessing.Lock()

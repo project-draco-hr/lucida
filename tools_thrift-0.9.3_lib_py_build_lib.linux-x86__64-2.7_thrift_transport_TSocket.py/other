@@ -1,5 +1,0 @@
-import errno
-import os
-import socket
-import sys
-from TTransport import *

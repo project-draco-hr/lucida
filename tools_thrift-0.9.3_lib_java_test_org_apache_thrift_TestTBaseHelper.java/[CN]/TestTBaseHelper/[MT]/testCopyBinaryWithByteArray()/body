@@ -1,7 +1,0 @@
-{
-  byte[] bytes=new byte[]{0,1,2,3,4,5};
-  byte[] copy=TBaseHelper.copyBinary(bytes);
-  assertEquals(ByteBuffer.wrap(bytes),ByteBuffer.wrap(copy));
-  assertNotSame(bytes,copy);
-  assertNull(TBaseHelper.copyBinary((byte[])null));
-}

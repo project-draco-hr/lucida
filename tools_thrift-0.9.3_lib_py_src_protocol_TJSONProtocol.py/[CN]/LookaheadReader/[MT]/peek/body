@@ -1,5 +1,0 @@
-def peek(self):
-    if (self.hasData is False):
-        self.data = self.protocol.trans.read(1)
-    self.hasData = True
-    return self.data

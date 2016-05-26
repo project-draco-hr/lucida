@@ -1,9 +1,0 @@
-def cstringio_refill(self, partialread, reqlen):
-    'Implement the CReadableTransport interface for refill'
-    retstring = partialread
-    if (reqlen < self.DEFAULT_BUFFSIZE):
-        retstring += self.read(self.DEFAULT_BUFFSIZE)
-    while (len(retstring) < reqlen):
-        retstring += self.read((reqlen - len(retstring)))
-    self.__rbuf = StringIO(retstring)
-    return self.__rbuf

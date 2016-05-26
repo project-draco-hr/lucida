@@ -1,2 +1,0 @@
-def incrementCounter(self, key):
-    self.counters[key] = (self.getCounter(key) + 1)

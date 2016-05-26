@@ -1,2 +1,0 @@
-def writeFieldStop(self):
-    self.writeByte(TType.STOP)

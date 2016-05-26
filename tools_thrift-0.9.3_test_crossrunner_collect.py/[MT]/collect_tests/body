@@ -1,3 +1,0 @@
-def collect_tests(tests_dict, server_match, client_match):
-    (sv, cl) = collect_testlibs(tests_dict, server_match, client_match)
-    return list(do_collect_tests(sv, cl))

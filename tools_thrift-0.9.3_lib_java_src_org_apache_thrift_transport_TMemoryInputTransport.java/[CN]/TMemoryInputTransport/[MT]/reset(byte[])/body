@@ -1,3 +1,0 @@
-{
-  reset(buf,0,buf.length);
-}

@@ -1,2 +1,0 @@
-def get(self, timeout=None):
-    return self._value

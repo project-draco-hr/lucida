@@ -1,4 +1,0 @@
-def testDouble(self, dub):
-    if (options.verbose > 1):
-        print ('testDouble(%f)' % dub)
-    return dub

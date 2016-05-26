@@ -1,3 +1,0 @@
-@property
-def returncode(self):
-    return (self.proc.returncode if self.proc else None)

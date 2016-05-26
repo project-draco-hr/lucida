@@ -1,5 +1,0 @@
-def setCertfile(self, certfile):
-    "Set or change the server certificate file used to wrap new connections.\n\n    @param certfile: The filename of the server certificate,\n                     i.e. '/etc/certs/server.pem'\n    @type certfile: str\n\n    Raises an IOError exception if the certfile is not present or unreadable.\n    "
-    if (not os.access(certfile, os.R_OK)):
-        raise IOError(('No such certfile found: %s' % certfile))
-    self.certfile = certfile

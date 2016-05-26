@@ -1,3 +1,0 @@
-{
-  return zigzagToLong(readVarint64());
-}

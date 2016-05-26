@@ -1,4 +1,0 @@
-{
-  this.setConnectTimeout(timeout);
-  this.setSocketTimeout(timeout);
-}

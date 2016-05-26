@@ -1,4 +1,0 @@
-{
-  System.out.println("getStruct(" + key + ")");
-  return log.get(key);
-}

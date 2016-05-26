@@ -1,4 +1,0 @@
-{
-  path_=path;
-  inputFile_=new RandomAccessFile(path_,"r");
-}

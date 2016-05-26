@@ -1,7 +1,0 @@
-{
-  if (growthCoefficient < 1.0) {
-    throw new IllegalArgumentException("Growth coefficient must be >= 1.0");
-  }
-  array=new byte[initialCapacity];
-  this.growthCoefficient=growthCoefficient;
-}

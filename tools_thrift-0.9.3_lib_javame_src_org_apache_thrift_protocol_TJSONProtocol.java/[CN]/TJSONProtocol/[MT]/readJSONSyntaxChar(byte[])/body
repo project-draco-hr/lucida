@@ -1,6 +1,0 @@
-{
-  byte ch=reader_.read();
-  if (ch != b[0]) {
-    throw new TProtocolException(TProtocolException.INVALID_DATA,"Unexpected character:" + (char)ch);
-  }
-}

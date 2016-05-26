@@ -1,4 +1,0 @@
-{
-  this.buf=new AutoExpandingBuffer(initialCapacity,growthCoefficient);
-  this.pos=0;
-}

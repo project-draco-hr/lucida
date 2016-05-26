@@ -1,2 +1,0 @@
-def _socket_arg(self, socket, port):
-    return {'ip-ssl': '--ssl', 'domain': ('--domain-socket=%s' % domain_socket_path(port)), }.get(socket, None)

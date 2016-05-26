@@ -1,5 +1,0 @@
-TAsyncClient client
-TProtocolFactory protocolFactory
-TNonblockingTransport transport
-AsyncMethodCallback<T> callback
-boolean isOneway

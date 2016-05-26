@@ -1,6 +1,0 @@
-{
-  this.serverTransport=serverTransport;
-  this.threadChooser=threadChooser;
-  this.acceptSelector=SelectorProvider.provider().openSelector();
-  this.serverTransport.registerSelector(acceptSelector);
-}

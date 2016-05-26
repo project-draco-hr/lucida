@@ -1,4 +1,0 @@
-def testI32(self, i32):
-    if (options.verbose > 1):
-        print ('testI32(%d)' % i32)
-    return i32

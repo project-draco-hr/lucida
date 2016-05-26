@@ -1,2 +1,0 @@
-def cstringio_refill(self, partialread, reqlen):
-    raise EOFError()

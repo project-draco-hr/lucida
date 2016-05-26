@@ -1,6 +1,0 @@
-def terminate(self):
-    self._stop.set()
-    if self._async:
-        self._pool.terminate()
-        self._pool.join()
-        self._m.shutdown()

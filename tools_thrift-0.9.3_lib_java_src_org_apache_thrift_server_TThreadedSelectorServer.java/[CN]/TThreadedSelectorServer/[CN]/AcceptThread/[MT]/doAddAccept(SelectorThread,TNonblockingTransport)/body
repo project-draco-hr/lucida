@@ -1,5 +1,0 @@
-{
-  if (!thread.addAcceptedConnection(client)) {
-    client.close();
-  }
-}

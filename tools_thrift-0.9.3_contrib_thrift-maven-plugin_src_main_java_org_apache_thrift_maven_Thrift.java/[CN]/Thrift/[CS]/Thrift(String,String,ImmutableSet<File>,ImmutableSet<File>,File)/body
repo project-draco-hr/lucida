@@ -1,9 +1,0 @@
-{
-  this.executable=checkNotNull(executable,"executable");
-  this.generator=checkNotNull(generator,"generator");
-  this.thriftPathElements=checkNotNull(thriftPath,"thriftPath");
-  this.thriftFiles=checkNotNull(thriftFiles,"thriftFiles");
-  this.javaOutputDirectory=checkNotNull(javaOutputDirectory,"javaOutputDirectory");
-  this.error=new CommandLineUtils.StringStreamConsumer();
-  this.output=new CommandLineUtils.StringStreamConsumer();
-}

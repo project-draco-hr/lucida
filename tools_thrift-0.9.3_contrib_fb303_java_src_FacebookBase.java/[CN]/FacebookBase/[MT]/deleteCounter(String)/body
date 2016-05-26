@@ -1,3 +1,0 @@
-{
-  counters_.remove(key);
-}

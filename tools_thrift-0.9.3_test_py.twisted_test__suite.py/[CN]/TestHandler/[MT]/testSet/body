@@ -1,2 +1,0 @@
-def testSet(self, thing):
-    return thing

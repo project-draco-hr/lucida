@@ -1,4 +1,0 @@
-def readJSONObjectStart(self):
-    self.context.read()
-    self.readJSONSyntaxChar(LBRACE)
-    self.pushContext(JSONPairContext(self))

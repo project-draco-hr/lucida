@@ -1,9 +1,0 @@
-{
-  if (trans_.getBytesRemainingInBuffer() >= 1) {
-    byte b=trans_.getBuffer()[trans_.getBufferPosition()];
-    trans_.consumeBuffer(1);
-    return b;
-  }
-  readAll(bin,0,1);
-  return bin[0];
-}

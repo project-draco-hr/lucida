@@ -1,2 +1,0 @@
-def read(self, sz):
-    return self.__http.file.read(sz)

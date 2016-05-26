@@ -1,3 +1,0 @@
-def writeFieldEnd(self):
-    assert (self.state in (VALUE_WRITE, BOOL_WRITE)), self.state
-    self.state = FIELD_WRITE

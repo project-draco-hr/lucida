@@ -1,9 +1,0 @@
-def readJSONInteger(self):
-    self.context.read()
-    self.readJSONQuotes()
-    numeric = self.readJSONNumericChars()
-    self.readJSONQuotes()
-    try:
-        return int(numeric)
-    except ValueError:
-        raise TProtocolException(TProtocolException.INVALID_DATA, 'Bad data encounted in numeric data')

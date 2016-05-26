@@ -1,3 +1,0 @@
-{
-  context_=(JSONBaseContext)contextStack_.pop();
-}

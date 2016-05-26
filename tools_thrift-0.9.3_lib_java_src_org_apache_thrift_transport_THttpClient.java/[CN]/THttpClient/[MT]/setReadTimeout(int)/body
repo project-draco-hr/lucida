@@ -1,6 +1,0 @@
-{
-  readTimeout_=timeout;
-  if (null != this.client) {
-    client.getParams().setParameter(CoreConnectionPNames.SO_TIMEOUT,readTimeout_);
-  }
-}

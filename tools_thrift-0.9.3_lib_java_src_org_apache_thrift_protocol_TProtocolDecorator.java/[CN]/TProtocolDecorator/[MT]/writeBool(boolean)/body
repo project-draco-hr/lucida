@@ -1,3 +1,0 @@
-{
-  concreteProtocol.writeBool(b);
-}

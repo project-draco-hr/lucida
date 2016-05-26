@@ -1,9 +1,0 @@
-{
-  final UnderscoreSrv.Iface srv=new UnderscoreSrv.Iface(){
-    @Override public long someRpcCall(    String message){
-      return 1l;
-    }
-  }
-;
-  assertTrue(1l == srv.someRpcCall("test"));
-}

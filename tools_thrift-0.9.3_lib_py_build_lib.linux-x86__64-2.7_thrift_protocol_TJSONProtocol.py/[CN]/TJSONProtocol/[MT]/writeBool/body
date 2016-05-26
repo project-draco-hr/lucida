@@ -1,2 +1,0 @@
-def writeBool(self, boolean):
-    self.writeJSONNumber((1 if (boolean is True) else 0))

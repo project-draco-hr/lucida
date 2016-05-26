@@ -1,3 +1,0 @@
-@classmethod
-def get_name(cls, server, client, proto, trans, sock, *args):
-    return ('%s-%s_%s_%s-%s' % (server, client, proto, trans, sock))

@@ -1,4 +1,0 @@
-{
-  checkState(!thriftFiles.isEmpty());
-  return new Thrift(executable,generator,ImmutableSet.copyOf(thriftPathElements),ImmutableSet.copyOf(thriftFiles),javaOutputDirectory);
-}

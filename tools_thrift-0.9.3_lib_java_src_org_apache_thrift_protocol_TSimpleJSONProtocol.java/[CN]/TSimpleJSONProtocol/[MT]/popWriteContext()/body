@@ -1,3 +1,0 @@
-{
-  writeContext_=writeContextStack_.pop();
-}

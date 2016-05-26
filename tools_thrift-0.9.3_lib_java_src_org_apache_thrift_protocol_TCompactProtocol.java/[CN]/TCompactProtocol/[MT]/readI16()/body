@@ -1,3 +1,0 @@
-{
-  return (short)zigzagToInt(readVarint32());
-}

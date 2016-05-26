@@ -1,6 +1,0 @@
-def __init__(self):
-    self._log = multiprocessing.get_logger()
-    self._lock = multiprocessing.Lock()
-    self._ports = set()
-    self._dom_ports = set()
-    self._last_alloc = 0

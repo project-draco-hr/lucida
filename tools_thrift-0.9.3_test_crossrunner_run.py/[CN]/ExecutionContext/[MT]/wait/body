@@ -1,5 +1,0 @@
-def wait(self):
-    self.proc.communicate()
-    if self.timer:
-        self.timer.cancel()
-    self.report.end(self.returncode)
