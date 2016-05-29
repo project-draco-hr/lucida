@@ -1,0 +1,3 @@
+{
+  return !s.contains("UNKNOWN") && !s.contains("PXW") && !s.contains("PXD");
+}

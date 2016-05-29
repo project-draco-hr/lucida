@@ -1,0 +1,8 @@
+{
+  if (other.isSetLUCID()) {
+    this.LUCID=other.LUCID;
+  }
+  if (other.isSetKnowledge()) {
+    this.knowledge=new QuerySpec(other.knowledge);
+  }
+}

@@ -18,17 +18,15 @@
     sb.append(this.data);
   }
   first=false;
-  if (isSetTags()) {
-    if (!first)     sb.append(", ");
-    sb.append("tags:");
-    if (this.tags == null) {
-      sb.append("null");
-    }
- else {
-      sb.append(this.tags);
-    }
-    first=false;
+  if (!first)   sb.append(", ");
+  sb.append("tags:");
+  if (this.tags == null) {
+    sb.append("null");
   }
+ else {
+    sb.append(this.tags);
+  }
+  first=false;
   sb.append(")");
   return sb.toString();
 }

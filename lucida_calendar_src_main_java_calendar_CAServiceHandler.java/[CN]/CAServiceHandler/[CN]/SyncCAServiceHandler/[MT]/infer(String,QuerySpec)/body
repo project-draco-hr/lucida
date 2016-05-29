@@ -1,0 +1,11 @@
+{
+  print("@@@@@ Infer; User: " + LUCID);
+  if (query.content.isEmpty() || query.content.get(0).data.isEmpty()) {
+    throw new IllegalArgumentException();
+  }
+  String query_data=query.content.get(0).data.get(0);
+  print("Asking: " + query_data);
+  String[] time_interval=TEXT_PROCESSOR.parse(query_data);
+  print(time_interval[0] + " " + time_interval[1]);
+  return time_interval[0] + " " + time_interval[1];
+}

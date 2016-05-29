@@ -1,0 +1,48 @@
+{
+  TreeSet<Temporal> has_seen=new TreeSet<Temporal>(new TemporalComparator());
+  TreeSet<Time> times=new TreeSet<Time>();
+  for (  AnnotationPipeline pipeline : pieplines) {
+    Annotation annotation=new Annotation(text);
+    annotation.set(CoreAnnotations.DocDateAnnotation.class,new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+    pipeline.annotate(annotation);
+    List<CoreMap> timexAnnsAll=annotation.get(TimeAnnotations.TimexAnnotations.class);
+    for (    CoreMap cm : timexAnnsAll) {
+      Temporal temporal=cm.get(TimeExpression.Annotation.class).getTemporal();
+      temporal.getTime();
+      if (has_seen.contains(temporal)) {
+        continue;
+      }
+      has_seen.add(temporal);
+      if (temporal.getTimexType().name().equals("TIME") || temporal.getTimexType().name().equals("DATE")) {
+        if (temporal.getTime() != null) {
+          try {
+            times.add(temporal.getTime());
+          }
+ catch (          NullPointerException e) {
+          }
+        }
+      }
+    }
+  }
+  if (times.size() >= 2) {
+    return new String[]{regexNormalize(Collections.min(times).toString(),0),regexNormalize(Collections.max(times).toString(),1)};
+  }
+  for (  Temporal temporal : has_seen) {
+    if (isReadbleTime(temporal.getRange().toString())) {
+      System.out.println("### Result " + temporal.getRange());
+      List<String> string_list=Arrays.asList(temporal.getRange().toString().split(","));
+      String s1=regexNormalize(string_list.get(0),0);
+      String s2=regexNormalize(string_list.get(1),1);
+      if (s1.length() >= 10 && s2.length() >= 10 && s1.substring(0,10).equals(s2.substring(0,10))) {
+        if (text.contains("from") || text.contains("start") || text.contains("begin")) {
+          s2=null;
+        }
+ else         if (text.contains("until")) {
+          s1=null;
+        }
+      }
+      return new String[]{s1,s2};
+    }
+  }
+  return new String[]{null,null};
+}

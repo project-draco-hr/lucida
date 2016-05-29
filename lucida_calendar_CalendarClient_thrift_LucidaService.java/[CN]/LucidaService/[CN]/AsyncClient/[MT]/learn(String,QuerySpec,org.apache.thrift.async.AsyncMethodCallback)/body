@@ -1,0 +1,6 @@
+{
+  checkReady();
+  learn_call method_call=new learn_call(LUCID,knowledge,resultHandler,this,___protocolFactory,___transport);
+  this.___currentMethod=method_call;
+  ___manager.call(method_call);
+}

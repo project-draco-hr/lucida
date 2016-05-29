@@ -1,0 +1,16 @@
+{
+  if (that == null)   return false;
+  boolean this_present_LUCID=true && this.isSetLUCID();
+  boolean that_present_LUCID=true && that.isSetLUCID();
+  if (this_present_LUCID || that_present_LUCID) {
+    if (!(this_present_LUCID && that_present_LUCID))     return false;
+    if (!this.LUCID.equals(that.LUCID))     return false;
+  }
+  boolean this_present_spec=true && this.isSetSpec();
+  boolean that_present_spec=true && that.isSetSpec();
+  if (this_present_spec || that_present_spec) {
+    if (!(this_present_spec && that_present_spec))     return false;
+    if (!this.spec.equals(that.spec))     return false;
+  }
+  return true;
+}

@@ -1,8 +1,0 @@
-{
-  InputStream in=Calendar.class.getResourceAsStream("/client_secret.json");
-  GoogleClientSecrets clientSecrets=GoogleClientSecrets.load(JSON_FACTORY,new InputStreamReader(in));
-  GoogleAuthorizationCodeFlow flow=new GoogleAuthorizationCodeFlow.Builder(HTTP_TRANSPORT,JSON_FACTORY,clientSecrets,SCOPES).setDataStoreFactory(DATA_STORE_FACTORY).setAccessType("offline").build();
-  Credential credential=new AuthorizationCodeInstalledApp(flow,new LocalServerReceiver()).authorize("user");
-  System.out.println("Credentials saved to " + DATA_STORE_DIR.getAbsolutePath());
-  return credential;
-}

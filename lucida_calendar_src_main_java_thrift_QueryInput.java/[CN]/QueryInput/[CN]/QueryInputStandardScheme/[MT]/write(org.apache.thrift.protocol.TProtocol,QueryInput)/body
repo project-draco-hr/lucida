@@ -18,17 +18,15 @@
     oprot.writeFieldEnd();
   }
   if (struct.tags != null) {
-    if (struct.isSetTags()) {
-      oprot.writeFieldBegin(TAGS_FIELD_DESC);
+    oprot.writeFieldBegin(TAGS_FIELD_DESC);
 {
-        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING,struct.tags.size()));
-        for (        String _iter7 : struct.tags) {
-          oprot.writeString(_iter7);
-        }
-        oprot.writeListEnd();
+      oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING,struct.tags.size()));
+      for (      String _iter7 : struct.tags) {
+        oprot.writeString(_iter7);
       }
-      oprot.writeFieldEnd();
+      oprot.writeListEnd();
     }
+    oprot.writeFieldEnd();
   }
   oprot.writeFieldStop();
   oprot.writeStructEnd();

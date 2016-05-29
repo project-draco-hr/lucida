@@ -1,0 +1,9 @@
+{
+  connectToCMD();
+  TProcessor proc=new LucidaService.AsyncProcessor(new CAServiceHandler.AsyncCAServiceHandler());
+  TNonblockingServerTransport transport=new TNonblockingServerSocket(8084);
+  TThreadedSelectorServer.Args arguments=new TThreadedSelectorServer.Args(transport).processor(proc).protocolFactory(new TBinaryProtocol.Factory()).transportFactory(new TFramedTransport.Factory());
+  final TThreadedSelectorServer server=new TThreadedSelectorServer(arguments);
+  System.out.println("CA at port 8084");
+  server.serve();
+}

@@ -1,0 +1,4 @@
+{
+  print("Async Infer");
+  resultHandler.onComplete(handler.infer(LUCID,query));
+}

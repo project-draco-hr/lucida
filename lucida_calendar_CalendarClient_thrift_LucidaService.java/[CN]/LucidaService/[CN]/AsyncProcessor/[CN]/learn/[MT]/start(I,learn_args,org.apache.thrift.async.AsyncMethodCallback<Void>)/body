@@ -1,0 +1,3 @@
+{
+  iface.learn(args.LUCID,args.knowledge,resultHandler);
+}

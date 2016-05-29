@@ -11,6 +11,8 @@ def infer_route():
                 services_needed = query_classifier.predict(form['speech_input'], request.files['file'])
                 result = thrift_client.infer(session['username'], services_needed, form['speech_input'], request.files['file'].read())
                 log(('Result ' + result))
+                if (services_needed == ['CA']):
+                    return render_template('infer.html', dates=result)
             else:
                 raise RuntimeError('Did you click the Ask button?')
     except Exception as e:

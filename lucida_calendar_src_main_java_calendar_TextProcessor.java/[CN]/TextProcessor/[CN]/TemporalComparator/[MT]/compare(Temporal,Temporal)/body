@@ -1,0 +1,8 @@
+{
+  int time_val_diff=o1.toString().compareTo(o2.toString());
+  if (time_val_diff != 0) {
+    return time_val_diff;
+  }
+  int type_diff=o1.getTimexType().name().compareTo(o2.getTimexType().name());
+  return type_diff;
+}
