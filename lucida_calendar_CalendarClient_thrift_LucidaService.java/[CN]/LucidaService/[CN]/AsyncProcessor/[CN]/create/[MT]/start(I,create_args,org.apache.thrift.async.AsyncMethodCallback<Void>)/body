@@ -1,0 +1,3 @@
+{
+  iface.create(args.LUCID,args.spec,resultHandler);
+}

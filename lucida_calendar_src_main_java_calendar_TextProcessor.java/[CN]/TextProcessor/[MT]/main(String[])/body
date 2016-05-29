@@ -1,0 +1,31 @@
+{
+  System.out.println(args[0]);
+  TextProcessor p=new TextProcessor();
+  boolean debug=false;
+  if (!debug) {
+    Scanner s=null;
+    try {
+      s=new Scanner(new File(System.getenv("LUCIDAROOT") + "/commandcenter/data/class_CA.txt"));
+    }
+ catch (    FileNotFoundException e) {
+      e.printStackTrace();
+      return;
+    }
+    ArrayList<String> lines=new ArrayList<String>();
+    while (s.hasNextLine()) {
+      lines.add(s.nextLine());
+    }
+    s.close();
+    for (    String line : lines) {
+      System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ " + line);
+      for (      String result : p.parse(line)) {
+        System.out.println(result);
+      }
+    }
+  }
+ else {
+    for (    String result : p.parse(args[0])) {
+      System.out.println(result);
+    }
+  }
+}

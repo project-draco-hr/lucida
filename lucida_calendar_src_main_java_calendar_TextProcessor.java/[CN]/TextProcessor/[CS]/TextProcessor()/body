@@ -1,0 +1,10 @@
+{
+  pieplines=new ArrayList<AnnotationPipeline>();
+  Properties props1=new Properties();
+  initializePipeline(props1);
+  Properties props2=new Properties();
+  props2.setProperty("sutime.binders","0");
+  props2.setProperty("sutime.markTimeRanges","true");
+  props2.setProperty("sutime.includeRange","true");
+  initializePipeline(props2);
+}

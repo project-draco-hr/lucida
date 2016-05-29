@@ -1,7 +1,6 @@
 from flask import *
 from ConcurrencyManagement import log
 from AccessManagement import login_required
-from Learn import image_allowed
 from ThriftClient import thrift_client
 from QueryClassifier import query_classifier
 infer = Blueprint('infer', __name__, template_folder='templates')
