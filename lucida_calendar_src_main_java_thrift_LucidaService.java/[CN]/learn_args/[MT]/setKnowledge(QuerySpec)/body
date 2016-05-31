@@ -1,4 +1,0 @@
-{
-  this.knowledge=knowledge;
-  return this;
-}
