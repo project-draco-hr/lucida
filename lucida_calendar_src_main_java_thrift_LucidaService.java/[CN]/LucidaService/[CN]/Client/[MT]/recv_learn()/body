@@ -1,5 +1,0 @@
-{
-  learn_result result=new learn_result();
-  receiveBase(result,"learn");
-  return;
-}

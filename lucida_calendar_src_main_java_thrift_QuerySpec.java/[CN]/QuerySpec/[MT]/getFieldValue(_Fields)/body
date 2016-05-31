@@ -1,9 +1,0 @@
-{
-switch (field) {
-case NAME:
-    return getName();
-case CONTENT:
-  return getContent();
-}
-throw new IllegalStateException();
-}
