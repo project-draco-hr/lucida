@@ -1,4 +1,0 @@
-def __init__(self, SERVICE_LIST_IN, LEARNERS_IN):
-    self.SERVICE_LIST = SERVICE_LIST_IN
-    self.LEARNERS = LEARNERS_IN
-    self.services = {}
