@@ -3,4 +3,5 @@ from ConcurrencyManagement import log
 from AccessManagement import login_required
 from ThriftClient import thrift_client
 from QueryClassifier import query_classifier
+import Config
 infer = Blueprint('infer', __name__, template_folder='templates')

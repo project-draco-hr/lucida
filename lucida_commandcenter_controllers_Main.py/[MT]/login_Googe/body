@@ -1,3 +1,0 @@
-@main.route('/login_Googe', methods=['GET', 'POST'])
-def login_Googe():
-    return render_template('login_Google.html', title='Sign In')

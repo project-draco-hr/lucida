@@ -1,8 +1,0 @@
-def create_query_input(self, type_in, data_in, tag_in):
-    query_input = QueryInput()
-    query_input.type = type_in
-    query_input.data = []
-    query_input.data.append(str(data_in))
-    query_input.tags = []
-    query_input.tags.append(str(tag_in))
-    return query_input
