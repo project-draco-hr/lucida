@@ -1,3 +1,6 @@
 def __init__(self):
-    self.db = MongoClient().lucida
+    if ('DB_PORT_27017_TCP_ADDR' in os.environ):
+        self.db = MongoClient(os.environ['DB_PORT_27017_TCP_ADDR'], 27017).lucida
+    else:
+        self.db = MongoClient().lucida
     self.users = self.db.users

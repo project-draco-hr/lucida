@@ -1,4 +1,0 @@
-def __init__(self, provider_name):
-    self.provider_name = provider_name
-    self.consumer_id = 'secret'
-    self.consumer_secret = 'secret'
