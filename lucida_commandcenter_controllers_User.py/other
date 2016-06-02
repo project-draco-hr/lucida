@@ -1,0 +1,6 @@
+from flask import *
+from Database import database
+from RegistrationForm import RegistrationForm
+from LoginForm import LoginForm
+from AccessManagement import login_required
+user = Blueprint('user', __name__, template_folder='templates')

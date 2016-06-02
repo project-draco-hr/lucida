@@ -1,4 +1,4 @@
-@create.route('/signup', methods=['GET', 'POST'])
+@user.route('/signup', methods=['GET', 'POST'])
 def signup_route():
     if ('logged_in' in session):
         return redirect(url_for('main.main_route'))
@@ -7,7 +7,7 @@ def signup_route():
     if (request.method == 'POST'):
         if form.validate():
             database.add_user(form.username.data, form.firstname.data, form.lastname.data, form.password1.data, form.email.data)
-            return redirect(url_for('create.login_route'))
+            return redirect(url_for('user.login_route'))
         else:
             options['error'] = []
             for error_list in form.errors.items():

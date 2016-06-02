@@ -1,0 +1,4 @@
+@create.route('/create', methods=['GET', 'POST'])
+@login_required
+def create_route():
+    return render_template('create.html')
