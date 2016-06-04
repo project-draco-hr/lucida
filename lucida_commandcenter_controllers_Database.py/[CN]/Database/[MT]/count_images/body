@@ -1,0 +1,3 @@
+def count_images(self, username):
+    log(('Retrieving the number of images from images_' + username))
+    return self.get_image_collection(username).count()

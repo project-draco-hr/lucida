@@ -1,7 +1,6 @@
 {
   MsgPrinter.printStatusMsg("@@@@@ Infer; User: " + LUCID);
   KnowledgeBase kb=KnowledgeBase.getKnowledgeBase(LUCID);
-  kb.commitKnowledge();
   System.setProperty("INDRI_INDEX",kb.getIndriIndex());
   if (query.content.isEmpty() || query.content.get(0).data.isEmpty()) {
     throw new IllegalArgumentException();

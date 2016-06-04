@@ -1,0 +1,10 @@
+{
+  Pattern pattern_week=Pattern.compile("[0-9]{4,4}-[0-9]{2,2}-W[0-9]{2,2}");
+  Matcher matcher_week=pattern_week.matcher(s);
+  if (matcher_week.find()) {
+    String[] s_parsed=matcher_week.group(0).split("W");
+    int week_num=Integer.parseInt(s_parsed[s_parsed.length - 1]);
+    return new String[]{getDateFromWeek(week_num + 1),getDateFromWeek(week_num + 2)};
+  }
+  return null;
+}

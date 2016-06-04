@@ -16,12 +16,11 @@ def learn_route():
                 thrift_client.learn_image(session['username'], request.form['label'], image_data)
                 database.add_image(session['username'], request.form['label'], image_data)
             elif (request.form['op'] == 'add_text'):
-                if ((not ('text_knowledge' in request.form)) or request.form['text_knowledge'].isspace()):
-                    raise RuntimeError('Please enter a piece of text as knowledge')
+                if (not ('text_knowledge' in request.form)):
+                    raise RuntimeError('Please enter a piece of text')
+                check_text_input(request.form['text_knowledge'])
                 thrift_client.learn_text(session['username'], request.form['text_knowledge'])
                 database.add_text(session['username'], request.form['text_knowledge'])
-            elif (request.form['op'] == 'secret'):
-                database.secret(session['username'], request.form['directory'])
             else:
                 raise RuntimeError('Did you click the Add button?')
     except Exception as e:

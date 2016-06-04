@@ -2,6 +2,5 @@ import hashlib, uuid, glob
 from pymongo import MongoClient
 from base64 import b64encode
 from ConcurrencyManagement import log
-from ThriftClient import thrift_client
 import os
 database = Database()

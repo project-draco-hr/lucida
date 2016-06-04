@@ -2,5 +2,5 @@
   MsgPrinter.printStatusMsg("@@@@@ Learn; User: " + LUCID);
   KnowledgeBase kb=KnowledgeBase.getKnowledgeBase(LUCID);
   kb.addKnowledge(knowledge);
-  MsgPrinter.printStatusMsg(kb.toString());
+  kb.commitKnowledge();
 }

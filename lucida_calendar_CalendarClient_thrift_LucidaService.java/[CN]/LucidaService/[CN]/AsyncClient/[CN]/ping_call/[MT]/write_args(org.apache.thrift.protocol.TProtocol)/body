@@ -1,6 +1,0 @@
-{
-  prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("ping",org.apache.thrift.protocol.TMessageType.CALL,0));
-  ping_args args=new ping_args();
-  args.write(prot);
-  prot.writeMessageEnd();
-}

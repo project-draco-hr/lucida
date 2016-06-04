@@ -1,3 +1,0 @@
-{
-  iface.ping(resultHandler);
-}
