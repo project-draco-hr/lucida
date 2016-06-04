@@ -1,0 +1,5 @@
+def __init__(self, SERVICE_LIST_IN, LEARNERS_IN, services_in):
+    self.SERVICE_LIST = SERVICE_LIST_IN
+    self.LEARNERS = LEARNERS_IN
+    self.services = services_in
+    log(('Pre-configured services: ' + str(services_in)))

@@ -1,0 +1,11 @@
+def get_service(self, name):
+    services_lock.acquire()
+    try:
+        (host, port) = self.services[name][0]
+        self.services[name].pop(0)
+        self.services[name].append((host, port))
+        services_lock.release()
+        return (host, port)
+    except Exception:
+        services_lock.release()
+        raise RuntimeError(('Cannot access service ' + name))

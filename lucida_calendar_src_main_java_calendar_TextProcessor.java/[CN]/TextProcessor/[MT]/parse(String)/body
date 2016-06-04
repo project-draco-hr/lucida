@@ -28,8 +28,11 @@
     return new String[]{regexNormalize(Collections.min(times).toString(),0),regexNormalize(Collections.max(times).toString(),1)};
   }
   for (  Temporal temporal : has_seen) {
+    String[] try_parse_as_week=parseAsWeek(temporal.toString(),text);
+    if (try_parse_as_week != null) {
+      return try_parse_as_week;
+    }
     if (isReadbleTime(temporal.getRange().toString())) {
-      System.out.println("### Result " + temporal.getRange());
       List<String> string_list=Arrays.asList(temporal.getRange().toString().split(","));
       String s1=regexNormalize(string_list.get(0),0);
       String s2=regexNormalize(string_list.get(1),1);

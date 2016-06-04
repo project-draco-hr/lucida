@@ -2,11 +2,9 @@
   struct.validate();
   oprot.writeStructBegin(STRUCT_DESC);
   if (struct.name != null) {
-    if (struct.isSetName()) {
-      oprot.writeFieldBegin(NAME_FIELD_DESC);
-      oprot.writeString(struct.name);
-      oprot.writeFieldEnd();
-    }
+    oprot.writeFieldBegin(NAME_FIELD_DESC);
+    oprot.writeString(struct.name);
+    oprot.writeFieldEnd();
   }
   if (struct.content != null) {
     oprot.writeFieldBegin(CONTENT_FIELD_DESC);

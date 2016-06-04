@@ -22,8 +22,6 @@
     sb.append(i + " ");
   }
   sb.append("\n");
-  sb.append("Note: Recently added items will be added to the default Indri repository\n");
-  sb.append("      upon the next call of infer().\n");
   sb.append("******************** End of Summary ********************");
   return sb.toString();
 }
