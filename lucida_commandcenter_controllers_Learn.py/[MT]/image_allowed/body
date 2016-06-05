@@ -1,4 +1,0 @@
-def image_allowed(upload_file):
-    filename = secure_filename(upload_file.filename)
-    allowed_extensions = set(['png', 'PNG', 'jpg', 'JPG', 'bmp', 'BMP', 'gif', 'GIF'])
-    return (('.' in filename) and (filename.rsplit('.', 1)[1] in allowed_extensions))
