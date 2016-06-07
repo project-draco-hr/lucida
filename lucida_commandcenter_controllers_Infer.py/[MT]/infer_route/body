@@ -8,8 +8,8 @@ def infer_route():
             if (not ('op' in form)):
                 raise RuntimeError('Did you click the Ask button?')
             elif (form['op'] == 'infer'):
-                check_image_extension(request.files['file'])
-                check_text_input(form['speech_input'])
+                if (request.files['file'].filename != ''):
+                    check_image_extension(request.files['file'])
                 services_needed = query_classifier.predict(form['speech_input'], request.files['file'])
                 result = thrift_client.infer(session['username'], services_needed, form['speech_input'], request.files['file'].read())
                 log(('Result ' + result))

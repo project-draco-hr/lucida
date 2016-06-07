@@ -16,28 +16,12 @@ def infer(self, LUCID, services_needed, text_data, image_data):
             tag_in = ((host + ', ') + str(port))
         query_input_list.append(self.create_query_input(input_type, data_in, tag_in))
         i += 1
-    if (services_needed[0] == 'QA'):
-        log('Asking OpenEphyra')
-        QA_addr = 'localhost'
-        if (not (os.environ.get('DOCKER') is None)):
-            QA_addr = 'QA'
-        (client, transport) = self.get_client_transport_QA(QA_addr, 8083)
-        result = client.infer(str(LUCID), self.create_query_spec('query', query_input_list))
-        transport.close()
-        if (result == 'Factoid not found in knowledge base.'):
-            log('Asking ensemble')
-            transport = TSocket.TSocket('ensemble', 9090)
-            transport = TTransport.TBufferedTransport(transport)
-            protocol = TBinaryProtocol.TBinaryProtocol(transport)
-            client = LucidaService.Client(protocol)
-            transport.open()
-            result = client.infer(text_data, QuerySpec())
-            transport.close()
-        return result.encode('ascii', 'ignore')
     if ((services_needed[0] == 'IMM') and (database.count_images(str(LUCID)) == 0)):
         raise RuntimeError('Cannot match in empty photo collection')
     (client, transport) = self.get_client_transport(services_needed[0])
     log(('Sending infer request to ' + services_needed[0]))
     result = client.infer(str(LUCID), self.create_query_spec('query', query_input_list))
     transport.close()
+    if ('Factoid not found in knowledge base.' in result):
+        result = self.ask_ensemble(text_data)
     return result
