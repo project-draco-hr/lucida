@@ -6,8 +6,12 @@ def infer(self, LUCID, services_needed, text_data, image_data):
         data_in = ''
         tag_in = ''
         if (input_type == 'text'):
+            if (not text_data):
+                raise RuntimeError('QueryClassifier gave wrong prediction result')
             data_in = text_data
         elif (input_type == 'image'):
+            if (not image_data):
+                raise RuntimeError('QueryClassifier gave wrong prediction result')
             data_in = image_data
         else:
             raise RuntimeError('Can only process text and image data')
