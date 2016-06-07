@@ -7,6 +7,8 @@ def learn_route():
                 raise RuntimeError('Did you click the Add button?')
             elif (request.form['op'] == 'add_image'):
                 upload_file = request.files['file']
+                if (upload_file.filename == ''):
+                    raise RuntimeError('Empty file is not allowed')
                 check_image_extension(upload_file)
                 check_text_input(request.form['label'])
                 image_data = upload_file.read()

@@ -1,5 +1,0 @@
-def get_client_transport_QA(self, host, port):
-    transport = TTransport.TFramedTransport(TSocket.TSocket(host, port))
-    protocol = TBinaryProtocol.TBinaryProtocol(transport)
-    transport.open()
-    return (LucidaService.Client(protocol), transport)
