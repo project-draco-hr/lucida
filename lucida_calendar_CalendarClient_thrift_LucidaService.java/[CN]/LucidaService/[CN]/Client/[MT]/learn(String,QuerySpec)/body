@@ -1,4 +1,0 @@
-{
-  send_learn(LUCID,knowledge);
-  recv_learn();
-}
