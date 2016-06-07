@@ -1,6 +1,0 @@
-{
-  learn_args args=new learn_args();
-  args.setLUCID(LUCID);
-  args.setKnowledge(knowledge);
-  sendBase("learn",args);
-}

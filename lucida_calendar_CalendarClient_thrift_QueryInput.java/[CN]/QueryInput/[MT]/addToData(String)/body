@@ -1,6 +1,0 @@
-{
-  if (this.data == null) {
-    this.data=new ArrayList<String>();
-  }
-  this.data.add(elem);
-}
