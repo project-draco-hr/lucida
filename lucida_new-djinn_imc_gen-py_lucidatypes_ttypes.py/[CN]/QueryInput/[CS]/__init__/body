@@ -1,0 +1,4 @@
+def __init__(self, type=None, data=None, tags=None):
+    self.type = type
+    self.data = data
+    self.tags = tags
