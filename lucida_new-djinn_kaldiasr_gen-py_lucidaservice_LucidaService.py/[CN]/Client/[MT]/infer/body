@@ -1,4 +1,0 @@
-def infer(self, LUCID, query):
-    '\n    Parameters:\n     - LUCID\n     - query\n    '
-    self.send_infer(LUCID, query)
-    return self.recv_infer()
