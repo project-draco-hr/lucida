@@ -1,6 +1,0 @@
-def __init__(self, handler):
-    self._handler = handler
-    self._processMap = {}
-    self._processMap['create'] = Processor.process_create
-    self._processMap['learn'] = Processor.process_learn
-    self._processMap['infer'] = Processor.process_infer

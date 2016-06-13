@@ -1,4 +1,0 @@
-def create(self, LUCID, spec):
-    '\n    Parameters:\n     - LUCID\n     - spec\n    '
-    self.send_create(LUCID, spec)
-    self.recv_create()

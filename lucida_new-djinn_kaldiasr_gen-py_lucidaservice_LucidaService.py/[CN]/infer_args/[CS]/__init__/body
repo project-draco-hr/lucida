@@ -1,3 +1,0 @@
-def __init__(self, LUCID=None, query=None):
-    self.LUCID = LUCID
-    self.query = query

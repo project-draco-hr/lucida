@@ -1,4 +1,0 @@
-def learn(self, LUCID, knowledge):
-    '\n    Parameters:\n     - LUCID\n     - knowledge\n    '
-    self.send_learn(LUCID, knowledge)
-    self.recv_learn()
