@@ -1,6 +1,6 @@
 def __init__(self):
     if os.environ.get('MONGO_PORT_27017_TCP_ADDR'):
-        log('MongoDB: Docker')
+        log(('MongoDB: ' + os.environ.get('MONGO_PORT_27017_TCP_ADDR')))
         self.db = MongoClient(os.environ.get('MONGO_PORT_27017_TCP_ADDR'), 27017).lucida
     else:
         log('MongoDB: localhost')
