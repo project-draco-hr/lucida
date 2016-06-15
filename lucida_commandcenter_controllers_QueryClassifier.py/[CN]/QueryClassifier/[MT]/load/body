@@ -2,7 +2,7 @@ def load(self, input_type, query_classes):
     if (len(query_classes) <= 1):
         return DummyClassifier(query_classes.keys()[0])
     try:
-        with open((((os.environ.get('MONGO_PORT_27017_TCP_ADDR') + '/commandcenter/models/dumped_classifier_') + input_type) + '.pkl'), 'rb') as fid:
+        with open((((os.environ.get('LUCIDAROOT') + '/commandcenter/models/dumped_classifier_') + input_type) + '.pkl'), 'rb') as fid:
             log(('Loading model for ' + input_type))
             return cPickle.load(fid)
     except IOError as e:
