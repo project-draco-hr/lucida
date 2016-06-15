@@ -5,6 +5,10 @@ def get_service(self, name):
         self.services[name].pop(0)
         self.services[name].append((host, port))
         services_lock.release()
+        tcp_addr = os.environ.get((((name + '_PORT_') + str(port)) + '_TCP_ADDR'))
+        if tcp_addr:
+            log(('TCP address is resolved to ' + tcp_addr))
+            host = tcp_addr
         return (host, port)
     except Exception:
         services_lock.release()

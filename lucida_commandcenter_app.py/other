@@ -2,11 +2,13 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import unicode_literals
 import sys, glob
-sys.path.insert(0, glob.glob(u'../../tools/thrift-0.9.3/lib/py/build/lib*')[0])
+sys.path.insert(0, glob.glob(u'/usr/local/lucida/tools/thrift-0.9.3/lib/py/build/lib*')[0])
 from controllers import *
 from flask import *
 from threading import Thread
 import logging
+from OpenSSL import SSL
+import os
 app = Flask(__name__, template_folder=u'templates')
 app.config[u'MAX_CONTENT_LENGTH'] = ((16 * 1024) * 1024)
 app.register_blueprint(Main.main)

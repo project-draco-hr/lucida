@@ -1,2 +1,2 @@
 def infer(self, LUCID, query):
-    return 'Only create should be invoked by back-end service'
+    return 'Only create should be invoked'

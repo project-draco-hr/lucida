@@ -5,4 +5,5 @@ from ThriftClient import thrift_client
 from QueryClassifier import query_classifier
 from Utilities import check_image_extension, check_text_input
 import Config
+import os
 infer = Blueprint('infer', __name__, template_folder='templates')
