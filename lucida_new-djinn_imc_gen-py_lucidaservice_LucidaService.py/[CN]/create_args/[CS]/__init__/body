@@ -1,0 +1,3 @@
+def __init__(self, LUCID=None, spec=None):
+    self.LUCID = LUCID
+    self.spec = spec
