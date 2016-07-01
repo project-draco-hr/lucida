@@ -1,5 +1,5 @@
-def __init__(self, SERVICE_LIST_IN, LEARNERS_IN, services_in):
+def __init__(self, SERVICE_LIST_IN, LEARNERS_IN, SERVICES_IN):
     self.SERVICE_LIST = SERVICE_LIST_IN
     self.LEARNERS = LEARNERS_IN
-    self.services = services_in
-    log(('Pre-configured services: ' + str(services_in)))
+    self.SERVICES = SERVICES_IN
+    log(('Pre-configured services: ' + str(SERVICES_IN)))
