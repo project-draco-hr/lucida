@@ -1,3 +1,0 @@
-def learn(self, LUCID, knowledge):
-    log('Only create should be invoked')
-    return

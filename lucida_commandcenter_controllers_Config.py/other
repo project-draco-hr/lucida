@@ -1,9 +1,8 @@
-import os
 TRAIN_OR_LOAD = 'train'
-SERVICE_LIST = {'ASR': 'audio', 'IMM': 'image', 'QA': 'text', 'CA': 'text', }
+SERVICE_LIST = {'ASR': 'audio', 'IMM': 'image', 'QA': 'text', 'CA': 'text', 'ENSEMBLE': 'text', 'IMC': 'image', 'FACE': 'image', 'DIG': 'image', }
 LEARNERS = {'audio': [], 'image': ['IMM'], 'text': ['QA'], }
-CLASSIFIER_DESCRIPTIONS = {'text': {'class_QA': ['QA'], 'class_CA': ['CA'], }, 'image': {'class_IMM': ['IMM'], }, 'text_image': {'class_QA': ['QA'], 'class_IMM': ['IMM'], 'class_IMM_QA': ['IMM', 'QA'], }, }
-REGISTRERED_SERVICES = {'IMM': [('IMM', 8082)], 'QA': [('QA', 8083)], 'CA': [('CA', 8084)], }
+CLASSIFIER_DESCRIPTIONS = {'text': {'class_QA': ['QA'], 'class_CA': ['CA'], }, 'image': {'class_IMM': ['IMM'], 'class_IMC': ['IMC'], 'class_FACE': ['FACE'], 'class_DIG': ['DIG'], }, 'text_image': {'class_QA': ['QA'], 'class_IMM': ['IMM'], 'class_IMM_QA': ['IMM', 'QA'], 'class_IMC': ['IMC'], 'class_FACE': ['FACE'], 'class_DIG': ['DIG'], }, }
+REGISTRERED_SERVICES = {'IMM': [('IMM', 8082)], 'QA': [('QA', 8083)], 'CA': [('CA', 8084)], 'ENSEMBLE': [('ENSEMBLE', 9090)], 'IMC': [('IMC', 8085)], 'FACE': [('FACE', 8086)], 'DIG': [('DIG', 8087)], }
 for (input_type, services) in LEARNERS.iteritems():
     for service in services:
         if (not (service in SERVICE_LIST)):

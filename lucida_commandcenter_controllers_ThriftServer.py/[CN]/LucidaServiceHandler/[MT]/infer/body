@@ -1,2 +1,0 @@
-def infer(self, LUCID, query):
-    return 'Only create should be invoked'

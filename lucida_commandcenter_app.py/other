@@ -16,6 +16,5 @@ app.register_blueprint(Learn.learn)
 app.register_blueprint(Infer.infer)
 app.secret_key = u'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 if (__name__ == u'__main__'):
-    Thread(target=thrift_listener).start()
     Thread(target=flask_listener).start()
     web_socket_listener()
