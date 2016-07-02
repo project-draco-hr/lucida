@@ -1,9 +1,10 @@
 def train(self, input_type, query_classes):
+    current_dir = os.path.abspath(os.path.dirname(__file__))
     if (len(query_classes) <= 1):
         return DummyClassifier(query_classes.keys()[0])
     data = DataFrame({'text': [], 'class': [], })
     for query_class_name in query_classes:
-        path = (((os.environ.get('LUCIDAROOT') + '/commandcenter/data/') + query_class_name) + '.txt')
+        path = (((current_dir + '/../data/') + query_class_name) + '.txt')
         log(('Opening ' + path))
         lines = [line.rstrip('\n') for line in open(path)]
         rows = []
@@ -31,4 +32,9 @@ def train(self, input_type, query_classes):
     log((('********************** ' + input_type) + ' **********************'))
     log(('Total documents classified:' + str(len(data))))
     log(('Score:' + str((sum(scores) / len(scores)))))
+    if (not os.path.exists((current_dir + '/../models'))):
+        os.makedirs((current_dir + '/../models'))
+    with open((((current_dir + '/../models/dumped_classifier_') + input_type) + '.pkl'), 'wb') as fid:
+        log(('Saving model for ' + input_type))
+        cPickle.dump(pipeline, fid)
     return pipeline
