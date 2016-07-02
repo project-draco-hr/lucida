@@ -1,0 +1,9 @@
+def __init__(self, name, port, input_type, learn_type):
+    self.name = name
+    self.port = port
+    self.input_type = input_type
+    if learn_type:
+        if (not (learn_type in Service.LEARNERS)):
+            print 'learn_type must be one of audio, image, or text'
+            exit()
+        Service.LEARNERS[learn_type].append(name)
