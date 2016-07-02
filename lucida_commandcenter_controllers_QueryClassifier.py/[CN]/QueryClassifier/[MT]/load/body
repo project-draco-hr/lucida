@@ -1,8 +1,9 @@
 def load(self, input_type, query_classes):
+    current_dir = os.path.abspath(os.path.dirname(__file__))
     if (len(query_classes) <= 1):
         return DummyClassifier(query_classes.keys()[0])
     try:
-        with open((((os.environ.get('LUCIDAROOT') + '/commandcenter/models/dumped_classifier_') + input_type) + '.pkl'), 'rb') as fid:
+        with open((((current_dir + '/../models/dumped_classifier_') + input_type) + '.pkl'), 'rb') as fid:
             log(('Loading model for ' + input_type))
             return cPickle.load(fid)
     except IOError as e:

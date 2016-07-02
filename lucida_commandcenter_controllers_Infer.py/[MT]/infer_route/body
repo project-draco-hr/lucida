@@ -1,21 +1,22 @@
 @infer.route('/infer', methods=['GET', 'POST'])
 @login_required
 def infer_route():
-    options = {'result': None, 'asr_addr_port': None, }
+    options = {}
     if os.environ.get('ASR_ADDR_PORT'):
         options['asr_addr_port'] = os.environ.get('ASR_ADDR_PORT')
     else:
         options['asr_addr_port'] = 'ws://localhost:8081'
     try:
+        form = request.form
         if (request.method == 'POST'):
-            form = request.form
             if (not ('op' in form)):
                 raise RuntimeError('Did you click the Ask button?')
             elif (form['op'] == 'infer'):
-                if (request.files['file'].filename != ''):
-                    check_image_extension(request.files['file'])
-                services_needed = query_classifier.predict(form['speech_input'], request.files['file'])
-                options['result'] = thrift_client.infer(session['username'], services_needed, form['speech_input'], request.files['file'].read())
+                upload_file = request.files['file']
+                if (upload_file.filename != ''):
+                    check_image_extension(upload_file)
+                services_needed = query_classifier.predict(form['speech_input'], upload_file)
+                options['result'] = thrift_client.infer(session['username'], services_needed, form['speech_input'], upload_file.read())
                 log(('Result ' + options['result']))
                 if (services_needed == ['CA']):
                     options['dates'] = options['result']

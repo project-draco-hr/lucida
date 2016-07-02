@@ -1,4 +1,4 @@
-import hashlib, uuid, glob
+import hashlib, uuid
 from pymongo import MongoClient
 from base64 import b64encode
 from ConcurrencyManagement import log

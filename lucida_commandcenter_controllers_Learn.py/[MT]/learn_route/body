@@ -2,25 +2,26 @@
 @login_required
 def learn_route():
     try:
+        form = request.form
         if (request.method == 'POST'):
             if (not ('op' in request.form)):
                 raise RuntimeError('Did you click the Add button?')
-            elif (request.form['op'] == 'add_image'):
+            elif (form['op'] == 'add_image'):
                 upload_file = request.files['file']
                 if (upload_file.filename == ''):
                     raise RuntimeError('Empty file is not allowed')
                 check_image_extension(upload_file)
-                check_text_input(request.form['label'])
+                check_text_input(form['label'])
                 image_data = upload_file.read()
                 upload_file.close()
-                thrift_client.learn_image(session['username'], request.form['label'], image_data)
-                database.add_image(session['username'], request.form['label'], image_data)
-            elif (request.form['op'] == 'add_text'):
-                if (not ('text_knowledge' in request.form)):
+                thrift_client.learn_image(session['username'], form['label'], image_data)
+                database.add_image(session['username'], form['label'], image_data)
+            elif (form['op'] == 'add_text'):
+                if (not ('text_knowledge' in form)):
                     raise RuntimeError('Please enter a piece of text')
-                check_text_input(request.form['text_knowledge'])
-                thrift_client.learn_text(session['username'], request.form['text_knowledge'])
-                database.add_text(session['username'], request.form['text_knowledge'])
+                check_text_input(form['text_knowledge'])
+                thrift_client.learn_text(session['username'], form['text_knowledge'])
+                database.add_text(session['username'], form['text_knowledge'])
             else:
                 raise RuntimeError('Did you click the Add button?')
     except Exception as e:
