@@ -1,18 +1,15 @@
 TRAIN_OR_LOAD = 'train'
-SERVICE_LIST = {'ASR': 'audio', 'IMM': 'image', 'QA': 'text', 'CA': 'text', 'ENSEMBLE': 'text', 'IMC': 'image', 'FACE': 'image', 'DIG': 'image', }
-LEARNERS = {'audio': [], 'image': ['IMM'], 'text': ['QA'], }
+SERVICES = {'IMM': Service('IMM', 8082, 'image', 'image'), 'QA': Service('QA', 8083, 'text', 'text'), 'CA': Service('CA', 8084, 'text', None), 'IMC': Service('IMC', 8085, 'image', None), 'FACE': Service('FACE', 8086, 'image', None), 'DIG': Service('DIG', 8087, 'image', None), 'ENSEMBLE': Service('ENSEMBLE', 9090, 'text', None), }
 CLASSIFIER_DESCRIPTIONS = {'text': {'class_QA': ['QA'], 'class_CA': ['CA'], }, 'image': {'class_IMM': ['IMM'], 'class_IMC': ['IMC'], 'class_FACE': ['FACE'], 'class_DIG': ['DIG'], }, 'text_image': {'class_QA': ['QA'], 'class_IMM': ['IMM'], 'class_IMM_QA': ['IMM', 'QA'], 'class_IMC': ['IMC'], 'class_FACE': ['FACE'], 'class_DIG': ['DIG'], }, }
-REGISTRERED_SERVICES = {'IMM': [('IMM', 8082)], 'QA': [('QA', 8083)], 'CA': [('CA', 8084)], 'ENSEMBLE': [('ENSEMBLE', 9090)], 'IMC': [('IMC', 8085)], 'FACE': [('FACE', 8086)], 'DIG': [('DIG', 8087)], }
-for (input_type, services) in LEARNERS.iteritems():
-    for service in services:
-        if (not (service in SERVICE_LIST)):
-            print 'LEARNERS:', service, 'is not in SERVICE_LIST'
+for (service_name, service_obj) in SERVICES.iteritems():
+    if (not (service_name == service_obj.name)):
+        print service_name, 'must be the same as', service_obj.name
 for input_type in CLASSIFIER_DESCRIPTIONS:
     print (((('@@@@@ When query type is ' + input_type) + ', there are ') + str(len(CLASSIFIER_DESCRIPTIONS[input_type]))) + ' possible classes:')
     i = 0
     for (query_class_name, services) in CLASSIFIER_DESCRIPTIONS[input_type].iteritems():
         print ((((str(i) + '. ') + query_class_name) + ' -- needs to invoke ') + str(services))
         for service in services:
-            if (not (service in SERVICE_LIST)):
+            if (not (service in SERVICES)):
                 print 'CLASSIFIER_DESCRIPTIONS', service, 'is not in SERVICE_LIST'
         i += 1

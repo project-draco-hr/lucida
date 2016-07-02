@@ -1,9 +1,7 @@
-def get_service(self, name):
+def get_service(self, service_name):
     try:
-        (host, port) = self.SERVICES[name][0]
-        self.SERVICES[name].pop(0)
-        self.SERVICES[name].append((host, port))
-        tcp_addr = os.environ.get((((name + '_PORT_') + str(port)) + '_TCP_ADDR'))
+        port = self.SERVICES[service_name].port
+        tcp_addr = os.environ.get((((service_name + '_PORT_') + str(port)) + '_TCP_ADDR'))
         if tcp_addr:
             log(('TCP address is resolved to ' + tcp_addr))
             host = tcp_addr
@@ -11,4 +9,4 @@ def get_service(self, name):
             host = 'localhost'
         return (host, port)
     except Exception:
-        raise RuntimeError(('Cannot access service ' + name))
+        raise RuntimeError(('Cannot access service ' + service_name))

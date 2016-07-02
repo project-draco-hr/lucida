@@ -2,7 +2,7 @@ def infer(self, LUCID, services_needed, text_data, image_data):
     query_input_list = []
     i = 0
     for service_name in services_needed:
-        input_type = self.SERVICE_LIST[service_name]
+        input_type = self.SERVICES[service_name].input_type
         data_in = ''
         tag_in = ''
         if (input_type == 'text'):

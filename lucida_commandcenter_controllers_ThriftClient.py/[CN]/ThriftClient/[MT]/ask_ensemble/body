@@ -1,10 +1,6 @@
 def ask_ensemble(self, text_data):
     log('Asking ensemble')
-    transport = TSocket.TSocket('ensemble', 9090)
-    transport = TTransport.TBufferedTransport(transport)
-    protocol = TBinaryProtocol.TBinaryProtocol(transport)
-    client = LucidaService.Client(protocol)
-    transport.open()
+    (client, transport) = self.get_client_transport('ensemble')
     result = client.infer(text_data, QuerySpec())
     transport.close()
     return result
