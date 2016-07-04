@@ -1,5 +1,0 @@
-{
-synchronized (System.out) {
-    System.out.println(s);
-  }
-}

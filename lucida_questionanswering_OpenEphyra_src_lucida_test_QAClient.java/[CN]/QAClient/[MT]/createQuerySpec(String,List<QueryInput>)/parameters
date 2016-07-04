@@ -1,0 +1,2 @@
+String name
+List<QueryInput> query_input_list

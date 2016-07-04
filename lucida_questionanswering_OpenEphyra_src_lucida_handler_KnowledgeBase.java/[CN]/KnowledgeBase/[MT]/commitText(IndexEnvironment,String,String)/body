@@ -1,0 +1,5 @@
+{
+  int indri_id=env.addString(text,"text",new HashMap<String,String>());
+  MsgPrinter.printStatusMsg("indri_id: " + indri_id);
+  collection.updateOne(eq("LUCID",LUCID),set(doc_id,indri_id));
+}

@@ -1,0 +1,7 @@
+{
+  String parsed_text=Jsoup.parse(new URL(url),Integer.MAX_VALUE).text();
+  int indri_id=env.addString(parsed_text,"text",new HashMap<String,String>());
+  MsgPrinter.printStatusMsg("parsed_text.length(): " + parsed_text.length());
+  MsgPrinter.printStatusMsg("indri_id: " + indri_id);
+  collection.updateOne(eq("LUCID",LUCID),set(doc_id,indri_id));
+}

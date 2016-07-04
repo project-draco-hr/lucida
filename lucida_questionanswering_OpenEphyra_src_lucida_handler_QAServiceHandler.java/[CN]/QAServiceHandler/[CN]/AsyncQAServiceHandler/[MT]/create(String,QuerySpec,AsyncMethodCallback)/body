@@ -1,5 +1,5 @@
 {
-  print("Async Create");
+  MsgPrinter.printStatusMsg("Async Create");
   handler.create(LUCID,spec);
   resultHandler.onComplete(null);
 }

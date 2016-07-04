@@ -1,0 +1,6 @@
+{
+  final QuerySpec rtn=new QuerySpec();
+  rtn.name=name;
+  rtn.content=query_input_list;
+  return rtn;
+}

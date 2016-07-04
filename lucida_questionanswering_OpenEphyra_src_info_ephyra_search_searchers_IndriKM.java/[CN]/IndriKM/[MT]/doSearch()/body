@@ -25,7 +25,12 @@
         int byteEnd=documents[j].positions[passageEnd - 1].end;
         byte[] doc=documents[j].text.getBytes("UTF-8");
         byte[] p=new byte[byteEnd - byteBegin];
-        for (int offset=byteBegin; offset < byteEnd; offset++)         p[offset - byteBegin]=doc[offset];
+        for (int offset=byteBegin; offset < byteEnd; offset++) {
+          if (offset >= doc.length) {
+            break;
+          }
+          p[offset - byteBegin]=doc[offset];
+        }
         passages[j + i]=new String(p);
       }
     }

@@ -1,9 +1,20 @@
 {
   MsgPrinter.printStatusMsg("@@@@@ Infer; User: " + LUCID);
-  KnowledgeBase kb=KnowledgeBase.getKnowledgeBase(LUCID);
-  System.setProperty("INDRI_INDEX",kb.getIndriIndex());
-  if (query.content.isEmpty() || query.content.get(0).data.isEmpty()) {
-    throw new IllegalArgumentException();
+  String answer="";
+  try {
+    infer_lock.lock();
+    System.setProperty("INDRI_INDEX",KnowledgeBase.getKnowledgeBase(LUCID).getIndriIndex());
+    if (query.content.isEmpty() || query.content.get(0).data.isEmpty()) {
+      throw new IllegalArgumentException();
+    }
+    answer=askFactoidThrift(LUCID,query.content.get(0).data.get(0));
   }
-  return askFactoidThrift(query.content.get(0).data.get(0));
+ catch (  Exception e) {
+    e.printStackTrace();
+    throw new RuntimeException((e.toString() != null) ? e.toString() : "");
+  }
+ finally {
+    infer_lock.unlock();
+  }
+  return answer;
 }

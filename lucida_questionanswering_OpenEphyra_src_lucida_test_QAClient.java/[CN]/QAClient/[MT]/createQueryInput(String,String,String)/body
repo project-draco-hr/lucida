@@ -1,0 +1,17 @@
+{
+  final QueryInput rtn=new QueryInput();
+  rtn.type=type;
+  rtn.data=new ArrayList<String>(){
+{
+      add(data);
+    }
+  }
+;
+  rtn.tags=new ArrayList<String>(){
+{
+      add(tag);
+    }
+  }
+;
+  return rtn;
+}
