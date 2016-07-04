@@ -1,6 +1,11 @@
 {
   MsgPrinter.printStatusMsg("@@@@@ Learn; User: " + LUCID);
-  KnowledgeBase kb=KnowledgeBase.getKnowledgeBase(LUCID);
-  kb.addKnowledge(knowledge);
-  kb.commitKnowledge();
+  try {
+    KnowledgeBase kb=KnowledgeBase.getKnowledgeBase(LUCID);
+    kb.addKnowledge(knowledge);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    throw new RuntimeException((e.toString() != null) ? e.toString() : "");
+  }
 }

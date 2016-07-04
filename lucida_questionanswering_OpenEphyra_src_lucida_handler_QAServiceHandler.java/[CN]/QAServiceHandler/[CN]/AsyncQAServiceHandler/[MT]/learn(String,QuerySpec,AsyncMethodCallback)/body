@@ -1,5 +1,5 @@
 {
-  print("Async Learn");
+  MsgPrinter.printStatusMsg("Async Learn");
   handler.learn(LUCID,knowledge);
   resultHandler.onComplete(null);
 }

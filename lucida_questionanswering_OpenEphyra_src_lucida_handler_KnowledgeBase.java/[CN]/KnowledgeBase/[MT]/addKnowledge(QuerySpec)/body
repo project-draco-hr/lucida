@@ -1,28 +1,28 @@
 {
-  for (  QueryInput i : knowledge.content) {
-switch (i.type.toLowerCase()) {
+  IndexEnvironment env=new IndexEnvironment();
+  env.setStemmer("krovetz");
+  env.open(Indri_path);
+  for (  QueryInput q : knowledge.content) {
+switch (q.type.toLowerCase()) {
 case "text":
-      for (      String text : i.data) {
-        texts.add(text);
+      for (int i=0; i < q.data.size(); ++i) {
+        commitText(env,q.data.get(i),q.tags.get(i));
       }
     break;
-case "file":
-  for (  String file : i.data) {
-    files.add(file);
+case "url":
+  for (int i=0; i < q.data.size(); ++i) {
+    commitUrl(env,q.data.get(i),q.tags.get(i));
   }
 break;
-case "url":
-for (String url : i.data) {
-urls.add(url);
-}
-break;
-case "indri":
-for (String indri : i.data) {
-custom_Indri_repos.add(indri);
+case "unlearn":
+for (int i=0; i < q.data.size(); ++i) {
+deleteDoc(env,q.data.get(i));
 }
 break;
 default :
-break;
+throw new RuntimeException("Unrecognized QueryInput type: " + q.type);
 }
 }
+env.close();
+MsgPrinter.printStatusMsg(env.documentsIndexed() + " documents indexed.");
 }

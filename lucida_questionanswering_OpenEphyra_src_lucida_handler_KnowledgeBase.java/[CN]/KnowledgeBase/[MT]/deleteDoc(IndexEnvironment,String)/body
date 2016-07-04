@@ -1,0 +1,7 @@
+{
+  Integer indri_id=collection.find(eq("LUCID",LUCID)).first().getInteger(doc_id);
+  if (indri_id == null) {
+    throw new RuntimeException("Couldn't delete document that does not exist");
+  }
+  env.deleteDocument(indri_id);
+}

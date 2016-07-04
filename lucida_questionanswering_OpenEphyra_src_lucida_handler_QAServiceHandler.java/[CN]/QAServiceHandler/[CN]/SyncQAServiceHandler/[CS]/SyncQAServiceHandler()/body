@@ -3,7 +3,8 @@
   MsgPrinter.enableStatusMsgs(true);
   MsgPrinter.enableErrorMsgs(true);
   oe=new OpenEphyra(dir);
-  defaultAnswer="Factoid not found in knowledge base.";
+  default_answer="Factoid not found in knowledge base.";
+  infer_lock=new ReentrantLock();
   if (!new File("db").exists()) {
     new File("db").mkdir();
   }

@@ -1,26 +1,19 @@
 {
   KnowledgeBase kb=null;
-synchronized (KnowledgeBase.active_kbs) {
-    if (KnowledgeBase.active_kbs.containsKey(LUCID)) {
-      kb=KnowledgeBase.active_kbs.get(LUCID);
-    }
+  if (KnowledgeBase.active_kbs.containsKey(LUCID)) {
+    kb=KnowledgeBase.active_kbs.get(LUCID);
+  }
  else {
-      kb=new KnowledgeBase(LUCID);
-      KnowledgeBase.active_kbs.put(LUCID,kb);
-    }
-    if (!new File(kb.Indri_repo).exists()) {
-      QAServiceHandler.print("Creating directory " + kb.Indri_repo);
-      new File(kb.Indri_repo).mkdirs();
-      IndexEnvironment env=new IndexEnvironment();
-      try {
-        env.setStemmer("krovetz");
-        env.create(kb.Indri_repo);
-        env.close();
-      }
- catch (      Exception e) {
-        e.printStackTrace();
-      }
-    }
+    kb=new KnowledgeBase(LUCID);
+    KnowledgeBase.active_kbs.put(LUCID,kb);
+  }
+  if (!new File(kb.Indri_path).exists()) {
+    MsgPrinter.printStatusMsg("Creating directory " + kb.Indri_path);
+    new File(kb.Indri_path).mkdirs();
+    IndexEnvironment env=new IndexEnvironment();
+    env.setStemmer("krovetz");
+    env.create(kb.Indri_path);
+    env.close();
   }
   return kb;
 }

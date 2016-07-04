@@ -1,7 +1,7 @@
 {
-  Indri_repo=System.getenv("LUCIDAROOT") + "/questionanswering/OpenEphyra/db/" + LUCID;
-  custom_Indri_repos=new HashSet<String>();
-  texts=new ArrayList<String>();
-  files=new ArrayList<String>();
-  urls=new ArrayList<String>();
+  this.LUCID=LUCID;
+  Indri_path=System.getenv("LUCIDAROOT") + "/questionanswering/OpenEphyra/db/" + LUCID;
+  if (collection.find().first() == null) {
+    collection.insertOne(new Document(new Document("LUCID",LUCID)));
+  }
 }
