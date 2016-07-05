@@ -7,8 +7,9 @@ def learn_route():
         form = request.form
         if (request.method == 'POST'):
             if (not ('op' in request.form)):
-                raise RuntimeError('Did you click the Add button?')
+                raise RuntimeError('Did you click the button?')
             elif (form['op'] == 'add_image'):
+                image_type = 'image'
                 label = form['label']
                 upload_file = request.files['file']
                 if (upload_file.filename == ''):
@@ -17,22 +18,27 @@ def learn_route():
                 check_text_input(label)
                 image_data = upload_file.read()
                 upload_file.close()
-                thrift_client.learn_image(username, label, image_data)
-                database.add_image(username, label, image_data)
+                thrift_client.learn_image(username, image_type, image_data, label)
+                database.add_image(username, image_data, label)
+            elif (form['op'] == 'delete_image'):
+                image_type = 'unlearn'
+                label = form['label']
+                thrift_client.learn_image(username, image_type, '', label)
+                database.delete_image(username, label)
             elif ((form['op'] == 'add_text') or (form['op'] == 'add_url')):
                 text_type = ('text' if (form['op'] == 'add_text') else 'url')
                 text_data = form['knowledge']
                 check_text_input(text_data)
                 text_id = hashlib.md5(((username + text_data) + str(datetime.datetime.now()))).hexdigest()
-                thrift_client.learn_text(username, text_data, text_type, text_id)
+                thrift_client.learn_text(username, text_type, text_data, text_id)
                 database.add_text(username, text_data, text_type, text_id)
             elif (form['op'] == 'delete_text'):
                 text_type = 'unlearn'
                 text_id = form['text_id']
-                thrift_client.learn_text(username, text_id, text_type, text_id)
+                thrift_client.learn_text(username, text_type, text_id, text_id)
                 database.delete_text(username, text_id)
             else:
-                raise RuntimeError('Did you click the Add button?')
+                raise RuntimeError('Did you click the button?')
     except Exception as e:
         log(e)
         if (str(e) == 'TSocket read 0 bytes'):

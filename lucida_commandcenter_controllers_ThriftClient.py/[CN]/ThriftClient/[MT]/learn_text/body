@@ -1,4 +1,4 @@
-def learn_text(self, LUCID, text_data, text_type, text_id):
+def learn_text(self, LUCID, text_type, text_data, text_id):
     for service_name in Config.Service.LEARNERS['text']:
         knowledge_input = self.create_query_input(text_type, text_data, text_id)
         (client, transport) = self.get_client_transport(service_name)

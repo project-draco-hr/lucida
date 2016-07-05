@@ -1,4 +1,4 @@
-def add_image(self, username, label, upload_file):
+def add_image(self, username, image_data, label):
     if (not (self.get_image_collection(username).find_one({'label': label, }) is None)):
         raise RuntimeError((('Image ' + label) + ' already exists'))
-    self.get_image_collection(username).insert_one({'label': label, 'data': b64encode(upload_file), })
+    self.get_image_collection(username).insert_one({'label': label, 'data': b64encode(image_data), })
