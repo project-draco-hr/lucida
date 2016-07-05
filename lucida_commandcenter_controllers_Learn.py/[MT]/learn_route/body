@@ -16,6 +16,7 @@ def learn_route():
                     raise RuntimeError('Empty file is not allowed')
                 check_image_extension(upload_file)
                 check_text_input(label)
+                database.check_add_image(username)
                 image_data = upload_file.read()
                 upload_file.close()
                 thrift_client.learn_image(username, image_type, image_data, label)
@@ -29,6 +30,7 @@ def learn_route():
                 text_type = ('text' if (form['op'] == 'add_text') else 'url')
                 text_data = form['knowledge']
                 check_text_input(text_data)
+                database.check_add_text(username)
                 text_id = hashlib.md5(((username + text_data) + str(datetime.datetime.now()))).hexdigest()
                 thrift_client.learn_text(username, text_type, text_data, text_id)
                 database.add_text(username, text_type, text_data, text_id)

@@ -1,6 +1,9 @@
 TRAIN_OR_LOAD = 'train'
+MAX_DOC_NUM_PER_USER = 30
 SERVICES = {'IMM': Service('IMM', 8082, 'image', 'image'), 'QA': Service('QA', 8083, 'text', 'text'), 'CA': Service('CA', 8084, 'text', None), 'IMC': Service('IMC', 8085, 'image', None), 'FACE': Service('FACE', 8086, 'image', None), 'DIG': Service('DIG', 8087, 'image', None), 'ENSEMBLE': Service('ENSEMBLE', 9090, 'text', None), }
 CLASSIFIER_DESCRIPTIONS = {'text': {'class_QA': ['QA'], 'class_CA': ['CA'], }, 'image': {'class_IMM': ['IMM'], 'class_IMC': ['IMC'], 'class_FACE': ['FACE'], 'class_DIG': ['DIG'], }, 'text_image': {'class_QA': ['QA'], 'class_IMM': ['IMM'], 'class_IMM_QA': ['IMM', 'QA'], 'class_IMC': ['IMC'], 'class_FACE': ['FACE'], 'class_DIG': ['DIG'], }, }
+if (MAX_DOC_NUM_PER_USER <= 0):
+    print 'MAX_DOC_NUM_PER_USER must be non-negative'
 if (not ((TRAIN_OR_LOAD == 'train') or (TRAIN_OR_LOAD == 'load'))):
     print 'TRAIN_OR_LOAD must be either train or load'
     exit()

@@ -1,0 +1,3 @@
+def check_add_image(self, username):
+    if (self.get_image_collection(username).count() >= Config.MAX_DOC_NUM_PER_USER):
+        raise RuntimeError((('Sorry. You can only add ' + str(Config.MAX_DOC_NUM_PER_USER)) + ' images at most'))
