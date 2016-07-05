@@ -1,2 +1,2 @@
-def add_text(self, username, text_knowledge):
-    self.get_text_collection(username).insert_one({'text_knowledge': text_knowledge, })
+def add_text(self, username, text_knowledge, text_type, text_id):
+    self.get_text_collection(username).insert_one({'text_knowledge': text_knowledge, 'type': text_type, 'text_id': text_id, })

@@ -1,30 +1,43 @@
 @learn.route('/learn', methods=['GET', 'POST'])
 @login_required
 def learn_route():
+    options = {}
+    username = session['username']
     try:
         form = request.form
         if (request.method == 'POST'):
             if (not ('op' in request.form)):
                 raise RuntimeError('Did you click the Add button?')
             elif (form['op'] == 'add_image'):
+                label = form['label']
                 upload_file = request.files['file']
                 if (upload_file.filename == ''):
                     raise RuntimeError('Empty file is not allowed')
                 check_image_extension(upload_file)
-                check_text_input(form['label'])
+                check_text_input(label)
                 image_data = upload_file.read()
                 upload_file.close()
-                thrift_client.learn_image(session['username'], form['label'], image_data)
-                database.add_image(session['username'], form['label'], image_data)
-            elif (form['op'] == 'add_text'):
-                if (not ('text_knowledge' in form)):
-                    raise RuntimeError('Please enter a piece of text')
-                check_text_input(form['text_knowledge'])
-                thrift_client.learn_text(session['username'], form['text_knowledge'])
-                database.add_text(session['username'], form['text_knowledge'])
+                thrift_client.learn_image(username, label, image_data)
+                database.add_image(username, label, image_data)
+            elif ((form['op'] == 'add_text') or (form['op'] == 'add_url')):
+                text_type = ('text' if (form['op'] == 'add_text') else 'url')
+                text_data = form['knowledge']
+                check_text_input(text_data)
+                text_id = hashlib.md5(((username + text_data) + str(datetime.datetime.now()))).hexdigest()
+                thrift_client.learn_text(username, text_data, text_type, text_id)
+                database.add_text(username, text_data, text_type, text_id)
+            elif (form['op'] == 'delete_text'):
+                text_type = 'unlearn'
+                text_id = form['text_id']
+                thrift_client.learn_text(username, text_id, text_type, text_id)
+                database.delete_text(username, text_id)
             else:
                 raise RuntimeError('Did you click the Add button?')
     except Exception as e:
         log(e)
-        return render_template('learn.html', error=e)
-    return render_template('learn.html', pictures=database.get_images(session['username']), text=database.get_text(session['username']))
+        if (str(e) == 'TSocket read 0 bytes'):
+            e = 'Back-end service encountered a problem'
+        options['error'] = e
+    options['pictures'] = database.get_images(username)
+    options['text'] = database.get_text(username)
+    return render_template('learn.html', **options)

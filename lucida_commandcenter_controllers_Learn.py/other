@@ -1,5 +1,6 @@
 from flask import *
 import Database, ThriftClient
+import hashlib, datetime
 from ConcurrencyManagement import log
 from AccessManagement import login_required
 from Database import database
