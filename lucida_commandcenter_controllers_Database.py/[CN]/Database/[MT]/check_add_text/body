@@ -1,0 +1,3 @@
+def check_add_text(self, username):
+    if (self.get_text_collection(username).count() >= Config.MAX_DOC_NUM_PER_USER):
+        raise RuntimeError((('Sorry. You can only add ' + str(Config.MAX_DOC_NUM_PER_USER)) + ' pieces of text at most'))
