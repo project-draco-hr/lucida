@@ -31,7 +31,7 @@ def learn_route():
                 check_text_input(text_data)
                 text_id = hashlib.md5(((username + text_data) + str(datetime.datetime.now()))).hexdigest()
                 thrift_client.learn_text(username, text_type, text_data, text_id)
-                database.add_text(username, text_data, text_type, text_id)
+                database.add_text(username, text_type, text_data, text_id)
             elif (form['op'] == 'delete_text'):
                 text_type = 'unlearn'
                 text_id = form['text_id']
