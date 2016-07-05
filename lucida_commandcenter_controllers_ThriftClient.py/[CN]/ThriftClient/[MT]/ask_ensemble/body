@@ -1,6 +1,0 @@
-def ask_ensemble(self, text_data):
-    log('Asking ensemble')
-    (client, transport) = self.get_client_transport('ensemble')
-    result = client.infer(text_data, QuerySpec())
-    transport.close()
-    return result

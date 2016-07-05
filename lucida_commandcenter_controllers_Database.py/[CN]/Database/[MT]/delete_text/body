@@ -1,0 +1,2 @@
+def delete_text(self, username, text_id):
+    self.get_text_collection(username).delete_one({'text_id': text_id, })

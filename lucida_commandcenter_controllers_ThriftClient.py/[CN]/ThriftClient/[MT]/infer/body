@@ -23,5 +23,7 @@ def infer(self, LUCID, services_needed, text_data, image_data):
     result = client.infer(str(LUCID), self.create_query_spec('query', query_input_list))
     transport.close()
     if ('Factoid not found in knowledge base.' in result):
-        result = self.ask_ensemble(text_data)
+        (client, transport) = self.get_client_transport('ENSEMBLE')
+        result = client.infer(str(LUCID), self.create_query_spec('query', query_input_list))
+        transport.close()
     return result
