@@ -1,7 +1,7 @@
 def learn_text(self, LUCID, text_type, text_data, text_id):
-    for service_name in Config.Service.LEARNERS['text']:
-        knowledge_input = self.create_query_input(text_type, text_data, text_id)
-        (client, transport) = self.get_client_transport(service_name)
+    for service in Config.Service.LEARNERS['text']:
+        knowledge_input = self.create_query_input(text_type, text_data, [text_id])
+        (client, transport) = self.get_client_transport(service)
         log('Sending learn_text request to QA')
         client.learn(str(LUCID), self.create_query_spec('knowledge', [knowledge_input]))
         transport.close()

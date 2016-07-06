@@ -1,5 +1,5 @@
-def get_client_transport(self, service_name):
-    (host, port) = self.get_service(service_name)
+def get_client_transport(self, service):
+    (host, port) = service.get_host_port()
     transport = TTransport.TFramedTransport(TSocket.TSocket(host, port))
     protocol = TBinaryProtocol.TBinaryProtocol(transport)
     transport.open()

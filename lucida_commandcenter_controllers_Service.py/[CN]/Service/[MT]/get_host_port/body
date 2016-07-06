@@ -1,0 +1,10 @@
+def get_host_port(self):
+    try:
+        host = 'localhost'
+        tcp_addr = os.environ.get((((self.name + '_PORT_') + str(self.port)) + '_TCP_ADDR'))
+        if tcp_addr:
+            log(('TCP address is resolved to ' + tcp_addr))
+            host = tcp_addr
+        return (host, self.port)
+    except Exception:
+        raise RuntimeError(('Cannot access service ' + self.name))

@@ -1,5 +1,5 @@
 self
 LUCID
-services_needed
+service_graph
 text_data
 image_data
