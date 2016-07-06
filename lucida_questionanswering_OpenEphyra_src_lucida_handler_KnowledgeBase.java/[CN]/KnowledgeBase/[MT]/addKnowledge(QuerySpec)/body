@@ -15,7 +15,7 @@ case "url":
   }
 break;
 case "unlearn":
-for (int i=0; i < q.data.size(); ++i) {
+for (int i=0; i < q.tags.size(); ++i) {
 deleteDoc(env,q.tags.get(i));
 }
 break;
