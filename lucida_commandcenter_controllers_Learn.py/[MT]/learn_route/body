@@ -37,7 +37,7 @@ def learn_route():
             elif (form['op'] == 'delete_text'):
                 text_type = 'unlearn'
                 text_id = form['text_id']
-                thrift_client.learn_text(username, text_type, text_id, text_id)
+                thrift_client.learn_text(username, text_type, '', text_id)
                 database.delete_text(username, text_id)
             else:
                 raise RuntimeError('Did you click the button?')

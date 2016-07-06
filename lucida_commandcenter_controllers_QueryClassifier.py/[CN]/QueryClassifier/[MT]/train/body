@@ -1,4 +1,5 @@
 def train(self, input_type, query_classes):
+    log((('********************** ' + input_type) + ' **********************'))
     current_dir = os.path.abspath(os.path.dirname(__file__))
     if (len(query_classes) <= 1):
         return DummyClassifier(query_classes.keys()[0])
@@ -29,7 +30,6 @@ def train(self, input_type, query_classes):
         predictions = pipeline.predict(test_text)
         score = f1_score(test_y, predictions, pos_label=(None if (len(query_classes) == 2) else 1), average='weighted')
         scores.append(score)
-    log((('********************** ' + input_type) + ' **********************'))
     log(('Total documents classified:' + str(len(data))))
     log(('Score:' + str((sum(scores) / len(scores)))))
     if (not os.path.exists((current_dir + '/../models'))):

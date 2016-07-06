@@ -18,7 +18,7 @@ def infer_route():
                 services_needed = query_classifier.predict(form['speech_input'], upload_file)
                 options['result'] = thrift_client.infer(session['username'], services_needed, form['speech_input'], upload_file.read())
                 log(('Result ' + options['result']))
-                if (services_needed == ['CA']):
+                if services_needed.has_service('CA'):
                     options['dates'] = options['result']
                     options['result'] = None
                     return render_template('infer.html', **options)

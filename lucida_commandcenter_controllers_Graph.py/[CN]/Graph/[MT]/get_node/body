@@ -1,0 +1,6 @@
+def get_node(self, index):
+    if ((index < 0) or (index >= len(self.node_list))):
+        print 'Invalid starting index'
+        exit()
+    else:
+        return self.node_list[index]

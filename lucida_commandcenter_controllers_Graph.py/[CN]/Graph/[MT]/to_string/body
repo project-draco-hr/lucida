@@ -1,0 +1,8 @@
+def to_string(self):
+    rtn = ''
+    for node in self.node_list:
+        rtn += node.to_string()
+        rtn += ', '
+    rtn += 'and starting indices: '
+    rtn += str(self.starting_indices)
+    return rtn

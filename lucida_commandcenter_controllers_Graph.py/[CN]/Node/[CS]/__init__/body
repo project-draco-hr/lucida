@@ -1,0 +1,5 @@
+def __init__(self, service_name, to_indices=[]):
+    if (to_indices is None):
+        to_indices = []
+    self.service_name = service_name
+    self.to_indices = to_indices

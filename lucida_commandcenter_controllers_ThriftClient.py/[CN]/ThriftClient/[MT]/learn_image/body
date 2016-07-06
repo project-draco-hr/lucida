@@ -1,7 +1,7 @@
 def learn_image(self, LUCID, image_type, image_data, label):
-    for service_name in Config.Service.LEARNERS['image']:
-        knowledge_input = self.create_query_input(image_type, image_data, label)
-        (client, transport) = self.get_client_transport(service_name)
+    for service in Config.Service.LEARNERS['image']:
+        knowledge_input = self.create_query_input(image_type, image_data, [label])
+        (client, transport) = self.get_client_transport(service)
         log('Sending learn_image request to IMM')
         client.learn(str(LUCID), self.create_query_spec('knowledge', [knowledge_input]))
         transport.close()

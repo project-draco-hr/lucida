@@ -1,0 +1,5 @@
+def to_string(self):
+    rtn = [self.service_name, str(len(self.to_indices))]
+    for to_index in self.to_indices:
+        rtn.append(str(to_index))
+    return str(rtn)

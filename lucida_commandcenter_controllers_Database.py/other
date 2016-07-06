@@ -1,7 +1,7 @@
 import hashlib, uuid
 from pymongo import MongoClient
 from base64 import b64encode
-from ConcurrencyManagement import log
+from Utilities import log
 import os
 import Config
 database = Database()

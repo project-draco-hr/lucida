@@ -15,6 +15,6 @@ from sklearn.pipeline import Pipeline
 from sklearn.cross_validation import KFold
 from sklearn.metrics import f1_score
 import os, cPickle
-from ConcurrencyManagement import log
+from Utilities import log
 import Config
 query_classifier = QueryClassifier(Config.TRAIN_OR_LOAD, Config.CLASSIFIER_DESCRIPTIONS)
