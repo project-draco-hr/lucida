@@ -14,7 +14,7 @@
     }
   }
 );
-  final QueryInput knowledge_unlearn_input=createQueryInput("unlearn","abcdefg","");
+  final QueryInput knowledge_unlearn_input=createQueryInput("unlearn","","abcdefg");
   final QuerySpec knowledge_unlearn_spec=createQuerySpec("unlearn knowledge",new ArrayList<QueryInput>(){
 {
       add(knowledge_unlearn_input);
