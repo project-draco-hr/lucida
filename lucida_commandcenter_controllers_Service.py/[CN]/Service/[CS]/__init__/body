@@ -9,4 +9,4 @@ def __init__(self, name, port, input_type, learn_type):
         if (not (learn_type in Service.LEARNERS)):
             print 'Unrecognized learn_type'
             exit()
-            Service.LEARNERS[learn_type].append(self)
+        Service.LEARNERS[learn_type].append(self)
