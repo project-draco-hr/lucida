@@ -1,8 +1,0 @@
-def send_learn(self, LUCID, knowledge):
-    self._oprot.writeMessageBegin('learn', TMessageType.CALL, self._seqid)
-    args = learn_args()
-    args.LUCID = LUCID
-    args.knowledge = knowledge
-    args.write(self._oprot)
-    self._oprot.writeMessageEnd()
-    self._oprot.trans.flush()

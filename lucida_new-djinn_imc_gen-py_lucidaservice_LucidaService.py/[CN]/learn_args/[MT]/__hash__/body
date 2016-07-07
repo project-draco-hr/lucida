@@ -1,5 +1,0 @@
-def __hash__(self):
-    value = 17
-    value = ((value * 31) ^ hash(self.LUCID))
-    value = ((value * 31) ^ hash(self.knowledge))
-    return value
