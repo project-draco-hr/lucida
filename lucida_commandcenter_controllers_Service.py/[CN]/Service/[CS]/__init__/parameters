@@ -2,4 +2,4 @@ self
 name
 port
 input_type
-learn_type_list
+learn_type
