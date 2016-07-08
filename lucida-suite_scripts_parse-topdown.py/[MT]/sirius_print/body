@@ -1,8 +1,0 @@
-def sirius_print(data, metrics):
-    for m in metrics[:(-1)]:
-        if (type(m) is str):
-            sys.stdout.write(('%s,' % data[m]))
-        else:
-            sys.stdout.write(('%.2f,' % data[m]))
-    else:
-        print ('%s' % data[metrics[(-1)]])
