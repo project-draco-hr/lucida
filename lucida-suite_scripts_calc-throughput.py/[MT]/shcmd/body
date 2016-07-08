@@ -1,2 +1,0 @@
-def shcmd(cmd):
-    subprocess.call(cmd, shell=True)
