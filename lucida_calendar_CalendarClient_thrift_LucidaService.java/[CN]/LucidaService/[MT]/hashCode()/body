@@ -1,0 +1,10 @@
+{
+  List<Object> list=new ArrayList<Object>();
+  boolean present_LUCID=true && (isSetLUCID());
+  list.add(present_LUCID);
+  if (present_LUCID)   list.add(LUCID);
+  boolean present_spec=true && (isSetSpec());
+  list.add(present_spec);
+  if (present_spec)   list.add(spec);
+  return list.hashCode();
+}

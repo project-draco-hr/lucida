@@ -1,0 +1,16 @@
+{
+  if (that == null)   return false;
+  boolean this_present_LUCID=true && this.isSetLUCID();
+  boolean that_present_LUCID=true && that.isSetLUCID();
+  if (this_present_LUCID || that_present_LUCID) {
+    if (!(this_present_LUCID && that_present_LUCID))     return false;
+    if (!this.LUCID.equals(that.LUCID))     return false;
+  }
+  boolean this_present_knowledge=true && this.isSetKnowledge();
+  boolean that_present_knowledge=true && that.isSetKnowledge();
+  if (this_present_knowledge || that_present_knowledge) {
+    if (!(this_present_knowledge && that_present_knowledge))     return false;
+    if (!this.knowledge.equals(that.knowledge))     return false;
+  }
+  return true;
+}

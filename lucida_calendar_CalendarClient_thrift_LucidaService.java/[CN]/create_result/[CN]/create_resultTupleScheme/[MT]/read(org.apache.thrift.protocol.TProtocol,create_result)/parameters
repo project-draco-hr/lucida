@@ -1,0 +1,2 @@
+org.apache.thrift.protocol.TProtocol prot
+create_result struct
