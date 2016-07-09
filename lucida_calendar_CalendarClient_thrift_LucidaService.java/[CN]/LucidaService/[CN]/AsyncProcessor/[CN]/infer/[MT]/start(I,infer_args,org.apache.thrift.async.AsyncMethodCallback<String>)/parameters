@@ -1,0 +1,3 @@
+I iface
+infer_args args
+org.apache.thrift.async.AsyncMethodCallback<String> resultHandler

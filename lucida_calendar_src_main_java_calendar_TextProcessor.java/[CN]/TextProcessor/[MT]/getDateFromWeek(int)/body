@@ -3,5 +3,5 @@
   Calendar cal=Calendar.getInstance();
   cal.set(Calendar.WEEK_OF_YEAR,week_num);
   cal.set(Calendar.DAY_OF_WEEK,Calendar.MONDAY);
-  return sdf.format(cal.getTime()).toString() + "T00:00:00Z";
+  return sdf.format(cal.getTime()).toString() + "T00:00:00";
 }

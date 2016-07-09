@@ -1,0 +1,6 @@
+{
+  checkReady();
+  create_call method_call=new create_call(LUCID,spec,resultHandler,this,___protocolFactory,___transport);
+  this.___currentMethod=method_call;
+  ___manager.call(method_call);
+}
