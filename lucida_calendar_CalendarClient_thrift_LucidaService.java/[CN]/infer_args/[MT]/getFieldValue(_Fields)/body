@@ -1,9 +1,0 @@
-{
-switch (field) {
-case LUCID:
-    return getLUCID();
-case QUERY:
-  return getQuery();
-}
-throw new IllegalStateException();
-}
