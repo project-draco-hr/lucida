@@ -1,6 +1,0 @@
-{
-  if (this.content == null) {
-    this.content=new ArrayList<QueryInput>();
-  }
-  this.content.add(elem);
-}

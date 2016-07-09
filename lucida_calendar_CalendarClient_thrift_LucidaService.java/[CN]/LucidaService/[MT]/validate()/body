@@ -1,5 +1,0 @@
-{
-  if (spec != null) {
-    spec.validate();
-  }
-}

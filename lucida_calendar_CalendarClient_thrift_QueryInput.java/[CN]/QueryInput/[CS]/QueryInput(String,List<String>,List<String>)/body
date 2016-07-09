@@ -1,6 +1,0 @@
-{
-  this();
-  this.type=type;
-  this.data=data;
-  this.tags=tags;
-}

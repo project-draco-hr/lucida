@@ -1,5 +1,0 @@
-{
-  learn_result result=new learn_result();
-  iface.learn(args.LUCID,args.knowledge);
-  return result;
-}
