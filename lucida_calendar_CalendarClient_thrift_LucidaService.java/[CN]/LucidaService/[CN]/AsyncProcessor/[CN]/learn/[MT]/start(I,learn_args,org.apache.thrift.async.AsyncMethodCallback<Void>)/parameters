@@ -1,0 +1,3 @@
+I iface
+learn_args args
+org.apache.thrift.async.AsyncMethodCallback<Void> resultHandler

@@ -1,0 +1,4 @@
+{
+  this.spec=spec;
+  return this;
+}

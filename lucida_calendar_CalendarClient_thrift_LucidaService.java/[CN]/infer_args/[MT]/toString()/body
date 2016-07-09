@@ -1,0 +1,23 @@
+{
+  StringBuilder sb=new StringBuilder("infer_args(");
+  boolean first=true;
+  sb.append("LUCID:");
+  if (this.LUCID == null) {
+    sb.append("null");
+  }
+ else {
+    sb.append(this.LUCID);
+  }
+  first=false;
+  if (!first)   sb.append(", ");
+  sb.append("query:");
+  if (this.query == null) {
+    sb.append("null");
+  }
+ else {
+    sb.append(this.query);
+  }
+  first=false;
+  sb.append(")");
+  return sb.toString();
+}

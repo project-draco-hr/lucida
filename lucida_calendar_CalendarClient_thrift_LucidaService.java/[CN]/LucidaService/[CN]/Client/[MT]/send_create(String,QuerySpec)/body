@@ -1,0 +1,6 @@
+{
+  create_args args=new create_args();
+  args.setLUCID(LUCID);
+  args.setSpec(spec);
+  sendBase("create",args);
+}
