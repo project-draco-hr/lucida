@@ -15,6 +15,7 @@ def infer_route():
                 upload_file = request.files['file']
                 if (upload_file.filename != ''):
                     check_image_extension(upload_file)
+                print '@@@@@@@@@@', form['speech_input']
                 services_needed = query_classifier.predict(form['speech_input'], upload_file)
                 options['result'] = thrift_client.infer(session['username'], services_needed, form['speech_input'], upload_file.read())
                 log(('Result ' + options['result']))
