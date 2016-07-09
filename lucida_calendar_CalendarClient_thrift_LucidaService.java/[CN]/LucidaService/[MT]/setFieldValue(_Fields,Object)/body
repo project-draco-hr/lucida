@@ -1,0 +1,20 @@
+{
+switch (field) {
+case LUCID:
+    if (value == null) {
+      unsetLUCID();
+    }
+ else {
+      setLUCID((String)value);
+    }
+  break;
+case SPEC:
+if (value == null) {
+  unsetSpec();
+}
+ else {
+  setSpec((QuerySpec)value);
+}
+break;
+}
+}
