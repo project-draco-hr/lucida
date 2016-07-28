@@ -1,5 +1,4 @@
 {
-  System.out.println(args[0]);
   TextProcessor p=new TextProcessor();
   boolean debug=false;
   if (!debug) {
