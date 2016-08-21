@@ -1,0 +1,4 @@
+from memcache import Client
+from Utilities import log
+import os
+memcached = Memcached()

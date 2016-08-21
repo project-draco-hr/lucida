@@ -4,4 +4,5 @@ from base64 import b64encode
 from Utilities import log
 import os
 import Config
+from Memcached import memcached
 database = Database()

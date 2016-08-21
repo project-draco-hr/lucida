@@ -1,5 +1,8 @@
 def check_password(self, username, input_password):
-    correct_password_in_db = self.users.find_one({'username': username, })['password']
+    correct_password_in_db = memcached.client.get(username)
+    if (not correct_password_in_db):
+        correct_password_in_db = self.users.find_one({'username': username, })['password']
+        memcached.client.set(username, correct_password_in_db, time=60)
     salt = correct_password_in_db.split('$')[1]
     generated_password = self.hash_password(self.ENCRYPT_ALGORITHM, salt, input_password)
     return (correct_password_in_db == generated_password)

@@ -2,3 +2,4 @@ def add_user(self, username, firstname, lastname, password, email):
     salt = uuid.uuid4().hex
     hashed_password = self.hash_password(self.ENCRYPT_ALGORITHM, salt, password)
     self.users.insert_one({'username': username, 'firstname': firstname, 'lastname': lastname, 'password': hashed_password, 'email': email, })
+    memcached.client.set(username, hashed_password, time=60)
