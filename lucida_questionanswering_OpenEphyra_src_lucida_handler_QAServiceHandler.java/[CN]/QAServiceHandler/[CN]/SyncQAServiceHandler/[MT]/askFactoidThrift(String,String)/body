@@ -5,6 +5,16 @@
   if (result != null) {
     answer=result.getAnswer();
   }
-  MsgPrinter.printStatusMsg("Answer: " + answer);
+  String wiki_indri_index=System.getenv("wiki_indri_index");
+  if (wiki_indri_index == null) {
+    return answer;
+  }
+  System.setProperty("INDRI_INDEX",wiki_indri_index);
+  result=oe.askFactoid(question);
+  if (result != null) {
+    answer+=" (from Wikipedia: ";
+    answer+=result.getAnswer();
+    answer+=")";
+  }
   return answer;
 }

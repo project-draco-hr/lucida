@@ -1,2 +1,2 @@
-def delete_image(self, username, label):
-    self.get_image_collection(username).remove({'label': label, })
+def delete_image(self, username, image_id):
+    self.get_image_collection(username).remove({'image_id': image_id, })

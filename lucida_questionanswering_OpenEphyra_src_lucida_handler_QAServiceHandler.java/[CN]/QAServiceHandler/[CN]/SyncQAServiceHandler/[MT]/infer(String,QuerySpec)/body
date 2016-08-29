@@ -8,6 +8,7 @@
       throw new IllegalArgumentException();
     }
     answer=askFactoidThrift(LUCID,query.content.get(0).data.get(0));
+    MsgPrinter.printStatusMsg("Answer: " + answer);
     if (answer.equals(default_answer) && query.content.get(0).tags.get(2).equals("1")) {
       QuerySpec ENSEMBLE_spec=new QuerySpec();
       ENSEMBLE_spec.name="query";

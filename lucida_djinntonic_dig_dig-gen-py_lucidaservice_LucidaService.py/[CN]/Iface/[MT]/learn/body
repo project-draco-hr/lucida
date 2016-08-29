@@ -1,0 +1,3 @@
+def learn(self, LUCID, knowledge):
+    '\n    Parameters:\n     - LUCID\n     - knowledge\n    '
+    pass

@@ -18,14 +18,15 @@ def learn_route():
                 check_text_input(label)
                 database.check_add_image(username)
                 image_data = upload_file.read()
+                image_id = hashlib.md5((username + str(datetime.datetime.now()))).hexdigest()
                 upload_file.close()
-                thrift_client.learn_image(username, image_type, image_data, label)
-                database.add_image(username, image_data, label)
+                thrift_client.learn_image(username, image_type, image_data, image_id)
+                database.add_image(username, image_data, label, image_id)
             elif (form['op'] == 'delete_image'):
                 image_type = 'unlearn'
-                label = form['label']
-                thrift_client.learn_image(username, image_type, '', label)
-                database.delete_image(username, label)
+                image_id = form['image_id']
+                thrift_client.learn_image(username, image_type, '', image_id)
+                database.delete_image(username, image_id)
             elif ((form['op'] == 'add_text') or (form['op'] == 'add_url')):
                 text_type = ('text' if (form['op'] == 'add_text') else 'url')
                 text_data = form['knowledge']

@@ -1,0 +1,18 @@
+def process_create(self, seqid, iprot, oprot):
+    args = create_args()
+    args.read(iprot)
+    iprot.readMessageEnd()
+    result = create_result()
+    try:
+        self._handler.create(args.LUCID, args.spec)
+        msg_type = TMessageType.REPLY
+    except (TTransport.TTransportException, KeyboardInterrupt, SystemExit):
+        raise
+    except Exception as ex:
+        msg_type = TMessageType.EXCEPTION
+        logging.exception(ex)
+        result = TApplicationException(TApplicationException.INTERNAL_ERROR, 'Internal error')
+    oprot.writeMessageBegin('create', msg_type, seqid)
+    result.write(oprot)
+    oprot.writeMessageEnd()
+    oprot.trans.flush()
