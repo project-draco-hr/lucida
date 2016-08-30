@@ -1,6 +1,6 @@
 {
   this.LUCID=LUCID;
-  Indri_path=System.getenv("LUCIDAROOT") + "/questionanswering/OpenEphyra/db/" + LUCID;
+  Indri_path=KnowledgeBase.class.getProtectionDomain().getCodeSource().getLocation().getFile() + "../db/" + LUCID;
   if (collection.find(eq("LUCID",LUCID)).first() == null) {
     collection.insertOne(new Document(new Document("LUCID",LUCID)));
   }

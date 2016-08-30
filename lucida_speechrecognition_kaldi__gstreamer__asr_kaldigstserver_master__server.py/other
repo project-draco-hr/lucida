@@ -18,7 +18,7 @@ import tornado.concurrent
 import settings
 import common
 import os
-if os.environ.get('DOCKER'):
+if os.environ.get('WSS'):
     import ssl
 if (__name__ == '__main__'):
     main()
