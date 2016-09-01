@@ -1,3 +1,0 @@
-def infer(self, LUCID, query):
-    '\n    Parameters:\n     - LUCID\n     - query\n    '
-    pass
